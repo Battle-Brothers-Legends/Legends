@@ -149,7 +149,7 @@ gt.Const.Music <- {
 		"music/retirement_02.ogg"
 	],
 	Retirement3Tracks = [
-		"music/credits.ogg"
+		"music/retirement_03.ogg"
 	],
 	Retirement4Tracks = [
 		"music/credits.ogg"
@@ -164,7 +164,9 @@ gt.Const.Music <- {
 		"music/worldmap_06.ogg",
 		"music/worldmap_07.ogg",
 		"music/worldmap_08.ogg",
-		"music/worldmap_09.ogg"
+		"music/worldmap_09.ogg",
+		"music/worldmap_11.ogg",
+		"music/worldmap_12.ogg"
 	],
 	WorldmapTracksGreaterEvil = [
 		"music/worldmap_03.ogg",
@@ -177,11 +179,14 @@ gt.Const.Music <- {
 	],
 	VillageTracks = [
 		"music/village_01.ogg",
+		"music/village_02.ogg",
+		"music/village_03.ogg",
 		"music/retirement_01.ogg"
 	],
 	CityTracks = [
 		"music/city_01.ogg",
-		"music/city_02.ogg"
+		"music/city_02.ogg",
+		"music/city_03.ogg",
 	],
 	StrongholdTracks = [
 		"music/stronghold_01.ogg"
@@ -201,21 +206,27 @@ gt.Const.Music <- {
 		"music/noble_02.ogg"
 	],
 	CivilianTracks = [
-		"music/civilians_01.ogg"
+		"music/civilians_01.ogg",
+		"music/civilians_02.ogg"
 	],
 	UndeadTracks = [
 		"music/undead_01.ogg",
 		"music/undead_02.ogg",
-		"music/undead_03.ogg"
+		"music/undead_03.ogg",
+		"music/undead_04.ogg",
+		"music/undead_05.ogg"
 	],
 	BeastsTracks = [
 		"music/beasts_01.ogg",
-		"music/beasts_02.ogg"
+		"music/beasts_02.ogg",
+		"music/beasts_03.ogg"
 	],
 	OrcsTracks = [
 		"music/orcs_01.ogg",
 		"music/orcs_02.ogg",
-		"music/orcs_03.ogg"
+		"music/orcs_03.ogg",
+		"music/orcs_04.ogg",
+		"music/orcs_05.ogg"
 	],
 	GoblinsTracks = [
 		"music/goblins_01.ogg",
@@ -244,7 +255,9 @@ gt.Const.Music <- {
 		[
 			"music/undead_01.ogg",
 			"music/undead_02.ogg",
-			"music/undead_03.ogg"
+			"music/undead_03.ogg",
+			"music/undead_04.ogg",
+			"music/undead_05.ogg"
 		],
 		[
 			"music/undead_01.ogg",
@@ -527,6 +540,26 @@ gt.Const.SoundAmbience <- {
 		},
 		{
 			File = "ambience/buildings/market_people_whistle_04.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_19.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_20.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_21.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_22.wav",
 			Volume = 1.0,
 			Pitch = 1.0
 		}
@@ -848,6 +881,26 @@ gt.Const.SoundAmbience <- {
 			File = "ambience/buildings/caravan_horse_neighing_05.wav",
 			Volume = 1.0,
 			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_19.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_20.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_21.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_22.wav",
+			Volume = 1.0,
+			Pitch = 1.0
 		}
 	],
 	VeryLargeSettlement = [
@@ -1043,6 +1096,26 @@ gt.Const.SoundAmbience <- {
 		},
 		{
 			File = "ambience/settlement/settlement_carts_people_06.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_19.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_20.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_21.wav",
+			Volume = 1.0,
+			Pitch = 1.0
+		},
+		{
+			File = "ambience/settlement/market_people_22.wav",
 			Volume = 1.0,
 			Pitch = 1.0
 		}
