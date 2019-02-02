@@ -91,10 +91,12 @@ this.large_coast_fort <- this.inherit("scripts/entity/world/settlement", {
 		if (this.Math.rand(1, 100) <= 50)
 		{
 			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/armorsmith_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/stables_building"));
 		}
 		else
 		{
 			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/weaponsmith_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/stables_building"));
 		}
 
 		if (this.Math.rand(1, 100) <= 60)

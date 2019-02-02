@@ -108,6 +108,10 @@ this.large_farming_village <- this.inherit("scripts/entity/world/settlement", {
 		{
 			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/armorsmith_building"));
 		}
+				else if (this.Math.rand(1, 100) => 50)
+		{
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/stables_building"));
+		}
 
 		if (this.Math.rand(1, 100) <= 70)
 		{

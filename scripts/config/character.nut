@@ -643,6 +643,18 @@ gt.Const.PathfinderMovementAPCost <- [
 	3,
 	3
 ];
+gt.Const.HorseMovementAPCost <- [
+	0,
+	1,
+	1,
+	1,
+	1,
+	4,
+	4,
+	4,
+	4
+];
+
 gt.Const.SameMovementAPCost <- [
 	0,
 	2,
@@ -687,6 +699,18 @@ gt.Const.PathfinderMovementFatigueCost <- [
 	6,
 	6
 ];
+gt.Const.HorseMovementFatigueCost <- [
+	0,
+	1,
+	1,
+	2,
+	3,
+	3,
+	5,
+	4,
+	6
+];
+
 gt.Const.SkillCounter <- 0;
 gt.Const.CharacterProperties <- {
 	function getClone()

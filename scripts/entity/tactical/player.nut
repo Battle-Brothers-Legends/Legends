@@ -1995,6 +1995,12 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/weapons/light_crossbow"));
 			this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_bolts"));
 		}
+		else if (r == 5)
+		{
+			this.m.Items.equip(this.new("scripts/items/weapons/sling"));
+			this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
+		}
+
 	}
 
 	function assignRandomThrowingEquipment()
@@ -2058,6 +2064,11 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		else if (r == 2)
 		{
 			this.m.Items.equip(this.new("scripts/items/weapons/javelin"));
+		}
+		else if (r == 3)
+		{
+			this.m.Items.equip(this.new("scripts/items/weapons/sling"));
+			this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
 		}
 	}
 

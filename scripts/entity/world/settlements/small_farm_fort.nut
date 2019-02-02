@@ -71,7 +71,7 @@ this.small_farm_fort <- this.inherit("scripts/entity/world/settlement", {
 	{
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/crowd_building"), 5);
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/marketplace_building"), 2);
-
+		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/stables_building"), 2);
 		if (this.Const.World.Buildings.Kennels == 0)
 		{
 			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/kennel_building"));

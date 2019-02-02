@@ -79,6 +79,7 @@ this.medium_farm_fort <- this.inherit("scripts/entity/world/settlement", {
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/marketplace_building"), 2);
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/armorsmith_building"));
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/weaponsmith_building"));
+		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/stables_building"));
 		local r = this.Math.rand(1, 3);
 
 		if (r == 1 || this.Const.World.Buildings.Kennels == 0)
