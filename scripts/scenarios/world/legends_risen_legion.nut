@@ -282,6 +282,14 @@ this.legends_risen_legion <- this.inherit("scripts/scenarios/world/starting_scen
 
 		}
 
+		local citystates = this.World.FactionManager.getFactionsOfType(this.Const.FactionType.OrientalCityState);
+		foreach( n in citystates )
+		{
+
+			n.addPlayerRelation(-400.0, "You are the undead, to be despised");
+
+		}
+
 		local skellies = this.World.FactionManager.getFactionsOfType(this.Const.FactionType.Undead);
 
 		foreach( n in skellies )
@@ -293,6 +301,7 @@ this.legends_risen_legion <- this.inherit("scripts/scenarios/world/starting_scen
 
 		//this.m.StaticRelationsToFaction.resize(this.Const.FactionType.len());
 		this.m.StaticRelationsToFaction[this.Const.FactionType.NobleHouse] = true;
+		this.m.StaticRelationsToFaction[this.Const.FactionType.OrientalCityState] = true;
 		this.m.StaticRelationsToFaction[this.Const.FactionType.Undead] = true;
 
 		this.World.State.m.Player = this.World.spawnEntity("scripts/entity/world/player_party", randomVillageTile.Coords.X, randomVillageTile.Coords.Y);

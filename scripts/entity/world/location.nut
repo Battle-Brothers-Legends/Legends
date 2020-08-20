@@ -6,6 +6,7 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 		Banner = "banner_beasts_01",
 		DefenderSpawnList = null,
 		DefenderSpawnDay = 0,
+		DefenderMult = 1.0,
 		RoamerSpawnList = null,
 		CombatLocation = null,
 		Resources = 0,
@@ -607,7 +608,7 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 
 	function createDefenders()
 	{
-		local resources = this.m.Resources;
+		local resources = this.m.Resources * this.m.DefenderMult;
 
 		if (this.m.IsScalingDefenders)
 		{

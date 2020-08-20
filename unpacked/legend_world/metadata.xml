@@ -127,8 +127,7 @@
   <sprite id="legend_world_southern_dye_upgrade" ic="FF35526A" width="244" height="172" img="world_settlement\southern_dye.png" left="-94" right="122" top="-78" bottom="86" />
   <sprite id="legend_world_southern_fishing_huts_upgrade" ic="FF324F60" img="world_settlement\southern_fishing_huts.png" />
   <sprite id="legend_world_southern_goat_upgrade" ic="FF324F63" img="world_settlement\southern_goat_upgrade.png" left="-127" right="128" />
-  <sprite id="legend_world_southern_militia_upgrade" ic="FF2E4C66" img="world_settlement\southern_militia_upgrade.png" left="-110" right="111" />
-  <sprite id="legend_world_southern_watchtower_upgrade" ic="FF2C4D62" img="world_settlement\southern_watchtower_upgrade.png" left="-108" right="109" />
+  <sprite id="legend_world_southern_militia_upgrade" ic="FF2E4C66" img="world_settlement\southern_militia.png" left="-110" right="111" />  <sprite id="legend_world_southern_watchtower_upgrade" ic="FF2C4D62" img="world_settlement\southern_watchtower_upgrade.png" left="-108" right="109" />
   <sprite id="legend_world_southern_watchtower_lights_upgrade" ic="FF52C5E3" width="217" height="178" img="world_settlement\southern_watchtower_lights_upgrade.png" left="-103" right="61" top="-48" bottom="60" />
 
   <sprite id="legend_world_bee_keeper_01" ic="FF2D4752" width="214" height="125" img="world_settlement\bee_keeper_01.png" left="-103" right="99" top="-56" bottom="60" />

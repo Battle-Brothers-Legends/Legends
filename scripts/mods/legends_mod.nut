@@ -25,6 +25,12 @@ this.legends_mod <- {
         case "event":
             this.doDevConsoleEvent(_args);
             break;
+        case "relation":
+            this.doDevConsoleRelation(_args);
+            break;
+        case "factioninfo":
+            this.doDevConsoleFactionInfo(_args);
+            break;
         }
     }
 
@@ -32,11 +38,31 @@ this.legends_mod <- {
     {
         if (!this.World.Events.canFireEvent())
         {
-            this.logInfo("Can not fire event " + _args +" at this time");
-            return
+            this.logInfo("Theoretically cannot fire event " + _args +" at this time, but doing it anyways");
         }
 
         this.World.Events.fire(_args);
+    }
+
+    function doDevConsoleRelation(_args)
+    {
+        local value = _args.tointeger();
+        for(local i = 0; i < this.World.FactionManager.getFactions().len(); i++) {
+            local f = this.World.FactionManager.getFaction(i);
+            if(f != null) {
+		        this.World.FactionManager.getFaction(i).setPlayerRelation(value);
+            }
+        }
+    }
+
+    function doDevConsoleFactionInfo(_args)
+    {
+        for(local i = 0; i < this.World.FactionManager.getFactions().len(); i++) {
+            local f = this.World.FactionManager.getFaction(i);
+            if(f != null) {
+		        this.logInfo("Faction #" + i + ": " + f.getName() + ", relation = " + f.getPlayerRelation());
+            }
+        }
     }
 
     function onSerialize(_out)

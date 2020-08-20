@@ -420,6 +420,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			this.World.State.setDistantVisionBonus(false);
 		}
 
+		if ((this.hasSituation("situation.raided") || this.hasSituation("situation.razed"))) {
+            ret.push({
+				id = 7,
+				type = "hint",
+				text = "Has recently been raided..."
+			});
+        }
+
 		if (this.Const.LegendMod.DebugMode)
 		{
 			ret.push({
@@ -946,14 +954,52 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		this.m.ShopSeed = this.Time.getRealTime() + this.Math.rand();
 		this.m.RosterSeed = this.Time.getRealTime() + this.Math.rand();
 		this.m.Modifiers = this.new("scripts/entity/world/settlement_modifiers");
-		this.m.IsAttackable = false;
+		this.m.IsAttackable = true;
 		this.m.IsDestructible = false;
-		this.m.IsShowingStrength = true;
+		this.m.IsShowingStrength = false;
 		this.m.IsScalingDefenders = true;
 		this.m.IsShowingLabel = true;
 		this.m.VisibilityMult = 2.0;
 		this.m.Buildings.resize(6, null);
+
+		this.m.DefenderMult = 1.5;
+		this.setDefenderSpawnList(this.Const.World.Spawn.SettlementDefault);
+		
 	}
+
+	function isAttackable() {
+        if (!this.m.IsAttackable) {
+            return false;
+        }
+        if (this.hasSituation("situation.raided") || this.hasSituation("situation.razed")) {
+            return false;
+        }
+        return true;
+    }
+
+    function onDropLootForPlayer(_lootTable) {
+		local scaledResources = this.Math.pow(this.m.Resources, 1.1) * 0.8;
+
+        this.location.onDropLootForPlayer(_lootTable);
+		this.dropArmorParts(this.Math.rand(scaledResources * 0.3, scaledResources * 0.6), _lootTable);
+		this.dropMoney(this.Math.rand(scaledResources * 15, scaledResources * 25), _lootTable);
+
+		this.dropTreasure(this.Math.rand(scaledResources * 0.02, 1 + scaledResources * 0.03), [
+			"loot/silverware_item",
+			"loot/signet_ring_item",
+			"loot/silver_bowl_item",
+			"loot/golden_chalice_item"
+		], _lootTable);
+
+		local itemPool = [];
+		foreach( a in this.m.AttachedLocations )
+		{
+			a.onUpdateProduce(itemPool);
+		}
+		if(itemPool.len() > 0) {
+			this.dropTreasure(this.Math.rand(itemPool.len() * 3, itemPool.len() * 6), itemPool, _lootTable);
+		}
+    }
 
 	function getSituationByID( _id )
 	{
@@ -2265,6 +2311,19 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function onCombatLost()
 	{
+		if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled()) {
+            this.setResources(0);
+			this.changeSize(this.m.Size - 1);
+			this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 7);
+        }
+		else {
+			this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 25);
+		}
+        foreach(a in this.getAttachedLocations()) {
+            a.setActive(false, true);
+        }
+		this.spawnFireAndSmoke();
+		this.World.FactionManager.getFaction(this.m.Factions[0]).addPlayerRelation(this.Const.World.Assets.RelationAttacked);
 	}
 
 	function onRaided()
