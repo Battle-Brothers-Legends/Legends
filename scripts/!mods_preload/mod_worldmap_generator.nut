@@ -228,7 +228,7 @@
 		}
 	}
 
-	o.addSettlement <- function (_rect, isLeft, settlementList, settlementSize, settlementTiles, additionalSpace, ignoreSide)
+	o.addSettlement <- function (_rect, isLeft, settlementList, settlementSize, settlementTiles, additionalSpace, ignoreSide, fringe)
 	{
 		local tries = 0;
 
@@ -237,21 +237,35 @@
 			local x;
 			local y;
 
-			if (!ignoreSide)
+			if(!fringe) 
 			{
-				if (isLeft)
+				if (!ignoreSide)
 				{
-					x = this.Math.rand(5, _rect.W * 0.6);
+					if (isLeft)
+					{
+						x = this.Math.rand(5, _rect.W * 0.6);
+					}
+					else
+					{
+						x = this.Math.rand(_rect.W * 0.4, _rect.W - 6);
+					}
 				}
 				else
 				{
-					x = this.Math.rand(_rect.W * 0.4, _rect.W - 6);
+					x = this.Math.rand(5, _rect.W - 6);
 				}
 			}
-			else
-			{
-				x = this.Math.rand(5, _rect.W - 6);
+			else {
+				if (isLeft)
+				{
+					x = this.Math.rand(_rect.W * 0.65, _rect.W * 0.95);
+				}
+				else
+				{
+					x = this.Math.rand(_rect.W * 0.05, _rect.W * 0.35);
+				}
 			}
+			
 
 			y = this.Math.rand(5, _rect.H * 0.95);
 			local tile = this.World.getTileSquare(x, y);
@@ -363,10 +377,11 @@
 			tile.clear();
 			local entity = this.World.spawnLocation(type.Script, tile.Coords);
 			entity.setSize(settlementSize);
+			entity.setFringe(fringe);
 			settlementTiles.push(tile);
 			return settlementTiles;
 		}
-		return settlementTiles
+		return settlementTiles;
 	}
 
     o.buildSettlements = function ( _rect )
@@ -380,19 +395,25 @@
 
 		foreach( list in this.Const.World.Settlements.LegendsWorldMaster )
 		{
-			local num = Math.ceil(_properties.NumSettlements * list.Ratio)
+			local num = Math.ceil(_properties.NumSettlements * list.Ratio);
 			//Add at least one of each
 
-			local additionalSpace = 0
+			local additionalSpace = 0;
 			if ("AdditionalSpace" in list)
 			{
 				additionalSpace = list.AdditionalSpace;
 			}
+			local fringe = false;
+			if ("Fringe" in list)
+			{
+				fringe = list.Fringe;
+			}
+
 			foreach (s in list.Sizes)
 			{
 				for (local i = 0; i < s.MinAmount; i = ++i)
 				{
-					settlementTiles = this.addSettlement(_rect, isLeft, list.Types, s.Size, settlementTiles, additionalSpace, "IgnoreSide" in list);
+					settlementTiles = this.addSettlement(_rect, isLeft, list.Types, s.Size, settlementTiles, additionalSpace, "IgnoreSide" in list, fringe);
 					num = --num;
 				}
 			}
@@ -408,7 +429,7 @@
 					{
 						continue;
 					}
-					settlementTiles = this.addSettlement(_rect, isLeft, list.Types, s.Size, settlementTiles, additionalSpace, "IgnoreSide" in list);
+					settlementTiles = this.addSettlement(_rect, isLeft, list.Types, s.Size, settlementTiles, additionalSpace, "IgnoreSide" in list, fringe);
 					break;
 				}
 				num = --num;
@@ -416,7 +437,246 @@
 		}
 
 		this.logInfo("Created " + settlementTiles.len() + " settlements.");
-		return settlementTiles.len() >= 19
+		return settlementTiles.len() >= 19;
+	}
+
+	o.buildAdditionalRoads = function( _rect, _properties )
+	{
+		this.logInfo("Building additional roads...");
+		local allSettlements = this.World.EntityManager.getSettlements();
+		local settlements = [];
+		foreach (s in allSettlements) {
+			if(!s.isFringe()) {
+				settlements.push(s);
+			}
+		}
+		local roadCost = [
+			0,
+			0,
+			10,
+			50,
+			80,
+			40,
+			40,
+			40,
+			40,
+			0,
+			1,
+			50,
+			30,
+			30,
+			10,
+			10,
+			0,
+			10
+		];
+		local navSettings = this.World.getNavigator().createSettings();
+		navSettings.ActionPointCosts = roadCost;
+		navSettings.RoadMult = 0.25;
+		navSettings.StopAtRoad = false;
+
+		for( local i = 0; i != settlements.len(); i = ++i )
+		{
+			local targets = [];
+			local settlementTile = settlements[i].getTile();
+
+			foreach( a in settlements[i].getAttachedLocations() )
+			{
+				if (!a.isConnected())
+				{
+					continue;
+				}
+
+				local tile = a.getTile();
+
+				if (!tile.HasRoad)
+				{
+					targets.push(tile);
+				}
+			}
+
+			foreach( locTile in targets )
+			{
+				local path = this.World.getNavigator().findPath(settlementTile, locTile, navSettings, 0);
+				local roadTiles = [];
+				roadTiles.push(settlementTile);
+
+				while (path.getSize() >= 1)
+				{
+					local tile = this.World.getTile(path.getCurrent());
+					roadTiles.push(tile);
+					path.pop();
+				}
+
+				local prevTile;
+				local abort = false;
+
+				foreach( i, tile in roadTiles )
+				{
+					if (tile.Type == this.Const.World.TerrainType.Hills)
+					{
+						abort = true;
+						break;
+					}
+
+					local dirA = prevTile != null ? tile.getDirectionTo(prevTile) : 0;
+					local dirB = i < roadTiles.len() - 1 ? tile.getDirectionTo(roadTiles[i + 1]) : 0;
+
+					if ((tile.RoadDirections & this.Const.DirectionBit[dirA]) == 0 || (tile.RoadDirections & this.Const.DirectionBit[dirB]) == 0)
+					{
+						local dir = tile.RoadDirections | this.Const.DirectionBit[dirA] | this.Const.DirectionBit[dirB];
+
+						if (!this.Const.World.RoadBrushes.has(dir))
+						{
+							abort = true;
+							break;
+						}
+					}
+
+					prevTile = tile;
+				}
+
+				if (abort)
+				{
+					continue;
+				}
+
+				prevTile = null;
+
+				foreach( i, tile in roadTiles )
+				{
+					local dirA = prevTile != null ? tile.getDirectionTo(prevTile) : 0;
+					local dirB = i < roadTiles.len() - 1 ? tile.getDirectionTo(roadTiles[i + 1]) : 0;
+
+					if ((tile.RoadDirections & this.Const.DirectionBit[dirA]) == 0 || (tile.RoadDirections & this.Const.DirectionBit[dirB]) == 0)
+					{
+						tile.RoadDirections = tile.RoadDirections | this.Const.DirectionBit[dirA] | this.Const.DirectionBit[dirB];
+					}
+
+					prevTile = tile;
+				}
+			}
+		}
+	}
+
+	o.buildRoads = function( _rect, _properties )
+	{
+		this.logInfo("Building roads...");
+		local allSettlements = this.World.EntityManager.getSettlements();
+		local settlements = [];
+		foreach (s in allSettlements) {
+			if(!s.isFringe()) {
+				settlements.push(s);
+			}
+		}
+		local roadConnections = [];
+		roadConnections.resize(settlements.len());
+
+		for( local i = 0; i != settlements.len(); i = ++i )
+		{
+			roadConnections[i] = [];
+			roadConnections[i].resize(settlements.len(), false);
+		}
+
+		local roadCost = [
+			0,
+			0,
+			10,
+			50,
+			60,
+			40,
+			40,
+			40,
+			40,
+			0,
+			1,
+			50,
+			30,
+			30,
+			10,
+			10,
+			0,
+			10,
+			10
+		];
+		local navSettings = this.World.getNavigator().createSettings();
+		navSettings.ActionPointCosts = roadCost;
+		navSettings.RoadMult = 0.15;
+		navSettings.StopAtRoad = false;
+
+		for( local i = 0; i != settlements.len(); i = ++i )
+		{
+			local numConnections = 0;
+			local tries = 0;
+			tries = ++tries;
+
+			while (numConnections < 2 && tries < 50)
+			{
+				local closest;
+				local closestDist = 9000;
+				local closestJ = i;
+
+				for( local j = 0; j != settlements.len(); j = ++j )
+				{
+					if (i == j)
+					{
+					}
+					else if (roadConnections[i][j] == true)
+					{
+					}
+					else
+					{
+						local dist = settlements[i].getTile().getDistanceTo(settlements[j].getTile());
+
+						if (dist < closestDist)
+						{
+							closest = settlements[j].getTile();
+							closestDist = dist;
+							closestJ = j;
+						}
+					}
+				}
+
+				if (closest != null)
+				{
+					local path = this.World.getNavigator().findPath(settlements[i].getTile(), closest, navSettings, 0);
+					roadConnections[i][closestJ] = true;
+					roadConnections[closestJ][i] = true;
+
+					if (!path.isEmpty())
+					{
+						numConnections = ++numConnections;
+					}
+
+					local roadTiles = [];
+					roadTiles.push(settlements[i].getTile());
+
+					while (path.getSize() >= 1)
+					{
+						local tile = this.World.getTile(path.getCurrent());
+						roadTiles.push(tile);
+						path.pop();
+					}
+
+					local prevTile;
+
+					foreach( i, tile in roadTiles )
+					{
+						local dirA = prevTile != null ? tile.getDirectionTo(prevTile) : 0;
+						local dirB = i < roadTiles.len() - 1 ? tile.getDirectionTo(roadTiles[i + 1]) : 0;
+
+						if ((tile.RoadDirections & this.Const.DirectionBit[dirA]) == 0 || (tile.RoadDirections & this.Const.DirectionBit[dirB]) == 0)
+						{
+							tile.RoadDirections = tile.RoadDirections | this.Const.DirectionBit[dirA] | this.Const.DirectionBit[dirB];
+						}
+
+						prevTile = tile;
+					}
+				}
+			}
+		}
+
+		this.removeAutobahnkreuze(_rect, _properties);
 	}
 
 	// o.guaranteeAllBuildingsInSettlements = function ()

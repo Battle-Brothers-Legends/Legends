@@ -48,8 +48,10 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		ConnectedToByRoads = [],
 		IsCoastal = false,
 		IsMilitary = false,
+		IsUndead = false,
 		IsActive = true,
-		IsUpgrading = false
+		IsUpgrading = false,
+		IsFringe = false
 	},
 
 	function setUpgrading (_v)
@@ -158,6 +160,11 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	function isMilitary()
 	{
 		return this.m.IsMilitary;
+	}
+
+	function isUndead()
+	{
+		return this.m.IsUndead;
 	}
 
 	function isSouthern()
@@ -2672,6 +2679,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		}
 
 		this.setResources(this.getResources() + this.getNewResources());
+	}
+
+	function isFringe() {
+		return this.m.IsFringe;
+	}
+
+	function setFringe( _isFringe ) {
+		this.m.IsFringe = _isFringe;
 	}
 
 	function onSerialize( _out )

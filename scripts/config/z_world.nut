@@ -111,10 +111,34 @@ gt.Const.World.SettlementsUpdate <- function (_val)
 	}
 };
 
+gt.Const.World.Settlements.LegendsWorldUndead <- [
+	{
+		Ratio = 1,
+		Types = this.Const.World.Settlements.Legends_undead_forts,
+		Sizes = [
+			{
+				Ratio = 3,
+				MinAmount = 1,
+				Size = 1
+			},
+			{
+				Ratio = 3,
+				MinAmount = 1,
+				Size = 2
+			},
+			{
+				Ratio = 4,
+				MinAmount = 1,
+				Size = 3
+			}
+		]
+	}
+];
+
 
 gt.Const.World.Settlements.LegendsWorldMaster <- [
 	{
-		Ratio = 0.20,
+		Ratio = 0.18,
 		Types = this.Const.World.Settlements.Legends_villages_coast,
 		Sizes = [
 			{
@@ -135,7 +159,7 @@ gt.Const.World.Settlements.LegendsWorldMaster <- [
 		]
 	},
 	{
-		Ratio = 0.50,
+		Ratio = 0.45,
 		Types = Const.World.Settlements.Legends_villages,
 		Sizes = [
 			{
@@ -156,7 +180,7 @@ gt.Const.World.Settlements.LegendsWorldMaster <- [
 		]
 	},
 	{
-		Ratio = 0.30,
+		Ratio = 0.27,
 		Types = Const.World.Settlements.Legends_fortifications,
 		Sizes = [
 			{
@@ -185,6 +209,28 @@ gt.Const.World.Settlements.LegendsWorldMaster <- [
 			{
 				Ratio = 10,
 				MinAmount = 3,
+				Size = 3
+			}
+		]
+	},
+	{
+		Ratio = 0.10,
+		Fringe = true,
+		Types = Const.World.Settlements.Legends_undead_forts,
+		Sizes = [
+			{
+				Ratio = 3,
+				MinAmount = 0,
+				Size = 1
+			},
+			{
+				Ratio = 3,
+				MinAmount = 1,
+				Size = 2
+			},
+			{
+				Ratio = 4,
+				MinAmount = 1,
 				Size = 3
 			}
 		]
