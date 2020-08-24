@@ -472,6 +472,10 @@ this.legends_debug_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		{
 			local item = this.new("scripts/items/legend_helmets/" + h);
 
+			if(item == null || item.m == null) {
+				continue;
+			}
+
 			if (item.m.Variants.len() == 0)
 			{
 				this.logInfo("Adding " + h);

@@ -267,7 +267,8 @@ this.faction_manager <- {
 		this.createNomads();
 		this.createOrcs();
 		this.createGoblins();
-		this.createUndead();
+		local undead = this.createUndead();
+		this.assignSettlementsToUndead(undead);
 		this.createZombies();
 		this.createAlliances();
 
@@ -280,6 +281,7 @@ this.faction_manager <- {
 		}
 	}
 
+	// TODO: only show non-hostile settlements
 	function uncoverSettlements( _explorationMode )
 	{
 		foreach( s in this.World.EntityManager.getSettlements() )
@@ -378,11 +380,40 @@ this.faction_manager <- {
 	function createUndead()
 	{
 		local f = this.new("scripts/factions/undead_faction");
+		local a = this.Const.UndeadFactionArchetypes[this.Math.rand(0, this.Const.UndeadFactionArchetypes.len() - 1)];
+		local banner = this.Math.rand(1, 3);
+		local name = this.Const.Strings.UndeadFactionNames[this.Math.rand(0, this.Const.Strings.UndeadFactionNames.len() - 1)];
 		f.setID(this.m.Factions.len());
-		f.setName("Undead");
-		f.setDiscovered(true);
+		f.setName(name);
+		f.setMotto("\"" + a.Mottos[this.Math.rand(0, a.Mottos.len() - 1)] + "\"");
+		f.setBanner(banner);
 		f.addTrait(this.Const.FactionTrait.Undead);
+		f.setDiscovered(true);
+
+		local vars = [
+			[
+				"undeadfactionname",
+				name
+			]
+		];
+		f.setDescription(this.buildTextFromTemplate(a.Description, vars));
+		
 		this.m.Factions.push(f);
+
+		return f;
+	}
+
+	function assignSettlementsToUndead( _undead )
+	{
+		local settlements = this.World.EntityManager.getSettlements();
+
+		for( local i = 0; i < settlements.len(); i = ++i )
+		{
+			if (settlements[i].isUndead())
+			{
+				_undead.addSettlement(settlements[i]);
+			}
+		}
 	}
 
 	function createZombies()
@@ -523,7 +554,7 @@ this.faction_manager <- {
 
 		for( local i = 0; i < settlements.len(); i = ++i )
 		{
-			if (this.isKindOf(settlements[i], "city_state"))
+			if (this.isKindOf(settlements[i], "city_state") || settlements[i].isUndead())
 			{
 			}
 			else if (settlements[i].isMilitary())

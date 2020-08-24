@@ -258,11 +258,11 @@
 			else {
 				if (isLeft)
 				{
-					x = this.Math.rand(_rect.W * 0.65, _rect.W * 0.95);
+					x = this.Math.rand(_rect.W * 0.60, _rect.W * 0.9);
 				}
 				else
 				{
-					x = this.Math.rand(_rect.W * 0.05, _rect.W * 0.35);
+					x = this.Math.rand(_rect.W * 0.1, _rect.W * 0.4);
 				}
 			}
 			
@@ -375,10 +375,14 @@
 			}
 
 			tile.clear();
+			this.logInfo("Spawning a: " + type.Script);
 			local entity = this.World.spawnLocation(type.Script, tile.Coords);
+			this.logInfo("Setting size");
 			entity.setSize(settlementSize);
+			this.logInfo("Setting fringe");
 			entity.setFringe(fringe);
 			settlementTiles.push(tile);
+			this.logInfo("complete");
 			return settlementTiles;
 		}
 		return settlementTiles;
@@ -569,6 +573,7 @@
 				settlements.push(s);
 			}
 		}
+		this.logInfo("Connecting " + settlements.len() + " of " + allSettlements.len() + " settlements");
 		local roadConnections = [];
 		roadConnections.resize(settlements.len());
 
@@ -608,10 +613,10 @@
 		{
 			local numConnections = 0;
 			local tries = 0;
-			tries = ++tries;
 
 			while (numConnections < 2 && tries < 50)
 			{
+				tries += 1;
 				local closest;
 				local closestDist = 9000;
 				local closestJ = i;
@@ -675,7 +680,7 @@
 				}
 			}
 		}
-
+		this.logInfo("removing Autobahnkreuze");
 		this.removeAutobahnkreuze(_rect, _properties);
 	}
 

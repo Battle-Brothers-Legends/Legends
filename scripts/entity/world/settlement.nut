@@ -2318,18 +2318,26 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function onCombatLost()
 	{
-		if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled()) {
-            this.setResources(0);
-			this.changeSize(this.m.Size - 1);
-			this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 7);
-        }
-		else {
-			this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 25);
+		if(this.World.FactionManager.getFaction(this.m.Factions[0].isPlayerRelationPermanent())) {
+			this.setActive(false);
+			this.getTile().spawnDetail(e.m.Sprite + "_ruins", this.Const.World.ZLevel.Object - 3, 0, false);
+			this.fadeOutAndDie();
+			this.World.EntityManager.updateSettlementHeat();
 		}
-        foreach(a in this.getAttachedLocations()) {
-            a.setActive(false, true);
-        }
-		this.spawnFireAndSmoke();
+		else {
+			if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled()) {
+				this.setResources(0);
+				this.changeSize(this.m.Size - 1);
+				this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 7);
+			}
+			else {
+				this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 25);
+			}
+			foreach(a in this.getAttachedLocations()) {
+				a.setActive(false, true);
+			}
+			this.spawnFireAndSmoke();
+		}
 		this.World.FactionManager.getFaction(this.m.Factions[0]).addPlayerRelation(this.Const.World.Assets.RelationAttacked);
 	}
 
