@@ -1,6 +1,7 @@
 this.ai_switchto_melee <- this.inherit("scripts/ai/tactical/behavior", {
 	m = {
-		WeaponToEquip = null
+		WeaponToEquip = null,
+		IsNegatingDisarm = false
 	},
 	function create()
 	{
@@ -12,6 +13,7 @@ this.ai_switchto_melee <- this.inherit("scripts/ai/tactical/behavior", {
 	function onEvaluate( _entity )
 	{
 		this.m.WeaponToEquip = null;
+		this.m.IsNegatingDisarm = false;
 		local scoreMult = this.getProperties().BehaviorMult[this.m.ID];
 
 		if (_entity.getMoraleState() == this.Const.MoraleState.Fleeing)
@@ -37,6 +39,14 @@ this.ai_switchto_melee <- this.inherit("scripts/ai/tactical/behavior", {
 		}
 
 		local item = _entity.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+		local attackSkill = _entity.getSkills().getAttackOfOpportunity();
+
+		if (item != null && !_entity.getCurrentProperties().IsAbleToUseWeaponSkills && hasQuickHands && _entity.getActionPoints() == _entity.getActionPointsMax() && attackSkill != null && attackSkill.getActionPointCost() <= 4)
+		{
+			this.m.IsNegatingDisarm = true;
+			return this.Const.AI.Behavior.Score.SwitchToMelee * scoreMult * this.Const.AI.Behavior.SwitchToCounterDisarm;
+		}
+
 		local items = _entity.getItems().getAllItemsAtSlot(this.Const.ItemSlot.Bag);
 
 		if (items.len() == 0)
@@ -144,6 +154,17 @@ this.ai_switchto_melee <- this.inherit("scripts/ai/tactical/behavior", {
 
 	function onExecute( _entity )
 	{
+		if (this.m.IsNegatingDisarm)
+		{
+			_entity.getSkills().removeByID("effects.disarmed");
+			_entity.getItems().payForAction([]);
+			_entity.getItems().payForAction([]);
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_entity) + " equips their weapon again");
+			this.m.IsNegatingDisarm = false;
+			this.m.WeaponToEquip = null;
+			return true;
+		}
+
 		if (this.Const.AI.VerboseMode)
 		{
 			this.logInfo("* " + _entity.getName() + ": Switching to melee weapon \'" + this.m.WeaponToEquip.getID() + "\'!");

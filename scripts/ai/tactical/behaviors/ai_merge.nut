@@ -29,13 +29,18 @@ this.ai_merge <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
+		if (_entity.getSize() >= 3)
+		{
+			return this.Const.AI.Behavior.Score.Zero;
+		}
+
 		this.m.Skill = this.selectSkill(this.m.PossibleSkills);
 
 		if (this.m.Skill == null)
 		{
 			local engagedInMelee = this.queryTargetsInMeleeRange(1, 1).len() != 0;
 
-			if (!engagedInMelee && _entity.getSize() < 3 && _entity.isAbleToWait())
+			if (!engagedInMelee && _entity.isAbleToWait())
 			{
 				local myTile = _entity.getTile();
 
@@ -91,6 +96,27 @@ this.ai_merge <- this.inherit("scripts/ai/tactical/behavior", {
 							}
 						}
 					}
+				}
+			}
+			else if (!engagedInMelee && _entity.isAbleToWait() && _entity.getActionPoints() <= 2)
+			{
+				local currentCount = 0;
+
+				for( local j = 0; j < 6; j = ++j )
+				{
+					if (!this.myTile.hasNextTile(j))
+					{
+					}
+					else if (this.myTile.getNextTile(j).IsOccupiedByActor && this.myTile.getNextTile(j).getEntity().getType() == this.Const.EntityType.SandGolem && this.myTile.getNextTile(j).getEntity().getSize() == _entity.getSize())
+					{
+						currentCount = ++currentCount;
+					}
+				}
+
+				if (currentCount >= 2)
+				{
+					this.m.IsWaiting = true;
+					return this.Const.AI.Behavior.Score.Merge * score;
 				}
 			}
 

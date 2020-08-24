@@ -45,26 +45,12 @@ this.gambler_southern_background <- this.inherit("scripts/skills/backgrounds/gam
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/noble_tunic"));
-		}
-		else
-		{
-			items.equip(this.new("scripts/items/armor/oriental/cloth_sash"));
-		}
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "noble_tunic"],
+			[1, "oriental/cloth_sash"],
+			[2, ""]
+		]));
 	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-
-		//todo legends armor
-	}
-
 });
 

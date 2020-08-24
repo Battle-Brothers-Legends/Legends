@@ -96,14 +96,11 @@ this.cultist_finale_event <- this.inherit("scripts/events/event", {
 				this.World.getPlayerRoster().remove(_event.m.Sacrifice);
 				this.World.Assets.getStash().makeEmptySlots(1);
 				local item
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item =this.new("scripts/items/legend_armor/legendary/legend_armor_of_davkul");
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/legendary/armor_of_davkul");
-				}
+
+				local item = this.Const.World.Common.pickArmor([
+					[1, "legendary/legend_armor_of_davkul"],
+				])
+
 				item.m.Description = "A grisly aspect of Davkul, an ancient power not from this world, and the last remnants of " + _event.m.Sacrifice.getName() + " from whose body it has been fashioned. It shall never break, but instead keep regrowing its scarred skin on the spot.";
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -231,7 +228,7 @@ this.cultist_finale_event <- this.inherit("scripts/events/event", {
 					bestCultist = bro;
 				}
 			}
-			else if (bro.getLevel() >= 11 && !bro.getSkills().hasSkill("trait.player") && !bro.getSkills().hasSkill("trait.fabulous"))
+			else if (bro.getLevel() >= 11 && !bro.getSkills().hasSkill("trait.player") && !bro.getSkills().hasSkill("trait.fabulous") && !bro.getFlags().get("IsPlayerCharacter"))
 			{
 				sacrifice_candidates.push(bro);
 			}

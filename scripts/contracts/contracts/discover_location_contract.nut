@@ -111,7 +111,7 @@ this.discover_location_contract <- this.inherit("scripts/contracts/contract", {
 			function start()
 			{
 				this.Contract.m.BulletpointsObjectives = [
-					"Find %location% somewhere around the region of %region% %distance% to the %direction%"
+					"Find %location% %distance% to the %direction% and somewhere around the region of %region%"
 				];
 
 				if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.IntroChance)
@@ -146,7 +146,7 @@ this.discover_location_contract <- this.inherit("scripts/contracts/contract", {
 			function start()
 			{
 				this.Contract.m.BulletpointsObjectives = [
-					"Find %location% around the region of %region% to the %direction%"
+					"Find %location% to the %direction% and around the region of %region%"
 				];
 
 				if (this.Contract.m.Location != null && !this.Contract.m.Location.isNull())

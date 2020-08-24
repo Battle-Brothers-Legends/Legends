@@ -61,7 +61,7 @@ this.legend_lindwurm_scales_upgrade <- this.inherit("scripts/items/legend_armor/
 
 	function onEquip()
 	{
-		this.item.onEquip();
+		this.legend_armor_upgrade.onEquip();
 		local c = this.m.Armor.getContainer();
 
 		if (c != null && c.getActor() != null && !c.getActor().isNull())
@@ -72,7 +72,7 @@ this.legend_lindwurm_scales_upgrade <- this.inherit("scripts/items/legend_armor/
 
 	function onUnequip()
 	{
-		this.item.onUnequip();
+		this.legend_armor_upgrade.onUnequip();
 		local c = this.m.Armor.getContainer();
 
 		if (c != null && c.getActor() != null && !c.getActor().isNull())

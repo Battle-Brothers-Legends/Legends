@@ -217,130 +217,13 @@ this.flagellant_background <- this.inherit("scripts/skills/backgrounds/character
 			}
 		}
 
-		r = this.Math.rand(1, 4);
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/tattered_sackcloth"));
-		}
-
-		if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/leather_wraps"));
-		}
-
-		if (r == 3)
-		{
-			items.equip(this.new("scripts/items/armor/sackcloth"));
-		}
-
-		if (r == 4)
-		{
-			items.equip(this.new("scripts/items/armor/monk_robe"));
-		}
-
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "hood"],
-			[4, ""]
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "tattered_sackcloth"],
+			[1, "leather_wraps"],
+			[1, "sackcloth"],
+			[1, "monk_robe"]
 		]));
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 1)
-		{
-
-			items.equip(this.new("scripts/items/weapons/wooden_flail"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/weapons/reinforced_wooden_flail"));
-		}
-		else if (r == 3)
-		{
-			if (this.Const.DLC.Wildmen)
-			{
-			items.equip(this.new("scripts/items/weapons/legend_cat_o_nine_tails"));
-			}
-			else if (!this.Const.DLC.Wildmen)
-			{
-			items.equip(this.new("scripts/items/weapons/wooden_flail"));
-			}
-		}
-		else if (r == 4)
-		{
-			if (this.Const.DLC.Wildmen)
-			{
-			items.equip(this.new("scripts/items/weapons/battle_whip"));
-			}
-			else if (!this.Const.DLC.Wildmen)
-			{
-			items.equip(this.new("scripts/items/weapons/legend_reinforced_flail"));
-			}
-		}
-
-		local cloths = [
-            [0, ""],
-			[0, "cloth/legend_gambeson"],
-			[0, "cloth/legend_gambeson_plain"],
-			[0, "cloth/legend_gambeson_wolf"],
-			[0, "cloth/legend_padded_surcoat"],
-			[1, "cloth/legend_robes"],
-			[0, "cloth/legend_apron_butcher"],
-			[0, "cloth/legend_robes_nun"],
-			[0, "cloth/legend_apron_smith"],
-			[0, "cloth/legend_robes_wizard"],
-			[1, "cloth/legend_sackcloth"],
-			[1, "cloth/legend_sackcloth_patched"],
-			[1, "cloth/legend_sackcloth_tattered"],
-			[1, "cloth/legend_ancient_cloth"],
-			[1, "cloth/legend_ancient_cloth_restored"],
-			[0, "cloth/legend_tunic"],
-			[0, "cloth/legend_tunic_noble"]
-		];
-		local armor = this.Const.World.Common.pickLegendArmor(cloths)
-			local plates = [
-                [1, ""],
-				[1, "plate/legend_animal_hide_armor"],
-				[1, "plate/legend_hide_and_bone_armor"],
-				[0, "plate/legend_armor_leather_brigandine_hardened_full"],
-				[0, "plate/legend_armor_leather_jacket"],
-				[1, "plate/legend_armor_leather_jacket_simple"],
-				[0, "plate/legend_armor_leather_lamellar"],
-				[0, "plate/legend_armor_leather_lamellar_harness_heavy"],
-				[0, "plate/legend_armor_leather_lamellar_harness_reinforced"],
-				[0, "plate/legend_armor_leather_lamellar_heavy"],
-				[0, "plate/legend_armor_leather_lamellar_reinforced"],
-				[0, "plate/legend_armor_leather_noble"],
-				[0, "plate/legend_armor_leather_padded"],
-				[0, "plate/legend_armor_leather_riveted"],
-				[0, "plate/legend_armor_leather_riveted_light"],
-				[0, "plate/legend_armor_leather_scale"],
-				[0, "plate/legend_armor_plate_ancient_chest"],
-				[0, "plate/legend_armor_plate_ancient_harness"],
-				[0, "plate/legend_armor_plate_ancient_mail"],
-				[0, "plate/legend_armor_plate_ancient_scale"],
-				[0, "plate/legend_armor_plate_ancient_scale_coat"],
-				[0, "plate/legend_armor_plate_ancient_scale_harness"],
-				[0, "plate/legend_armor_plate_chest"],
-				[0, "plate/legend_armor_plate_chest_rotten"],
-				[0, "plate/legend_armor_plate_cuirass"],
-				[0, "plate/legend_armor_plate_full"],
-				[0, "plate/legend_armor_scale"],
-				[0, "plate/legend_armor_scale_coat"],
-				[0, "plate/legend_armor_scale_coat_rotten"],
-				[0, "plate/legend_armor_scale_shirt"]
-			]
-			local plate = this.Const.World.Common.pickLegendArmor(plates)
-			if (plate != null)
-			{
-				armor.setUpgrade(plate)
-			}
-		items.equip(armor)
+		
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "hood"],
 			[4, ""]

@@ -121,7 +121,7 @@ this.retinue_manager <- {
 
 		foreach( p in this.m.Followers )
 		{
-			if (this.hasFollower(p.getID()))
+			if (this.hasFollower(p.getID()) || !p.isVisible())
 			{
 				continue;
 			}

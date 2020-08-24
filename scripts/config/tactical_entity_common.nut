@@ -170,7 +170,7 @@ gt.Const.Tactical.Common <- {
 		hitInfo.IsPlayingArmorSound = false;
 		_entity.onDamageReceived(_entity, null, hitInfo);
 
-		if (!_entity.isAlive() || _entity.isDying())
+		if ((!_entity.isAlive() || _entity.isDying()) && !_entity.isPlayerControlled() && (_tile.Properties.Effect == null || _tile.Properties.Effect.IsByPlayer))
 		{
 			this.updateAchievement("BurnThemAll", 1, 1);
 		}

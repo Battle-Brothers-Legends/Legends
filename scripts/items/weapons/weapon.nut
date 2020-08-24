@@ -426,6 +426,11 @@ this.weapon <- this.inherit("scripts/items/item", {
 	function consumeAmmo()
 	{
 		this.setAmmo(this.Math.max(0, this.m.Ammo - 1));
+
+		if (this.getContainer().getActor().isPlayerControlled())
+		{
+			this.Tactical.Entities.spendAmmo(this.m.AmmoCost);
+		}
 	}
 
 	function updateAppearance()

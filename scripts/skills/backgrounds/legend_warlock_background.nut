@@ -138,8 +138,6 @@ this.legend_warlock_background <- this.inherit("scripts/skills/backgrounds/chara
 		talents[this.Const.Attributes.Hitpoints] = 3;
 		this.getContainer().getActor().fillTalentValues(1, true);
 		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 2);
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, ""],
@@ -147,29 +145,10 @@ this.legend_warlock_background <- this.inherit("scripts/skills/backgrounds/chara
 			[1, "witchhunter_hat"]
 		]));
 
-
-		items.equip(this.new("scripts/items/armor/thick_dark_tunic"));
-		items.equip(this.new("scripts/items/weapons/legend_grisly_scythe"));
-		local stash = this.World.Assets.getStash()
-	}
-
-	function onAddLegendEquipment()
-	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.Fatigue] = 2;
-		talents[this.Const.Attributes.Hitpoints] = 3;
-		this.getContainer().getActor().fillTalentValues(1, true);
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, ""],
-			[1, "dark_cowl"],
-			[1, "witchhunter_hat"]
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "thick_dark_tunic"]
 		]));
-
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
+		
 		items.equip(this.new("scripts/items/weapons/legend_grisly_scythe"));
-		local stash = this.World.Assets.getStash()
 	}
-
 });

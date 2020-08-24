@@ -104,17 +104,6 @@ this.gilders_embrace_shield <- this.inherit("scripts/items/shields/shield", {
 			icon = "ui/icons/special.png",
 			text = "Everyone striking this shield receives the \'Dazed\' effect"
 		});
-
-		if (this.m.Condition == 0)
-		{
-			result.push({
-				id = 10,
-				type = "text",
-				icon = "ui/tooltips/warning.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Broken and unusable[/color]"
-			});
-		}
-
 		return result;
 	}
 

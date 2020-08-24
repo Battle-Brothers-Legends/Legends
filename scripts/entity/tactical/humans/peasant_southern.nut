@@ -64,31 +64,12 @@ this.peasant_southern <- this.inherit("scripts/entity/tactical/human", {
 		}
 
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else
-		{
-			r = this.Math.rand(1, 10);
-
-			if (r == 1)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/sackcloth"));
-			}
-			else if (r == 2)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/apron"));
-			}
-			else if (r == 3)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/tattered_sackcloth"));
-			}
-			else
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/oriental/cloth_sash"));
-			}
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "sackcloth"],
+			[1, "apron"],
+			[1, "tattered_sackcloth"],
+			[7, "oriental/cloth_sash"]
+		]));
 
 		if (this.Math.rand(1, 100) <= 50)
 		{

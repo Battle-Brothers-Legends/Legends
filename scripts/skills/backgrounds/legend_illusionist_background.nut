@@ -176,7 +176,9 @@ this.legend_illusionist_background <- this.inherit("scripts/skills/backgrounds/c
 		talents[this.Const.Attributes.Fatigue] = 3;
 		this.getContainer().getActor().fillTalentValues(2, true);
 		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/armor/legend_seer_robes"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "legend_seer_robes"]
+		]));
 		items.equip(this.new("scripts/items/weapons/legend_mystic_staff"));
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "legend_seer_hat"]
@@ -186,23 +188,4 @@ this.legend_illusionist_background <- this.inherit("scripts/skills/backgrounds/c
 		stash.removeByID("supplies.ground_grains");
 		// stash.add(this.new("scripts/items/supplies/black_marsh_stew_item"));
 	}
-
-	function onAddLegendEquipment()
-	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.Fatigue] = 3;
-		this.getContainer().getActor().fillTalentValues(2, true);
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/legend_armor/armor/legend_armor_seer_robes"));
-		items.equip(this.new("scripts/items/weapons/legend_mystic_staff"));
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "legend_seer_hat"]
-		]));
-		local stash = this.World.Assets.getStash()
-		stash.removeByID("supplies.ground_grains");
-		stash.removeByID("supplies.ground_grains");
-		// stash.add(this.new("scripts/items/supplies/black_marsh_stew_item"));
-	}
-
 });

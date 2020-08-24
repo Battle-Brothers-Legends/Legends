@@ -41,40 +41,10 @@ this.daytaler_southern_background <- this.inherit("scripts/skills/backgrounds/da
 			items.equip(this.new("scripts/items/weapons/wooden_stick"));
 		}
 
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/sackcloth"));
-		}
-		else
-		{
-			local item = this.new("scripts/items/armor/oriental/cloth_sash");
-			items.equip(item);
-		}
-
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/southern_head_wrap"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r = this.Math.rand(0, 4);
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/knife"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/wooden_stick"));
-		}
-
-		//todo legends armor
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "sackcloth"],
+			[1, "oriental/cloth_sash"]
+		]));
 
 		local helm =this.Const.World.Common.pickHelmet([
 			[3, ""],
@@ -82,6 +52,5 @@ this.daytaler_southern_background <- this.inherit("scripts/skills/backgrounds/da
 		]);
 		items.equip(helm);
 	}
-
 });
 

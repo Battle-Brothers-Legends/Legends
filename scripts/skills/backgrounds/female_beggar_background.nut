@@ -193,84 +193,17 @@ this.female_beggar_background <- this.inherit("scripts/skills/backgrounds/charac
 			items.equip(this.new("scripts/items/weapons/legend_staff"));
 		}
 
-		r = this.Math.rand(0, 3);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic"],
+			[1, "leather_wraps"],
+			[1, "legend_maid_dress"],
+			[1, "legend_maid_apron"]
+		]))
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/linen_tunic"));
-		}
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/leather_wraps"));
-		}
-		if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/legend_maid_dress"));
-		}
-		if (r == 3)
-		{
-			items.equip(this.new("scripts/items/armor/legend_maid_apron"));
-		}
-
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			local item = this.Const.World.Common.pickHelmet([
-				[1, "hood"]
-			]);
-			item.setVariant(38);
-			items.equip(item);
-		}
+		local item = this.Const.World.Common.pickHelmet([
+			[3, ""],
+			[1, "hood", 38]
+		])
+		items.equip(item);
 	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/knife"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/legend_staff"));
-		}
-
-		local cloths = [
-            [0, ""],
-			[0, "cloth/legend_gambeson"],
-			[0, "cloth/legend_gambeson_plain"],
-			[0, "cloth/legend_gambeson_wolf"],
-			[0, "cloth/legend_padded_surcoat"],
-			[0, "cloth/legend_robes"],
-			[0, "cloth/legend_apron_butcher"],
-			[0, "cloth/legend_robes_nun"],
-			[0, "cloth/legend_apron_smith"],
-			[0, "cloth/legend_robes_wizard"],
-			[1, "cloth/legend_sackcloth"],
-			[1, "cloth/legend_sackcloth_patched"],
-			[1, "cloth/legend_sackcloth_tattered"],
-			[0, "cloth/legend_tunic"],
-			[0, "cloth/legend_tunic_noble"]
-		];
-		local armor = this.Const.World.Common.pickLegendArmor(cloths)
-		items.equip(armor)
-
-
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			local item = this.Const.World.Common.pickHelmet([
-				[1, "hood"]
-			]);
-			item.setVariant(38);
-			items.equip(item);
-		}
-	}
-
 });

@@ -156,47 +156,10 @@ this.companion_ranged_background <- this.inherit("scripts/skills/backgrounds/cha
 		items.addToBag(this.new("scripts/items/weapons/knife"));
 		r = this.Math.rand(0, 1);
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/ragged_surcoat"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/thick_tunic"));
-		}
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "ragged_surcoat"],
+			[1, "thick_tunic"]
+		]));
 	}
-
-	function onAddLegendEquipment()
-	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.RangedSkill] = 2;
-		talents[this.Const.Attributes.RangedDefense] = 1;
-		talents[this.Const.Attributes.Initiative] = 1;
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/weapons/light_crossbow"));
-		items.equip(this.new("scripts/items/ammo/quiver_of_bolts"));
-		items.addToBag(this.new("scripts/items/weapons/knife"));
-		local cloths = [
-            [0, ""],
-			[0, "cloth/legend_gambeson"],
-			[0, "cloth/legend_gambeson_plain"],
-			[0, "cloth/legend_gambeson_wolf"],
-			[1, "cloth/legend_padded_surcoat"],
-			[0, "cloth/legend_robes"],
-			[0, "cloth/legend_apron_butcher"],
-			[0, "cloth/legend_robes_nun"],
-			[0, "cloth/legend_apron_smith"],
-			[0, "cloth/legend_robes_wizard"],
-			[0, "cloth/legend_sackcloth"],
-			[0, "cloth/legend_sackcloth_patched"],
-			[0, "cloth/legend_sackcloth_tattered"],
-			[1, "cloth/legend_tunic"],
-			[0, "cloth/legend_tunic_noble"]
-		];
-		local armor = this.Const.World.Common.pickLegendArmor(cloths)
-		items.equip(armor)
-	}
-
 });
 

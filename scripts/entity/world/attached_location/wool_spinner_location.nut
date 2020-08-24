@@ -120,11 +120,6 @@ this.wool_spinner_location <- this.inherit("scripts/entity/world/attached_locati
 				S = "legend_armor/cloth/legend_thick_tunic"
 			});
 			_list.push({
-				R = 20,
-				P = 1.0,
-				S = "legend_armor/cloth/legend_robes_herbalist"
-			});
-			_list.push({
 				R = 40,
 				P = 1.0,
 				S = "legend_armor/cloth/legend_robes_nun"

@@ -69,9 +69,5 @@ this.pacified_flagellant_background <- this.inherit("scripts/skills/backgrounds/
 	function onAddEquipment()
 	{
 	}
-
-	function onAddLegendEquipment()
-	{
-	}
 });
 

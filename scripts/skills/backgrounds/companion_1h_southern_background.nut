@@ -51,60 +51,21 @@ this.companion_1h_southern_background <- this.inherit("scripts/skills/background
 		talents[this.Const.Attributes.Fatigue] = 1;
 		talents[this.Const.Attributes.Bravery] = 1;
 		local items = this.getContainer().getActor().getItems();
-		local r;
+
 		items.equip(this.new("scripts/items/weapons/oriental/firelance"));
 		items.equip(this.new("scripts/items/shields/oriental/southern_light_shield"));
-		r = this.Math.rand(0, 2);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/thick_nomad_robe"],
+			[1, "oriental/padded_vest"],
+			[1, "oriental/leather_nomad_robe"]
+		]));
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/thick_nomad_robe"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/padded_vest"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/leather_nomad_robe"));
-		}
-
-		r = this.Math.rand(0, 2);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/leather_head_wrap"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/leather_head_wrap"));
-		}
-		else if (r == 2)
-		{
-			local h = this.new("scripts/items/helmets/oriental/southern_head_wrap");
-			h.setVariant(this.Math.rand(0, 1) == 1 ? 12 : 8);
-			items.equip(h);
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		items.equip(this.new("scripts/items/weapons/oriental/firelance"));
-		items.equip(this.new("scripts/items/shields/oriental/southern_light_shield"));
-
-		//todo legends armor
-
-		local helm =this.Const.World.Common.pickHelmet([
+		local helm = this.Const.World.Common.pickHelmet([
 			[1, "oriental/leather_head_wrap"],
 			[1, "oriental/leather_head_wrap"],
-			[1, "oriental/southern_head_wrap"]
+			[1, "oriental/southern_head_wrap", this.Math.rand(0, 1) == 1 ? 12 : 8]
 		]) 
-		if (helm.getID() == "armor.head.southern_head_wrap")
-			helm.setVariant(this.Math.rand(0, 1) == 1 ? 12 : 8);
 		items.equip(helm);
 	}
-
 });
 

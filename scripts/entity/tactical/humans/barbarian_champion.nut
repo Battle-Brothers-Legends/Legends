@@ -121,58 +121,11 @@ this.barbarian_champion <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
-		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local cloths = [
-					[1, "cloth/legend_dark_tunic"]
-				];
-				local armor = this.Const.World.Common.pickLegendArmor(cloths)
-
-
-				if (armor != null)
-				{
-					local chains = [
-						[1, "chain/legend_armor_rusty_mail_shirt"]
-					]
-					local chain = this.Const.World.Common.pickLegendArmor(chains)
-					if (chain != null)
-					{
-						armor.setUpgrade(chain)
-					}
-
-
-					local plates = [
-						[0, ""],
-						[0, "plate/legend_animal_hide_armor"],
-						[1, "plate/legend_heavy_iron_armor"],
-						[0, "plate/legend_hide_and_bone_armor"],
-						[0, "plate/legend_reinforced_animal_hide_armor"],
-						[1, "plate/legend_rugged_scale_armor"],
-						[0, "plate/legend_scrap_metal_armor"],
-						[0, "plate/legend_thick_furs_armor"],
-						[1, "plate/legend_thick_plated_barbarian_armor"],
-					]
-					local plate = this.Const.World.Common.pickLegendArmor(plates)
-					if (plate != null)
-					{
-						armor.setUpgrade(plate)
-					}
-
-					this.m.Items.equip(armor);
-				}
-			}
-			else
-			{
-				local armor = [
-					"armor/barbarians/rugged_scale_armor",
-					"armor/barbarians/heavy_iron_armor",
-					"armor/barbarians/thick_plated_barbarian_armor"
-				];
-				this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-			}
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "barbarians/rugged_scale_armor"],
+				[1, "barbarians/heavy_iron_armor"],
+				[1, "barbarians/thick_plated_barbarian_armor"]
+		]));
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{

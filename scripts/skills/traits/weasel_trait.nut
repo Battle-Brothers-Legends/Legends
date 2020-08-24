@@ -15,7 +15,7 @@ this.weasel_trait <- this.inherit("scripts/skills/traits/character_trait", {
 		];
 		this.m.Excluded = [
 			"trait.clubfooted",
-			"clumsy_trait",
+			"trait.clumsy",
 			"trait.determined",
 			"trait.bloodthirsty",
 			"trait.deathwish",

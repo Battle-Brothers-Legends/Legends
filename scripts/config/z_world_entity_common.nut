@@ -628,6 +628,7 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 
 	local r = this.Math.rand(0, totalWeight);
 	local helm = "";
+	local variant = null;
 	foreach (t in candidates)
 	{
 		r = r - t[0];
@@ -636,6 +637,11 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 			continue;
 		}
 		helm = t[1];
+
+		if (t.len() == 3)
+		{
+			variant = t[2];
+		}
 		break;
 	}
 
@@ -652,7 +658,12 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 		{
 			return null;
 		}
-		return this.new("scripts/items/helmets/" + helm);
+		local item = this.new("scripts/items/helmets/" + helm);
+		if (variant != null)
+		{
+			item.setVariant(variant);
+		}
+		return item;
 	}
 
 	local layersObj = this.Const.LegendMod.Helmets[helm];
@@ -665,6 +676,11 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 	local helmet = this.Const.World.Common.pickLegendHelmet(set.Hoods);
 	if (helmet != null)
 	{
+		if (variant != null)
+		{
+			helmet.setupArmor(variant);
+		}
+
          local helm = this.Const.World.Common.pickLegendHelmet(set.Helms);
          if (helm != null)
          {
@@ -687,7 +703,119 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 	return helmet;
 }
 
-gt.Const.World.Common.convNameToList <- function ( _named )	
+gt.Const.World.Common.pickArmor <- function (_armors)
+{
+	local candidates = [];
+	local totalWeight = 0;
+	foreach (t in _armors)
+	{
+		if (t[0] == 0)
+		{
+			continue;
+		}
+		candidates.push(t);
+		totalWeight += t[0];
+	}
+
+	local r = this.Math.rand(0, totalWeight);
+	local armorID = "";
+	local variant = null;
+	local faction = null;
+	foreach (t in candidates)
+	{
+		r = r - t[0];
+		if (r > 0)
+		{
+			continue;
+		}
+		armorID = t[1];
+		if (t.len() == 3)
+		{
+			variant = t[2];
+		}
+		if (t.len() == 4)
+		{
+			faction = t[3];
+		}
+		break;
+	}
+
+	if (!this.World.LegendsMod.Configs().LegendArmorsEnabled())
+	{
+		if (armorID == "")
+		{
+			return null;
+		}
+		local item = this.new("scripts/items/armor/" + armorID);
+		if (faction != null)
+		{
+			item.setFaction(faction);
+		}
+		else if (variant != null)
+		{
+			item.setVariant(variant);
+		}
+		return item;
+	}
+
+	if (!(armorID in this.Const.LegendMod.Armors))
+	{
+		this.logError("Armor not defined in Legends Armor Obj : " + armorID);
+		return this.new("scripts/items/armor/" + armorID);
+	}
+
+	local layersObj = this.Const.LegendMod.Armors[armorID];
+	if (layersObj.Script != "")
+	{
+		return this.new(layersObjs.Script);
+	}
+
+	local set = layersObj.Sets[this.Math.rand(0, layersObj.Sets.len() -1)]
+	local armor = this.Const.World.Common.pickLegendArmor(set.Cloth);
+	if (armor == null)
+	{
+		return this.new("scripts/items/armor/" + armorID);
+	}
+
+	if (faction != null)
+	{
+		item.setupArmor(faction);
+	}
+
+	local chain = this.Const.World.Common.pickLegendArmor(set.Chain);
+	if (chain != null)
+	{
+		armor.setUpgrade(chain)
+	}
+
+	local plate = this.Const.World.Common.pickLegendArmor(set.Plate);
+	if (plate != null)
+	{
+		armor.setUpgrade(plate)
+	}
+
+	local cloak = this.Const.World.Common.pickLegendArmor(set.Cloak);
+	if (cloak != null)
+	{
+		armor.setUpgrade(cloak)
+	}
+
+	local tab = this.Const.World.Common.pickLegendArmor(set.Tabard);
+	if (tab != null)
+	{
+		armor.setUpgrade(tab)
+	}
+
+	local att = this.Const.World.Common.pickLegendArmor(set.Attachments);
+	if (att != null)
+	{
+		armor.setUpgrade(att)
+	}
+
+	return armor;
+}
+
+gt.Const.World.Common.convNameToList <- function ( _named )
 {
 	local findString = ["helmets/", "armor/", "legend_armor/"];
 	local list = clone _named; //iirc we have to clone this because this is the actual array & we don't want to edit it
@@ -861,9 +989,9 @@ foreach(k,v in this.Const.World.Spawn)
 
 // local weight = [100, 300, 600];
 // local pList = [
-	
+
 // 	this.Const.World.Spawn.Southern
-	
+
 // ];
 // foreach ( p in pList )
 // {
@@ -871,7 +999,7 @@ foreach(k,v in this.Const.World.Spawn)
 // 	{
 // 		for (local i = 0; i < 25; i = ++i)
 // 		{
-			
+
 // 			this.logWarning(" RUNNING ON TROOP: " + p);
 // 			this.logInfo(" RUN: " + i + ", OF WEIGHT: " + w);
 
@@ -881,4 +1009,4 @@ foreach(k,v in this.Const.World.Spawn)
 
 // 		}
 // 	}
-// } 
+// }

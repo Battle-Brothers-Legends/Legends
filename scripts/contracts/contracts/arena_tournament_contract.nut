@@ -139,7 +139,7 @@ this.arena_tournament_contract <- this.inherit("scripts/contracts/contract", {
 			});
 		}
 
-		if (_round == 3 && this.World.getTime().Days > 15 && this.Const.DLC.Wildmen)
+		if (_round == 3 && this.World.getTime().Days > 150 && this.Const.DLC.Wildmen)
 		{
 			twists.push({
 				R = 5,
@@ -831,7 +831,7 @@ this.arena_tournament_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "Won4",
 			Title = "At the Arena",
-			Text = "[img]gfx/ui/events/event_147.png[/img]The combat is over, and the dull warbling in your ear is the roar of the crowd, overwhelming all senses in an explosion of celebratory ecstasy. You are but an avatar for the people, a totem through which they can vicariously electrify their own vanity and vacant heroism. Alongside the adoration of the mob, you are rewarded the grand prize: %fameditem%!",
+			Text = "[img]gfx/ui/events/event_147.png[/img]The combat is over, and the dull warbling in your ear is the roar of the crowd, overwhelming all senses in an explosion of celebratory ecstasy. You are but an avatar for the people, a totem through which they can vicariously electrify their own vanity and vacant heroism. Alongside the adoration of the mob, you are rewarded the grand prize: %prizename%!",
 			Image = "",
 			Characters = [],
 			List = [],
@@ -1002,6 +1002,7 @@ this.arena_tournament_contract <- this.inherit("scripts/contracts/contract", {
 	function updateTraits( _list )
 	{
 		local roster = this.World.getPlayerRoster().getAll();
+		local n = 0;
 
 		foreach( bro in roster )
 		{
@@ -1045,6 +1046,13 @@ this.arena_tournament_contract <- this.inherit("scripts/contracts/contract", {
 						text = bro.getName() + " is now " + this.Const.Strings.getArticle(skill.getName()) + skill.getName()
 					});
 				}
+
+				n = ++n;
+			}
+
+			if (n >= 5)
+			{
+				break;
 			}
 		}
 	}

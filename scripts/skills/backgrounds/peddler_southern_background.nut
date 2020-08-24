@@ -52,46 +52,15 @@ this.peddler_southern_background <- this.inherit("scripts/skills/backgrounds/ped
 			items.equip(this.new("scripts/items/weapons/dagger"));
 		}
 
-		r = this.Math.rand(0, 0);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/cloth_sash"));
-		}
-
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/southern_head_wrap"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 2);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/knife"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/dagger"));
-		}
-
-
-		//todo legends armor
-
-		r = this.Math.rand(1, 2);
+		local armor = this.Const.World.Common.pickArmor([
+			[1, "oriental/cloth_sash"]
+		]);
+		items.equip(armor)
 		local helm = this.Const.World.Common.pickHelmet([
 			[1, "oriental/southern_head_wrap"],
 			[3, ""]
 		]);
-		items.equip(helm);
+		items.equip(helm)
 	}
-
 });
 

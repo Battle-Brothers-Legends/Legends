@@ -82,22 +82,11 @@ this.executioner <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
-		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				//todo legends armor
-			}
-			else
-			{
-				local armor = [
-					"armor/lamellar_harness",
-					"armor/heavy_lamellar_armor"
-				];
-				this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-			}
-		}
-
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "lamellar_harness"],
+			[1, "heavy_lamellar_armor"]
+		]));
+		
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{
 			local helm =this.Const.World.Common.pickHelmet([
@@ -139,7 +128,6 @@ this.executioner <- this.inherit("scripts/entity/tactical/human", {
 		}
 
 		local armor = this.Const.Items.NamedSouthernArmors;
-		local helmets = this.Const.Items.NamedSouthernHelmets;
 		local r = this.Math.rand(1, 2);
 
 		if (r == 1)
@@ -148,15 +136,9 @@ this.executioner <- this.inherit("scripts/entity/tactical/human", {
 		}
 		else
 		{
-
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				//todo legends armor
-			}
-			else
-			{
-				this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-			}
+			this.m.Items.equip(this.Const.World.Common.pickArmor(
+				this.Const.World.Common.convNameToList(this.Const.Items.NamedSouthernArmors)
+			));
 		}
 
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));

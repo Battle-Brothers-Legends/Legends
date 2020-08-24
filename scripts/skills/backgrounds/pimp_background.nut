@@ -129,20 +129,13 @@ this.pimp_background <- this.inherit("scripts/skills/backgrounds/character_backg
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
-		items.equip(this.new("scripts/items/armor/noble_tunic"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "noble_tunic"]
+		]))
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "feathered_hat"]
 		]));
 	}
 
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic_noble"));
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "feathered_hat"]
-		]));
-	}
 });
 

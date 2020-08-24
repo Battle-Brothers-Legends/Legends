@@ -197,151 +197,20 @@ this.legend_noble_shield <- this.inherit("scripts/skills/backgrounds/character_b
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
+
 		items.equip(this.new("scripts/items/weapons/militia_spear"));
 		items.equip(this.new("scripts/items/shields/buckler_shield"));
-		r = this.Math.rand(0, 2);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/thick_tunic"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/leather_tunic"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/linen_tunic"));
-		}
-
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "aketon_cap"],
-			[1, "open_leather_cap"]
+		
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "thick_tunic"],
+			[1, "leather_tunic"],
+			[1, "linen_tunic"]
 		]));
-
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		items.equip(this.new("scripts/items/weapons/militia_spear"));
-		items.equip(this.new("scripts/items/shields/wooden_shield"));
-		local cloths = [
-			[
-				0,
-				""
-			],
-			[
-				0,
-				"cloth/legend_gambeson"
-			],
-			[
-				0,
-				"cloth/legend_gambeson_plain"
-			],
-			[
-				0,
-				"cloth/legend_gambeson_wolf"
-			],
-			[
-				1,
-				"cloth/legend_padded_surcoat"
-			],
-			[
-				0,
-				"cloth/legend_robes"
-			],
-			[
-				0,
-				"cloth/legend_apron_butcher"
-			],
-			[
-				0,
-				"cloth/legend_robes_nun"
-			],
-			[
-				0,
-				"cloth/legend_apron_smith"
-			],
-			[
-				0,
-				"cloth/legend_robes_wizard"
-			],
-			[
-				0,
-				"cloth/legend_sackcloth"
-			],
-			[
-				0,
-				"cloth/legend_sackcloth_patched"
-			],
-			[
-				0,
-				"cloth/legend_sackcloth_tattered"
-			],
-			[
-				1,
-				"cloth/legend_thick_tunic"
-			],
-			[
-				1,
-				"cloth/legend_tunic"
-			],
-			[
-				0,
-				"cloth/legend_tunic_noble"
-			]
-		];
-		local armor = this.Const.World.Common.pickLegendArmor(cloths);
-
-					local plates = [
-                [1, ""],
-				[0, "plate/legend_armor_leather_brigandine"],
-				[0, "plate/legend_armor_leather_brigandine_hardened"],
-				[0, "plate/legend_armor_leather_brigandine_hardened_full"],
-				[1, "plate/legend_armor_leather_jacket"],
-				[2, "plate/legend_armor_leather_jacket_simple"],
-				[0, "plate/legend_armor_leather_lamellar"],
-				[0, "plate/legend_armor_leather_lamellar_harness_heavy"],
-				[0, "plate/legend_armor_leather_lamellar_harness_reinforced"],
-				[0, "plate/legend_armor_leather_lamellar_heavy"],
-				[0, "plate/legend_armor_leather_lamellar_reinforced"],
-				[0, "plate/legend_armor_leather_noble"],
-				[1, "plate/legend_armor_leather_padded"],
-				[0, "plate/legend_armor_leather_riveted"],
-				[0, "plate/legend_armor_leather_riveted_light"],
-				[0, "plate/legend_armor_leather_scale"],
-				[0, "plate/legend_armor_plate_ancient_chest"],
-				[0, "plate/legend_armor_plate_ancient_harness"],
-				[0, "plate/legend_armor_plate_ancient_mail"],
-				[0, "plate/legend_armor_plate_ancient_scale"],
-				[0, "plate/legend_armor_plate_ancient_scale_coat"],
-				[0, "plate/legend_armor_plate_ancient_scale_harness"],
-				[0, "plate/legend_armor_plate_chest"],
-				[0, "plate/legend_armor_plate_chest_rotten"],
-				[0, "plate/legend_armor_plate_cuirass"],
-				[0, "plate/legend_armor_plate_full"],
-				[0, "plate/legend_armor_scale"],
-				[0, "plate/legend_armor_scale_coat"],
-				[0, "plate/legend_armor_scale_coat_rotten"],
-				[0, "plate/legend_armor_scale_shirt"]
-			]
-			local plate = this.Const.World.Common.pickLegendArmor(plates)
-			if (plate != null)
-			{
-				armor.setUpgrade(plate)
-			}
-
-
-		items.equip(armor);
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "aketon_cap"],
 			[1, "open_leather_cap"]
 		]));
 	}
-
 });
 

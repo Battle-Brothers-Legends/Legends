@@ -49,6 +49,7 @@ this.mortar <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.CurrentProperties = clone b;
 		this.m.ActionPointCosts = this.Const.DefaultMovementAPCost;
 		this.m.FatigueCosts = this.Const.DefaultMovementFatigueCost;
+		this.addSprite("socket");
 		local body = this.addSprite("body");
 		body.setBrush("mortar_01");
 		this.addDefaultStatusSprites();

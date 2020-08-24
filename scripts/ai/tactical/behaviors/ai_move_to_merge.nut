@@ -226,40 +226,45 @@ this.ai_move_to_merge <- this.inherit("scripts/ai/tactical/behavior", {
 				this.logInfo("* " + _entity.getName() + ": Waiting until others have moved!");
 			}
 
+			this.m.IsWaiting = false;
 			return true;
 		}
 
-		local navigator = this.Tactical.getNavigator();
-
-		if (this.m.IsFirstExecuted)
+		if (this.m.TargetTile != null)
 		{
-			local settings = navigator.createSettings();
-			settings.ActionPointCosts = _entity.getActionPointCosts();
-			settings.FatigueCosts = _entity.getFatigueCosts();
-			settings.FatigueCostFactor = 0.0;
-			settings.ActionPointCostPerLevel = _entity.getLevelActionPointCost();
-			settings.FatigueCostPerLevel = _entity.getLevelFatigueCost();
-			settings.AllowZoneOfControlPassing = false;
-			settings.ZoneOfControlCost = this.Const.AI.Behavior.ZoneOfControlAPPenalty;
-			settings.AlliedFactions = _entity.getAlliedFactions();
-			settings.Faction = _entity.getFaction();
-			navigator.findPath(_entity.getTile(), this.m.TargetTile, settings, 0);
-			local movement = navigator.getCostForPath(_entity, settings, _entity.getActionPoints(), _entity.getFatigueMax() - _entity.getFatigue());
+			local navigator = this.Tactical.getNavigator();
 
-			if (movement.Tiles == 0)
+			if (this.m.IsFirstExecuted)
 			{
-				return true;
+				local settings = navigator.createSettings();
+				settings.ActionPointCosts = _entity.getActionPointCosts();
+				settings.FatigueCosts = _entity.getFatigueCosts();
+				settings.FatigueCostFactor = 0.0;
+				settings.ActionPointCostPerLevel = _entity.getLevelActionPointCost();
+				settings.FatigueCostPerLevel = _entity.getLevelFatigueCost();
+				settings.AllowZoneOfControlPassing = false;
+				settings.ZoneOfControlCost = this.Const.AI.Behavior.ZoneOfControlAPPenalty;
+				settings.AlliedFactions = _entity.getAlliedFactions();
+				settings.Faction = _entity.getFaction();
+				navigator.findPath(_entity.getTile(), this.m.TargetTile, settings, 0);
+				local movement = navigator.getCostForPath(_entity, settings, _entity.getActionPoints(), _entity.getFatigueMax() - _entity.getFatigue());
+
+				if (movement.Tiles == 0)
+				{
+					return true;
+				}
+
+				this.m.Agent.adjustCameraToDestination(movement.End);
+				this.m.IsFirstExecuted = false;
+				return;
 			}
 
-			this.m.Agent.adjustCameraToDestination(movement.End);
-			this.m.IsFirstExecuted = false;
-			return;
-		}
-
-		if (!navigator.travel(_entity, _entity.getActionPoints(), _entity.getFatigueMax() - _entity.getFatigue()))
-		{
-			this.m.TargetTile = null;
-			return true;
+			if (!navigator.travel(_entity, _entity.getActionPoints(), _entity.getFatigueMax() - _entity.getFatigue()))
+			{
+				this.m.TargetTile = null;
+				this.m.IsWaiting = false;
+				return true;
+			}
 		}
 
 		return false;

@@ -82,17 +82,10 @@ this.barbarian_beastmaster <- this.inherit("scripts/entity/tactical/human", {
 	function assignRandomEquipment()
 	{
 		this.m.Items.equip(this.new("scripts/items/weapons/barbarians/thorned_whip"));
-
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
-			armor.setUpgrade(this.new("scripts/items/legend_armor/plate/legend_hide_and_bone_armor"));
-			this.m.Items.equip(armor);
-		}
-		else
-		{
-			this.m.Items.equip(this.new("scripts/items/armor/barbarians/hide_and_bone_armor"));
-		}
+		
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "barbarians/hide_and_bone_armor"]
+		]));
 
 		this.m.Items.equip(this.Const.World.Common.pickHelmet([
 			[1, "barbarians/beastmasters_headpiece"]

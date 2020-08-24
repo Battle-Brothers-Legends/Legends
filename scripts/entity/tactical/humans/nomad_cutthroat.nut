@@ -100,23 +100,13 @@ this.nomad_cutthroat <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/" + shields[this.Math.rand(0, shields.len() - 1)]));
 		}
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else
-		{
-			local armor = [
-				"armor/oriental/nomad_robe",
-				"armor/oriental/nomad_robe",
-				"armor/oriental/thick_nomad_robe",
-				"armor/oriental/thick_nomad_robe",
-				"armor/oriental/cloth_sash",
-				"armor/oriental/cloth_sash",
-				"armor/leather_wraps"
-			];
-			this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[2, "oriental/nomad_robe"],
+			[2, "oriental/thick_nomad_robe"],
+			[2, "oriental/cloth_sash"],
+			[1, "leather_wraps"]
+		]));
+
 		local helmet = [
 			[1, "oriental/nomad_head_wrap"],
 			[1, "oriental/nomad_head_wrap"],

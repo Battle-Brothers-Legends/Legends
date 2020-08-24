@@ -71,27 +71,13 @@ this.vizier <- this.inherit("scripts/entity/tactical/human", {
 		local alwaysWithDetails = false;
 		local withHelmet = true;
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else
-		{
-			if (r == 1)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/oriental/padded_mail_and_lamellar_hauberk"));
-			}
-			else if (r == 2)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/oriental/mail_and_lamellar_plating"));
-			}
-			else
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/oriental/vizier_gear"));
-			}
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "oriental/padded_mail_and_lamellar_hauberk"],
+				[1, "oriental/mail_and_lamellar_plating"],
+				[1, "oriental/vizier_gear"]
+		]));
 
-		if (withDetails && (alwaysWithDetails || this.Math.rand(1, 100) <= 50)) //may need to go into legends armor check
+		if (withDetails && (alwaysWithDetails || this.Math.rand(1, 100) <= 50))
 		{
 			local variants = [
 				"03",

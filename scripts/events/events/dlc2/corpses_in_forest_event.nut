@@ -180,34 +180,11 @@ this.corpses_in_forest_event <- this.inherit("scripts/events/event", {
 					icon = "ui/items/" + item.getIcon(),
 					text = "You gain " + this.Const.Strings.getArticle(item.getName()) + item.getName()
 				});
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					local chains = [
-						[0, ""],
-						[1, "chain/legend_armor_mail_shirt"],
-						[1, "chain/legend_armor_mail_shirt_simple"],
-						[1, "chain/legend_armor_rusty_mail_shirt"],
-						[0, "chain/legend_armor_ancient_double_mail"],
-						[0, "chain/legend_armor_ancient_mail"],
-						[1, "chain/legend_armor_basic_mail"],
-						[1, "chain/legend_armor_hauberk"],
-						[1, "chain/legend_armor_hauberk_full"],
-						[1, "chain/legend_armor_hauberk_sleevless"],
-						[1, "chain/legend_armor_reinforced_mail"],
-						[1, "chain/legend_armor_reinforced_mail_shirt"],
-						[1, "chain/legend_armor_reinforced_rotten_mail_shirt"],
-						[1, "chain/legend_armor_reinforced_worn_mail"],
-						[1, "chain/legend_armor_reinforced_worn_mail_shirt"],
-						[1, "chain/legend_armor_short_mail"]
-					]
-					item = this.Const.World.Common.pickLegendArmor(chains)
-					item.setCondition(this.Math.rand(0.25 * item.getConditionMax(), 0.60 * item.getConditionMax()) * 1.0);
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/basic_mail_shirt");
-					item.setCondition(this.Math.rand(25, 60) * 1.0);
-				}
+
+				item = this.Const.World.Common.pickArmor([
+					[1, "basic_mail_shirt"],
+				]);
+				item.setCondition(this.Math.rand(0.25 * item.getConditionMax(), 0.60 * item.getConditionMax()) * 1.0);
 
 				this.World.Assets.getStash().add(item);
 				this.List.push({

@@ -1102,7 +1102,7 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 			}
 		}
 
-		if (_faction.getUnits().len() >= 14 + (this.Const.DLC.Desert ? 3 : 0))
+		if (_faction.getUnits().len() >= 15 + (this.Const.DLC.Desert ? 3 : 0))
 		{
 			return;
 		}

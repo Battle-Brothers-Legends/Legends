@@ -50,28 +50,18 @@ this.companion_ranged_southern_background <- this.inherit("scripts/skills/backgr
 		talents[this.Const.Attributes.RangedDefense] = 1;
 		talents[this.Const.Attributes.Initiative] = 1;
 		local items = this.getContainer().getActor().getItems();
-		local r;
 		items.equip(this.new("scripts/items/weapons/oriental/composite_bow"));
 		items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
 		items.addToBag(this.new("scripts/items/weapons/knife"));
-		r = this.Math.rand(0, 2);
+		this.m.Items.equip(this.Const.World.Common.pickHelmet([
+			[1, "oriental/thick_nomad_robe"],
+			[1, "oriental/padded_vest"],
+			[1, "oriental/leather_nomad_robe"]
+		]));
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/thick_nomad_robe"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/padded_vest"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/leather_nomad_robe"));
-		}
-
-		local h = this.new("scripts/items/helmets/oriental/southern_head_wrap");
-		h.setVariant(this.Math.rand(0, 1) == 1 ? 12 : 8);
-		items.equip(h);
+		this.m.Items.equip(this.Const.World.Common.pickHelmet([
+			[1, "oriental/southern_head_wrap", this.Math.rand(0, 1) == 1 ? 12 : 8]
+		]));
 	}
 
 });

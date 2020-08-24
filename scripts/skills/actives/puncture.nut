@@ -129,6 +129,7 @@ this.puncture <- this.inherit("scripts/skills/skill", {
 			_properties.DamageArmorMult *= 0.0;
 			_properties.IsIgnoringArmorOnAttack = true;
 			_properties.HitChanceMult[this.Const.BodyPart.Head] = 0.0;
+			_properties.HitChanceMult[this.Const.BodyPart.Body] = 1.0;
 
 			if (this.canDoubleGrip())
 			{

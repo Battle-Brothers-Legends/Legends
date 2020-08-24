@@ -61,82 +61,51 @@ this.councilman <- this.inherit("scripts/entity/tactical/human", {
 		local withDetail = true;
 		local withHelmet = true;
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
+		
+		if (r <= 7)
 		{
-			if (r <= 7)
-			{
-				this.m.Items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "linen_tunic"]
+			]));
 
-				if (this.Math.rand(1, 100) <= 33)
-				{
-					this.m.Items.equip(this.Const.World.Common.pickHelmet([
-						[1, "feathered_hat"]
-					]))
-					withHelmet = false;
-				}
-			}
-			else if (r <= 9)
+			if (this.Math.rand(1, 100) <= 33)
 			{
-				this.m.Items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic_noble"));
-			}
-			else if (r == 10)
-			{
-				this.m.Items.equip(this.new("scripts/items/legend_armor/cloth/legend_robes"));
-				withDetail = false;
+				this.m.Items.equip(this.Const.World.Common.pickHelmet([
+					[1, "feathered_hat"]
+				]))
 				withHelmet = false;
 			}
-			else if (r == 11)
-			{
-				this.m.Items.equip(this.new("scripts/items/legend_armor/cloth/legend_robes_wizard"));
-				withDetail = false;
-
-				if (this.Math.rand(1, 100) <= 50)
-				{
-					this.m.Items.equip(this.Const.World.Common.pickHelmet([
-						[1, "wizard_hat"]
-					]))
-					withHelmet = false;
-				}
-			}
 		}
-		else
+		else if (r <= 9)
 		{
-			if (r <= 7)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/linen_tunic"));
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "noble_tunic"]
+			]));
+		}
+		else if (r == 10)
+		{
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "monk_robe"]
+			]));
+			withDetail = false;
+			withHelmet = false;
+		}
+		else if (r == 11)
+		{
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "wizard_robe"]
+			]));
+			withDetail = false;
 
-				if (this.Math.rand(1, 100) <= 33)
-				{
-					this.m.Items.equip(this.Const.World.Common.pickHelmet([
-						[1, "feathered_hat"]
-					]))
-					withHelmet = false;
-				}
-			}
-			else if (r <= 9)
+			if (this.Math.rand(1, 100) <= 50)
 			{
-				this.m.Items.equip(this.new("scripts/items/armor/noble_tunic"));
-			}
-			else if (r == 10)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/monk_robe"));
-				withDetail = false;
+				this.m.Items.equip(this.Const.World.Common.pickHelmet([
+					[1, "wizard_hat"]
+				]))
 				withHelmet = false;
 			}
-			else if (r == 11)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/wizard_robe"));
-				withDetail = false;
-
-				if (this.Math.rand(1, 100) <= 50)
-				{
-					this.m.Items.equip(this.Const.World.Common.pickHelmet([
-						[1, "wizard_hat"]
-					]))
-					withHelmet = false;
-				}
-			}
 		}
+		
 
 
 

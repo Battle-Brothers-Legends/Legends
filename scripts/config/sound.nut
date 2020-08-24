@@ -262,7 +262,8 @@ gt.Const.Music <- {
 		"music/worldmap_06.ogg"
 	],
 	VillageTracks = [
-		"music/village_01.ogg"
+		"music/village_01.ogg",
+		"music/retirement_01.ogg"
 	],
 	CityTracks = [
 		"music/city_01.ogg",

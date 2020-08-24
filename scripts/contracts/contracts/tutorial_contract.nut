@@ -232,8 +232,9 @@ this.tutorial_contract <- this.inherit("scripts/contracts/contract", {
 				e.getSprite("socket").setBrush("bust_base_player");
 				e.getSkills().removeByID("perk.overwhelm");
 				e.getSkills().removeByID("perk.nimble");
-				local armor = this.new("scripts/items/armor/mail_hauberk");
-				armor.setVariant(32);
+				local armor = this.Const.World.Common.pickArmor([
+					[1, "mail_hauberk", 32],
+				]);
 				armor.setArmor(0);
 				e.getItems().equip(armor);
 				e.getItems().equip(this.new("scripts/items/weapons/arming_sword"));
@@ -265,7 +266,9 @@ this.tutorial_contract <- this.inherit("scripts/contracts/contract", {
 				e.getAIAgent().getProperties().OverallDefensivenessMult = 0.0;
 				e.getAIAgent().addBehavior(this.new("scripts/ai/tactical/behaviors/ai_retreat_always"));
 				local items = e.getItems();
-				items.equip(this.new("scripts/items/armor/patched_mail_shirt"));
+				items.equip(this.Const.World.Common.pickArmor([
+					[1, "patched_mail_shirt"],
+				]));
 				items.equip(this.new("scripts/items/weapons/hunting_bow"));
 				this.Flags.set("BossHead", e.getSprite("head").getBrush().Name);
 				this.Flags.set("BossBeard", e.getSprite("beard").HasBrush ? e.getSprite("beard").getBrush().Name : "");
@@ -499,7 +502,9 @@ this.tutorial_contract <- this.inherit("scripts/contracts/contract", {
 				e.getAIAgent().getProperties().BehaviorMult[this.Const.AI.Behavior.ID.Retreat] = 0.0;
 				e.getFlags().add("IsFinalBoss", true);
 				local items = e.getItems();
-				items.equip(this.new("scripts/items/armor/patched_mail_shirt"));
+				items.equip(this.Const.World.Common.pickArmor([
+					[1, "patched_mail_shirt"],
+				]));
 				items.equip(this.new("scripts/items/weapons/falchion"));
 				local shield = this.new("scripts/items/shields/wooden_shield");
 				shield.setVariant(4);

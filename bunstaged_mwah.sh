@@ -16,6 +16,12 @@ while read -r line; do
             python make_legend_helmet_nuts.py
             cp -R helmets/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\scripts\items\legend_helmets"
 
+        elif [[ "$xpath" == make_legend_armor.py ]]; then
+            rm -rf legend_armor
+            mkdir -p "legend_armor"
+            python make_legend_armor.py
+            cp -R legend_armor/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\scripts\items\legend_armor"
+
         elif [[ "$xpath" == *.py ]]; then
             echo "skipping $line"
         elif [[ "$xpath" == *.md ]]; then

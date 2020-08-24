@@ -84,7 +84,7 @@ this.ai_defend_riposte <- this.inherit("scripts/ai/tactical/behavior", {
 
 		foreach( t in targets )
 		{
-			if (t.isNonCombatant() || t.isArmedWithRangedWeapon() || t.getMoraleState() == this.Const.MoraleState.Fleeing || t.getCurrentProperties().IsStunned || t.isFatigued())
+			if (t.isNonCombatant() || t.isArmedWithRangedWeapon() || t.getMoraleState() == this.Const.MoraleState.Fleeing || t.getCurrentProperties().IsStunned || t.isFatigued() || !t.getCurrentProperties().IsAbleToUseWeaponSkills)
 			{
 				continue;
 			}
@@ -112,7 +112,7 @@ this.ai_defend_riposte <- this.inherit("scripts/ai/tactical/behavior", {
 			count = count + (50.0 / t.getCurrentProperties().getMeleeSkill() - otherTargets * 0.5);
 		}
 
-		if (meleeOpponents == 0)
+		if (meleeOpponents < 2)
 		{
 			return this.Const.AI.Behavior.Score.Zero;
 		}

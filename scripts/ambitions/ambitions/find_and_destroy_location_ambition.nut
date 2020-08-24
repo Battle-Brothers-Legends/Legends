@@ -84,7 +84,7 @@ this.find_and_destroy_location_ambition <- this.inherit("scripts/ambitions/ambit
 
 		local not_farmer;
 
-		if (farmers.len() != 0)
+		if (not_farmers.len() != 0)
 		{
 			not_farmer = not_farmers[this.Math.rand(0, not_farmers.len() - 1)];
 		}

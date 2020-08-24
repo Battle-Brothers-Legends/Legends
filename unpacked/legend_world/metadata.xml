@@ -118,14 +118,14 @@
   <sprite id="legend_world_city_01_upgrade" offsetY="15" b7="0" ic="FF345569" img="world_settlement\city_01.png" />
   <sprite id="legend_world_houses_04_01_upgrade" offsetY="-4" b7="0" ic="FF3F6379" width="278" height="181" img="world_settlement\houses_04_01.png" left="-135" right="137" top="-91" bottom="75" />
   <sprite id="legend_world_houses_04_02_upgrade" offsetY="-4" b7="0" ic="FF3C6178" img="world_settlement\houses_04_02.png" left="-123" right="124" />
-  <sprite id="legend_world_incense_01_upgrade" ic="FF2D5766" img="world_settlement\incense_01.png" />
-  <sprite id="legend_world_silk_01_upgrade" ic="FF415F6D" width="228" height="156" img="world_settlement\silk_01.png" left="-106" right="114" top="-78" bottom="74" />
-  <sprite id="legend_world_spice_01_upgrade" ic="FF2F5867" img="world_settlement\spice_01.png" left="-125" right="126" />
+  <sprite id="legend_world_incense_01_upgrade" ic="FF2D5766" img="world_settlement\incense_01_upgrade.png" />
+  <sprite id="legend_world_silk_01_upgrade" ic="FF415F6D" width="228" height="156" img="world_settlement\silk_01_upgrade.png" left="-106" right="114" top="-78" bottom="74" />
+  <sprite id="legend_world_spice_01_upgrade" ic="FF2F5867" img="world_settlement\spice_01_upgrade.png" left="-125" right="126" />
   <sprite id="legend_world_houses_04_01_light_upgrade" offsetY="-4" b7="0" ic="FF67D3EB" width="278" height="181" img="world_settlement\houses_04_01_light.png" left="-89" right="99" top="-59" bottom="61" />
   <sprite id="legend_world_houses_04_02_light_upgrade" offsetY="-4" b7="0" ic="FF5EC0DC" width="247" height="172" img="world_settlement\houses_04_02_light.png" left="-114" right="104" top="-53" bottom="59" />
   <sprite id="legend_world_city_01_light_upgrade" offsetY="15" b7="0" ic="FF69CBD5" width="302" height="247" img="world_settlement\city_01_light.png" left="-101" right="117" top="-97" bottom="109" />
-  <sprite id="legend_world_southern_dye_upgrade" ic="FF35526A" width="244" height="172" img="world_settlement\southern_dye.png" left="-94" right="122" top="-78" bottom="86" />
-  <sprite id="legend_world_southern_fishing_huts_upgrade" ic="FF324F60" img="world_settlement\southern_fishing_huts.png" />
+  <sprite id="legend_world_southern_dye_upgrade" ic="FF35526A" width="244" height="172" img="world_settlement\southern_dye_upgrade.png" left="-94" right="122" top="-78" bottom="86" />
+  <sprite id="legend_world_southern_fishing_huts_upgrade" ic="FF324F60" img="world_settlement\southern_fishing_huts_upgrade.png" />
   <sprite id="legend_world_southern_goat_upgrade" ic="FF324F63" img="world_settlement\southern_goat_upgrade.png" left="-127" right="128" />
   <sprite id="legend_world_southern_militia_upgrade" ic="FF2E4C66" img="world_settlement\southern_militia.png" left="-110" right="111" />  <sprite id="legend_world_southern_watchtower_upgrade" ic="FF2C4D62" img="world_settlement\southern_watchtower_upgrade.png" left="-108" right="109" />
   <sprite id="legend_world_southern_watchtower_lights_upgrade" ic="FF52C5E3" width="217" height="178" img="world_settlement\southern_watchtower_lights_upgrade.png" left="-103" right="61" top="-48" bottom="60" />

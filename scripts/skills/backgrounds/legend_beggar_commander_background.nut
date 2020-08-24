@@ -219,9 +219,8 @@ this.legend_beggar_commander_background <- this.inherit("scripts/skills/backgrou
 	{
 		this.World.Assets.addMoney(-208);
 		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
-
+		
+		local r = this.Math.rand(0, 4);
 		if (r == 0)
 		{
 			items.equip(this.new("scripts/items/weapons/knife"));
@@ -231,84 +230,15 @@ this.legend_beggar_commander_background <- this.inherit("scripts/skills/backgrou
 			items.equip(this.new("scripts/items/weapons/wooden_stick"));
 		}
 
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/tattered_sackcloth"));
-		}
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/leather_wraps"));
-		}
-
-		r = this.Math.rand(0, 4);
-
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "tattered_sackcloth"],
+			[1, "leather_wraps"]
+		]));
 
 		local item = this.Const.World.Common.pickHelmet([
 			[3, ""],
-			[1, "hood"]
+			[1, "hood", 38]
 		])
-		if (item != null)
-		{
-			if (item.getID() == "armor.head.hood")
-			{
-				item.setVariant(38);
-			}
-			items.equip(item);
-		}
-
-	}
-
-	function onAddLegendEquipment()
-	{
-		this.World.Assets.addMoney(-208);
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/knife"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/wooden_stick"));
-		}
-
-		local cloths = [
-            [0, ""],
-			[0, "cloth/legend_gambeson"],
-			[0, "cloth/legend_gambeson_plain"],
-			[0, "cloth/legend_gambeson_wolf"],
-			[0, "cloth/legend_padded_surcoat"],
-			[0, "cloth/legend_robes"],
-			[0, "cloth/legend_apron_butcher"],
-			[0, "cloth/legend_robes_nun"],
-			[0, "cloth/legend_apron_smith"],
-			[0, "cloth/legend_robes_wizard"],
-			[1, "cloth/legend_sackcloth"],
-			[1, "cloth/legend_sackcloth_patched"],
-			[1, "cloth/legend_sackcloth_tattered"],
-			[0, "cloth/legend_tunic"],
-			[0, "cloth/legend_tunic_noble"]
-		];
-		local armor = this.Const.World.Common.pickLegendArmor(cloths)
-		items.equip(armor)
-
-
-		local item = this.Const.World.Common.pickHelmet([
-			[3, ""],
-			[1, "hood"]
-		])
-		if (item != null)
-		{
-			if (item.getID() == "armor.head.hood")
-			{
-				item.setVariant(38);
-			}
-			items.equip(item);
-		}
+		items.equip(item);
 	}
 });

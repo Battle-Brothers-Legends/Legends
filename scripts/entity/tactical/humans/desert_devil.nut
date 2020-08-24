@@ -84,29 +84,10 @@ this.desert_devil <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
-		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				//todo legends armor
-			}
-			else
-			{
-				local armor = [
-					"armor/oriental/assassin_robe"
-				];
-
-				if (this.Const.DLC.Unhold)
-				{
-					armor.extend([
-						"armor/leather_scale_armor"
-					]);
-				}
-
-				this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-			}
-		}
-
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/assassin_robe"],
+			[1, "leather_scale_armor"]
+		]));
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{
 			local helm =this.Const.World.Common.pickHelmet([
@@ -129,26 +110,16 @@ this.desert_devil <- this.inherit("scripts/entity/tactical/human", {
 			"weapons/named/named_swordlance",
 			"weapons/named/named_swordlance"
 		];
-		local armor = [
-			"armor/named/black_leather_armor"
-		];
 
-		local legend_armor = []; //maybe dont need? here for posterity
-		
 		if (this.Math.rand(1, 100) <= 75)
 		{
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 		else
 		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				//todo legends armor
-			}
-			else
-			{
-				this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-			}
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "named/black_leather_armor"]
+			]));
 		}
 
 		this.m.BaseProperties.DamageDirectMult *= 1.25;

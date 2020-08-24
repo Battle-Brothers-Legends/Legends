@@ -12,7 +12,7 @@ this.scenario_test_bed <- this.inherit("scripts/scenarios/tactical/scenario_temp
 
 	function initMap()
 	{
-		local testMap = this.MapGen.get("tactical.sinkhole");
+		local testMap = this.MapGen.get("tactical.desert");
 		local minX = testMap.getMinX();
 		local minY = testMap.getMinY();
 		this.Tactical.resizeScene(minX, minY);
@@ -73,41 +73,25 @@ this.scenario_test_bed <- this.inherit("scripts/scenarios/tactical/scenario_temp
 			]
 			items.equip(this.Const.World.Common.pickHelmet(helmet));
 
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				//todo legend armors
-			}
-			else
-			{
-				local r = this.Math.rand(1, 3);
-				local a = this.new("scripts/items/armor/oriental/gladiator_harness");
-				local u;
-				r = this.Math.rand(1, 2);
 
-				if (r == 1)
-				{
-					u = this.new("scripts/items/armor_upgrades/light_gladiator_upgrade");
-				}
-				else if (r == 2)
-				{
-					u = this.new("scripts/items/armor_upgrades/heavy_gladiator_upgrade");
-				}
+			local r = this.Math.rand(1, 3);
+			items.equip(this.new("scripts/items/weapons/battle_whip"));
+			local a = this.new("scripts/items/armor/oriental/gladiator_harness");
+			local u;
+			r = this.Math.rand(1, 2);
 
-				a.setUpgrade(u);
-				items.equip(a);
-			}
-			items.equip(this.new("scripts/items/ammo/powder_bag"));
-
-			if (this.Math.rand(1, 100) <= 50)
+			if (r == 1)
 			{
-				items.equip(this.new("scripts/items/weapons/oriental/handgonne"));
+				u = this.new("scripts/items/armor_upgrades/light_gladiator_upgrade");
 			}
-			else
+			else if (r == 2)
 			{
-				items.equip(this.new("scripts/items/weapons/oriental/firelance"));
+				u = this.new("scripts/items/armor_upgrades/heavy_gladiator_upgrade");
 			}
 
-			items.equip(this.new("scripts/items/tools/fire_bomb_item"));
+			a.setUpgrade(u);
+			items.equip(a);
+			items.equip(this.new("scripts/items/shields/wooden_shield"));
 		}
 
 		local entity = this.spawnEntity("scripts/entity/tactical/enemies/orc_berserker");

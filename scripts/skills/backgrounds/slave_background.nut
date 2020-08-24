@@ -203,25 +203,11 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/tattered_sackcloth"));
-		}
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/leather_wraps"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		//todo legends armor
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "tattered_sackcloth"],
+			[1, "leather_wraps"],
+			[2, ""]
+		]))
 	}
 
 	function onUpdate( _properties )

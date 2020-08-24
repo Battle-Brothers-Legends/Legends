@@ -48,7 +48,9 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.equip(this.new("scripts/items/weapons/legend_cat_o_nine_tails"));
 		items.equip(this.Const.World.Common.pickHelmet([[1, "cultist_hood"]]));
-		items.equip(this.new("scripts/items/armor/leather_wraps"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "leather_wraps"],
+		]));
 		bros[1].setStartValuesEx([
 			"cultist_background"
 		]);
@@ -60,7 +62,9 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
 		items.equip(this.new("scripts/items/weapons/two_handed_wooden_flail"));
-		items.equip(this.new("scripts/items/armor/cultist_leather_robe"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "cultist_leather_robe"],
+		]));
 		items.equip(this.Const.World.Common.pickHelmet([[1, "hood"]]));
 		bros[2].setStartValuesEx([
 			"cultist_background"
@@ -86,7 +90,9 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
 		items.equip(this.new("scripts/items/weapons/legend_cat_o_nine_tails"));
 		items.equip(this.Const.World.Common.pickHelmet([[1, "cultist_hood"]]));
-		items.equip(this.new("scripts/items/armor/leather_wraps"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "leather_wraps"],
+		]));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/ground_grains_item"));
 		this.World.Assets.m.Money = this.World.Assets.m.Money + 400;
 	}

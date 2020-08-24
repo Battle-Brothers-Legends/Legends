@@ -3,7 +3,7 @@ this.two_handed_saif <- this.inherit("scripts/items/weapons/weapon", {
 	function create()
 	{
 		this.weapon.create();
-		this.m.ID = "weapon.two_handed_scimitar";
+		this.m.ID = "weapon.two_handed_saif";
 		this.m.Name = "Two-Handed Saif";
 		this.m.Description = "A long version of the Saif wielded with both hands. The curved blade can cleave gruesome wounds.";
 		this.m.Categories = "Cleaver, Two-Handed";

@@ -154,27 +154,12 @@ this.miner_background <- this.inherit("scripts/skills/backgrounds/character_back
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
+
 		items.equip(this.new("scripts/items/weapons/pickaxe"));
-		r = this.Math.rand(0, 0);
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/sackcloth"));
-		}
-
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, ""],
-			[1, "mouth_piece"]
-		]));
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		items.equip(this.new("scripts/items/weapons/pickaxe"));
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_sackcloth"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "sackcloth"]
+		]))
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, ""],

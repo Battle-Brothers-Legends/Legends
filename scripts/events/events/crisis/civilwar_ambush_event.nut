@@ -134,29 +134,14 @@ this.civilwar_ambush_event <- this.inherit("scripts/events/event", {
 					item = this.new("scripts/items/shields/faction_kite_shield");
 					item.setFaction(banner);
 				}
-				else if (r == 3)
+				else
 				{
-					if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-					{
-						item = this.new("scripts/items/legend_armor/chain/legend_armor_mail_shirt");
-					}
-					else
-					{
-						item = this.new("scripts/items/armor/mail_shirt");
-					}
+					item = this.Const.World.Common.pickArmor([
+						[1, "mail_shirt"],
+						[1, "basic_mail_shirt"],
+					]);
 				}
-				else if (r == 4)
-				{
-					if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-					{
-						item = this.new("scripts/items/legend_armor/chain/legend_armor_mail_shirt_simple");
-					}
-					else
-					{
-						item = this.new("scripts/items/armor/basic_mail_shirt");
-					}
 
-				}
 
 				this.World.Assets.getStash().add(item);
 				this.List.push({

@@ -125,54 +125,10 @@ this.barbarian_thrall <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/shields/wooden_shield_old"));
 		}
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			local cloths = [
-				[1, ""],
-				[6, "cloth/legend_sackcloth_patched"],
-				[3, "cloth/legend_sackcloth"]
-			];
-			local armor = this.Const.World.Common.pickLegendArmor(cloths)
-
-			if (armor != null)
-			{
-				local plates = [
-					[0, ""],
-					[1, "plate/legend_animal_hide_armor"],
-					[0, "plate/legend_heavy_iron_armor"],
-					[0, "plate/legend_hide_and_bone_armor"],
-					[0, "plate/legend_reinforced_animal_hide_armor"],
-					[0, "plate/legend_rugged_scale_armor"],
-					[0, "plate/legend_scrap_metal_armor"],
-					[1, "plate/legend_thick_furs_armor"],
-					[0, "plate/legend_thick_plated_barbarian_armor"],
-				]
-				local plate = this.Const.World.Common.pickLegendArmor(plates)
-				if (plate != null)
-				{
-					armor.setUpgrade(plate)
-				}
-
-				this.m.Items.equip(armor);
-			}
-		}
-		else
-		{
-			if (this.Math.rand(1, 100) <= 60)
-			{
-				r = this.Math.rand(1, 2);
-
-				if (r == 1)
-				{
-					this.m.Items.equip(this.new("scripts/items/armor/barbarians/thick_furs_armor"));
-				}
-				else if (r == 2)
-				{
-					this.m.Items.equip(this.new("scripts/items/armor/barbarians/animal_hide_armor"));
-				}
-			}
-		}
-
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "barbarians/thick_furs_armor"],
+			[1, "barbarians/animal_hide_armor"]
+		]));
 
 
 		local item = this.Const.World.Common.pickHelmet([

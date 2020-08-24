@@ -1,6 +1,6 @@
 this.perk_head_hunter <- this.inherit("scripts/skills/skill", {
 	m = {
-		Stacks = 0,
+		Stacks = 1,
 		SkillCount = 0
 	},
 	function create()

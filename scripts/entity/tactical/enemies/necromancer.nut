@@ -83,14 +83,9 @@ this.necromancer <- this.inherit("scripts/entity/tactical/human", {
 		local item = this.Const.World.Common.pickHelmet([
 			[1, "witchhunter_hat"],
 			[1, "dark_cowl"],
-			[1, "hood"]
+			[1, "hood", 63]
 		])
-		if (item != null)
-		{
-			if (item.getID() == "armor.head.hood" || item.getID() == "armor.head.legend_helmet_hood")
-				item.setVariant(63);
-			this.m.Items.equip(item);
-		}
+		this.m.Items.equip(item);
 	}
 
 	function makeMiniboss()

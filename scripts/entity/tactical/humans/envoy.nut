@@ -45,14 +45,9 @@ this.envoy <- this.inherit("scripts/entity/tactical/player", {
 
 	function assignRandomEquipment()
 	{
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			this.m.Items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
-		}
-		else
-		{
-			this.m.Items.equip(this.new("scripts/items/armor/linen_tunic"));
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic"]
+		]));
 		local item = this.Const.World.Common.pickHelmet([
 			[1, "feathered_hat"],
 			[2, ""]

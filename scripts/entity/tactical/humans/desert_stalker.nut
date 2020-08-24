@@ -78,20 +78,9 @@ this.desert_stalker <- this.inherit("scripts/entity/tactical/human", {
 		];
 		this.m.Items.addToBag(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 
-		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				//todo legends armor
-			}
-			else
-			{
-				local armor = [
-					"armor/oriental/plated_nomad_mail"
-				];
-				this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-			}
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/plated_nomad_mail"]
+		]));
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head) && this.Math.rand(1, 100) <= 75)
 		{
@@ -127,7 +116,9 @@ this.desert_stalker <- this.inherit("scripts/entity/tactical/human", {
 		}
 		else
 		{
-			this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "named/black_leather_armor"]
+			]));
 		}
 
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));

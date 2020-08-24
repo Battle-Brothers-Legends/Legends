@@ -3,7 +3,7 @@ this.send_military_holysite_action <- this.inherit("scripts/factions/faction_act
 	function create()
 	{
 		this.m.ID = "send_military_holysite_action";
-		this.m.Cooldown = 360.0;
+		this.m.Cooldown = 600.0;
 		this.m.IsSettlementsRequired = true;
 		this.faction_action.create();
 	}

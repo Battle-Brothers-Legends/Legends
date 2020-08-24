@@ -137,131 +137,20 @@ this.knight <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(shield);
 		}
 
-		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local cloths = [
-					[0, ""],
-					[1, "cloth/legend_gambeson"],
-					[0, "cloth/legend_gambeson_plain"],
-					[0, "cloth/legend_gambeson_wolf"],
-					[1, "cloth/legend_padded_surcoat"],
-					[0, "cloth/legend_robes"],
-					[0, "cloth/legend_apron_butcher"],
-					[0, "cloth/legend_robes_nun"],
-					[0, "cloth/legend_apron_smith"],
-					[0, "cloth/legend_robes_wizard"],
-					[0, "cloth/legend_sackcloth"],
-					[0, "cloth/legend_sackcloth_patched"],
-					[0, "cloth/legend_sackcloth_tattered"],
-					[0, "cloth/legend_tunic"],
-					[0, "cloth/legend_tunic_noble"]
-				];
-				local armor = this.Const.World.Common.pickLegendArmor(cloths)
-
-				if (armor != null)
-				{
-					local chains = [
-						[0, ""],
-						[1, "chain/legend_armor_mail_shirt"],
-						[0, "chain/legend_armor_mail_shirt_simple"],
-						[0, "chain/legend_armor_rusty_mail_shirt"],
-						[0, "chain/legend_armor_ancient_double_mail"],
-						[0, "chain/legend_armor_ancient_mail"],
-						[1, "chain/legend_armor_basic_mail"],
-						[1, "chain/legend_armor_hauberk"],
-						[1, "chain/legend_armor_hauberk_full"],
-						[1, "chain/legend_armor_hauberk_sleevless"],
-						[1, "chain/legend_armor_reinforced_mail"],
-						[0, "chain/legend_armor_reinforced_mail_shirt"],
-						[0, "chain/legend_armor_reinforced_rotten_mail_shirt"],
-						[0, "chain/legend_armor_reinforced_worn_mail"],
-						[0, "chain/legend_armor_reinforced_worn_mail_shirt"],
-						[0, "chain/legend_armor_short_mail"]
-					]
-
-					local chain = this.Const.World.Common.pickLegendArmor(chains)
-					if (chain != null)
-					{
-						armor.setUpgrade(chain)
-					}
-
-					local plates = [
-						[0, ""],
-						[0, "plate/legend_armor_leather_brigandine"],
-						[0, "plate/legend_armor_leather_brigandine_hardened"],
-						[0, "plate/legend_armor_leather_brigandine_hardened_full"],
-						[0, "plate/legend_armor_leather_jacket"],
-						[0, "plate/legend_armor_leather_jacket_simple"],
-						[0, "plate/legend_armor_leather_lamellar"],
-						[0, "plate/legend_armor_leather_lamellar_harness_heavy"],
-						[0, "plate/legend_armor_leather_lamellar_harness_reinforced"],
-						[0, "plate/legend_armor_leather_lamellar_heavy"],
-						[0, "plate/legend_armor_leather_lamellar_reinforced"],
-						[0, "plate/legend_armor_leather_noble"],
-						[0, "plate/legend_armor_leather_padded"],
-						[0, "plate/legend_armor_leather_riveted"],
-						[0, "plate/legend_armor_leather_riveted_light"],
-						[0, "plate/legend_armor_leather_scale"],
-						[0, "plate/legend_armor_plate_ancient_chest"],
-						[0, "plate/legend_armor_plate_ancient_harness"],
-						[0, "plate/legend_armor_plate_ancient_mail"],
-						[0, "plate/legend_armor_plate_ancient_scale"],
-						[0, "plate/legend_armor_plate_ancient_scale_coat"],
-						[0, "plate/legend_armor_plate_ancient_scale_harness"],
-						[9, "plate/legend_armor_plate_chest"],
-						[0, "plate/legend_armor_plate_chest_rotten"],
-						[20, "plate/legend_armor_plate_cuirass"],
-						[20, "plate/legend_armor_plate_full"],
-						[10, "plate/legend_armor_plate_full_greaves"],
-						[1, "plate/legend_armor_plate_full_greaves_painted"],
-						[20, "plate/legend_armor_scale"],
-						[20, "plate/legend_armor_scale_coat"],
-						[0, "plate/legend_armor_scale_coat_rotten"],
-						[0, "plate/legend_armor_scale_shirt"]
-					]
-					local plate = this.Const.World.Common.pickLegendArmor(plates)
-					if (plate != null)
-					{
-						armor.setUpgrade(plate)
-					}
-
-					this.m.Items.equip(armor);
-				}
-			}
-			else
-			{
-				r = this.Math.rand(1, 3);
-
-				if (r == 1)
-				{
-					this.m.Items.equip(this.new("scripts/items/armor/coat_of_plates"));
-				}
-				else if (r == 2)
-				{
-					this.m.Items.equip(this.new("scripts/items/armor/coat_of_scales"));
-				}
-				else if (r == 3)
-				{
-					this.m.Items.equip(this.new("scripts/items/armor/reinforced_mail_hauberk"));
-				}
-			}
-
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "named/coat_of_plates"],
+			[1, "named/coat_of_scales"],
+			[1, "named/reinforced_mail_hauberk"]
+		]));
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{
 			this.m.Items.equip(this.Const.World.Common.pickHelmet([
 				[45, "feathered_hat"],
-				[44, "faction_helm"],
+				[44, "faction_helm", banner],
 				[6, "legend_frogmouth_helm"],
 				[1, "legend_frogmouth_helm_crested"]
 			]))
-			local helm = this.m.Items.getItemAtSlot(this.Const.ItemSlot.Head);
-			local id = helm.getID();
-			if (id == "armor.head.legend_helmet_faction_helm")
-				helm.setVariant(banner);
 		}
 	}
 
@@ -287,12 +176,6 @@ this.knight <- this.inherit("scripts/entity/tactical/human", {
 			"armor/named/heraldic_mail_armor"
 		];
 
-		local legend_armor = [
-			"legend_armor/named/legend_brown_coat_of_plates_armor",
-			"legend_armor/named/legend_golden_scale_armor",
-			"legend_armor/named/legend_green_coat_of_plates_armor",
-			"legend_armor/named/legend_heraldic_mail_armor"
-		];
 		local r = this.Math.rand(1, 3);
 
 		if (r == 1)
@@ -305,25 +188,13 @@ this.knight <- this.inherit("scripts/entity/tactical/human", {
 		}
 		else
 		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local item = this.new("scripts/items/" + legend_armor[this.Math.rand(0, armor.len() - 1)]);
-				local upgrades = [
-					[79, ""],
-					[20, "cloak/legend_armor_cloak_noble"],
-					[1, "cloak/legend_armor_cloak_rich"]
-				];
-				local upgrade = this.Const.World.Common.pickLegendArmor(upgrades)
-				if (upgrade != null)
-				{
-					item.setUpgrade(upgrade)
-				}
-				this.m.Items.equip(item)
-			}
-			else
-			{
-				this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-			}
+			this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
+			local h = this.Const.World.Common.pickArmor(
+				this.Const.World.Common.convNameToList(
+					armor
+				)
+			)
+			this.m.Items.equip(h);
 		}
 		this.m.Items.equip(this.Const.World.Common.pickHelmet([
 			[1, "named/legend_frogmouth_helm_crested_painted"]

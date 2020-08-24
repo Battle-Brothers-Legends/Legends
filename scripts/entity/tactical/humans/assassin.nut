@@ -77,15 +77,9 @@ this.assassin <- this.inherit("scripts/entity/tactical/human", {
 		{
 			this.m.Items.equip(this.new("scripts/items/weapons/shamshir"));
 		}
-
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else
-		{
-			this.m.Items.equip(this.new("scripts/items/armor/oriental/assassin_robe"));
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "oriental/assassin_robe"]
+		]));
 		this.m.Items.equip(this.Const.World.Common.pickHelmet([
 				[1, "oriental/assassin_head_wrap"],
 				[1, "oriental/assassin_face_mask"]

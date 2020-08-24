@@ -141,7 +141,9 @@ this.intercept_raiding_parties_contract <- this.inherit("scripts/contracts/contr
 					this.Contract.m.Objectives.push(locations[r].getID());
 				}
 
-				for( local i = 0; i < 3; i = ++i )
+				local g = this.Contract.getDifficultyMult() > 1.1 ? 3 : 2;
+
+				for( local i = 0; i < g; i = ++i )
 				{
 					local tile = this.Contract.getTileToSpawnLocation(this.World.getTileSquare(this.Contract.m.Destination.getTile().SquareCoords.X, this.Contract.m.Destination.getTile().SquareCoords.Y - 12), 0, 10);
 					local party;

@@ -84,7 +84,7 @@ this.ammo <- this.inherit("scripts/items/item", {
 
 	function isDroppedAsLoot()
 	{
-		return this.item.isDroppedAsLoot() && (this.getCurrentSlotType() != this.Const.ItemSlot.Bag || this.m.LastEquippedByFaction == this.Const.Faction.Player) && this.Math.rand(1, 100) <= 66;
+		return this.item.isDroppedAsLoot() && (this.getCurrentSlotType() != this.Const.ItemSlot.Bag || this.m.LastEquippedByFaction == this.Const.Faction.Player) && (this.m.LastEquippedByFaction == this.Const.Faction.Player || this.Math.rand(1, 100) <= 66);
 	}
 
 	function onEquip()

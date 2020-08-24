@@ -130,82 +130,16 @@ this.civilwar_wounded_soldier_event <- this.inherit("scripts/events/event", {
 
 		if (r == 1)
 		{
-
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				item = this.new("scripts/items/legend_armor/armor/legend_armor_heraldic");
-				item.setupArmor(banner);
-			}
-			else
-			{
-				item = this.new("scripts/items/armor/special/heraldic_armor");
-				item.setFaction(banner);
-			}
-		}
-		else if (r == 2)
-		{
 			item = this.Const.World.Common.pickHelmet([[1, "faction_helm"]]);
 			item.setVariant(banner);
 		}
-		else if (r == 3)
+		else
 		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local chains = [
-                [0, ""],
-                [1, "chain/legend_armor_mail_shirt"],
-				[1, "chain/legend_armor_mail_shirt_simple"],
-				[0, "chain/legend_armor_rusty_mail_shirt"],
-				[0, "chain/legend_armor_ancient_double_mail"],
-				[0, "chain/legend_armor_ancient_mail"],
-				[1, "chain/legend_armor_basic_mail"],
-				[1, "chain/legend_armor_hauberk"],
-				[1, "chain/legend_armor_hauberk_full"],
-				[1, "chain/legend_armor_hauberk_sleevless"],
-				[1, "chain/legend_armor_reinforced_mail"],
-				[1, "chain/legend_armor_reinforced_mail_shirt"],
-				[0, "chain/legend_armor_reinforced_rotten_mail_shirt"],
-				[1, "chain/legend_armor_reinforced_worn_mail"],
-				[1, "chain/legend_armor_reinforced_worn_mail_shirt"],
-				[1, "chain/legend_armor_short_mail"]
-				]
-				item = this.Const.World.Common.pickLegendArmor(chains)
-			}
-			else
-			{
-				item = this.new("scripts/items/armor/mail_shirt");
-			}
-
-		}
-		else if (r == 4)
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local chains = [
-                [0, ""],
-                [1, "chain/legend_armor_mail_shirt"],
-				[1, "chain/legend_armor_mail_shirt_simple"],
-				[0, "chain/legend_armor_rusty_mail_shirt"],
-				[0, "chain/legend_armor_ancient_double_mail"],
-				[0, "chain/legend_armor_ancient_mail"],
-				[1, "chain/legend_armor_basic_mail"],
-				[1, "chain/legend_armor_hauberk"],
-				[1, "chain/legend_armor_hauberk_full"],
-				[1, "chain/legend_armor_hauberk_sleevless"],
-				[1, "chain/legend_armor_reinforced_mail"],
-				[1, "chain/legend_armor_reinforced_mail_shirt"],
-				[0, "chain/legend_armor_reinforced_rotten_mail_shirt"],
-				[1, "chain/legend_armor_reinforced_worn_mail"],
-				[1, "chain/legend_armor_reinforced_worn_mail_shirt"],
-				[1, "chain/legend_armor_short_mail"]
-				]
-				item = this.Const.World.Common.pickLegendArmor(chains)
-			}
-			else
-			{
-				item = this.new("scripts/items/armor/mail_hauberk");
-				item.setVariant(28);
-			}
+			item = this.Const.World.Common.pickArmor([
+				[1, "special/heraldic_armor", null, banner],
+				[1, "mail_shirt"],
+				[1, "mail_hauberk", 28],
+			]);
 		}
 
 		item.setCondition(44.0);

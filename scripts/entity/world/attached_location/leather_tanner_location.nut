@@ -170,7 +170,7 @@ this.leather_tanner_location <- this.inherit("scripts/entity/world/attached_loca
 			local armorsL = [
 				[10, 1.0, "plate/legend_armor_leather_jacket"],
 				[5, 1.0, "plate/legend_armor_leather_jacket_simple"],
-				[10, 1.0, "cloth/legend_apron_smith"],
+				[10, 1.0, "cloth/legend_apron"],
 				[20, 1.0, "plate/legend_armor_leather_padded"],
 				[60, 1.0, "plate/legend_armor_leather_noble"],
 				[35, 1.0, "plate/legend_armor_leather_lamellar_harness_reinforced"],

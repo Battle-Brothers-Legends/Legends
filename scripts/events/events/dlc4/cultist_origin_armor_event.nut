@@ -41,16 +41,9 @@ this.cultist_origin_armor_event <- this.inherit("scripts/events/event", {
 						break;
 					}
 				}
-				local item;
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item = this.new("scripts/items/legend_armor/armor/legend_armor_robes_cultist");
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/cultist_leather_robe");
-				}
-
+				local item = this.Const.World.Common.pickArmor([
+					[1, "cultist_leather_robe"],
+				]);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,

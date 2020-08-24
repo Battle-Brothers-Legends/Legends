@@ -77,6 +77,12 @@ this.serpent <- this.inherit("scripts/entity/tactical/actor", {
 		this.actor.playSound(_type, _volume, _pitch);
 	}
 
+	function retreat()
+	{
+		this.Tactical.getTemporaryRoster().remove(this);
+		this.actor.retreat();
+	}
+
 	function onDeath( _killer, _skill, _tile, _fatalityType )
 	{
 		if (_tile != null)

@@ -56,5 +56,10 @@ this.arena_collar_item <- this.inherit("scripts/items/accessory/accessory", {
 		return result;
 	}
 
+	function getBuyPrice()
+	{
+		return 1000000;
+	}
+
 });
 

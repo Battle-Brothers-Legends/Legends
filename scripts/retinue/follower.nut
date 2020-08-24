@@ -53,6 +53,11 @@ this.follower <- {
 		return true;
 	}
 
+	function isVisible()
+	{
+		return true;
+	}
+
 	function isUnlocked()
 	{
 		for( local i = 0; i < this.m.Requirements.len(); i = ++i )

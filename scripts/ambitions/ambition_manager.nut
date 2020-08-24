@@ -92,7 +92,7 @@ this.ambition_manager <- {
 			return false;
 		}
 
-		if (this.Time.getVirtualTimeF() - this.World.Events.getLastBattleTime() < 2.0)
+		if (this.Time.getVirtualTimeF() - this.World.Events.getLastBattleTime() < 3.0)
 		{
 			return false;
 		}
@@ -107,7 +107,7 @@ this.ambition_manager <- {
 			return false;
 		}
 
-		if (this.m.Thread == null && this.m.Selection == null && this.Time.getVirtualTimeF() - this.m.LastTime < 3.0 * this.World.getTime().SecondsPerHour)
+		if (this.m.Thread == null && this.m.Selection == null && this.Time.getVirtualTimeF() - this.m.LastTime < 1.0 * this.World.getTime().SecondsPerHour)
 		{
 			return false;
 		}

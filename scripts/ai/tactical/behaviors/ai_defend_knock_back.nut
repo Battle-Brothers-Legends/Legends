@@ -329,7 +329,7 @@ this.ai_defend_knock_back <- this.inherit("scripts/ai/tactical/behavior", {
 						score = score * this.Const.AI.Behavior.KnockBackIntoAlliesMult;
 					}
 
-					if (isKnockToTileLocked && tile.Properties.Effect != null && !tile.Properties.Effect.IsPositive && tile.Properties.Effect.Applicable(t) && (!t.isTurnDone() || tile.Properties.Effect.Timeout > this.Time.getRound() + 1))
+					if (isKnockToTileLocked && this.hasNegativeTileEffect(tile, t) && !this.hasNegativeTileEffect(targetTile, t) && (!t.isTurnDone() || tile.Properties.Effect.Timeout > this.Time.getRound() + 1))
 					{
 						isGoodReason = true;
 						score = score * this.Const.AI.Behavior.KnockBackIntoTileEffectMult;

@@ -147,24 +147,10 @@ this.historian_background <- this.inherit("scripts/skills/backgrounds/character_
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 0);
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/linen_tunic"));
-		}
-
-		items.equip(this.Const.World.Common.pickHelmet([
-				[1, "feathered_hat"],
-				[3, ""]
-		]))
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic"]
+		]));
 
 		items.equip(this.Const.World.Common.pickHelmet([
 				[1, "feathered_hat"],

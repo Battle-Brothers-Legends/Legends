@@ -56,13 +56,19 @@ this.ghost_agent <- this.inherit("scripts/ai/tactical/agent", {
 			}
 		}
 
-		if (!this.Tactical.State.isAutoRetreat() && !strategy.getStats().IsEngaged && this.m.Actor.getAttackedCount() <= 3 && this.m.KnownAllies.len() >= 6 && ghosts < this.m.KnownAllies.len() - 1 && strategy.getStats().ShortestDistanceToEnemyNotMoved >= 3)
+		if (!this.Tactical.State.isAutoRetreat() && !strategy.getStats().IsEngaged && this.m.Actor.getAttackedCount() <= 3 && this.m.KnownAllies.len() >= 6 && ghosts < this.m.KnownAllies.len() - 1 && this.Time.getRound() <= 1)
 		{
+			this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.EngageMelee] = 0.0;
+		}
+		else if (!this.Tactical.State.isAutoRetreat() && !strategy.getStats().IsEngaged && this.m.Actor.getAttackedCount() <= 3 && this.m.KnownAllies.len() >= 6 && ghosts < this.m.KnownAllies.len() - 1 && strategy.getStats().ShortestDistanceToEnemyNotMoved >= 3)
+		{
+			this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.EngageMelee] = 1.0;
 			this.m.Properties.EngageTileLimit = 2;
 			this.m.Properties.PreferWait = true;
 		}
 		else
 		{
+			this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.EngageMelee] = 1.0;
 			this.m.Properties.PreferWait = false;
 			this.m.Properties.EngageTileLimit = 0;
 		}

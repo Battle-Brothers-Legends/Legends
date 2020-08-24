@@ -213,7 +213,9 @@ this.legend_trader_background <- this.inherit("scripts/skills/backgrounds/charac
 	{
 		local items = this.getContainer().getActor().getItems();
 		items.equip(this.new("scripts/items/weapons/legend_tipstaff"));
-		items.equip(this.new("scripts/items/armor/linen_tunic"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic"]
+		]));
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "feathered_hat"]
 		]));
@@ -233,35 +235,5 @@ this.legend_trader_background <- this.inherit("scripts/skills/backgrounds/charac
 		// stash.add(this.new("scripts/items/tents/tent_scout"));
 		// stash.add(this.new("scripts/items/tents/tent_scrap"));
 		// stash.add(this.new("scripts/items/tents/tent_train"));
-
-
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/weapons/legend_tipstaff"));
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "feathered_hat"]
-		]));
-		// local stash = this.World.Assets.getStash()
-		// stash.removeByID("supplies.ground_grains");
-		// stash.removeByID("supplies.ground_grains");
-		// stash.add(this.new("scripts/items/trade/cloth_rolls_item"));
-		// stash.add(this.new("scripts/items/misc/snake_oil_item"));
-		// stash.add(this.new("scripts/items/supplies/dried_fruits_item"));
-		// stash.add(this.new("scripts/items/tents/tent_craft"));
-		// stash.add(this.new("scripts/items/tents/tent_enchant"));
-		// stash.add(this.new("scripts/items/tents/tent_fletcher"));
-		// stash.add(this.new("scripts/items/tents/tent_gather"));
-		// stash.add(this.new("scripts/items/tents/tent_heal"));
-		// stash.add(this.new("scripts/items/tents/tent_hunter"));
-		// stash.add(this.new("scripts/items/tents/tent_repair"));
-		// stash.add(this.new("scripts/items/tents/tent_scout"));
-		// stash.add(this.new("scripts/items/tents/tent_scrap"));
-		// stash.add(this.new("scripts/items/tents/tent_train"));
-
-
 	}
 });

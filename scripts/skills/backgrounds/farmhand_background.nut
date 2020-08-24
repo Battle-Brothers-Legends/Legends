@@ -195,71 +195,10 @@ this.farmhand_background <- this.inherit("scripts/skills/backgrounds/character_b
 		items.equip(this.new("scripts/items/weapons/legend_wooden_pitchfork"));
 		}
 
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/sackcloth"));
-		}
-		else
-		{
-			local item = this.new("scripts/items/armor/linen_tunic");
-			item.setVariant(this.Math.rand(6, 7));
-			items.equip(item);
-		}
-
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "straw_hat"],
-			[2, ""]
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "sackcloth"],
+			[1, "linen_tunic", this.Math.rand(6, 7)]
 		]));
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-		items.equip(this.new("scripts/items/weapons/legend_scythe"));
-		}
-		else if (r == 1)
-		{
-		items.equip(this.new("scripts/items/weapons/wooden_flail"));
-		}
-		else if (r == 2)
-		{
-		items.equip(this.new("scripts/items/weapons/legend_hoe"));
-		}
-		else if (r == 3)
-		{
-		items.equip(this.new("scripts/items/weapons/pitchfork"));
-		}
-		else if (r == 4)
-		{
-		items.equip(this.new("scripts/items/weapons/legend_wooden_pitchfork"));
-		}
-
-		local cloths = [
-            [0, ""],
-			[0, "cloth/legend_gambeson"],
-			[0, "cloth/legend_gambeson_plain"],
-			[0, "cloth/legend_gambeson_wolf"],
-			[0, "cloth/legend_padded_surcoat"],
-			[0, "cloth/legend_robes"],
-			[0, "cloth/legend_apron_butcher"],
-			[0, "cloth/legend_robes_nun"],
-			[0, "cloth/legend_apron_smith"],
-			[0, "cloth/legend_robes_wizard"],
-			[1, "cloth/legend_sackcloth"],
-			[0, "cloth/legend_sackcloth_patched"],
-			[0, "cloth/legend_sackcloth_tattered"],
-			[1, "cloth/legend_tunic"],
-			[0, "cloth/legend_tunic_noble"]
-		];
-		local armor = this.Const.World.Common.pickLegendArmor(cloths)
-		items.equip(armor)
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "straw_hat"],

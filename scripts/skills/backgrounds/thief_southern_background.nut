@@ -47,38 +47,16 @@ this.thief_southern_background <- this.inherit("scripts/skills/backgrounds/thief
 		local items = this.getContainer().getActor().getItems();
 		local r;
 		items.equip(this.new("scripts/items/weapons/knife"));
-		r = this.Math.rand(0, 2);
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/sackcloth"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/cloth_sash"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/nomad_robe"));
-		}
-
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "sackcloth"],
+			[1, "oriental/cloth_sash"],
+			[1, "oriental/nomad_robe"]
+		]))
+		items.equip(this.Const.World.Common.pickHelmet([
+			[1, "oriental/nomad_head_wrap"]
+		]))
 		items.equip(this.new("scripts/items/helmets/oriental/nomad_head_wrap"));
 	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		items.equip(this.new("scripts/items/weapons/knife"));
-
-		//todo legends armor
-
-		r = this.Math.rand(1, 2);
-		local helm = this.Const.World.Common.pickHelmet([
-			[1, "oriental/nomad_head_wrap"]
-		]);
-		items.equip(helm);
-	}
-
 });
 

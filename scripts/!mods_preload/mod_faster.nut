@@ -197,34 +197,35 @@
 	}
 });
 
-::mods_hookNewObject("ai/tactical/behaviors/ai_defend_rotation ", function(o) {
-	o.onExecute = function( _entity )
-	{
-		if (this.m.IsFirstExecuted)
-		{
-			this.getAgent().adjustCameraToTarget(this.m.TargetTile);
-			this.m.IsFirstExecuted = false;
-			return false;
-		}
+// ::mods_hookNewObject("ai/tactical/behaviors/ai_defend_rotation ", function(o) {
+// 	o.onExecute = function( _entity )
+// 	{
+// 		if (this.m.IsFirstExecuted)
+// 		{
+// 			this.getAgent().adjustCameraToTarget(this.m.TargetTile);
+// 			this.m.IsFirstExecuted = false;
+// 			return false;
+// 		}
 
-		if (this.Const.AI.VerboseMode)
-		{
-			this.logInfo("* " + _entity.getName() + ": Using Rotation!");
-		}
+// 		if (this.Const.AI.VerboseMode)
+// 		{
+// 			this.logInfo("* " + _entity.getName() + ": Using Rotation!");
+// 		}
 
-		this.m.Skill.use(this.m.TargetTile);
+// 		this.m.Skill.use(this.m.TargetTile);
 
-		if (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer)
-		{
-			this.getAgent().declareEvaluationDelay(2000);
-			this.getAgent().declareAction();
-		}
+// 		if (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer)
+// 		{
+// 			this.getAgent().declareEvaluationDelay(2000);
+// 			this.getAgent().declareAction();
+// 		}
 
-		this.m.TargetTile = null;
-		this.m.Skill = null;
-		return true;
-	}
-});
+// 		this.m.TargetTile = null;
+// 		this.m.Skill = null;
+// 		return true;
+// 	}
+
+// });
 
 //ALP FIX
 ::mods_hookNewObject("ai/tactical/behaviors/ai_sleep", function(o) {
@@ -254,6 +255,47 @@
 
 		this.m.Skill = null;
 		this.m.TargetTile = null;
+		return true;
+	}
+});
+
+// HACK: a similar problem exists for golems merging
+::mods_hookNewObject("ai/tactical/behaviors/ai_merge", function(o) {
+  o.onExecute = function( _entity )
+	{
+		if (this.m.IsWaiting)
+		{
+			if (this.Tactical.TurnSequenceBar.entityWaitTurn(_entity))
+			{
+				if (this.Const.AI.VerboseMode)
+				{
+					this.logInfo("* " + _entity.getName() + ": Waiting for others to act!");
+				}
+
+				return true;
+			}
+			else
+			{
+				this.m.IsWaiting = false;
+			}
+		}
+		else
+		{
+			this.m.Skill.use(_entity.getTile());
+
+			if (_entity.isAlive())
+			{
+				this.getAgent().declareAction();
+
+				if (this.m.Skill.getDelay() != 0)
+				{
+					this.getAgent().declareEvaluationDelay(this.m.Skill.getDelay() + 850);
+				}
+			}
+
+			this.m.Skill = null;
+		}
+
 		return true;
 	}
 });

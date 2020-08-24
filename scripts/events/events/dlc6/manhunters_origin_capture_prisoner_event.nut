@@ -92,7 +92,7 @@ this.manhunters_origin_capture_prisoner_event <- this.inherit("scripts/events/ev
 				_event.m.Dude.setStartValuesEx([
 					"slave_background"
 				]);
-				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so he may pay his debt to the Gilder.";
+				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so that he may pay his debt to the Gilder.";
 				_event.m.Dude.getBackground().buildDescription(true);
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
@@ -137,7 +137,7 @@ this.manhunters_origin_capture_prisoner_event <- this.inherit("scripts/events/ev
 				_event.m.Dude.setStartValuesEx([
 					"slave_background"
 				]);
-				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so he may pay his debt to the Gilder.";
+				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so that he may pay his debt to the Gilder.";
 				_event.m.Dude.getBackground().buildDescription(true);
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
@@ -182,7 +182,7 @@ this.manhunters_origin_capture_prisoner_event <- this.inherit("scripts/events/ev
 				_event.m.Dude.setStartValuesEx([
 					"slave_southern_background"
 				]);
-				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so he may pay his debt to the Gilder.";
+				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so that he may pay his debt to the Gilder.";
 				_event.m.Dude.getBackground().buildDescription(true);
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
@@ -227,7 +227,7 @@ this.manhunters_origin_capture_prisoner_event <- this.inherit("scripts/events/ev
 				_event.m.Dude.setStartValuesEx([
 					"slave_southern_background"
 				]);
-				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so he may pay his debt to the Gilder.";
+				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so that he may pay his debt to the Gilder.";
 				_event.m.Dude.getBackground().buildDescription(true);
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
@@ -272,7 +272,7 @@ this.manhunters_origin_capture_prisoner_event <- this.inherit("scripts/events/ev
 				_event.m.Dude.setStartValuesEx([
 					"slave_barbarian_background"
 				]);
-				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so he may pay his debt to the Gilder.";
+				_event.m.Dude.getBackground().m.RawDescription = "%name% was taken as an indebted after barely surviving a battle against your men. His spirit was broken and he was forced to fight for you, so that he may pay his debt to the Gilder.";
 				_event.m.Dude.getBackground().buildDescription(true);
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}

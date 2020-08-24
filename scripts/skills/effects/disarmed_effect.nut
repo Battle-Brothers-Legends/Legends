@@ -53,7 +53,7 @@ this.disarmed_effect <- this.inherit("scripts/skills/skill", {
 	function onRemoved()
 	{
 		local actor = this.getContainer().getActor();
-		actor.getSprite("status_stunned").Visible = false;
+		actor.getSprite("arms_icon").Visible = true;
 
 		if (!this.getContainer().hasSkill("effects.stunned"))
 		{

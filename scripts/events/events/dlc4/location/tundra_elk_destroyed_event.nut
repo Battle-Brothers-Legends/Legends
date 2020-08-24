@@ -50,15 +50,9 @@ this.tundra_elk_destroyed_event <- this.inherit("scripts/events/event", {
 					text = "You gain " + item.getName()
 				});
 
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item = this.new("scripts/items/legend_armor/legendary/legend_ijirok_armor");
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/legendary/ijirok_armor");
-				}
-
+				item = this.Const.World.Common.pickArmor([
+					[1, "legendary/ijirok_armor"],
+				]);
 
 				this.World.Assets.getStash().add(item);
 				this.List.push({

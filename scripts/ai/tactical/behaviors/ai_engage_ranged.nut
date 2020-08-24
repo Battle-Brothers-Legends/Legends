@@ -178,7 +178,6 @@ this.ai_engage_ranged <- this.inherit("scripts/ai/tactical/behavior", {
 				this.logInfo("* " + _entity.getName() + ": It\'s important that I get some distance from my opponents...");
 			}
 
-			this.logInfo("danger mult = " + this.Math.maxf(this.getProperties().OverallDefensivenessMult * 0.5, this.m.CurrentDanger / this.Math.maxf(1.0, this.m.TargetDanger)));
 			scoreMult = scoreMult * this.Math.maxf(this.getProperties().OverallDefensivenessMult * 0.5, this.m.CurrentDanger / this.Math.maxf(1.0, this.m.TargetDanger));
 		}
 

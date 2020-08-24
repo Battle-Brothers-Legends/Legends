@@ -123,7 +123,7 @@ this.scenario_early_game <- this.inherit("scripts/scenarios/tactical/scenario_te
 			entity.assignRandomEquipment();
 		}
 
-		for( local i = 0; i < 5; i = ++i )
+		for( local i = 0; i < 4; i = ++i )
 		{
 			entity = this.spawnEntity("scripts/entity/tactical/enemies/zombie_yeoman");
 			entity.setFaction(this.Const.Faction.Undead);

@@ -565,7 +565,7 @@ this.item <- {
 
 	function drop( _tile = null )
 	{
-		local isPlayer = this.m.Container != null && this.m.Container.getActor() != null && this.m.Container.getActor().isPlayerControlled();
+		local isPlayer = this.m.LastEquippedByFaction == this.Const.Faction.Player || this.m.Container != null && this.m.Container.getActor() != null && !this.m.Container.getActor().isNull() && this.isKindOf(this.m.Container.getActor().get(), "player");
 		local isDropped = this.isDroppedAsLoot() && (this.Tactical.State.getStrategicProperties() == null || !this.Tactical.State.getStrategicProperties().IsArenaMode || isPlayer);
 
 		if (this.m.Container != null)

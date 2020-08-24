@@ -112,29 +112,9 @@ this.gladiator <- this.inherit("scripts/entity/tactical/human", {
 		}
 
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else
-		{
-			r = this.Math.rand(1, 2);
-			local a = this.new("scripts/items/armor/oriental/gladiator_harness");
-			local u;
-			r = this.Math.rand(1, 2);
-
-			if (r == 1)
-			{
-				u = this.new("scripts/items/armor_upgrades/light_gladiator_upgrade");
-			}
-			else if (r == 2)
-			{
-				u = this.new("scripts/items/armor_upgrades/heavy_gladiator_upgrade");
-			}
-
-			a.setUpgrade(u);
-			this.m.Items.equip(a);
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/gladiator_harness"]
+		]));
 		
 		local helm = this.Const.World.Common.pickHelmet([
 			[1, "oriental/gladiator_helmet"],

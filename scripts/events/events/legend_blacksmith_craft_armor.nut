@@ -87,15 +87,10 @@ this.legend_blacksmith_craft_armor <- this.inherit("scripts/events/event", {
 					icon = "ui/icons/asset_money.png",
 					text = "You spend [color=" + this.Const.UI.Color.NegativeEventValue + "]10000[/color] Crowns"
 				});
-				local item = null;
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item = this.new("scripts/items/legend_armor/named/legend_named_golden_lamellar_armor");
-				}
-				else
-				{
-					item =  this.new("scripts/items/armor/named/named_golden_lamellar_armor");
-				}
+				local item = this.Const.World.Common.pickArmor([
+					[1, "named/named_golden_lamellar_armor"],
+				]);
+
 				item.m.Name = _event.m.Blacksmith.getNameOnly() + "\'s golden lamellar armor";
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -141,7 +136,9 @@ this.legend_blacksmith_craft_armor <- this.inherit("scripts/events/event", {
 					icon = "ui/icons/asset_money.png",
 					text = "You spend [color=" + this.Const.UI.Color.NegativeEventValue + "]10000[/color] Crowns"
 				});
-				local item = this.new("scripts/items/armor/heavy_lamellar_armor");
+				local item = this.Const.World.Common.pickArmor([
+					[1, "heavy_lamellar_armor"],
+				]);
 				item.m.Name = _event.m.Blacksmith.getNameOnly() + "\'s " + item.m.Name;
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -200,15 +197,10 @@ this.legend_blacksmith_craft_armor <- this.inherit("scripts/events/event", {
 					}
 				}
 
-				local item = null;
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item = this.new("scripts/items/legend_armor/named/legend_named_golden_lamellar_armor");
-				}
-				else
-				{
-					item =  this.new("scripts/items/armor/named/named_golden_lamellar_armor");
-				}
+				local item = this.Const.World.Common.pickArmor([
+					[1, "named/named_golden_lamellar_armor"],
+				]);
+
 				item.m.Name = _event.m.Blacksmith.getNameOnly() + "\'s golden lamellar armor";
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -275,47 +267,10 @@ this.legend_blacksmith_craft_armor <- this.inherit("scripts/events/event", {
 						break;
 					}
 				}
-				local item
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					local plates = [
-						[0, ""],
-						[0, "plate/legend_armor_leather_brigandine"],
-						[0, "plate/legend_armor_leather_brigandine_hardened"],
-						[0, "plate/legend_armor_leather_brigandine_hardened_full"],
-						[0, "plate/legend_armor_leather_jacket"],
-						[0, "plate/legend_armor_leather_jacket_simple"],
-						[1, "plate/legend_armor_leather_lamellar"],
-						[1, "plate/legend_armor_leather_lamellar_harness_heavy"],
-						[1, "plate/legend_armor_leather_lamellar_harness_reinforced"],
-						[1, "plate/legend_armor_leather_lamellar_heavy"],
-						[1, "plate/legend_armor_leather_lamellar_reinforced"],
-						[0, "plate/legend_armor_leather_noble"],
-						[0, "plate/legend_armor_leather_padded"],
-						[0, "plate/legend_armor_leather_riveted"],
-						[0, "plate/legend_armor_leather_riveted_light"],
-						[0, "plate/legend_armor_leather_scale"],
-						[0, "plate/legend_armor_plate_ancient_chest"],
-						[0, "plate/legend_armor_plate_ancient_harness"],
-						[0, "plate/legend_armor_plate_ancient_mail"],
-						[0, "plate/legend_armor_plate_ancient_scale"],
-						[0, "plate/legend_armor_plate_ancient_scale_coat"],
-						[0, "plate/legend_armor_plate_ancient_scale_harness"],
-						[0, "plate/legend_armor_plate_chest"],
-						[0, "plate/legend_armor_plate_chest_rotten"],
-						[0, "plate/legend_armor_plate_cuirass"],
-						[0, "plate/legend_armor_plate_full"],
-						[0, "plate/legend_armor_scale"],
-						[0, "plate/legend_armor_scale_coat"],
-						[0, "plate/legend_armor_scale_coat_rotten"],
-						[0, "plate/legend_armor_scale_shirt"]
-					]
-					item = this.Const.World.Common.pickLegendArmor(plates)
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/heavy_lamellar_armor");
-				}
+
+				local item = this.Const.World.Common.pickArmor([
+					[1, "heavy_lamellar_armor"],
+				]);
 
 				item.m.Name = _event.m.Blacksmith.getNameOnly() + "\'s " + item.m.Name;
 				this.World.Assets.getStash().add(item);

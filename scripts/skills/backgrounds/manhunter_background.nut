@@ -137,59 +137,16 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 		}
 
 		items.equip(this.new("scripts/items/tools/throwing_net"));
-		r = this.Math.rand(0, 1);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/nomad_robe"],
+			[1, "oriental/thick_nomad_robe"]
+		]))
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/nomad_robe"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/thick_nomad_robe"));
-		}
-
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/southern_head_wrap"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/battle_whip"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/wooden_stick"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/weapons/bludgeon"));
-		}
-		else if (r == 3)
-		{
-			items.equip(this.new("scripts/items/weapons/oriental/saif"));
-		}
-		items.equip(this.new("scripts/items/tools/throwing_net"));
-
-
-		//todo legends armor
-
-		r = this.Math.rand(1, 2);
 		local helm = this.Const.World.Common.pickHelmet([
 			[1, "oriental/southern_head_wrap"],
 			[1, ""]
 		]);
 		items.equip(helm);
 	}
-
 });
 

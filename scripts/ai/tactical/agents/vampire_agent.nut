@@ -73,7 +73,14 @@ this.vampire_agent <- this.inherit("scripts/ai/tactical/agent", {
 			}
 		}
 
-		if (!this.Tactical.State.isAutoRetreat() && !strategy.getStats().IsEngaged && this.m.Actor.getAttackedCount() == 0 && this.m.KnownAllies.len() >= 6 && vampires < this.m.KnownAllies.len() - 1 && strategy.getStats().ShortestDistanceToEnemyNotMoved >= 3)
+		if (!this.Tactical.State.isAutoRetreat() && !strategy.getStats().IsEngaged && this.m.Actor.getAttackedCount() == 0 && this.m.KnownAllies.len() >= 6 && vampires < this.m.KnownAllies.len() - 1 && this.Time.getRound() <= 1)
+		{
+			this.m.Properties.EngageTileLimit = 0;
+			this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.Darkflight] = 0.0;
+			this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.EngageMelee] = 0.0;
+			this.m.Properties.PreferWait = true;
+		}
+		else if (!this.Tactical.State.isAutoRetreat() && !strategy.getStats().IsEngaged && this.m.Actor.getAttackedCount() == 0 && this.m.KnownAllies.len() >= 6 && vampires < this.m.KnownAllies.len() - 1 && strategy.getStats().ShortestDistanceToEnemyNotMoved >= 3)
 		{
 			this.m.Properties.EngageTileLimit = 3;
 			this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.Darkflight] = 0.0;

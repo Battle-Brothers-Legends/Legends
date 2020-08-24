@@ -312,33 +312,14 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 		stash.add(this.new("scripts/items/supplies/medicine_item"));
 		local items = this.getContainer().getActor().getItems();
 		items.equip(this.new("scripts/items/weapons/rondel_dagger"));
-		items.equip(this.new("scripts/items/armor/thick_dark_tunic"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "thick_dark_tunic"]
+		]));
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "hood"]
 		]));
 	}
-
-	function onAddLegendEquipment()
-	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.MeleeSkill] = 3;
-		talents[this.Const.Attributes.Initiative] = 3;
-		this.getContainer().getActor().fillTalentValues(2, true);
-		local items = this.getContainer().getActor().getItems();
-		local stash = this.World.Assets.getStash();
-		stash.removeByID("supplies.ground_grains");
-		stash.removeByID("supplies.ground_grains");
-		stash.add(this.new("scripts/items/supplies/roots_and_berries_item"));
-		stash.add(this.new("scripts/items/supplies/medicine_item"));
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/weapons/rondel_dagger"));
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "hood"]
-		]));
-	}
-
+	
 	function onSerialize( _out )
 	{
 		this.character_background.onSerialize(_out);

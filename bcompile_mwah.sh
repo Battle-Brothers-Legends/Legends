@@ -76,6 +76,12 @@ mkdir -p "helmets"
 python make_legend_helmet_nuts.py
 cp -R helmets/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\scripts\items\legend_helmets"
 
+echo "Building armors..."
+rm -rf legend_armor
+mkdir -p "legend_armor"
+python make_legend_armor.py
+cp -R legend_armor/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\scripts\items\legend_armor"
+
 
 mkdir -p "brushes"
 cd ../bin

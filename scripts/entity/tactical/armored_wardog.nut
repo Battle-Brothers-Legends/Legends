@@ -7,7 +7,9 @@ this.armored_wardog <- this.inherit("scripts/entity/tactical/wardog", {
 
 	function assignRandomEquipment()
 	{
-		this.m.Items.equip(this.new("scripts/items/armor/special/wardog_armor"));
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "special/wardog_armor"]
+		]));
 	}
 
 });

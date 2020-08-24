@@ -342,33 +342,10 @@ this.legend_hunting_redback_webknechts_contract <- this.inherit("scripts/contrac
 			],
 			function start()
 			{
-				local item;
-				local r = this.Math.rand(1, 2);
-
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					if (r == 1)
-					{
-						item = this.new("scripts/items/legend_armor/plate/legend_armor_plate_chest");
-					}
-					else if (r == 2)
-					{
-						item = this.new("scripts/items/legend_armor/plate/legend_armor_scale_coat");
-					}
-				}
-				else
-				{
-					if (r == 1)
-					{
-						item = this.new("scripts/items/armor/mail_hauberk");
-					}
-					else if (r == 2)
-					{
-						item = this.new("scripts/items/armor/coat_of_scales");
-					}
-				}
-
-
+				local item = this.Const.World.Common.pickArmor([
+					[1, "mail_hauberk"],
+					[1, "coat_of_scales"],
+				]);
 
 				this.World.Assets.getStash().add(item);
 				this.List.push({

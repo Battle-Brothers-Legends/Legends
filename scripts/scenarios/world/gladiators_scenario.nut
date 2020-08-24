@@ -44,10 +44,6 @@ this.gladiators_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 			bro.m.Attributes = [];
 		}
 
-		local helmet = [
-			[1, "oriental/gladiator_helmet"]
-		];
-
 		local bros = roster.getAll();
 		local a;
 		local u;
@@ -61,8 +57,9 @@ this.gladiators_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		a = this.new("scripts/items/armor/oriental/gladiator_harness"); //todo legends armor
 		a.setUpgrade(this.new("scripts/items/armor_upgrades/light_gladiator_upgrade"));
 		bros[0].getItems().equip(a);
-		a = this.Const.World.Common.pickHelmet(helmet);
-		a.setVariant(13);
+		a = this.Const.World.Common.pickHelmet([
+			[1, "oriental/gladiator_helmet", 13]
+		]);
 		bros[0].getItems().equip(a);
 		bros[0].getItems().equip(this.new("scripts/items/weapons/scimitar"));
 		bros[0].getItems().equip(this.new("scripts/items/tools/throwing_net"));
@@ -77,8 +74,9 @@ this.gladiators_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		a = this.new("scripts/items/armor/oriental/gladiator_harness"); //todo legends armor
 		a.setUpgrade(this.new("scripts/items/armor_upgrades/heavy_gladiator_upgrade"));
 		bros[1].getItems().equip(a);
-		a = this.Const.World.Common.pickHelmet(helmet);
-		a.setVariant(15);
+		a = this.Const.World.Common.pickHelmet([
+			[1, "oriental/gladiator_helmet", 15]
+		]);
 		bros[1].getItems().equip(a);
 		bros[1].getItems().equip(this.new("scripts/items/weapons/oriental/heavy_southern_mace"));
 		bros[1].getItems().equip(this.new("scripts/items/shields/oriental/metal_round_shield"));
@@ -93,8 +91,9 @@ this.gladiators_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		a = this.new("scripts/items/armor/oriental/gladiator_harness"); //todo legends armor
 		a.setUpgrade(this.new("scripts/items/armor_upgrades/light_gladiator_upgrade"));
 		bros[2].getItems().equip(a);
-		a = this.Const.World.Common.pickHelmet(helmet);
-		a.setVariant(14);
+		a = this.Const.World.Common.pickHelmet([
+			[1, "oriental/gladiator_helmet", 14]
+		]);
 		bros[2].getItems().equip(a);
 		bros[2].getItems().equip(this.new("scripts/items/weapons/oriental/qatal_dagger"));
 		bros[2].getItems().equip(this.new("scripts/items/tools/throwing_net"));

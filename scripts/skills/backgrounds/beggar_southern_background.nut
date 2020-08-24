@@ -33,53 +33,17 @@ this.beggar_southern_background <- this.inherit("scripts/skills/backgrounds/begg
 			items.equip(this.new("scripts/items/weapons/wooden_stick"));
 		}
 
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/tattered_sackcloth"));
-		}
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/leather_wraps"));
-		}
-
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			local item = this.new("scripts/items/helmets/oriental/nomad_head_wrap");
-			item.setVariant(16);
-			items.equip(item);
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/knife"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/wooden_stick"));
-		}
-		
-
-		//todo legends armor
-		r = this.Math.rand(1, 2);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "tattered_sackcloth"],
+			[1, "leather_wraps"]
+		]));
 
 		local helm = this.Const.World.Common.pickHelmet([
-			[1, "oriental/nomad_head_wrap"]
+			[1, "oriental/nomad_head_wrap", 16],
+			[3, ""]
 		]);
-		helm.setVariant(16);
 		items.equip(helm);
-	}
 
+	}
 });
 

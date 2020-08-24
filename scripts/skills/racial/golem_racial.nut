@@ -47,8 +47,8 @@ this.golem_racial <- this.inherit("scripts/skills/skill", {
 			_properties.ArmorMult[1] *= 4.0;
 		}
 
-		_properties.DamageRegularMin += 30 * size;
-		_properties.DamageRegularMax += 50 * size;
+		_properties.DamageRegularMin += 35 * size;
+		_properties.DamageRegularMax += 45 * size;
 		_properties.DamageArmorMult *= 0.6 + 0.05 * (size - 1);
 		local actor = this.getContainer().getActor();
 

@@ -140,25 +140,10 @@ this.legend_necrosavant_background <- this.inherit("scripts/skills/backgrounds/c
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "dark_cowl"]
 		]));
-		items.equip(this.new("scripts/items/armor/thick_dark_tunic"));
-		items.equip(this.new("scripts/items/weapons/ancient/khopesh"));
-		local stash = this.World.Assets.getStash()
-	}
-
-	function onAddLegendEquipment()
-	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.Fatigue] = 2;
-		talents[this.Const.Attributes.Hitpoints] = 3;
-		this.getContainer().getActor().fillTalentValues(1, true);
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "dark_cowl"]
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "thick_dark_tunic"]
 		]));
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_dark_tunic"));
 		items.equip(this.new("scripts/items/weapons/ancient/khopesh"));
 		local stash = this.World.Assets.getStash()
 	}
-
 });

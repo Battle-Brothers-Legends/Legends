@@ -49,6 +49,11 @@ this.defeat_civilwar_ambition <- this.inherit("scripts/ambitions/ambition", {
 			return;
 		}
 
+		if (this.World.Assets.getBusinessReputation() < 1500)
+		{
+			return;
+		}
+
 		this.m.Score = 10;
 	}
 

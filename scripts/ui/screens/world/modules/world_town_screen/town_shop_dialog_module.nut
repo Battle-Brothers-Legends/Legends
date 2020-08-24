@@ -142,7 +142,12 @@ this.town_shop_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 		}
 
 		this.World.Assets.addMoney(-price);
+<<<<<<< HEAD
 		item.setArmor(item.getRepairMax());
+=======
+		item.setCondition(item.getConditionMax());
+		item.setToBeRepaired(false);
+>>>>>>> master
 		this.Sound.play("sounds/ambience/buildings/blacksmith_hammering_0" + this.Math.rand(0, 6) + ".wav", 1.0);
 		local result = {
 			Item = this.UIDataHelper.convertItemToUIData(item, true, this.Const.UI.ItemOwner.Stash),

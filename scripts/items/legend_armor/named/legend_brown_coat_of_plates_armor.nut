@@ -1,4 +1,4 @@
-this.legend_brown_coat_of_plates_armor <- this.inherit("scripts/items/legend_armor/named/legend_named_armor", {
+this.legend_brown_coat_of_plates_armor <- this.inherit("scripts/items/legend_armor/legend_named_armor", {
 	m = {},
 	function create()
 	{

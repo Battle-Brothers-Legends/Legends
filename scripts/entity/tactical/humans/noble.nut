@@ -65,12 +65,16 @@ this.noble <- this.inherit("scripts/entity/tactical/human", {
 
 		if (r == 1)
 		{
-			this.m.Items.equip(this.new("scripts/items/armor/noble_tunic"));
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "noble_tunic"]
+			]));
 			alwaysWithDetails = true;
 		}
 		else if (r == 2)
 		{
-			this.m.Items.equip(this.new("scripts/items/armor/coat_of_plates"));
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "coat_of_plates"]
+			]));
 			withDetails = false;
 			withHelmet = false;
 
@@ -82,13 +86,9 @@ this.noble <- this.inherit("scripts/entity/tactical/human", {
 			if (this.Math.rand(1, 100) <= 25)
 			{
 				local h = this.Const.World.Common.pickHelmet([
-					[1, "greatsword_faction_helm"]
+					[1, "greatsword_faction_helm", this.World.FactionManager.getFaction(this.getFaction()).getBanner()]
 				])
-				if (h != null)
-				{
-					h.setVariant(this.World.FactionManager.getFaction(this.getFaction()).getBanner());
-					this.m.Items.equip(h);
-				}
+				this.m.Items.equip(h);
 			}
 
 			if (this.Math.rand(1, 100) <= 33)
@@ -102,7 +102,9 @@ this.noble <- this.inherit("scripts/entity/tactical/human", {
 		}
 		else if (r == 3)
 		{
-			this.m.Items.equip(this.new("scripts/items/armor/coat_of_scales"));
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "coat_of_scales"]
+			]));
 			withDetails = false;
 			withHelmet = false;
 
@@ -114,9 +116,8 @@ this.noble <- this.inherit("scripts/entity/tactical/human", {
 			if (this.Math.rand(1, 100) <= 25)
 			{
 				local h = this.Const.World.Common.pickHelmet([
-					[1, "greatsword_faction_helm"]
+					[1, "greatsword_faction_helm", this.World.FactionManager.getFaction(this.getFaction()).getBanner()]
 				])
-				h.setVariant(this.World.FactionManager.getFaction(this.getFaction()).getBanner());
 				this.m.Items.equip(h);
 			}
 
@@ -131,7 +132,9 @@ this.noble <- this.inherit("scripts/entity/tactical/human", {
 		}
 		else
 		{
-			this.m.Items.equip(this.new("scripts/items/armor/noble_gear"));
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "noble_gear"]
+			]));
 		}
 
 		if (withDetails && (alwaysWithDetails || this.Math.rand(1, 100) <= 50))

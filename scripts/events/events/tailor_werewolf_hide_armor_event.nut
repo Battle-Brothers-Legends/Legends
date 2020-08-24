@@ -47,14 +47,11 @@ this.tailor_werewolf_hide_armor_event <- this.inherit("scripts/events/event", {
 						}
 					}
 				}
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item = this.new("scripts/items/legend_armor/cloth/legend_gambeson_wolf");
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/werewolf_hide_armor");
-				}
+
+				local item = this.Const.World.Common.pickArmor([
+					[1, "werewolf_hide_armor"],
+				]);
+
 
 				this.World.Assets.getStash().add(item);
 				this.List.push({

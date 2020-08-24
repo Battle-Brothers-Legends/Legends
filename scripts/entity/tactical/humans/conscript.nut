@@ -103,54 +103,33 @@ this.conscript <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/shields/oriental/southern_light_shield"));
 		}
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else
-		{
-			r = this.Math.rand(1, 3);
-
-			if (r <= 2)
-			{
-				local armor = this.new("scripts/items/armor/oriental/linothorax");
-
-				if (banner == 12)
-				{
-					armor.setVariant(9);
-				}
-				else if (banner == 13)
-				{
-					armor.setVariant(10);
-				}
-				else if (banner == 14)
-				{
-					armor.setVariant(8);
-				}
-
-				this.m.Items.equip(armor);
-			}
-			else if (r == 3)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/oriental/southern_mail_shirt"));
-			}
-
-		}
-
 		
+		local variant;
+		if (banner == 12)
+			variant = 9;
+		else if (banner == 13)
+			variant = 10;
+		else
+			variant = 8
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[2, "oriental/linothrax", variant],
+			[1, "oriental/southern_mail_shirt"]
+		]));
+
+		local variant = 7;
+		if (banner == 12)
+			variant = 12;
+		else if (banner == 13)
+			variant = 8;
+		else if (banner == 14)
+			variant = 7;
+
 		local helm =this.Const.World.Common.pickHelmet([
-			[1, "oriental/southern_head_wrap"],
+			[1, "oriental/southern_head_wrap", variant],
 			[1, "oriental/wrapped_southern_helmet"],
 			[1, "oriental/spiked_skull_cap_with_mail"]
 		]) 
 
-		if (helm.getID() == "armor.head.southern_head_wrap")
-		{
-			if (banner == 12 || banner == 14)
-				helm.setVariant(banner - 3);
-			else
-				helm.setVariant(8);
-		}
 		this.m.Items.equip(helm);
 
 	}

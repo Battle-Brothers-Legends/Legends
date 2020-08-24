@@ -73,29 +73,10 @@ this.cultist <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/weapons/legend_cat_o_nine_tails"));
 		}
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			local cloths = [
-				[3, "armor/legend_armor_robes_cultist"],
-				[1, "cloth/legend_robes"],
-			];
-			local armor = this.Const.World.Common.pickLegendArmor(cloths)
-
-			this.m.Items.equip(armor);
-		}
-		else
-		{
-			r = this.Math.rand(1, 2);
-
-			if (r == 1)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/cultist_leather_robe"));
-			}
-			else if (r == 2)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/monk_robe"));
-			}
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "cultist_leather_armor"],
+				[1, "monk_robe"]
+			]));
 
 		local item = this.Const.World.Common.pickHelmet([
 			[1, "cultist_hood"],

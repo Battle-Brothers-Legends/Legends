@@ -170,36 +170,9 @@ this.legend_vala_background <- this.inherit("scripts/skills/backgrounds/characte
 		local items = this.getContainer().getActor().getItems();
 		items.equip(this.new("scripts/items/weapons/legend_staff_vala"));
 
-		local r = this.Math.rand(0, 1);
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/legend_vala_cloak"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/legend_vala_dress"));
-		}
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "legend_vala_cloak"],
+			[1, "legend_vala_dress"]
+		]));
 	}
-
-		function onAddLegendEquipment()
-	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.Bravery] = this.Math.rand(2, 3);
-		this.getContainer().getActor().fillTalentValues(2, true);
-
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/weapons/legend_staff_vala"));
-
-		local r = this.Math.rand(0, 1);
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/legend_armor/armor/legend_armor_vala_cloak"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/legend_armor/armor/legend_armor_vala_dress"));
-		}
-	}
-
 });

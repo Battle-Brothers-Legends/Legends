@@ -221,13 +221,6 @@ this.legend_horse <- this.inherit("scripts/skills/backgrounds/character_backgrou
 		this.m.Container.add(this.new("scripts/skills/traits/legend_horse_trait"));
 	}
 
-	function updateVariant()
-	{
-		local body = this.m.Bodies[this.m.Variant];
-		actor.getSprite("body").setBrush(body);
-		actor.getSprite("injury_body").setBrush(body + "_injured");
-	}
-
 	function onAddEquipment()
 	{
 		local talents = this.getContainer().getActor().getTalents();

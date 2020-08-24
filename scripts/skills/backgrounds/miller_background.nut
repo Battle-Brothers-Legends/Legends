@@ -172,32 +172,10 @@ this.miller_background <- this.inherit("scripts/skills/backgrounds/character_bac
 			items.equip(this.new("scripts/items/weapons/legend_shovel"));
 		}
 
-		r = this.Math.rand(0, 0);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic", this.Math.rand(6, 7)]
+		]))
 
-		if (r == 0)
-		{
-			local item = this.new("scripts/items/armor/linen_tunic");
-			item.setVariant(this.Math.rand(6, 7));
-			items.equip(item);
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/wooden_flail"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/legend_shovel"));
-		}
-
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
 	}
 });
 

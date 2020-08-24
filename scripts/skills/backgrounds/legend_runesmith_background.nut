@@ -90,33 +90,13 @@ this.legend_runesmith_background <- this.inherit("scripts/skills/backgrounds/cha
 		items.equip(this.new("scripts/items/weapons/pickaxe"));
 
 
-		items.equip(this.new("scripts/items/armor/legend_blacksmith_apron"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "legend_blacksmith_apron"]
+		]));
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "hood"]
 		]));
-	}
-
-	function onAddLegendEquipment()
-	{
-	local items = this.getContainer().getActor().getItems();
-	local armor = this.new("scripts/items/legend_armor/cloth/legend_apron_smith");
-		local plates = [
-			[0, ""],
-			[1, "plate/legend_armor_leather_jacket"],
-
-		]
-		local plate = this.Const.World.Common.pickLegendArmor(plates)
-		if (plate != null)
-		{
-			armor.setUpgrade(plate)
-		}
-		items.equip(armor);
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "hood"]
-		]));
-
-
 	}
 });
 

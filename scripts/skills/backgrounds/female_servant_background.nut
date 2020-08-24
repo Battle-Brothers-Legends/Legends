@@ -148,23 +148,9 @@ this.female_servant_background <- this.inherit("scripts/skills/backgrounds/chara
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/legend_maid_dress"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/linen_tunic"));
-		}
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic"],
+			[1, "legend_maid_dress"]
+		]))
 	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_peasant_dress"));
-	}
-
 });

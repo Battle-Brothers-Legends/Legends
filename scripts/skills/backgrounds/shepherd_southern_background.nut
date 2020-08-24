@@ -42,45 +42,22 @@ this.shepherd_southern_background <- this.inherit("scripts/skills/backgrounds/sh
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
 
 		if (this.Math.rand(1, 100) <= 66)
 		{
 			items.equip(this.new("scripts/items/weapons/oriental/nomad_sling"));
 		}
+		
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "sackcloth"],
+			[1, "oriental/cloth_sash"]
+		]))
 
-		r = this.Math.rand(1, 2);
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/sackcloth"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/cloth_sash"));
-		}
-
-		items.equip(this.new("scripts/items/helmets/oriental/southern_head_wrap"));
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		if (this.Math.rand(1, 100) <= 66)
-		{
-			items.equip(this.new("scripts/items/weapons/oriental/nomad_sling"));
-		}
-
-		//todo legends armor
-
-		r = this.Math.rand(1, 2);
 		local helm = this.Const.World.Common.pickHelmet([
 			[1, "oriental/southern_head_wrap"]
 		]);
 		items.equip(helm);
 	}
-
 
 });
 

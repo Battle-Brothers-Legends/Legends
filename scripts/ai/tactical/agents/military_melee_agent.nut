@@ -15,7 +15,7 @@ this.military_melee_agent <- this.inherit("scripts/ai/tactical/agent", {
 		this.m.Properties.TargetPriorityCounterSkillsMult = 0.5;
 		this.m.Properties.TargetPriorityArmorMult = 0.6;
 		this.m.Properties.OverallDefensivenessMult = 1.25;
-		this.m.Properties.OverallFormationMult = 2.0;
+		this.m.Properties.OverallFormationMult = 1.5;
 		this.m.Properties.EngageTargetMultipleOpponentsMult = 1.25;
 		this.m.Properties.EngageTargetAlreadyBeingEngagedMult = 1.0;
 
@@ -63,6 +63,7 @@ this.military_melee_agent <- this.inherit("scripts/ai/tactical/agent", {
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_defend_shieldwall"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_defend_knock_back"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_defend_riposte"));
+		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_defend_rotation"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_recover"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_switchto_melee"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_switchto_ranged"));
@@ -84,27 +85,18 @@ this.military_melee_agent <- this.inherit("scripts/ai/tactical/agent", {
 			this.m.Properties.EngageTargetMultipleOpponentsMult = 1.25;
 		}
 
-		if (item != null && item.isItemType(this.Const.Items.ItemType.Weapon) && item.getRangeIdeal() == 2)
-		{
-			this.m.Properties.EngageTargetAlreadyBeingEngagedMult = 0.25;
-		}
-		else
-		{
-			this.m.Properties.EngageTargetAlreadyBeingEngagedMult = 1.0;
-		}
-
 		if (this.m.Properties.EngageRangeIdeal > 1)
 		{
-			this.m.Properties.OverallFormationMult = 2.5;
+			this.m.Properties.OverallFormationMult = 2.0;
 		}
 		else
 		{
-			this.m.Properties.OverallFormationMult = 2.0;
+			this.m.Properties.OverallFormationMult = 1.5;
 		}
 
 		this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.Protect] = 0.0;
 
-		if (this.m.KnownAllies.len() >= 10 && this.getActor().getCurrentProperties().TargetAttractionMult <= 1.0)
+		if (!this.getStrategy().isDefendingCamp() && this.m.KnownAllies.len() >= 10 && this.getActor().getCurrentProperties().TargetAttractionMult <= 1.0)
 		{
 			item = this.m.Actor.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
 

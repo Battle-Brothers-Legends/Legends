@@ -87,6 +87,7 @@ this.manhunters_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		bros[2].setPlaceInFormation(2);
 		bros[2].getSkills().removeByID("trait.dumb");
 		bros[2].getSkills().add(this.new("scripts/skills/traits/bright_trait"));
+		bros[2].getSprite("miniboss").setBrush("bust_miniboss_indebted");
 		local items = bros[2].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
 		items.equip(this.new("scripts/items/weapons/wooden_stick"));
@@ -100,6 +101,7 @@ this.manhunters_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		bros[3].setTitle("the Northerner");
 		bros[3].getBackground().m.RawDescription = "{Not a friendly man by any means, but that\'s what the shackles are for. %name% was on the chopping block for a series of crimes when you happened upon him. You paid for his life as an investment, stating that he now owed hard work to find salvation in the Gilder\'s eyes. He\'s not so sure of your earnest beliefs, but you paid a priest to confirm that the man indeed owes his sweat to a higher sublimity.}";
 		bros[3].setPlaceInFormation(3);
+		bros[3].getSprite("miniboss").setBrush("bust_miniboss_indebted");
 		local items = bros[3].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
 		items.equip(this.new("scripts/items/weapons/bludgeon"));
@@ -112,6 +114,7 @@ this.manhunters_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		bros[4].setTitle("the Deserter");
 		bros[4].getBackground().m.RawDescription = "{%name% is an heirloom of heresy, a man gifted to you by one of the Vizier\'s priests. The man was a deserter in the high lord\'s army, but through wealthy connections managed to avoid execution. However, there\'s only one way to avoid the fire of the hells, and that is through indebted gratitude. He will work for you until he finds salvation, and when that happens is entirely up to you.}";
 		bros[4].setPlaceInFormation(4);
+		bros[4].getSprite("miniboss").setBrush("bust_miniboss_indebted");
 		local items = bros[4].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
 		items.equip(this.new("scripts/items/weapons/militia_spear"));
@@ -122,6 +125,7 @@ this.manhunters_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		bros[5].setTitle("the Beggar");
 		bros[5].getBackground().m.RawDescription = "{Found on the streets, %name% never stood much of a chance. Being a beggar, it was physically easy to slap the chains on him, and socially no one would care. The Gilder cares not for those who do not work, and every day the man squandered without putting in his sweat he accrued a debt. Now it must be paid lest he taste that desert fire for eternity. He\'s actually healthier looking now than when you found him, though he never seems to thank you for this.}";
 		bros[5].setPlaceInFormation(5);
+		bros[5].getSprite("miniboss").setBrush("bust_miniboss_indebted");
 		local items = bros[5].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
 		items.equip(this.new("scripts/items/weapons/wooden_stick"));

@@ -164,78 +164,13 @@ this.nomad_background <- this.inherit("scripts/skills/backgrounds/character_back
 			items.equip(this.new("scripts/items/shields/oriental/southern_light_shield"));
 		}
 
-		r = this.Math.rand(0, 3);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/nomad_robe"],
+			[1, "oriental/thick_nomad_robe"],
+			[1, "oriental/stitched_nomad_armor"],
+			[1, "oriental/leather_nomad_robe"]
+		]))
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/nomad_robe"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/thick_nomad_robe"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/stitched_nomad_armor"));
-		}
-		else if (r == 3)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/leather_nomad_robe"));
-		}
-
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/nomad_head_wrap"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/nomad_leather_cap"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/nomad_light_helmet"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/falchion"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/oriental/saif"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/weapons/oriental/nomad_mace"));
-		}
-		else if (r == 3)
-		{
-			items.equip(this.new("scripts/items/weapons/oriental/light_southern_mace"));
-		}
-		else if (r == 4)
-		{
-			items.equip(this.new("scripts/items/weapons/militia_spear"));
-		}
-
-		r = this.Math.rand(0, 0);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/shields/oriental/southern_light_shield"));
-		}
-
-		//todo legends armor
-
-		r = this.Math.rand(1, 2);
 		local helm = this.Const.World.Common.pickHelmet([
 			[1, "oriental/nomad_head_wrap"],
 			[1, "oriental/nomad_leather_cap"],

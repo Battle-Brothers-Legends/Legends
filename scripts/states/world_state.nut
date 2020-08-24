@@ -2477,7 +2477,7 @@ this.world_state <- this.inherit("scripts/states/state", {
 		{
 			if (!party.isPlayerControlled())
 			{
-				party.stun(_isMinor ? 0.5 : 5.0);
+				party.stun(_isMinor ? 0.75 : 5.0);
 			}
 		}
 	}

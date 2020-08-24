@@ -136,13 +136,9 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 	{
 		local items = this.getContainer().getActor().getItems();
 		items.equip(this.new("scripts/items/weapons/legend_hammer"));
-		items.equip(this.new("scripts/items/armor/legend_blacksmith_apron"));
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/weapons/legend_hammer"));
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_apron_smith"));
+		
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "legend_blacksmith_apron"]
+		]));
 	}
 })

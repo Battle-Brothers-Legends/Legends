@@ -92,172 +92,26 @@ this.dogs_dig_up_loot_event <- this.inherit("scripts/events/event", {
 	function onPrepare()
 	{
 		local item;
-		local r = this.Math.rand(1, 10);
+		local r = this.Math.rand(1, 2);
 
 		if (r == 1)
 		{
-			item = this.new("scripts/items/weapons/wooden_stick");
+			item = this.Const.World.Common.pickArmor([
+				[1, "thick_dark_tunic"],
+				[1, "noble_tunic"],
+				[1, "ragged_surcoat"],
+				[1, "thick_tunic"],
+				[1, "wizard_robe"],
+			]);
 		}
-		else if (r == 2)
+		else
 		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local cloths = [
-					[0, ""],
-					[1, "cloth/legend_gambeson"],
-					[0, "cloth/legend_gambeson_plain"],
-					[0, "cloth/legend_gambeson_wolf"],
-					[1, "cloth/legend_padded_surcoat"],
-					[1, "cloth/legend_robes"],
-					[0, "cloth/legend_apron_butcher"],
-					[0, "cloth/legend_robes_nun"],
-					[1, "cloth/legend_apron_smith"],
-					[0, "cloth/legend_robes_wizard"],
-					[1, "cloth/legend_sackcloth"],
-					[1, "cloth/legend_sackcloth_patched"],
-					[0, "cloth/legend_sackcloth_tattered"],
-					[1, "cloth/legend_tunic"],
-					[1, "cloth/legend_tunic_noble"]
-				];
-				item = this.Const.World.Common.pickLegendArmor(cloths)
-			}
-			else
-			{
-				item = this.new("scripts/items/armor/thick_dark_tunic");
-			}
-			item = this.new("scripts/items/armor/tattered_sackcloth");
-		}
-		else if (r == 3)
-		{
-			item = this.Const.World.Common.pickHelmet([[1, "aketon_cap"]]);
-		}
-		else if (r == 4)
-		{
-			item = this.Const.World.Common.pickHelmet([[1, "cultist_hood"]]);
-		}
-		else if (r == 5)
-		{
-			item = this.Const.World.Common.pickHelmet([[1, "hood"]]);
-		}
-		else if (r == 6)
-		{
-			item = this.Const.World.Common.pickHelmet([[1, "full_leather_cap"]]);
-		}
-		else if (r == 7)
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local cloths = [
-					[0, ""],
-					[1, "cloth/legend_gambeson"],
-					[0, "cloth/legend_gambeson_plain"],
-					[1, "cloth/legend_gambeson_wolf"],
-					[1, "cloth/legend_padded_surcoat"],
-					[1, "cloth/legend_robes"],
-					[1, "cloth/legend_apron_butcher"],
-					[1, "cloth/legend_robes_nun"],
-					[1, "cloth/legend_apron_smith"],
-					[1, "cloth/legend_robes_wizard"],
-					[1, "cloth/legend_sackcloth"],
-					[1, "cloth/legend_sackcloth_patched"],
-					[1, "cloth/legend_sackcloth_tattered"],
-					[1, "cloth/legend_tunic"],
-					[1, "cloth/legend_tunic_noble"]
-				];
-				item = this.Const.World.Common.pickLegendArmor(cloths)
-			}
-			else
-			{
-				item = this.new("scripts/items/armor/ragged_surcoat");
-			}
-
-		}
-		else if (r == 8)
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local cloths = [
-					[0, ""],
-					[1, "cloth/legend_gambeson"],
-					[0, "cloth/legend_gambeson_plain"],
-					[1, "cloth/legend_gambeson_wolf"],
-					[1, "cloth/legend_padded_surcoat"],
-					[1, "cloth/legend_robes"],
-					[1, "cloth/legend_apron_butcher"],
-					[1, "cloth/legend_robes_nun"],
-					[1, "cloth/legend_apron_smith"],
-					[1, "cloth/legend_robes_wizard"],
-					[1, "cloth/legend_sackcloth"],
-					[1, "cloth/legend_sackcloth_patched"],
-					[1, "cloth/legend_sackcloth_tattered"],
-					[1, "cloth/legend_tunic"],
-					[1, "cloth/legend_tunic_noble"]
-				];
-				item = this.Const.World.Common.pickLegendArmor(cloths)
-			}
-			else
-			{
-				item = this.new("scripts/items/armor/noble_tunic");
-			}
-
-		}
-		else if (r == 9)
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local cloths = [
-					[0, ""],
-					[1, "cloth/legend_gambeson"],
-					[0, "cloth/legend_gambeson_plain"],
-					[1, "cloth/legend_gambeson_wolf"],
-					[1, "cloth/legend_padded_surcoat"],
-					[1, "cloth/legend_robes"],
-					[1, "cloth/legend_apron_butcher"],
-					[1, "cloth/legend_robes_nun"],
-					[1, "cloth/legend_apron_smith"],
-					[1, "cloth/legend_robes_wizard"],
-					[1, "cloth/legend_sackcloth"],
-					[1, "cloth/legend_sackcloth_patched"],
-					[1, "cloth/legend_sackcloth_tattered"],
-					[1, "cloth/legend_tunic"],
-					[1, "cloth/legend_tunic_noble"]
-				];
-				item = this.Const.World.Common.pickLegendArmor(cloths)
-			}
-			else
-			{
-				item = this.new("scripts/items/armor/thick_tunic");
-			}
-
-		}
-		else if (r == 10)
-		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				local cloths = [
-					[0, ""],
-					[1, "cloth/legend_gambeson"],
-					[0, "cloth/legend_gambeson_plain"],
-					[1, "cloth/legend_gambeson_wolf"],
-					[1, "cloth/legend_padded_surcoat"],
-					[1, "cloth/legend_robes"],
-					[1, "cloth/legend_apron_butcher"],
-					[1, "cloth/legend_robes_nun"],
-					[1, "cloth/legend_apron_smith"],
-					[1, "cloth/legend_robes_wizard"],
-					[1, "cloth/legend_sackcloth"],
-					[1, "cloth/legend_sackcloth_patched"],
-					[0, "cloth/legend_sackcloth_tattered"],
-					[1, "cloth/legend_tunic"],
-					[1, "cloth/legend_tunic_noble"]
-				];
-				item = this.Const.World.Common.pickLegendArmor(cloths)
-			}
-			else
-			{
-				item = this.new("scripts/items/armor/wizard_robe");
-			}
-
+			item = this.Const.World.Common.pickHelmet([
+				[1, "aketon_cap"],
+				[1, "cultist_hood"],
+				[1, "hood"],
+				[1, "full_leather_cap"],
+			]);
 		}
 
 		item.setCondition(this.Math.max(1, item.getConditionMax() * this.Math.rand(10, 40) * 0.01));

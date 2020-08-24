@@ -1,5 +1,7 @@
 this.charge <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		IsSpent = false
+	},
 	function create()
 	{
 		this.m.ID = "actives.charge";
@@ -61,7 +63,7 @@ this.charge <- this.inherit("scripts/skills/skill", {
 
 	function isUsable()
 	{
-		return !this.Tactical.isActive() || this.skill.isUsable() && !this.getContainer().getActor().getTile().hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions());
+		return this.skill.isUsable() && !this.m.IsSpent && !this.getContainer().getActor().getTile().hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions());
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )
@@ -108,8 +110,14 @@ this.charge <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
+	function onTurnStart()
+	{
+		this.m.IsSpent = false;
+	}
+
 	function onUse( _user, _targetTile )
 	{
+		this.m.IsSpent = true;
 		local tag = {
 			Skill = this,
 			User = _user,

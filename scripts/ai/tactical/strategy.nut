@@ -498,7 +498,7 @@ this.strategy <- {
 		}
 
 		local enemiesVSallies = this.m.Stats.EnemiesVSAlliesRatio;
-		local rangedAlliesVSEnemies = this.m.Stats.RangedAlliedVSEnemies;
+		local rangedAlliesVSEnemies = this.m.Stats.DefensiveBiasAverage >= 1.0 ? this.m.Stats.RangedAlliedVSEnemies : this.Math.minf(1.0, this.m.Stats.RangedAlliedVSEnemies);
 		local defensiveAlliesRatio = this.m.Stats.DefensiveAlliesRatio * 4.0;
 		local fleeingEnemiesRatio = 1.0 - this.m.Stats.FleeingEnemiesRatio;
 		local engagedAlliesRatio = 1.0 - this.m.Stats.EngagedAlliesRatio;

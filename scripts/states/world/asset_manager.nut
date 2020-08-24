@@ -1861,7 +1861,10 @@ this.asset_manager <- {
 					continue;
 				}
 
-				this.m.Stash.add(item);
+				if (this.m.Stash.add(item) == null)
+				{
+					bro.getItems().addToBag(item);
+				}
 			}
 		}
 
@@ -1927,6 +1930,13 @@ this.asset_manager <- {
 				data.Text += this.addBrotherEnding(brothers, excludedBackgrounds, true);
 				data.Text += this.addBrotherEnding(brothers, excludedBackgrounds, true);
 				data.Text += "\n\n{Nowadays, you spend a good deal of time wondering if you should add a second story to your cabin, or whether that\'s too much work. You could always pay someone else to help, but it just feels strange contracting someone else to the task. And, as far as the %companyname% is concerned, you\'ve heard that it is doing splendidly well to this day. | You spend your days flirting with the neighbor. She\'s married, but that\'s what makes it more fun. The constable came by to speak to you about your newfound proclivities. This is about the height of the drama in your life now. It isn\'t dodging orcs or putting undead souls back into the grave, but it has its own unique sense of fun. You don\'t miss the old life at all. Instead, you can happily sit back and hear of the %companyname%\'s successes.}";
+			}
+			else if (this.World.FactionManager.getGreaterEvil().LastType == this.Const.World.GreaterEvilType.HolyWar)
+			{
+				data.Text = "{When you took over the %companyname%, you truly believed you could lead it to greatness. Those goals were probably a bit too lofty, but you did manage to at the very least build a company of incredible renown. As the nobles inevitably slid toward war, it didn\'t surprise you in the least to see that the company\'s services were the most popular in the land. The war proved itself as brutal and horrific as any you\'d ever seen, but at least this time you walked away with more coin than you knew what to do with.\n\n Retiring with your pile of gold, you left the company in the command of the bravest mercenary still alive to take the job. The band continues its success to this day.}";
+				data.Text += this.addBrotherEnding(brothers, excludedBackgrounds, true);
+				data.Text += this.addBrotherEnding(brothers, excludedBackgrounds, true);
+				data.Text += "\n\n{It\'s very rare for a mercenary to leave the life behind with his body intact, but you managed to do just that. While being of sound body and mind are important, you most appreciate the pile of crowns you spend your nights sleeping on. Last you heard, the nobles were squabbling their way into another war and you could not care less. | With good mind and health, you continue to live out the rest of your days in moderate peace. The most awful thing to happen to you in months was when a hermit ventured out of the wilderness to steal your firewood. That\'s the sort of life you always wanted and you could not be happier having it.}";
 			}
 		}
 		else if (this.m.BusinessReputation >= 1100 && this.World.Ambitions.getAmbition("ambition.make_nobles_aware").isDone())

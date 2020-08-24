@@ -297,6 +297,7 @@ this.sand_golem <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
 		this.m.Skills.add(this.new("scripts/skills/actives/merge_golem_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/throw_golem_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/headbutt_skill"));
@@ -336,7 +337,6 @@ this.sand_golem <- this.inherit("scripts/entity/tactical/actor", {
 
 			if (this.m.WorldTroop != null && ("Party" in this.m.WorldTroop) && this.m.WorldTroop.Party != null && !this.m.WorldTroop.Party.isNull())
 			{
-				this.logInfo("FFS");
 				this.m.WorldTroop.Script = this.Const.World.Spawn.Troops.SandGolemMEDIUM.Script;
 				this.m.WorldTroop.Strength = this.Const.World.Spawn.Troops.SandGolemMEDIUM.Strength;
 			}

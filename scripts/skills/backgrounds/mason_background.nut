@@ -135,13 +135,9 @@ this.mason_background <- this.inherit("scripts/skills/backgrounds/character_back
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/armor/linen_tunic"));
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic"]
+		]))
 	}
 
 	function onUpdate( _properties )

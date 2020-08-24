@@ -3045,7 +3045,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 
 			if (this.m.LastTileHovered != null && this.m.LastTileHovered.IsEmpty)
 			{
-				local e = this.Tactical.spawnEntity("scripts/entity/tactical/enemies/hexe");
+				local e = this.Tactical.spawnEntity("scripts/entity/tactical/enemies/kraken");
 				e.setFaction(this.isScenarioMode() ? this.Const.Faction.Undead : this.World.FactionManager.getFactionOfType(this.Const.FactionType.Undead).getID());
 				e.assignRandomEquipment();
 			}
@@ -3414,10 +3414,9 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 
 			if (this.m.LastTileHovered != null && !this.m.LastTileHovered.IsEmpty)
 			{
-				if ("grow" in this.m.LastTileHovered.getEntity())
-				{
-					this.m.LastTileHovered.getEntity().grow();
-				}
+				local s = this.new("scripts/skills/effects/bleeding_effect");
+				s.setDamage(100);
+				this.m.LastTileHovered.getEntity().getSkills().add(s);
 			}
 
 			break;

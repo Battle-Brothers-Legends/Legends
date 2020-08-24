@@ -14,7 +14,7 @@ this.cocky_trait <- this.inherit("scripts/skills/traits/character_trait", {
 		this.m.Excluded = [
 			"trait.weasel",
 			"trait.hesitant",
-			"trait.pessimistic",
+			"trait.pessimist",
 			"trait.conservative",
 			"trait.dastard",
 			"trait.insecure",

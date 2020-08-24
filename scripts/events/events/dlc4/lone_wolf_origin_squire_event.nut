@@ -61,14 +61,10 @@ this.lone_wolf_origin_squire_event <- this.inherit("scripts/events/event", {
 				_event.m.Dude.getItems().unequip(_event.m.Dude.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand));
 				_event.m.Dude.getItems().unequip(_event.m.Dude.getItems().getItemAtSlot(this.Const.ItemSlot.Head));
 				_event.m.Dude.getItems().unequip(_event.m.Dude.getItems().getItemAtSlot(this.Const.ItemSlot.Body));
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					_event.m.Dude.getItems().equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
-				}
-				else
-				{
-					_event.m.Dude.getItems().equip(this.new("scripts/items/armor/linen_tunic"));
-				}
+
+				_event.m.Dude.getItems().equip(this.Const.World.Common.pickArmor([
+					[1, "linen_tunic"],
+				]));
 
 				_event.m.Dude.setTitle("the Squire");
 				this.Characters.push(_event.m.Dude.getImagePath());

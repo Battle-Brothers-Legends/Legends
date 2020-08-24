@@ -133,7 +133,7 @@ this.ai_charm <- this.inherit("scripts/ai/tactical/behavior", {
 			local distanceToTarget = myTile.getDistanceTo(opponentTile);
 			local isRangedOpponent = this.isRangedUnit(target);
 
-			if (target.getMoraleState() == this.Const.MoraleState.Fleeing || target.getCurrentProperties().IsStunned)
+			if (target.getMoraleState() == this.Const.MoraleState.Fleeing || target.getCurrentProperties().IsStunned || !target.getCurrentProperties().IsAbleToUseWeaponSkills)
 			{
 				continue;
 			}
@@ -238,9 +238,13 @@ this.ai_charm <- this.inherit("scripts/ai/tactical/behavior", {
 				score = score * this.Const.AI.Behavior.CharmEasierToKillMult;
 			}
 
-			if (!target.isTurnDone())
+			if (target.isAbleToWait() && !target.isTurnDone())
 			{
 				score = score * this.Const.AI.Behavior.CharmStillToActMult;
+			}
+			else if (!target.isAbleToWait() && target.getActionPoints() < target.getActionPointsMax())
+			{
+				score = score * this.Const.AI.Behavior.CharmAlreadyWaitedMult;
 			}
 
 			if (!target.isArmed() && target.getTile().Items.len() == 0)

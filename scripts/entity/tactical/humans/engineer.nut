@@ -71,14 +71,9 @@ this.engineer <- this.inherit("scripts/entity/tactical/human", {
 				this.m.Items.equip(this.new("scripts/items/weapons/wooden_stick"));
 			}
 		}
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else
-		{
-			this.m.Items.equip(this.new("scripts/items/armor/oriental/padded_vest"));
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/padded_vest"]
+		]));
 		local helm =this.Const.World.Common.pickHelmet([
 				[1, "oriental/engineer_hat"]
 		]) 

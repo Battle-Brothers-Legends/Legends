@@ -144,6 +144,7 @@ this.destroy_goblin_camp_contract <- this.inherit("scripts/contracts/contract", 
 					else
 					{
 						local p = this.World.State.getLocalCombatProperties(this.World.State.getPlayer().getPos());
+						p.LocationTemplate = null;
 						p.CombatID = "Ambush";
 						p.Music = this.Const.Music.GoblinsTracks;
 						p.PlayerDeploymentType = this.Const.Tactical.DeploymentType.Center;

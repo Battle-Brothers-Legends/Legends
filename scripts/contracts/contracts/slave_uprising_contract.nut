@@ -13,6 +13,7 @@ this.slave_uprising_contract <- this.inherit("scripts/contracts/contract", {
 	function create()
 	{
 		this.contract.create();
+		this.m.DifficultyMult = this.Math.rand(70, 105) * 0.01;
 		this.m.Type = "contract.slave_uprising";
 		this.m.Name = "Slave Uprising";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;

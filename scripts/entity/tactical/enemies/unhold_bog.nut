@@ -35,10 +35,12 @@ this.unhold_bog <- this.inherit("scripts/entity/tactical/enemies/unhold", {
 		local injury_body = this.addSprite("injury");
 		injury_body.Visible = false;
 		injury_body.setBrush("bust_unhold_03_injured");
+		this.addSprite("armor");
 		local head = this.addSprite("head");
 		head.setBrush("bust_unhold_head_03");
 		head.Saturation = body.Saturation;
 		head.Color = body.Color;
+		this.addSprite("helmet");
 		this.addDefaultStatusSprites();
 		this.getSprite("status_rooted").Scale = 0.65;
 		this.setSpriteOffset("status_rooted", this.createVec(-10, 16));

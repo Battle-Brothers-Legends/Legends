@@ -144,11 +144,6 @@ this.dye_maker_location <- this.inherit("scripts/entity/world/attached_location"
 				S = "legend_armor/cloth/legend_tunic"
 			});
 			_list.push({
-				R = 30,
-				P = 1.0,
-				S = "legend_armor/cloth/legend_robes_herbalist"
-			});
-			_list.push({
 				R = 20,
 				P = 1.0,
 				S = "legend_armor/cloth/legend_robes"
@@ -164,7 +159,7 @@ this.dye_maker_location <- this.inherit("scripts/entity/world/attached_location"
 				S = "legend_armor/cloth/legend_robes_nun"
 			});
 			_list.push({
-				R = 70,
+				R = 90,
 				P = 1.0,
 				S = "legend_armor/cloth/legend_robes_magic"
 			});
@@ -187,11 +182,6 @@ this.dye_maker_location <- this.inherit("scripts/entity/world/attached_location"
 				R = 30,
 				P = 1.0,
 				S = "legend_armor/cloth/legend_gambeson_rare_color"
-			});
-		   _list.push({
-				R = 50,
-				P = 1.0,
-				S = "legend_armor/cloth/legend_robes_magic"
 			});
 			_list.push({
 				R = 60,

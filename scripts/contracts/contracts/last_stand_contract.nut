@@ -36,7 +36,7 @@ this.last_stand_contract <- this.inherit("scripts/contracts/contract", {
 		}
 
 		this.m.Flags.set("ObjectiveName", this.m.Origin.getName());
-		this.m.Name = "Defend %objective%";
+		this.m.Name = "Defend " + this.m.Origin.getName();
 		this.m.Payment.Pool = 1600 * this.getPaymentMult() * this.Math.pow(this.getDifficultyMult(), this.Const.World.Assets.ContractRewardPOW) * this.getReputationToPaymentMult();
 
 		if (this.Math.rand(1, 100) <= 33)

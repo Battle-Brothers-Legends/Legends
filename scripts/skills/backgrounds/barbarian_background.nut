@@ -233,80 +233,12 @@ this.barbarian_background <- this.inherit("scripts/skills/backgrounds/character_
 			items.equip(this.new("scripts/items/weapons/barbarians/blunt_cleaver"));
 		}
 
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/thick_furs_armor"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/reinforced_animal_hide_armor"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/hide_and_bone_armor"));
-		}
-		else if (r == 3)
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/scrap_metal_armor"));
-		}
-
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "barbarians/bear_headpiece"],
-			[1, "barbarians/leather_headband"],
-			[1, "barbarians/leather_helmet"]
-		]))
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(1, 3);
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/barbarians/axehammer"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/weapons/barbarians/crude_axe"));
-		}
-		else if (r == 3)
-		{
-			items.equip(this.new("scripts/items/weapons/barbarians/blunt_cleaver"));
-		}
-
-		local cloths = [
-			[1, "cloth/legend_sackcloth"],
-			[1, "cloth/legend_sackcloth_patched"],
-			[1, "cloth/legend_sackcloth_tattered"]
-		];
-		local armor = this.Const.World.Common.pickLegendArmor(cloths)
-
-		if (armor != null)
-		{
-
-			local plates = [
-				[0, ""],
-				[1, "plate/legend_thick_furs_armor"],
-				[1, "plate/legend_animal_hide_armor"],
-				[1, "plate/legend_hide_and_bone_armor"],
-				[1, "plate/legend_reinforced_animal_hide_armor"],
-				[1, "plate/legend_scrap_metal_armor"],
-				[0, "plate/legend_rugged_scale_armor"],
-				[0, "plate/legend_heavy_iron_armor"],
-				[0, "plate/legend_thick_plated_barbarian_armor"]
-			]
-			local plate = this.Const.World.Common.pickLegendArmor(plates)
-			if (plate != null)
-			{
-				armor.setUpgrade(plate)
-			}
-
-			items.equip(armor);
-		}
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "barbarians/thick_furs_armor"],
+			[1, "barbarians/reinforced_animal_hide_armor"],
+			[1, "barbarians/hide_and_bone_armor"],
+			[1, "barbarians/scrap_metal_armor"]
+		]));
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "barbarians/bear_headpiece"],

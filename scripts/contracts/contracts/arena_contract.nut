@@ -810,6 +810,7 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 			function start()
 			{
 				local roster = this.World.getPlayerRoster().getAll();
+				local n = 0;
 
 				foreach( bro in roster )
 				{
@@ -853,6 +854,13 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 								text = bro.getName() + " is now " + this.Const.Strings.getArticle(skill.getName()) + skill.getName()
 							});
 						}
+
+						n = ++n;
+					}
+
+					if (n >= 3)
+					{
+						break;
 					}
 				}
 
@@ -882,15 +890,15 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 					switch(r)
 					{
 					case 1:
-						if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-						{
-							//todo legends armor
-						}
-						else {
-							a = this.new("scripts/items/armor/oriental/gladiator_harness");
-							u = this.new("scripts/items/armor_upgrades/light_gladiator_upgrade");
-							a.setUpgrade(u);
-						}
+
+						a = this.Const.World.Common.pickArmor([
+								[1, "oriental/gladiator_harness"],
+						]);
+						u = this.Const.World.Common.pickArmor([
+								[1, "oriental/light_gladiator_upgrade"],
+						]);
+						a.setUpgrade(u);
+
 						this.List.push({
 							id = 12,
 							icon = "ui/items/armor_upgrades/upgrade_24.png",
@@ -899,15 +907,12 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 						break;
 
 					case 2:
-						if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-						{
-							//todo legends armor
-						}
-						else {
-							a = this.new("scripts/items/armor/oriental/gladiator_harness");
-							u = this.new("scripts/items/armor_upgrades/heavy_gladiator_upgrade");
-							a.setUpgrade(u);
-						}
+						a = this.Const.World.Common.pickArmor([
+								[1, "oriental/gladiator_harness"],
+						]);
+						a.setUpgrade(this.new("scripts/items/" +
+							(this.World.LegendsMod.Configs().LegendArmorsEnabled() ? "legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade" : "armor_upgrades/heavy_gladiator_upgrade")
+						))
 						this.List.push({
 							id = 12,
 							icon = "ui/items/armor_upgrades/upgrade_25.png",
@@ -947,6 +952,7 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 					function getResult()
 					{
 						local roster = this.World.getPlayerRoster().getAll();
+						local n = 0;
 
 						foreach( bro in roster )
 						{
@@ -955,6 +961,12 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 							if (item != null && item.getID() == "accessory.arena_collar")
 							{
 								bro.getFlags().increment("ArenaFights", 1);
+								n = ++n;
+							}
+
+							if (n >= 3)
+							{
+								break;
 							}
 						}
 

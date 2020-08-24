@@ -124,29 +124,6 @@ this.bandit_raider_low <- this.inherit("scripts/entity/tactical/enemies/bandit_r
 		])
 		this.m.Items.equip(item);
 
-			if (r == 2)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/ragged_surcoat"));
-			}
-			else if (r == 3)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/padded_leather"));
-			}
-			else if (r == 4)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/worn_mail_shirt"));
-			}
-			else if (r == 5)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/patched_mail_shirt"));
-			}
-			else if (r == 6)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/leather_lamellar"));
-			}
-
-		}
-
 		if (this.Math.rand(1, 100) <= 75)
 		{
 			local item = this.Const.World.Common.pickHelmet([

@@ -143,27 +143,9 @@ this.legend_ancient_summoner_background <- this.inherit("scripts/skills/backgrou
 			[1, "legend_seer_hat"],
 			[1, "magician_hat"]
 		]));
-		items.equip(this.new("scripts/items/armor/thick_dark_tunic"));
-		items.equip(this.new("scripts/items/weapons/legend_grisly_scythe"));
-		local stash = this.World.Assets.getStash()
-	}
-
-	function onAddLegendEquipment()
-	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.Fatigue] = 2;
-		talents[this.Const.Attributes.Hitpoints] = 3;
-		this.getContainer().getActor().fillTalentValues(1, true);
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, ""],
-			[1, "legend_seer_hat"],
-			[1, "magician_hat"]
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "thick_dark_tunic"]
 		]));
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_dark_tunic"));
 		items.equip(this.new("scripts/items/weapons/legend_grisly_scythe"));
-		local stash = this.World.Assets.getStash()
 	}
-
 });

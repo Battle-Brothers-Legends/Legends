@@ -4,7 +4,7 @@ this.rainbow_scale_item <- this.inherit("scripts/items/item", {
 	{
 		this.m.ID = "misc.rainbow_scale";
 		this.m.Name = "Rainbow Scale";
-		this.m.Description = "Desert serpents sometimes have particularly colorful and shiny scales embedded in their shimmering skin. These are sought after by jewlers and trophy hunters around the lands.";
+		this.m.Description = "Desert serpents sometimes have particularly colorful and shiny scales embedded in their shimmering skin. These are sought after by jewelers and trophy hunters around the lands.";
 		this.m.Icon = "loot/southern_03.png";
 		this.m.SlotType = this.Const.ItemSlot.None;
 		this.m.ItemType = this.Const.Items.ItemType.Misc | this.Const.Items.ItemType.Loot;

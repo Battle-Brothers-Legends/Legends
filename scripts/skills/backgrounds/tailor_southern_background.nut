@@ -39,42 +39,14 @@ this.tailor_southern_background <- this.inherit("scripts/skills/backgrounds/tail
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 2);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/linen_tunic"));
-		}
-		else
-		{
-			items.equip(this.new("scripts/items/armor/oriental/cloth_sash"));
-		}
-
-		r = this.Math.rand(1, 4);
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/helmets/feathered_hat"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/southern_head_wrap"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		//todo legends armor
-
-		local r = this.Math.rand(1, 2);
-		local helm = this.Const.World.Common.pickHelmet([
-			[1, "oriental/southern_head_wrap"],
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic"],
+			[1, "oriental/cloth_sash"]
+		]))
+		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "feathered_hat"],
-			[2, ""]
-		]);
-		items.equip(helm);
+			[1, "oriental/southern_head_wrap"]
+		]))
 	}
 
 });

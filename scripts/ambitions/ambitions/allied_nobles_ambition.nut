@@ -108,16 +108,7 @@ this.allied_nobles_ambition <- this.inherit("scripts/ambitions/ambition", {
 		local item;
 		local stash = this.World.Assets.getStash();
 
-		local item = this.Const.World.Common.pickHelmet([[1, "faction_helm"]]);
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			item.setupArmor(banner);
-		}
-		else
-		{
-			item.setVariant(banner);
-		}
-
+		item = this.Const.World.Common.pickHelmet([[1, "faction_helm", banner]]);
 		stash.add(item);
 		this.m.SuccessList.push({
 			id = 10,
@@ -125,16 +116,10 @@ this.allied_nobles_ambition <- this.inherit("scripts/ambitions/ambition", {
 			text = "You gain " + this.Const.Strings.getArticle(item.getName()) + item.getName()
 		});
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			item = this.new("scripts/items/legend_armor/armor/legend_armor_heraldic");
-			item.setupArmor(banner);
-		}
-		else
-		{
-			item = this.new("scripts/items/armor/special/heraldic_armor");
-			item.setFaction(banner);
-		}
+
+		item = this.Const.World.Common.pickArmor([
+			[1, "special/heraldic_armor", null, banner],
+		]);
 		stash.add(item);
 		this.m.SuccessList.push({
 			id = 10,

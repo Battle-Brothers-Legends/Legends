@@ -92,7 +92,7 @@ this.ai_defend_shieldwall <- this.inherit("scripts/ai/tactical/behavior", {
 					continue;
 				}
 
-				if (this.isRangedUnit(t) && t.isArmedWithRangedWeapon() || t.getCurrentProperties().IsStunned || t.getSkills().hasSkill("effects.dazed") || t.getSkills().hasSkill("effects.distracted") || t.getMoraleState() == this.Const.MoraleState.Fleeing || t.isFatigued())
+				if (this.isRangedUnit(t) && t.isArmedWithRangedWeapon() || t.getCurrentProperties().IsStunned || !t.getCurrentProperties().IsAbleToUseWeaponSkills || t.getSkills().hasSkill("effects.dazed") || t.getSkills().hasSkill("effects.distracted") || t.getMoraleState() == this.Const.MoraleState.Fleeing || t.isFatigued())
 				{
 					dontUseShieldwallCount = ++dontUseShieldwallCount;
 					continue;
@@ -290,11 +290,16 @@ this.ai_defend_shieldwall <- this.inherit("scripts/ai/tactical/behavior", {
 
 			local dist = t.Actor.getTile().getDistanceTo(myTile);
 
-			if (dist <= 7 && t.Actor.getTile().getZoneOfControlCountOtherThan(t.Actor.getAlliedFactions()) == 0 && this.isRangedUnit(t.Actor))
+			if (t.Actor.getTile().getZoneOfControlCountOtherThan(t.Actor.getAlliedFactions()) == 0 && this.isRangedUnit(t.Actor))
 			{
-				opponentRangedCount = ++opponentRangedCount;
+				local rangedInfo = t.Actor.getRangedWeaponInfo();
+
+				if (dist <= rangedInfo.RangeWithLevel)
+				{
+					opponentRangedCount = ++opponentRangedCount;
+				}
 			}
-			else if (dist <= 6 && t.Actor.getHitpointsPct() > 0.25)
+			else if ((dist <= 4 || dist <= 6 && this.getProperties().BehaviorMult[this.Const.AI.Behavior.ID.Shieldwall] >= 2.0) && t.Actor.getHitpointsPct() > 0.25)
 			{
 				local item = t.Actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 

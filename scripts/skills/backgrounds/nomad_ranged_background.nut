@@ -61,60 +61,13 @@ this.nomad_ranged_background <- this.inherit("scripts/skills/backgrounds/nomad_b
 			items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
 		}
 
-		r = this.Math.rand(0, 3);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/nomad_robe"],
+			[1, "oriental/thick_nomad_robe"],
+			[1, "oriental/stitched_nomad_armor"],
+			[1, "oriental/leather_nomad_robe"]
+		]))
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/nomad_robe"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/thick_nomad_robe"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/stitched_nomad_armor"));
-		}
-		else if (r == 3)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/leather_nomad_robe"));
-		}
-
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/nomad_head_wrap"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/nomad_leather_cap"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/nomad_light_helmet"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/oriental/nomad_sling"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/oriental/composite_bow"));
-			items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
-		}
-
-		//todo legends armor
-
-		r = this.Math.rand(1, 2);
 		local helm = this.Const.World.Common.pickHelmet([
 			[1, "oriental/nomad_head_wrap"],
 			[1, "oriental/nomad_leather_cap"],
@@ -122,6 +75,5 @@ this.nomad_ranged_background <- this.inherit("scripts/skills/backgrounds/nomad_b
 		]);
 		items.equip(helm);
 	}
-
 });
 

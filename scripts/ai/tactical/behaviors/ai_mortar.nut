@@ -103,7 +103,6 @@ this.ai_mortar <- this.inherit("scripts/ai/tactical/behavior", {
 		local myTile = _entity.getTile();
 		local bestTile;
 		local bestTargets = 0;
-		local bestAllies = 0;
 		local tiles = [];
 
 		foreach( target in _targets )
@@ -135,27 +134,27 @@ this.ai_mortar <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 
 			local numTargets = 0;
-			local numAllies = 0;
 
 			if (tile.IsOccupiedByActor)
 			{
-				if (!_entity.isAlliedWith(tile.getEntity()))
+				local e = tile.getEntity();
+
+				if (!_entity.isAlliedWith(e))
 				{
 					numTargets = numTargets + 10;
-					local e = tile.getEntity();
 
 					if (e.getCurrentProperties().IsStunned || e.getCurrentProperties().IsRooted || tile.hasZoneOfControlOtherThan(e.getAlliedFactions()))
 					{
 						numTargets = numTargets + 5;
 					}
 				}
-				else if (this.nextTile().getEntity().getType() == this.Const.EntityType.Slave)
+				else if (e.getType() == this.Const.EntityType.Slave)
 				{
-					numAllies = numAllies + 7;
+					numTargets = numTargets - 10;
 				}
 				else
 				{
-					numAllies = numAllies + 15;
+					numTargets = numTargets - 20;
 				}
 			}
 
@@ -171,37 +170,40 @@ this.ai_mortar <- this.inherit("scripts/ai/tactical/behavior", {
 					if (!nextTile.IsOccupiedByActor)
 					{
 					}
-					else if (!_entity.isAlliedWith(tile.getEntity()))
-					{
-						numTargets = numTargets + 10;
-						local e = tile.getEntity();
-
-						if (e.getCurrentProperties().IsStunned || e.getCurrentProperties().IsRooted || tile.hasZoneOfControlOtherThan(e.getAlliedFactions()))
-						{
-							numTargets = numTargets + 5;
-						}
-					}
-					else if (nextTile().getEntity().getType() == this.Const.EntityType.Slave)
-					{
-						numAllies = numAllies + 7;
-					}
 					else
 					{
-						numAllies = numAllies + 15;
+						local e = nextTile.getEntity();
+
+						if (!_entity.isAlliedWith(e))
+						{
+							numTargets = numTargets + 10;
+
+							if (e.getCurrentProperties().IsStunned || e.getCurrentProperties().IsRooted || tile.hasZoneOfControlOtherThan(e.getAlliedFactions()))
+							{
+								numTargets = numTargets + 5;
+							}
+						}
+						else if (e.getType() == this.Const.EntityType.Slave)
+						{
+							numTargets = numTargets - 10;
+						}
+						else
+						{
+							numTargets = numTargets - 20;
+						}
 					}
 				}
 			}
 
-			if (numAllies * 2 >= numTargets)
+			if (numTargets <= 0)
 			{
 				continue;
 			}
 
-			if (numTargets > bestTargets && numAllies <= bestAllies || numAllies < bestAllies && numTargets >= bestTargets)
+			if (numTargets > bestTargets)
 			{
 				bestTile = tile;
 				bestTargets = numTargets;
-				bestAllies = numAllies;
 			}
 		}
 

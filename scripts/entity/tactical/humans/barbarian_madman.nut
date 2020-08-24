@@ -177,13 +177,13 @@ this.barbarian_madman <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
+		
+		
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))
 		{
-			local armor = [
-				"armor/barbarians/barbarian_ritual_armor"
-			];
-			local a = this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]);
-			this.m.Items.equip(a);
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "barbarians/barbarian_ritual_armor"]
+			]));
 		}
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))

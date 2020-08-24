@@ -75,14 +75,9 @@ this.gunner <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Items.equip(this.new("scripts/items/weapons/oriental/handgonne"));
 		this.m.Items.equip(this.new("scripts/items/ammo/powder_bag"));
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else
-		{
-			this.m.Items.equip(this.new("scripts/items/armor/oriental/padded_vest"));
-		}
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/padded_vest"]
+		]));
 		local helm =this.Const.World.Common.pickHelmet([
 				[1, "oriental/gunner_hat"]
 		]) 

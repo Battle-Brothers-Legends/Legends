@@ -25,7 +25,7 @@ this.sergeant_ambition <- this.inherit("scripts/ambitions/ambition", {
 			return;
 		}
 
-		this.m.Score = 2 + this.Math.rand(0, 5);
+		this.m.Score = 3 + this.Math.rand(0, 5);
 	}
 
 	function onCheckSuccess()

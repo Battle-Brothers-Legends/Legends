@@ -58,56 +58,18 @@ this.companion_2h_southern_background <- this.inherit("scripts/skills/background
 			items.equip(this.new("scripts/items/weapons/two_handed_wooden_hammer"));
 		}
 
-		r = this.Math.rand(0, 2);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/thick_nomad_robe"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/padded_vest"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/leather_nomad_robe"));
-		}
-
-		r = this.Math.rand(0, 2);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/leather_head_wrap"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/leather_head_wrap"));
-		}
-		else if (r == 2)
-		{
-			local h = this.new("scripts/items/helmets/oriental/southern_head_wrap");
-			h.setVariant(this.Math.rand(0, 1) == 1 ? 12 : 8);
-			items.equip(h);
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		items.equip(this.new("scripts/items/weapons/two_handed_wooden_hammer"));
-
-		//todo legends armor
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/thick_nomad_robe"],
+			[1, "oriental/padded_vest"],
+			[1, "oriental/leather_nomad_robe"]
+		]));
 
 		local helm =this.Const.World.Common.pickHelmet([
 			[1, "oriental/leather_head_wrap"],
 			[1, "oriental/leather_head_wrap"],
-			[1, "oriental/southern_head_wrap"]
+			[1, "oriental/southern_head_wrap", this.Math.rand(0, 1) == 1 ? 12 : 8]
 		]) 
-		if (helm.getID() == "armor.head.southern_head_wrap")
-			helm.setVariant(this.Math.rand(0, 1) == 1 ? 12 : 8);
 		items.equip(helm);
 	}
-
 });
 

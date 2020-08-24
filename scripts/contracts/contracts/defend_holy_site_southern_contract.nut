@@ -637,13 +637,9 @@ this.defend_holy_site_southern_contract <- this.inherit("scripts/contracts/contr
 						break;
 
 					case 5:
-						if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-						{
-							//todo legends armor
-						}
-						else {
-							item = this.new("scripts/items/armor/ancient/ancient_mail");
-						}
+						item = this.Const.World.Common.pickArmor([
+							[1, "ancient/ancient_mail"],
+						]);
 						break;
 
 					case 6:

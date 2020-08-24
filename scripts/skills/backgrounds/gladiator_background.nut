@@ -188,77 +188,31 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 			items.equip(this.new("scripts/items/" + offhand[this.Math.rand(0, offhand.len() - 1)]));
 		}
 
-		local a = this.new("scripts/items/armor/oriental/gladiator_harness");
-		local u;
+
+		local a = this.Const.World.Common.pickArmor([
+			[1, "oriental/gladiator_harness"]
+		]);
+
 		r = this.Math.rand(1, 2);
 
 		if (r == 1)
 		{
-			u = this.new("scripts/items/armor_upgrades/light_gladiator_upgrade");
+			a.setUpgrade(this.new("scripts/items/" +
+				(this.World.LegendsMod.Configs().LegendArmorsEnabled() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
+			))
 		}
 		else if (r == 2)
 		{
-			u = this.new("scripts/items/armor_upgrades/heavy_gladiator_upgrade");
+			a.setUpgrade(this.new("scripts/items/" +
+				(this.World.LegendsMod.Configs().LegendArmorsEnabled() ? "legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade" : "armor_upgrades/heavy_gladiator_upgrade")
+			))
 		}
-
-		a.setUpgrade(u);
 		items.equip(a);
-		r = this.Math.rand(2, 3);
 
-		if (r == 2)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/gladiator_helmet"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-
-		if (items.hasEmptySlot(this.Const.ItemSlot.Mainhand))
-		{
-			local weapons = [
-				"weapons/shamshir",
-				"weapons/shamshir",
-				"weapons/oriental/two_handed_scimitar",
-				"weapons/oriental/heavy_southern_mace",
-				"weapons/oriental/heavy_southern_mace",
-				"weapons/oriental/swordlance",
-				"weapons/oriental/polemace",
-				"weapons/fighting_axe",
-				"weapons/fighting_spear"
-			];
-
-			if (this.Const.DLC.Wildmen)
-			{
-				weapons.extend([
-					"weapons/two_handed_flail",
-					"weapons/two_handed_flanged_mace",
-					"weapons/bardiche"
-				]);
-			}
-
-			items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
-		}
-
-		if (items.hasEmptySlot(this.Const.ItemSlot.Offhand))
-		{
-			local offhand = [
-				"tools/throwing_net",
-				"shields/oriental/metal_round_shield"
-			];
-			items.equip(this.new("scripts/items/" + offhand[this.Math.rand(0, offhand.len() - 1)]));
-		}
-
-		//todo legends armor
-
-		r = this.Math.rand(2, 3);
-		if (r == 2)
-		{
-			items.equip(this.new("scripts/items/helmets/oriental/gladiator_helmet"));
-		}
-
+		items.equip(this.Const.World.Common.pickHelmet([
+			[1, "oriental/gladiator_helmet"],
+			[1, ""]
+		]));
 
 	}
 

@@ -184,34 +184,9 @@ this.female_butcher_background <- this.inherit("scripts/skills/backgrounds/chara
 			items.equip(this.new("scripts/items/weapons/knife"));
 		}
 
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/butcher_apron"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/legend_maid_apron"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 2);
-
-		if (r <= 1)
-		{
-			items.equip(this.new("scripts/items/weapons/butchers_cleaver"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/weapons/knife"));
-		}
-
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_apron_butcher"));
-
-	}
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "butcher_apron"],
+			[1, "legend_maid_apron"]
+		]));
+	}	
 });

@@ -47,23 +47,12 @@ this.servant_southern_background <- this.inherit("scripts/skills/backgrounds/ser
 		local r;
 		r = this.Math.rand(0, 1);
 
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/armor/sackcloth"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/cloth_sash"));
-		}
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "sackcloth"],
+			[1, "oriental/cloth_sash"]
+		]))
 	}
 
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		//todo legends armor
-	}
 
 });
 

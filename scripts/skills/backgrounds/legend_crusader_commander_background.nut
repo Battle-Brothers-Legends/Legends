@@ -318,29 +318,10 @@ this.legend_crusader_commander_background <- this.inherit("scripts/skills/backgr
 		stash.add(this.new("scripts/items/supplies/medicine_item"));
 		stash.add(this.new("scripts/items/supplies/cured_venison_item"));
 		items.equip(this.new("scripts/items/weapons/legend_crusader_sword"));;
-		items.equip(this.new("scripts/items/armor/legend_crusader_armor"));
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "closed_flat_top_helmet"]
+		
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "legend_crusader_armor"]
 		]));
-
-	}
-
-	function onAddLegendEquipment()
-	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.MeleeDefense] = 3;
-		talents[this.Const.Attributes.MeleeSkill] = 3;
-		this.getContainer().getActor().fillTalentValues(2, true);
-		local items = this.getContainer().getActor().getItems();
-		local stash = this.World.Assets.getStash()
-		stash.removeByID("supplies.ground_grains");
-		stash.removeByID("supplies.ground_grains");
-		stash.add(this.new("scripts/items/supplies/armor_parts_item"));
-		stash.add(this.new("scripts/items/supplies/medicine_item"));
-		stash.add(this.new("scripts/items/supplies/cured_venison_item"));
-		items.equip(this.new("scripts/items/weapons/legend_crusader_sword"));;
-		items.equip(this.new("scripts/items/legend_armor/armor/legend_armor_crusader"));
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "closed_flat_top_helmet"]
 		]));

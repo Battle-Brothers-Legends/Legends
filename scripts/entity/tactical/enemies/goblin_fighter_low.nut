@@ -58,7 +58,7 @@ this.goblin_fighter_low <- this.inherit("scripts/entity/tactical/enemies/goblin_
 			}
 		}
 
-		local item = t	his.Const.World.Common.pickArmor([
+		local item = this.Const.World.Common.pickArmor([
 			[1, "greenskins/goblin_light_armor"],
 			[1, "greenskins/goblin_medium_armor"]
 		])

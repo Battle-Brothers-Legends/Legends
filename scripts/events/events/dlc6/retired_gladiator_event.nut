@@ -96,9 +96,12 @@ this.retired_gladiator_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local a = this.new("scripts/items/armor/oriental/gladiator_harness");
-				local u = this.new("scripts/items/armor_upgrades/heavy_gladiator_upgrade");
-				a.setUpgrade(u);
+				local a = this.Const.World.Common.pickArmor([
+					[1, "oriental/gladiator_harness"],
+				]);
+				a.setUpgrade(this.new("scripts/items/" +
+					(this.World.LegendsMod.Configs().LegendArmorsEnabled() ? "legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade" : "armor_upgrades/heavy_gladiator_upgrade")
+				))
 				this.List.push({
 					id = 12,
 					icon = "ui/items/armor_upgrades/upgrade_25.png",

@@ -97,20 +97,11 @@ this.officer <- this.inherit("scripts/entity/tactical/human", {
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))
 		{
-			r = this.Math.rand(1, 3);
-
-			if (r == 1)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/oriental/padded_mail_and_lamellar_hauberk"));
-			}
-			else if (r == 2)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/oriental/southern_long_mail_with_padding"));
-			}
-			else if (r == 3)
-			{
-				this.m.Items.equip(this.new("scripts/items/armor/oriental/mail_and_lamellar_plating"));
-			}
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "oriental/padded_mail_and_lamellar_hauberk"],
+				[1, "oriental/southern_long_mail_with_padding"],
+				[1, "oriental/mail_and_lamellar_plating"]
+			]));
 		}
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
@@ -141,13 +132,7 @@ this.officer <- this.inherit("scripts/entity/tactical/human", {
 			"weapons/named/named_polemace"
 		];
 		local shields = this.Const.Items.NamedSouthernShields;
-		local armor = this.Const.Items.NamedSouthernArmors;
-		local helmets = this.Const.Items.NamedSouthernHelmets;
-		local helm = [];
-		foreach (h in this.Const.Items.NamedSouthernHelmets)
-		{
-			helm.push([1, h.slice(h.find("helmets/") + "helmets/".len())]);
-		}
+
 		local r = this.Math.rand(1, 4);
 
 		if (r == 1)
@@ -160,11 +145,19 @@ this.officer <- this.inherit("scripts/entity/tactical/human", {
 		}
 		else if (r == 3)
 		{
-			this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
+			this.m.Items.equip(this.Const.World.Common.pickArmor(
+				this.Const.World.convNameToList(
+					this.Const.Items.NamedSouthernArmors
+				)
+			));
 		}
 		else
 		{
-			this.m.Items.equip(this.Const.World.Common.pickHelmet(helm));
+			this.m.Items.equip(this.Const.World.Common.pickArmor(
+				this.Const.World.convNameToList(
+					this.Const.Items.NamedSouthernHelmets
+				)
+			));
 		}
 
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));

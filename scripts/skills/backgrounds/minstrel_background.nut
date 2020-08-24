@@ -132,32 +132,10 @@ this.minstrel_background <- this.inherit("scripts/skills/backgrounds/character_b
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local armor = this.new("scripts/items/armor/linen_tunic");
-		armor.setVariant(this.Math.rand(3, 4));
-		items.equip(armor);
-		local r = this.Math.rand(0, 1);
-
-		items.equip(this.Const.World.Common.pickHelmet([
-			[1, "feathered_hat"]
-		]));
-
-
-		local r = this.Math.rand(0, 4);
-		if (r <= 2)
-		{
-			items.equip(this.new("scripts/items/weapons/lute"));
-		}
-		if (r == 3)
-		{
-			items.equip(this.new("scripts/items/weapons/legend_drum"));
-		}
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/legend_armor/cloth/legend_tunic"));
-		local r = this.Math.rand(0, 1);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic", this.Math.rand(3,4)]
+		]))
+		local r;
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "feathered_hat"]

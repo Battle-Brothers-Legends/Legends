@@ -1,6 +1,11 @@
 brushes/
 helmets/
+legend_armor/
 !scripts/items/legend_helmets/helmets/
+
+scripts/items/legend_armor/cloth/
+scripts/items/legend_armor/chain/
+scripts/items/legend_armor/plate/
 
 
 gfx/*.png

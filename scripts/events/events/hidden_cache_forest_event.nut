@@ -84,58 +84,13 @@ this.hidden_cache_forest_event <- this.inherit("scripts/events/event", {
 					text = "You gain " + this.Const.Strings.getArticle(item.getName()) + item.getName()
 				});
 
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					local cloths = [
-						[0, ""],
-						[1, "cloth/legend_gambeson"],
-						[0, "cloth/legend_gambeson_plain"],
-						[0, "cloth/legend_gambeson_wolf"],
-						[1, "cloth/legend_padded_surcoat"],
-						[1, "cloth/legend_robes"],
-						[1, "cloth/legend_apron_butcher"],
-						[0, "cloth/legend_robes_nun"],
-						[1, "cloth/legend_apron_smith"],
-						[1, "cloth/legend_robes_wizard"],
-						[0, "cloth/legend_sackcloth"],
-						[0, "cloth/legend_sackcloth_patched"],
-						[0, "cloth/legend_sackcloth_tattered"],
-						[1, "cloth/legend_tunic"],
-						[1, "cloth/legend_tunic_noble"],
-						[1, "chain/legend_armor_rusty_mail_shirt"],
-						[1, "chain/legend_armor_reinforced_rotten_mail_shirt"],
-						[1, "chain/legend_armor_reinforced_worn_mail"],
-						[1, "chain/legend_armor_reinforced_worn_mail_shirt"]
-					];
-					item = this.Const.World.Common.pickLegendArmor(cloths)
-				}
-				else
-				{
-					r = this.Math.rand(1, 5);
-
-					if (r == 1)
-					{
-						item = this.new("scripts/items/armor/gambeson");
-					}
-					else if (r == 2)
-					{
-						item = this.new("scripts/items/armor/leather_tunic");
-					}
-					else if (r == 3)
-					{
-						item = this.new("scripts/items/armor/thick_tunic");
-					}
-					else if (r == 4)
-					{
-						item = this.new("scripts/items/armor/wizard_robe");
-					}
-					else if (r == 5)
-					{
-						item = this.new("scripts/items/armor/worn_mail_shirt");
-					}
-				}
-
-
+				item = this.Const.World.Common.pickArmor([
+					[1, "gambeson"],
+					[1, "leather_tunic"],
+					[1, "thick_tunic"],
+					[1, "wizard_robe"],
+					[1, "worn_mail_shirt"],
+				]);
 
 				this.World.Assets.getStash().add(item);
 				this.List.push({

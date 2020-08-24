@@ -231,7 +231,7 @@ this.blast_furnace_location <- this.inherit("scripts/entity/world/attached_locat
 
 			local armorsL = [
 				[10, 1.0, "cloth/legend_tunic"],
-				[10, 1.0, "cloth/legend_apron_smith"],
+				[10, 1.0, "cloth/legend_apro"],
 				[15, 1.0, "plate/legend_armor_leather_jacket"],
 				[15, 1.0, "plate/legend_armor_leather_jacket_simple"]
 			]

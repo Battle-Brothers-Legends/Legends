@@ -41,7 +41,9 @@ this.sellsword_retires_event <- this.inherit("scripts/events/event", {
 					icon = "ui/items/" + item.getIcon(),
 					text = "You gain " + this.Const.Strings.getArticle(item.getName()) + item.getName()
 				});
-				item = this.new("scripts/items/armor/basic_mail_shirt");
+				item = this.Const.World.Common.pickArmor([
+					[1, "basic_mail_shirt"],
+				]);
 				item.setArmor(item.getArmorMax() / 2 - 1);
 				stash.add(item);
 				this.List.push({

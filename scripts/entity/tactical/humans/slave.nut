@@ -115,23 +115,10 @@ this.slave <- this.inherit("scripts/entity/tactical/human", {
 
 		if (this.Math.rand(1, 100) <= 66)
 		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				//todo legends armor
-			}
-			else
-			{
-				r = this.Math.rand(1, 2);
-
-				if (r == 1)
-				{
-					this.m.Items.equip(this.new("scripts/items/armor/sackcloth"));
-				}
-				else if (r == 2)
-				{
-					this.m.Items.equip(this.new("scripts/items/armor/tattered_sackcloth"));
-				}
-			}
+			this.m.Items.equip(this.Const.World.Common.pickArmor([
+				[1, "sackcloth"],
+				[1, "tattered_sackcloth"]
+			]));
 		}
 
 		

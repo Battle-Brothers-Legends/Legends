@@ -272,61 +272,36 @@ this.civilwar_refugees_event <- this.inherit("scripts/events/event", {
 			}
 			else if (r == 2)
 			{
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item = this.new("scripts/items/legend_armor/cloth/legend_sackcloth_tattered");
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/tattered_sackcloth");
-				}
-
+				item = this.new("scripts/items/weapons/knife");
 			}
 			else if (r == 3)
 			{
-				item = this.new("scripts/items/weapons/knife");
+				item = this.Const.World.Common.pickHelmet([[1, "hood"]]);
 			}
 			else if (r == 4)
 			{
-				item = this.Const.World.Common.pickHelmet([[1, "hood"]]);
+				item = this.new("scripts/items/weapons/woodcutters_axe");
 			}
 			else if (r == 5)
 			{
-				item = this.new("scripts/items/weapons/woodcutters_axe");
+				item = this.new("scripts/items/shields/wooden_shield_old");
 			}
 			else if (r == 6)
 			{
-				item = this.new("scripts/items/shields/wooden_shield_old");
+				item = this.new("scripts/items/weapons/pickaxe");
 			}
 			else if (r == 7)
 			{
-				item = this.new("scripts/items/weapons/pickaxe");
-			}
-			else if (r == 8)
-			{
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item = this.new("scripts/items/legend_armor/plate/legend_armor_leather_jacket");
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/leather_wraps");
-				}
-			}
-			else if (r == 9)
-			{
-				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				{
-					item = this.new("scripts/items/legend_armor/cloth/legend_tunic");
-				}
-				else
-				{
-					item = this.new("scripts/items/armor/linen_tunic");
-				}
-			}
-			else if (r == 10)
-			{
+
 				item = this.Const.World.Common.pickHelmet([[1, "feathered_hat"]]);
+			}
+			else
+			{
+					item = this.Const.World.Common.pickArmor([
+						[1, "linen_tunic"],
+						[1, "leather_wraps"],
+						[1, "tattered_sackcloth"],
+					]);
 			}
 
 			this.World.Assets.getStash().add(item);

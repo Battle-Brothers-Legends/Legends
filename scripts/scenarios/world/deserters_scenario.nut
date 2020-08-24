@@ -52,27 +52,13 @@ this.deserters_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		}
 
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
-		local armor;
-		local r = this.Math.rand(1, 5);
-
-		if (r == 1)
-		{
-			armor = this.new("scripts/items/armor/mail_hauberk");
-			armor.setVariant(28);
-		}
-		else if (r == 2)
-		{
-			armor = this.new("scripts/items/armor/mail_shirt");
-		}
-		else if (r == 3)
-		{
-			armor = this.new("scripts/items/armor/gambeson");
-		}
-		else
-		{
-			armor = this.new("scripts/items/armor/basic_mail_shirt");
-		}
-
+		local armor = this.Const.World.Common.pickArmor([
+			[1, "mail_hauberk", 28],
+			[1, "mail_shirt"],
+			[1, "gambeson"],
+			[2, "basic_mail_shirt"]
+		])
+		
 		armor.setCondition(armor.getConditionMax() * this.Math.rand(25, 100) * 0.01);
 		items.equip(armor);
 	}

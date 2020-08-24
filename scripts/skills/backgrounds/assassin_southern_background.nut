@@ -143,42 +143,14 @@ this.assassin_southern_background <- this.inherit("scripts/skills/backgrounds/ch
 			items.equip(this.new("scripts/items/tools/daze_bomb_item"));
 		}
 
-		r = this.Math.rand(1, 2);
-
-		if (r == 1)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/thick_nomad_robe"));
-		}
-		else if (r == 2)
-		{
-			items.equip(this.new("scripts/items/armor/oriental/assassin_robe"));
-		}
-
-		items.equip(this.new("scripts/items/helmets/oriental/assassin_head_wrap"));
-	}
-
-	function onAddLegendEquipment()
-	{
-		local items = this.getContainer().getActor().getItems();
-		local r;
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			items.equip(this.new("scripts/items/weapons/oriental/qatal_dagger"));
-		}
-		else if (r == 1)
-		{
-			items.equip(this.new("scripts/items/weapons/dagger"));
-		}
-		
-
-		//todo legends armor
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "oriental/thick_nomad_robe"],
+			[1, "oriental/assassin_robe"]
+		]))
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "oriental/assassin_head_wrap"]
 		]))
 	}
-
 });
 

@@ -96,7 +96,7 @@ this.big_game_hunt_contract <- this.inherit("scripts/contracts/contract", {
 			local inSettlements = 0;
 			local nearSettlements = 0;
 
-			if (r.Type == this.Const.World.TerrainType.Snow || r.Type == this.Const.World.TerrainType.Mountains)
+			if (r.Type == this.Const.World.TerrainType.Snow || r.Type == this.Const.World.TerrainType.Mountains || r.Type == this.Const.World.TerrainType.Desert || r.Type == this.Const.World.TerrainType.Oasis)
 			{
 				continue;
 			}

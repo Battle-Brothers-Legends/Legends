@@ -549,7 +549,7 @@ this.main_menu_state <- this.inherit("scripts/states/state", {
 			{
 				id = 0,
 				name = "Combat Basics",
-				description = "[p=c][img]gfx/ui/events/event_28.png[/img][/p]\n[p=c]A simple scenario to teach combat basics. Easy.[/p]"
+				description = "[p=c][img]gfx/ui/events/event_28.png[/img][/p]\n[p=c]A simple scenario to learn combat basics. Easy.[/p]"
 			},
 			{
 				id = 1,

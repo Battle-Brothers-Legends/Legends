@@ -28,7 +28,7 @@ this.slave_uprising_action <- this.inherit("scripts/factions/faction_action", {
 			return;
 		}
 
-		if (this.Math.rand(1, 100) > 2)
+		if (this.World.getTime().Days <= 100 && this.Math.rand(1, 100) > 2 || this.World.getTime().Days > 100 && this.Math.rand(1, 100) > 1)
 		{
 			return;
 		}
