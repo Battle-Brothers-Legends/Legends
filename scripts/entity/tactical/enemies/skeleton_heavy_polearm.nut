@@ -77,7 +77,7 @@ this.skeleton_heavy_polearm <- this.inherit("scripts/entity/tactical/skeleton", 
 			[1, "ancient/ancient_plated_mail_hauberk"]
 		];
 		local item = this.Const.World.Common.pickArmor(armor);
-		this.m.Items.equip(armor);
+		this.m.Items.equip(item);
 
 		local item = this.Const.World.Common.pickHelmet([
 			[66, "ancient/ancient_honorguard_helmet"]

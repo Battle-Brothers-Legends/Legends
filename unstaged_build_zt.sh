@@ -1,3 +1,4 @@
+$(git add .)
 FILES=$(git status -s)
 while read -r line; do
     #echo $line

@@ -38,30 +38,43 @@ this.legends_debug_scenario_midgame <- this.inherit("scripts/scenarios/world/sta
 			bro.getBaseProperties().RangedSkill = 75;
 			bro.getBaseProperties().MeleeDefense = 20;
 			bro.getBaseProperties().Stamina = 125;
+			
 			local items = bro.getItems();
+			items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
+			items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Offhand));
+			items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
+			items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
+			items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Ammo));
+
 			items.equip(this.new("scripts/items/weapons/arming_sword"));
-			local cloths = [
-				[1, "cloth/legend_gambeson"]
-			];
-			local armor = this.Const.World.Common.pickLegendArmor(cloths);
+			// local cloths = [
+			// 	[1, "cloth/legend_gambeson"]
+			// ];
+			// local armor = this.Const.World.Common.pickLegendArmor(cloths);
 
-			local chains = [
-				[1, "chain/legend_armor_mail_shirt"]
-			];
-			local chain = this.Const.World.Common.pickLegendArmor(chains);
-			armor.setUpgrade(chain);
+			// local chains = [
+			// 	[1, "chain/legend_armor_mail_shirt"]
+			// ];
+			// local chain = this.Const.World.Common.pickLegendArmor(chains);
+			// armor.setUpgrade(chain);
 
-			local plates = [
-				[1, "plate/legend_armor_leather_lamellar"]
-			];
-			local plate = this.Const.World.Common.pickLegendArmor(plates);
-			armor.setUpgrade(plate);
+			// local plates = [
+			// 	[1, "plate/legend_armor_leather_lamellar"]
+			// ];
+			// local plate = this.Const.World.Common.pickLegendArmor(plates);
+			// armor.setUpgrade(plate);
 
-			items.equip(armor);
+			// items.equip(armor);
+
+			items.equip(this.Const.World.Common.pickArmor([
+				[1, "basic_mail_shirt"]
+			]));
+			
 
 			items.equip(this.Const.World.Common.pickHelmet([
-				[1, "padded_kettle_hat"]
+				[1, "kettle_hat"]
 			]));
+			
 		}
 
 		 local horsesize = 0;

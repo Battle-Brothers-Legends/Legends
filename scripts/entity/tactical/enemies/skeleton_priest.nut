@@ -73,7 +73,7 @@ this.skeleton_priest <- this.inherit("scripts/entity/tactical/skeleton", {
 			[1, "ancient/ancient_priest_attire"]
 		];
 		local item = this.Const.World.Common.pickArmor(armor);
-		this.m.Items.equip(armor);
+		this.m.Items.equip(item);
 		
 		local item = this.Const.World.Common.pickHelmet([
 			[99, "ancient/ancient_priest_diadem"]

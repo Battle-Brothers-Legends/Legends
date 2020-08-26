@@ -67,7 +67,7 @@ this.skeleton_medium <- this.inherit("scripts/entity/tactical/skeleton", {
 			[1, "ancient/ancient_double_layer_mail"]
 		];
 		local item = this.Const.World.Common.pickArmor(armor);
-		this.m.Items.equip(armor);
+		this.m.Items.equip(item);
 
 		local item = this.Const.World.Common.pickHelmet([
 			[99, "ancient/ancient_honorguard_helmet"],

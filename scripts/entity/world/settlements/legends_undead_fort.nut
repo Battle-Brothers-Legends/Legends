@@ -3,7 +3,7 @@ this.legends_undead_fort <- this.inherit("scripts/entity/world/settlements/legen
 	function create()
 	{
 		this.legends_fort.create();
-		this.m.DefenderMult = 0;
+		this.m.DefenderMult = 0.1;
 		this.setDefenderSpawnList(this.Const.World.Spawn.UndeadFort);
 		this.m.IsUndead = true;
 		this.m.Names = [[

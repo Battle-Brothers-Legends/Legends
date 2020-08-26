@@ -84,7 +84,7 @@ this.skeleton_heavy <- this.inherit("scripts/entity/tactical/skeleton", {
 				[1, "ancient/ancient_plated_mail_hauberk"]
 			];
 			local item = this.Const.World.Common.pickArmor(armor);
-			this.m.Items.equip(armor);
+			this.m.Items.equip(item);
 		}
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))

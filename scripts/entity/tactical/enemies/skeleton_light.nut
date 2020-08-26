@@ -60,7 +60,7 @@ this.skeleton_light <- this.inherit("scripts/entity/tactical/skeleton", {
 			[1, "ancient/ancient_ripped_cloth"]
 		];
 		local item = this.Const.World.Common.pickArmor(armor);
-		this.m.Items.equip(armor);
+		this.m.Items.equip(item);
 
 
 

@@ -94,7 +94,9 @@ this.skeleton <- this.inherit("scripts/entity/tactical/actor", {
 				}
 
 				local decal = _tile.spawnDetail(armorDecal, this.Const.Tactical.DetailFlag.Corpse, flip, false, this.Const.Combat.HumanCorpseOffset);
-				decal.Scale = 0.9;
+				if(decal != null) {
+					decal.Scale = 0.9;
+				}
 			}
 
 			if (_fatalityType != this.Const.FatalityType.Decapitated)
