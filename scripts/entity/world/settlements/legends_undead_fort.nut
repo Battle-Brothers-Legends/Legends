@@ -3,7 +3,7 @@ this.legends_undead_fort <- this.inherit("scripts/entity/world/settlements/legen
 	function create()
 	{
 		this.legends_fort.create();
-		this.m.DefenderMult = 0.1;
+		this.m.DefenderMult = 2.0;
 		this.setDefenderSpawnList(this.Const.World.Spawn.UndeadFort);
 		this.m.IsUndead = true;
 		this.m.Names = [[
@@ -93,9 +93,9 @@ this.legends_undead_fort <- this.inherit("scripts/entity/world/settlements/legen
 
         this.location.onDropLootForPlayer(_lootTable);
 		this.dropArmorParts(this.Math.rand(scaledResources * 0.3, scaledResources * 0.6), _lootTable);
-		this.dropMoney(this.Math.rand(scaledResources * 15, scaledResources * 25), _lootTable);
+		this.dropMoney(this.Math.rand(scaledResources * 8, scaledResources * 12), _lootTable);
 
-		this.dropTreasure(this.Math.rand(scaledResources * 0.04, 1 + scaledResources * 0.05), [
+		this.dropTreasure(this.Math.rand(scaledResources * 0.05, 1 + scaledResources * 0.06), [
 			"loot/silverware_item",
 			"loot/silver_bowl_item",
 			"loot/signet_ring_item",

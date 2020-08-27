@@ -2137,7 +2137,6 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 			foreach( h in this.m.HousesTiles )
 			{
-				continue;
 				local tile = this.World.getTileSquare(h.X, h.Y);
 				tile.clear(this.Const.World.DetailType.Houses);
 				local d = tile.spawnDetail("world_houses_0" + this.getHousesType() + "_0" + h.V, this.Const.World.ZLevel.Object - 3, this.Const.World.DetailType.Houses);
@@ -2160,7 +2159,6 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 			foreach( h in this.m.HousesTiles )
 			{
-				continue;
 				local tile = this.World.getTileSquare(h.X, h.Y);
 				tile.clear(this.Const.World.DetailType.Houses | this.Const.World.DetailType.Lighting);
 				local d = tile.spawnDetail("world_houses_0" + this.getHousesType() + "_0" + h.V + "_ruins", this.Const.World.ZLevel.Object - 3, this.Const.World.DetailType.Houses);
@@ -2194,8 +2192,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	function destroy()
 	{
 		this.setActive(false);
+		this.updateSprites(true);
+		foreach(a in this.getAttachedLocations()) {
+			a.setActive(false, true);
+		}
 		this.getTile().spawnDetail(this.getSpriteName() + "_ruins", this.Const.World.ZLevel.Object - 3, 0);
+		this.onFinish();
 		this.die();
+		this.World.EntityManager.updateSettlementHeat();
 	}
 
 	function onUpdate()
@@ -2318,11 +2322,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function onCombatLost()
 	{
-		if(this.World.FactionManager.getFaction(this.m.Factions[0].isPlayerRelationPermanent())) {
-			this.setActive(false);
-			this.getTile().spawnDetail(e.m.Sprite + "_ruins", this.Const.World.ZLevel.Object - 3, 0, false);
-			this.fadeOutAndDie();
-			this.World.EntityManager.updateSettlementHeat();
+		if(this.World.FactionManager.getFaction(this.m.Factions[0]).isPlayerRelationPermanent()) {
+			this.destroy();
 		}
 		else {
 			if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled()) {

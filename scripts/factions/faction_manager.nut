@@ -281,11 +281,19 @@ this.faction_manager <- {
 		}
 	}
 
-	// TODO: only show non-hostile settlements
 	function uncoverSettlements( _explorationMode )
 	{
 		foreach( s in this.World.EntityManager.getSettlements() )
 		{
+			local isAlly = false;
+			foreach(f in s.getFactions()) {
+				if(this.World.FactionManager.isAlliedWithPlayer(f)) {
+					isAlly = true;
+				}
+			}
+			if(!isAlly){
+				continue;
+			}
 			if (!_explorationMode || this.getVecDistance(this.World.State.getPlayer().getPos(), s.getPos()) <= 950)
 			{
 				s.setDiscovered(true);
@@ -385,7 +393,7 @@ this.faction_manager <- {
 		local name = this.Const.Strings.UndeadFactionNames[this.Math.rand(0, this.Const.Strings.UndeadFactionNames.len() - 1)];
 		f.setID(this.m.Factions.len());
 		f.setName(name);
-		f.setMotto("\"" + a.Mottos[this.Math.rand(0, a.Mottos.len() - 1)] + "\"");
+		// f.setMotto("\"" + a.Mottos[this.Math.rand(0, a.Mottos.len() - 1)] + "\"");
 		f.setBanner(banner);
 		f.addTrait(this.Const.FactionTrait.Undead);
 		f.setDiscovered(true);

@@ -413,7 +413,7 @@ gt.Const.UndeadFactionArchetypes <- [
 		Traits = [
 			this.Const.FactionTrait.Undead
 		],
-		Description = "The skeletal legions watch over the futile attempts of the living with hollow eyes, waiting to reclaim the lands they have lost.",
+		Description = "They watch over the futile attempts of the living with hollow eyes, waiting to reclaim the lands they have lost.",
 		Mottos = [
 			"Death is eternal",
 			"Life fades",

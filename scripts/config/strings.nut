@@ -724,8 +724,7 @@ gt.Const.Strings.CityStateNames <- [
 	"Al-Anwar"
 ];
 gt.Const.Strings.UndeadFactionNames <- [
-	"Undead Legion",
-	"Immortal Legion"
+	"Undead Legion"
 ];
 gt.Const.Strings.CityStateTitles <- [
 	"City State of",

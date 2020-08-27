@@ -254,6 +254,7 @@
 				{
 					x = this.Math.rand(5, _rect.W - 6);
 				}
+				y = this.Math.rand(_rect.H * 0.2, _rect.H * 0.95);
 			}
 			else {
 				if (isLeft)
@@ -264,10 +265,11 @@
 				{
 					x = this.Math.rand(_rect.W * 0.1, _rect.W * 0.4);
 				}
+				y = this.Math.rand(5, _rect.H * 0.95);
 			}
 			
 
-			y = this.Math.rand(5, _rect.H * 0.95);
+			
 			local tile = this.World.getTileSquare(x, y);
 
 			if (settlementTiles.find(tile.ID) != null)
@@ -375,14 +377,10 @@
 			}
 
 			tile.clear();
-			this.logInfo("Spawning a: " + type.Script);
 			local entity = this.World.spawnLocation(type.Script, tile.Coords);
-			this.logInfo("Setting size");
 			entity.setSize(settlementSize);
-			this.logInfo("Setting fringe");
 			entity.setFringe(fringe);
 			settlementTiles.push(tile);
-			this.logInfo("complete");
 			return settlementTiles;
 		}
 		return settlementTiles;
@@ -680,7 +678,6 @@
 				}
 			}
 		}
-		this.logInfo("removing Autobahnkreuze");
 		this.removeAutobahnkreuze(_rect, _properties);
 	}
 
