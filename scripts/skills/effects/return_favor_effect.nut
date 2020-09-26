@@ -41,7 +41,7 @@ this.return_favor_effect <- this.inherit("scripts/skills/skill", {
 
 		if (!_skill.isRanged())
 		{
-			if (this.Math.rand(1, 100) <= 75 && !_attacker.getCurrentProperties().IsImmuneToStun && !_attacker.getSkills().hasSkill("effects.stunned"))
+			if (this.Math.rand(1, 100) <= 75 && !_attacker.getSkills().hasSkill("effects.stunned"))
 			{
 				local d = _attacker.getTile().getDistanceTo(user.getTile());
 				local item = user.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);

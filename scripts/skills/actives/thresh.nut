@@ -111,7 +111,7 @@ this.thresh <- this.inherit("scripts/skills/skill", {
 
 					if (_user.isAlive() && !_user.isDying())
 					{
-						if (success && tile.IsOccupiedByActor && this.Math.rand(1, 100) <= this.m.StunChance && !tile.getEntity().getCurrentProperties().IsImmuneToStun && !tile.getEntity().getSkills().hasSkill("effects.stunned"))
+						if (success && tile.IsOccupiedByActor && this.Math.rand(1, 100) <= this.m.StunChance && !tile.getEntity().getSkills().hasSkill("effects.stunned"))
 						{
 							tile.getEntity().getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
 

@@ -117,7 +117,7 @@ this.knock_over_skill <- this.inherit("scripts/skills/skill", {
 		{
 			local target = _targetTile.getEntity();
 
-			if ((_user.getCurrentProperties().IsSpecializedInMaces || this.Math.rand(1, 100) <= this.m.StunChance) && !target.getCurrentProperties().IsImmuneToStun && !target.getSkills().hasSkill("effects.stunned"))
+			if ((_user.getCurrentProperties().IsSpecializedInMaces || this.Math.rand(1, 100) <= this.m.StunChance) &&  !target.getSkills().hasSkill("effects.stunned"))
 			{
 				target.getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
 

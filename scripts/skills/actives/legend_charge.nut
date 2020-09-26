@@ -294,7 +294,7 @@ this.legend_charge <- this.inherit("scripts/skills/skill", {
 				this.Tactical.getShaker().shake(victim, myTile, 2);
 			}
 
-			if (!victim.getCurrentProperties().IsImmuneToStun && this.Math.rand(1, 100) <= chance)
+			if (this.Math.rand(1, 100) <= chance)
 			{
 				victim.getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
 

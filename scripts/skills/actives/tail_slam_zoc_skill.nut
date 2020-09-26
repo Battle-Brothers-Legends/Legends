@@ -44,9 +44,9 @@ this.tail_slam_zoc_skill <- this.inherit("scripts/skills/skill", {
 	{
 		local applyEffect = this.Math.rand(1, 2);
 
-		if (applyEffect == 1 && !_target.getCurrentProperties().IsImmuneToStun && !_target.getCurrentProperties().IsStunned)
+		if (applyEffect == 1 && !_target.getCurrentProperties().IsStunned)
 		{
-			if (_target.isNonCombatant() || _target.getCurrentProperties().IsImmuneToStun || _target.getCurrentProperties().IsStunned)
+			if (_target.isNonCombatant() ||  _target.getCurrentProperties().IsStunned)
 			{
 				return;
 			}

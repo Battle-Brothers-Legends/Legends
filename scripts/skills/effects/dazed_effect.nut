@@ -64,6 +64,7 @@ this.dazed_effect <- this.inherit("scripts/skills/skill", {
 		}
 		else
 		{
+			this.m.IsGarbage = true;
 			if (this.m.Container.hasSkill("effects.legend_baffled"))
 			{
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.m.Container.getActor()) + " was already baffled and could not be baffled again due to stun immunity.");
@@ -72,7 +73,6 @@ this.dazed_effect <- this.inherit("scripts/skills/skill", {
 			local forceBaffle = this.new("scripts/skills/effects/legend_baffled_effect");
 			forceBaffle.m.IsForced = true;
 			this.m.Container.add(forceBaffle);
-			this.m.IsGarbage = true;
 		}
 	}
 
