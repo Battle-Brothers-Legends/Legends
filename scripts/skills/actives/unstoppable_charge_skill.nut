@@ -165,7 +165,7 @@ this.unstoppable_charge_skill <- this.inherit("scripts/skills/skill", {
 
 		local applyEffect = this.Math.rand(1, 2);
 
-		if (applyEffect == 1 && !_target.getCurrentProperties().IsImmuneToStun)
+		if (applyEffect == 1)
 		{
 			_target.getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
 

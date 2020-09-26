@@ -48,13 +48,16 @@ this.stunned_effect <- this.inherit("scripts/skills/skill", {
 		else
 		{
 			this.m.IsGarbage = true;
-			/*
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.m.Container.getActor().getName()) + " became dazed instead of baffled, due to being stun immune.");
-
+			if (this.m.Container.hasSkill("effects.dazed"))
+			{
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.m.Container.getActor()) + " was already dazed and could not be dazed again due to stun immunity.");
+				return;
+			}
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.m.Container.getActor()) + " became dazed instead of baffled, due to being stun immune.");
 			local forceDaze = this.new("scripts/skills/effects/dazed_effect");
 			forceDaze.m.IsForced = true;
 			this.m.Container.add(forceDaze);
-			*/
+			
 		}
 	}
 

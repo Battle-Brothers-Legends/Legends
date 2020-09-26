@@ -75,23 +75,16 @@ this.legend_daze <- this.inherit("scripts/skills/skill", {
 
 		if (r < (ourSkill - theirSkill))
 		{
-			if (!targetEntity.getCurrentProperties().IsImmuneToStun)
-			{
-				this.spawnAttackEffect(_targetTile, this.Const.Tactical.AttackEffectBash);
+			this.spawnAttackEffect(_targetTile, this.Const.Tactical.AttackEffectBash);
 
-				if (target.isAlive())
+			if (target.isAlive())
+			{
+				target.getSkills().add(this.new("scripts/skills/effects/legend_dazed_effect"));
+
+				if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
 				{
-					target.getSkills().add(this.new("scripts/skills/effects/legend_dazed_effect"));
-
-					if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
-					{
-						this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " stupefied " + this.Const.UI.getColorizedEntityName(target) + " leaving them dazed");
-					}
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " stupefied " + this.Const.UI.getColorizedEntityName(target) + " leaving them dazed");
 				}
-			}
-			else
-			{
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " failed to stupefy an immune " + this.Const.UI.getColorizedEntityName(target));
 			}
 		}
 		else

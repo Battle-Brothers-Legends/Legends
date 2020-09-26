@@ -1,7 +1,7 @@
 this.legend_baffled_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		TurnsLeft = 1
-		// ,		IsForced = false
+		TurnsLeft = 1,		
+		IsForced = false
 	},
 	function create()
 	{
@@ -57,16 +57,16 @@ this.legend_baffled_effect <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
-		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
-		// if (!this.m.Container.getActor().getCurrentProperties().IsImmuneToStun || this.m.IsForced)
-		// {
-		// 	this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
-		// }
-		// else
-		// {
-		//  this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.m.Container.getActor().getName()) + "\'s baffle wore off immediately, due to being stun immune.");
-		// 	this.m.IsGarbage = true;
-		// }
+		// this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
+		if (!this.m.Container.getActor().getCurrentProperties().IsImmuneToStun || this.m.IsForced)
+		{
+			this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
+		}
+		else
+		{
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.m.Container.getActor()) + "\'s baffle wore off immediately, due to being stun immune.");
+			this.m.IsGarbage = true;
+		}
 	}
 
 	function onRefresh()

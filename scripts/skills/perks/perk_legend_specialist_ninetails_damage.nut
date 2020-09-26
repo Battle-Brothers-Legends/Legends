@@ -13,7 +13,7 @@ this.perk_legend_specialist_ninetails_damage <- this.inherit("scripts/skills/ski
 		this.m.IsHidden = false;
 	}
 
-	function onUpdate( _properties )
+	function onAfterUpdate( _properties )
 	{
 		local actor = this.getContainer().getActor();
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);

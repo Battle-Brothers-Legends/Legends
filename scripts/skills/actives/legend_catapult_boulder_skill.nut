@@ -192,7 +192,7 @@ this.legend_catapult_boulder_skill <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		if (_skill == this && _targetEntity.isAlive() && !_targetEntity.isDying() && !_targetEntity.getCurrentProperties().IsImmuneToStun)
+		if (_skill == this && _targetEntity.isAlive() && !_targetEntity.isDying())
 		{
 			local targetTile = _targetEntity.getTile();
 			local user = this.getContainer().getActor();

@@ -33,10 +33,10 @@ this.perk_legend_onslaught <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 		
-		if (_targetEntity.getCurrentProperties().IsImmuneToStun)
-		{
-			return false;
-		}
+		// if (_targetEntity.getCurrentProperties().IsImmuneToStun)
+		// {
+		// 	return false;
+		// }
 
 		if (_targetEntity.isNonCombatant())
 		{
