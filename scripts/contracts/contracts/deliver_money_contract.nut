@@ -748,6 +748,15 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 			return false;
 		}
 
+		local contracts = this.m.Home.getContracts();
+		foreach (c in contracts)
+		{
+			if (c.getType() == "contract.deliver_item")
+			{
+				return false;
+			}
+		}
+
 		return true;
 	}
 
