@@ -120,6 +120,73 @@ this.legends_undead_fort <- this.inherit("scripts/entity/world/settlements/legen
 		], _lootTable);
     }
 
+	function getUIBackgroundCenter()
+	{
+		local s = "ui/settlements/undead/stronghold_0" + this.m.Size;
+		return s;
+	}
+
+	function getUIBackgroundLeft()
+	{
+		local s = "ui/settlements/bg_houses_0" + this.m.Size + "_left";
+		return s;
+	}
+
+	function getUIBackgroundRight()
+	{
+		local s = "ui/settlements/bg_houses_0" + this.m.Size + "_right";
+		return s;
+	}
+
+	function getUIRampPathway()
+	{
+		switch (this.m.Size)
+		{
+			case 1:
+			 	return "ui/settlements/ramp_01_planks";
+			case 2:
+				return "ui/settlements/ramp_01_planks";
+			case 3:
+				return "ui/settlements/ramp_01_cobblestone";
+			default:
+				return "";
+		}
+	}
+
+	function getLighting()
+	{
+		local prefix = ""
+		if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled())
+		{
+			prefix ="legend_";
+		}
+		local s = prefix + "world_stronghold_0" + this.m.Size + "_undead_lights";
+		return s;
+	}
+
+	function getSpriteName()
+	{
+		local prefix = ""
+		if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled())
+		{
+			prefix ="legend_";
+		}
+		local s = prefix + "world_stronghold_0" + this.m.Size + "_undead";
+
+		if (this.isUpgrading())
+		{
+			s += "_upgrade";
+		}
+		return s;
+	}
+
+	//UISprite
+	function getImagePath()
+	{
+		local s = "ui/settlement_sprites/undead/stronghold_0" + this.m.Size + ".png";
+		return s;
+	}
+
 	function getDescription()
 	{
 		switch (this.m.Size)

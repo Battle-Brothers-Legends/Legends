@@ -51,7 +51,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		IsUndead = false,
 		IsActive = true,
 		IsUpgrading = false,
-		IsFringe = false
+		IsFringe = false,
+		ImageFolder = ""
 	},
 
 	function setUpgrading (_v)
@@ -2328,11 +2329,10 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		else {
 			if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled()) {
 				this.setResources(0);
-				this.changeSize(this.m.Size - 1);
-				this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 7);
+				this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 14);
 			}
 			else {
-				this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 25);
+				this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 30);
 			}
 			foreach(a in this.getAttachedLocations()) {
 				a.setActive(false, true);
@@ -2340,6 +2340,12 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			this.spawnFireAndSmoke();
 		}
 		this.World.FactionManager.getFaction(this.m.Factions[0]).addPlayerRelation(this.Const.World.Assets.RelationAttacked);
+	}
+
+	function changeOwnership() {
+		local entity = this.World.spawnLocation(type.Script, tile.Coords);
+		entity.setSize(settlementSize);
+		entity.setFringe(fringe);
 	}
 
 	function onRaided()
@@ -2696,6 +2702,10 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function setFringe( _isFringe ) {
 		this.m.IsFringe = _isFringe;
+	}
+
+	function getImageOrDefault( _file ) {
+		
 	}
 
 	function onSerialize( _out )
