@@ -75,7 +75,9 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 				0.0, // badlands
 				0.0, //highlands
 				0.0, //stepps
-				0.0 //ocean
+				0.0, //ocean
+				0.0, //desert
+				0.0 //oasis
 			]
 		},
 		PerkTreeDynamicMins = {
@@ -408,6 +410,14 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		if (val > 0) {
 			ttext += "\nStepps +" + val +"%"
 		}
+		val = terrains[17] * 100.0;
+		if (val > 0) {
+			ttext += "\nDeserts +" + val +"%"
+		}
+		val = terrains[18] * 100.0;
+		if (val > 0) {
+			ttext += "\nOases +" + val +"%"
+		}		
 
 		if (ttext != "")
 		{
@@ -962,15 +972,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 
 	function addEquipment()
 	{
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			this.onAddLegendEquipment()
-		}
-		else
-		{
-			this.onAddEquipment();
-		}
-
+		this.onAddEquipment();
 		this.adjustHiringCostBasedOnEquipment();
 	}
 
@@ -982,6 +984,9 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		}
 		else
 		{
+			if(isCultist()) {
+				this.m.DailyCost = 4; // Converted cultists only cost 4, this is instead of saving the value for all bros.
+			}
 			local level = this.getContainer().getActor().getLevel();
 			local wage = this.Math.round(this.m.DailyCost * this.m.DailyCostMult);
 			_properties.DailyWage += wage * this.Math.pow(1.1, this.Math.min(10, level - 1));
@@ -1163,10 +1168,6 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 	}
 
 	function onAddEquipment()
-	{
-	}
-
-	function onAddLegendEquipment()
 	{
 	}
 

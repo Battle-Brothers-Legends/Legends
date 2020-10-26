@@ -68,10 +68,10 @@ this.legend_drums_of_life_skill <- this.inherit("scripts/skills/skill", {
 				continue;
 			}
 
-			if (a.getFatigue() == 0)
-			{
-				continue;
-			}
+			// if (a.getFatigue() == 0)
+			// {
+			// 	continue;
+			// }
 
 			if (myTile.getDistanceTo(a.getTile()) > 8)
 			{

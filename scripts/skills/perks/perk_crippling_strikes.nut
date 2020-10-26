@@ -27,16 +27,10 @@ this.perk_crippling_strikes <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (!_targetEntity.getFaction())
-		{
-			return;
-		}
-
-		if (_targetEntity.getFaction() == this.Const.Faction.Undead ||  _targetEntity.getFaction() == this.Const.Faction.Zombies)
+		if (!_targetEntity.m.BaseProperties.IsAffectedByInjuries)
 		{
 			_properties.DamageTotalMult *= 1.1;
 		}
-
 	}
 
 });

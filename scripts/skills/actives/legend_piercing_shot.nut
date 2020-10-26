@@ -67,7 +67,7 @@ this.legend_piercing_shot <- this.inherit("scripts/skills/skill", {
 			id = 5,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "If arrow hits its target, it will continue through and damage any target behind, dealing %50 damage."
+			text = "If the arrow hits its target, it will continue through and damage any target behind, dealing 50% damage."
 		});
 
 		ret.push({
@@ -213,6 +213,11 @@ this.legend_piercing_shot <- this.inherit("scripts/skills/skill", {
 		local ret = _tag.Skill.attackEntity(_tag.User, _tag.TargetTile.getEntity());
 		local ownTile = _tag.User.getTile();
 		local dir = ownTile.getDirectionTo(_tag.TargetTile);
+
+		if (!ret)
+		{
+			return ret
+		}
 
 		if (!_tag.TargetTile.hasNextTile(dir))
 		{

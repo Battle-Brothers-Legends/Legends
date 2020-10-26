@@ -11,7 +11,8 @@ gt.Const.LegendMod.FavoriteZombies <- [
 	this.Const.EntityType.ZombieBetrayer,
 	this.Const.EntityType.ZombieBoss,
 	this.Const.EntityType.ZombieKnight,
-	this.Const.EntityType.Necromancer
+	this.Const.EntityType.Necromancer,
+	this.Const.EntityType.ZombieTreasureHunter,
 ];
 
 gt.Const.LegendMod.FavoriteAlps <- [
@@ -71,8 +72,11 @@ gt.Const.LegendMod.FavoriteSkeleton <- [
 	this.Const.EntityType.SkeletonMedium,
 	this.Const.EntityType.SkeletonHeavy,
 	this.Const.EntityType.SkeletonBoss,
-	this.Const.EntityType.SkeletonPriest
-];
+	this.Const.EntityType.SkeletonPriest,
+	this.Const.EntityType.SkeletonLich,
+	this.Const.EntityType.SkeletonLichMirrorImage,
+	this.Const.EntityType.SkeletonPhylactery,
+	this.Const.EntityType.SkeletonGladiator	];
 
 gt.Const.LegendMod.FavoriteSpider <- [
 	this.Const.EntityType.Spider,
@@ -106,7 +110,13 @@ gt.Const.LegendMod.FavoriteSwordmaster <- [
 	this.Const.EntityType.BanditWarlord,
 	this.Const.EntityType.LegendFencer,
 	this.Const.EntityType.BarbarianChampion,
-	this.Const.EntityType.Sergeant
+	this.Const.EntityType.Sergeant,
+	this.Const.EntityType.Officer,
+	this.Const.EntityType.Gladiator,
+	this.Const.EntityType.Assassin,
+	this.Const.EntityType.NomadLeader,
+    this.Const.EntityType.Executioner,
+	this.Const.EntityType.DesertDevil
 ];
 
 gt.Const.LegendMod.FavoriteArcher <- [
@@ -117,7 +127,11 @@ gt.Const.LegendMod.FavoriteArcher <- [
 	this.Const.EntityType.MilitiaRanged,
 	this.Const.EntityType.Arbalester,
 	this.Const.EntityType.LegendSlinger,
-	this.Const.EntityType.GoblinAmbusher
+	this.Const.EntityType.GoblinAmbusher,
+	this.Const.EntityType.NomadSlinger,
+	this.Const.EntityType.NomadArcher,
+	this.Const.EntityType.Gunner,
+	this.Const.EntityType.DesertStalker,
 ];
 
 gt.Const.LegendMod.FavoriteBarbarian <- [
@@ -158,7 +172,10 @@ gt.Const.LegendMod.FavoriteCaravan <- [
 	this.Const.EntityType.Militia,
 	this.Const.EntityType.MilitiaVeteran,
 	this.Const.EntityType.MilitiaCaptain,
-	this.Const.EntityType.MilitiaRanged
+	this.Const.EntityType.MilitiaRanged,
+	this.Const.EntityType.Slave,
+	this.Const.EntityType.Engineer,
+	this.Const.EntityType.PeasantSouthern
 ];
 
 
@@ -177,8 +194,32 @@ gt.Const.LegendMod.FavoriteNoble <- [
 
 gt.Const.LegendMod.FavoriteMercenary <- [
 	this.Const.EntityType.Wardog,
+	this.Const.EntityType.ArmoredWardog,
 	this.Const.EntityType.Mercenary,
-	this.Const.EntityType.BountyHunter
+	this.Const.EntityType.MercenaryRanged,
+	this.Const.EntityType.BountyHunter,
+	this.Const.EntityType.Swordmaster,
+	this.Const.EntityType.HedgeKnight,
+	this.Const.EntityType.MasterArcher	
+];
+
+gt.Const.LegendMod.FavoriteSoutherners <- [
+	this.Const.EntityType.Conscript,
+	this.Const.EntityType.Gunner,
+	this.Const.EntityType.Officer,
+	this.Const.EntityType.Engineer,
+	this.Const.EntityType.Assassin,
+	this.Const.EntityType.Slave,
+	this.Const.EntityType.Gladiator,
+	this.Const.EntityType.NomadCutthroat,
+	this.Const.EntityType.NomadOutlaw,
+	this.Const.EntityType.NomadSlinger,
+	this.Const.EntityType.NomadArcher,
+	this.Const.EntityType.NomadLeader,
+	this.Const.EntityType.DesertStalker,
+	this.Const.EntityType.Executioner,
+	this.Const.EntityType.DesertDevil,
+	this.Const.EntityType.PeasantSouthern,
 ];
 
 gt.Const.LegendMod.GetFavoriteEnemyValue <- function ( _type )
@@ -427,6 +468,69 @@ gt.Const.LegendMod.GetFavoriteEnemyValue <- function ( _type )
 		case "this.Const.EntityType.BarbarianBeastmaster":
 		value = 5;
 		break;
+		case "this.Const.EntityType.BarbarianMadman":
+		value = 1;
+		break;
+		case "this.Const.EntityType.Conscript":
+		value = 5;
+		break;
+		case "this.Const.EntityType.Gunner":
+		value = 5;
+		break;
+		case "this.Const.EntityType.Officer":
+		value = 3;
+		break;
+		case "this.Const.EntityType.Engineer":
+		value = 15;
+		break;
+		case "this.Const.EntityType.Assassin":
+		value = 3;
+		break;
+		case "this.Const.EntityType.Slave":
+		value = 30;
+		break;
+		case "this.Const.EntityType.Gladiator":
+		value = 3;
+		break;
+		case "this.Const.EntityType.NomadCutthroat":
+		value = 15;
+		break;
+		case "this.Const.EntityType.NomadOutlaw":
+		value = 5;
+		break;
+		case "this.Const.EntityType.NomadSlinger":
+		value = 12;
+		break;
+		case "this.Const.EntityType.NomadArcher":
+		value = 7;
+		break;
+		case "this.Const.EntityType.NomadLeader":
+		value = 3;
+		break;
+		case "this.Const.EntityType.DesertStalker":
+		value = 2;
+		break;
+		case "this.Const.EntityType.Executioner":
+		value = 2;
+		break;
+		case "this.Const.EntityType.DesertDevil":
+		value = 2;
+		break;
+		case "this.Const.EntityType.PeasantSouthern":
+		value = 25;
+		break;
+		case "this.Const.EntityType.SkeletonLich":
+		value = 0.3;
+		break;
+		case "this.Const.EntityType.SkeletonLichMirrorImage":
+		value = 0.5;
+		break;
+		case "this.Const.EntityType.SkeletonPhylactery":
+		value = 5;
+		break;
+		case "this.Const.EntityType.ZombieTreasureHunter":
+		value = 2;
+		break;		
 		default:
 		value = 10;
 	}

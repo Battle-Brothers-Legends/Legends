@@ -204,7 +204,7 @@ this.ai_engage_melee <- this.inherit("scripts/ai/tactical/behavior", {
 		{
 			foreach( a in knownAllies )
 			{
-				if (this.isRangedUnit(a) || a.getIdealRange() == 2)
+				if (this.isRangedUnit(a) || a.getIdealRange() == 2 || a.getID() == _entity.getID())
 				{
 					continue;
 				}
@@ -367,7 +367,8 @@ this.ai_engage_melee <- this.inherit("scripts/ai/tactical/behavior", {
 				}
 			}
 		}
-		else
+
+		if (potentialDestinations.len() == 0)
 		{
 			foreach( t in targets )
 			{

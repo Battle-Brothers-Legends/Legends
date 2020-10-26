@@ -69,7 +69,7 @@ this.conquer_holy_site_contract <- this.inherit("scripts/contracts/contract", {
 		}
 		while (b < 0);
 
-		this.m.Payment.Pool = 1300 * this.getPaymentMult() * this.Math.pow(this.getDifficultyMult(), this.Const.World.Assets.ContractRewardPOW) * this.getReputationToPaymentMult();
+		this.m.Payment.Pool = 1350 * this.getPaymentMult() * this.Math.pow(this.getDifficultyMult(), this.Const.World.Assets.ContractRewardPOW) * this.getReputationToPaymentMult();
 		local r = this.Math.rand(1, 2);
 
 		if (r == 1)
@@ -91,6 +91,7 @@ this.conquer_holy_site_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Flags.set("Commander", this.Const.Strings.CharacterNames[this.Math.rand(0, this.Const.Strings.CharacterNames.len() - 1)]);
 		this.m.Flags.set("EnemyID", target.getFaction());
 		this.m.Flags.set("MapSeed", this.Time.getRealTime());
+		this.m.Flags.set("OppositionSeed", this.Time.getRealTime());
 		this.contract.start();
 	}
 
@@ -236,6 +237,11 @@ this.conquer_holy_site_contract <- this.inherit("scripts/contracts/contract", {
 
 			function onDestinationAttacked( _dest )
 			{
+				if (this.Flags.getAsInt("OppositionSeed") != 0)
+				{
+					this.Math.seedRandom(this.Flags.getAsInt("OppositionSeed"));
+				}
+
 				if (this.Flags.get("IsVictory") || this.Contract.m.Target != null && !this.Contract.m.Target.isNull())
 				{
 					return;
@@ -413,6 +419,7 @@ this.conquer_holy_site_contract <- this.inherit("scripts/contracts/contract", {
 				else if (_combatID == "ConquerHolySite")
 				{
 					this.Flags.set("IsVictory", true);
+					this.Flags.set("OppositionSeed", this.Time.getRealTime());
 				}
 			}
 

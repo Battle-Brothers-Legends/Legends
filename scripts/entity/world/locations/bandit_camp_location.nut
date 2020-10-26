@@ -38,6 +38,9 @@ this.bandit_camp_location <- this.inherit("scripts/entity/world/location", {
 			"trade/cloth_rolls_item",
 			"trade/salt_item",
 			"trade/amber_shards_item",
+			"trade/iron_ingots_item",
+			"trade/tin_ingots_item",
+			"trade/gold_ingots_item",
 			"loot/silverware_item",
 			"loot/silver_bowl_item",
 			"loot/signet_ring_item"

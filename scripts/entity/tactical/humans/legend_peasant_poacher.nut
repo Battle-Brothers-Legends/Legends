@@ -69,7 +69,7 @@ this.legend_peasant_poacher <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Items.addToBag(this.new("scripts/items/weapons/knife"));
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[1, "sack_cloth"],
+			[1, "sackcloth"],
 			[1, "thick_tunic"],
 			[8, "linen_tunic"]
 		]));

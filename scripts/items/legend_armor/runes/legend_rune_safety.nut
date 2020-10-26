@@ -8,7 +8,7 @@ this.legend_rune_safety <- this.inherit("scripts/items/legend_armor/legend_armor
 		this.m.Name = "Armor Rune Sigil: Safety";
 		this.m.Description = "An inscribed rock that can be attached to a character\'s armor.";
 		this.m.ArmorDescription = "Includes An inscribed rock that grants additional safety bonuses.";
-		this.m.Icon = "legend_armor/runes/rune_stone_3.png";
+		this.m.Icon = "rune_sigils/rune_stone_3.png";
 		this.m.IconLarge = this.m.Icon;
 		this.m.OverlayIcon = "";
 		this.m.OverlayIconLarge = "";

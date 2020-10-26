@@ -6,7 +6,7 @@ this.nightmare_aoe_skill <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Nightmare";
 		this.m.Description = "";
 		this.m.Icon = "skills/active_117.png";
-		this.m.IconDisabled = "skills/active_117.png";
+		this.m.IconDisabled = "skills/active_117_sw.png";
 		this.m.Overlay = "active_117";
 		this.m.SoundOnUse = [
 			"sounds/enemies/horror_spell_01.wav",

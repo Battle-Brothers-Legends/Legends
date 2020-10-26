@@ -108,6 +108,11 @@ this.ai_adrenaline <- this.inherit("scripts/ai/tactical/behavior", {
 				continue;
 			}
 
+			if ((target.getCurrentProperties().IsAttackingOnZoneOfControlAlways || !target.getTile().hasZoneOfControlOtherThan(target.getAlliedFactions())) && target.getSkills().hasSkill("effects.spearwall"))
+			{
+				continue;
+			}
+
 			if (target.getTile().getDistanceTo(myTile) <= _entity.getIdealRange() + (apRequiredForAttack <= 4 ? 2 : 1))
 			{
 				reachable = ++reachable;

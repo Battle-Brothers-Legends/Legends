@@ -110,7 +110,6 @@ this.noble_footman <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Items.equip(shield);
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[1, ""],
 			[1, "mail_hauberk", 28],
 			[1, "mail_shirt"],
 			[1, "basic_mail_shirt"]
@@ -129,8 +128,8 @@ this.noble_footman <- this.inherit("scripts/entity/tactical/human", {
 			else if (banner <= 7)
 			{
 				helmet = this.Const.World.Common.pickHelmet([
-					[1, "flat_top"],
-					[1, "padded_flat_top"],
+					[1, "flat_top_helmet"],
+					[1, "padded_flat_top_helmet"],
 					[1, "flat_top_with_mail"],
 					[1, "mail_coif"]
 				])

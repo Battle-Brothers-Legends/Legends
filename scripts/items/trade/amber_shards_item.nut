@@ -12,6 +12,7 @@ this.amber_shards_item <- this.inherit("scripts/items/trade/trading_good_item", 
 			"attached_location.amber_collector"
 		];
 		this.m.Value = 260;
+		this.m.ResourceValue = 2;
 	}
 
 });

@@ -239,6 +239,11 @@ this.legend_usable_food <- this.inherit("scripts/items/item", {
 		return this.m.StashModifier;
 	}
 
+	function getRawValue()
+	{
+		return this.m.Value;
+	}
+
 	function onUpdateProperties( _properties )
 	{
 	}

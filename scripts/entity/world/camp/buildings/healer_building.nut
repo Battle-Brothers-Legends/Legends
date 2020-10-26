@@ -397,12 +397,23 @@ this.healer_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 			{
 				r.setTreated(true);
 				r.setQueue(0);
-				if (r.getContainer().getActor() != null)
+				local cont = r.getContainer();
+				if (cont != null) //was gettng rare error that said index getActor DNE, should fix that assuming it's a null container somehow(?) 
 				{
-				r.getContainer().getActor().updateInjuryVisuals();
+					if (r.getContainer().getActor() != null)
+					{
+						r.getContainer().getActor().updateInjuryVisuals();
+					}
+					this.m.InjuriesHealed.push(r);
+					this.m.Queue[i] = null;
 				}
-				this.m.InjuriesHealed.push(r);
-				this.m.Queue[i] = null;
+				else
+				{
+					this.logWarning("Healer building container was null");
+					//can use this if we want to forceit and see if that was the problem(?)
+					//local forceActorBugInLog = cont.getAtor();
+				}
+				
 			}
 
             if (modifiers.Craft <= 0) 

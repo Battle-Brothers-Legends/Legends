@@ -833,7 +833,7 @@ this.zombie <- this.inherit("scripts/entity/tactical/actor", {
 			[1, "butcher_apron"],
 			[1, "monk_robe"]
 		];
-		local armor = this.Const.World.Common.pickArmor(armor);
+		local armor = this.Const.World.Common.pickArmor(aList);
 
 		if (this.Math.rand(1, 100) <= 50)
 		{

@@ -19,7 +19,7 @@ this.have_talent_ambition <- this.inherit("scripts/ambitions/ambition", {
 			return;
 		}
 
-		if (this.World.getTime().Days <= 30)
+		if (this.World.getTime().Days <= 100)
 		{
 			return;
 		}

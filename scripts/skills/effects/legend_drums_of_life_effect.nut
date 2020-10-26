@@ -16,9 +16,9 @@ this.legend_drums_of_life_effect <- this.inherit("scripts/skills/skill", {
 	function onAdded()
 	{
 		local actor = this.getContainer().getActor();
-		if (actor.getHitpoints < actor.getHitpointsMax)
+		if (actor.getHitpoints() < actor.getHitpointsMax())
 		{
-			actor.setHitpoints(this.Math.max(0, actor.getHitpoints() + 4));
+			actor.setHitpoints(this.Math.max(0, this.Math.min(actor.getHitpointsMax(), actor.getHitpoints() + 4)) );
 			this.spawnIcon(this.m.Overlay, actor.getTile());
 		}
 	}

@@ -352,6 +352,10 @@ this.fire_juggler_event <- this.inherit("scripts/events/event", {
 			this.m.Juggler != null ? this.m.Juggler.getNameOnly() : ""
 		]);
 		_vars.push([
+			"firejuggler",
+			this.m.Dude != null ? this.m.Dude.getNameOnly() : ""
+		]);
+		_vars.push([
 			"townname",
 			this.m.Town.getNameOnly()
 		]);

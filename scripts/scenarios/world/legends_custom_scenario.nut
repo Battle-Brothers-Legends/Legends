@@ -11,7 +11,7 @@ this.legends_custom_scenario <- this.inherit("scripts/scenarios/world/starting_s
 
 	function isValid()
 	{
-		return this.Const.LegendMod.DebugMode;
+		return false; //this.Const.LegendMod.DebugMode;
 	}
 
 

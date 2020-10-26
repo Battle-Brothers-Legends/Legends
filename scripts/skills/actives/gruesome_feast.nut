@@ -167,6 +167,10 @@ this.gruesome_feast <- this.inherit("scripts/skills/skill", {
 		_user.setHitpoints(_user.getHitpointsMax());
 		_user.onUpdateInjuryLayer();
 		local effect = _user.getSkills().getSkillByID("effects.gruesome_feast");
+		if (effect == null)
+		{
+			_user.getSkills().add("scripts/skills/effects/gruesome_feast_effect");
+		}
 
 		if (!_user.isHiddenToPlayer())
 		{

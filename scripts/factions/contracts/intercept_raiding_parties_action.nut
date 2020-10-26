@@ -46,7 +46,12 @@ this.intercept_raiding_parties_action <- this.inherit("scripts/factions/faction_
 
 		foreach( s in settlements )
 		{
-			if (s.isMilitary() || !s.isDiscovered() || s.isCoastal() || s.getActiveAttachedLocations().len() < 2)
+			if (s.isIsolated() || s.isMilitary() || !s.isDiscovered() || s.isCoastal() || s.getActiveAttachedLocations().len() < 2)
+			{
+				continue;
+			}
+
+			if (this.World.getTileSquare(s.getTile().SquareCoords.X, s.getTile().SquareCoords.Y - 12).Type == this.Const.World.TerrainType.Ocean)
 			{
 				continue;
 			}

@@ -47,7 +47,9 @@ this.caravan_hand_background <- this.inherit("scripts/skills/backgrounds/charact
 				0.015, // badlands
 				0.015, //highlands
 				0.025, //stepps
-				0.0 //ocean
+				0.0, //ocean
+				0.01, //desert
+				0.025 //oasis
 			];
 		this.m.PerkTreeDynamic = {
 			Weapon = [

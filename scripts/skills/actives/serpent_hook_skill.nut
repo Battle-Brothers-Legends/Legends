@@ -90,7 +90,7 @@ this.serpent_hook_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (_targetTile.getEntity().getCurrentProperties().IsRooted)
+		if (_targetTile.getEntity().getCurrentProperties().IsRooted || _targetTile.getEntity().getCurrentProperties().IsImmuneToKnockBackAndGrab)
 		{
 			return false;
 		}

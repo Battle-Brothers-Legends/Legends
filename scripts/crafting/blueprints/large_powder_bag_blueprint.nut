@@ -4,6 +4,7 @@ this.large_powder_bag_blueprint <- this.inherit("scripts/crafting/blueprint", {
 	{
 		this.blueprint.create();
 		this.m.ID = "blueprint.large_powder_bag";
+		this.m.Type = this.Const.Items.ItemType.Accessory;
 		this.m.PreviewCraftable = this.new("scripts/items/ammo/large_powder_bag");
 		this.m.Cost = 300;
 		local ingredients = [

@@ -272,11 +272,12 @@ this.legend_transformed_boar_effect <- this.inherit("scripts/skills/skill", {
 			actor.getSprite("injury").setHorizontalFlipping(0);
 		}
 		if (("State" in this.Tactical) && this.Tactical.State != null) {
-			if (actor.getTile().IsVisibleForPlayer)
+			local tile = actor.getTile(); //actor.getTile().IsVisibleForPlayer check was erroring, checking a more roundabout way now, not sure if thisis the right fix
+			if (tile != null && tile.IsVisibleForPlayer) 
 			{
-				if (this.Const.Tactical.TransformParticles.len() != 0)
+				if (this.Const.Tactical.HideParticles.len() != 0)
 				{
-					for( local i = 0; i < this.Const.Tactical.TransformParticles.len(); i = ++i )
+					for( local i = 0; i < this.Const.Tactical.HideParticles.len(); i = ++i )
 					{
 						this.Tactical.spawnParticleEffect(false, this.Const.Tactical.TransformParticles[i].Brushes, actor.getTile(), this.Const.Tactical.TransformParticles[i].Delay, this.Const.Tactical.TransformParticles[i].Quantity, this.Const.Tactical.TransformParticles[i].LifeTimeQuantity, this.Const.Tactical.TransformParticles[i].SpawnRate, this.Const.Tactical.TransformParticles[i].Stages);
 					}

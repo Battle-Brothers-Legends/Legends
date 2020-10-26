@@ -1,5 +1,7 @@
 this.desert_boulder3 <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+		IsRock = true		
+	},
 	function getName()
 	{
 		return this.Const.Strings.Tactical.EntityName.Boulder;

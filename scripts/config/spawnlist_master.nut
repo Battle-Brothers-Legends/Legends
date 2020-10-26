@@ -1271,6 +1271,8 @@ gt.Const.World.Spawn.Troops <- {
 		Strength = 60,
 		Cost = 60,
 		Row = 2,
+		NameList = this.Const.Strings.VampireLordNames,
+		TitleList = this.Const.Strings.FallenHeroTitles,
 		Script = "scripts/entity/tactical/enemies/legend_vampire_lord"
 	},
 	LegendPeasantButcher = {

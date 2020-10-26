@@ -27,18 +27,6 @@ this.scenario_test_bed <- this.inherit("scripts/scenarios/tactical/scenario_temp
 		locationTemplate.Fortification = this.Const.Tactical.FortificationType.Palisade;
 		locationTemplate.CutDownTrees = true;
 		locationTemplate.ShiftX = 0;
-		testMap.campify({
-			X = 0,
-			Y = 0,
-			W = minX,
-			H = minY
-		}, locationTemplate);
-		this.MapGen.get(locationTemplate.Template[0]).fill({
-			X = 0,
-			Y = 0,
-			W = minX,
-			H = minY
-		}, locationTemplate);
 	}
 
 	function initEntities( _numPlayer, _numEnemy )
@@ -75,7 +63,6 @@ this.scenario_test_bed <- this.inherit("scripts/scenarios/tactical/scenario_temp
 
 
 			local r = this.Math.rand(1, 3);
-			items.equip(this.new("scripts/items/weapons/battle_whip"));
 			local a = this.new("scripts/items/armor/oriental/gladiator_harness");
 			local u;
 			r = this.Math.rand(1, 2);
@@ -91,7 +78,8 @@ this.scenario_test_bed <- this.inherit("scripts/scenarios/tactical/scenario_temp
 
 			a.setUpgrade(u);
 			items.equip(a);
-			items.equip(this.new("scripts/items/shields/wooden_shield"));
+			items.equip(this.new("scripts/items/ammo/powder_bag"));
+			items.equip(this.new("scripts/items/weapons/oriental/handgonne"));
 		}
 
 		local entity = this.spawnEntity("scripts/entity/tactical/enemies/orc_berserker");

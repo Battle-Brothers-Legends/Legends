@@ -199,7 +199,7 @@ this.workshop_location <- this.inherit("scripts/entity/world/attached_location",
 			_list.push({
 				R = 95,
 				P = 1.0,
-				S = "weapons/legend_named_blacksmith_hammer"
+				S = "weapons/named/legend_named_blacksmith_hammer"
 			});
 		}
 		else if (_id == "building.armorsmith")

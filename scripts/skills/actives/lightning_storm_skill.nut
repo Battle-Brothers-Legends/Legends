@@ -177,7 +177,7 @@ this.lightning_storm_skill <- this.inherit("scripts/skills/skill", {
 					local hitInfo = clone this.Const.Tactical.HitInfo;
 					hitInfo.DamageRegular = this.Math.rand(25, 50);
 					hitInfo.DamageArmor = hitInfo.DamageRegular * 1.0;
-					hitInfo.DamageDirect = 0.5;
+					hitInfo.DamageDirect = 0.75;
 					hitInfo.BodyPart = 0;
 					hitInfo.FatalityChanceMult = 0.0;
 					hitInfo.Injuries = this.Const.Injury.BurningBody;

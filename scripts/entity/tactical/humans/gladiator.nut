@@ -115,11 +115,11 @@ this.gladiator <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
 			[1, "oriental/gladiator_harness"]
 		]));
-		
+
 		local helm = this.Const.World.Common.pickHelmet([
 			[1, "oriental/gladiator_helmet"],
 			[1, ""]
-		]) 
+		])
 		this.m.Items.equip(helm);
 	}
 
@@ -157,33 +157,35 @@ this.gladiator <- this.inherit("scripts/entity/tactical/human", {
 		}
 		else if (r == 3)
 		{
-			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
+			if (this.Math.rand(0, 1) == 0)
 			{
-				//todo legends armor
+				this.m.Items.equip(this.Const.World.Common.pickArmor(
+					this.Const.World.Common.convNameToList(
+						this.Const.Items.NamedSouthernArmors
+					)
+				));
 			}
 			else
 			{
-				if (this.Math.rand(0, 1) == 0)
-				{
-					this.m.Items.equip(this.new("scripts/items/" + this.Const.Items.NamedSouthernArmors[this.Math.rand(0, this.Const.Items.NamedSouthernArmors.len() - 1)]));
-				}
-				else
-				{
-					this.m.Items.equip(this.new("scripts/items/" + this.Const.Items.NamedArmors[this.Math.rand(0, this.Const.Items.NamedArmors.len() - 1)]));
-				}
+				this.m.Items.equip(this.Const.World.Common.pickArmor(
+					this.Const.World.Common.convNameToList(
+						this.Const.Items.NamedArmors
+					)
+				));
 			}
+
 		}
 		else if (this.Math.rand(0, 1) == 0)
 		{
 			local helms = []; //honestly just easier to slice the helmets/ from the beginning lol
 			foreach(h in this.Const.Items.NamedSouthernHelmets)
 			{
-				helms.push( 
-					[ 1, h.slice(h.find("helmets/") + "helmets/".len()) ] 
+				helms.push(
+					[ 1, h.slice(h.find("helmets/") + "helmets/".len()) ]
 				);
 			}
 			//helms is an array of arrays so should work (:
-			local helm = this.Const.World.Common.pickHelmet(helms) 
+			local helm = this.Const.World.Common.pickHelmet(helms)
 			this.m.Items.equip(helm);
 		}
 		else
@@ -191,12 +193,12 @@ this.gladiator <- this.inherit("scripts/entity/tactical/human", {
 			local helms = []; //honestly just easier to slice the helmets/ from the beginning lol
 			foreach(h in this.Const.Items.NamedHelmets)
 			{
-				helms.push( 
-					[ 1, h.slice(h.find("helmets/") + "helmets/".len()) ] 
+				helms.push(
+					[ 1, h.slice(h.find("helmets/") + "helmets/".len()) ]
 				);
 			}
 			//helms is an array of arrays so should work (:
-			local helm = this.Const.World.Common.pickHelmet(helms) 
+			local helm = this.Const.World.Common.pickHelmet(helms)
 			this.m.Items.equip(helm);
 		}
 

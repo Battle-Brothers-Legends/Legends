@@ -6,7 +6,7 @@ this.lindwurm_agent <- this.inherit("scripts/ai/tactical/agent", {
 		this.m.ID = this.Const.AI.Agent.ID.Lindwurm;
 		this.m.Properties.TargetPriorityHitchanceMult = 0.5;
 		this.m.Properties.TargetPriorityHitpointsMult = 0.25;
-		this.m.Properties.TargetPriorityRandomMult = 0.25;
+		this.m.Properties.TargetPriorityRandomMult = 0.0;
 		this.m.Properties.TargetPriorityDamageMult = 0.25;
 		this.m.Properties.TargetPriorityFleeingMult = 0.5;
 		this.m.Properties.TargetPriorityHittingAlliesMult = 0.25;

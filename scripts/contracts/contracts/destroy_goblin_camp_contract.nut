@@ -60,6 +60,7 @@ this.destroy_goblin_camp_contract <- this.inherit("scripts/contracts/contract", 
 			{
 				this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 				this.Contract.m.Destination.clearTroops();
+				this.Contract.m.Destination.setLastSpawnTimeToNow();
 
 				if (this.Contract.getDifficultyMult() < 1.15 && !this.Contract.m.Destination.getFlags().get("IsEventLocation"))
 				{

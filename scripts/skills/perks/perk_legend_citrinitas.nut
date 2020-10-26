@@ -6,6 +6,7 @@ this.perk_legend_citrinitas <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.LegendCitrinitas;
 		this.m.Description = this.Const.Strings.PerkDescription.LegendCitrinitas;
 		this.m.Icon = "ui/perks/perk_34.png"; //todo: add icon
+		this.m.IconDisabled = "ui/perks/perk_34_sw.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

@@ -57,6 +57,38 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 		return this.m.Type;
 	}
 
+	function getIconOverlay()
+	{
+		local L = [this.m.Icon];
+		switch (this.m.Type)
+		{
+			case this.Const.Items.ArmorUpgrades.Chain:
+				L.push("layers/layer_1.png");
+				break;
+			case this.Const.Items.ArmorUpgrades.Plate:
+				L.push("layers/layer_2.png");
+				break;
+			case this.Const.Items.ArmorUpgrades.Tabbard:
+				L.push("layers/layer_3.png");
+				break;
+			case this.Const.Items.ArmorUpgrades.Cloak:
+				L.push("layers/layer_4.png");
+				break;
+			case this.Const.Items.ArmorUpgrades.Attachment:
+				L.push("layers/layer_5.png");
+				break;
+		}
+
+		if (L.len() == 0)
+		{
+			return [
+				""
+			];
+		}
+
+		return L;
+	}
+
 	function getOverlayIcon()
 	{
 		return this.m.OverlayIcon;

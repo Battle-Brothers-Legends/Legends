@@ -48,7 +48,7 @@ this.southern_quickstart_scenario <- this.inherit("scripts/scenarios/world/start
 		bros[2].setStartValuesEx([
 			"companion_ranged_southern_background"
 		]);
-		bros[2].getBackground().m.RawDescription = "{You\'re not entirely sure of %name%\'s past, only that it his path has not had as much shine as one would hope. He says he\'s filled many roles, but the army won\'t have him, and the city guard won\'t have him, and the women certainly won\'t have him, so he\'s taken the life as a Crownling. He thinks a glorious and hastened death will bring him to the Gilder\'s eye so he can ask Him why exactly He\'s treated his life so harshly. When he\'s not moping about, %name% can be cheerful and funny. Just keep him away from drinks and priests.}";
+		bros[2].getBackground().m.RawDescription = "{You\'re not entirely sure of %name%\'s past, only that his path has not had as much shine as one would hope. He says he\'s filled many roles, but the army won\'t have him, and the city guard won\'t have him, and the women certainly won\'t have him, so he\'s taken the life as a Crownling. He thinks a glorious and hastened death will bring him to the Gilder\'s eye so he can ask Him why exactly He\'s treated his life so harshly. When he\'s not moping about, %name% can be cheerful and funny. Just keep him away from drinks and priests.}";
 		bros[2].setPlaceInFormation(5);
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/rice_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/rice_item"));

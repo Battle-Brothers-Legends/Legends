@@ -15,6 +15,11 @@
             this.m.TargetTile = null;
             return this.Const.AI.Behavior.Score.Zero;
         }
+        else if ( item != null && item.m.IsIndestructible )
+        {
+            this.m.TargetTile = null
+            return this.Const.AI.Behavior.Score.Zero;
+        }
         else
             return score;
 	}

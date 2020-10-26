@@ -17,7 +17,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 		this.m.ID = "trait.intensive_training_trait";
 		this.m.Name = "Training progress";
 		this.m.Icon = "ui/traits/IntensiveTraining.png";
-		this.m.Description = "This character can increase their potential in the training grounds.";
+		this.m.Description = "This character can increase their abilities if you upgrade your camp training facilities.";
 		this.m.Order = this.Const.SkillOrder.Background + 1;
 		this.m.Type = this.Const.SkillType.Background | this.Const.SkillType.Trait;
 		this.m.IsActive = false;

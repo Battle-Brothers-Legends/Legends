@@ -444,11 +444,11 @@ this.workshop_building <- this.inherit("scripts/entity/world/camp/camp_building"
 
     function sortSalvageQueue( _f1, _f2 )
 	{
-		if (_f1.Item.isToBeRepairedQ() > _f2.Item.isToBeRepairedQ())
+		if (_f1.Item.isToBeSalvagedQ() > _f2.Item.isToBeSalvagedQ())
 		{
 			return 1;
 		}
-		else if (_f1.Item.isToBeRepairedQ() < _f2.Item.isToBeRepairedQ())
+		else if (_f1.Item.isToBeSalvagedQ() < _f2.Item.isToBeSalvagedQ())
 		{
 			return -1;
 		}

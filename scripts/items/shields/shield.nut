@@ -10,7 +10,8 @@ this.shield <- this.inherit("scripts/items/item", {
 		MeleeDefense = 0,
 		RangedDefense = 0,
 		StaminaModifier = 0,
-		FatigueOnSkillUse = 0
+		FatigueOnSkillUse = 0,
+		IsIndestructible = false
 	},
 	function isAmountShown()
 	{
@@ -108,9 +109,9 @@ this.shield <- this.inherit("scripts/items/item", {
 			id = 4,
 			type = "progressbar",
 			icon = "ui/icons/asset_supplies.png",
-			value = this.Math.floor(this.m.Condition),
-			valueMax = this.Math.floor(this.m.ConditionMax),
-			text = "" + this.Math.floor(this.m.Condition) + " / " + this.Math.floor(this.m.ConditionMax) + "",
+			value = this.getCondition(),
+			valueMax = this.getConditionMax(),
+			text = "" + this.getCondition() + " / " + this.getConditionMax() + "",
 			style = "armor-head-slim"
 		});
 

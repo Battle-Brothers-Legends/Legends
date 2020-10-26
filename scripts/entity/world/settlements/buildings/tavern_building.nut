@@ -462,7 +462,7 @@ this.tavern_building <- this.inherit("scripts/entity/world/settlements/buildings
 					{
 						candidates.extend(this.Const.Strings.RumorsItemsGoblins[category]);
 					}
-					else if (f.getType() == this.Const.FactionType.Undead)
+					else if (f.getType() == this.Const.FactionType.Undead || f.getType() == this.Const.FactionType.Zombies)
 					{
 						candidates.extend(this.Const.Strings.RumorsItemsUndead[category]);
 					}

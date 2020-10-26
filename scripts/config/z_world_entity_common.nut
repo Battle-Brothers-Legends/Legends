@@ -669,7 +669,7 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 	local layersObj = this.Const.LegendMod.Helmets[helm];
 	if (layersObj.Script != "")
 	{
-		return this.new(layersObjs.Script);
+		return this.new(layersObj.Script);
 	}
 
 	local set = layersObj.Sets[this.Math.rand(0, layersObj.Sets.len() -1)]
@@ -678,7 +678,8 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 	{
 		if (variant != null)
 		{
-			helmet.setupArmor(variant);
+			if (helm == "greatsword_faction_helm") //this doesn't set variant properly for things like [1, "hood", 63] in cripple_background file
+				helmet.setupArmor(variant);
 		}
 
          local helm = this.Const.World.Common.pickLegendHelmet(set.Helms);
@@ -740,12 +741,13 @@ gt.Const.World.Common.pickArmor <- function (_armors)
 		break;
 	}
 
+	if (armorID == "")
+	{
+		return null;
+	}
+
 	if (!this.World.LegendsMod.Configs().LegendArmorsEnabled())
 	{
-		if (armorID == "")
-		{
-			return null;
-		}
 		local item = this.new("scripts/items/armor/" + armorID);
 		if (faction != null)
 		{
@@ -760,14 +762,13 @@ gt.Const.World.Common.pickArmor <- function (_armors)
 
 	if (!(armorID in this.Const.LegendMod.Armors))
 	{
-		this.logError("Armor not defined in Legends Armor Obj : " + armorID);
 		return this.new("scripts/items/armor/" + armorID);
 	}
 
 	local layersObj = this.Const.LegendMod.Armors[armorID];
 	if (layersObj.Script != "")
 	{
-		return this.new(layersObjs.Script);
+		return this.new(layersObj.Script);
 	}
 
 	local set = layersObj.Sets[this.Math.rand(0, layersObj.Sets.len() -1)]
@@ -779,7 +780,7 @@ gt.Const.World.Common.pickArmor <- function (_armors)
 
 	if (faction != null)
 	{
-		item.setupArmor(faction);
+		armor.setupArmor(faction);
 	}
 
 	local chain = this.Const.World.Common.pickLegendArmor(set.Chain);
@@ -815,16 +816,85 @@ gt.Const.World.Common.pickArmor <- function (_armors)
 	return armor;
 }
 
+gt.Const.World.Common.pickArmorUpgrade <- function (_armors)
+{
+	local candidates = [];
+	local totalWeight = 0;
+	foreach (t in _armors)
+	{
+		if (t[0] == 0)
+		{
+			continue;
+		}
+		candidates.push(t);
+		totalWeight += t[0];
+	}
+
+	local r = this.Math.rand(0, totalWeight);
+	local armorID = "";
+	local variant = null;
+	local faction = null;
+	foreach (t in candidates)
+	{
+		r = r - t[0];
+		if (r > 0)
+		{
+			continue;
+		}
+		armorID = t[1];
+		if (t.len() == 3)
+		{
+			variant = t[2];
+		}
+		if (t.len() == 4)
+		{
+			faction = t[3];
+		}
+		break;
+	}
+
+	if (!this.World.LegendsMod.Configs().LegendArmorsEnabled())
+	{
+		if (armorID == "")
+		{
+			return null;
+		}
+		local item = this.new("scripts/items/armor_upgrades/" + armorID);
+		if (faction != null)
+		{
+			item.setFaction(faction);
+		}
+		else if (variant != null)
+		{
+			item.setVariant(variant);
+		}
+		return item;
+	}
+
+	if (!(armorID in this.Const.LegendMod.Armors))
+	{
+		return this.new("scripts/items/armor_upgrades/" + armorID);
+	}
+
+	local layersObj = this.Const.LegendMod.Armors[armorID];
+	if (layersObj.Script != "")
+	{
+		return this.new(layersObj.Script);
+	}
+
+	return null;
+}
+
 gt.Const.World.Common.convNameToList <- function ( _named )
 {
 	local findString = ["helmets/", "armor/", "legend_armor/"];
 	local list = clone _named; //iirc we have to clone this because this is the actual array & we don't want to edit it
-	local retArr;
+	local retArr = [];
 	foreach( search in findString )
 	{
 		if (list[0].find(search) != null ) //was this list
 		{
-			foreach( item in ilst )
+			foreach( item in list )
 			{
 				retArr.push(
 					[1, item.slice(item.find(search) + search.len())]

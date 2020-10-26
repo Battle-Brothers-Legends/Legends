@@ -502,7 +502,7 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 					this.Text += "He pauses.%SPEECH_ON%We expect important guests for this bout, so everything is set up for you to die proper bloody this time, got it? And if you can\'t do that, then have your lot dispatch their opponents in the most spectacular way to please the crowd. Do that, and I\'ll hand you a proper piece of gladiator gear ontop of the coin.%SPEECH_OFF%";
 				}
 
-				this.Text += "The points to some strange looking collars and continues.%SPEECH_ON%When you\'re ready, put these on the three men who\'ll be doing the fighting. This lets us know who to take into the pits. Anyone not wearing these will not be allowed in, not you, not the Vizier, dare I say even the Gilder may be turned down.%SPEECH_OFF%";
+				this.Text += "He points to some strange looking collars and continues.%SPEECH_ON%When you\'re ready, put these on the three men who\'ll be doing the fighting. This lets us know who to take into the pits. Anyone not wearing these will not be allowed in, not you, not the Vizier, dare I say even the Gilder may be turned down.%SPEECH_OFF%";
 			}
 
 		});
@@ -894,10 +894,9 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 						a = this.Const.World.Common.pickArmor([
 								[1, "oriental/gladiator_harness"],
 						]);
-						u = this.Const.World.Common.pickArmor([
-								[1, "oriental/light_gladiator_upgrade"],
-						]);
-						a.setUpgrade(u);
+						a.setUpgrade(this.new("scripts/items/" +
+							(this.World.LegendsMod.Configs().LegendArmorsEnabled() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
+						))
 
 						this.List.push({
 							id = 12,
@@ -1150,6 +1149,7 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 		if (this.m.IsActive)
 		{
 			this.m.Home.getSprite("selection").Visible = false;
+			this.m.Home.getBuilding("building.arena").refreshCooldown();
 			local roster = this.World.getPlayerRoster().getAll();
 
 			foreach( bro in roster )

@@ -164,6 +164,7 @@ this.graverobber_finds_item_event <- this.inherit("scripts/events/event", {
 				}
 
 				item.m.Name = _event.m.UniqueItemName;
+				this.World.Assets.getStash().makeEmptySlots(1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,

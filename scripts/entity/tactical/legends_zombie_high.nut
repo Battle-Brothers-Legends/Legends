@@ -108,11 +108,15 @@ this.legends_zombie_high <- this.inherit("scripts/entity/tactical/legend_zombie"
 			}
 		}
 
-		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[1, "ancient/decayed_coat_of_plates"],
-			[1, "ancient/decayed_coat_of_scales"],
-			[1, "ancient/decayed_reinforced_mail_hauberk"]
-		]));
+		this.m.Items.equip(
+			this.Const.World.Common.pickArmor(
+				[
+					[1, "decayed_coat_of_plates"],
+					[1, "decayed_coat_of_scales"],
+					[1, "decayed_reinforced_mail_hauberk"]
+				]
+			)
+		);
 
 		local item = this.Const.World.Common.pickHelmet([
 			[1, ""],

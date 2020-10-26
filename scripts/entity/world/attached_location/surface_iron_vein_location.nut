@@ -73,6 +73,12 @@ this.surface_iron_vein_location <- this.inherit("scripts/entity/world/attached_l
 		_list.push("retired_soldier_background");
 	}
 
+
+	function onUpdateProduce( _list )
+	{
+		_list.push("trade/iron_ingots_item");
+	}
+
 	function onUpdateShopList( _id, _list )
 	{
 		if (_id == "building.marketplace")

@@ -5,7 +5,7 @@ this.nomad_mace <- this.inherit("scripts/items/weapons/weapon", {
 	function create()
 	{
 		this.weapon.create();
-		this.m.ID = "weapon.morning_star";
+		this.m.ID = "weapon.nomad_mace";
 		this.m.Name = "Nomad Mace";
 		this.m.Description = "A simple wooden mace with a metal head. Weapons like this are popular among the nomads of the deserts.";
 		this.m.Categories = "Mace, One-Handed";

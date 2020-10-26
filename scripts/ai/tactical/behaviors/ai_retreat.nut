@@ -41,6 +41,11 @@ this.ai_retreat <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
+		if (_entity.getType() == this.Const.EntityType.Lindwurm && _entity.getTile().getDistanceTo(_entity.getTail().getTile()) > 1)
+		{
+			return this.Const.AI.Behavior.Score.Zero;
+		}
+
 		local score = this.getProperties().BehaviorMult[this.m.ID];
 
 		if (_entity.getFaction() != this.Const.Faction.Player)

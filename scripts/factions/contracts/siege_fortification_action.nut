@@ -76,6 +76,7 @@ this.siege_fortification_action <- this.inherit("scripts/factions/faction_action
 		local settlements = _faction.getSettlements();
 		local lowest_distance = 9999;
 		local best;
+		local castles = 0;
 
 		foreach( s in nobleHouses[0].getSettlements() )
 		{
@@ -84,7 +85,14 @@ this.siege_fortification_action <- this.inherit("scripts/factions/faction_action
 				continue;
 			}
 
-			if (!s.isMilitary() || s.getSize() == 3)
+			if (!s.isMilitary())
+			{
+				continue;
+			}
+
+			castles = ++castles;
+
+			if (s.getSize() == 3)
 			{
 				continue;
 			}
@@ -101,7 +109,7 @@ this.siege_fortification_action <- this.inherit("scripts/factions/faction_action
 			}
 		}
 
-		if (best == null)
+		if (best == null || castles <= 1)
 		{
 			return;
 		}

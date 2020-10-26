@@ -37,6 +37,7 @@ this.asset_manager <- {
 		RelationDecayBadMult = 1.0,
 		NegotiationAnnoyanceMult = 1.0,
 		AdvancePaymentCap = 0.5,
+		VisionRadiusMult = 1.0,
 		AmmoMaxAdditional = 0,
 		MedicineMaxAdditional = 0,
 		ArmorPartsMaxAdditional = 0,
@@ -228,7 +229,40 @@ this.asset_manager <- {
 
 	function getBrothersMax()
 	{
-		return this.m.BrothersMax;
+		local max = this.m.BrothersMax;
+		foreach( bro in this.World.getPlayerRoster().getAll() )
+		{
+			if (bro.getSkills().hasSkill("perk.legend_roster_1"))
+			{
+				max += 1;
+			}
+			if (bro.getSkills().hasSkill("perk.legend_roster_2"))
+			{
+				max += 2;
+			}
+			if (bro.getSkills().hasSkill("perk.legend_roster_3"))
+			{
+				max += 3;
+			}
+			if (bro.getSkills().hasSkill("perk.legend_roster_4"))
+			{
+				max += 4;
+			}
+			if (bro.getSkills().hasSkill("perk.legend_roster_5"))
+			{
+				max += 5;
+			}
+			if (bro.getSkills().hasSkill("perk.legend_roster_6"))
+			{
+				max += 6;
+			}
+			if (bro.getSkills().hasSkill("perk.legend_roster_7"))
+			{
+				max += 7;
+			}
+
+		}
+		return  this.Math.min(27, max);
 	}
 
 	function getBrothersMaxInCombat()
@@ -308,10 +342,6 @@ this.asset_manager <- {
 	{
 		this.m.IsCamping = _c;
 		this.World.State.getPlayer().setCamping(_c);
-	}
-	function setBrothersMax( _v )
-	{
-		this.m.BrothersMax = this.Math.min(27, _v);
 	}
 
 	function setUseProvisions( _p )
@@ -456,8 +486,8 @@ this.asset_manager <- {
 
 		foreach( bro in bros )
 		{
-			local val = this.World.State.addNewID(bro);
-			bro.m.CompanyID = val;
+			// local val = this.World.State.addNewID(bro);
+			// bro.m.CompanyID = val;
 			bro.getBackground().buildDescription(true);
 			bro.m.XP = this.Const.LevelXP[bro.m.Level - 1];
 			bro.m.Attributes = [];
@@ -685,6 +715,8 @@ this.asset_manager <- {
 	{
 		this.m.Stash.clear();
 		this.m.SeedString = "";
+		this.m.IsCamping = false;
+		this.m.IsUsingProvisions = true;
 		this.resetToDefaults();
 	}
 
@@ -720,6 +752,7 @@ this.asset_manager <- {
 		this.m.RelationDecayBadMult = 1.0;
 		this.m.NegotiationAnnoyanceMult = 1.0;
 		this.m.AdvancePaymentCap = 0.5;
+		this.m.VisionRadiusMult = 1.0;
 		this.m.AmmoMaxAdditional = 0;
 		this.m.MedicineMaxAdditional = 0;
 		this.m.ArmorPartsMaxAdditional = 0;
@@ -1043,11 +1076,16 @@ this.asset_manager <- {
 
 			 }
 
-			 local perkMod = 1;
+			 //local perkMod = 1;
 
 			 foreach( bro in roster )
 			 {
-			 	if (this.m.ArmorParts == 0)
+				local perkMod = 1.0; // should be here, not outside foreach, otherwise it works like inconsistent mess
+				if (this.m.ArmorParts == 0)
+				{
+					break;
+				}
+				if (this.isCamping()) //disable in camp, otherwise mess
 			 	{
 			 		break;
 			 	}
@@ -1064,7 +1102,7 @@ this.asset_manager <- {
 					local skill = bro.getSkills().getSkillByID(s);
 					if (skill != null)
 					{
-						perkMod *= 1 - (skill.getModifier() / 100);
+						perkMod = perkMod * (1 - skill.getModifier() * 0.01); // /100 won't work in Squirrel, also should probably be buffed since it only works on the bro's own equipment and only outside of camp
 					}
 				}
 
@@ -1072,10 +1110,10 @@ this.asset_manager <- {
 			 	{
 			 		if (item.getRepair() < item.getRepairMax())
 			 		{
-			 			local d = this.Math.minf(this.Const.World.Assets.ArmorPerHour * this.m.RepairSpeedMult * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()] * this.m.RepairSpeedMult, item.getRepairMax() - item.getRepair());
-			 			item.onRepair(item.getRepair() + d);
-			 			this.m.ArmorParts = this.Math.maxf(0, this.m.ArmorParts - d * this.m.ArmorPartsPerArmor * perkMod * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()]);
-			 			updateBro = true;
+						local d = this.Math.ceil(this.Math.minf(this.Const.World.Assets.ArmorPerHour * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()] * this.m.RepairSpeedMult, item.getRepairMax() - item.getRepair())); //rounding is crucial because otherwise it repairs nothing but eats tools if below 1, and in any case repair value has to be a round value
+						item.onRepair(item.getRepair() + d); 
+						this.m.ArmorParts = this.Math.maxf(0, this.m.ArmorParts - d * this.m.ArmorPartsPerArmor * perkMod); // * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()] - doesn't make sense here, it was already used when calculating d
+						updateBro = true;
 			 		}
 
 			 		if (item.getRepair() >= item.getRepairMax())
@@ -1087,6 +1125,11 @@ this.asset_manager <- {
 			 		{
 			 			break;
 			 		}
+					
+					if (updateBro)
+					{
+						break; //so each bro only repairs 1 item at a time, otherwise too good, makes camp redundant
+					}					
 			 	}
 
 			 	if (updateBro)
@@ -1096,14 +1139,21 @@ this.asset_manager <- {
 			 }
 
 			 local items = this.m.Stash.getItems();
-
+			 local stashmaxrepairpotential = this.Math.ceil(roster.len() * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()] * this.m.RepairSpeedMult * this.Const.World.Assets.ArmorPerHour); //otherwise fixed version will be too good
 			 foreach( item in items )
 			 {
+				if (this.isCamping()) //disable in camp, otherwise mess
+				{
+					break;
+				}			 
 			 	if (this.m.ArmorParts == 0)
 			 	{
 			 		break;
 			 	}
-
+				if (stashmaxrepairpotential <= 0)
+				{
+					break;
+				}
 			 	if (item == null)
 			 	{
 			 		continue;
@@ -1113,9 +1163,10 @@ this.asset_manager <- {
 			 	{
 			 		if (item.getRepair() < item.getRepairMax())
 			 		{
-			 			local d = this.Math.minf(this.Const.World.Assets.ArmorPerHour * this.m.RepairSpeedMult * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()], item.getRepairMax() - item.getRepair());
-			 			item.onRepair(item.getRepair() + d);
-						this.m.ArmorParts = this.Math.maxf(0, this.m.ArmorParts - d * this.m.ArmorPartsPerArmor * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()]);
+						local d = this.Math.ceil(this.Math.minf(stashmaxrepairpotential, item.getRepairMax() - item.getRepair()));
+						item.onRepair(item.getRepair() + d); 
+						this.m.ArmorParts = this.Math.maxf(0, this.m.ArmorParts - d * this.m.ArmorPartsPerArmor); // * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()]
+						stashmaxrepairpotential = stashmaxrepairpotential - d;
 			 		}
 
 			 		if (item.getRepair() >= item.getRepairMax())
@@ -1506,6 +1557,12 @@ this.asset_manager <- {
 
 		foreach( b in roster )
 		{
+			if (b.getPlaceInFormation() == 255)
+			{
+				this.logError("Bro has invalid place in formation! :: " + b.m.Name)
+				continue;
+			}
+
 			ret[b.getPlaceInFormation()] = b;
 		}
 
@@ -1933,10 +1990,10 @@ this.asset_manager <- {
 			}
 			else if (this.World.FactionManager.getGreaterEvil().LastType == this.Const.World.GreaterEvilType.HolyWar)
 			{
-				data.Text = "{When you took over the %companyname%, you truly believed you could lead it to greatness. Those goals were probably a bit too lofty, but you did manage to at the very least build a company of incredible renown. As the nobles inevitably slid toward war, it didn\'t surprise you in the least to see that the company\'s services were the most popular in the land. The war proved itself as brutal and horrific as any you\'d ever seen, but at least this time you walked away with more coin than you knew what to do with.\n\n Retiring with your pile of gold, you left the company in the command of the bravest mercenary still alive to take the job. The band continues its success to this day.}";
+				data.Text = "{Commanding the %companyname%, you thought it might play the part of sellsword with a dash of brigandage. Little did you realize that the whole world would be embroiled in religious turmoil. When the north and south turned on each other with their holy furies, you captained the company to opulent ends. If the old gods\' followers asked for your sword, you brought the might and main of the northern mountains. If the Gilded asked for light, you brought the sun. | It is said that the godlier the man, the more human the god. When the religious shatterbelt between north and south exploded, all manner of religious chiselers washed across the holy transom. The sacred sort deified their own spirits, sharpening the utility of war as if it were the gods themselves which commanded it. Perhaps they did, but ultimately all you were concerned about was that the %companyname% serve itself. Gilder? Old gods? All you cared about were your own pockets and by the end of all that holy nonsense they were quite full indeed.}";
 				data.Text += this.addBrotherEnding(brothers, excludedBackgrounds, true);
 				data.Text += this.addBrotherEnding(brothers, excludedBackgrounds, true);
-				data.Text += "\n\n{It\'s very rare for a mercenary to leave the life behind with his body intact, but you managed to do just that. While being of sound body and mind are important, you most appreciate the pile of crowns you spend your nights sleeping on. Last you heard, the nobles were squabbling their way into another war and you could not care less. | With good mind and health, you continue to live out the rest of your days in moderate peace. The most awful thing to happen to you in months was when a hermit ventured out of the wilderness to steal your firewood. That\'s the sort of life you always wanted and you could not be happier having it.}";
+				data.Text += "\n\n{Few sellsword bands survive, and even fewer yet arrive in the annals of history. You believe that the %companyname%, through action in the holy war, very well may have earned itself a proper footnote. The thought amuses you, for how much can one or two sentences really say about all that you have done and experienced? | With retirement from the %companyname%, you actually find yourself with proper time to mull over these old gods and the Gilder. Maybe there is some truth to one or the other? Perhaps they are both correct. Or, and you weigh these thoughts gingerly, perhaps neither is right. But these faiths are not alone it seems. Religious uprisings are springing up everywhere, cast out in the debris of the religious wars no doubt, and just the other day, a third major entrant arrived, one you\'ve come to be all too knowledgeable about: a Disciple of Davkul. As he professed his thoughts on the dark and the arcane, you shut the door on his face. Maybe another time. You\'ve wood to chop and a sock drawer to organize.}";
 			}
 		}
 		else if (this.m.BusinessReputation >= 1100 && this.World.Ambitions.getAmbition("ambition.make_nobles_aware").isDone())
@@ -2314,7 +2371,7 @@ this.asset_manager <- {
 			Brothers = []
 		}
 
-		for (local i=0; i < 9; i=++i)
+		for (local i=0; i < 11; i=++i)
 		{
 			ret.TerrainModifiers.push(["", 0]);
 		}
@@ -2348,6 +2405,12 @@ this.asset_manager <- {
 
 			ret.TerrainModifiers[8][0] = "Stepps";
 			ret.TerrainModifiers[8][1] += terrains[15] * 100.0;
+			
+			ret.TerrainModifiers[9][0] = "Deserts";
+			ret.TerrainModifiers[9][1] += terrains[17] * 100.0;
+
+			ret.TerrainModifiers[10][0] = "Oases";
+			ret.TerrainModifiers[10][1] += terrains[18] * 100.0;			
 
 			ret.Brothers.push({
 				Name = bro.getName(),
@@ -2487,7 +2550,7 @@ this.asset_manager <- {
 				this.setFormationName(i, _in.readString())
 			}
 		}
-		this.m.BrothersMax = _in.readU8();
+		local maxBros = _in.readU8(); //Deprecated, but kept for backwards save compatibility. It is now dynamically calculated
 		this.m.LastDayResourcesUpdated = _in.readU16();
 		this.m.IsExplorationMode = _in.readBool();
 
@@ -2495,7 +2558,6 @@ this.asset_manager <- {
 		this.updateFood();
 		this.updateFormation();
 		this.m.Origin.onInit();
-		this.World.Assets.m.BrothersMax = this.m.BrothersMax;
 	}
 
 };

@@ -12,7 +12,7 @@ this.bad_curse_event <- this.inherit("scripts/events/event", {
 		this.m.Cooldown = 50.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_05.png[/img]%superstitious% enters your tent with hat in hand. The rim of it turns round and round in their fingers as though plucking feathers from it. Even though you haven\'t said a word the %superstitious% \'s head nods furiously, with eyes darting around as if looking for the words to say.\n\nYou put your quill pen down and ask what the issue is. Licking lips, h%superstitious%  nods again and begins to explain the predicament. The words come fast, but the general gist of it seems to be that a local witch has cursed %superstitious% to be incapable of some sexual exploit, as it were.\n\nYou shake your head and ask what it is the witch wants and %superstitious% says %payment% crowns, lest the curse be for life.",
+			Text = "[img]gfx/ui/events/event_05.png[/img]%superstitious% enters your tent with hat in hand. The rim of it turns round and round in their fingers as though plucking feathers from it. Even though you haven\'t said a word the %superstitious% \'s head nods furiously, with eyes darting around as if looking for the words to say.\n\nYou put your quill pen down and ask what the issue is. Licking lips, %superstitious%  nods again and begins to explain the predicament. The words come fast, but the general gist of it seems to be that a local witch has cursed %superstitious% to be incapable of some sexual exploit, as it were.\n\nYou shake your head and ask what it is the witch wants and %superstitious% says %payment% crowns, lest the curse be for life.",
 			Image = "",
 			List = [],
 			Characters = [],

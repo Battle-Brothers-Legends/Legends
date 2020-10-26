@@ -8,6 +8,7 @@ this.legend_raw_wood_item <- this.inherit("scripts/items/trade/trading_good_item
 		this.m.Description = "Freshly cut unfinished wood";
 		this.m.Icon = "trade/inventory_trade_rough_wood.png";
 		this.m.Value = 40;
+		this.m.ResourceValue = 1;
 	}
 
 	function getBuyPrice()

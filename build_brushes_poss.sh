@@ -14,4 +14,5 @@ python ../Repo/unpacked/make_legend_helmets.py
 ./bbrusher.exe pack --gfxPath "../Repo/" ../Repo/brushes/legend_helmets_1.brush ../Repo/unpacked/legend_helmets/1
 python ../Repo/unpacked/make_legend_armor.py
 ./bbrusher.exe pack --gfxPath "../Repo/" ../Repo/brushes/legend_armor.brush ../Repo/unpacked/legend_armor
+./bbrusher.exe pack --gfxPath "../Repo/" ../Repo/brushes/terrain.brush ../Repo/unpacked/terrain
 cd ../Repo

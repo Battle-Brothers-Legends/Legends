@@ -33,7 +33,9 @@ this.legends_berserker_scenario <- this.inherit("scripts/scenarios/world/startin
 		]);
 		bros[0].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 		bros[0].getSkills().add(this.new("scripts/skills/perks/perk_berserk"));
-		bros[0].getSkills().add(this.new("scripts/skills/perks/perk_legend_bearform"));
+		
+		// bros[0].getSkills().add(this.new("scripts/skills/perks/perk_legend_bearform"));
+
 		// bros[0].getSkills().add(this.new("scripts/skills/perks/perk_legend_favoured_enemy_direwolf"));
 		// bros[0].getSkills().add(this.new("scripts/skills/perks/perk_legend_favoured_enemy_ghoul"));
 		// bros[0].getSkills().add(this.new("scripts/skills/perks/perk_legend_favoured_enemy_hexen"));

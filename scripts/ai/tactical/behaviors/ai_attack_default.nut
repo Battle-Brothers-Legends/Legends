@@ -30,7 +30,6 @@ this.ai_attack_default <- this.inherit("scripts/ai/tactical/behavior", {
 			"actives.pound",
 			"actives.cascade",
 			"actives.split_man",
-			"actives.lunge",
 			"actives.batter",
 			"actives.throw_javelin",
 			"actives.throw_axe",

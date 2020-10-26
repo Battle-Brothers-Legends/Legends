@@ -260,15 +260,14 @@ this.shoot_stake <- this.inherit("scripts/skills/skill", {
 				this.Tactical.getNavigator().teleport(_targetEntity, knockToTile, this.onKnockedDown, tag, true);
 			}
 		}
+	}
 
-		function onKnockedDown( _entity, _tag )
+	function onKnockedDown( _entity, _tag )
+	{
+		if (_tag.HitInfo.DamageRegular != 0)
 		{
-			if (_tag.HitInfo.DamageRegular != 0)
-			{
-				_entity.onDamageReceived(_tag.Attacker, _tag.Skill, _tag.HitInfo);
-			}
+			_entity.onDamageReceived(_tag.Attacker, _tag.Skill, _tag.HitInfo);
 		}
-
 	}
 
 });

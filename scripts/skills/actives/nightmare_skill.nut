@@ -7,7 +7,7 @@ this.nightmare_skill <- this.inherit("scripts/skills/skill", {
 		this.m.Description = "";
 		this.m.KilledString = "Died of nightmares";
 		this.m.Icon = "skills/active_117.png";
-		this.m.IconDisabled = "skills/active_117.png";
+		this.m.IconDisabled = "skills/active_117_sw.png";
 		this.m.Overlay = "active_117";
 		this.m.SoundOnUse = [
 			"sounds/enemies/dlc2/alp_nightmare_01.wav",

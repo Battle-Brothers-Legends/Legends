@@ -100,6 +100,7 @@ this.donkey <- this.inherit("scripts/entity/tactical/actor", {
 		b.IsImmuneToRoot = true;
 		b.IsImmuneToBleeding = true;
 		b.IsImmuneToPoison = true;
+		b.IsImmuneToDisarm = true;
 		b.IsAffectedByInjuries = false;
 		b.IsAffectedByNight = false;
 		b.IsMovable = false;

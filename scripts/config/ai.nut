@@ -240,7 +240,9 @@ gt.Const.AI <- {
 			Wither = 81,
 			Explode = 82,
 			MoveToMerge = 83,
-			COUNT = 84
+			Howl = 84,
+			SpawnShadow = 85,
+			COUNT = 86
 		},
 		Name = [
 			"None",
@@ -326,7 +328,9 @@ gt.Const.AI <- {
 			"LightningStorm",
 			"Wither",
 			"Explode",
-			"MoveToMerge"
+			"MoveToMerge",
+			"Howl",
+			"SpawnShadow"
 		],
 		Order = {
 			Retreat = 2,
@@ -389,8 +393,10 @@ gt.Const.AI <- {
 			Hex = 39,
 			Teleport = 39,
 			Explode = 39,
+			SpawnShadow = 39,
 			SwallowWhole = 50,
 			Terror = 50,
+			Howl = 50,
 			CommandUndead = 50,
 			RaiseUndead = 50,
 			PossessUndead = 50,
@@ -428,6 +434,7 @@ gt.Const.AI <- {
 			Distract = 50,
 			SwarmOfInsects = 60,
 			Disengage = 60,
+			Howl = 60,
 			CrushArmor = 80,
 			SplitShield = 80,
 			Defend = 90,
@@ -490,6 +497,7 @@ gt.Const.AI <- {
 			Retreat = 2000,
 			Protect = 2000,
 			Drag = 2000,
+			SpawnShadow = 2000,
 			Teleport = 4000,
 			AlwaysUse = 4000,
 			Merge = 4000,
@@ -750,6 +758,8 @@ gt.Const.AI <- {
 		SwitchToCurrentlyUnarmedMult = 20.0,
 		SwitchWeaponBecauseDisarmedMult = 2.0,
 		SwitchToBeingKitedMult = 0.75,
+		HowlMaxMoraleRatio = 2.5,
+		HowlMinAlliesInRange = 1,
 		SwitchToCounterDisarm = 3.0,
 		DarkflightMeleeHitpointsMult = 0.2,
 		DarkflightStayOnTileBonus = 2.5,
@@ -1010,4 +1020,3 @@ gt.Const.AI <- {
 		MoveToMergeMaxAttempts = 32
 	}
 };
-

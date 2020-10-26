@@ -126,7 +126,7 @@ this.footwork <- this.inherit("scripts/skills/skill", {
 	function onAfterUpdate( _properties )
 	{
 		this.m.FatigueCostMult = _properties.IsFleetfooted ? 0.5 : 1.0;
-		this.m.ActionPointCost *= _properties.IsFleetfooted ? 0.5 : 1.0;
+		this.m.ActionPointCost = _properties.IsFleetfooted ? 1 : 3;
 	}
 
 	function onUse( _user, _targetTile )

@@ -991,7 +991,7 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 
 		if (this.getContainer().getActor().getSkills().hasSkill("perk.brawny"))
 		{
-			staminaMult = 0.75;
+			staminaMult = 0.70;
 		}
 
 		_properties.Armor[this.Const.BodyPart.Head] += this.getArmor();

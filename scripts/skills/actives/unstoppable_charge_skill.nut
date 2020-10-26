@@ -308,6 +308,9 @@ this.unstoppable_charge_skill <- this.inherit("scripts/skills/skill", {
 				if (!tile.IsOccupiedByActor)
 				{
 				}
+				else if (this.Math.abs(myTile.Level - tile.Level) > 1)
+				{
+				}
 				else
 				{
 					local actor = tile.getEntity();

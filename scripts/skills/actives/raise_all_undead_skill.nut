@@ -95,7 +95,17 @@ this.raise_all_undead_skill <- this.inherit("scripts/skills/skill", {
 
 			if (e.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand) == null)
 			{
-				local item = this.new("scripts/items/weapons/ancient/warscythe");
+				local item;
+
+				if (e.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand) == null)
+				{
+					item = this.new("scripts/items/weapons/ancient/warscythe");
+				}
+				else
+				{
+					item = this.new("scripts/items/weapons/ancient/khopesh");
+				}
+
 				e.getItems().equip(item);
 				item.setCondition(this.Math.rand(item.getConditionMax() / 2, item.getConditionMax()));
 			}

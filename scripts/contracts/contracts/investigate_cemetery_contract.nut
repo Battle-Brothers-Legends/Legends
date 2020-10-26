@@ -87,6 +87,7 @@ this.investigate_cemetery_contract <- this.inherit("scripts/contracts/contract",
 				this.Contract.m.Destination.setDiscovered(true);
 				this.World.uncoverFogOfWar(this.Contract.m.Destination.getTile().Pos, 500.0);
 				this.Contract.m.Destination.clearTroops();
+				this.Contract.m.Destination.setLastSpawnTimeToNow();
 
 				if (this.Contract.getDifficultyMult() < 1.15 && !this.Contract.m.Destination.getFlags().get("IsEventLocation"))
 				{
@@ -130,8 +131,6 @@ this.investigate_cemetery_contract <- this.inherit("scripts/contracts/contract",
 					this.Contract.addUnitsToEntity(this.Contract.m.Destination, this.Const.World.Spawn.Zombies, 100 * this.Contract.getDifficultyMult() * this.Contract.getScaledDifficultyMult());
 				}
 
-				this.Contract.m.Destination.setLastSpawnTimeToNow();
-				this.Contract.m.Destination.resetDefenderSpawnDay();
 				this.Contract.setScreen("Overview");
 				this.World.Contracts.setActiveContract(this.Contract);
 			}

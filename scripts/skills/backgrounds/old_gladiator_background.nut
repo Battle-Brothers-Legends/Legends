@@ -26,7 +26,7 @@ this.old_gladiator_background <- this.inherit("scripts/skills/backgrounds/gladia
 			[1, "oriental/gladiator_harness"]
 		]);
 
-		r = this.Math.rand(1, 2);
+		local r = this.Math.rand(1, 2);
 
 		if (r == 1)
 		{

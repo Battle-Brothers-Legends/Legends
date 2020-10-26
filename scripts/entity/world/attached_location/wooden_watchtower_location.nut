@@ -95,80 +95,12 @@ this.wooden_watchtower_location <- this.inherit("scripts/entity/world/attached_l
 				P = 1.0,
 				S = "armor/gambeson"
 			});
+
 			_list.push({
-				R = 10,
-				P = 1.0,
-				S = "helmets/aketon_cap"
-			});
-			_list.push({
-				R = 15,
-				P = 1.0,
-				S = "helmets/full_aketon_cap"
-			});
-			_list.push({
-				R = 30,
-				P = 1.0,
-				S = "shields/wooden_shield"
-			});
-			_list.push({
-				R = 10,
-				P = 1.0,
-				S = "weapons/legend_sling"
-			});
-				_list.push({
 				R = 50,
 				P = 1.0,
-				S = "weapons/legend_staff"
+				S = "armor/basic_mail_shirt"
 			});
-			_list.push({
-				R = 65,
-				P = 1.0,
-				S = "shields/legend_tower_shield"
-			});
-			_list.push({
-				R = 80,
-				P = 1.0,
-				S = "tents/tent_scout"
-			});
-			_list.push({
-				R = 30,
-				P = 1.0,
-				S = "weapons/legend_wooden_spear"
-			});
-		}
-		else if (_id == "building.specialized_trader")
-		{
-		}
-		else if (_id == "building.weaponsmith")
-		{
-		}
-		else if (_id == "building.armorsmith")
-		{
-		}
-	}
-
-	function onUpdateLegendShopList( _id, _list )
-	{
-		if (_id == "building.marketplace")
-		{
-			local armorsL = [
-				[15, 1.0, "cloth/legend_gambeson"],
-				[15, 1.0, "cloth/legend_padded_surcoat"],
-				[20, 1.0, "chain/legend_armor_mail_shirt_simple"],
-				[20, 1.0, "chain/legend_armor_mail_shirt"],
-				[35, 1.0, "plate/legend_armor_leather_padded"],
-				[15, 1.0, "plate/legend_armor_leather_jacket"],
-				[15, 1.0, "plate/legend_armor_leather_jacket_simple"]
-			]
-
-			foreach( a in armorsL)
-			{
-				_list.push({
-					R = a[0],
-					P = a[1],
-					S = "legend_armor/" + a[2]
-				});
-			}
 
 			_list.push({
 				R = 10,

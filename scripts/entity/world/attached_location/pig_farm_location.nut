@@ -112,38 +112,6 @@ this.pig_farm_location <- this.inherit("scripts/entity/world/attached_location",
 		}
 	}
 
-	function onUpdateLegendShopList( _id, _list )
-	{
-		if (_id == "building.marketplace")
-		{
-			_list.push({
-				R = 0,
-				P = 1.0,
-				S = "supplies/smoked_ham_item"
-			});
-			_list.push({
-				R = 10,
-				P = 1.0,
-				S = "weapons/butchers_cleaver"
-			});
-			_list.push({
-				R = 10,
-				P = 1.0,
-				S = "weapons/legend_shiv"
-			});
-			_list.push({
-				R = 10,
-				P = 1.0,
-				S = "weapons/legend_chain"
-			});
-			_list.push({
-				R = 20,
-				P = 1.0,
-				S = "legend_armor/cloth/legend_apron_butcher"
-			});
-		}
-	}
-
 	function onInit()
 	{
 		this.attached_location.onInit();

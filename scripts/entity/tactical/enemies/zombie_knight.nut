@@ -152,8 +152,8 @@ this.zombie_knight <- this.inherit("scripts/entity/tactical/enemies/zombie", {
 			[1, "decayed_coat_of_scales"],
 			[1, "decayed_reinforced_mail_hauberk"]
 		];
-		local armor = this.Const.World.Common.pickArmor(armor);
-			
+		local armor = this.Const.World.Common.pickArmor(aList);
+
 
 		if (this.Math.rand(1, 100) <= 33)
 		{

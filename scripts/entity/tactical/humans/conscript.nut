@@ -103,7 +103,7 @@ this.conscript <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/shields/oriental/southern_light_shield"));
 		}
 
-		
+
 		local variant;
 		if (banner == 12)
 			variant = 9;
@@ -112,7 +112,7 @@ this.conscript <- this.inherit("scripts/entity/tactical/human", {
 		else
 			variant = 8
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[2, "oriental/linothrax", variant],
+			[2, "oriental/linothorax", variant],
 			[1, "oriental/southern_mail_shirt"]
 		]));
 
@@ -128,7 +128,7 @@ this.conscript <- this.inherit("scripts/entity/tactical/human", {
 			[1, "oriental/southern_head_wrap", variant],
 			[1, "oriental/wrapped_southern_helmet"],
 			[1, "oriental/spiked_skull_cap_with_mail"]
-		]) 
+		])
 
 		this.m.Items.equip(helm);
 

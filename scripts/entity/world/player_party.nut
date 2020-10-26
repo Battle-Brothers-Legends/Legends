@@ -261,7 +261,7 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 			local tent = this.World.Camp.getBuildingByID(this.Const.World.CampBuildings.Scout)
 			return tent.getVisionRadius();
 		}
-		return this.m.VisionRadius * this.World.getGlobalVisibilityMult() * this.Const.World.TerrainTypeVisionRadiusMult[this.getTile().Type] * (this.World.Assets.isCamping() ? 0.75 : 1.0);
+		return this.m.VisionRadius * this.World.Assets.m.VisionRadiusMult * this.World.getGlobalVisibilityMult() * this.Const.World.TerrainTypeVisionRadiusMult[this.getTile().Type] * (this.World.Assets.isCamping() ? 0.75 : 1.0);
 	}
 
 	function getVisibilityMult()
@@ -523,6 +523,7 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 	{
 		local s = this.Const.LegendMod.MaxResources[this.World.Assets.getEconomicDifficulty()].Stash
 		s += this.World.Assets.getOrigin().getStashModifier();
+		s += this.World.Retinue.getInventoryUpgrades() * 27;
 
 		foreach( bro in this.World.getPlayerRoster().getAll())
 		{

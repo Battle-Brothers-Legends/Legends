@@ -52,6 +52,19 @@ this.nomad_hidden_camp_location <- this.inherit("scripts/entity/world/location",
 			treasure.extend(treasure);
 			treasure.extend(treasure);
 			treasure.extend(treasure);
+			if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
+			{
+			treasure.push("legend_armor/armor_upgrades/legend_metal_plating_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_metal_pauldrons_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_mail_patch_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_leather_shoulderguards_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_leather_neckguard_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_joint_cover_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_heraldic_plates_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_double_mail_upgrade");
+			}
+			else
+			{
 			treasure.push("armor_upgrades/metal_plating_upgrade");
 			treasure.push("armor_upgrades/metal_pauldrons_upgrade");
 			treasure.push("armor_upgrades/mail_patch_upgrade");
@@ -60,6 +73,7 @@ this.nomad_hidden_camp_location <- this.inherit("scripts/entity/world/location",
 			treasure.push("armor_upgrades/joint_cover_upgrade");
 			treasure.push("armor_upgrades/heraldic_plates_upgrade");
 			treasure.push("armor_upgrades/double_mail_upgrade");
+			}
 		}
 
 		this.dropFood(this.Math.rand(2, 4), [

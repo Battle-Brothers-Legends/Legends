@@ -55,6 +55,27 @@ this.assassin_southern_background <- this.inherit("scripts/skills/backgrounds/ch
 		this.m.Names = this.Const.Strings.SouthernNames;
 		this.m.LastNames = this.Const.Strings.SouthernNamesLast;
 		this.m.IsCombatBackground = true;
+		this.m.Modifiers.Scout = this.Const.LegendMod.ResourceModifiers.Scout[3];
+		this.m.PerkTreeDynamic = {
+			Weapon = [
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.DaggerTree,
+				this.Const.Perks.CrossbowTree,
+				this.Const.Perks.ThrowingTree
+			],
+			Defense = [
+				this.Const.Perks.LightArmorTree,
+			],
+			Traits = [
+				this.Const.Perks.CalmTree,
+				this.Const.Perks.FastTree,
+				this.Const.Perks.AgileTree,
+				this.Const.Perks.DeviousTree
+			],
+			Enemy = [this.Const.Perks.CivilizationTree],
+			Class = [this.Const.Perks.KnifeClassTree],
+			Magic = []
+		}
 	}
 
 	function getTooltip()

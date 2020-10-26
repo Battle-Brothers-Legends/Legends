@@ -6,7 +6,7 @@ this.legend_risen_legion_intro_event<- this.inherit("scripts/events/event", {
 		this.m.IsSpecial = true;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_73.png[/img]The empire is rising once more, you must lead them to glory. We must find more warriors, perhaps we can comb the ancient graves and castles for more of legionaires. We must slaughter the living, that they may know death like us. ",
+			Text = "[img]gfx/ui/events/event_73.png[/img]The empire is rising once more, you must lead them to glory. We must find more warriors, perhaps we can comb the ancient graves and castles for more of legionnaires. We must slaughter the living, that they may know death like us. ",
 			Image = "",
 			Banner = "",
 			List = [],

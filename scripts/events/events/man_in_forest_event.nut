@@ -122,6 +122,7 @@ this.man_in_forest_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				local item = this.new("scripts/items/weapons/named/named_dagger");
+				this.World.Assets.getStash().makeEmptySlots(1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,

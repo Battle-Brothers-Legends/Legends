@@ -61,7 +61,7 @@ this.ai_flying_skulls <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		this.m.Skulls = this.Math.min(9, this.Math.min(4 + this.Math.max(0, 9 - phylacteries), 12 + this.Math.max(0, 9 - phylacteries) * 2 - skulls));
+		this.m.Skulls = this.Math.min(12, this.Math.min(4 + this.Math.max(0, 9 - phylacteries), 12 + this.Math.max(0, 9 - phylacteries) * 2 - skulls));
 		local myTile = _entity.getTile();
 		local tiles = [];
 		local mapSize = this.Tactical.getMapSize();

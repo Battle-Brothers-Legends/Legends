@@ -19,12 +19,13 @@ this.perk_legend_specialist_pitchfork_skill <- this.inherit("scripts/skills/skil
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 		if (item != null)
 		{
-			if(item.getID() == "weapon.pitchfork" || item.getID() == "weapon.legend_wooden_pitchfork"  || item.getID() == "weapon.legend_hoe"  || item.getID() == "weapon.legend_scythe"  || item.getID() == "weapon.wooden_flail")
+			local itemID = item.getID();
+			if(itemID == "weapon.pitchfork" || itemID == "weapon.legend_wooden_pitchfork"  || itemID == "weapon.legend_hoe"  || itemID == "weapon.legend_scythe"  || itemID == "weapon.wooden_flail")
 			{
 			_properties.MeleeSkill += 12;
 			_properties.DamageArmorMult += 0.25;
 			}
-			if(item.getID() == "weapon.pike" || item.getID() == "weapon.hooked_blade" || item.getID() == "weapon.billhook"  || item.getID() == "weapon.goblin_pike"   || item.getID() == "weapon.bladed_pike"  || item.getID() == "weapon.broken_bladed_pike" || item.getID() == "weapon.named_pike" || item.getID() == "weapon.named_billhook" || item.getID() == "weapon.warscythe" || item.getID() == "weapon.legend_halberd" || item.getID() == "weapon.legend_military_voulge" || item.getID() == "weapon.legend_voulge" || item.getID() == "weapon.legend_named_halberd" || item.getID() == "weapon.legend_named_voulge")
+			if(itemID == "weapon.pike" || itemID == "weapon.hooked_blade" || itemID == "weapon.billhook"  || itemID == "weapon.goblin_pike"   || itemID == "weapon.bladed_pike"  || itemID == "weapon.broken_bladed_pike" || itemID == "weapon.named_pike" || itemID == "weapon.named_billhook" || itemID == "weapon.warscythe" || itemID == "weapon.legend_halberd" || itemID == "weapon.legend_military_voulge" || itemID == "weapon.legend_voulge" || itemID == "weapon.legend_named_halberd" || itemID == "weapon.legend_named_voulge" || itemID == "weapon.swordlance" || itemID == "weapon.named_swordlance")
 			{
 			_properties.MeleeSkill += 3;
 			_properties.DamageArmorMult += 0.08;

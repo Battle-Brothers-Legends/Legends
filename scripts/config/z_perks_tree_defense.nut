@@ -49,8 +49,8 @@ gt.Const.Perks.MediumArmorTree <- {
 		[],
 		[],
 		[gt.Const.Perks.PerkDefs.LegendLithe],
-		[gt.Const.Perks.PerkDefs.LegendMatchingSet],
-		[gt.Const.Perks.PerkDefs.LegendBalance]
+		[gt.Const.Perks.PerkDefs.LegendBalance],
+		[gt.Const.Perks.PerkDefs.LegendMatchingSet]
 	]
 };
 

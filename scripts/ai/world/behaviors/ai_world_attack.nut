@@ -68,7 +68,7 @@ this.ai_world_attack <- this.inherit("scripts/ai/world/world_behavior", {
 			return this.Const.World.AI.Behavior.Score.Zero;
 		}
 
-		if (_entity.getStrength() == 0 || !_entity.isAttackable())
+		if (_entity.getStrength() == 0 || !_entity.isAttackable() || _entity.getVisibilityMult() == 0)
 		{
 			return this.Const.World.AI.Behavior.Score.Zero;
 		}
@@ -105,7 +105,7 @@ this.ai_world_attack <- this.inherit("scripts/ai/world/world_behavior", {
 
 		foreach( o in opponents )
 		{
-			if (o.Entity.isNull() || !o.Entity.isAlive() || !o.Entity.isAttackable() || !o.Entity.isAttackableByAI() || o.Entity.isLocation() || o.Entity.getStrength() == 0)
+			if (o.Entity.isNull() || !o.Entity.isAlive() || !o.Entity.isAttackable() || !o.Entity.isAttackableByAI() || o.Entity.isLocation() || o.Entity.getStrength() == 0 || o.Entity.getVisibilityMult() == 0)
 			{
 				continue;
 			}
@@ -180,6 +180,11 @@ this.ai_world_attack <- this.inherit("scripts/ai/world/world_behavior", {
 
 	function onExecute( _entity, _hasChanged )
 	{
+		if (_entity.getStrength() == 0 || !_entity.isAttackable() || _entity.getVisibilityMult() == 0)
+		{
+			return true;
+		}
+
 		if (_entity.isAlliedWithPlayer() && this.World.State.getEscortedEntity() != null && !this.World.State.getEscortedEntity().isNull() && this.World.State.getEscortedEntity().getID() == this.m.Target.getID())
 		{
 			return true;

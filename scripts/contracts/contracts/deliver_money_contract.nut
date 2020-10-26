@@ -686,7 +686,7 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 			],
 			function start()
 			{
-				local xpGained = this.Math.round(this.Contract.m.Payment.getOnCompletion() * 0.10 * this.Const.Combat.GlobalXPMult);
+				local xpGained = this.Math.round(this.Contract.m.Payment.getOnCompletion() * 0.25 * this.Const.Combat.GlobalXPMult);
 				this.Characters.push(this.Tactical.getEntityByID(this.Contract.m.RecipientID).getImagePath());
 				this.List.push({
 					id = 10,

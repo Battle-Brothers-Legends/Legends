@@ -76,7 +76,7 @@ this.legend_upgrading_effort_situation <- this.inherit("scripts/entity/world/set
 
 			_draftList.push("legend_inventor_background");
 
-			if (this.World.LegendsMod.Configs().LegendGenderEnabled())
+			if (_gender)
 			{
 				_draftList.push("female_daytaler_background");
 			}

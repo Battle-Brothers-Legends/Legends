@@ -1,5 +1,7 @@
 this.barbarian_camp_altar <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+		IsRock = true	
+	},
 	function getName()
 	{
 		return "Altar";

@@ -239,7 +239,7 @@ gt.Const.Tactical.Common <- {
 			chance = chance + 10;
 		}
 
-		if (_actor.getSkills().hasSkill("trait.gluttunous"))
+		if (_actor.getSkills().hasSkill("trait.gluttonous"))
 		{
 			chance = chance + 10;
 		}
@@ -264,7 +264,7 @@ gt.Const.Tactical.Common <- {
 			chance = chance + 10;
 		}
 
-		if (this.Math.rand(1, 100) < chance)
+		if (this.Math.rand(1, 100) <= chance)
 		{
 			local effect = this.new("scripts/skills/injury/sickness_injury");
 			_actor.getSkills().add(effect);

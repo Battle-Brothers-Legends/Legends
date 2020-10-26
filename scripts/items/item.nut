@@ -39,6 +39,7 @@ this.item <- {
 		RuneBonus1 = 0,
 		RuneBonus2 = 0,
 		IsToBeSalvaged = false,
+		ResourceValue = 0,
 		Type = -1
 	},
 
@@ -811,7 +812,7 @@ this.item <- {
 		switch (this.m.RuneVariant)
 		{
 			case 1:
-				return "This item has the power of the rune sigil of Power:\n[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.RuneBonus1 + "%[/color] Damage inflicted.\n" + "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.RuneBonus2 + "%[/color] Max damage.";
+				return "This item has the power of the rune sigil of Power:\n[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.RuneBonus1 + "%[/color] Damage inflicted.\n" + "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.RuneBonus2 + "[/color] Max damage.";
 				break;
 
 			case 2:
@@ -944,13 +945,13 @@ this.item <- {
 			case 6:
 				if (_bonus)
 				{
-					bonus = this.Math.rand(3, 9)
-					bonus2 = this.Math.rand(1, 3)
+					bonus2 = this.Math.rand(3, 9)
+					bonus = this.Math.rand(1, 3)
 				}
 				else
 				{
-					bonus = this.Math.rand(3, 6)
-					bonus2 = this.Math.rand(1, 2)
+					bonus2 = this.Math.rand(3, 6)
+					bonus = this.Math.rand(1, 2)
 				}
 				break;
 
@@ -1259,6 +1260,11 @@ this.item <- {
 	function getLootLayers()
 	{
 		return [this];
+	}
+
+	function getResourceValue()
+	{
+		return this.m.ResourceValue;
 	}
 
 	function onPaint( _color )

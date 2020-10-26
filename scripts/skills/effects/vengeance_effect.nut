@@ -27,7 +27,7 @@ this.vengeance_effect <- this.inherit("scripts/skills/skill", {
 		if (_targetEntity == null)
 		{
 			return;
-		}
+		} 
 
 		if (!this.m.IsGarbage && !_targetEntity.isAlliedWith(this.getContainer().getActor()))
 		{

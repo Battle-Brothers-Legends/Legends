@@ -37,29 +37,20 @@ this.zombie_nomad <- this.inherit("scripts/entity/tactical/enemies/zombie_yeoman
 			this.m.Items.equip(shield);
 		}
 
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			//todo legends armor
-		}
-		else {
-			
-			local aList = [
-				[1, "oriental/stitched_nomad_armor"],
-				[1, "oriental/plated_nomad_mail"],
-				[1, "oriental/leather_nomad_robe"],
-				[1, "oriental/nomad_robe"],
-				[1, "oriental/thick_nomad_robe"]
-			];
-			local armor = this.Const.World.Common.pickArmor(aList);
-			this.m.Items.equip(armor);
-		}
-
+		local aList = [
+			[1, "oriental/stitched_nomad_armor"],
+			[1, "oriental/plated_nomad_mail"],
+			[1, "oriental/leather_nomad_robe"],
+			[1, "oriental/nomad_robe"],
+			[1, "oriental/thick_nomad_robe"]
+		];
+		local armor = this.Const.World.Common.pickArmor(aList);
 		if (this.Math.rand(1, 100) <= 66)
 		{
-			this.m.Items.getItemAtSlot(this.Const.ItemSlot.Body).setArmor(armor.getArmorMax() / 2 - 1);
+			armor.setArmor(armor.getArmorMax() / 2 - 1);
 		}
+		this.m.Items.equip(armor);
 
-		
 		local helmet = [
 			[1, "oriental/nomad_leather_cap"],
 			[1, "oriental/nomad_light_helmet"],
@@ -72,7 +63,7 @@ this.zombie_nomad <- this.inherit("scripts/entity/tactical/enemies/zombie_yeoman
 
 		if (this.Math.rand(1, 100) <= 66)
 		{
-			helm.setArmor(helmet.getArmorMax() / 2 - 1);
+			helm.setArmor(helm.getArmorMax() / 2 - 1);
 		}
 
 		this.m.Items.equip(helm);

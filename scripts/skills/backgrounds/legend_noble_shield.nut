@@ -199,12 +199,11 @@ this.legend_noble_shield <- this.inherit("scripts/skills/backgrounds/character_b
 		local items = this.getContainer().getActor().getItems();
 
 		items.equip(this.new("scripts/items/weapons/militia_spear"));
-		items.equip(this.new("scripts/items/shields/buckler_shield"));
+		items.equip(this.new("scripts/items/shields/wooden_shield"));
 		
 		items.equip(this.Const.World.Common.pickArmor([
-			[1, "thick_tunic"],
-			[1, "leather_tunic"],
-			[1, "linen_tunic"]
+			[1, "padded_surcoat"],
+			[2, "basic_mail_shirt"]
 		]));
 
 		items.equip(this.Const.World.Common.pickHelmet([

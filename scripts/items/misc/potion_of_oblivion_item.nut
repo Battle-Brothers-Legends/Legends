@@ -96,92 +96,112 @@ this.potion_of_oblivion_item <- this.inherit("scripts/items/item", {
 			hasGifted = true;
 		}
 
-		_actor.m.PerkPoints = perks;
-		_actor.m.PerkPointsSpent = hasStudent ? 1 : 0;
+		local freePerkPointsSpentFromOrigin = 0; // This is if we want further rows to be unlocked
+		// set everything to 0 just in case
+		_actor.m.PerkPoints = 0;
+		_actor.m.PerkPointsSpent = 0;
 		_actor.getSkills().removeByType(this.Const.SkillType.Perk);
 
-		if (this.World.Assets.getOrigin().getID() == "scenario.legends_rangers")
-		{
+
+		switch(this.World.Assets.getOrigin().getID()) {
+		case "scenario.legends_rangers":
 			if (_actor.getBackground().getID() == "background.legend_commander_ranger")
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_pathfinder"));
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_footwork"));
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_roster_2"));
 				perks = perks - 3;
+				freePerkPointsSpentFromOrigin = 3;
 			}
 			else
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_pathfinder"));
 				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 			}
-		}
-		else if (this.World.Assets.getOrigin().getID() == "scenario.legends_assassin")
-		{
+			break;
+		case "scenario.legends_assassin":
 			if (_actor.getBackground().getID() == "background.legend_commander_assassin")
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_backstabber"));
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_hidden"));
 				perks = perks - 2;
+				freePerkPointsSpentFromOrigin = 2;
 			}
 			else
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_hidden"));
 				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 			}
-		}
-		else if (this.World.Assets.getOrigin().getID() == "scenario.legends_berserker")
-		{
+			break;
+		case "scenario.legends_berserker":
 			if (_actor.getBackground().getID() == "background.legend_commander_berserker")
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_berserk"));
-				perks = perks - 1;
-			}
+				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_bearform")); //?can't see this perk but it's definitely there because without taking it into account the amount of PPs is inaccurate
+				perks = perks - 2;
+				freePerkPointsSpentFromOrigin = 2;
+				}
 			else
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_berserk"));
 				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 			}
-		}
-		else if (this.World.Assets.getOrigin().getID() == "scenario.legends_crusader")
-		{
+			break;
+		case "scenario.legends_crusader":
 			if (_actor.getBackground().getID() == "background.legend_commander_crusader")
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_fortified_mind"));
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_rebound"));
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_roster_1"));
 				perks = perks - 3;
+				freePerkPointsSpentFromOrigin = 3;
 			}
 			else
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_fortified_mind"));
 				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 			}
-		}
-		else if (this.World.Assets.getOrigin().getID() == "scenario.legends_necro")
-		{
+			break;
+		case "scenario.legends_druid":
+			if (_actor.getBackground().getID() == "background.legend_commander_druid")
+			{
+				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_surpress_urges"));
+				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
+			}
+			break;
+		case "scenario.legends_inquisition":
+			_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_mind_over_body"));
+			perks = perks - 1;
+			freePerkPointsSpentFromOrigin = 1;
+			break;
+		case "scenario.legends_necro":
 			if (_actor.getBackground().getID() == "background.legend_commander_necro")
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_roster_1"));
-
+				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 				if (this.World.LegendsMod.Configs().LegendMagicEnabled())
 				{
 					_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_brink_of_death"));
 					_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_siphon"));
 					perks = perks - 2;
+					freePerkPointsSpentFromOrigin = 3;
 				}
-				perks = perks - 1;
+
 			}
-			else
+			else if (_actor.getSkills().hasSkill("injury.legend_rotten_flesh"))
 			{
-				if (_actor.getSkills().hasSkill("injury.legend_rotten_flesh"))
-				{
-					_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
-					perks = perks - 1;
-				}
+				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
+				perks = perks - 1;
+				//freePerkPointsSpentFromOrigin = 1; //not an actual perk
 			}
-		}
-		else if (this.World.Assets.getOrigin().getID() == "scenario.legends_noble")
-		{
+			break;
+		case "scenario.legends_noble":
 			if (_actor.getBackground().getID() == "background.legend_commander_noble")
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_rotation"));
@@ -189,61 +209,96 @@ this.potion_of_oblivion_item <- this.inherit("scripts/items/item", {
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_roster_4"));
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_rally_the_troops"));
 				perks = perks - 4;
+				freePerkPointsSpentFromOrigin = 4;
 			}
 			else
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_rotation"));
 				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 			}
-		}
-		else if (this.World.Assets.getOrigin().getID() == "scenario.legends_seer")
-		{
+			break;
+		case "scenario.legends_rangers":
+			if (_actor.getBackground().getID() == "background.legend_commander_ranger")
+			{
+				_actor.getSkills().add(this.new("scripts/skills/perks/perk_pathfinder"));
+				_actor.getSkills().add(this.new("scripts/skills/perks/perk_footwork"));
+				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_roster_2"));
+				perks = perks - 3;
+				freePerkPointsSpentFromOrigin = 3;
+			}
+			else
+			{
+				_actor.getSkills().add(this.new("scripts/skills/perks/perk_pathfinder"));
+				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
+			}
+			break;
+		case "scenario.legends_seer":
 			if (_actor.getBackground().getID() == "background.legend_commander_witch")
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_daze"));
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_roster_1"));
-
+				perks = perks - 2;
+				freePerkPointsSpentFromOrigin = 2;
 				if (this.World.LegendsMod.Configs().LegendMagicEnabled())
 				{
 					_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_magic_missile"));
 					perks = perks - 1;
+					freePerkPointsSpentFromOrigin = 3;
 				}
-				perks = perks - 2;
+
 			}
 			if (_actor.getLevel() < 11)
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_student"));
 				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 			}
-		}
-		else if (this.World.Assets.getOrigin().getID() == "scenario.legends_sisterhood")
-		{
+			break;
+		case "scenario.legends_sisterhood":
 			if (_actor.getBackground().getID() == "background.legend_commander_vala")
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_roster_1"));
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_hold_out"));
 				perks = perks - 2;
+				freePerkPointsSpentFromOrigin = 2;
 			}
 			else
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_hold_out"));
 				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 			}
-		}
-		else if (this.World.Assets.getOrigin().getID() == "scenario.trader")
-		{
-			 if (!_actor.getBackground().isCombatBackground())
+			break;
+		case "scenario.legends_troupe":
+			_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_leap"));
+			perks = perks - 1;
+			freePerkPointsSpentFromOrigin = 1;
+			break;
+		case "scenario.trader":
+			if (!_actor.getBackground().isCombatBackground())
 			{
 				_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_pacifist"));
 				perks = perks - 1;
+				freePerkPointsSpentFromOrigin = 1;
 			}
+			break;
+		default:
 		}
+
+		// Witch gets
 		if (_actor.getBackground().getID() == "background.legend_witch" && this.World.LegendsMod.Configs().LegendMagicEnabled())
 		{
 			_actor.getSkills().add(this.new("scripts/skills/perks/perk_legend_magic_missile"));
 			perks = perks - 1;
 		}
 
+
+
+
+
+		//_actor.m.PerkPointsSpent += freePerkPointsSpentFromOrigin; // We leave this commented out for now
 		_actor.m.PerkPoints = perks;
 
 		if (hasStudent)
@@ -254,7 +309,9 @@ this.potion_of_oblivion_item <- this.inherit("scripts/items/item", {
 		if (hasGifted)
 		{
 			_actor.m.PerkPointsSpent += 1;
-			_actor.getSkills().add(this.new("scripts/skills/perks/perk_gifted"));
+			local giftedPerk = this.new("scripts/skills/perks/perk_gifted");
+			giftedPerk.m.IsApplied = true;
+			_actor.getSkills().add(giftedPerk);
 		}
 
 		this.Const.Tactical.Common.checkDrugEffect(_actor);

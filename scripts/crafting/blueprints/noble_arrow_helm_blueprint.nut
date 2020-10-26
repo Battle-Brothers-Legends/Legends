@@ -19,12 +19,17 @@ this.noble_arrow_helm_blueprint <- this.inherit("scripts/crafting/blueprint", {
 				Scripts = ["scripts/skills/backgrounds/legend_blacksmith_background"]
 			}
 		]
-		this.initSkills(skills);	
+		this.initSkills(skills);
 	}
 
 	function isQualified()
 	{
-		return true;
+		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
+		{
+			return false;
+		}
+
+		return this.blueprint.isQualified();
 	}
 
 	function onCraft( _stash )

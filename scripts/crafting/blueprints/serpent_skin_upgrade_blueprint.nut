@@ -4,6 +4,7 @@ this.serpent_skin_upgrade_blueprint <- this.inherit("scripts/crafting/blueprint"
 	{
 		this.blueprint.create();
 		this.m.ID = "blueprint.serpent_skin_upgrade";
+		this.m.Type = this.Const.Items.ItemType.Armor;
 		this.m.PreviewCraftable = this.new("scripts/items/armor_upgrades/serpent_skin_upgrade");
 		this.m.Cost = 300;
 		local ingredients = [

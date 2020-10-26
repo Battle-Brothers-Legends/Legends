@@ -180,10 +180,11 @@ this.legend_warbear <- this.inherit("scripts/entity/tactical/actor", {
 		b.setValues(this.Const.Tactical.Actor.LegendBear);
 		b.TargetAttractionMult = 0.5;
 		b.IsAffectedByInjuries = false;
+		b.IsImmuneToDisarm = true;
 		this.m.ActionPoints = b.ActionPoints;
 		this.m.Hitpoints = b.Hitpoints * 1.5;
 		b.MeleeSkill += 20;
-		b.MeleeDefense += 20;
+		b.MeleeDefense += 10;
 		b.Bravery += 20;
 		b.Stamina += 50;
 		this.m.CurrentProperties = clone b;

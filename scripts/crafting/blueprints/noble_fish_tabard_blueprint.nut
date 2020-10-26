@@ -5,7 +5,8 @@ this.noble_fish_tabard_blueprint <- this.inherit("scripts/crafting/blueprint", {
 		this.blueprint.create();
 		this.m.ID = "blueprint.noble_fish_tabard_blueprint";
 		this.m.Type = this.Const.Items.ArmorUpgrades.Tabbard;
-		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/tabard/legend_armor_fish_tabard");
+		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/tabard/legend_noble_tabard");
+		this.m.PreviewCraftable.setVariant(7)
 		this.m.Cost = 2000;
 		local ingredients = [
 			{
@@ -25,13 +26,19 @@ this.noble_fish_tabard_blueprint <- this.inherit("scripts/crafting/blueprint", {
 
 	function isQualified()
 	{
-		return this.World.LegendsMod.Configs().LegendArmorsEnabled()
+		if (!this.World.LegendsMod.Configs().LegendArmorsEnabled())
+		{
+			return false
+		}
+
+		return this.blueprint.isQualified()
 	}
 
 	function onCraft( _stash )
 	{
-		local item = this.new("scripts/items/legend_armor/tabard/legend_armor_fish_tabard");
+		local item = this.new("scripts/items/legend_armor/tabard/legend_noble_tabard");
 		item.m.Name = "Fish Tabard";
+		item.setVariant(7)
 		_stash.add(item);
 	}
 

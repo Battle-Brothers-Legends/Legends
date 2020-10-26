@@ -96,8 +96,6 @@ local cloths = [
 			[0, "cloth/legend_sackcloth"],
 			[0, "cloth/legend_sackcloth_patched"],
 			[0, "cloth/legend_sackcloth_tattered"],
-			[0, "cloth/legend_tunic"],
-			[0, "cloth/legend_tunic_noble"]
 		];
 		local armor = this.Const.World.Common.pickLegendArmor(cloths)
 
@@ -166,18 +164,19 @@ local cloths = [
 			}
 			local tabards = [
 						[0, ""],
-						[1, "tabard/legend_armor_tabard_crusader"]
+						[1, "tabard/legend_common_tabard"]
 					]
-					local tabard = this.Const.World.Common.pickLegendArmor(tabards)
+			local tabard = this.Const.World.Common.pickLegendArmor(tabards)
 			if (tabard != null && armor != null)
 			{
+				tabard.setVariant(113)
 				armor.setUpgrade(tabard)
 			}
 			local cloaks = [
 						[0, ""],
 						[1, "cloak/legend_armor_cloak_crusader"]
 					]
-					local cloak = this.Const.World.Common.pickLegendArmor(cloaks)
+			local cloak = this.Const.World.Common.pickLegendArmor(cloaks)
 			if (tabard != null && armor != null)
 			{
 				armor.setUpgrade(cloak)

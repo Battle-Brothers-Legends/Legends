@@ -7,8 +7,8 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 		this.m.Name = "Indebted";
 		this.m.Icon = "ui/backgrounds/background_60.png";
 		this.m.BackgroundDescription = "The indebted are a caste of de-facto slaves in the city states, and as such are not hired, but bought, and receive no daily wage.";
-		this.m.GoodEnding = "%name% the indebted has had a rough life and you\'ve both contributed to that and helped alleviate it in some way. You found him as a slave in the south, far from family and home. You \'hired\' him essentially for free and worked him as an enslaved sellsword. After you left the %companyname%, his name was removed from the ledger of indebted and he was for all intents and purposes a free man. He stayed with the company and has been rising through its ranks ever since. You stand at an odd relation to the man. He\'s never thanked you, nor has he expressed ill.";
-		this.m.BadEnding = "With your retiring from the unsuccessful %companyname%, %name% the indebted from the north carried on with the company for a time. You got wind that the mercenary band ran into financial troubles and was selling off \'man and material\' to make ends meet. It seems %name%\'s time with the company presumably ended sometime there, and his time as a slave started again.";
+		this.m.GoodEnding = "%name% the indebted has had a rough life and you\'ve both contributed to that and helped alleviate it in some way. Found as a slave in the south, far from family and home. \'Hired\' essentially for free and worked as an enslaved sellsword. After you left the %companyname%, %name% was removed from the ledger of indebted and was for all intents and purposes free. %name% stayed with the company and has been rising through its ranks ever since. You stand at an odd relation, %name% never thanked you, nor expressed ill will.";
+		this.m.BadEnding = "With your retiring from the unsuccessful %companyname%, %name% the indebted from the north carried on with the company for a time. You got wind that the mercenary band ran into financial troubles and was selling off \'flesh and material\' to make ends meet. It seems %name%\'s time with the company presumably ended sometime there, and %name%\'s time as a slave started again.";
 		this.m.HiringCost = this.Math.rand(19, 22) * 10;
 		this.m.DailyCost = 0;
 		this.m.Titles = [
@@ -113,7 +113,17 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 
 	function onBuildDescription()
 	{
-		return "{You can tell %name% is a northerner simply by appearance. And his servitude in the south has come by way of being indebted to the Gilder whom he has transgressed with his faith in the heretical old gods. | %name% bears the features of a northerner, easily capturing the eye of passing men or women. It also happened to catch the attention of a priest who claimed the northerner was indebted to the Gilder and promptly sold the interloper into servitude. | A northerner, %name% was once a soldier sent south on patrol. Lost in the desert, his troop slowly dwindled until he was the last survivor. Manhunters caught him and brought him back from the brink, and of course sold him into servitude once his healed body was worth something. | Despite being a northerner and thus easily spotted, %name% unwisely sought the criminal life and was caught thieving pomegranates from a Vizier\'s garden. He\'s lucky to have his head, but now serves as a commodity of labor on the Manhunting markets.}";
+		if(this.m.IsFemaleBackground == true)
+		{
+
+		return "{You can tell %name% is a northerner simply by appearance. Servitude in the south has come by way of being indebted to the Gilder transgressed against through faith in the heretical old gods. | %name% bears the features of a northerner, easily capturing the eye of passing men or women. It also happened to catch the attention of a priest who claimed the northerner was indebted to the Gilder and promptly sold the interloper into servitude. | A northerner, %name% was once a soldier sent south on patrol. Lost in the desert, troop slowly dwindling until %name% was the last survivor. Caught by slavers and brought back from the brink, and of course sold into servitude once %name%\'s healed body was worth something. | Despite being a northerner and thus easily spotted, %name% unwisely sought the criminal life and was caught thieving pomegranates from a Vizier\'s garden. %name%\'s lucky to have a head, but now serves as a commodity of labor on the slave markets.}";
+		}
+		else
+		{
+
+		return "{You can tell %name% is a northerner simply by appearance. And his servitude in the south has come by way of being indebted to the Gilder whom he has transgressed with his faith in the heretical old gods. | %name% bears the features of a northerner, easily capturing the eye of passing men or women. It also happened to catch the attention of a priest who claimed the northerner was indebted to the Gilder and promptly sold the interloper into servitude. | A northerner, %name% was once a soldier sent south on patrol. Lost in the desert, his troop slowly dwindled until he was the last survivor. Manhunters caught him and brought him back from the brink, and of course sold him into servitude once his healed body was worth something. | Despite being a northerner and thus easily spotted, %name% unwisely sought the criminal life and was caught thieving pomegranates from a Vizier\'s garden. He\'s lucky to have his head, but now serves as a commodity of labor on the slave markets.}";
+		}
+	
 	}
 
 	function setGender(_gender = -1)

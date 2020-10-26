@@ -1,5 +1,7 @@
 this.orc_camp_idol <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+		IsTree = true		
+	},
 	function getName()
 	{
 		return "Idol";

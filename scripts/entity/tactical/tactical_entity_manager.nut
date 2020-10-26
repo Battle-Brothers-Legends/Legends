@@ -1208,12 +1208,12 @@ this.tactical_entity_manager <- {
 			break;
 		}
 
-		local factionsNotAlliedWithPlayer = hasCampDeployment || _properties.InCombatAlready && ai_entities.len() <= 2 ? 1 : 0;
+		local factionsNotAlliedWithPlayer = hasCampDeployment || this.World.State.getEscortedEntity() == null && _properties.InCombatAlready && ai_entities.len() <= 2 ? 1 : 0;
 		local lastFaction = 99;
 
 		foreach( i, f in ai_entities )
 		{
-			if ((!f.IsAlliedWithPlayer || _properties.InCombatAlready) && f.DeploymentType != this.Const.Tactical.DeploymentType.Camp && (lastFaction == 99 || !this.World.FactionManager.isAllied(lastFaction, f.Faction)))
+			if ((!f.IsAlliedWithPlayer || this.World.State.getEscortedEntity() == null && _properties.InCombatAlready) && f.DeploymentType != this.Const.Tactical.DeploymentType.Camp && (lastFaction == 99 || !this.World.FactionManager.isAllied(lastFaction, f.Faction)))
 			{
 				factionsNotAlliedWithPlayer = ++factionsNotAlliedWithPlayer;
 			}
@@ -1223,7 +1223,7 @@ this.tactical_entity_manager <- {
 				continue;
 			}
 
-			local n = f.IsAlliedWithPlayer && !_properties.InCombatAlready ? 0 : factionsNotAlliedWithPlayer;
+			local n = f.IsAlliedWithPlayer && (!_properties.InCombatAlready || this.World.State.getEscortedEntity() != null) ? 0 : factionsNotAlliedWithPlayer;
 			lastFaction = f.Faction;
 
 			switch(f.DeploymentType)

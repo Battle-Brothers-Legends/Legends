@@ -24,8 +24,14 @@ this.noble_sun_helm_blueprint <- this.inherit("scripts/crafting/blueprint", {
 
 	function isQualified()
 	{
-		return !this.World.LegendsMod.Configs().LegendArmorsEnabled()
+		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
+		{
+			return false;
+		}
+
+		return this.blueprint.isQualified();
 	}
+
 
 	function onCraft( _stash )
 	{

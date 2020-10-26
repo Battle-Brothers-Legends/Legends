@@ -27,7 +27,16 @@ this.juggler_entertains_townsfolk_event <- this.inherit("scripts/events/event", 
 			function start( _event )
 			{
 				this.Characters.push(_event.m.Juggler.getImagePath());
-				_event.m.Town.getFactionOfType(this.Const.FactionType.Settlement).addPlayerRelation(this.Const.World.Assets.RelationCivilianContractSuccess, "One of your men entertained the townsfolk");
+
+				if (_event.m.Town.isSouthern())
+				{
+					_event.m.Town.getOwner().addPlayerRelation(this.Const.World.Assets.RelationCivilianContractSuccess, "One of your men entertained the masses");
+				}
+				else
+				{
+					_event.m.Town.getFactionOfType(this.Const.FactionType.Settlement).addPlayerRelation(this.Const.World.Assets.RelationCivilianContractSuccess, "One of your men entertained the townsfolk");
+				}
+
 				_event.m.Juggler.improveMood(2.0, "Entertained townsfolk with his juggling");
 
 				if (_event.m.Juggler.getMoodState() >= this.Const.MoodState.Neutral)

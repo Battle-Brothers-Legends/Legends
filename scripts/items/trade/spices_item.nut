@@ -12,6 +12,7 @@ this.spices_item <- this.inherit("scripts/items/trade/trading_good_item", {
 			"attached_location.plantation"
 		];
 		this.m.Value = 320;
+		this.m.ResourceValue = 2;
 	}
 
 });

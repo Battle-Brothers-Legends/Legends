@@ -4,6 +4,7 @@ this.daze_bomb_blueprint <- this.inherit("scripts/crafting/blueprint", {
 	{
 		this.blueprint.create();
 		this.m.ID = "blueprint.daze_bomb";
+		this.m.Type = this.Const.Items.ItemType.Usable;
 		this.m.PreviewCraftable = this.new("scripts/items/tools/daze_bomb_item");
 		this.m.Cost = 70;
 		local ingredients = [

@@ -50,7 +50,9 @@ this.legend_donkey <- this.inherit("scripts/skills/backgrounds/character_backgro
 			0.015, // badlands
 			0.015, //highlands
 			0.025, //stepps
-			0.0 //ocean
+			0.0, //ocean
+			0.01, //desert
+			0.025 //oasis
 		];
 		this.m.CustomPerkTree = [
 			[

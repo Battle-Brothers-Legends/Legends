@@ -2,6 +2,7 @@ this.ammo <- this.inherit("scripts/items/item", {
 	m = {
 		ShowOnCharacter = false,
 		ShowQuiver = false,
+		AddGenericSkill = false,
 		Sprite = this.Const.Items.Default.PlayerQuiver,
 		IconEmpty = "",
 		AmmoType = this.Const.Items.AmmoType.None,
@@ -90,6 +91,10 @@ this.ammo <- this.inherit("scripts/items/item", {
 	function onEquip()
 	{
 		this.item.onEquip();
+		if (this.m.AddGenericSkill)
+		{
+			this.addGenericItemSkill();
+		}
 
 		if (this.m.ShowOnCharacter)
 		{

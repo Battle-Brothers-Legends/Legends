@@ -22,6 +22,46 @@
         return equipfn(_item);
     }
 
+    o.unequipNoUpdate <- function (_item)
+	{
+		if (_item == null || _item == -1)
+		{
+			return;
+		}
+
+		if (_item.getCurrentSlotType() == this.Const.ItemSlot.None || _item.getCurrentSlotType() == this.Const.ItemSlot.Bag)
+		{
+			this.logWarning("Attempted to unequip item " + _item.getName() + ", but is not equipped");
+			return false;
+		}
+
+		for( local i = 0; i < this.m.Items[_item.getSlotType()].len(); i = ++i )
+		{
+			if (this.m.Items[_item.getSlotType()][i] == _item)
+			{
+				// _item.onUnequip();
+				// _item.setContainer(null);
+				// _item.setCurrentSlotType(this.Const.ItemSlot.None);
+				this.m.Items[_item.getSlotType()][i] = null;
+
+				if (_item.getBlockedSlotType() != null)
+				{
+					for( local i = 0; i < this.m.Items[_item.getBlockedSlotType()].len(); i = ++i )
+					{
+						if (this.m.Items[_item.getBlockedSlotType()][i] == -1)
+						{
+							this.m.Items[_item.getBlockedSlotType()][i] = null;
+							break;
+						}
+					}
+				}
+				return true;
+			}
+		}
+
+		return false;
+	}
+
     o.transferToList <- function( _stash )
 	{
 		for( local i = 0; i < this.Const.ItemSlot.COUNT; i = ++i )

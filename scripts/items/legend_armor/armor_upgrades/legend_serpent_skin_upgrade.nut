@@ -3,7 +3,7 @@ this.legend_serpent_skin_upgrade <- this.inherit("scripts/items/legend_armor/leg
 	function create()
 	{
 		this.legend_armor_upgrade.create();
-		this.m.ID = "armor_upgrade.serpent_skin";
+		this.m.ID = "legend_armor_upgrade.serpent_skin";
 		this.m.Type = this.Const.Items.ArmorUpgrades.Attachment;
 		this.m.Name = "Serpent Skin Mantle";
 		this.m.Description = "A mantle crafted from the thin and shimmering scales of desert serpents, especially resistant to heat and flames.";
@@ -20,24 +20,14 @@ this.legend_serpent_skin_upgrade <- this.inherit("scripts/items/legend_armor/leg
 		this.m.SpriteCorpseBack = "upgrade_27_back_dead";
 		this.m.Value = 600;
 		this.m.ConditionModifier = 30;
-		this.m.StaminaModifier = 2;
+		this.m.Condition = 30;
+		this.m.ConditionMax = 30;
+		this.m.StaminaModifier = -2;
 	}
 
 	function getTooltip()
 	{
 		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30[/color] Durability"
-		});
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-2[/color] Maximum Fatigue"
-		});
 		result.push({
 			id = 15,
 			type = "text",
@@ -90,15 +80,15 @@ this.legend_serpent_skin_upgrade <- this.inherit("scripts/items/legend_armor/leg
 		}
 	}
 
-	function onRemoved()
+	function onRemoved( _app )
 	{
-		this.legend_armor_upgrade.onRemoved();
 		local c = this.m.Armor.getContainer();
 
 		if (c != null && c.getActor() != null && !c.getActor().isNull())
 		{
 			c.getActor().getSkills().removeByID("items.firearms_resistance");
 		}
+		this.legend_armor_upgrade.onRemoved(_app);
 	}
 
 });

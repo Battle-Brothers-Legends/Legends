@@ -26,8 +26,13 @@ this.perk_legend_balance <- this.inherit("scripts/skills/skill", {
 		{
 			return 5;
 		}
-
-		local body = actor.getArmor(this.Const.BodyPart.Body);
+		
+		local bodyitem = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Body);
+		if (bodyitem == null)
+		{
+			return 5;
+		}
+		local body = actor.getArmor(this.Const.BodyPart.Body);		
 		local initiative = actor.getInitiative();
 		local diff = this.Math.abs(body - 2 * initiative);
 		return this.Math.max(5, this.Math.floor(40 - diff * 0.5));

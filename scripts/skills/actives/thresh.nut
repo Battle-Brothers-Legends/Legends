@@ -6,7 +6,7 @@ this.thresh <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.thresh";
 		this.m.Name = "Thresh";
-		this.m.Description = "Treshing all the targets around you, foe and friend alike, with a reckless round swing. Not hard to evade because it is not aimed at anything, but can be devastating if it connects. Has a chance to stun targets hit for one turn. Be careful around your own men unless you want to relieve your payroll!";
+		this.m.Description = "Threshing all the targets around you, foe and friend alike, with a reckless round swing. Not hard to evade because it is not aimed at anything, but can be devastating if it connects. Has a chance to stun targets hit for one turn. Be careful around your own men unless you want to relieve your payroll!";
 		this.m.KilledString = "Smashed";
 		this.m.Icon = "skills/active_46.png";
 		this.m.IconDisabled = "skills/active_46_sw.png";

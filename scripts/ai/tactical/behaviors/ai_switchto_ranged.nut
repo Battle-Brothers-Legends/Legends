@@ -125,8 +125,8 @@ this.ai_switchto_ranged <- this.inherit("scripts/ai/tactical/behavior", {
 			}
 			else
 			{
-				local targets = this.queryTargetsInMeleeRange(this.Math.min(this.m.WeaponToEquip.getRangeMin(), _entity.getCurrentProperties().Vision), this.Math.min(this.m.WeaponToEquip.getRangeMax(), _entity.getCurrentProperties().Vision) + myTile.Level, 3);
-				local bestTarget = this.queryBestRangedTarget(_entity, null, targets, this.Math.min(this.m.WeaponToEquip.getRangeMax(), _entity.getCurrentProperties().Vision));
+				local targets = this.queryTargetsInMeleeRange(this.Math.min(this.m.WeaponToEquip.getRangeMin(), _entity.getCurrentProperties().Vision), this.Math.min(this.m.WeaponToEquip.getRangeEffective() + this.m.WeaponToEquip.getAdditionalRange(_entity), _entity.getCurrentProperties().Vision) + myTile.Level, 3);
+				local bestTarget = this.queryBestRangedTarget(_entity, null, targets, this.Math.min(this.m.WeaponToEquip.getRangeEffective() + this.m.WeaponToEquip.getAdditionalRange(_entity), _entity.getCurrentProperties().Vision));
 
 				if (bestTarget.Target == null || bestTarget.Score < 0)
 				{

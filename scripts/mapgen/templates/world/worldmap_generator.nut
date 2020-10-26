@@ -2851,9 +2851,35 @@ this.worldmap_generator <- this.inherit("scripts/mapgen/map_template", {
 					}
 				}
 
-				if (!next)
+				if (next)
 				{
-					break;
+				}
+				else
+				{
+					next = true;
+
+					foreach( s in settlements )
+					{
+						if (s.isIsolated() || s.getTile().SquareCoords.Y > this.World.getMapSize().Y * 0.5)
+						{
+							continue;
+						}
+
+						local navSettings = this.World.getNavigator().createSettings();
+						navSettings.ActionPointCosts = this.Const.World.TerrainTypeNavCost_Flat;
+						local path = this.World.getNavigator().findPath(candidates[idx].Tile, s.getTile(), navSettings, 0);
+
+						if (!path.isEmpty())
+						{
+							next = false;
+							break;
+						}
+					}
+
+					if (!next)
+					{
+						break;
+					}
 				}
 			}
 

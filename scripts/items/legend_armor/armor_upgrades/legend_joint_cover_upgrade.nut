@@ -25,23 +25,6 @@ this.legend_joint_cover_upgrade <- this.inherit("scripts/items/legend_armor/lege
 		this.m.StaminaModifier = -2;
 	}
 
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] Durability"
-		});
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-2[/color] Maximum Fatigue"
-		});
-		return result;
-	}
 
 	function onArmorTooltip( _result )
 	{

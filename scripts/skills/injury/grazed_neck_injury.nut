@@ -86,6 +86,11 @@ this.grazed_neck_injury <- this.inherit("scripts/skills/injury/injury", {
 	{
 		this.injury.onUpdate(_properties);
 
+		if (!_properties.IsAffectedByInjuries || this.m.IsFresh && !_properties.IsAffectedByFreshInjuries)
+		{
+			return;
+		}
+
 		if (this.m.IsShownOutOfCombat)
 		{
 			_properties.HitpointsMult *= 0.85;

@@ -17,6 +17,7 @@ this.legend_armor_piercing_bolts <- this.inherit("scripts/items/ammo/ammo", {
 		this.m.Ammo = 10;
 		this.m.AmmoMax = 10;
 		this.m.IsDroppedAsLoot = true;
+		this.m.AddGenericSkill = true;
 	}
 
 	function getTooltip()

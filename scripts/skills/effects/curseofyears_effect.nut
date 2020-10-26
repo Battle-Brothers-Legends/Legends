@@ -1,6 +1,6 @@
 this.curseofyears_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-                TurnsCurseofyears = 0
+		TurnsCurseofyears = 0
 	},
 	function getTurnsCurseofyears()
 	{
@@ -10,7 +10,7 @@ this.curseofyears_effect <- this.inherit("scripts/skills/skill", {
 	function create()
 	{
 		this.m.ID = "effects.curseofyears";
-		this.m.Name = "Curse of Years";
+		this.m.Name = "Decrepify";
 		this.m.KilledString = "Died over time";
 		this.m.Icon = "skills/status_effect_81.png";
 		this.m.IconMini = "status_effect_81_mini";
@@ -32,7 +32,7 @@ this.curseofyears_effect <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "This character is consumed by unnatural nightmares and is unable to act. As the horrors eat away at his sanity, he\'ll take [color=" + this.Const.UI.Color.PositiveValue + "]" + this.getDamage() + "[/color] damage based on his resolve each turn. The character can be forcibly awoken from these nightmares by a nearby ally, but he won\'t wake up on his own.";
+		return "This character is consumed by unnatural nightmares and is unable to act. As the horror eats away his sanity, he\'ll take [color=" + this.Const.UI.Color.PositiveValue + "]" + this.getDamage() + "[/color] damage based on his resolve each turn. The character can be forcibly awoken from these nightmares by a nearby ally, but he won\'t wake up on his own.";
 	}
 
 	function getTooltip()
@@ -52,7 +52,7 @@ this.curseofyears_effect <- this.inherit("scripts/skills/skill", {
 				id = 9,
 				type = "text",
 				icon = "ui/icons/initiative.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]deid over time[/color] "
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]aging over time[/color] "
 			}
 		];
 	}
@@ -68,8 +68,8 @@ this.curseofyears_effect <- this.inherit("scripts/skills/skill", {
 		local actor = this.getContainer().getActor();
 		for ( local i = 0; i < 99; i = ++i )
 		{
-                        if (actor.isAlive() && this.Math.rand(1, 6) >= this.Math.max(2, 7 - this.getTurnsCurseofyears()))
-                        {
+			if (actor.isAlive() && this.Math.rand(1, 6) >= this.Math.max(2, 7 - this.getTurnsCurseofyears()))
+            {
 				this.spawnIcon("status_effect_81", this.getContainer().getActor().getTile());
 				local hitInfo = clone this.Const.Tactical.HitInfo;
 				hitInfo.DamageRegular = this.getDamage();
@@ -78,12 +78,11 @@ this.curseofyears_effect <- this.inherit("scripts/skills/skill", {
 				hitInfo.BodyDamageMult = 0.02 + this.getTurnsCurseofyears();
 				hitInfo.FatalityChanceMult = 0.0;
 				this.getContainer().getActor().onDamageReceived(this.getContainer().getActor(), this, hitInfo);
-                        }
-
-                        else
-                        {
-				break
-                        }
+            }
+            else
+            {
+				break;
+            }
 		}
 	}
 
@@ -100,8 +99,8 @@ this.curseofyears_effect <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeActivation()
 	{
-		local BreakChance =  this.Math.max(6, 6);
-		local everyoneCurseofyears = true;
+		local BreakChance = 6;
+		//local everyoneCurseofyears = true;
 		if (this.Math.rand(1, 9) > BreakChance)
 		{
 			this.removeSelf();
@@ -150,7 +149,7 @@ this.curseofyears_effect <- this.inherit("scripts/skills/skill", {
 			actor.getSprite("status_stunned").setBrush("bust_nightmare");
 			actor.getSprite("status_stunned").Visible = true;
 		}
-			actor.setDirty(true);
+		actor.setDirty(true);
 	}
 
 });

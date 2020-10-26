@@ -1,5 +1,7 @@
 this.barbarian_camp_nithing_pole <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+		IsSupplies = true	
+	},
 	function getName()
 	{
 		return "Nithing Pole";

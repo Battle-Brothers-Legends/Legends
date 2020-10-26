@@ -12,6 +12,7 @@ this.incense_item <- this.inherit("scripts/items/trade/trading_good_item", {
 			"attached_location.incense_dryer"
 		];
 		this.m.Value = 380;
+		this.m.ResourceValue = 2;
 	}
 
 	function getSellPriceMult()

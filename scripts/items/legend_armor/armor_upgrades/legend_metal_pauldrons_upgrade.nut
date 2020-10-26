@@ -25,24 +25,6 @@ this.legend_metal_pauldrons_upgrade <- this.inherit("scripts/items/legend_armor/
 		this.m.StaminaModifier = -3;
 	}
 
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30[/color] Durability"
-		});
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Maximum Fatigue"
-		});
-		return result;
-	}
-
 	function onArmorTooltip( _result )
 	{
 	}

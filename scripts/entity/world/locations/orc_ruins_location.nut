@@ -23,6 +23,8 @@ this.orc_ruins_location <- this.inherit("scripts/entity/world/location", {
 		this.m.CombatLocation.Template[1] = "tactical.orc_camp";
 		this.m.CombatLocation.Fortification = this.Const.Tactical.FortificationType.Walls;
 		this.m.CombatLocation.CutDownTrees = true;
+		this.m.IsShowingDefenders = false;
+		this.m.IsShowingBanner = false;
 		this.setDefenderSpawnList(this.Const.World.Spawn.YoungOrcsAndBerserkers);
 		this.m.Resources = 150;
 		this.m.NamedWeaponsList = this.Const.Items.NamedOrcWeapons;

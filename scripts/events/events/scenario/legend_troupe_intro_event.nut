@@ -23,7 +23,6 @@ this.legend_troupe_intro_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				this.logInfo("Unlocking healing");
 				this.World.Flags.set("HasLegendCampHealing", true);
 			}
 		});

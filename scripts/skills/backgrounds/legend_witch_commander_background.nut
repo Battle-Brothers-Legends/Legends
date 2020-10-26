@@ -40,7 +40,8 @@ this.legend_witch_commander_background <- this.inherit("scripts/skills/backgroun
 			"trait.huge",
 			"trait.tough",
 			"trait.disloyal",
-			"trait.loyal"
+			"trait.loyal",
+			"trait.dumb"
 		];
 		this.m.Titles = [
 			"the Enthralling",

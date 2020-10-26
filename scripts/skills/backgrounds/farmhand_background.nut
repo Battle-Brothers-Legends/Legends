@@ -47,7 +47,9 @@ this.farmhand_background <- this.inherit("scripts/skills/backgrounds/character_b
 				0.0, // badlands
 				0.0, //highlands
 				0.0, //stepps
-				0.0 //ocean
+				0.0, //ocean
+				0.0, //desert
+				0.0 //oasis
 			];
 		this.m.PerkTreeDynamic = {
 			Weapon = [

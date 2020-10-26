@@ -112,7 +112,7 @@ this.slash_lightning <- this.inherit("scripts/skills/skill", {
 		local success = this.attackEntity(_user, _targetTile.getEntity());
 		local myTile = _user.getTile();
 
-		if (success && _user.isAlive())
+		if (success && _user.isAlive() && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID())
 		{
 			local selectedTargets = [];
 			local potentialTargets = [];

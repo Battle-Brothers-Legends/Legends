@@ -3,7 +3,7 @@ this.named_axe <- this.inherit("scripts/items/weapons/named/named_weapon", {
 	function create()
 	{
 		this.named_weapon.create();
-		this.m.Variant = this.Math.rand(4, 6);
+		this.m.Variant = this.Math.rand(1, 7);
 		this.updateVariant();
 		this.m.ID = "weapon.named_axe";
 		this.m.NameList = this.Const.Strings.AxeNames;

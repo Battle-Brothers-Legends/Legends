@@ -11,7 +11,7 @@ this.named_orc_flail_2h <- this.inherit("scripts/items/weapons/named/named_weapo
 		this.m.Icon = "weapons/melee/named_orc_flail_two_handed_70x70.png";
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;
+		this.m.ItemType = this.Const.Items.ItemType.Named | this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;
 		this.m.IsAoE = true;
 		this.m.EquipSound = this.Const.Sound.ArmorLeatherImpact;
 		this.m.AddGenericSkill = true;

@@ -12,6 +12,7 @@ this.dies_item <- this.inherit("scripts/items/trade/trading_good_item", {
 			"attached_location.dye_maker"
 		];
 		this.m.Value = 400;
+		this.m.ResourceValue = 2;
 	}
 
 });

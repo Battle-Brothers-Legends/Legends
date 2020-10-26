@@ -93,6 +93,7 @@ this.greenskins_trapped_goblin_event <- this.inherit("scripts/events/event", {
 					item = this.new("scripts/items/loot/silver_bowl_item");
 				}
 
+				this.World.Assets.getStash().makeEmptySlots(1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
@@ -155,6 +156,7 @@ this.greenskins_trapped_goblin_event <- this.inherit("scripts/events/event", {
 					item = this.new("scripts/items/loot/silver_bowl_item");
 				}
 
+				this.World.Assets.getStash().makeEmptySlots(1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,

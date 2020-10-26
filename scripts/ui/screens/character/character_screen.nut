@@ -387,6 +387,10 @@ this.character_screen <- {
 			}
 			bro.getItems().transferToStash(this.World.Assets.getStash());
 			this.World.getPlayerRoster().remove(bro);
+			if (this.World.State.getPlayer() != null)
+			{
+				this.World.State.getPlayer().calculateModifiers();
+			}
 			this.loadData();
 			this.World.State.updateTopbarAssets();
 		}
@@ -412,15 +416,14 @@ this.character_screen <- {
 	function queryData()
 	{
 		local result = {
-			brothers = this.onQueryBrothersList(),
+			brothers = this.onQueryBrothersList()
 		};
 
-		if ("Assets" in this.World && this.World.Assets != null)
+		if (("Assets" in this.World) && this.World.Assets != null)
 		{
-
-			result.formationIndex <- this.World.Assets.getFormationIndex(),
-			result.formationName <- this.World.Assets.getFormationName(),
-			result.maxBrothers <- this.World.Assets.getBrothersMax()
+			result.formationIndex <- this.World.Assets.getFormationIndex();
+			result.formationName <- this.World.Assets.getFormationName();
+			result.maxBrothers <- this.World.Assets.getBrothersMax();
 		}
 
 		if (this.m.InventoryMode != this.Const.CharacterScreen.InventoryMode.Ground)
@@ -436,7 +439,9 @@ this.character_screen <- {
 			result.perkTrees <- this.onQueryPerkTrees();
 		}
 		if ("stashSpaceUsed" in result)
-			this.logDebug("Generating stash list info :" + result.stashSpaceUsed + " : " + result.stashSpaceMax)
+		{
+			this.logDebug("Generating stash list info :" + result.stashSpaceUsed + " : " + result.stashSpaceMax);
+		}
 
 		return result;
 	}
@@ -502,7 +507,7 @@ this.character_screen <- {
 		local result = {
 			repair = false,
 			salvage = false
-		}
+		};
 
 		local itemId = _data[0];
 		local entityId = _data[1];
@@ -512,7 +517,7 @@ this.character_screen <- {
 			return result;
 		}
 
-		local obj = null
+		local obj = null;
 		local item = null;
 		local index = 0;
 		if (entityId != null)
@@ -520,7 +525,7 @@ this.character_screen <- {
 			obj = this.Tactical.getEntityByID(entityId).getItems().getItemByInstanceID(itemId);
 			if (obj != null)
 			{
-				item = obj
+				item = obj;
 			}
 		}
 		else
@@ -540,7 +545,7 @@ this.character_screen <- {
 
 		if (item.isIndestructible() || entityId != null)
 		{
-			item.setToBeRepaired(!item.isToBeRepaired(), index)
+			item.setToBeRepaired(!item.isToBeRepaired(), index);
 			item.setToBeSalvaged(false, 0);
 		}
 		else if (!item.isToBeRepaired() && !item.isToBeSalvaged())
@@ -569,7 +574,7 @@ this.character_screen <- {
 		return {
 			repair = item.isToBeRepaired(),
 			salvage = item.isToBeSalvaged()
-		}
+		};
 	}
 
 	function onEquipInventoryItem( _data )
@@ -2460,8 +2465,8 @@ this.character_screen <- {
 
 	function onAssignRider( _data )
 	{
-		local riderID = _data[0]
-		local horseID = _data[1]
+		local riderID = _data[0];
+		local horseID = _data[1];
 
 		local rider = this.Tactical.getEntityByID(_data[0]);
 		local horse = this.Tactical.getEntityByID(_data[1]);

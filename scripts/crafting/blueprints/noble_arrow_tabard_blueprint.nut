@@ -5,7 +5,8 @@ this.noble_arrow_tabard_blueprint <- this.inherit("scripts/crafting/blueprint", 
 		this.blueprint.create();
 		this.m.ID = "blueprint.noble_arrow_tabard_blueprint";
 		this.m.Type = this.Const.Items.ArmorUpgrades.Tabbard;
-		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/tabard/legend_armor_arrow_tabard");
+		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/tabard/legend_noble_tabard");
+		this.m.PreviewCraftable.setVariant(2);
 		this.m.Cost = 2000;
 		local ingredients = [
 			{
@@ -20,18 +21,24 @@ this.noble_arrow_tabard_blueprint <- this.inherit("scripts/crafting/blueprint", 
 							"scripts/skills/backgrounds/tailor_background"]
 			}
 		]
-		this.initSkills(skills);	
+		this.initSkills(skills);
 	}
 
 	function isQualified()
 	{
-		return true;
+		if (!this.World.LegendsMod.Configs().LegendArmorsEnabled())
+		{
+			return false;
+		}
+
+		return this.blueprint.isQualified();
 	}
 
 	function onCraft( _stash )
 	{
-		local item = this.new("scripts/items/legend_armor/tabard/legend_armor_arrow_tabard");
+		local item = this.new("scripts/items/legend_armor/tabard/legend_noble_tabard");
 		item.m.Name = "Arrow Tabard";
+		item.setVariant(2);
 		_stash.add(item);
 	}
 

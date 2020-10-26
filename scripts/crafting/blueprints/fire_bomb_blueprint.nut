@@ -4,6 +4,7 @@ this.fire_bomb_blueprint <- this.inherit("scripts/crafting/blueprint", {
 	{
 		this.blueprint.create();
 		this.m.ID = "blueprint.fire_bomb";
+		this.m.Type = this.Const.Items.ItemType.Usable;
 		this.m.PreviewCraftable = this.new("scripts/items/tools/fire_bomb_item");
 		this.m.Cost = 100;
 		local ingredients = [

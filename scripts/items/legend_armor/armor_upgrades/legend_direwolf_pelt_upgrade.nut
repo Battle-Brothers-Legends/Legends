@@ -29,12 +29,6 @@ this.legend_direwolf_pelt_upgrade <- this.inherit("scripts/items/legend_armor/le
 	{
 		local result = this.legend_armor_upgrade.getTooltip();
 		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Durability"
-		});
-		result.push({
 			id = 15,
 			type = "text",
 			icon = "ui/icons/special.png",

@@ -74,20 +74,19 @@ this.officer <- this.inherit("scripts/entity/tactical/human", {
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Mainhand))
 		{
-			r = this.Math.rand(1, 3);
+			local weapons = [
+				"weapons/shamshir",
+				"weapons/oriental/heavy_southern_mace"
+			];
 
-			if (r == 1)
+			if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Offhand))
 			{
-				this.m.Items.equip(this.new("scripts/items/weapons/oriental/heavy_southern_mace"));
+				weapons.extend([
+					"weapons/oriental/two_handed_scimitar"
+				]);
 			}
-			else if (r == 2)
-			{
-				this.m.Items.equip(this.new("scripts/items/weapons/shamshir"));
-			}
-			else if (r == 3)
-			{
-				this.m.Items.equip(this.new("scripts/items/weapons/oriental/two_handed_scimitar"));
-			}
+
+			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
 		if (this.m.Items.getItemAtSlot(this.Const.ItemSlot.Offhand) == null)
@@ -146,7 +145,7 @@ this.officer <- this.inherit("scripts/entity/tactical/human", {
 		else if (r == 3)
 		{
 			this.m.Items.equip(this.Const.World.Common.pickArmor(
-				this.Const.World.convNameToList(
+				this.Const.World.Common.convNameToList(
 					this.Const.Items.NamedSouthernArmors
 				)
 			));
@@ -154,7 +153,7 @@ this.officer <- this.inherit("scripts/entity/tactical/human", {
 		else
 		{
 			this.m.Items.equip(this.Const.World.Common.pickArmor(
-				this.Const.World.convNameToList(
+				this.Const.World.Common.convNameToList(
 					this.Const.Items.NamedSouthernHelmets
 				)
 			));

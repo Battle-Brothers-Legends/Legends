@@ -188,7 +188,7 @@ gt.Const.World.Spawn.PeasantsArmed <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantSquire,
-					Cost = 20
+					Cost = 35
 				}
 			]
 		},

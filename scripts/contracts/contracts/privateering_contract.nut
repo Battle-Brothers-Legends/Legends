@@ -685,6 +685,7 @@ this.privateering_contract <- this.inherit("scripts/contracts/contract", {
 			function start()
 			{
 				this.updateAchievement("NeverTrustAMercenary", 1, 1);
+				this.World.Assets.getStash().makeEmptySlots(1);
 				this.World.Assets.getStash().add(this.Contract.m.Item);
 				this.List.push({
 					id = 10,

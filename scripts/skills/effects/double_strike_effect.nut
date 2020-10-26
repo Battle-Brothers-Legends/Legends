@@ -1,6 +1,5 @@
 this.double_strike_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		Used = 0
 	},
 	function create()
 	{
@@ -16,12 +15,7 @@ this.double_strike_effect <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "Having just landed a hit, this character is ready to perform a powerful followup strike! The next attack will inflict [color=" + this.Const.UI.Color.PositiveValue + "]+40%[/color] damage to a single target. If multiple targets are hit, only the first one will receive increased damage. If the attack misses, the effect is wasted.";
-	}
-
-	function onAdded()
-	{
-		this.m.Used = 0;
+		return "Having just landed a hit, this character is ready to perform a powerful follow-up strike! The next attack will inflict [color=" + this.Const.UI.Color.PositiveValue + "]+40%[/color] damage to a single target. If the attack misses, the effect is wasted.";
 	}
 
 	function onUpdate( _properties )
@@ -29,22 +23,9 @@ this.double_strike_effect <- this.inherit("scripts/skills/skill", {
 		_properties.DamageTotalMult *= 1.4;
 	}
 
-	function onAnySkillUsed( _skill, _targetEntity, _properties )
+	function onTargetMissed( _skill, _targetEntity )
 	{
-		if (_targetEntity == null)
-		{
-			return;
-		}
-		
-		if (this.m.Used == 1)
-		{
-			this.removeSelf();
-			
-		}
-		else if (this.m.Used == 0)
-		{
-			this.m.Used = 1;
-		}
+		this.removeSelf();
 	}
 
 });

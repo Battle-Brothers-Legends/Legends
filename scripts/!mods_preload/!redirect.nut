@@ -1,5 +1,5 @@
 local g_modHooks = { }, g_newHooks = null, g_inheritHooks = null, g_oneTimeHooks = { }, g_states = { };
-local g_cssFiles = [ ], g_jsFiles = [ ], g_mods = [ ];
+local g_cssFiles = [ ], g_jsFiles = [ ], g_mods = [ ], g_queue = [ ];
 
 local varcall = function(func, args)
 {
@@ -50,7 +50,7 @@ local wrapInstance = function(o)
       if (i < funcs.len() && funcs[i] == func) i++; // only increment if the hook didn't remove itself
     }
   }
-  
+
   return null;
 }
 
@@ -177,7 +177,7 @@ local wrapInstance = function(o)
   }
 }
 
-this.logInfo("Redirecting core functions");
+this.logInfo("mod_hooks: Redirecting core functions");
 
 local inheritFunc = inherit;
 inherit = function(baseScript, newMembers)
@@ -275,7 +275,7 @@ World.getRoster = function(id)
       local mo = ::mods_callHook("new", scriptName, o);
       if(mo) o = mo;
     }
-  
+
     return o;
   }
 });
@@ -294,7 +294,7 @@ World.getRoster = function(id)
 });
 
 ::mods_addHook("onCampaignLoaded", function(worldState) {
-  local parties = World.getAllEntitiesAtPos(worldState.getPlayer().getPos(), 1.0e9); 
+  local parties = World.getAllEntitiesAtPos(worldState.getPlayer().getPos(), 1.0e9);
   foreach(e in parties) ::mods_callHook("onEntityLoaded", e);
   foreach(e in World.getPlayerRoster().getAll())
     ::mods_callHook("new", "scripts/entity/tactical/" + e.ClassName, e);
@@ -326,12 +326,12 @@ World.getRoster = function(id)
   }
 });
 
-::mods_registerCSS <- function(path) 
+::mods_registerCSS <- function(path)
 {
   g_cssFiles.append("mods/" + path);
 }
 
-::mods_registerJS <- function(path) 
+::mods_registerJS <- function(path)
 {
   g_jsFiles.append("mods/" + path);
 }
@@ -340,7 +340,7 @@ World.getRoster = function(id)
 {
   for(local i = 0; i < g_mods.len(); i++)
   {
-    if(g_mods[i].Name == codeName) return g_mods[i];
+    if(g_mods[i].Name == codeName) return clone g_mods[i];
   }
   return null;
 }
@@ -350,14 +350,211 @@ World.getRoster = function(id)
   return clone g_mods;
 }
 
+local g_nameRe = regexp("^\\w+$"), g_lastRegistered;
 ::mods_registerMod <- function(codeName, version, friendlyName = null, extra = null)
 {
+  if(!g_nameRe.match(codeName))
+  {
+    throw "Mod '" + codeName + "' is using an illegal code name. Code names must be composed of letters, numbers, and underscores only.";
+  }
+  if(typeof version != "integer" && typeof version != "float")
+  {
+    throw "Mod " + codeName + " is not using a numeric version. Mods must use nonnegative numeric versions.";
+  }
+  if(version < 0) throw "Mod " + codeName + " is using a negative version. Versions must be nonnegative.";
   local m = extra ? clone extra : { };
   m.Name <- codeName;
   m.Version <- version;
   m.FriendlyName <- friendlyName ? friendlyName : codeName;
   g_mods.append(m);
-  logInfo("mod_hooks: mod " + codeName + (m.FriendlyName != codeName ? " (" + friendlyName + ")" : "") + " version " + version + " registered.");
+  logInfo("mod_hooks: " + codeName + (m.FriendlyName != codeName ? " (" + friendlyName + ")" : "") + " version " + version + " registered.");
+  g_lastRegistered = codeName;
 }
 
-::mods_registerMod("mod_hooks", 12, "modding script hooks");
+local g_exprRe = regexp("^([!<>])?(\\w+)(?:\\(([<>]=?|=|!=)?(\\d+(?:\\.\\d*)?|\\.\\d+)\\))?$");
+::mods_queue <- function(codeName, expr, func)
+{
+  if(codeName == null) codeName = g_lastRegistered;
+  if(::mods_getRegisteredMod(codeName) == null) throw "Mod " + codeName  + " not registered.";
+  if(expr == null || expr == "")
+  {
+    expr = [];
+  }
+  else
+  {
+    local match = @(s,m,i) m[i].end > 0 ? s.slice(m[i].begin, m[i].end) : null;
+    expr = split(expr, ",");
+    for(local i = 0; i < expr.len(); i++)
+    {
+      local e = strip(expr[i]), m = g_exprRe.capture(e);
+      if(m == null) throw "Invalid queue expression '" + e + "'.";
+      expr[i] = { op = m[1].end != 0 ? e[0] : null, name = match(e, m, 2), verOp = match(e, m, 3), version = match(e, m, 4) };
+      if(expr[i].version != null)
+      {
+        expr[i].version = expr[i].version.tofloat();
+        if(expr[i].op != null && expr[i].op != '!') // ordering operands are not supported for mods with version numbers
+        {
+          throw "Invalid queue expression '" + e + "'. Ordering operators cannot be combined with version numbers.";
+        }
+      }
+    }
+  }
+  g_queue.append({name=codeName, expr=expr, func=func});
+}
+
+::_mods_runQueue <- function()
+{
+  local invertOp = @(o) o == "<" ? ">=" : o == ">" ? "<=" : o == "<=" ? ">" : o == ">=" ? "<" : o == "!=" ? "=" : "!=";
+
+  local matchVersion = function(m, e)
+  {
+    local mv = m.Version, op = e.verOp, v = e.version;
+    if(v == null) return true;
+    return op == "<=" ? mv <= v : op == ">=" ? mv >= v : op == "<" ? mv < v : op == ">" ? mv > v : op == "!=" ? mv != v : mv == v;
+  };
+  local modName = function(m)
+  {
+    if(typeof m == "string")
+    {
+      local n = m;
+      m = ::mods_getRegisteredMod(n);
+      if(m == null) return n;
+    }
+    return m.Name + (m.Name != m.FriendlyName ? " (" + m.FriendlyName + ")" : "");
+  };
+
+  local deps = { }, mods = { }, errors = [ ];
+  foreach(i in g_queue) mods[i.name] <- i;
+  foreach(i in g_queue)
+  {
+    foreach(e in i.expr)
+    {
+      if(e.op == '!')
+      {
+        local mod = ::mods_getRegisteredMod(e.name);
+        if(mod != null && matchVersion(mod, e))
+        {
+          local vmsg = e.version != null ?
+            " version " + mod.Version + " (requires version " + invertOp(e.verOp) + " " + e.version + ")" : "";
+          errors.append("Mod " + i.name + " is incompatible with " + modName(mod) + vmsg + ".");
+        }
+      }
+      else
+      {
+        local before = e.name, after = i.name;
+        if(e.op == '<') { before = after; after = e.name; }
+        else if(e.op == null)
+        {
+          local mod = ::mods_getRegisteredMod(before);
+          if(mod == null || !matchVersion(mod, e))
+          {
+            local vmsg = e.version != null ? " with version " + (e.verOp != null ? e.verOp : "") + " " + e.version : "";
+            errors.append("Mod " + modName(i.name) + " requires mod " + modName(mod || before) + vmsg + ", but " +
+              (mod == null ? "it was not found" : "version " + mod.Version + " was found") + ".");
+          }
+        }
+
+        if(!(after in deps)) deps[after] <- [ ];
+        deps[after].append(before);
+      }
+    }
+  }
+
+  if(errors.len() != 0)
+  {
+    local msg = errors[0];
+    for(local i = 1; i < errors.len(); i++) msg = msg + " " + errors[i];
+    throw msg;
+  }
+
+  local sets = [ ], heights = { }, visit = null;
+  visit = function(name, chain)
+  {
+    chain.push(name);
+
+    local height;
+    if(name in heights)
+    {
+      height = heights[name];
+      if(height == 0)
+      {
+        local modList = "";
+        for(local i = 0; i < chain.len(); i++) modList = (i == 0 ? chain[i] : modList + " < " + chain[i]);
+        throw "Dependency conflict involving mod(s) " + modList + ".";
+      }
+      return height;
+    }
+
+    heights[name] <- 0;
+    height = 0;
+    if(name in deps)
+    {
+      foreach(dep in deps[name]) height = Math.max(height, visit(dep, chain));
+    }
+    chain.pop();
+
+    if(height == sets.len()) sets.append([]);
+    if(name in mods)
+    {
+      local func = mods[name].func;
+      if(func != null) sets[height].append([name, mods[name].func]);
+    }
+    height++;
+    heights[name] = height;
+    return height;
+  };
+  foreach(i in g_queue) visit(i.name, [ ]);
+  foreach(set in sets)
+  {
+    foreach(f in set)
+    {
+      logInfo("mod_hooks: Executing queued script for " + modName(f[0]) + ".");
+      f[1]();
+    }
+  }
+  g_queue = [ ];
+}
+
+::rng_new <- function(seed = 0)
+{
+  if(seed == 0) seed = (Time.getRealTimeF() * 1000000000).tointeger();
+  return {
+    x = seed, y = 234567891, z = 345678912, w = 456789123, c = 0,
+    nextInt = function()
+    {
+      x += 1411392427;
+
+      y = y ^ (y<<5);
+      y = y ^ (y>>>7);
+      y = y ^ (y<<22);
+
+      local t = z + w + c;
+      z  = w;
+      c  = t >>> 31; // c = (signed)t < 0 ? 1 : 0
+      w  = t & 0x7FFFFFFF;
+
+      return (x + y + w) & 0x7FFFFFFF;
+    },
+    nextFloat = function()
+    {
+      return nextInt() / 2147483648.0;
+    },
+    next = function(a, b = null)
+    {
+      if(b == null)
+      {
+        if(a <= 0) throw "a must be > 0";
+        return nextInt() % a + 1;
+      }
+      else
+      {
+        if(a > b) throw "a must be <= than b";
+        return nextInt() % (b-a+1) + a;
+      }
+    }
+  }
+}
+
+::rng <- ::rng_new();
+
+::mods_registerMod("mod_hooks", 16, "modding script hooks");

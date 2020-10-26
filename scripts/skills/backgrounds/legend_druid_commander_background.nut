@@ -95,7 +95,9 @@ this.legend_druid_commander_background <- this.inherit("scripts/skills/backgroun
 			0.05, // badlands
 			0.05, //highlands
 			0.05, //stepps
-			0.0 //ocean
+			0.0, //ocean
+			0.0, //desert
+			0.0 //oasis
 		];
 			this.m.CustomPerkTree = [
 			[

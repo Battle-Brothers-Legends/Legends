@@ -170,6 +170,13 @@ this.hook <- this.inherit("scripts/skills/skill", {
 			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " has staggered " + this.Const.UI.getColorizedEntityName(target) + " for one turn");
 		}
 
+		local overwhelm = this.getContainer().getSkillByID("perk.overwhelm");
+
+		if (overwhelm != null)
+		{
+			overwhelm.onTargetHit(this, target, this.Const.BodyPart.Body, 0, 0);
+		}
+
 		target.setCurrentMovementType(this.Const.Tactical.MovementType.Involuntary);
 		local damage = this.Math.max(0, this.Math.abs(pullToTile.Level - _targetTile.Level) - 1) * this.Const.Combat.FallingDamage;
 		local tag = {

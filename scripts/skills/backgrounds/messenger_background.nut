@@ -56,7 +56,9 @@ this.messenger_background <- this.inherit("scripts/skills/backgrounds/character_
 				0.03, // badlands
 				0.07, //highlands
 				0.1, //stepps
-				0.0 //ocean
+				0.0, //ocean
+				0.03, //desert
+				0.1 //oasis
 			];
 		this.m.PerkTreeDynamic = {
 			Weapon = [

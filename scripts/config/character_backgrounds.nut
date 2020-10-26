@@ -89,7 +89,7 @@ gt.Const.CharacterVillageBackgrounds <- [
 	"refugee_background",
 	"butcher_background",
 	"female_butcher_background",
-	"rat_catcher_background",
+	"ratcatcher_background",
 	"servant_background",
 	"female_servant_background",
 	"mason_background",
@@ -283,26 +283,10 @@ gt.Const.CharacterPartyBackgrounds <- [
 	"legend_crusader_background",
 	"legend_conjurer_background"
 ];
-gt.Const.CharacterMagicBackgrounds <- [
-	"legend_diviner_background",
-	"legend_illusionist_background",
-	"legend_spiritualist_background",
-	"legend_entrancer_background",
-	"legend_death_summoner_background",
-	"legend_enchanter_background",
-	"legend_runesmith_background",
-	"legend_transmuter_background",
-	"legend_necromancer_background",
-	"legend_ancient_summoner_background",
-	"legend_necrosavant_background",
-	"legend_witch_background",
-	"legend_conjurer_background",
-	// "legend_philosopher_background", //not using these from krolock's recommendation as to the original astro/philo intentions. will leave them as possible options should we ever decide to change it
-	// "legend_astrologist_background",
-	"legend_warlock_background"
-];
+
 gt.Const.CharacterMagicBackgrounds <- [ 
 	"legend_ancient_summoner_background",
+	"legend_conjurer_background",
 	"legend_death_summoner_background",
 	"legend_diviner_background",
 	"legend_enchanter_background",
@@ -313,10 +297,11 @@ gt.Const.CharacterMagicBackgrounds <- [
 	"legend_runesmith_background",
 	"legend_spiritualist_background",
 	"legend_transmuter_background",
-	// "legend_philosopher_background",
-	// "legend_astrologist_background"
+	// "legend_philosopher_background", //not using these from krolock's recommendation as to the original astro/philo intentions. will leave them as possible options should we ever decide to change it
+	// "legend_astrologist_background",
 	"legend_warlock_background"
 ];
+
 gt.Const.CharacterBackgroundsRandom <- [
 	"adventurous_noble_background",
 	"apprentice_background",

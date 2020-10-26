@@ -77,7 +77,9 @@ this.orc_slayer_background <- this.inherit("scripts/skills/backgrounds/character
 				0.015, // badlands
 				0.015, //highlands
 				0.0, //stepps
-				0.0 //ocean
+				0.0, //ocean
+				0.0, //desert
+				0.0 //oasis
 			];
 		this.m.PerkTreeDynamic = {
 			Weapon = [

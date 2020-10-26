@@ -114,8 +114,8 @@
 
 			if (_entity.isAlive() && (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer))
 			{
-				this.getAgent().declareAction();
-				this.getAgent().declareEvaluationDelay(this.m.SelectedSkill.getDelay() + 750 + 850);
+				this.getAgent().declareAction(this.Const.AI.Agent.ActionDelay * 2);
+				this.getAgent().declareEvaluationDelay(this.m.SelectedSkill.getDelay() * 2);
 			}
 
 			this.m.TargetTile = null;
@@ -156,7 +156,9 @@
 
 			if (_entity.isAlive() && (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer))
 			{
-				this.getAgent().declareAction();
+				local delayMult = 0;
+				if (this.m.Skill.getID() == "actives.sweep") delayMult = this.Const.AI.Agent.ActionDelay * 2;
+				this.getAgent().declareAction(delayMult);
 			}
 
 			this.m.TargetTile = null;
@@ -185,10 +187,17 @@
 
 		if (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer)
 		{
-			local delay = 0;
-			if (this.m.Skill.getID() == "actives.fling_back") delay = 1500;
-			this.getAgent().declareEvaluationDelay(delay);
-			this.getAgent().declareAction();
+
+			if (this.m.Skill.getID() == "actives.fling_back")
+			{
+				this.getAgent().declareEvaluationDelay(this.Const.AI.Agent.NewEvaluationDelay * 2);
+				this.getAgent().declareAction(this.Const.AI.Agent.ActionDelay * 2);
+			}
+			else
+			{
+				this.getAgent().declareEvaluationDelay();
+				this.getAgent().declareAction();
+			}
 		}
 
 		this.m.TargetTile = null;
@@ -197,35 +206,35 @@
 	}
 });
 
-// ::mods_hookNewObject("ai/tactical/behaviors/ai_defend_rotation ", function(o) {
-// 	o.onExecute = function( _entity )
-// 	{
-// 		if (this.m.IsFirstExecuted)
-// 		{
-// 			this.getAgent().adjustCameraToTarget(this.m.TargetTile);
-// 			this.m.IsFirstExecuted = false;
-// 			return false;
-// 		}
+::mods_hookNewObject("ai/tactical/behaviors/ai_defend_rotation ", function(o) {
+	o.onExecute = function( _entity )
+	{
+		if (this.m.IsFirstExecuted)
+		{
+			this.getAgent().adjustCameraToTarget(this.m.TargetTile);
+			this.m.IsFirstExecuted = false;
+			return false;
+		}
 
-// 		if (this.Const.AI.VerboseMode)
-// 		{
-// 			this.logInfo("* " + _entity.getName() + ": Using Rotation!");
-// 		}
+		if (this.Const.AI.VerboseMode)
+		{
+			this.logInfo("* " + _entity.getName() + ": Using Rotation!");
+		}
 
-// 		this.m.Skill.use(this.m.TargetTile);
+		this.m.Skill.use(this.m.TargetTile);
 
-// 		if (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer)
-// 		{
-// 			this.getAgent().declareEvaluationDelay(2000);
-// 			this.getAgent().declareAction();
-// 		}
+		if (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer)
+		{
+			this.getAgent().declareEvaluationDelay(2000);
+			this.getAgent().declareAction(this.Const.AI.Agent.ActionDelay * 2);
+		}
 
-// 		this.m.TargetTile = null;
-// 		this.m.Skill = null;
-// 		return true;
-// 	}
+		this.m.TargetTile = null;
+		this.m.Skill = null;
+		return true;
+	}
 
-// });
+});
 
 //ALP FIX
 ::mods_hookNewObject("ai/tactical/behaviors/ai_sleep", function(o) {
@@ -249,8 +258,8 @@
 
 		if (!_entity.isHiddenToPlayer())
 		{
-			this.getAgent().declareAction();
-			this.getAgent().declareEvaluationDelay(1600);
+			this.getAgent().declareEvaluationDelay(this.Const.AI.Agent.NewEvaluationDelay * 2);
+			this.getAgent().declareAction(this.Const.AI.Agent.ActionDelay * 2);
 		}
 
 		this.m.Skill = null;
@@ -285,11 +294,11 @@
 
 			if (_entity.isAlive())
 			{
-				this.getAgent().declareAction();
+				this.getAgent().declareAction(this.Const.AI.Agent.ActionDelay * 2)
 
 				if (this.m.Skill.getDelay() != 0)
 				{
-					this.getAgent().declareEvaluationDelay(this.m.Skill.getDelay() + 850);
+					this.getAgent().declareEvaluationDelay(this.m.Skill.getDelay() + 500);
 				}
 			}
 
@@ -299,3 +308,41 @@
 		return true;
 	}
 });
+
+::mods_hookNewObject("ai/tactical/behaviors/ai_attack_split", function(o) {
+	o.onExecute = function ( _entity )
+	{
+		if (this.m.IsFirstExecuted)
+		{
+			this.getAgent().adjustCameraToTarget(this.m.TargetTile);
+			this.m.IsFirstExecuted = false;
+			return false;
+		}
+
+		if (this.m.TargetTile != null)
+		{
+			if (this.Const.AI.VerboseMode)
+			{
+				this.logInfo("* " + _entity.getName() + ": Using Split!");
+			}
+
+			this.m.Skill.use(this.m.TargetTile);
+
+			if (_entity.isAlive())
+			{
+				local delay = this.m.Skill.getDelay()
+				if (this.m.Skill.m.ID == "actives.ignite_firelance")
+				{
+					delay *= 2;
+				}
+				this.getAgent().declareAction(delay);
+				this.getAgent().declareEvaluationDelay(delay);
+			}
+
+			this.m.TargetTile = null;
+		}
+
+		return true;
+	}
+});
+

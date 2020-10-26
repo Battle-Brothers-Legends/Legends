@@ -12,6 +12,7 @@ this.quality_wood_item <- this.inherit("scripts/items/trade/trading_good_item", 
 			"attached_location.lumber_camp"
 		];
 		this.m.Value = 180;
+		this.m.ResourceValue = 1;
 	}
 
 	function getSellPriceMult()

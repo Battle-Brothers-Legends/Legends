@@ -125,6 +125,7 @@ this.legend_war_catapult <- this.inherit("scripts/entity/tactical/actor", {
 		b.IsImmuneToPoison = true;
 		b.IsAffectedByNight = false;
 		b.TargetAttractionMult = 1.1;
+		b.IsImmuneToDisarm = true;
 		this.m.ActionPoints = b.ActionPoints;
 		this.m.Hitpoints = b.Hitpoints;
 		this.m.CurrentProperties = clone b;

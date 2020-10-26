@@ -36,8 +36,11 @@ gt.Const.LegendMod.ArmorObjs.extend([{
     Script = "",
     Sets = [{
         Cloth = [
-            [10, "cloth/legend_thick_tunic"],
-            [10, "cloth/legend_tunic"],
+            [1, "cloth/legend_thick_tunic"],
+            [1, "cloth/legend_tunic"],
+            [1, "cloth/legend_tunic_wrap"],
+            [1, "cloth/legend_tunic_collar_thin"],
+            [1, "cloth/legend_tunic_collar_deep"],
             [1, "cloth/legend_padded_surcoat"],
             [1, "cloth/legend_gambeson_plain"],
         ],
@@ -99,7 +102,7 @@ gt.Const.LegendMod.ArmorObjs.extend([{
     Script = "",
     Sets = [{
         Cloth = [
-            [1, "cloth/legend_gambeson_rare_color"],
+            [1, "cloth/legend_gambeson"],
             [5, "cloth/legend_padded_surcoat"],
             [5, "cloth/legend_tunic"]
         ],
@@ -131,11 +134,9 @@ gt.Const.LegendMod.ArmorObjs.extend([{
     Script = "",
     Sets = [{
         Cloth = [
-            [1, "cloth/legend_gambeson_rare_color"],
             [1, "cloth/legend_gambeson"],
-            [1, "cloth/legend_gambeson_common_color"],
-            [5, "cloth/legend_padded_surcoat"],
-            [5, "cloth/legend_tunic"]
+            [1, "cloth/legend_padded_surcoat"],
+            [1, "cloth/legend_tunic"]
         ],
         Chain = [
             [2, ""],
@@ -1004,7 +1005,6 @@ gt.Const.LegendMod.ArmorObjs.extend([{
     Script = "",
     Sets = [{
         Cloth = [
-            [1, "cloth/legend_gambeson_common_color"], // 65
             [1, "cloth/legend_gambeson_plain"], // 65
             [1, "cloth/legend_gambeson_wolf"], // 70
             [1, "cloth/legend_padded_surcoat"], // 55
@@ -1073,10 +1073,8 @@ gt.Const.LegendMod.ArmorObjs.extend([{
     Script = "",
     Sets = [{
         Cloth = [
-            [1, "cloth/legend_gambeson_common_color"], // 65
             [1, "cloth/legend_gambeson_plain"], // 65
-            [1, "cloth/legend_gambeson_rare_color"], // 65
-            [6, "cloth/legend_padded_surcoat"], // 55
+            [1, "cloth/legend_padded_surcoat"], // 55
         ],
         Chain = [
             [4, "chain/legend_armor_hauberk"], // 95
@@ -1117,8 +1115,7 @@ gt.Const.LegendMod.ArmorObjs.extend([{
     Sets = [{
         Cloth = [
             [1, "cloth/legend_gambeson_plain"], // 65
-            [1, "cloth/legend_gambeson_rare_color"], // 65
-            [2, "cloth/legend_padded_surcoat"], // 55
+            [1, "cloth/legend_padded_surcoat"], // 55
         ],
         Chain = [
             [1, "chain/legend_armor_hauberk_sleevless"], // 65
@@ -1143,9 +1140,7 @@ gt.Const.LegendMod.ArmorObjs.extend([{
     Script = "",
     Sets = [{
         Cloth = [
-            [1, "cloth/legend_gambeson_common_color"], // 65
             [1, "cloth/legend_gambeson_plain"], // 65
-            [1, "cloth/legend_gambeson_rare_color"], // 65
             [1, "cloth/legend_padded_surcoat"], // 55
         ],
         Chain = [
@@ -1291,7 +1286,6 @@ gt.Const.LegendMod.ArmorObjs.extend([{
     Script = "",
     Sets = [{
         Cloth = [
-            [1, "cloth/legend_gambeson_common_color"], // 65
             [1, "cloth/legend_gambeson_plain"], // 65
             [1, "cloth/legend_padded_surcoat"], // 55
         ],

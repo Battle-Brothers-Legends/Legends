@@ -8,9 +8,9 @@ this.assassin_background <- this.inherit("scripts/skills/backgrounds/character_b
 		this.m.ID = "background.assassin";
 		this.m.Name = "Assassin";
 		this.m.Icon = "ui/backgrounds/background_53.png";
-		this.m.BackgroundDescription = "This character\'s history is a secret";
-		this.m.GoodEnding = "";
-		this.m.BadEnding = "";
+		this.m.BackgroundDescription = "";
+		this.m.GoodEnding = "%name% joined the company in place of the bastard nobleman he had come to kill. So strange was this agreement that you kept your eye on the assassin for many days. But all he did was fight for the %companyname%, and fight well. Last you heard, the assassin departed the company and has not been seen or heard from since. You checked in on the bastard nobleman himself to see if perhaps the assassin had finished the job, but the man was alive and well. A peculiar run in, in the end.";
+		this.m.BadEnding = "%name% joined the company in place of the bastard nobleman he had come to kill. So strange was this agreement that you kept your eye on the assassin for many days. But all he did was fight for the %companyname%, and fight well. Last you heard, the assassin departed the company not long after your hurried retirement. You decided to check in on his target the bastard nobleman only to find out that he had been slain by an unseen assassin. It appears %name% finished the job in the end.";
 		this.m.HiringCost = 3000;
 		this.m.DailyCost = 30;
 		this.m.Excluded = [
@@ -46,7 +46,7 @@ this.assassin_background <- this.inherit("scripts/skills/backgrounds/character_b
 			"trait.drunkard",
 			"trait.disloyal",
 			"trait.loyal",
-			"treat.dumb"
+			"trait.dumb"
 		];
 		this.m.ExcludedTalents = [
 			this.Const.Attributes.Hitpoints,

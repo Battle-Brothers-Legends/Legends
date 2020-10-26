@@ -15,7 +15,8 @@ this.unpredictable_trait <- this.inherit("scripts/skills/traits/character_trait"
 			"trait.pessimist",
 			"trait.hesitant",
 			"trait.dumb",
-			"trait.slack"
+			"trait.slack",
+			"trait.predictable"
 		];
 	}
 

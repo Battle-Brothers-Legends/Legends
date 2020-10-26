@@ -281,7 +281,8 @@ this.legend_transformed_tree_effect <- this.inherit("scripts/skills/skill", {
 		}
 
 		if (("State" in this.Tactical) && this.Tactical.State != null) {
-			if (actor.getTile().IsVisibleForPlayer)
+			local tile = actor.getTile(); //actor.getTile().IsVisibleForPlayer check was erroring, checking a more roundabout way now
+			if (tile != null && tile.IsVisibleForPlayer) 
 			{
 				if (this.Const.Tactical.HideParticles.len() != 0)
 				{

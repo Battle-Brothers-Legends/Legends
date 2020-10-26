@@ -1,5 +1,7 @@
 this.desert_camp_furniture <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+		IsTree = true		
+	},
 	function getName()
 	{
 		return "Furniture";

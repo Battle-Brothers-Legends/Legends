@@ -18,6 +18,7 @@ this.legend_large_broad_head_arrows <- this.inherit("scripts/items/ammo/ammo", {
 		this.m.AmmoMax = 14;
 		this.m.StaminaModifier = 2;
 		this.m.IsDroppedAsLoot = true;
+		this.m.AddGenericSkill = true;
 	}
 
 	function getTooltip()
@@ -101,8 +102,8 @@ this.legend_large_broad_head_arrows <- this.inherit("scripts/items/ammo/ammo", {
 			case "weapon.goblin_bow":
 			case "weapon.goblin_heavy_bow":
 			case "weapon.named_goblin_heavy_bow":	
-				_properties.DamageDirectMult *= 1.3;
-				_properties.RangedDamageMult *= 0.9;
+				_properties.DamageDirectMult *= 0.7;
+				_properties.RangedDamageMult *= 1.1;
 					break;
 		}
 	}

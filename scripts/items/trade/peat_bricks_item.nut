@@ -12,6 +12,7 @@ this.peat_bricks_item <- this.inherit("scripts/items/trade/trading_good_item", {
 			"attached_location.peat_pit"
 		];
 		this.m.Value = 100;
+		this.m.ResourceValue = 1;
 	}
 
 });

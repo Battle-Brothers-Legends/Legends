@@ -4,6 +4,7 @@ this.smoke_bomb_blueprint <- this.inherit("scripts/crafting/blueprint", {
 	{
 		this.blueprint.create();
 		this.m.ID = "blueprint.smoke_bomb";
+		this.m.Type = this.Const.Items.ItemType.Usable;
 		this.m.PreviewCraftable = this.new("scripts/items/tools/smoke_bomb_item");
 		this.m.Cost = 50;
 		local ingredients = [

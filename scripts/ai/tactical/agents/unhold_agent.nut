@@ -20,6 +20,7 @@ this.unhold_agent <- this.inherit("scripts/ai/tactical/agent", {
 		this.m.Properties.EngageTargetMultipleOpponentsMult = 0.5;
 		this.m.Properties.EngageTargetAlreadyBeingEngagedMult = 1.1;
 		this.m.Properties.EngageTargetArmedWithRangedWeaponMult = 1.1;
+		this.m.Properties.EngageAgainstSpearwallMult = 1.4;
 		this.m.Properties.EngageRangeMin = 1;
 		this.m.Properties.EngageRangeMax = 1;
 		this.m.Properties.EngageRangeIdeal = 1;

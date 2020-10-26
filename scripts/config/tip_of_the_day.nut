@@ -165,7 +165,7 @@ gt.Const.TipOfTheDay <- [
 	"A 95% chance to hit is also a 5% chance to miss.",
 	"The \'Lone Wolf\' perk is not affected by nearby dogs or allies that are not part of your company.",
 	"The \'Fast Adaptation\' perk reduces variance of randomness.",
-	"Consider that enemy encampments on hills are harder to asssault, especially if they are fortified.",
+	"Consider that enemy encampments on hills are harder to assault, especially if they are fortified.",
 	"In the Inventory/Character Screen page, \'A\' key selects previous bro, \'D\' key selects next bro, \'S\' key toggles reserve status."
 
 ];

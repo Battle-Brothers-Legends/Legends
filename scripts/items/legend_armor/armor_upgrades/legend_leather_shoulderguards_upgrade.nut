@@ -25,17 +25,6 @@ this.legend_leather_shoulderguards_upgrade <- this.inherit("scripts/items/legend
 		this.m.StaminaModifier = 0;
 	}
 
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Durability"
-		});
-		return result;
-	}
 
 	function onArmorTooltip( _result )
 	{

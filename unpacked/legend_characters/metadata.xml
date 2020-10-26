@@ -568,7 +568,7 @@
 <sprite id="bust_head_southern_female_06_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\arabfem6dead.png" left="-45" right="15" top="-56" bottom="0" />
 <sprite id="bust_head_southern_female_07" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\arabfem7.png" left="-21" right="29" top="-21" bottom="47" />
 <sprite id="bust_head_southern_female_07_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\arabfem7dead.png" left="-45" right="15" top="-56" bottom="0" />
-<sprite id="bust_head_southern_female_07" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\arabfem8.png" left="-21" right="29" top="-21" bottom="47" />
+<sprite id="bust_head_southern_female_08" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\arabfem8.png" left="-21" right="29" top="-21" bottom="47" />
 <sprite id="bust_head_southern_female_08_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\arabfem8dead.png" left="-45" right="15" top="-56" bottom="0" />
 <sprite id="bust_head_southern_female_09" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\arabfem9.png" left="-21" right="29" top="-21" bottom="47" />
 <sprite id="bust_head_southern_female_09_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\arabfem9dead.png" left="-45" right="15" top="-56" bottom="0" />
@@ -596,5 +596,17 @@
 <sprite id="beard_red_legends_02_dead" offsetX="6" offsetY="10" f="64EE" f1="-15" f2="-15" ic="FF353638" width="131" height="125" img="entity\heads\beard_red_18_dead.png" left="-34" right="28" top="-58" bottom="18" />
 <sprite id="beard_grey_legends_02" offsetY="35" ic="FF353638" width="104" height="142" img="entity\heads\beard_grey_18.png" left="-19" right="33" top="-46" bottom="36" />
 <sprite id="beard_grey_legends_02_dead" offsetX="6" offsetY="10" f="64EE" f1="-15" f2="-15" ic="FF353638" width="131" height="125" img="entity\heads\beard_grey_18_dead.png" left="-34" right="28" top="-58" bottom="18" />
+
+<sprite id="scar_02_bust_naked_body_03" offsetY="35" width="104" height="142" img="entity\details\scar_02_body_03.png" left="-36" right="38" top="-42" bottom="0" />
+<sprite id="scar_02_bust_naked_body_03_dead" offsetX="6" offsetY="10" f="64FF" width="131" height="114" img="entity\details\scar_02_body_03_dead.png" left="-21" right="45" top="-38" bottom="26" />
+<sprite id="scar_01_bust_naked_body_03" offsetY="35" ic="FF7082AF" width="104" height="142" img="entity\details\scar_01_body_03.png" top="-48" bottom="6" />
+<sprite id="scar_01_bust_naked_body_03_dead" offsetX="6" offsetY="10" f="64FF" ic="FF7588B1" width="131" height="114" img="entity\details\scar_01_body_03_dead.png" left="-35" right="51" top="-43" bottom="15" />
+<sprite id="scar_01_bust_naked_southern_female_01" offsetY="35" width="140" height="248" img="entity\details\scar_southern_01_body_01.png" top="-48" bottom="6" />
+<sprite id="scar_01_bust_naked_southern_female_01_dead" offsetX="6" offsetY="10" f="64FF" width="131" height="114" img="entity\details\scar_southern_01_body_01_dead.png" left="-36" right="50" top="-42" bottom="18" />
+<sprite id="scar_02_bust_naked_southern_female_01" width="104" height="142" img="entity\details\scar_southern_01_body_02.png" left="-36" right="38" top="-42" bottom="0" />
+<sprite id="scar_02_bust_naked_southern_female_01_dead" offsetX="6" offsetY="10" f="64FF" width="131" height="114" img="entity\details\scar_southern_01_body_02_dead.png" left="-21" right="45" top="-38" bottom="26" />
+
+<sprite id="warpaint_01_bust_naked_body_03" offsetY="35" width="104" height="142" img="entity\details\warpaint_01_body_03.png" left="-41" right="35" top="-49" bottom="5" />
+<sprite id="warpaint_01_bust_naked_body_03_dead" offsetX="6" offsetY="10" f="64FF" width="131" height="125" img="entity\details\warpaint_01_body_03_dead.png" left="-49" right="43" top="-48" bottom="16" />
 
 </brush>

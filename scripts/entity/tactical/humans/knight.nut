@@ -138,15 +138,15 @@ this.knight <- this.inherit("scripts/entity/tactical/human", {
 		}
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[1, "named/coat_of_plates"],
-			[1, "named/coat_of_scales"],
-			[1, "named/reinforced_mail_hauberk"]
+			[1, "coat_of_plates"],
+			[1, "coat_of_scales"],
+			[1, "reinforced_mail_hauberk"]
 		]));
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{
 			this.m.Items.equip(this.Const.World.Common.pickHelmet([
-				[45, "feathered_hat"],
+				[45, "full_helm"],
 				[44, "faction_helm", banner],
 				[6, "legend_frogmouth_helm"],
 				[1, "legend_frogmouth_helm_crested"]
@@ -188,7 +188,6 @@ this.knight <- this.inherit("scripts/entity/tactical/human", {
 		}
 		else
 		{
-			this.m.Items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
 			local h = this.Const.World.Common.pickArmor(
 				this.Const.World.Common.convNameToList(
 					armor

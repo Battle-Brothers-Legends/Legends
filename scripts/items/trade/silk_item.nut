@@ -12,6 +12,7 @@ this.silk_item <- this.inherit("scripts/items/trade/trading_good_item", {
 			"attached_location.silk_farm"
 		];
 		this.m.Value = 460;
+		this.m.ResourceValue = 2;
 	}
 
 });

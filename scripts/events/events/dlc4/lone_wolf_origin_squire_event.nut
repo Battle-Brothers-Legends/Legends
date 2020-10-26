@@ -163,6 +163,7 @@ this.lone_wolf_origin_squire_event <- this.inherit("scripts/events/event", {
 						_event.m.Dude.onHired();
 						_event.m.Dude.m.MoodChanges = [];
 						_event.m.Dude.improveMood(1.0, "Has become a squire to a knight");
+						_event.m.Dude.getFlags().set("IsLoneWolfSquire", true);
 						_event.m.Dude = null;
 						return 0;
 					}

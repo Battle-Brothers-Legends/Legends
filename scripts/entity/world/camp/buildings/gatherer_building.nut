@@ -221,7 +221,7 @@ this.gatherer_building <- this.inherit("scripts/entity/world/camp/camp_building"
 
 			if (bro.getSkills().hasSkill("perk.legend_specialist_woodaxe_damage"))
 			{
-               brewerLevel += bro.getLevel()
+               woodsmanLevel += bro.getLevel()
             }
 
 			return woodsmanLevel;
@@ -243,7 +243,7 @@ this.gatherer_building <- this.inherit("scripts/entity/world/camp/camp_building"
 
 			if (bro.getSkills().hasSkill("perk.legend_specialist_pickaxe_damage"))
 			{
-               brewerLevel += bro.getLevel()
+               minerLevel += bro.getLevel()
             }
 
 			return minerLevel;

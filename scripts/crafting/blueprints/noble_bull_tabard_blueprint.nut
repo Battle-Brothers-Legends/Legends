@@ -5,7 +5,8 @@ this.noble_bull_tabard_blueprint <- this.inherit("scripts/crafting/blueprint", {
 		this.blueprint.create();
 		this.m.ID = "blueprint.noble_bull_tabard_blueprint";
 		this.m.Type = this.Const.Items.ArmorUpgrades.Tabbard;
-		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/tabard/legend_armor_bull_tabard");
+		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/tabard/legend_noble_tabard");
+		this.m.PreviewCraftable.setVariant(3)
 		this.m.Cost = 2000;
 		local ingredients = [
 			{
@@ -25,13 +26,19 @@ this.noble_bull_tabard_blueprint <- this.inherit("scripts/crafting/blueprint", {
 
 	function isQualified()
 	{
-		return this.World.LegendsMod.Configs().LegendArmorsEnabled()
+		if (!this.World.LegendsMod.Configs().LegendArmorsEnabled())
+		{
+			return false
+		}
+
+		return this.blueprint.isQualified()
 	}
 
 	function onCraft( _stash )
 	{
-		local item = this.new("scripts/items/legend_armor/tabard/legend_armor_bull_tabard");
+		local item = this.new("scripts/items/legend_armor/tabard/legend_noble_tabard");
 		item.m.Name = "Bull Tabard";
+		item.setVariant(3)
 		_stash.add(item);
 	}
 

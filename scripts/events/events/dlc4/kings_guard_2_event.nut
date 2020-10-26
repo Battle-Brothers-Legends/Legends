@@ -56,17 +56,17 @@ this.kings_guard_2_event <- this.inherit("scripts/events/event", {
 				this.List.push({
 					id = 16,
 					icon = "ui/icons/melee_defense.png",
-					text = _event.m.Dude.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+5[/color] Melee Defense"
+					text = _event.m.Dude.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+7[/color] Melee Defense"
 				});
 				this.List.push({
 					id = 16,
 					icon = "ui/icons/ranged_defense.png",
-					text = _event.m.Dude.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+5[/color] Ranged Defense"
+					text = _event.m.Dude.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+7[/color] Ranged Defense"
 				});
 				this.List.push({
 					id = 16,
 					icon = "ui/icons/melee_skill.png",
-					text = _event.m.Dude.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+10[/color] Melee Skill"
+					text = _event.m.Dude.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+12[/color] Melee Skill"
 				});
 				this.List.push({
 					id = 16,

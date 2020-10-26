@@ -41,6 +41,11 @@ this.serpent_agent <- this.inherit("scripts/ai/tactical/agent", {
 
 		foreach( e in entities )
 		{
+			if (e.getID() == this.getActor().getID())
+			{
+				continue;
+			}
+
 			if (e.getType() == this.Const.EntityType.Serpent && !e.isTurnDone() && e.getActionPoints() >= 6 && !e.getTile().hasZoneOfOccupationOtherThan(e.getAlliedFactions()))
 			{
 				local targets = e.getAIAgent().getBehavior(this.Const.AI.Behavior.ID.Idle).queryTargetsInMeleeRange(2, 3);
@@ -52,7 +57,7 @@ this.serpent_agent <- this.inherit("scripts/ai/tactical/agent", {
 
 				foreach( t in targets )
 				{
-					if (t.getTile().getZoneOfControlCountOtherThan(t.getAlliedFactions()) <= 1)
+					if (t.getTile().getZoneOfControlCountOtherThan(t.getAlliedFactions()) <= 1 && !t.getCurrentProperties().IsRooted && !t.getCurrentProperties().IsImmuneToKnockBackAndGrab)
 					{
 						relevantAlliesStillToAct = true;
 						break;

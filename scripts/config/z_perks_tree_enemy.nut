@@ -434,6 +434,22 @@ gt.Const.Perks.SwordmastersTree <- {
 	]
 };
 
+gt.Const.Perks.SouthernersTree <- {
+	ID = "SouthernersTree",
+	Descriptions = [
+		"southerners"
+	],
+	Tree = [
+		[gt.Const.Perks.PerkDefs.Pathfinder],
+		[],
+		[],
+		[],
+		[],
+		[gt.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner],
+		[]
+	]
+};
+
 gt.Const.Perks.EnemyTrees <- {
 	Tree = [
 		gt.Const.Perks.GhoulTree,
@@ -454,7 +470,8 @@ gt.Const.Perks.EnemyTrees <- {
 		gt.Const.Perks.BanditTree,
 		gt.Const.Perks.BarbarianTree,
 		gt.Const.Perks.ArchersTree,
-		gt.Const.Perks.SwordmastersTree
+		gt.Const.Perks.SwordmastersTree,
+		gt.Const.Perks.SouthernersTree
 	],
 	function getRandom(_exclude)
 	{

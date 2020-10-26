@@ -190,7 +190,7 @@ this.legends_snow_fort <- this.inherit("scripts/entity/world/settlements/legends
 			"legend_shieldmaiden_background"
 		]];
 
-		this.m.StablesLists = [
+		this.m.StablesLists = [[
 			"legend_donkey",
 			"legend_horse_rouncey"
 		],[
@@ -201,7 +201,7 @@ this.legends_snow_fort <- this.inherit("scripts/entity/world/settlements/legends
 			"legend_horse_rouncey",
 			"legend_horse_destrier",
 			"legend_horse_courser"
-		];
+		]];
 		if (this.Const.DLC.Unhold)
 		{
 			this.m.DraftLists[0].push("beast_hunter_background");

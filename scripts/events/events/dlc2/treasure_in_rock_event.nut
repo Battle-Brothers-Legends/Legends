@@ -135,7 +135,7 @@ this.treasure_in_rock_event <- this.inherit("scripts/events/event", {
 			{
 				this.Characters.push(_event.m.Tiny.getImagePath());
 				local item = this.Const.World.Common.pickArmor([
-					[1, "ancient_breastplate"],
+					[1, "ancient/ancient_breastplate"],
 				]);
 				this.World.Assets.getStash().add(item);
 				this.List.push({

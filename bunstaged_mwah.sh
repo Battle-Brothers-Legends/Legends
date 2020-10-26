@@ -13,7 +13,7 @@ while read -r line; do
         elif [[ "$xpath" == make_legend_helmet_nuts.py ]]; then
             rm -rf helmets
             mkdir -p "helmets"
-            python make_legend_helmet_nuts.py
+            python make_legend_helmets.py
             cp -R helmets/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\scripts\items\legend_helmets"
 
         elif [[ "$xpath" == make_legend_armor.py ]]; then

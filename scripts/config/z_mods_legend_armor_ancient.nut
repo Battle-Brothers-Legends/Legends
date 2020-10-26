@@ -55,7 +55,7 @@ gt.Const.LegendMod.ArmorObjs.extend([
 },{
     //TODO
     ID = "ancient/ancient_lich_attire", // 60
-    Script = "scripts/items/armor/ancient_lich_attire",
+    Script = "scripts/items/armor/ancient/ancient_lich_attire",
     Sets = [{
         Cloth = [
         ],

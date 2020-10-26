@@ -17,7 +17,7 @@ this.bleeding_effect <- this.inherit("scripts/skills/skill", {
 
 	function setActor( _a )
 	{
-		this.m.Actor = _a;
+		this.m.Actor = (typeof _a == "instance" ? _a.get() : _a);	
 	}
 
 	function create()
@@ -50,11 +50,13 @@ this.bleeding_effect <- this.inherit("scripts/skills/skill", {
 		{
 			return this.getContainer().getActor();
 		}
-		local rareCrash = this.m.Actor;
-		local rareCrashType = typeof this.m.Actor; //
-		local isAlive = rareCrash.isAlive();
+
 		if (this.m.Actor != this.getContainer().getActor())
 		{
+			if (typeof this.m.Actor == "instance")
+			{
+				this.m.Actor = this.m.Actor.get();
+			}
 			// Must be alive to get the credit, to stop crashes
 			if (!this.m.Actor.isAlive())
 			{

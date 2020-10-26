@@ -1,5 +1,7 @@
 this.human_camp_wall <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+		IsTree = true		
+	},
 	function getName()
 	{
 		return "Palisade";

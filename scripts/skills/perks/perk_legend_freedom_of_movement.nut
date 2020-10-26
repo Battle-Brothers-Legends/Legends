@@ -58,7 +58,7 @@ this.perk_legend_freedom_of_movement <- this.inherit("scripts/skills/skill", {
 		if (ourFatiguePercentCurrent < enemyFatiguePercentCurrent)
 		{
 			local diff = enemyFatiguePercentCurrent - ourFatiguePercentCurrent;
-			local diffPoint = this.Math.max(5, this.Math.min(95, diff / 100));
+			local diffPoint = this.Math.max(5, this.Math.min(95, diff)) * 0.01;
 			bonus = 1 - diffPoint;
 		}
 		_properties.DamageReceivedRegularMult *= bonus;

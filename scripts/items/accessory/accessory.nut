@@ -154,13 +154,14 @@ this.accessory <- this.inherit("scripts/items/item", {
 			this.getContainer().updateAppearance();
 		}
 
-			if (this.World.State.getPlayer() == null)
-			{
-				return;
-			}
+		if (this.World.State.getPlayer() == null)
+		{
+			return;
+		}
 
 		if (this.m.StashModifier > 0)
 		{
+			this.getContainer().unequipNoUpdate(this);
 			this.World.State.getPlayer().calculateStashModifier()
 		}
 

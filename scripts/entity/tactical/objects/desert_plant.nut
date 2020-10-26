@@ -1,5 +1,7 @@
 this.desert_plant <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+		IsBush = true	
+	},
 	function getName()
 	{
 		return this.Const.Strings.Tactical.EntityName.Plant;

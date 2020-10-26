@@ -9,6 +9,11 @@ this.legend_vampire_lord <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.BloodType = this.Const.BloodType.Red;
 		this.m.MoraleState = this.Const.MoraleState.Ignore;
 		this.m.XP = this.Const.Tactical.Actor.LegendVampireLord.XP;
+ 		if(this.Math.rand(1, 100) <= 25)
+		 {
+			 this.m.IsLady = true;
+		 }
+
 		this.actor.create();
 		this.m.Sound[this.Const.Sound.ActorEvent.DamageReceived] = [
 			"sounds/enemies/vampire_hurt_01.wav",
@@ -123,9 +128,6 @@ this.legend_vampire_lord <- this.inherit("scripts/entity/tactical/actor", {
 
 	function onUpdateInjuryLayer()
 	{
-
-
-
 		local p = this.getHitpointsPct();
 		local bodyBrush = this.getSprite("body").getBrush().Name;
 		local headBrush = this.getSprite("head").getBrush().Name;
@@ -234,13 +236,23 @@ this.legend_vampire_lord <- this.inherit("scripts/entity/tactical/actor", {
 		this.addSprite("helmet");
 		this.addSprite("helmet_damage");
 
-		if (this.Math.rand(1, 100) <= 25)
+		if (this.m.IsLady)
 		{
-			this.getSprite("body").setBrush("bust_vampire_lady_body_01");
-			this.getSprite("head").setBrush("bust_vampire_lady_head_01");
-			this.getSprite("hair").setBrush("hair_black_25");
+			if (this.Math.rand(1,100) <= 50)
+			{
+				this.getSprite("body").setBrush("bust_vampire_lady_body_01");
+				this.getSprite("head").setBrush("bust_vampire_lady_head_01");
+			}
+			else
+			{
+				this.getSprite("body").setBrush("bust_vampire_lady_body_02");
+				this.getSprite("head").setBrush("bust_vampire_lady_head_02");
+			}
+			if (this.Math.rand(1, 100) <= 60)
+			{
+				hair.setBrush("hair_black_25")
+			}
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_terrifying_visage"));
-			this.m.IsLady = true;
 		}
 
 

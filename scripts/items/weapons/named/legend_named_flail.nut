@@ -11,7 +11,7 @@ this.legend_named_flail <- this.inherit("scripts/items/weapons/named/named_weapo
 		this.m.Icon = "weapons/melee/legend_flail_ranged_02_named_01_70x70.png";
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;
+		this.m.ItemType = this.Const.Items.ItemType.Named | this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;
 		this.m.ItemProperty = this.Const.Items.Property.IgnoresShieldwall;
 		this.m.IsAgainstShields = true;
 		this.m.AddGenericSkill = true;

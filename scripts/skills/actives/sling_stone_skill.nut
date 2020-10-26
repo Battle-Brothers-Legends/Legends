@@ -130,7 +130,7 @@ this.sling_stone_skill <- this.inherit("scripts/skills/skill", {
 
 	function isUsable()
 	{
-		return !this.Tactical.isActive() || !this.getContainer().getActor().getTile().hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions());
+		return this.skill.isUsable() && (!this.Tactical.isActive() || !this.getContainer().getActor().getTile().hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions()));
 	}
 
 	function onAfterUpdate( _properties )

@@ -62,6 +62,11 @@ this.blueprint <- {
 
 	function getTooltipForComponent( _idx )
 	{
+		if (_idx > this.m.PreviewComponents.len() - 1)
+		{
+			this.logError("Out of bound error on blueprint :: " + this.m.ID);
+			return null
+		}
 		return this.m.PreviewComponents[_idx].Instance.getTooltip();
 	}
 
@@ -328,8 +333,6 @@ this.blueprint <- {
 		}
 
 		this.updateAchievement("IMadeThis", 1, 1);
-		this.World.Statistics.getFlags().increment("ItemsCrafted", 1);
-		this.World.Ambitions.updateUI();
 		local stash = this.World.Assets.getStash();
 		local hasAlchemist = this.World.Retinue.hasFollower("follower.alchemist");
 

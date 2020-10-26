@@ -111,68 +111,68 @@ this.building <- {
 			{
 				local p = this.Math.rand(0, 100) * rarityMult;
 				local item;
-				local IsHelm = false;
+				local isHelm = false;
+				local isArmor = false;
+				local isUpgrade = false;
+				local script = i.S;
 
-				// if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-				// {
-				// 	local script = i.S;
-				// 	local index = script.find("helmets/");
-				// 	if (index != null)
-				// 	{
-				// 		local ugs = 0;
-				// 		local r = -1;
-				// 		IsHelm = true;
+				if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
+				{
+					local index = script.find("helmets/");
+					if (index != null)
+					{
+						isHelm = true;
+						script = script.slice(index + "helmets/".len());
+					}
+					index = script.find("armor/");
+					if (index != null && script.find("legend_armor") == null)
+					{
+						isArmor = true;
+						script = script.slice(index + "armor/".len());
+					}
+					index = script.find("armor_upgrades/");
+					if (index != null && script.find("legend_armor") == null)
+					{
+						isUpgrade = true;
+						script = script.slice(index + "armor_upgrades/".len());
+					}
+				}
 
-				// 		script = script.slice(index + "helmets/".len());
-				// 		item = this.Const.World.Common.pickHelmet([
-				// 			[1, script]
-				// 		]);
-
-				// 		local upgrades = item.getUpgrades();
-				// 		foreach (u in upgrades)
-				// 			if (u == 1)
-				// 				ugs += 1;
-
-				// 		if (ugs > 0)
-				// 			r = this.Math.rand(-1, ugs);
-
-				// 		if (r == -1)
-				// 		{
-				// 			break; //sell full piece if -1, means that no upgrades were found OR we rolled on sell the full piece 
-				// 		}
-				// 		else if (r == 0)
-				// 		{
-				// 			foreach( i, u in upgrades )
-				// 				item.removeUpgrade(i);
-				// 			break; //sell base layer after removing all upgrades
-				// 		}
-				// 		else
-				// 		{
-				// 			foreach (i, u in upgrades )
-				// 				if ( u == 1 ) {
-				// 					r -= 1;
-				// 					if (r == 0) {
-				// 						item = item.removeUpgrade(i)
-				// 						break; //sell just one upgrade from the helmet
-				// 					}
-				// 				}
-
-				// 		}
-				// 	}
-				// }
 				if (p >= r)
 				{
-					if (!IsHelm)
+					if (isHelm)
+					{
+						item = this.Const.World.Common.pickHelmet([
+							[1, script]
+						]);
+					}
+					else if (isArmor)
+					{
+						item = this.Const.World.Common.pickArmor([
+							[1, script]
+						]);
+					}
+					else if (isUpgrade)
+					{
+						item = this.Const.World.Common.pickArmorUpgrade([
+							[1, script]
+						]);
+					}
+					else
+					{
 						item = this.new("scripts/items/" + i.S);
+					}
+
 
 					if (item == null)
 					{
 						break;
 					}
+
 					local isFood = item.isItemType(this.Const.Items.ItemType.Food);
 					local isMedicine = item.getID() == "supplies.medicine";
-					local isMineral = item.getID() == "misc.uncut_gems" || item.getID() == "misc.copper_ingots";
-					local isBuilding = item.getID() == "misc.quality_wood" || item.getID() == "misc.copper_ingots";
+					local isMineral = item.getID() == "misc.uncut_gems" || item.getID() == "misc.copper_ingots" || item.getID() == "misc.gold_ingots" || item.getID() == "misc.iron_ingots";
+					local isBuilding = item.getID() == "misc.quality_wood" || item.getID() == "misc.copper_ingots" || item.getID() == "misc.tin_ingots" || item.getID() == "misc.iron_ingots";
 
 					if (!isFood || p * foodRarityMult >= r)
 					{
@@ -182,7 +182,37 @@ this.building <- {
 							{
 								if (!isBuilding || p * buildingRarityMult >= r)
 								{
-									_stash.add(item);
+									local items = [item];
+									if (isArmor || isHelm)
+									{
+										local upgrades = item.getUpgrades();
+										foreach( i, u in upgrades )
+										{
+											if (u != 1)
+											{
+												continue;
+											}
+
+											local upgrade = item.getUpgrade(i)
+											upgrade.m.Armor = null;
+											items.push(upgrade);
+											item.m.Upgrades[i] = null;
+										}
+									}
+
+									foreach (it in items)
+									{
+										if (_allowDamagedEquipment && it.getConditionMax() > 1)
+										{
+											if (this.Math.rand(1, 100) <= 50)
+											{
+												local condition = this.Math.rand(it.getConditionMax() * 0.4, it.getConditionMax() * 0.9)
+												it.setCondition(condition);
+											}
+										}
+										it.setPriceMult(i.P * _priceMult);
+										_stash.add(it);
+									}
 								}
 							}
 						}
@@ -193,16 +223,6 @@ this.building <- {
 						r = r + p;
 					}
 
-					if (_allowDamagedEquipment && item.getConditionMax() > 1)
-					{
-						if (this.Math.rand(1, 100) <= 50)
-						{
-							local condition = this.Math.rand(item.getConditionMax() * 0.4, item.getConditionMax() * 0.9)
-							item.setCondition(condition);
-						}
-					}
-
-					item.setPriceMult(i.P * _priceMult);
 				}
 				else
 				{
@@ -227,11 +247,6 @@ this.building <- {
 
 	function onSettlementEntered()
 	{
-	}
-
-	function onUpdateLegendShopList()
-	{
-		return this.onUpdateShopList()
 	}
 
 	function onUpdateShopList()

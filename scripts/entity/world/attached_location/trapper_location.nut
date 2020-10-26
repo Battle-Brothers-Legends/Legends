@@ -13,6 +13,7 @@ this.trapper_location <- this.inherit("scripts/entity/world/attached_location", 
 	function onUpdateProduce( _list )
 	{
 		_list.push("trade/furs_item");
+		_list.push("trade/tin_ingots_item");
 	}
 
 	function onUpdateDraftList( _list, _gender)

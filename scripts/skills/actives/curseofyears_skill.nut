@@ -5,8 +5,8 @@ this.curseofyears_skill <- this.inherit("scripts/skills/skill", {
 	function create()
 	{
 		this.m.ID = "actives.curseofyears";
-		this.m.Name = "Curse of Years";
-		this.m.Description = "The Wizard spits out an ancient curse, causing his enemies to age at an incredible rate - their hair turning white and skin shrivelling up. ";
+		this.m.Name = "Decrepify";
+		this.m.Description = "This curse gives the victim a glimpse of his own mortality, briefly aging the victim. Imagining itself with an infirm body of advanced age, the afflicted believes it is no longer capable of youthful exertions. ";
 		this.m.Icon = "skills/active_117.png";
 		this.m.IconDisabled = "skills/active_117_sw.png";
 		this.m.Overlay = "active_117";
@@ -61,7 +61,7 @@ this.curseofyears_skill <- this.inherit("scripts/skills/skill", {
 				id = 6,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "The damage that applies next turn, has a [color=" + this.Const.UI.Color.PositiveValue + "]17%[/color] to cause a wound. It adds an additional stack every turn, to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]83%[/color]. The damage pierces armor."
+				text = "The damage being applied in next turn has a [color=" + this.Const.UI.Color.PositiveValue + "]17%[/color] chance to cause a wound. An additional stack is added in each turn, to a maximum of [color=" + this.Const.UI.Color.PositiveValue + "]83%[/color]. The damage pierces armor."
 			},
 			{
 				id = 6,
@@ -73,7 +73,7 @@ this.curseofyears_skill <- this.inherit("scripts/skills/skill", {
 				id = 6,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Curse of Years has [color=" + this.Const.UI.Color.DamageValue + "]4[/color] turn cooldwon"
+				text = "Decrepify has a cooldown of [color=" + this.Const.UI.Color.DamageValue + "]4[/color] turns."
 			}
 		];
 		return ret;
@@ -81,8 +81,6 @@ this.curseofyears_skill <- this.inherit("scripts/skills/skill", {
 
 	function isUsable()
 	{
-		return this.m.Cooldown == 0 && this.skill.isUsable();
-
 		local actor = this.getContainer().getActor();
 		local opponents = actor.getAIAgent().getKnownOpponents();
 		local curseofyears = 0;
@@ -100,7 +98,7 @@ this.curseofyears_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		return true;
+		return this.m.Cooldown == 0 && this.skill.isUsable();
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )
@@ -124,7 +122,7 @@ this.curseofyears_skill <- this.inherit("scripts/skills/skill", {
 			TargetTile = _targetTile
 		};
 		this.Time.scheduleEvent(this.TimeUnit.Virtual, 500, this.onDelayedEffect.bindenv(this), tag);
-		this.m.Cooldown = this.Math.rand(4, 4);
+		this.m.Cooldown = 4;
 		return true;
 	}
 

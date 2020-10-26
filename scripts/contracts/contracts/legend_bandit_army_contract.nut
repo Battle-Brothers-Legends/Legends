@@ -562,7 +562,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "LootTime",
 			Title = "After the battle...",
-			Text = "[img]gfx/ui/events/event_22.png[/img] {You look around battleground. Everywhere you see slain bodies... some missing an arm or leg, others without head cut off in with what was most likely one powerfull swing. Most of equipment carries marks of heavy fighting not long ago. You start looking over your crew to assess situation. With as much spoils as your company can carry, it is time to get paid at %Home% }",
+			Text = "[img]gfx/ui/events/event_22.png[/img] {You look around battleground. Everywhere you see slain bodies... some missing an arm or leg, others without head cut off in with what was most likely one powerful swing. Most of the equipment carries marks of heavy fighting not long ago. You start looking over your crew to assess situation. With as many spoils as your company can carry, it is time to get paid at %Home% }",
 			Image = "",
 			List = [],
 			Options = [

@@ -12,6 +12,7 @@ this.salt_item <- this.inherit("scripts/items/trade/trading_good_item", {
 			"attached_location.salt_mine"
 		];
 		this.m.Value = 340;
+		this.m.ResourceValue = 1;
 	}
 
 });

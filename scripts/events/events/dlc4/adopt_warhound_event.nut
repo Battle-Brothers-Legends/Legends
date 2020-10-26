@@ -28,7 +28,7 @@ this.adopt_warhound_event <- this.inherit("scripts/events/event", {
 				if (_event.m.Houndmaster != null)
 				{
 					this.Options.push({
-						Text = "%houndman%, you\'ve dealed with hounds before, right?",
+						Text = "%houndman%, you\'ve dealt with hounds before, right?",
 						function getResult( _event )
 						{
 							return "D";

@@ -1,5 +1,7 @@
 this.goblin_camp_supplies <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+		IsSupplies = true	
+	},
 	function getName()
 	{
 		return "Supplies";

@@ -90,6 +90,8 @@ this.conquer_holy_site_southern_contract <- this.inherit("scripts/contracts/cont
 		this.m.Flags.set("MercenaryBanner", b);
 		this.m.Flags.set("Commander", this.Const.Strings.SouthernNames[this.Math.rand(0, this.Const.Strings.SouthernNames.len() - 1)]);
 		this.m.Flags.set("EnemyID", target.getFaction());
+		this.m.Flags.set("MapSeed", this.Time.getRealTime());
+		this.m.Flags.set("OppositionSeed", this.Time.getRealTime());
 		this.contract.start();
 	}
 
@@ -230,6 +232,11 @@ this.conquer_holy_site_southern_contract <- this.inherit("scripts/contracts/cont
 
 			function onDestinationAttacked( _dest )
 			{
+				if (this.Flags.getAsInt("OppositionSeed") != 0)
+				{
+					this.Math.seedRandom(this.Flags.getAsInt("OppositionSeed"));
+				}
+
 				if (this.Flags.get("IsVictory") || this.Contract.m.Target != null && !this.Contract.m.Target.isNull())
 				{
 					return;
@@ -403,6 +410,7 @@ this.conquer_holy_site_southern_contract <- this.inherit("scripts/contracts/cont
 				else if (_combatID == "ConquerHolySite")
 				{
 					this.Flags.set("IsVictory", true);
+					this.Flags.set("OppositionSeed", this.Time.getRealTime());
 				}
 			}
 

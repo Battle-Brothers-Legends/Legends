@@ -43,7 +43,7 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 			"trait.drunkard",
 			"trait.disloyal",
 			"trait.loyal",
-			"treat.dumb"
+			"trait.dumb"
 		];
 		this.m.Titles = [
 			"the Assassin",
@@ -64,25 +64,6 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 		this.m.IsUntalented = true;
 		this.m.Modifiers.Scout = this.Const.LegendMod.ResourceModifiers.Scout[3];
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[1];
-		this.m.Modifiers.Terrain = [
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0,
-			0.0
-		];
 		this.m.CustomPerkTree = [
 			[
 				this.Const.Perks.PerkDefs.Adrenalin,

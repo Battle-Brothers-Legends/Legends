@@ -64,25 +64,24 @@ this.ai_move_tail <- this.inherit("scripts/ai/tactical/behavior", {
 			return this.Const.AI.Behavior.Score.Zero;
 		}
 
-		local targetsInMelee = this.queryTargetsInMeleeRange();
-
-		if (targetsInMelee.len() != 0)
-		{
-			score = score * this.Const.AI.Behavior.MoveTailAlreadyEngagedMult;
-		}
-
 		local myTile = _entity.getTile();
 		local bodyTile = _entity.getBody().getTile();
 		local bestValue = 0.0;
 		local myValue = 0.0;
 		local bestTile;
 		local attackSkill = this.selectSkill(this.m.AttackSkills);
+		local targetsInMelee = this.queryTargetsInMeleeRange();
 
 		if (myTile.getDistanceTo(bodyTile) <= this.Const.AI.Behavior.MoveTailMaxDistanceToHead)
 		{
 			myValue = 1.0 + this.Const.AI.Behavior.MoveTailCurrentTileBonus + this.getBestTarget(_entity, attackSkill, targetsInMelee, myTile).Score;
 			bestValue = myValue;
 			bestTile = myTile;
+
+			if (targetsInMelee.len() != 0)
+			{
+				score = score * this.Const.AI.Behavior.MoveTailAlreadyEngagedMult;
+			}
 		}
 		else
 		{

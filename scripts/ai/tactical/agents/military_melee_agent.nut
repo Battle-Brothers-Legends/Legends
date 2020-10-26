@@ -96,6 +96,12 @@ this.military_melee_agent <- this.inherit("scripts/ai/tactical/agent", {
 
 		this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.Protect] = 0.0;
 
+		if (this.getActor().getType() == this.Const.EntityType.Knight)
+		{
+			this.m.Properties.BehaviorMult[this.Const.AI.Behavior.ID.Shieldwall] = 0.5;
+			return;
+		}
+
 		if (!this.getStrategy().isDefendingCamp() && this.m.KnownAllies.len() >= 10 && this.getActor().getCurrentProperties().TargetAttractionMult <= 1.0)
 		{
 			item = this.m.Actor.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);

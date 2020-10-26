@@ -98,36 +98,48 @@ gt.Const.Items.NamedArmors <- [
 	"armor/named/named_sellswords_armor"
 ];
 
-gt.Const.Items.LegendNamedArmors <- [
-	"legend_armor/named/legend_black_leather_armor",
-	"legend_armor/named/legend_blue_studded_mail_armor",
-	"legend_armor/named/legend_brown_coat_of_plates_armor",
-	"legend_armor/named/legend_golden_scale_armor",
-	"legend_armor/named/legend_green_coat_of_plates_armor",
-	"legend_armor/named/legend_heraldic_mail_armor",
-//	"legend_armor/named/legend_named_sellswords_armor"
-];
-
 gt.Const.Items.LegendNamedClothLayers <- [
-	"legend_armor/cloth/legend_gambeson_named"
-];
-
-gt.Const.Items.LegendNamedPlateLayers <- [
-	"legend_armor/plate/legend_armor_plate_full_greaves_painted",
-	"legend_armor/plate/legend_armor_leather_jacket_named",
-	"legend_armor/plate/legend_armor_leather_jacket_named_02",
-	"legend_armor/plate/legend_armor_leather_lamellar_heavy_named",
-	"legend_armor/plate/legend_armor_leather_brigandine_named",
-	"legend_armor/plate/legend_armor_scale_coat_named"
+	"legend_armor/cloth/legend_gambeson_named",
+	"legend_armor/cloth/legend_tunic_noble_named"
 ];
 
 gt.Const.Items.LegendNamedChainLayers <- [
 	"legend_armor/chain/legend_armor_hauberk_full_named",
 ];
 
+gt.Const.Items.LegendNamedPlateLayers <- [
+	"legend_armor/plate/legend_armor_plate_full_greaves_painted",
+	"legend_armor/plate/legend_armor_plate_full_greaves_named",
+	"legend_armor/plate/legend_armor_leather_jacket_named",
+	"legend_armor/plate/legend_armor_leather_studded_jacket_named",
+	"legend_armor/plate/legend_armor_leather_lamellar_heavy_named",
+	"legend_armor/plate/legend_armor_leather_brigandine_named",
+	"legend_armor/plate/legend_armor_scale_coat_named",
+	"legend_armor/plate/legend_southern_named_golden_plates",
+	"legend_armor/plate/legend_southern_named_plates"
+];
+
+gt.Const.Items.LegendNamedTabardLayers <- [
+	"legend_armor/named/legend_armor_named_tabard",
+];
+
+gt.Const.Items.LegendNamedCloakLayers <- [
+	"legend_armor/named/legend_armor_cloak_rich",
+	"legend_armor/named/legend_armor_cloak_emperors"
+];
+
+gt.Const.Items.LegendNamedSouthernArmorLayers <- [
+	"legend_armor/plate/legend_southern_named_golden_plates",
+	"legend_armor/plate/legend_southern_named_plates"
+]
+
+
 gt.Const.Items.LegendNamedArmorLayers <- []
+gt.Const.Items.LegendNamedArmorLayers.extend(this.Const.Items.LegendNamedClothLayers)
 gt.Const.Items.LegendNamedArmorLayers.extend(this.Const.Items.LegendNamedChainLayers)
 gt.Const.Items.LegendNamedArmorLayers.extend(this.Const.Items.LegendNamedPlateLayers)
+gt.Const.Items.LegendNamedArmorLayers.extend(this.Const.Items.LegendNamedTabardLayers)
+gt.Const.Items.LegendNamedArmorLayers.extend(this.Const.Items.LegendNamedCloakLayers)
 
 gt.Const.Items.NamedHelmets <- [
 	"helmets/named/golden_feathers_helmet",
@@ -209,17 +221,10 @@ gt.Const.Items.NamedWeapons <- clone this.Const.Items.NamedMeleeWeapons;
 gt.Const.Items.NamedWeapons.extend(this.Const.Items.NamedRangedWeapons);
 gt.Const.Items.NamedBarbarianWeapons <- [];
 gt.Const.Items.NamedBarbarianHelmets <- [];
-gt.Const.Items.NamedBarbarianArmors <- [
-	"armor/named/named_bronze_armor",
-	"armor/named/named_plated_fur_armor",
-	"armor/named/named_skull_and_chain_armor"
+gt.Const.Items.NamedBarbarianArmors <- [];
+gt.Const.Items.NamedSouthernWeapons <- [
+	"weapons/named/named_heavy_southern_mace"
 ];
-gt.Const.Items.LegendNamedBarbarianArmors <- [
-	"legend_armor/named/legend_named_bronze_armor",
-	"legend_armor/named/legend_named_plated_fur_armor",
-	"legend_armor/named/legend_named_skull_and_chain_armor"
-];
-gt.Const.Items.NamedSouthernWeapons <- [];
 gt.Const.Items.NamedSouthernMeleeWeapons <- [];
 gt.Const.Items.NamedSouthernHelmets <- [];
 gt.Const.Items.NamedSouthernArmors <- [];

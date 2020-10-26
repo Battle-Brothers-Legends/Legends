@@ -147,6 +147,13 @@ this.militia_trainingcamp_location <- this.inherit("scripts/entity/world/attache
 				P = 1.0,
 				S = "armor/gambeson"
 			});
+
+			_list.push({
+				R = 50,
+				P = 1.0,
+				S = "armor/basic_mail_shirt"
+			});
+
 			_list.push({
 				R = 10,
 				P = 1.0,
@@ -247,120 +254,11 @@ this.militia_trainingcamp_location <- this.inherit("scripts/entity/world/attache
 		}
 		else if (_id == "building.armorsmith")
 		{
-		}
-	}
-
-	function onUpdateLegendShopList( _id, _list )
-	{
-		if (_id == "building.marketplace")
-		{
-			local armorsL = [
-				[15, 1.0, "plate/legend_armor_leather_jacket"],
-				[15, 1.0, "plate/legend_armor_leather_jacket_simple"],
-				[15, 1.0, "cloth/legend_gambeson"],
-				[15, 1.0, "cloth/legend_padded_surcoat"],
-				[20, 1.0, "chain/legend_armor_mail_shirt_simple"],
-				[20, 1.0, "chain/legend_armor_mail_shirt"]
-			]
-
-			foreach( a in armorsL)
-			{
-				_list.push({
-					R = a[0],
-					P = a[1],
-					S = "legend_armor/" + a[2]
-				});
-			}
-			_list.push({
-				R = 10,
-				P = 1.0,
-				S = "helmets/aketon_cap"
-			});
-			_list.push({
-				R = 15,
-				P = 1.0,
-				S = "helmets/full_aketon_cap"
-			});
-			_list.push({
-				R = 60,
-				P = 1.0,
-				S = "helmets/nasal_helmet"
-			});
-			_list.push({
-				R = 65,
-				P = 1.0,
-				S = "helmets/kettle_hat"
-			});
 			_list.push({
 				R = 30,
 				P = 1.0,
-				S = "shields/wooden_shield"
+				S = "armor/basic_mail_shirt"
 			});
-				_list.push({
-				R = 80,
-				P = 1.0,
-				S = "tents/tent_train"
-			});
-			_list.push({
-				R = 90,
-				P = 1.0,
-				S = "tents/tent_scout"
-			});
-			_list.push({
-				R = 50,
-				P = 1.0,
-				S = "weapons/hooked_blade"
-			});
-			_list.push({
-				R = 65,
-				P = 1.0,
-				S = "shields/legend_tower_shield"
-			});
-			_list.push({
-				R = 60,
-				P = 1.0,
-				S = "weapons/scramasax"
-			});
-			_list.push({
-				R = 70,
-				P = 1.0,
-				S = "weapons/boar_spear"
-			});
-			_list.push({
-				R = 70,
-				P = 1.0,
-				S = "weapons/dagger"
-			});
-
-			if (this.Const.DLC.Unhold)
-			{
-				_list.extend([
-					{
-						R = 70,
-						P = 1.0,
-						S = "weapons/two_handed_wooden_hammer"
-					},
-					{
-						R = 40,
-						P = 1.0,
-						S = "weapons/goedendag"
-					},
-					{
-						R = 20,
-						P = 1.0,
-						S = "weapons/throwing_spear"
-					}
-				]);
-			}
-		}
-		else if (_id == "building.specialized_trader")
-		{
-		}
-		else if (_id == "building.weaponsmith")
-		{
-		}
-		else if (_id == "building.armorsmith")
-		{
 		}
 	}
 

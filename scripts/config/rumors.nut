@@ -251,7 +251,7 @@ gt.Const.Strings.RumorsItemsBarbarians <- [
 	],
 	[
 		"You look like you could use some better armor, my friend. If you are not scared of taking on fierce barbarians, there is a mighty fine armor to be claimed in one of their camps called %location%, %terrain% %direction% of here.",
-		"The famed %item% has been guarded in the armory for decades, but when the wild men from the north came they took everything with them. They are said to be camping out somewhere in %terrain% %distance% form here.",
+		"The famed %item% has been guarded in the armory for decades, but when the wild men from the north came they took everything with them. They are said to be camping out somewhere in %terrain% %distance% from here.",
 		"I came here to pick up an heirloom from my late grandfather just to get to know it has been stolen by marauding barbarians. They are said to loiter somewhere %terrain% %direction% of here, but I fear I will never get it back.",
 		"Are you also here to look for %item% like all those other fools? It is said to lie somewhere %terrain% %direction%. Nothing but hogwash if you ask me..."
 	]

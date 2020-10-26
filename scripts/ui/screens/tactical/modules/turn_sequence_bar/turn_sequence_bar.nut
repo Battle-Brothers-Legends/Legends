@@ -11,7 +11,9 @@ this.turn_sequence_bar <- this.inherit("scripts/ui/screens/ui_module", {
 		IsBattleEnded = false,
 		IsSkippingRound = false,
 		IsInitNextRound = false,
+		CheckEnemyRetreat = false,
 		IsLastEntityPlayerControlled = false,
+		IsBusy = false,
 		ActiveEntityMouseHover = null,
 		ActiveEntityCostsPreview = null,
 		InShutdown = null,
@@ -24,7 +26,8 @@ this.turn_sequence_bar <- this.inherit("scripts/ui/screens/ui_module", {
 		OnEntityMouseEnterListener = null,
 		OnEntityMouseLeaveListener = null,
 		OnBattleEndedListener = null,
-		OnOpenInventoryButtonPressed = null
+		OnOpenInventoryButtonPressed = null,
+		OnCheckEnemyRetreatListener = null
 	},
 	function setOnNextTurnListener( _listener )
 	{
@@ -74,6 +77,11 @@ this.turn_sequence_bar <- this.inherit("scripts/ui/screens/ui_module", {
 	function setOnOpenInventoryButtonPressed( _listener )
 	{
 		this.m.OnOpenInventoryButtonPressed = _listener;
+	}
+
+	function setCheckEnemyRetreatListener( _listener )
+	{
+		this.m.OnCheckEnemyRetreatListener = _listener;
 	}
 
 	function clearEventListeners()
@@ -135,6 +143,11 @@ this.turn_sequence_bar <- this.inherit("scripts/ui/screens/ui_module", {
 	function getTurnPosition()
 	{
 		return this.m.TurnPosition;
+	}
+
+	function setBusy( _b )
+	{
+		this.m.IsBusy = _b;
 	}
 
 	function create()
@@ -288,6 +301,15 @@ this.turn_sequence_bar <- this.inherit("scripts/ui/screens/ui_module", {
 		this.m.JSHandle.call("clear", null);
 	}
 
+	function checkEnemyRetreat()
+	{
+		if (this.m.OnCheckEnemyRetreatListener != null)
+		{
+			this.m.IsBusy = true;
+			this.m.OnCheckEnemyRetreatListener();
+		}
+	}
+
 	function initNextRound()
 	{
 		if (this.m.IsBattleEnded)
@@ -382,7 +404,12 @@ this.turn_sequence_bar <- this.inherit("scripts/ui/screens/ui_module", {
 
 		if (this.m.CurrentEntities.len() <= 1)
 		{
-			this.m.IsInitNextRound = true;
+			if (!this.m.IsInitNextRound)
+			{
+				this.m.IsInitNextRound = true;
+				this.m.CheckEnemyRetreat = true;
+			}
+
 			return;
 		}
 
@@ -434,7 +461,12 @@ this.turn_sequence_bar <- this.inherit("scripts/ui/screens/ui_module", {
 
 		if (this.m.CurrentEntities.len() == 1)
 		{
-			this.m.IsInitNextRound = true;
+			if (!this.m.IsInitNextRound)
+			{
+				this.m.IsInitNextRound = true;
+				this.m.CheckEnemyRetreat = true;
+			}
+
 			return;
 		}
 
@@ -1283,8 +1315,16 @@ this.turn_sequence_bar <- this.inherit("scripts/ui/screens/ui_module", {
 	{
 		if (this.m.IsInitNextRound)
 		{
-			this.m.IsInitNextRound = false;
-			this.initNextRound();
+			if (this.m.CheckEnemyRetreat)
+			{
+				this.m.CheckEnemyRetreat = false;
+				this.checkEnemyRetreat();
+			}
+			else if (!this.m.IsBusy)
+			{
+				this.m.IsInitNextRound = false;
+				this.initNextRound();
+			}
 		}
 	}
 

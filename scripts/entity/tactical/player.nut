@@ -44,8 +44,8 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		LastCampTime = 0,
 		InReserves = false,
         StarWeights = [50,50,50,50,50,50,50,50],
-        Alignment = null,
-        CompanyID = -1
+        // Alignment = null,
+        CompanyID = 0
 	},
 	function setName( _value )
 	{
@@ -892,7 +892,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		}
 
 		this.World.Assets.getOrigin().onHiredByScenario(this);
-        this.m.CompanyID = this.World.State.addNewID(this);
+        // this.m.CompanyID = this.World.State.addNewID(this);
 
 		if (this.getSkills().hasSkill("trait.intensive_training_trait") && this.getLevel() > 1 )
 		{
@@ -905,6 +905,10 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			local addSkills = this.Math.rand(0, this.getLevel()+2);
 			addSkills = this.Math.min(addSkills, inTraining.getMaxSkillsCanBeAdded() - 1);
 			inTraining.addRandomSkills(this, addSkills);
+		}
+		if (this.World.State.getPlayer() != null)
+		{
+			this.World.State.getPlayer().calculateModifiers();
 		}
 	}
 
@@ -938,8 +942,6 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		this.m.IsAbleToDie = true;
 		this.m.Hitpoints = this.Math.max(1, this.m.Hitpoints);
 		this.m.MaxEnemiesThisTurn = 1;
-		this.m.ExertingZoneOfControlOn = null;
-		this.m.ExertingZoneOfOccupationOn = null;
 
 		if (this.m.MoraleState != this.Const.MoraleState.Ignore)
 		{
@@ -989,108 +991,109 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 
 		if (this.Math.rand(1, 100) <= this.Const.Combat.SurviveWithInjuryChance * this.m.CurrentProperties.SurviveWithInjuryChanceMult || this.World.Assets.m.IsSurvivalGuaranteed && !this.m.Skills.hasSkillOfType(this.Const.SkillType.PermanentInjury) && (this.World.Assets.getOrigin().getID() != "scenario.manhunters" || this.getBackground().getID() != "background.slave"))
 		{
-			return true;
-		}
 
-		local potential = [];
-		local injuries = this.Const.Injury.Permanent;
-		local numPermInjuries = 0;
 
-		foreach (inj in injuries)
-		{
-			if (inj.ID == "injury.broken_elbow_joint" && !this.m.Skills.hasSkill("injury.broken_elbow_joint") && !this.m.Skills.hasSkill("trait.legend_prosthetic_forearm"))
-			{
-				potential.push(inj);
-			}
-			else if (inj.ID == "injury.broken_knee" && !this.m.Skills.hasSkill("injury.broken_knee") && !this.m.Skills.hasSkill("trait.legend_prosthetic_leg"))
-			{
-				potential.push(inj);
-			}
-			else if (inj.ID == "injury.maimed_foot" && !this.m.Skills.hasSkill("injury.maimed_foot") && !this.m.Skills.hasSkill("trait.legend_prosthetic_foot"))
-			{
-				potential.push(inj);
-			}
-			else if (inj.ID == "injury.missing_ear" && !this.m.Skills.hasSkill("injury.missing_ear") && !this.m.Skills.hasSkill("trait.legend_prosthetic_ear"))
-			{
-				potential.push(inj);
-			}
-			else if (inj.ID == "injury.missing_eye" && !this.m.Skills.hasSkill("injury.missing_eye") && !this.m.Skills.hasSkill("trait.legend_prosthetic_eye"))
-			{
-				potential.push(inj);
-			}
-			else if (inj.ID == "injury.missing_finger" && !this.m.Skills.hasSkill("injury.missing_finger") && !this.m.Skills.hasSkill("trait.legend_prosthetic_finger"))
-			{
-				potential.push(inj);
-			}
-			else if (inj.ID == "injury.missing_hand" && !this.m.Skills.hasSkill("injury.missing_hand") && !this.m.Skills.hasSkill("trait.legend_prosthetic_hand"))
-			{
-				potential.push(inj);
-			}
-			else if (inj.ID == "injury.missing_nose" && !this.m.Skills.hasSkill("injury.missing_nose") && !this.m.Skills.hasSkill("trait.legend_prosthetic_nose"))
-			{
-				potential.push(inj);
-			}
-			else if (inj.ID != "injury.broken_elbow_joint" && inj.ID != "injury.broken_knee" && inj.ID != "injury.maimed_foot" && inj.ID != "injury.missing_ear" && inj.ID != "injury.missing_eye" && inj.ID != "injury.missing_finger" && inj.ID != "injury.missing_hand" && inj.ID != "injury.missing_nose" && !this.m.Skills.hasSkill(inj.ID))
-			{
-				potential.push(inj);
-			}
-			else
-			{
-				numPermInjuries = ++numPermInjuries;
+			local potential = [];
+			local injuries = this.Const.Injury.Permanent;
+			local numPermInjuries = 0;
 
-			}
-		}
-
-		if (potential.len() == 0)
-		{
-			return true;
-		}
-
-		if (numPermInjuries + 1 >= 3)
-		{
-			this.updateAchievement("HardToKill", 1, 1);
-		}
-
-		local skill = this.new("scripts/skills/" + potential[this.Math.rand(0, potential.len() - 1)].Script);
-		this.m.Skills.add(skill);
-
-		if (this.m.CurrentProperties.SurvivesAsUndead)
-		{
-			local r = this.Math.rand(0, 1);
-
-			if (r == 0)
+			foreach (inj in injuries)
 			{
-				this.getFlags().add("PlayerSkeleton");
-				this.getFlags().add("undead");
-				this.getFlags().add("skeleton");
-				local body = this.getSprite("body");
-				local skill = this.new("scripts/skills/injury_permanent/legend_fleshless");
-				this.m.Skills.add(skill);
-				this.m.Skills.add(this.new("scripts/skills/racial/skeleton_racial"));
+				if (inj.ID == "injury.broken_elbow_joint" && !this.m.Skills.hasSkill("injury.broken_elbow_joint") && !this.m.Skills.hasSkill("trait.legend_prosthetic_forearm"))
+				{
+					potential.push(inj);
+				}
+				else if (inj.ID == "injury.broken_knee" && !this.m.Skills.hasSkill("injury.broken_knee") && !this.m.Skills.hasSkill("trait.legend_prosthetic_leg"))
+				{
+					potential.push(inj);
+				}
+				else if (inj.ID == "injury.maimed_foot" && !this.m.Skills.hasSkill("injury.maimed_foot") && !this.m.Skills.hasSkill("trait.legend_prosthetic_foot"))
+				{
+					potential.push(inj);
+				}
+				else if (inj.ID == "injury.missing_ear" && !this.m.Skills.hasSkill("injury.missing_ear") && !this.m.Skills.hasSkill("trait.legend_prosthetic_ear"))
+				{
+					potential.push(inj);
+				}
+				else if (inj.ID == "injury.missing_eye" && !this.m.Skills.hasSkill("injury.missing_eye") && !this.m.Skills.hasSkill("trait.legend_prosthetic_eye"))
+				{
+					potential.push(inj);
+				}
+				else if (inj.ID == "injury.missing_finger" && !this.m.Skills.hasSkill("injury.missing_finger") && !this.m.Skills.hasSkill("trait.legend_prosthetic_finger"))
+				{
+					potential.push(inj);
+				}
+				else if (inj.ID == "injury.missing_hand" && !this.m.Skills.hasSkill("injury.missing_hand") && !this.m.Skills.hasSkill("trait.legend_prosthetic_hand"))
+				{
+					potential.push(inj);
+				}
+				else if (inj.ID == "injury.missing_nose" && !this.m.Skills.hasSkill("injury.missing_nose") && !this.m.Skills.hasSkill("trait.legend_prosthetic_nose"))
+				{
+					potential.push(inj);
+				}
+				else if (inj.ID != "injury.broken_elbow_joint" && inj.ID != "injury.broken_knee" && inj.ID != "injury.maimed_foot" && inj.ID != "injury.missing_ear" && inj.ID != "injury.missing_eye" && inj.ID != "injury.missing_finger" && inj.ID != "injury.missing_hand" && inj.ID != "injury.missing_nose" && !this.m.Skills.hasSkill(inj.ID))
+				{
+					potential.push(inj);
+				}
+				else
+				{
+					numPermInjuries = ++numPermInjuries;
+
+				}
 			}
-			else
+
+			if (potential.len() == 0)
 			{
-				this.getFlags().add("PlayerZombie");
-				this.getFlags().add("undead");
-				this.getFlags().add("zombie_minion");
-				local skill = this.new("scripts/skills/injury_permanent/legend_rotten_flesh");
-				this.m.Skills.add(skill);
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
+				return true;
 			}
-		}
 
-		this.Tactical.getSurvivorRoster().add(this);
-		this.m.IsDying = false;
-		this.worsenMood(this.Const.MoodChange.PermanentInjury, "Suffered a permanent injury");
-		this.updateAchievement("ScarsForLife", 1, 1);
+			if (numPermInjuries + 1 >= 3)
+			{
+				this.updateAchievement("HardToKill", 1, 1);
+			}
 
-		if (this.getFlags().has("PlayerSkeleton") || this.getFlags().has("PlayerZombie"))
-		{
+			local skill = this.new("scripts/skills/" + potential[this.Math.rand(0, potential.len() - 1)].Script);
+			this.m.Skills.add(skill);
+
+			if (this.m.CurrentProperties.SurvivesAsUndead && !this.getFlags().has("PlayerZombie") && !this.getFlags().has("PlayerSkeleton"))
+			{
+				local r = this.Math.rand(0, 1);
+
+				if (r == 0)
+				{
+					this.getFlags().add("PlayerSkeleton");
+					this.getFlags().add("undead");
+					this.getFlags().add("skeleton");
+					local body = this.getSprite("body");
+					local skill = this.new("scripts/skills/injury_permanent/legend_fleshless");
+					this.m.Skills.add(skill);
+					this.m.Skills.add(this.new("scripts/skills/racial/skeleton_racial"));
+				}
+				else
+				{
+					this.getFlags().add("PlayerZombie");
+					this.getFlags().add("undead");
+					this.getFlags().add("zombie_minion");
+					local skill = this.new("scripts/skills/injury_permanent/legend_rotten_flesh");
+					this.m.Skills.add(skill);
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
+				}
+			}
+
+			this.Tactical.getSurvivorRoster().add(this);
+			this.m.IsDying = false;
+			this.worsenMood(this.Const.MoodChange.PermanentInjury, "Suffered a permanent injury");
+			this.updateAchievement("ScarsForLife", 1, 1);
+
+			if (this.getFlags().has("PlayerSkeleton") || this.getFlags().has("PlayerZombie"))
+			{
+				return false;
+			}
+
 			return false;
 		}
-
-		return false;
+		return true;
 	}
 
 	function onOtherActorDeath( _killer, _victim, _skill )
@@ -1887,7 +1890,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(item);
 		}
 
-		r = this.Math.rand(1, 2);
+		local r = this.Math.rand(1, 2);
 
 		if (r == 1)
 		{
@@ -2060,18 +2063,15 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
         return this.m.Alignment;
     }
 
-    function getCompanyID()
-    {
-        return this.m.CompanyID;
-    }
+    // function getCompanyID()
+    // {
+    //     return this.m.CompanyID;
+    // }
 
-	//Only used occaisionally, shouldn't call this specifically
-	//Probably would be unused function
-	//Check world_state::addNewID and in this_file::onHired to see how w add company IDs to brothers
-	function setCompanyID( _num )
-	{
-		this.m.CompanyID = _num;
-	}
+	// function setCompanyID( _num )
+	// {
+	// 	this.m.CompanyID = _num;
+	// }
 
 	function fillTalentValues( _num, _force = false )
 	{
@@ -2385,7 +2385,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 				this.logInfo("setFormation::Items; could not find item for " + itemId);
 				continue;
 			}
-			eTransfer.push(item)
+			eTransfer.push(item);
 
 			//this.m.Items.equip(item);
 		}
@@ -2404,7 +2404,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 
 			bTransfer.push(item);
 		}
-		return [eTransfer, bTransfer]
+		return [eTransfer, bTransfer];
 	}
 
 	function getStashModifier()
@@ -2578,11 +2578,11 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			{
 				this.m.VoiceSet = this.Math.rand(0, this.Const.WomanSounds.len() - 1);
 			}
-			volume *= this.Const.WomanSounds[this.m.VoiceSet].Volume
+			volume *= this.Const.WomanSounds[this.m.VoiceSet].Volume;
 		}
 		else
 		{
-			volume *= this.Const.HumanSounds[this.m.VoiceSet].Volume
+			volume *= this.Const.HumanSounds[this.m.VoiceSet].Volume;
 		}
 
 		this.Sound.play(this.m.Sound[_type][this.Math.rand(0, this.m.Sound[_type].len() - 1)], volume, this.getPos(), _pitch);
@@ -2967,6 +2967,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		{
 			this.m.InReserves = _in.readBool();
 		}
+
 		this.m.CompanyID = _in.readU8();
 	}
 

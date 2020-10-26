@@ -16,15 +16,21 @@ this.perk_legend_second_wind <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
+		if (("State" in this.Tactical) && this.Tactical.State != null)
+		{
+		}
+		else
+		{
+			return;
+		}
 		local actor = this.getContainer().getActor();
-		local maxHP = actor.getHitpointsMax();
-		local currentHP = actor.getHitpoints();
+		local percHP = actor.getHitpointsPct();
 		if (!actor.getSkills().hasSkill("effects.legend_second_wind"))
 		{
-			if (currentHP < (maxHP / 2))
+			if (percHP < 0.5)
 			{
 				actor.setFatigue(actor.getFatigue() - 0.5 * actor.getFatigue() );
-			
+
 				actor.getSkills().add(this.new("scripts/skills/effects/legend_second_wind_effect"));
 				actor.getSkills().add(this.new("scripts/skills/effects/recovery_potion_effect"));
 				if (this.m.Container.hasSkill("effects.stunned"))

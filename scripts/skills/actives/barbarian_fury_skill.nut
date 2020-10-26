@@ -59,7 +59,7 @@ this.barbarian_fury_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		return this.skill.onVerifyTarget(_originTile, _targetTile) && !target.getCurrentProperties().IsStunned && !target.getCurrentProperties().IsRooted && target.getCurrentProperties().IsMovable;
+		return this.skill.onVerifyTarget(_originTile, _targetTile) && !target.getCurrentProperties().IsStunned && !target.getCurrentProperties().IsRooted && target.getCurrentProperties().IsMovable && !target.getCurrentProperties().IsImmuneToRotation;
 	}
 
 	function onTurnStart()

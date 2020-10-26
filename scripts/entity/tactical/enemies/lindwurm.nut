@@ -7,6 +7,11 @@ this.lindwurm <- this.inherit("scripts/entity/tactical/actor", {
 		return 2;
 	}
 
+	function getTail()
+	{
+		return this.m.Tail;
+	}
+
 	function create()
 	{
 		this.m.Type = this.Const.EntityType.Lindwurm;

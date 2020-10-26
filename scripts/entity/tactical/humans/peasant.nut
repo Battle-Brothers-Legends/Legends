@@ -103,7 +103,7 @@ this.peasant <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/weapons/butchers_cleaver"));
 		}
 
-		
+
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
 			[1, "sackcloth"],
 			[1, "thick_tunic"],
@@ -117,7 +117,7 @@ this.peasant <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.Const.World.Common.pickHelmet([
 				[1, "straw_hat"],
 				[1, "hood"],
-				[1, "head_scarf"],
+				[1, "headscarf"],
 				[1, "feathered_hat"]
 			]))
 		}

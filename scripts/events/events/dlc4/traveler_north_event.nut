@@ -69,7 +69,7 @@ this.traveler_north_event <- this.inherit("scripts/events/event", {
 			return;
 		}
 
-		if (currentTile.SquareCoords.Y < this.World.getMapSize().Y * 0.7)
+		if (currentTile.SquareCoords.Y < this.World.getMapSize().Y * 0.8)
 		{
 			return;
 		}

@@ -21,7 +21,6 @@ this.legends_zombie_med <- this.inherit("scripts/entity/tactical/legend_zombie",
 	function assignRandomEquipment()
 	{
 		local r;
-		local armor
 		r = this.Math.rand(1, 6);
 
 		if (r == 1)
@@ -57,8 +56,6 @@ this.legends_zombie_med <- this.inherit("scripts/entity/tactical/legend_zombie",
 			[1, "ragged_surcoat"],
 			[1, "basic_mail_shirt"]
 		]));
-
-		this.m.Items.equip(armor);
 
 		local item = this.Const.World.Common.pickHelmet([
 			[25, ""],

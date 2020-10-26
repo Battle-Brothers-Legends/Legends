@@ -584,7 +584,7 @@ this.hold_chokepoint_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "Failure",
 			Title = "After the battle...",
-			Text = "[img]gfx/ui/events/event_87.png[/img]{You\'ve seen enough of this. The Vizier tasked the company with holding for a period of time, not to sit here and commit suicide. If he\'ll pay less, than so be it. Rather be a bit light in the purse than deep in the grave.}",
+			Text = "[img]gfx/ui/events/event_87.png[/img]{You\'ve seen enough of this. The Vizier tasked the company with holding for a period of time, not to sit here and commit suicide.}",
 			Image = "",
 			List = [],
 			Options = [
@@ -592,7 +592,9 @@ this.hold_chokepoint_contract <- this.inherit("scripts/contracts/contract", {
 					Text = "This is not worth losing the company over...",
 					function getResult()
 					{
-						this.Contract.setState("Return");
+						this.World.Assets.addBusinessReputation(this.Const.World.Assets.ReputationOnContractFail);
+						this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelation(this.Const.World.Assets.RelationNobleContractFail, "Failed to hold a fortification against northern invaders");
+						this.World.Contracts.finishActiveContract(true);
 						return 0;
 					}
 

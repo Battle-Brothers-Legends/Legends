@@ -12,6 +12,7 @@ this.uncut_gems_item <- this.inherit("scripts/items/trade/trading_good_item", {
 			"attached_location.gem_mine"
 		];
 		this.m.Value = 520;
+		this.m.ResourceValue = 3;
 	}
 
 });

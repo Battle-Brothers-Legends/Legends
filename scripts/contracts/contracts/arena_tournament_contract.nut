@@ -380,7 +380,7 @@ this.arena_tournament_contract <- this.inherit("scripts/contracts/contract", {
 				R = 5,
 				function F( _c, _d, _e )
 				{
-					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Lindwurm, _d); i = ++i )
+					for( local i = 0; i < this.Math.min(3, _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Lindwurm, _d)); i = ++i )
 					{
 						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Lindwurm);
 					}
@@ -1131,6 +1131,7 @@ this.arena_tournament_contract <- this.inherit("scripts/contracts/contract", {
 		if (this.m.IsActive)
 		{
 			this.m.Home.getSprite("selection").Visible = false;
+			this.m.Home.getBuilding("building.arena").refreshCooldown();
 			local roster = this.World.getPlayerRoster().getAll();
 
 			foreach( bro in roster )

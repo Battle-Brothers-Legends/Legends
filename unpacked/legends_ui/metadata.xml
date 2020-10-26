@@ -136,5 +136,10 @@
 <sprite id="effect_transform_01" width="80" height="80" img="effects\effect_transform_01.png" left="-39" right="37" top="-34" bottom="36" />
 <sprite id="effect_transform_02" width="80" height="80" img="effects\effect_transform_02.png" left="-39" right="37" top="-34" bottom="36" />
 <sprite id="effect_transform_03" width="80" height="80" img="effects\effect_transform_03.png" left="-39" right="37" top="-34" bottom="36" />
+<sprite id="active_71" ic="FF181B33" img="skills\active_71.png" />
+<sprite id="active_21" ic="FF181B33" img="skills\active_21.png" />
+<sprite id="active_24" ic="FF181B33" img="skills\active_24.png" />
+<sprite id="active_117" ic="FF181B33" img="skills\active_117.png" />
+<sprite id="rat_bite" ic="FF181B33" img="skills\rat_bite.png" />
 
 </brush>

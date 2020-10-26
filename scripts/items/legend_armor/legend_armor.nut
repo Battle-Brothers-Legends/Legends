@@ -852,7 +852,7 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 
 		if (this.getContainer().getActor().getSkills().hasSkill("perk.brawny"))
 		{
-			staminaMult = 0.75;
+			staminaMult = 0.70;
 		}
 
 		_properties.Armor[this.Const.BodyPart.Body] += this.getArmor();

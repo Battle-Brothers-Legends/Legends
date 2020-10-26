@@ -46,6 +46,7 @@ this.attack_zone_order <- this.inherit("scripts/ai/world/world_behavior", {
 		if (parties.len() > 1)
 		{
 			local isPlayerInvolved = false;
+			local isHostileToPlayer = false;
 			local enemy;
 
 			foreach( party in parties )
@@ -55,15 +56,20 @@ this.attack_zone_order <- this.inherit("scripts/ai/world/world_behavior", {
 					isPlayerInvolved = true;
 				}
 
-				if (!party.isAlliedWith(_entity))
+				if (!party.isAlliedWith(_entity) && !party.isLocation())
 				{
 					enemy = party;
+				}
+
+				if (!party.isAlliedWithPlayer() && !party.isLocation())
+				{
+					isHostileToPlayer = true;
 				}
 			}
 
 			if (enemy != null)
 			{
-				if (isPlayerInvolved)
+				if (isPlayerInvolved && isHostileToPlayer)
 				{
 					this.World.State.setAIEngageCallback(function ()
 					{

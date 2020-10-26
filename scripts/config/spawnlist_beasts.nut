@@ -1102,7 +1102,7 @@ gt.Const.World.Spawn.Serpents <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.Serpent,
-					Cost = 20
+					Cost = 25
 				}
 			]
 		}
@@ -1124,12 +1124,12 @@ gt.Const.World.Spawn.SandGolems <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.SandGolem,
-					Cost = 13
+					Cost = 18
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.SandGolemMEDIUM,
 					MinR = 200,
-					Cost = 35
+					Cost = 40
 				}
 			]
 		}

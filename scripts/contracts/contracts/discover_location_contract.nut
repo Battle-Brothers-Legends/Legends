@@ -571,10 +571,10 @@ this.discover_location_contract <- this.inherit("scripts/contracts/contract", {
 						this.World.Assets.addBusinessReputation(this.Const.World.Assets.ReputationOnContractSuccess);
 						this.World.Assets.addMoney(this.Contract.m.Payment.getOnCompletion());
 						local playerRoster = this.World.getPlayerRoster().getAll();
-						local xp = this.Contract.m.Payment.getOnCompletion() * 0.50;
+						local xp = this.Contract.m.Payment.getOnCompletion() * 0.10;
 						foreach( bro in playerRoster )
 							{
-								bro.addXP(this.Contract.m.Payment.getOnCompletion() * 0.10);
+								bro.addXP(xp);
 								bro.updateLevel();
 							}
 						this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelation(this.Const.World.Assets.RelationCivilianContractSuccess, "Hired to find the " + this.Flags.get("Location"));

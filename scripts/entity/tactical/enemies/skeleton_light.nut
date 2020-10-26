@@ -64,7 +64,7 @@ this.skeleton_light <- this.inherit("scripts/entity/tactical/skeleton", {
 
 
 
-		local item = this.Const.World.Common.pickHelmet([
+		item = this.Const.World.Common.pickHelmet([
 			[66, "ancient/ancient_household_helmet"],
 			[34, ""]
 		])

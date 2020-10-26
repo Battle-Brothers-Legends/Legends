@@ -122,7 +122,7 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[1].setStartValuesEx([
 		"legend_noble_shield"
 		]);
-		local items = bros[3].getItems();
+		local items = bros[1].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Offhand));
 		local r = this.Math.rand(1, 2);
 		local shield;
@@ -196,16 +196,22 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 				local armor = items.getItemAtSlot(this.Const.ItemSlot.Body)
 				local tabards = [
 						[0, ""],
-						[1, "tabard/legend_armor_noble_tabard"]
+						[1, "tabard/legend_noble_tabard"]
 					]
 					local tabard = this.Const.World.Common.pickLegendArmor(tabards)
 					if (tabard != null && armor != null)
 					{
-						tabard.setFaction(banner);
+						tabard.setVariant(banner)
 						armor.setUpgrade(tabard)
 					}
 			}
 		}
+
+		//noble start actually doesnt go thru the generalized place for this and i'm too lazy to change it to do so because then i'd have to redo aarmor equips because there's no banner stuff etc
+		// foreach (bro in this.World.getPlayerRoster().getAll())
+		// {
+		// 	bro.setCompanyID(this.World.State.addNewID(bro));
+		// }
 
 
 		this.Time.scheduleEvent(this.TimeUnit.Real, 1000, function ( _tag )

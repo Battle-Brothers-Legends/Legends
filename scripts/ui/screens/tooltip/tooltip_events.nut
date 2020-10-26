@@ -3955,8 +3955,7 @@ this.tooltip_events <- {
 					text = "You cannot fight in the arena while contracted to do other work"
 				});
 			}
-
-			if (this.World.State.getCurrentTown() != null && this.World.State.getCurrentTown().hasSituation("situation.arena_tournament") && this.World.Assets.getStash().getNumberOfEmptySlots() < 5)
+			else if (this.World.Contracts.getActiveContract() == null && this.World.State.getCurrentTown() != null && this.World.State.getCurrentTown().hasSituation("situation.arena_tournament") && this.World.Assets.getStash().getNumberOfEmptySlots() < 5)
 			{
 				ret.push({
 					id = 3,
@@ -3965,7 +3964,7 @@ this.tooltip_events <- {
 					text = "You need at least 5 empty inventory slots to fight in the ongoing tournament"
 				});
 			}
-			else if (this.World.Assets.getStash().getNumberOfEmptySlots() < 3)
+			else if (this.World.Contracts.getActiveContract() == null && this.World.Assets.getStash().getNumberOfEmptySlots() < 3)
 			{
 				ret.push({
 					id = 3,

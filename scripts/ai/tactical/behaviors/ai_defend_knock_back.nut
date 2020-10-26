@@ -300,7 +300,7 @@ this.ai_defend_knock_back <- this.inherit("scripts/ai/tactical/behavior", {
 				}
 				else
 				{
-					if (!targetHasAoE && alliesAtKnockTo > 0 && enemyAlliesAtKnockTo <= enemyAlliesCurrently && (alliesAtKnockTo > alliesCurrently + 1 || opponentsCurrently > 2 && alliesAtKnockTo > alliesCurrently || targetHasRiposte && alliesAtKnockTo >= 1 || targetHasSpearwall && alliesAtKnockTo >= 2 || targetHasShieldwall && alliesAtKnockTo >= 2))
+					if (alliesAtKnockTo > 0 && enemyAlliesAtKnockTo <= enemyAlliesCurrently && (alliesAtKnockTo > alliesCurrently + 1 || opponentsCurrently > 2 && alliesAtKnockTo > alliesCurrently || targetHasRiposte && alliesAtKnockTo >= 1 || targetHasSpearwall && alliesAtKnockTo >= 2 || targetHasShieldwall && alliesAtKnockTo >= 2))
 					{
 						isGoodReason = true;
 						score = score * (this.Const.AI.Behavior.KnockBackIntoAlliesMult * t.getCurrentProperties().TargetAttractionMult);

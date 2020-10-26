@@ -53,13 +53,13 @@ this.companion_ranged_southern_background <- this.inherit("scripts/skills/backgr
 		items.equip(this.new("scripts/items/weapons/oriental/composite_bow"));
 		items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
 		items.addToBag(this.new("scripts/items/weapons/knife"));
-		this.m.Items.equip(this.Const.World.Common.pickHelmet([
+		items.equip(this.Const.World.Common.pickArmor([
 			[1, "oriental/thick_nomad_robe"],
 			[1, "oriental/padded_vest"],
 			[1, "oriental/leather_nomad_robe"]
 		]));
 
-		this.m.Items.equip(this.Const.World.Common.pickHelmet([
+		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "oriental/southern_head_wrap", this.Math.rand(0, 1) == 1 ? 12 : 8]
 		]));
 	}

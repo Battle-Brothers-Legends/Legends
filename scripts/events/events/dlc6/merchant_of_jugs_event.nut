@@ -44,7 +44,7 @@ this.merchant_of_jugs_event <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({
 			ID = "B",
-			Text = "[img]gfx/ui/events/event_171.png[/img]{You exchange for everything he\'s got to which the merchant happily obliges. When he leaves, his camels are barren and seem to have a skip in their step after carrying a load for so long. The drink in the jugs is a mixture of water and other additives which we\'ll ensure good, long lasting taste. A refreshing beverage to have in an otherwise hellish wasteland.}",
+			Text = "[img]gfx/ui/events/event_171.png[/img]{You exchange for everything he\'s got to which the merchant happily obliges. When he leaves, his camels are barren and seem to have a skip in their step after carrying a load for so long. The drink in the jugs is a mixture of water and other additives which will ensure good, long lasting taste. A refreshing beverage to have in an otherwise hellish wasteland.}",
 			Image = "",
 			List = [],
 			Characters = [],

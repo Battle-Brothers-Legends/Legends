@@ -73,7 +73,7 @@ done <<< "$FILES"
 echo "Building helmets..."
 rm -rf helmets
 mkdir -p "helmets"
-python make_legend_helmet_nuts.py
+python make_legend_helmets.py
 cp -R helmets/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\scripts\items\legend_helmets"
 
 echo "Building armors..."
@@ -94,24 +94,32 @@ cd ../bin
 ./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_world.brush ../battlebrothers/unpacked/legend_world
 ./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legends_ui.brush ../battlebrothers/unpacked/legends_ui
 ./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_horses.brush ../battlebrothers/unpacked/legend_horses
+./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/terrain.brush ../battlebrothers/unpacked/terrain
+./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_objects.brush ../battlebrothers/unpacked/legend_objects
 
- echo "Building Legend Helmets metadata.xml..."
-python ../battlebrothers/unpacked/make_legend_helmets.py
  echo "Building Legend Helmets brush..."
 ./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_helmets.brush ../battlebrothers/unpacked/legend_helmets
 ./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_helmets.brush ../battlebrothers/unpacked/legend_helmets/0
 ./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_helmets.brush ../battlebrothers/unpacked/legend_helmets/1
 
- echo "Building Legend Armor metadata.xml..."
-python ../battlebrothers/unpacked/make_legend_armor.py
  echo "Building Legend Armor brush..."
-./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_armor.brush ../battlebrothers/unpacked/legend_armor
+./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_armor_0.brush ../battlebrothers/unpacked/legend_armor/0
+./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_armor_1.brush ../battlebrothers/unpacked/legend_armor/1
+./bbrusher.exe pack --gfxPath "../battlebrothers/" ../battlebrothers/brushes/legend_armor_2.brush ../battlebrothers/unpacked/legend_armor/2
+
 
  echo "Compiling all nut files..."
 ./masscompile.bat "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\scripts"
 
 cd ../battlebrothers
 
+echo "cp sounds"
 cp -R sounds/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\sounds"
+
+echo "cp gfx"
 cp -R gfx/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\gfx"
+
+echo "cp brushes"
 cp -R brushes/. "c:\Program Files (x86)\Steam\steamapps\common\Battle Brothers\data\brushes"
+
+read -p "Enter"

@@ -3894,5 +3894,195 @@ To REPEAT! Looking for crashes or any errors in log files.
 https://drive.google.com/file/d/136wvQKhe-u6H6VQHsaQJ66cVszzwu9Oy/view?usp=sharing
 
 
-**Changes**
+15.0.0.5  Sand Storm
+**Requires ALL DLC and build 1.4.0.41 of BB**
+
+This is our first general test build release of the blazing sands DLC support for Legends Mod. Please expect this build to have instabilities. There's lots of balance and work to do still (We haven't started work on the retinue system, so it is still vanilla - this WILL change, we have plans...), but hopefully this build will let you all play with Legends with the new DLC content.
+
+
+**Layered Helmets**
+Made up of under layer, helmet, faceplate and decoration
+Over 750 variants to play with
+Balance is still being worked on
+
+**Layered Southern armor**
+all the new armors split into layers
+Many existing armors gain new colour pallets
+dozens of alignment issues fixed
+Brings the number of layer variants to over 800
+
+**Attacking Settlements**
+It is now possible to attack human settlements
+As legion you can take over human settlements, turning them undead
+If allied with an enemy faction you can enter their locations to trade
+Still in early development, a lot of balance and art work needed.
+
+**gender changes**
+There are now three gender start options, vanilla, defined backgrounds or gender equality
+Gladiators can be women
+Gladiators gain perk trees for polearm, swords, throwing, daggers, heavy armor and nets
+Gladiator events are gender neutral,
+Slavers and slaves can be women
+The player no longer tell penis jokes to sword eaters
+Belly dancers are now more feminine
+When fighting about cultural differences, the company fights over marriage instead of women
+
+**Weapons**
+New Named Axe and Named Great Axe Variants
+Brand new Named Heavy Mace for southern regions
+
+**Trade Goods**
+New gold, iron and tin ingots trade items
+Gold mine locations will now have chance to spawn on mining villages.
+
+**World Economy**
+Selling trade goods to a settlement will now directly increase that settlements wealth rating.
 World Economy for city states - unlike northern settlements, ciy states can continue to grow their locations indefinitly.
+
+**Other changes**
+Adds southern females
+Adds dozens of variants to nomad camp objects ( no more repeating carpets)
+Arena spectators can be female
+Lich drops legends scrolls
+Increases the number of tactical sand tiles from 3 to 28
+Adds 2000+ new character names
+
+**fixes**
+legends camp tactical objects showing up instead of DLC objects
+inventor icon showing up on gladiators
+Adds a background for camping in the desert
+Tumble no longer makes Lunge cost 0ap, and also correctly reduces fat if you have both perks.
+Unpredictable bros no longer go against their nature & become predictable.
+
+
+## 15.0.0.9
+
+**Fixes**
+Fixes mispelled background causing infinite load time on random character starts (mwah)
+Fixes ancient armor drop in treasure event (mwah)
+Fixes summoning of zombies for necromancer (mwah)
+Fixes rare crash with Nacho's swallow skill (mwah)
+Fixes some enemies causing infinite loading screens when they have named helmet or armor (mwah)
+Fixes armoursmith spawning non-layered armor upgrades, e.g. leather shoulderguards, while armor layers are on (mwah)
+Legion now starts hostile to southern cities (mwah)
+Fixes infinite loading screen with nomad zombies (mwah)
+Hopefully fixes bleeding issue for dead brothers (mwah)
+Fixes crash when AI uses Ignite skill
+Adds some missing skill icons and inventory icons
+
+
+15.0.0.10
+
+**Fixes**
+Fixes error with cravan guards skill checks on legendary difficulty
+Fixes the backpacks not correclty updating stash size when unequipping
+Fixes missing armor images
+Adds nomad sling to legend sling specialist perks
+Fixes legend food items crash on events and inventory access
+Fixes crashes when AI tries to use buckler_bash
+DLC craftable items are displayed when all crafting items visible is enabled - They will still not be craftable if there is a retinue requirement for them though!
+Fixes numerous blueprint tooltip issues
+
+
+15.0.0.11 smashing politely
+
+Updates to BB 1.4.0.42
+Walls, graves, furniture, southern trees an, rocks and bushes , can now be smashed with harvest skills
+Supplies on the battlefield can be smashed for a small chance at finding goods
+
+Fixes:
+Pets are immune to disarm
+Fixes southern armor, shields and banners going invisible when runed
+Improves intensive training description, Ffixes stats on southern mail
+Fixes mispelled background causing infinite load time on random character starts (mwah)
+Fixes ancient armor drop in treasure event (mwah)
+Possibly fixes summoning of zombies for necromancer (mwah)
+Fixes other, possibly related zombie bugs (mwah)
+Possibly fixes rare crash with Nacho's swallow skill (mwah)
+Fixes some enemies causing infinite loading screens when they have named helmet or armor (mwah)
+Fixes armoursmith spawning non-layered armor upgrades, e.g. leather shoulderguards, while armor layers are on (mwah)
+Legion now starts hostile to southern cities (mwah)
+Fixes infinite loading screen with nomad zombies (mwah)
+spearwaller  reduces AP by 25% rather than setting to 3 (salty)
+Heavy trait precludes light (salty)
+
+
+15.0.0.12
+
+Updates to BB 1.4.0.43
+
+**Fixes**
+Bandit Warlords can have named helmets again (typo where helmets were accidentally treated as body armor)
+Drums of Life changes: Can't heal people above max HP, now always heals people below max HP, doesn't rely on people being fatigued.
+Hopefully fixes bleeding issue for dead brothers (mwah)
+High Tier Zombie from Necromancer skill spawns with armor now
+Spelling/grammer fixes
+Weiderganger favored enemy now signifies Fallen Heroes rather than Weiderganger Champion
+Player character can't be selected for the lawmen after a criminal event
+Second wind can only proc in batte now instead of out of battle
+Demon Alp AI tweak to not just crash
+Fixes problem with upgraded gatherer's tent
+You don't have a higher chance of dying when you have high chance of surviving with injury. (Big thanks to Surrealistik)
+Fixes rare healer building bug that didn't cause crashes
+Should fix repairs not working in town
+Should fix transform effects crashing on combat end
+Fixes Seer's aoe fire skill causing AI freezes
+Fixes cart upgrade on reload
+Fixes sticks not dropping from harvest wood skill
+Fixes harvest tree not being able to chop sticks
+Knights no longer have the 30 durability feathered hat and actually have their normal hemlets back
+Fixes wolfspane check on arborthropy injuries
+
+**Background changes**
+Southern Assassin get new Dynamic perk tree. Adds scout modifiers
+Belly Dancer: Get Barter modifiers
+Gladiator: Get Ammo, ArmorPars, Meds, Training modifiers
+Manhunter: Get Barter and Injury modifiers
+Nomad: Gets new Dynamic perk tree. Adds Ammo and Scout and Terrain movement modifiers.
+
+
+
+15.0.0.14
+
+Update to BB 1.4.0.44
+
+**Fixes**
+Fixes serpent skin armor upgrade
+Fixes vanilla armor attatchments (e.g. leather shoulderguards) from spawning with armor layer system on
+More fixes to demon alp ai
+Should prevent the buckler bandits from freezing the game (Massive thanks to Proman)
+Removes bear form from berserker
+Should fix end of combat wardog causing freezes
+Fixes shoot stake error
+Fixes debilitate tooltip to correctly read 75% damage total vs 50% damage total
+Should fix rare crash on killing an enemy with smite skill
+Fixes supplies on southern maps not being attackable
+Piercing shot and bolt tooltip grammar
+Piercing shot and bolt don't hit something behind target if the main shot misses
+Weiderganger's bite applies poison with the same rules as spider poison (min of 6 damage to hitpoints)
+Fixes gruesome feast error
+Fixes fire pot for seer
+Fixes barbarian madman spawning without armor
+Should fix miasma skill
+Fixes some of the noble scenario starting items back to previous (& intended) items
+Minor tweak to beast spawns : Serpents resource-per-unit upped along with Ifrits. (e.g. where you'd previously see 20 serpents you'd now see 16)
+Fixed Brawny incorrect value on some layers and helmets. (Thanks Leonion)
+Updated description of Bloody harvest to specify "All melee attacks"
+fix hollenhound curse neglecting resilience
+fix missing non-layered alp helmet
+fix champion behemoths ai and champion sets
+Adds southern enemy classes to favorite enemy perks
+fixes noble fencer spawn crash on legendary difficulty.
+
+
+=======
+
+15.0.0.4
+
+**Fixes**
+Fixes the decoded scrolls [the recipe historians are part of] not saving what they are when the game reloads and just becoming useless
+Adds how many scrolls a character can use to each scroll's tooltip
+Fixes the EXP Reward DISPLAY (doesn't change the actual given amount) at the end of some contracts (caravan, delivery, etc)
+  [These numbers are a percentage of the gold reward multiplied by .85: Deliver Item/Money: 25% , Escort Caravan: 50% , Discover Location: 10%]
+Should fix smite skill rarely crashing game when killing an enemy at the very end of the round
+

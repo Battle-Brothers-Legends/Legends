@@ -33,7 +33,7 @@ gt.Const.LegendMod.ArmorObjs.extend([
     }]
 },{
     ID = "barbarians/barbarian_ritual_armor", // 300
-    Script = "armor/barbarians/barbarian_ritual_armor",
+    Script = "scripts/items/armor/barbarians/barbarian_ritual_armor",
     Sets = [{
         Cloth = [
         ],
@@ -197,7 +197,7 @@ gt.Const.LegendMod.ArmorObjs.extend([
     }]
 },{
     ID = "barbarians/unhold_armor_heavy", // 400
-    Script = "barbarians/unhold_armor_heavy",
+    Script = "scripts/items/armor/barbarians/unhold_armor_heavy",
     Sets = [{
         Cloth = [
         ],
@@ -214,7 +214,7 @@ gt.Const.LegendMod.ArmorObjs.extend([
     }]
 },{
     ID = "barbarians/unhold_armor_light", // 35
-    Script = "barbarians/unhold_armor_light",
+    Script = "scripts/items/armor/barbarians/unhold_armor_light",
     Sets = [{
         Cloth = [
         ],

@@ -23,6 +23,7 @@ this.legend_armor_named_warlock_cloak <- this.inherit("scripts/items/legend_armo
 		this.m.ConditionMax = 180;
 		this.m.StaminaModifier = 8;
 		this.randomizeValues();
+
 	}
 
 

@@ -74,7 +74,9 @@ this.legend_ranger_background <- this.inherit("scripts/skills/backgrounds/charac
 			0.01, // badlands
 			0.01, //highlands
 			0.0, //stepps
-			0.0 //ocean
+			0.0, //ocean
+			0.0, //desert
+			0.0 //oasis
 		];
 		this.m.CustomPerkTree = [
 			[

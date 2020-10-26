@@ -3,7 +3,7 @@ this.herbal_miracle_drug_blueprint <- this.inherit("scripts/crafting/blueprint",
 	function create()
 	{
 		this.blueprint.create();
-		this.m.ID = "blueprint.herbal_cat_potion";
+		this.m.ID = "blueprint.herbal_miracle_drug_potion";
 		this.m.Type = this.Const.Items.ItemType.Usable
 		this.m.PreviewCraftable = this.new("scripts/items/misc/miracle_drug_item");
 		this.m.Cost = 30;

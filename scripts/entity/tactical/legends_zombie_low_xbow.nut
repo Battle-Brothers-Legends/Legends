@@ -20,7 +20,6 @@ this.legends_zombie_low_xbow <- this.inherit("scripts/entity/tactical/legend_zom
 	function assignRandomEquipment()
 	{
 		local r;
-		local armor;
 		this.m.Items.equip(this.new("scripts/items/weapons/light_crossbow"));
 		this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_bolts"));
 
@@ -34,9 +33,6 @@ this.legends_zombie_low_xbow <- this.inherit("scripts/entity/tactical/legend_zom
 			[1, "butcher_apron"],
 			[1, "monk_robe"]
 		]));
-
-
-		this.m.Items.equip(armor);
 
 		local item = this.Const.World.Common.pickHelmet([
 			[67, ""],

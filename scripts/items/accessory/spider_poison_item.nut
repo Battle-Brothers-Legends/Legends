@@ -19,6 +19,12 @@ this.spider_poison_item <- this.inherit("scripts/items/accessory/accessory", {
 	function getTooltip()
 	{
 		local result = this.accessory.getTooltip();
+		result.push({
+			id = 4,
+			type = "text",
+			icon = "ui/icons/special.png",
+			text = "Is destroyed on use"
+		});
 		return result;
 	}
 

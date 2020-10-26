@@ -52,7 +52,11 @@ this.staggered_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
 		this.Tactical.TurnSequenceBar.pushEntityBack(this.getContainer().getActor().getID());
-		this.spawnIcon("status_effect_65", this.getContainer().getActor().getTile());
+		local tile = this.getContainer().getActor().getTile();
+		if (tile != null)
+		{
+			this.spawnIcon("status_effect_65", this.getContainer().getActor().getTile());
+		}
 	}
 
 	function onUpdate( _properties )

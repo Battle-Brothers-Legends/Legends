@@ -18,6 +18,7 @@ this.legend_large_armor_piercing_arrows <- this.inherit("scripts/items/ammo/ammo
 		this.m.AmmoMax = 14;
 		this.m.StaminaModifier = 2;
 		this.m.IsDroppedAsLoot = true;
+		this.m.AddGenericSkill = true;
 	}
 
 	function getTooltip()

@@ -56,17 +56,27 @@ this.accessory_dog <- this.inherit("scripts/items/accessory/accessory", {
 		//all wardogs to be allowed in bag , and then when the addToBag check calls
 		//this function again, we can check actor and set it to false if not perk
 		//is present
-		if (_actor == null && this.getContainer() == null)
+		local act = _actor;
+		
+		if ( typeof act == "instance" )
+		{
+			act = act.get()
+			this.logInfo("Getting accessory_dog typeof was instance -> should not be anymore?")
+		}
+
+		if (act == null && this.getContainer() == null)
 		{
 			return true;
 		}
 
-		if (_actor == null && this.getContainer() != null)
+		if (act == null && this.getContainer() != null)
 		{
-			_actor = this.getContainer().getActor();
+			act = this.getContainer().getActor();
 		}
 
-		if (_actor.getSkills().hasSkill("perk.legend_packleader"))
+		
+
+		if (act.getSkills().hasSkill("perk.legend_packleader"))
 		{
 			return true;
 		}

@@ -148,10 +148,6 @@ this.barbarian_champion <- this.inherit("scripts/entity/tactical/human", {
 		this.getSprite("miniboss").setBrush("bust_miniboss");
 		local weapons = this.Const.Items.NamedBarbarianWeapons;
 		local armor = this.Const.Items.NamedBarbarianArmors;
-		if (this.World.LegendsMod.Configs().LegendArmorsEnabled())
-		{
-			armor = this.Const.Items.LegendNamedBarbarianArmors;
-		}
 		local helmets = this.Const.Items.NamedBarbarianHelmets;
 		local r = this.Math.rand(1, 3);
 

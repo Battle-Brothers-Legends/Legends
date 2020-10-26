@@ -57,7 +57,7 @@ this.sword_eater_event <- this.inherit("scripts/events/event", {
 			Characters = [],
 			Options = [
 				{
-					Text = "My sword is not so sharp, yet the ladies can\'t even do that?",
+					Text = "Impressive skill",
 					function getResult( _event )
 					{
 						return 0;

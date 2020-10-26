@@ -6,9 +6,9 @@ this.legend_rat_bite_skill <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Rat Bite";
 		this.m.Description = "A vicious bite with a 15% increased chance to hit the head and 100% chance to infect";
 		this.m.KilledString = "Gnawed";
-		this.m.Icon = "skills/active_24.png";
-		this.m.IconDisabled = "skills/active_24_bw.png";
-		this.m.Overlay = "active_24";
+		this.m.Icon = "skills/rat_bite.png";
+		this.m.IconDisabled = "skills/rat_bite_bw.png";
+		this.m.Overlay = "rate_bite";
 		this.m.SoundOnUse = [
 			"sounds/enemies/zombie_bite_01.wav",
 			"sounds/enemies/zombie_bite_02.wav",
@@ -61,7 +61,7 @@ this.legend_rat_bite_skill <- this.inherit("scripts/skills/skill", {
 					local effect = this.new("scripts/skills/effects/rat_poison_effect");
 					target.getSkills().add(effect);
 				}
-		
+
 		return success;
 		}
 	}

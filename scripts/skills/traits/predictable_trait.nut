@@ -11,7 +11,7 @@ this.predictable_trait <- this.inherit("scripts/skills/traits/character_trait", 
 			"trait.natural",
 			"trait.bright",
 			"trait.dexterous",
-			"swift_trait",
+			"trait.swift",
 			"trait.unpredictable"
 		];
 	}

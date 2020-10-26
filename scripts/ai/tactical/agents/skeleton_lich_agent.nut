@@ -41,7 +41,7 @@ this.skeleton_lich_agent <- this.inherit("scripts/ai/tactical/agent", {
 			}
 		}
 
-		phylacteries = this.Math.max(0, phylacteries - this.Time.getRound() / 9);
+		phylacteries = this.Math.max(0, phylacteries - this.Time.getRound() / 7);
 		this.logInfo("phylacteries: " + phylacteries);
 
 		if (phylacteries <= 2)

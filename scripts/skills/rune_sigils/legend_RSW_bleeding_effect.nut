@@ -17,7 +17,7 @@ this.legend_RSW_bleeding_effect <- this.inherit("scripts/skills/skill", {
 
 	function setActor( _a )
 	{
-		this.m.Actor = _a;
+		this.m.Actor = (typeof _a == "instance" ? _a.get() : _a);
 	}
 
 	function create()

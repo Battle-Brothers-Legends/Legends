@@ -13,7 +13,7 @@ if (!("Actor" in gt.Const.Tactical))
 gt.Const.Tactical.Actor.Conscript <- {
 	XP = 250,
 	ActionPoints = 9,
-	Hitpoints = 60,
+	Hitpoints = 55,
 	Bravery = 70,
 	Stamina = 120,
 	MeleeSkill = 70,

@@ -232,7 +232,7 @@
 	{
 		local tries = 0;
 
-		while (tries++ < 9000)
+		while (tries++ < 3000)
 		{
 			local x;
 			local y;
@@ -279,12 +279,12 @@
 
 			local next = false;
 			local distance = 12 + additionalSpace;
-			if (tries > 3000) {
-				distance -= 4;
-			}
-			if (tries > 6000) {
-				distance -= 8;
-			}
+			// if (tries > 3000) {
+			// 	distance -= 4;
+			// }
+			// if (tries > 6000) {
+			// 	distance -= 8;
+			// }
 
 			foreach( settlement in settlementTiles )
 			{
@@ -844,154 +844,164 @@
 
 	// }
 
-	// o.guaranteeAllLocations <- function( _rect, _properties )
-	// {
-	// 	local locs = {}
-	// 	locs["attached_location.amber_collector"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/amber_collector_location"
-	// 	}
-	// 	locs["attached_location.beekeeper"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/beekeeper_location"
-	// 	};
-	// 	locs["attached_location.brewery"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/brewery_location"
-	// 	};
-	// 	locs["attached_location.dye_maker"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/dye_maker_location"
-	// 	};
-	// 	locs["attached_location.fishing_huts"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/fishing_huts_location"
-	// 	};
-	// 	locs["attached_location.gatherers_hut"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/gatherers_hut_location"
-	// 	};
-	// 	locs["attached_location.gem_mine"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/gem_mine_location"
-	// 	};
-	// 	locs["attached_location.goat_herd"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/goat_herd_location"
-	// 	};
-	// 	locs["attached_location.gold_mine"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/gold_mine_location"
-	// 	};
-	// 	locs["attached_location.herbalists_grove"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/herbalists_grove_location"
-	// 	};
-	// 	locs["attached_location.hunters_cabin"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/hunters_cabin_location"
-	// 	};
-	// 	locs["attached_location.leather_tanner"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/leather_tanner_location"
-	// 	};
-	// 	locs["attached_location.lumber_camp"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/lumber_camp_location"
-	// 	};
-	// 	locs["attached_location.mushroom_grove"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/mushroom_grove_location"
-	// 	};
-	// 	locs["attached_location.orchard"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/orchard_location"
-	// 	};
-	// 	locs["attached_location.peat_pit"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/peat_pit_location"
-	// 	};
-	// 	locs["attached_location.pig_farm"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/pig_farm_location"
-	// 	};
-	// 	locs["attached_location.salt_mine"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/salt_mine_location"
-	// 	};
-	// 	locs["attached_location.surface_copper_vein"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/surface_copper_vein_location"
-	// 	};
-	// 	locs["attached_location.surface_iron_vein"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/surface_iron_vein_location"
-	// 	};
-	// 	locs["attached_location.trapper"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/trapper_location"
-	// 	};
-	// 	locs["attached_location.wheat_fields"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/wheat_fields_location"
-	// 	};
-	// 	locs["attached_location.winery"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/winery_location"
-	// 	};
-	// 	locs["attached_location.wool_spinner"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/wool_spinner_location"
-	// 	};
-	// 	locs["attached_location.workshop"] <- {
-	// 		Amount = 0,
-	// 		Script = "scripts/entity/world/attached_location/workshop_location"
-	// 	};
+	local gasFn = o.buildAdditionalRoads;
+	o.buildAdditionalRoads = function (_rect, _properties)
+	{
+		if (_properties.AllTradeLocations)
+		{
+			o.guaranteeAllLocations();
+		}
+		gasFn(_rect, _properties);
 
-	// 	local settlements = this.World.EntityManager.getSettlements();
-	// 	foreach( s in settlements )
-	// 	{
-	// 		foreach (a in s.getAttachedLocations())
-	// 		{
-	// 			if (a.getTypeID() in locs)
-	// 			{
-	// 				locs[a.getTypeID()].Amount += 1
-	// 			}
-	// 		}
-	// 	}
+	}
 
-	// 	foreach (k,v in locs)
-	// 	{
+	o.guaranteeAllLocations <- function()
+	{
+		local locs = {}
+		locs["attached_location.amber_collector"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/amber_collector_location"
+		}
+		locs["attached_location.beekeeper"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/beekeeper_location"
+		};
+		locs["attached_location.brewery"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/brewery_location"
+		};
+		locs["attached_location.dye_maker"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/dye_maker_location"
+		};
+		locs["attached_location.fishing_huts"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/fishing_huts_location"
+		};
+		locs["attached_location.gatherers_hut"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/gatherers_hut_location"
+		};
+		locs["attached_location.gem_mine"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/gem_mine_location"
+		};
+		locs["attached_location.goat_herd"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/goat_herd_location"
+		};
+		locs["attached_location.gold_mine"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/gold_mine_location"
+		};
+		locs["attached_location.herbalists_grove"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/herbalists_grove_location"
+		};
+		locs["attached_location.hunters_cabin"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/hunters_cabin_location"
+		};
+		locs["attached_location.leather_tanner"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/leather_tanner_location"
+		};
+		locs["attached_location.lumber_camp"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/lumber_camp_location"
+		};
+		locs["attached_location.mushroom_grove"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/mushroom_grove_location"
+		};
+		locs["attached_location.orchard"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/orchard_location"
+		};
+		locs["attached_location.peat_pit"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/peat_pit_location"
+		};
+		locs["attached_location.pig_farm"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/pig_farm_location"
+		};
+		locs["attached_location.salt_mine"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/salt_mine_location"
+		};
+		locs["attached_location.surface_copper_vein"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/surface_copper_vein_location"
+		};
+		locs["attached_location.surface_iron_vein"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/surface_iron_vein_location"
+		};
+		locs["attached_location.trapper"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/trapper_location"
+		};
+		locs["attached_location.wheat_fields"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/wheat_fields_location"
+		};
+		locs["attached_location.winery"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/winery_location"
+		};
+		locs["attached_location.wool_spinner"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/wool_spinner_location"
+		};
+		locs["attached_location.workshop"] <- {
+			Amount = 0,
+			Script = "scripts/entity/world/attached_location/workshop_location"
+		};
 
-	// 		if (v.Amount > 0)
-	// 		{
-	// 			continue;
-	// 		}
+		local settlements = this.World.EntityManager.getSettlements();
+		foreach( s in settlements )
+		{
+			foreach (a in s.getAttachedLocations())
+			{
+				if (a.getTypeID() in locs)
+				{
+					locs[a.getTypeID()].Amount += 1
+				}
+			}
+		}
 
-	// 		local ALL = [
-	// 			this.Const.World.TerrainType.Plains,
-	// 			this.Const.World.TerrainType.Steppe,
-	// 			this.Const.World.TerrainType.Snow,
-	// 			this.Const.World.TerrainType.Hills,
-	// 			this.Const.World.TerrainType.Tundra,
-	// 			this.Const.World.TerrainType.Forest,
-	// 			this.Const.World.TerrainType.SnowyForest,
-	// 			this.Const.World.TerrainType.AutumnForest,
-	// 			this.Const.World.TerrainType.LeaveForest
-	// 		];
-	// 		local tries = 0;
-	// 		while (tries++ < 1000)
-	// 		{
-	// 			local index = this.Math.rand(0, settlements.len() - 1)
-	// 			settlements[index].buildAttachedLocation(1, v.Script, ALL, [], 2, false, true, true);
-	// 			if (settlements[index].hasAttachedLocation(k)) {
-	// 				//this.logInfo("Added " + k)
-	// 				break;
-	// 			}
-	// 			tries = --tries;
-	// 		}
-	// 	}
+		foreach (k,v in locs)
+		{
 
-	// }
+			if (v.Amount > 0)
+			{
+				continue;
+			}
+
+			local ALL = [
+				this.Const.World.TerrainType.Plains,
+				this.Const.World.TerrainType.Steppe,
+				this.Const.World.TerrainType.Snow,
+				this.Const.World.TerrainType.Hills,
+				this.Const.World.TerrainType.Tundra,
+				this.Const.World.TerrainType.Forest,
+				this.Const.World.TerrainType.SnowyForest,
+				this.Const.World.TerrainType.AutumnForest,
+				this.Const.World.TerrainType.LeaveForest
+			];
+			local tries = 0;
+			while (tries++ < 1000)
+			{
+				local index = this.Math.rand(0, settlements.len() - 1)
+				settlements[index].buildAttachedLocation(1, v.Script, ALL, [], 2, false, true, true);
+				if (settlements[index].hasAttachedLocation(k)) {
+					//this.logInfo("Added " + k)
+					break;
+				}
+				tries = --tries;
+			}
+		}
+	}
 
 })

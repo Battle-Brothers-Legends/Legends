@@ -14,7 +14,7 @@ this.vagabond_background <- this.inherit("scripts/skills/backgrounds/character_b
 		this.m.Excluded = [
 			"trait.hate_beasts",
 			"trait.hate_undead",
-			"traits.hate_greenskins",
+			"trait.hate_greenskins",
 			"trait.clubfooted",
 			"trait.fat",
 			"trait.loyal",

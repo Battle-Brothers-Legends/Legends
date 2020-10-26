@@ -80,11 +80,17 @@ this.legend_miasma_skill <- this.inherit("scripts/skills/skill", {
 		local p = {
 			Type = "legend_miasma",
 			Tooltip = "Miasma lingers here, harmful to any living being",
+			IsPositive = false,
 			IsAppliedAtRoundStart = false,
 			IsAppliedAtTurnEnd = true,
 			IsAppliedOnMovement = false,
 			Timeout = this.Time.getRound() + 3,
-			Callback = this.Const.Tactical.Common.onApplyMiasma
+			IsByPlayer = _user.isPlayerControlled(),
+			Callback = this.Const.Tactical.Common.onApplyMiasma,
+			function Applicable( _a )
+			{
+				return !_a.getFlags().has("undead");
+			}
 		};
 
 		foreach( tile in targets )

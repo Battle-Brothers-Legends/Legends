@@ -78,6 +78,7 @@ this.drive_away_bandits_contract <- this.inherit("scripts/contracts/contract", {
 			{
 				this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 				this.Contract.m.Destination.clearTroops();
+				this.Contract.m.Destination.setLastSpawnTimeToNow();
 
 				if (this.Contract.getDifficultyMult() <= 1.15 && !this.Contract.m.Destination.getFlags().get("IsEventLocation"))
 				{
@@ -218,6 +219,11 @@ this.drive_away_bandits_contract <- this.inherit("scripts/contracts/contract", {
 					this.Contract.setScreen("BountyHunters1");
 					this.World.Contracts.showActiveContract();
 				}
+				else if (this.Flags.get("IsBountyHunterRetreat"))
+				{
+					this.Contract.setScreen("BountyHunters3");
+					this.World.Contracts.showActiveContract();
+				}
 			}
 
 			function onCombatVictory( _combatID )
@@ -233,6 +239,7 @@ this.drive_away_bandits_contract <- this.inherit("scripts/contracts/contract", {
 				if (_combatID == "BountyHunters")
 				{
 					this.Flags.set("IsBountyHunterPresent", false);
+					this.Flags.set("IsBountyHunterRetreat", true);
 					this.Flags.set("IsRobberBaronDead", false);
 				}
 			}
@@ -362,6 +369,24 @@ this.drive_away_bandits_contract <- this.inherit("scripts/contracts/contract", {
 					Text = "Let\'s move on. We still have payment to collect.",
 					function getResult()
 					{
+						return 0;
+					}
+
+				}
+			]
+		});
+		this.m.Screens.push({
+			ID = "BountyHunters3",
+			Title = "Along the way...",
+			Text = "[img]gfx/ui/events/event_07.png[/img]The bounty hunters are too much for the %companyname%! Not wanting your men needlessly killed, you order a hasty retreat. Unfortunately, the head of %robberbaron% was lost in the chaos...",
+			Image = "",
+			List = [],
+			Options = [
+				{
+					Text = "Oh well. We still have payment to collect.",
+					function getResult()
+					{
+						this.Flags.set("IsBountyHunterRetreat", false);
 						return 0;
 					}
 

@@ -47,10 +47,10 @@ this.legend_armor_cloak_rich <- this.inherit("scripts/items/legend_armor/legend_
 		this.m.SpriteBack = "cloak_rich_" + variant + "";
 		this.m.SpriteDamagedBack = "cloak_rich_" + variant + "_damaged";
 		this.m.SpriteCorpseBack = "cloak_rich_" + variant + "_dead";
-		this.m.Icon = "legend_armor/cloak/cloak_rich_" + variant + ".png";
+		this.m.Icon = "legend_armor/icon_cloak_rich_" + variant + ".png";
 		this.m.IconLarge = this.m.Icon;
-		this.m.OverlayIcon = "legend_armor/cloak/icon_cloak_rich_" + variant + ".png";
-		this.m.OverlayIconLarge = "legend_armor/cloak/inventory_cloak_rich_" + variant + ".png";
+		this.m.OverlayIcon = "legend_armor/icon_cloak_rich_" + variant + ".png";
+		this.m.OverlayIconLarge = "legend_armor/inventory_cloak_rich_" + variant + ".png";
 	}
 
 	function getTooltip()

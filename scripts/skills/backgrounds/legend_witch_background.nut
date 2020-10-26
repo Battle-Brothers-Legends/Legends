@@ -17,13 +17,13 @@ this.legend_witch_background <- this.inherit("scripts/skills/backgrounds/charact
 			"trait.eagleyes",
 			"trait.fearless",
 			"trait.huge",
-			"trait.loyal",
 			"trait.quick",
 			"trait.swift",
 			"trait.sure_footing",
 			"trait.tough",
 			"trait.disloyal",
-			"trait.loyal"
+			"trait.loyal",
+			"trait.dumb"
 		];
 		this.m.Titles = [
 			"the Enthralling",

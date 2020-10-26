@@ -53,6 +53,7 @@ this.drive_away_nomads_contract <- this.inherit("scripts/contracts/contract", {
 			{
 				this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 				this.Contract.m.Destination.clearTroops();
+				this.Contract.m.Destination.setLastSpawnTimeToNow();
 
 				if (this.Contract.getDifficultyMult() <= 1.15 && !this.Contract.m.Destination.getFlags().get("IsEventLocation"))
 				{
@@ -101,8 +102,6 @@ this.drive_away_nomads_contract <- this.inherit("scripts/contracts/contract", {
 						this.Contract.m.Destination.setFaction(zombies.getID());
 						zombies.addSettlement(this.Contract.m.Destination.get(), false);
 						this.Contract.addUnitsToEntity(this.Contract.m.Destination, this.Const.World.Spawn.NecromancerSouthern, 110 * this.Contract.getDifficultyMult() * this.Contract.getScaledDifficultyMult());
-						this.Contract.m.Destination.setLastSpawnTimeToNow();
-						this.Contract.m.Destination.resetDefenderSpawnDay();
 					}
 				}
 				else if (r <= 50)

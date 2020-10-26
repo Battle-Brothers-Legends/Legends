@@ -1,6 +1,7 @@
 this.legend_dazed_effect <- this.inherit("scripts/skills/skill", {
 	m = {
 		TurnsLeft = 2
+		// , IsForced = false
 	},
 	function create()
 	{
@@ -57,6 +58,18 @@ this.legend_dazed_effect <- this.inherit("scripts/skills/skill", {
 	function onAdded()
 	{
 		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
+		// if (!this.m.Container.getActor().getCurrentProperties().IsImmuneToStun || this.m.IsForced)
+		// {
+		// 	this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
+		// }
+		// else
+		// {
+		//  this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.m.Container.getActor().getName()) + " became baffled instead of dazed, due to being stun immune.");
+		// 	local forceBaffle = this.new("scripts/skills/effects/legend_baffled_effect");
+		// 	forceBaffle.m.IsForced = true;
+		// 	this.m.Container.add(forceBaffle);
+		//  this.m.IsGarbage = true;
+		// }
 	}
 
 	function onRefresh()

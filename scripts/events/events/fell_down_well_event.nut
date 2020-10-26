@@ -184,6 +184,11 @@ this.fell_down_well_event <- this.inherit("scripts/events/event", {
 
 		foreach( b in brothers )
 		{
+			if (b.getSkills().hasSkill("trait.player"))
+			{
+				continue;
+			}
+
 			if (b.getSkills().hasSkill("trait.strong"))
 			{
 				candidates_strong.push(b);
@@ -192,6 +197,11 @@ this.fell_down_well_event <- this.inherit("scripts/events/event", {
 			{
 				candidates_other.push(b);
 			}
+		}
+
+		if (candidates_other.len() == 0)
+		{
+			return;
 		}
 
 		this.m.Other = candidates_other[this.Math.rand(0, candidates_other.len() - 1)];

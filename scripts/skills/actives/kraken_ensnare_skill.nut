@@ -91,7 +91,7 @@ this.kraken_ensnare_skill <- this.inherit("scripts/skills/skill", {
 
 		local ensnare = this.new("scripts/skills/effects/kraken_ensnare_effect");
 		ensnare.setMode(_data.User.getMode());
-		ensnare.setParentID(_data.User.getParent() != null ? _data.User.getParent().getID() : null);
+		ensnare.setParentID(_data.User.getParent() != null && !_data.User.getParent().isNull() ? _data.User.getParent().getID() : null);
 		ensnare.setOnRemoveCallback(function ( _data )
 		{
 			local targetTile = _data.TargetEntity.getTile();

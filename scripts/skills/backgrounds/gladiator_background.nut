@@ -43,6 +43,34 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.LastNames = this.Const.Strings.SouthernNamesLast;
 		this.m.Level = this.Math.rand(2, 4);
 		this.m.IsCombatBackground = true;
+		this.m.Modifiers.Ammo = this.Const.LegendMod.ResourceModifiers.Ammo[0];
+		this.m.Modifiers.ArmorParts = this.Const.LegendMod.ResourceModifiers.ArmorParts[0];
+		this.m.Modifiers.Meds = this.Const.LegendMod.ResourceModifiers.Meds[0];
+		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[3];
+		this.m.PerkTreeDynamic = {
+			Weapon = [
+				this.Const.Perks.PolearmTree,
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.ThrowingTree,
+				this.Const.Perks.DaggerTree
+			],
+			Defense = [
+				this.Const.Perks.HeavyArmorTree
+			],
+			Traits = [
+				this.Const.Perks.ViciousTree,
+				this.Const.Perks.IndestructibleTree,
+				this.Const.Perks.AgileTree,
+				this.Const.Perks.LargeTree,
+				this.Const.Perks.FitTree
+			],
+			Enemy = [
+			],
+			Class = [
+				this.Const.Perks.BeastClassTree
+			],
+			Magic = []
+		}
 	}
 
 	function getTooltip()
@@ -61,9 +89,47 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 		];
 	}
 
+	//Default Male
+	function setGender(_gender = -1)
+	{
+		local r = _gender;
+		if (_gender == -1)
+		{
+			r = 0;
+			if (this.World.LegendsMod.Configs().LegendGenderEnabled())
+			{
+				r = this.Math.rand(0, 1);
+			}
+		}
+
+		if (r != 1)
+		{
+			return
+		}
+		this.m.Faces = this.Const.Faces.SouthernFemale;
+		this.m.Hairs = this.Const.Hair.SouthernFemale;
+		this.m.HairColors = this.Const.HairColors.Young;
+		this.m.Beards = null;
+		this.m.BeardChance = 0;
+		this.m.Bodies = this.Const.Bodies.SouthernFemale;
+		this.m.IsFemaleBackground = true;
+	}
+
+
 	function onBuildDescription()
 	{
-		return "{The South is littered with slaves of all sorts, called the indebted for their debt to the Gilder. While most find themselves in the fields, a select few are taken to the fighting pits to battle it out. | While northerners do partake in combat tournaments, nothing gets close to the violence and gore of a southern gladiatorial pit. | In the South, rich and poor alike enjoy cheering on the gladiators of the fighting pits. | Southern gladiatorial pits are filled with indebted and voluntary killers alike. | A bloody house of combat and betting, a gladiatorial pit is the one place in the South one may find rich and poor crowded together.} {It was from these ranks %name% came. He rapidly grew through the ranks and managed to buy his way out of the pits and into whatever \'freedom\' one could find after such a life. | A crowd-favorite, %name%\'s time as a gladiator ended after a \'pardon\' by his wealthy sponsors. But in early retirement he found his life unfulfilled. | Successful killers such as %name% can buy their way to freedom, though the bloodlust has yet to leave the man. | %name% was involved in a \'diving\' incident and received a year long ban from the pits. | But gladiators like %name% are not just popular with the public, but particularly with the womenfolk. A raunchy tryst with a nobleman\'s wife led to the fighter being spirited away under the cover of night lest he be castrated. | A pit\'s most popular fighter is usually a blend of murderous handsomeness, and a man such as %name% was only the former. Dispirited by the lack of fame he thought he had earned, he purchased his freedom and departed the blood sport.} {Gladiators usually cross from fighting pit to fighting pit, so a sturdy, well skilled fighter such as %name% is rare to find in the wild. Yet here he stands, albeit with enough scars to make a flagellant blush. | You\'ve met many a warrior, but rarely one with the particular skillsets of a pit fighter such as %name%. All the clashing in the arenas has made him a clever warrior indeed, and also one with many a scar and injury to match his time there. | There\'s many pairings in this world, and a gladiator with an untouched body is not one of them. %name% is a skilled fighter, but he earned those experiences with his own blood and body. | An impressive gladiatorial resume such as the one %name% brings hints at a man well versed in killing. The many scars, however, flatly state that his time in the pits came with an irreversible price of their own. | Gladiators such as %name% could be the most skilled fighters in all the land, but the fighting pits are full of games and are designed to bring harm to all who partake. The man is a talented warrior, but he wears the scars and wounds of a career in the arena.}";
+
+		if(this.m.IsFemaleBackground == true)
+		{
+
+		return "{The South is littered with slaves of all sorts, called the indebted for their debt to the Gilder. While most find themselves in the fields, a select few are taken to the fighting pits to battle it out. | While northerners do partake in combat tournaments, nothing gets close to the violence and gore of a southern gladiatorial pit. | In the South, rich and poor alike enjoy cheering on the gladiators of the fighting pits. | Southern gladiatorial pits are filled with indebted and voluntary killers alike. | A bloody house of combat and betting, a gladiatorial pit is the one place in the South one may find rich and poor crowded together.} {It was from these ranks %name% came. She rapidly grew through the ranks and managed to buy her way out of the pits and into whatever \'freedom\' one could find after such a life. | A crowd-favorite, %name%\'s time as a gladiator ended after a \'pardon\' by her wealthy sponsors. But in early retirement she found her life unfulfilled. | Successful killers such as %name% can buy their way to freedom, though the bloodlust has yet to leave the woman. | %name% was involved in a \'diving\' incident and received a year long ban from the pits. | But gladiators like %name% are not just popular with the public, but particularly with lusty folk . A raunchy tryst with a noble led to the fighter being spirited away under the cover of night lest she be mutilated. | A pit\'s most popular fighter is usually a blend of murderous handsomeness, and a woman such as %name% was only the former. Dispirited by the lack of fame she thought she had earned, she purchased her freedom and departed the blood sport.} {Gladiators usually cross from fighting pit to fighting pit, so a sturdy, well skilled fighter such as %name% is rare to find in the wild. Yet here she stands, albeit with enough scars to make a flagellant blush. | You\'ve met many a warrior, but rarely one with the particular skillsets of a pit fighter such as %name%. All the clashing in the arenas has made her a clever warrior indeed, and also one with many a scar and injury to match her time there. | There\'s many pairings in this world, and a gladiator with an untouched body is not one of them. %name% is a skilled fighter, but she earned those experiences with her own blood and body. | An impressive gladiatorial resume such as the one %name% brings hints at a woman well versed in killing. The many scars, however, flatly state that her time in the pits came with an irreversible price of their own. | Gladiators such as %name% could be the most skilled fighters in all the land, but the fighting pits are full of games and are designed to bring harm to all who partake. The woman is a talented warrior, but she wears the scars and wounds of a career in the arena.}";
+		}
+		else
+		{
+
+		return "{The South is littered with slaves of all sorts, called the indebted for their debt to the Gilder. While most find themselves in the fields, a select few are taken to the fighting pits to battle it out. | While northerners do partake in combat tournaments, nothing gets close to the violence and gore of a southern gladiatorial pit. | In the South, rich and poor alike enjoy cheering on the gladiators of the fighting pits. | Southern gladiatorial pits are filled with indebted and voluntary killers alike. | A bloody house of combat and betting, a gladiatorial pit is the one place in the South one may find rich and poor crowded together.} {It was from these ranks %name% came. He rapidly grew through the ranks and managed to buy his way out of the pits and into whatever \'freedom\' one could find after such a life. | A crowd-favorite, %name%\'s time as a gladiator ended after a \'pardon\' by his wealthy sponsors. But in early retirement he found his life unfulfilled. | Successful killers such as %name% can buy their way to freedom, though the bloodlust has yet to leave the man. | %name% was involved in a \'diving\' incident and received a year long ban from the pits. | But gladiators like %name% are not just popular with the public, but particularly with lusty folk. A raunchy tryst with a noble led to the fighter being spirited away under the cover of night lest he be castrated. | A pit\'s most popular fighter is usually a blend of murderous handsomeness, and a man such as %name% was only the former. Dispirited by the lack of fame he thought he had earned, he purchased his freedom and departed the blood sport.} {Gladiators usually cross from fighting pit to fighting pit, so a sturdy, well skilled fighter such as %name% is rare to find in the wild. Yet here he stands, albeit with enough scars to make a flagellant blush. | You\'ve met many a warrior, but rarely one with the particular skillsets of a pit fighter such as %name%. All the clashing in the arenas has made him a clever warrior indeed, and also one with many a scar and injury to match his time there. | There\'s many pairings in this world, and a gladiator with an untouched body is not one of them. %name% is a skilled fighter, but he earned those experiences with his own blood and body. | An impressive gladiatorial resume such as the one %name% brings hints at a man well versed in killing. The many scars, however, flatly state that his time in the pits came with an irreversible price of their own. | Gladiators such as %name% could be the most skilled fighters in all the land, but the fighting pits are full of games and are designed to bring harm to all who partake. The man is a talented warrior, but he wears the scars and wounds of a career in the arena.}";
+		}
+
 	}
 
 	function onSetAppearance()

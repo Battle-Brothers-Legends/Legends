@@ -8,7 +8,7 @@ this.legend_rune_resilience <- this.inherit("scripts/items/legend_armor/legend_a
 		this.m.Name = "Armor Rune Sigil: Resilience";
 		this.m.Description = "An inscribed rock that can be attached to a character\'s armor.";
 		this.m.ArmorDescription = "Includes An inscribed rock that grants additional resilience bonuses.";
-		this.m.Icon = "legend_armor/runes/rune_stone_3.png";
+		this.m.Icon = "rune_sigils/rune_stone_3.png";
 		this.m.IconLarge = this.m.Icon;
 		this.m.OverlayIcon = "";
 		this.m.OverlayIconLarge = "";

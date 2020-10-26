@@ -216,6 +216,7 @@ this.icy_cave_enter_event <- this.inherit("scripts/events/event", {
 				}
 
 				this.Characters.push(_event.m.Champion.getImagePath());
+				this.World.Assets.getStash().makeEmptySlots(1);
 				local item = this.new("scripts/items/special/broken_ritual_armor_item");
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -236,6 +237,12 @@ this.icy_cave_enter_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				_event.m.Title = "After the battle...";
+
+				if (this.World.State.getLastLocation() != null)
+				{
+					this.World.State.getLastLocation().setVisited(false);
+				}
+
 				local roster = this.World.getPlayerRoster().getAll();
 				roster.sort(function ( _a, _b )
 				{
@@ -264,18 +271,13 @@ this.icy_cave_enter_event <- this.inherit("scripts/events/event", {
 						}
 
 					});
-					  // [041]  OP_CLOSE          0      5    0    0
+					  // [057]  OP_CLOSE          0      5    0    0
 				}
 
 				this.Options.push({
 					Text = "This isn\'t worth it. We should leave this place.",
 					function getResult( _event )
 					{
-						if (this.World.State.getLastLocation() != null)
-						{
-							this.World.State.getLastLocation().setVisited(false);
-						}
-
 						return 0;
 					}
 

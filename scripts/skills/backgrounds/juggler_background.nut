@@ -65,6 +65,8 @@ this.juggler_background <- this.inherit("scripts/skills/backgrounds/character_ba
 		this.m.Bodies = this.Const.Bodies.Skinny;
 	}
 
+	
+
 	function getTooltip()
 	{
 		return [

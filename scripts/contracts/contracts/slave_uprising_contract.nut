@@ -49,7 +49,7 @@ this.slave_uprising_contract <- this.inherit("scripts/contracts/contract", {
 			function start()
 			{
 				this.Contract.m.BulletpointsObjectives = [
-					"Beat down the uprising of the indebted at the %location% near %townname%"
+					"Beat down the uprising of slaves at the %location% near %townname%"
 				];
 				this.Contract.setScreen("Task");
 			}
@@ -88,7 +88,7 @@ this.slave_uprising_contract <- this.inherit("scripts/contracts/contract", {
 			function start()
 			{
 				this.Contract.m.BulletpointsObjectives = [
-					"Beat down the uprising of the indebted at the %location% near %townname%"
+					"Beat down the uprising of slaves at the %location% near %townname%"
 				];
 				this.Contract.m.Destination.getSprite("selection").Visible = true;
 				this.Contract.m.Destination.setOnEnterCallback(this.onDestinationEntered.bindenv(this));
@@ -288,7 +288,7 @@ this.slave_uprising_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "FightingBack1",
 			Title = "As you approach...",
-			Text = "[img]gfx/ui/events/event_71.png[/img]{The indebted at %location% see you coming and you hope the presence of your weapons will help deter them from continuing whatever freedom seeking they\'ve undertaken. Shockingly, they do not lay down their arms but merely come together to stand against you. They are a crude lot, an arrangement of those whom enforced labor and recruitment has put the number on. | You find the indebted and they stare back with a very clear understanding of why you are there. The arrangement of participants, yourself armed to the teeth, coming by way of town, the indebted, armed with whatever they scavenged, far from their chains. They are a motley, sad assembly, but you know well that whatever they lack in weaponry they more than make up for in desire. A taste of freedom is nothing if not a sharpening effect. | As described, the indebted have taken over the %location% and armed themselves with whatever they could find. Upon seeing you, they hurry to some notion of formation, but they lack training, discipline, food, and much else. What they have, though, is no desire to return to whence they came which can be as sharp and dangerous a steel as any.}",
+			Text = "[img]gfx/ui/events/event_71.png[/img]{The slaves at %location% see you coming and you hope the presence of your weapons will help deter them from continuing whatever freedom seeking they\'ve undertaken. Shockingly, they do not lay down their arms but merely come together to stand against you. They are a crude lot, an arrangement of those whom enforced labor and recruitment has put the number on. | You find the indebted and they stare back with a very clear understanding of why you are there. The arrangement of participants, yourself armed to the teeth, coming by way of town, the indebted, armed with whatever they scavenged, far from their chains. They are a motley, sad assembly, but you know well that whatever they lack in weaponry they more than make up for in desire. A taste of freedom is nothing if not a sharpening effect. | As described, the indebted have taken over the %location% and armed themselves with whatever they could find. Upon seeing you, they hurry to some notion of formation, but they lack training, discipline, food, and much else. What they have, though, is no desire to return to whence they came which can be as sharp and dangerous a steel as any.}",
 			Image = "",
 			List = [],
 			Options = [

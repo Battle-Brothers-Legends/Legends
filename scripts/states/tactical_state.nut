@@ -189,6 +189,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 		tsb.setOnEntityMouseEnterListener(this.turnsequencebar_onEntityMouseEnter.bindenv(this));
 		tsb.setOnEntityMouseLeaveListener(this.turnsequencebar_onEntityMouseLeave.bindenv(this));
 		tsb.setOnOpenInventoryButtonPressed(this.showCharacterScreen.bindenv(this));
+		tsb.setCheckEnemyRetreatListener(this.turnsequencebar_onCheckEnemyRetreat.bindenv(this));
 		local ri = this.m.TacticalScreen.getTopbarRoundInformationModule();
 		ri.setOnQueryRoundInformationListener(this.topbar_round_information_onQueryRoundInformation.bindenv(this));
 		local ob = this.m.TacticalScreen.getTopbarOptionsModule();
@@ -1964,7 +1965,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 							bro.worsenMood(this.Const.MoodChange.BattleRetreat, "Retreated from battle");
 						}
 					}
-					else if (bro.getMoodState() > this.Const.MoodState.Concerned && !bro.getCurrentProperties().IsContentWithBeingInReserve)
+					else if (bro.getMoodState() > this.Const.MoodState.Concerned && !bro.getCurrentProperties().IsContentWithBeingInReserve && !this.World.Assets.m.IsDisciplined)
 					{
 						++bro.getLifetimeStats().BattlesWithoutMe;
 
@@ -2002,6 +2003,12 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 
 	function onBattleEndedDelayed( _isVictory )
 	{
+		if (this.m.MenuStack.hasBacksteps())
+		{
+			this.Time.scheduleEvent(this.TimeUnit.Real, 50, this.onBattleEndedDelayed.bindenv(this), _isVictory);
+			return;
+		}
+
 		if (this.m.IsGameFinishable)
 		{
 			this.Tooltip.hide();
@@ -2260,8 +2267,11 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 		this.Tactical.Entities.updateTileEffects();
 		this.Tactical.TopbarRoundInformation.update();
 		this.m.MaxHostiles = this.Math.max(this.m.MaxHostiles, this.Tactical.Entities.getHostilesNum());
+	}
 
-		if (_round > 1 && !this.Tactical.Entities.isCombatFinished() && !this.m.IsAutoRetreat)
+	function turnsequencebar_onCheckEnemyRetreat()
+	{
+		if (this.Time.getRound() >= 2 && !this.Tactical.Entities.isCombatFinished() && !this.m.IsAutoRetreat)
 		{
 			this.Tactical.Entities.checkEnemyRetreating();
 
@@ -2270,6 +2280,14 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 				this.m.IsEnemyRetreatDialogShown = true;
 				this.showRetreatScreen();
 			}
+			else
+			{
+				this.Tactical.TurnSequenceBar.setBusy(false);
+			}
+		}
+		else
+		{
+			this.Tactical.TurnSequenceBar.setBusy(false);
 		}
 	}
 
@@ -2349,6 +2367,11 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 
 	function showDialogPopup( _title, _text, _okCallback, _cancelCallback )
 	{
+		if (this.m.TacticalDialogScreen.isVisible() || this.m.TacticalDialogScreen.isAnimating())
+		{
+			return;
+		}
+
 		if (!this.DialogScreen.isVisible() && !this.DialogScreen.isAnimating())
 		{
 			this.DialogScreen.show(_title, _text, this.onDialogHidden.bindenv(this), _okCallback, _cancelCallback);
@@ -2357,7 +2380,11 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 			this.m.MenuStack.push(function ()
 			{
 				this.DialogScreen.hide();
-				this.m.TacticalScreen.show();
+
+				if (!this.isBattleEnded())
+				{
+					this.m.TacticalScreen.show();
+				}
 			}, function ()
 			{
 				return !this.DialogScreen.isAnimating();
@@ -2547,6 +2574,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 			this.Cursor.setCursor(this.Const.UI.Cursor.Hand);
 			this.m.IsShowingFleeScreen = false;
 			this.setPause(false);
+			this.Tactical.TurnSequenceBar.setBusy(false);
 		}, function ()
 		{
 			return !this.m.TacticalDialogScreen.isAnimating();
@@ -3045,7 +3073,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 
 			if (this.m.LastTileHovered != null && this.m.LastTileHovered.IsEmpty)
 			{
-				local e = this.Tactical.spawnEntity("scripts/entity/tactical/enemies/kraken");
+				local e = this.Tactical.spawnEntity("scripts/entity/tactical/enemies/lindwurm");
 				e.setFaction(this.isScenarioMode() ? this.Const.Faction.Undead : this.World.FactionManager.getFactionOfType(this.Const.FactionType.Undead).getID());
 				e.assignRandomEquipment();
 			}

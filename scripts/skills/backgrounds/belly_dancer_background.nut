@@ -7,8 +7,8 @@ this.belly_dancer_background <- this.inherit("scripts/skills/backgrounds/charact
 		this.m.Name = "Belly Dancer";
 		this.m.Icon = "ui/backgrounds/background_64.png";
 		this.m.BackgroundDescription = "";
-		this.m.GoodEnding = "";
-		this.m.BadEnding = "";
+		this.m.GoodEnding = "%name% the southern belly dancer left the company in good time. While his... particularities made him an excellent soldier, it was not his life\'s passion. To entertain, through rhythmic, confusingly erotic motions, that is what he\'s wanted. The last you heard, he was in the court of a Vizier where he serves not only as an entertainer, but, thanks to his time with the %companyname%, also as an adviser on marital matters.";
+		this.m.BadEnding = "As the company failed to achieve the success you had hoped for, many departed its ranks. The southern belly dancer %name% joined them. Unfortunately, he sought to ply his trade in the north, thinking he may be able to spread his culture there. The indigenous population was quick to accuse him of \'unregulated body sorcery\' and burn him at the stake.";
 		this.m.HiringCost = 0;
 		this.m.DailyCost = 20;
 		this.m.Excluded = [
@@ -40,6 +40,30 @@ this.belly_dancer_background <- this.inherit("scripts/skills/backgrounds/charact
 		this.m.Ethnicity = 1;
 		this.m.IsFemaleBackground = true;
 		this.m.IsCombatBackground = false;
+		this.m.IsPerformingBackground = true;
+		this.m.Modifiers.Barter = this.Const.LegendMod.ResourceModifiers.Barter[1];
+		this.m.PerkTreeDynamic = {
+			Weapon = [
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.GreatSwordTree,
+				this.Const.Perks.PolearmTree,
+				this.Const.Perks.DaggerTree,
+				this.Const.Perks.ThrowingTree
+			],
+			Defense = [
+				this.Const.Perks.LightArmorTree,
+			],
+			Traits = [
+				this.Const.Perks.TrainedTree,
+				this.Const.Perks.FitTree,
+				this.Const.Perks.FastTree,
+				this.Const.Perks.AgileTree,
+				this.Const.Perks.DeviousTree
+			],
+			Enemy = [this.Const.Perks.SwordmastersTree],
+			Class = [],
+			Magic = []
+		}
 	}
 
 	function getTooltip()
@@ -75,7 +99,7 @@ this.belly_dancer_background <- this.inherit("scripts/skills/backgrounds/charact
 			],
 			MeleeSkill = [
 				10,
-				10
+				15
 			],
 			RangedSkill = [
 				5,

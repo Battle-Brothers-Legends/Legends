@@ -66,7 +66,9 @@ this.legend_noble_commander_background <- this.inherit("scripts/skills/backgroun
 			0.015, // badlands
 			0.015, //highlands
 			0.025, //stepps
-			0.0 //ocean
+			0.0, //ocean
+			0.0, //desert
+			0.0 //oasis
 		];
 		this.m.CustomPerkTree = [
 			[

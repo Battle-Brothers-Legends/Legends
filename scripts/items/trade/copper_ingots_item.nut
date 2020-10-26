@@ -12,6 +12,7 @@ this.copper_ingots_item <- this.inherit("scripts/items/trade/trading_good_item",
 			"attached_location.surface_copper_vein"
 		];
 		this.m.Value = 220;
+		this.m.ResourceValue = 1;
 	}
 
 });

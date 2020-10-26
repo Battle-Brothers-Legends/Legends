@@ -372,7 +372,7 @@ gt.Const.Tactical.Actor.Cultist <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantButcher <- {
-	XP = 75,
+	XP = 150,
 	ActionPoints = 9,
 	Hitpoints = 75,
 	Bravery = 50,
@@ -392,7 +392,7 @@ gt.Const.Tactical.Actor.LegendPeasantButcher <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantMonk <- {
-	XP = 75,
+	XP = 150,
 	ActionPoints = 9,
 	Hitpoints = 60,
 	Bravery = 100,
@@ -412,9 +412,9 @@ gt.Const.Tactical.Actor.LegendPeasantMonk <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantBlacksmith <- {
-	XP = 100,
+	XP = 350,
 	ActionPoints = 9,
-	Hitpoints = 120,
+	Hitpoints = 80,
 	Bravery = 60,
 	Stamina = 150,
 	MeleeSkill = 80,
@@ -430,8 +430,9 @@ gt.Const.Tactical.Actor.LegendPeasantBlacksmith <- {
 	],
 	FatigueRecoveryRate = 20
 };
+
 gt.Const.Tactical.Actor.LegendPeasantFarmhand <- {
-	XP = 75,
+	XP = 150,
 	ActionPoints = 9,
 	Hitpoints = 75,
 	Bravery = 50,
@@ -451,7 +452,7 @@ gt.Const.Tactical.Actor.LegendPeasantFarmhand <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantMinstrel <- {
-	XP = 75,
+	XP = 150,
 	ActionPoints = 9,
 	Hitpoints = 75,
 	Bravery = 70,
@@ -471,7 +472,7 @@ gt.Const.Tactical.Actor.LegendPeasantMinstrel <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantPoacher <- {
-	XP = 75,
+	XP = 150,
 	ActionPoints = 9,
 	Hitpoints = 70,
 	Bravery = 35,
@@ -491,7 +492,7 @@ gt.Const.Tactical.Actor.LegendPeasantPoacher <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantWoodsman <- {
-	XP = 75,
+	XP = 200,
 	ActionPoints = 9,
 	Hitpoints = 120,
 	Bravery = 50,
@@ -511,9 +512,9 @@ gt.Const.Tactical.Actor.LegendPeasantWoodsman <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantMiner <- {
-	XP = 100,
+	XP = 150,
 	ActionPoints = 9,
-	Hitpoints = 100,
+	Hitpoints = 75,
 	Bravery = 50,
 	Stamina = 100,
 	MeleeSkill = 55,
@@ -531,7 +532,7 @@ gt.Const.Tactical.Actor.LegendPeasantMiner <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantSquire <- {
-	XP = 100,
+	XP = 400,
 	ActionPoints = 9,
 	Hitpoints = 130,
 	Bravery = 75,
@@ -551,7 +552,7 @@ gt.Const.Tactical.Actor.LegendPeasantSquire <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantWitchHunter <- {
-	XP = 75,
+	XP = 400,
 	ActionPoints = 9,
 	Hitpoints = 90,
 	Bravery = 90,

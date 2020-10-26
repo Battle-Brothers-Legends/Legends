@@ -8,7 +8,7 @@ this.food_item <- this.inherit("scripts/items/item", {
 	},
 	function isDesirable()
 	{
-		return this.m.IsUndesirable;
+		return !this.m.IsUndesirable;
 	}
 
 	function isAmountShown()

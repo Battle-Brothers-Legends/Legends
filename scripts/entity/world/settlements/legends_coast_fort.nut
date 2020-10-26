@@ -255,8 +255,7 @@ this.legends_coast_fort <- this.inherit("scripts/entity/world/settlements/legend
 			"female_adventurous_noble_background",
 			"female_adventurous_noble_background",
 		]];
-		this.m.StablesLists = [
-		[
+		this.m.StablesLists = [[
 			"legend_donkey",
 			"legend_horse_rouncey"
 		],

@@ -64,7 +64,7 @@ this.legend_piercing_bolt <- this.inherit("scripts/skills/skill", {
 			id = 5,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "If bolt hits its target, it will continue through and damage any target behind, dealing %50 damage."
+			text = "If the bolt hits its target, it will continue through and damage any target behind, dealing 50% damage."
 		});
 
 		ret.push({
@@ -180,6 +180,12 @@ this.legend_piercing_bolt <- this.inherit("scripts/skills/skill", {
 
 		local ownTile = _user.getTile();
 		local dir = ownTile.getDirectionTo(_targetTile);
+		
+		if (!ret)
+		{
+			return ret
+		}
+
 		if (!_targetTile.hasNextTile(dir))
 		{
 			return ret

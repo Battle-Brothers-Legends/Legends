@@ -87,7 +87,7 @@ this.legend_aperthropy_injury <- this.inherit("scripts/skills/injury_permanent/p
 			else
 			{
 
-				actor.getSkills().add(this.new("scripts/skills/actives/legend_boar_charge"));
+				actor.getSkills().add(this.new("scripts/skills/actives/legend_transform_into_boar"));
 
 			}
 		}

@@ -46,7 +46,7 @@ this.caravan_guard <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 			this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_alert"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_cripping_strikes"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			}
 	}

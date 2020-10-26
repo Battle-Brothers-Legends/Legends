@@ -1,5 +1,7 @@
 this.southern_ruins_big <- this.inherit("scripts/entity/tactical/entity", {
-	m = {},
+	m = {
+        IsRock = true    	
+	},
 	function getName()
 	{
 		return "Ruins";

@@ -86,10 +86,10 @@ this.ai_attack_handgonne <- this.inherit("scripts/ai/tactical/behavior", {
 
 			this.m.Skill.use(this.m.TargetTile);
 
-			if (_entity.isAlive() && (!_entity.isHiddenToPlayer() || this.m.TargetTile.IsVisibleForPlayer))
+			if (_entity.isAlive())
 			{
 				this.getAgent().declareAction();
-				this.getAgent().declareEvaluationDelay(this.m.Skill.getDelay() + 750);
+				this.getAgent().declareEvaluationDelay(this.m.Skill.getDelay());
 			}
 
 			this.m.TargetTile = null;

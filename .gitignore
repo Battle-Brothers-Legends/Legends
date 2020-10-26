@@ -1,18 +1,23 @@
 brushes/
 helmets/
 legend_armor/
+
 !scripts/items/legend_helmets/helmets/
+
 
 scripts/items/legend_armor/cloth/
 scripts/items/legend_armor/chain/
 scripts/items/legend_armor/plate/
+scripts/items/legend_armor/cloak/
+scripts/items/legend_armor/tabard/
 
 
 gfx/*.png
 !gfx/skills*
-!gfx/ui*
+!gfx/ui**
 *.cnut
 *.DS_Store
+temp.nut
 
 unpacked/**/*dead_arrows.png
 unpacked/**/*dead_javelin.png

@@ -3,7 +3,7 @@ this.herbal_snake_oil_blueprint <- this.inherit("scripts/crafting/blueprint", {
 	function create()
 	{
 		this.blueprint.create();
-		this.m.ID = "blueprint.herbal_cat_potion";
+		this.m.ID = "blueprint.snake_oil_herbal";
 		this.m.Type = this.Const.Items.ItemType.Usable
 		this.m.PreviewCraftable = this.new("scripts/items/misc/snake_oil_item");
 		this.m.Cost = 30;

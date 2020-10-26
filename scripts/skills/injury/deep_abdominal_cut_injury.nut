@@ -82,7 +82,7 @@ this.deep_abdominal_cut_injury <- this.inherit("scripts/skills/injury/injury", {
 			_properties.HitpointsMult *= 0.75;
 		}
 
-		_properties.StaminaMult *= 0.7;
+		_properties.StaminaMult *= 0.75;
 	}
 
 });

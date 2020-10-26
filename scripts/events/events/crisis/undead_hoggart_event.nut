@@ -100,6 +100,7 @@ this.undead_hoggart_event <- this.inherit("scripts/events/event", {
 					});
 				local item = this.new("scripts/items/weapons/named/named_dagger");
 				item.m.Name = "Barnabas\' Dagger";
+				this.World.Assets.getStash().makeEmptySlots(1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
@@ -299,6 +300,7 @@ this.undead_hoggart_event <- this.inherit("scripts/events/event", {
 				this.Characters.push(_event.m.Witchhunter.getImagePath());
 				local item = this.new("scripts/items/weapons/named/named_greatsword");
 				item.m.Name = "Hoggart\'s Heirloom";
+				this.World.Assets.getStash().makeEmptySlots(1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,

@@ -243,7 +243,9 @@ this.repair_building <- this.inherit("scripts/entity/world/camp/camp_building", 
         }
 
         ret.Craft += this.m.BaseCraft;
-
+		ret.Craft = ret.Craft * this.World.Assets.m.RepairSpeedMult; // should be taken into account (blacksmith influence)
+		local buff =  this.Math.ceil(this.World.getPlayerRoster().getAll().len() * this.Const.Difficulty.RepairMult[this.World.Assets.getEconomicDifficulty()] * this.World.Assets.m.RepairSpeedMult * 2 * this.Const.World.Assets.ArmorPerHour);
+		ret.Craft = ret.Craft + buff; // to buff it as a compensation for disabling asset_manager part while camping
         return ret;
     }
 
@@ -302,7 +304,7 @@ this.repair_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 	}
 
 	function getUpdateText()
-	{
+	{	
         if (this.m.PointsNeeded == 0)
         {
             return "No repairs queued";
@@ -341,6 +343,29 @@ this.repair_building <- this.inherit("scripts/entity/world/camp/camp_building", 
         }
 
         local modifiers = this.getModifiers();
+		modifiers.Craft = this.Math.round(modifiers.Craft); //important
+		
+		local roster = this.World.getPlayerRoster().getAll(); // so that repair perks have effect while camping too
+		local perkMod = 1.0; 
+		
+		foreach( bro in roster )
+		{
+			local items = bro.getItems().getAllItems();
+			local skills = [
+				"perk.legend_tools_spares",
+				"perk.legend_tools_drawers"
+			];
+
+			foreach( s in skills )
+			{
+				local skill = bro.getSkills().getSkillByID(s);
+
+				if (skill != null)
+				{
+					perkMod = this.Math.maxf(perkMod - skill.getModifier() * 0.003, 0.5);
+				}
+			}
+		}		
         foreach (i, r in this.m.Repairs)
         {
             if (r == null)
@@ -361,7 +386,7 @@ this.repair_building <- this.inherit("scripts/entity/world/camp/camp_building", 
             if (this.World.Assets.isConsumingAssets())
             {
                 local consumed = needed * modifiers.Consumption;
-                this.m.ToolsUsed += consumed;
+                this.m.ToolsUsed += consumed * perkMod;
                 this.World.Assets.addArmorPartsF(consumed * -1.0);
             }
 

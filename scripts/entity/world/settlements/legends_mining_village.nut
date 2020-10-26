@@ -367,6 +367,15 @@ this.legends_mining_village <- this.inherit("scripts/entity/world/settlements/le
 				Road = false,
 				Clear = true,
 				Force = true
+			}],
+			[1, {
+				Script = "scripts/entity/world/attached_location/gold_mine_location",
+				Terrain = ALL,
+				NearTerrain = [],
+				Distance = 1,
+				Road = false,
+				Clear = true,
+				Force = true
 			}]
 				]);
 				break;
@@ -385,6 +394,16 @@ this.legends_mining_village <- this.inherit("scripts/entity/world/settlements/le
 
 			[1, {
 				Script = "scripts/entity/world/attached_location/gem_mine_location",
+				Terrain = ALL,
+				NearTerrain = [],
+				Distance = 1,
+				Road = false,
+				Clear = true,
+				Force = true
+			}],
+
+			[1, {
+				Script = "scripts/entity/world/attached_location/gold_mine_location",
 				Terrain = ALL,
 				NearTerrain = [],
 				Distance = 1,
@@ -560,6 +579,19 @@ this.legends_mining_village <- this.inherit("scripts/entity/world/settlements/le
 			], 1, true);
 		}
 
+		if (this.Math.rand(1, 100) <= 40)
+		{
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/gold_mine_location", [
+				this.Const.World.TerrainType.Plains,
+				this.Const.World.TerrainType.Steppe,
+				this.Const.World.TerrainType.Snow,
+				this.Const.World.TerrainType.Hills,
+				this.Const.World.TerrainType.Tundra
+			], [
+				this.Const.World.TerrainType.Hills
+			], 1, true);
+		}
+
 		this.buildAttachedLocation(this.Math.rand(0, 1), "scripts/entity/world/attached_location/workshop_location", [
 			this.Const.World.TerrainType.Plains,
 			this.Const.World.TerrainType.Steppe,
@@ -656,6 +688,19 @@ this.legends_mining_village <- this.inherit("scripts/entity/world/settlements/le
 				this.Const.World.TerrainType.Hills
 			], 1, true);
 			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/salt_mine_location", [
+				this.Const.World.TerrainType.Plains,
+				this.Const.World.TerrainType.Steppe,
+				this.Const.World.TerrainType.Snow,
+				this.Const.World.TerrainType.Hills,
+				this.Const.World.TerrainType.Tundra
+			], [
+				this.Const.World.TerrainType.Hills
+			], 1, true);
+		}
+
+		if (this.Math.rand(1, 100) <= 40)
+		{
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/gold_mine_location", [
 				this.Const.World.TerrainType.Plains,
 				this.Const.World.TerrainType.Steppe,
 				this.Const.World.TerrainType.Snow,

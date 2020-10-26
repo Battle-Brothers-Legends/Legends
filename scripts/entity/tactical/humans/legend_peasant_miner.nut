@@ -53,7 +53,7 @@ this.legend_peasant_miner <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Items.equip(this.new("scripts/items/weapons/pickaxe"));
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[1, "sack_cloth"],
+			[1, "sackcloth"],
 			[1, "thick_tunic"],
 			[8, "linen_tunic"]
 		]));

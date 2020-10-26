@@ -75,7 +75,7 @@ this.legend_harvest_tree <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (_targetTile.getEntity().isTree())
+		if (_targetTile.getEntity().isTree() || _targetTile.getEntity().isSticks())
 		{
 			return true;
 		}

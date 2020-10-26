@@ -88,7 +88,7 @@ this.zombie_yeoman <- this.inherit("scripts/entity/tactical/enemies/zombie", {
 			[1, "ragged_surcoat"],
 			[1, "basic_mail_shirt"]
 		];
-		local armor = this.Const.World.Common.pickArmor(armor);
+		local armor = this.Const.World.Common.pickArmor(aList);
 
 		if (this.Math.rand(1, 100) <= 66)
 		{

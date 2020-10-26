@@ -66,15 +66,10 @@ this.desert2 <- this.inherit("scripts/mapgen/tactical_template", {
 			"entity/tactical/objects/tree_desert_large",
 			"entity/tactical/objects/tree_desert_large",
 			"entity/tactical/objects/desert_cactus1",
-			"entity/tactical/objects/desert_cactus2",
 			"entity/tactical/objects/desert_cactus1",
-			"entity/tactical/objects/desert_cactus2",
 			"entity/tactical/objects/desert_cactus1",
-			"entity/tactical/objects/desert_cactus2",
 			"entity/tactical/objects/desert_cactus1",
-			"entity/tactical/objects/desert_cactus2",
-			"entity/tactical/objects/desert_cactus2",
-			"entity/tactical/objects/desert_cactus2"
+			"entity/tactical/objects/desert_cactus1"
 		],
 		ChanceToSpawnObject = 1
 	},
@@ -86,6 +81,10 @@ this.desert2 <- this.inherit("scripts/mapgen/tactical_template", {
 		local t = this.createTileTransition();
 		t.setSocket("socket_desert");
 		this.Tactical.setTransitions("tile_desert_02", t);
+		this.Tactical.setTransitions("tile_legend_desert_05", t);
+		this.Tactical.setTransitions("tile_legend_desert_06", t);
+		this.Tactical.setTransitions("tile_legend_desert_07", t);
+		this.Tactical.setTransitions("tile_legend_desert_08", t);
 	}
 
 	function onFirstPass( _rect )
@@ -101,7 +100,27 @@ this.desert2 <- this.inherit("scripts/mapgen/tactical_template", {
 		tile.Subtype = this.Const.Tactical.TerrainSubtype.Desert;
 		tile.BlendPriority = this.Const.Tactical.TileBlendPriority.Desert2;
 		tile.IsBadTerrain = false;
+		 local random = this.Math.rand(1, 100);
+		if (random <= 20)
+		{
 		tile.setBrush("tile_desert_02");
+		}
+		else if (random >= 21 && random <=40)
+		{
+		tile.setBrush("tile_legend_desert_05");
+		}
+		else if (random >= 41 && random <=60)
+		{
+		tile.setBrush("tile_legend_desert_06");
+		}		
+		else if (random >= 61 && random <=80)
+		{
+		tile.setBrush("tile_legend_desert_07");
+		}
+		else 
+		{
+		tile.setBrush("tile_legend_desert_08");
+		}
 
 		if (_rect.IsEmpty)
 		{

@@ -207,12 +207,13 @@ this.legend_noble_ranged <- this.inherit("scripts/skills/backgrounds/character_b
 			[1, "open_leather_cap"]
 		]));
 
-		items.equip(this.new("scripts/items/weapons/legend_sling"));
-		items.addToBag(this.new("scripts/items/weapons/legend_shiv"));
+		items.equip(this.new("scripts/items/weapons/light_crossbow"));
+		items.equip(this.new("scripts/items/ammo/quiver_of_bolts"));
+		items.addToBag(this.new("scripts/items/weapons/knife"));
 		
 		items.equip(this.Const.World.Common.pickArmor([
-			[1, "legend_rabble_tunic"],
-			[1, "linen_tunic"]
+			[2, "padded_surcoat"],
+			[1, "basic_mail_shirt"]
 		]));
 	}
 

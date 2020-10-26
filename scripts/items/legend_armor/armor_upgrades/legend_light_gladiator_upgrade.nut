@@ -20,26 +20,11 @@ this.legend_light_gladiator_upgrade <- this.inherit("scripts/items/legend_armor/
 		this.m.SpriteCorpseBack = null;
 		this.m.Value = 200;
 		this.m.ConditionModifier = 60;
-		this.m.StaminaModifier = 4;
+		this.m.Condition = 60;
+		this.m.ConditionMax = 60;
+		this.m.StaminaModifier = -4;
 	}
 
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+60[/color] Durability"
-		});
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-4[/color] Maximum Fatigue"
-		});
-		return result;
-	}
 
 	function onArmorTooltip( _result )
 	{

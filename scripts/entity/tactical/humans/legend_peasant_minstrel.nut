@@ -72,7 +72,7 @@ this.legend_peasant_minstrel <- this.inherit("scripts/entity/tactical/human", {
 
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[1, "sack_cloth"],
+			[1, "sackcloth"],
 			[9, "linen_tunic"]
 		]));
 

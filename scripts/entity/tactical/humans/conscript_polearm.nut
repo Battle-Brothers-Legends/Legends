@@ -43,10 +43,10 @@ this.conscript_polearm <- this.inherit("scripts/entity/tactical/humans/conscript
 		else
 			variant = 8
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[2, "oriental/linothrax", variant],
+			[2, "oriental/linothorax", variant],
 			[1, "oriental/southern_mail_shirt"]
 		]));
-		
+
 		local variant = 7;
 		if (banner == 12)
 			variant = 12;
@@ -57,7 +57,7 @@ this.conscript_polearm <- this.inherit("scripts/entity/tactical/humans/conscript
 
 		local helm =this.Const.World.Common.pickHelmet([
 			[1, "oriental/southern_head_wrap", variant]
-		]) 
+		])
 
 		this.m.Items.equip(helm);
 	}

@@ -16,6 +16,7 @@ this.gilders_embrace_shield <- this.inherit("scripts/items/shields/shield", {
 		this.m.StaminaModifier = -16;
 		this.m.Condition = 786;
 		this.m.ConditionMax = 786;
+		this.m.IsIndestructible = true;
 	}
 
 	function updateVariant()

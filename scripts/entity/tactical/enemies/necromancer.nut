@@ -75,11 +75,11 @@ this.necromancer <- this.inherit("scripts/entity/tactical/human", {
 		}
 
 		local item = this.Const.World.Common.pickArmor([
-			[1, "ragged_dark_surcoac"],
+			[1, "ragged_dark_surcoat"],
 			[1, "thick_dark_tunic"]
 		]);
 		this.m.Items.equip(item);
-		
+
 		local item = this.Const.World.Common.pickHelmet([
 			[1, "witchhunter_hat"],
 			[1, "dark_cowl"],

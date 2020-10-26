@@ -405,6 +405,13 @@ this.legend_barbarian_prisoner_contract <- this.inherit("scripts/contracts/contr
 						local money = this.Contract.m.Payment.getOnCompletion();
 						this.World.Assets.addBusinessReputation(this.Const.World.Assets.ReputationOnContractSuccess);
 						this.World.Assets.addMoney(money);
+						local xp = money * 0.50;
+						local playerRoster = this.World.getPlayerRoster().getAll();
+						foreach( bro in playerRoster )
+						{
+							bro.addXP(xp);
+							bro.updateLevel();
+						}
 						this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelation(this.Const.World.Assets.RelationCivilianContractSuccess, "Protected a prisoner wagon as promised");
 						this.World.Contracts.finishActiveContract();
 						return 0;
@@ -415,7 +422,7 @@ this.legend_barbarian_prisoner_contract <- this.inherit("scripts/contracts/contr
 			function start()
 			{
 				local money = this.Contract.m.Payment.getOnCompletion();
-				local xpGained = this.Math.round(money * 0.1 * this.Const.Combat.GlobalXPMult);
+				local xpGained = this.Math.round(money * 0.5 * this.Const.Combat.GlobalXPMult);
 				this.List.push({
 					id = 10,
 					icon = "ui/icons/asset_money.png",

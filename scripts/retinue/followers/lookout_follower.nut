@@ -22,7 +22,7 @@ this.lookout_follower <- this.inherit("scripts/retinue/follower", {
 
 	function onUpdate()
 	{
-		this.World.State.getPlayer().m.VisionRadius = this.Const.World.Settings.Vision * 1.25;
+		this.World.Assets.m.VisionRadiusMult = 1.25;
 		this.World.Assets.m.IsShowingExtendedFootprints = true;
 	}
 

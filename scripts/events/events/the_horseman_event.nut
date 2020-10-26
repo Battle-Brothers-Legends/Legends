@@ -217,7 +217,6 @@ this.the_horseman_event <- this.inherit("scripts/events/event", {
 				this.Characters.push(_event.m.Flagellant.getImagePath());
 				local meleeSkill = 1;
 				local fatigue = 1;
-				local resolve = 1;
 				_event.m.Flagellant.getBaseProperties().MeleeSkill += meleeSkill;
 				_event.m.Flagellant.getBaseProperties().Stamina += fatigue;
 				_event.m.Flagellant.getSkills().update();
@@ -240,7 +239,7 @@ this.the_horseman_event <- this.inherit("scripts/events/event", {
 				this.List.push({
 					id = 16,
 					icon = "ui/icons/fatigue.png",
-					text = _event.m.Flagellant.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + resolve + "[/color] Max Fatigue"
+					text = _event.m.Flagellant.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + this.resolve + "[/color] Max Fatigue"
 				});
 			}
 

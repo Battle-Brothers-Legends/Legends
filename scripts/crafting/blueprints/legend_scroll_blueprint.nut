@@ -36,30 +36,7 @@ this.legend_scroll_blueprint <- this.inherit("scripts/crafting/blueprint", {
 		local item = this.new("scripts/items/misc/legend_scroll_item");
 		local r = this.Math.rand(1, 5);
 		item.m.Selection = r;
-		switch(r) {
-			case 1:
-				item.m.Description = "Use the scroll on a character to grant them 1 free perk from their own tree";
-				item.m.Name = "Random Perk Scroll";
-				break;
-			case 2:
-				item.m.Description = "Use the scroll on a character to increase experience gains by +50% for the next 3 battles. This will override any other current trained effects.";
-				item.m.Name = "Battle Scroll";
-				break;
-			case 3:
-				item.m.Description = "Use the scroll to add a perk group to one character's tree";
-				item.m.Name = "Scroll of Technique";
-				break;
-			case 4:
-				item.m.Description = "Use the scroll to grant a character a max-stat roll similar to gifted";
-				item.m.Name = "Scroll of Natural Talent";
-				break;
-			case 5:
-				item.m.Description = "After a bit of labor the scroll seems to just be gibberish, nothing meaningful could be translated";
-				item.m.Name = "Scroll of .Nut'in"
-				item.m.Value = 0;
-				break;
-			
-		}
+		item.setupTooltip(r);
 
 		_stash.add(item);
 	}

@@ -24,7 +24,12 @@ this.noble_dragon_helm_layered_blueprint <- this.inherit("scripts/crafting/bluep
 
 	function isQualified()
 	{
-		return this.World.LegendsMod.Configs().LegendArmorsEnabled()
+		if (!this.World.LegendsMod.Configs().LegendArmorsEnabled())
+		{
+			return false
+		}
+
+		return this.blueprint.isQualified()
 	}
 
 

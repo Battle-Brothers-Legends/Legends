@@ -12,6 +12,7 @@ this.cloth_rolls_item <- this.inherit("scripts/items/trade/trading_good_item", {
 			"attached_location.wool_spinner"
 		];
 		this.m.Value = 140;
+		this.m.ResourceValue = 1;
 	}
 
 });

@@ -19,6 +19,9 @@ this.legend_hyena_fur_upgrade <- this.inherit("scripts/items/legend_armor/legend
 		this.m.SpriteCorpseFront = "upgrade_26_front_dead";
 		this.m.SpriteCorpseBack = "upgrade_26_back_dead";
 		this.m.Value = 600;
+
+		this.m.Condition = 15;
+		this.m.ConditionMax = 15;
 		this.m.ConditionModifier = 15;
 		this.m.StaminaModifier = 0;
 	}
@@ -26,12 +29,6 @@ this.legend_hyena_fur_upgrade <- this.inherit("scripts/items/legend_armor/legend
 	function getTooltip()
 	{
 		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+15[/color] Durability"
-		});
 		result.push({
 			id = 15,
 			type = "text",
