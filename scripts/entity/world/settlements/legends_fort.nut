@@ -8,7 +8,8 @@ this.legends_fort <- this.inherit("scripts/entity/world/settlement", {
 	function create()
 	{
 		this.settlement.create();
-		this.m.DefenderMult = 1.75;
+		this.m.DefenderMult = 2.0;
+		this.m.LootMult = 1.7;
 		this.setDefenderSpawnList(this.Const.World.Spawn.HumanFort);
 		this.m.IsMilitary = true;
 	}

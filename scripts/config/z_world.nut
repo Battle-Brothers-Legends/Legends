@@ -111,31 +111,6 @@ gt.Const.World.SettlementsUpdate <- function (_val)
 	}
 };
 
-gt.Const.World.Settlements.LegendsWorldUndead <- [
-	{
-		Ratio = 1,
-		Types = this.Const.World.Settlements.Legends_undead_forts,
-		Sizes = [
-			{
-				Ratio = 3,
-				MinAmount = 1,
-				Size = 1
-			},
-			{
-				Ratio = 3,
-				MinAmount = 1,
-				Size = 2
-			},
-			{
-				Ratio = 4,
-				MinAmount = 1,
-				Size = 3
-			}
-		]
-	}
-];
-
-
 gt.Const.World.Settlements.LegendsWorldMaster <- [
 	{
 		Ratio = 0.18,
@@ -214,7 +189,7 @@ gt.Const.World.Settlements.LegendsWorldMaster <- [
 		]
 	},
 	{
-		Ratio = 0.10,
+		Ratio = 0,
 		Fringe = true,
 		Types = Const.World.Settlements.Legends_undead_forts,
 		Sizes = [
@@ -225,12 +200,12 @@ gt.Const.World.Settlements.LegendsWorldMaster <- [
 			},
 			{
 				Ratio = 3,
-				MinAmount = 1,
+				MinAmount = 0,
 				Size = 2
 			},
 			{
 				Ratio = 4,
-				MinAmount = 1,
+				MinAmount = 0,
 				Size = 3
 			}
 		]

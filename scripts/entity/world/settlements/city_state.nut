@@ -3,7 +3,8 @@ this.city_state <- this.inherit("scripts/entity/world/settlement", {
 	function create()
 	{
 		this.settlement.create();
-		this.m.DefenderMult = 1.25;
+		this.m.DefenderMult = 2.0;
+		this.m.LootMult = 1.7;
 		this.setDefenderSpawnList(this.Const.World.Spawn.CityState);
 		this.m.Name = this.getRandomName([
 			"ORIENTAL CITY #1",
