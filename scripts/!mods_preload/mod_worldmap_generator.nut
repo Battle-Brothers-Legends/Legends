@@ -254,7 +254,7 @@
 				{
 					x = this.Math.rand(5, _rect.W - 6);
 				}
-				y = this.Math.rand(_rect.H * 0.2, _rect.H * 0.95);
+				y = this.Math.rand(_rect.H * 5, _rect.H * 0.95);
 			}
 			else {
 				if (isLeft)
@@ -265,7 +265,7 @@
 				{
 					x = this.Math.rand(_rect.W * 0.1, _rect.W * 0.4);
 				}
-				y = this.Math.rand(5, _rect.H * 0.95);
+				y = this.Math.rand(_rect.H*0.2, _rect.H * 0.95);
 			}
 			
 
@@ -383,6 +383,7 @@
 			settlementTiles.push(tile);
 			return settlementTiles;
 		}
+		this.logInfo("Failed to place settlement!");
 		return settlementTiles;
 	}
 

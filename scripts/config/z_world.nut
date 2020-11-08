@@ -113,7 +113,7 @@ gt.Const.World.SettlementsUpdate <- function (_val)
 
 gt.Const.World.Settlements.LegendsWorldMaster <- [
 	{
-		Ratio = 0.18,
+		Ratio = 0.2,
 		Types = this.Const.World.Settlements.Legends_villages_coast,
 		Sizes = [
 			{
@@ -134,7 +134,7 @@ gt.Const.World.Settlements.LegendsWorldMaster <- [
 		]
 	},
 	{
-		Ratio = 0.45,
+		Ratio = 0.5,
 		Types = Const.World.Settlements.Legends_villages,
 		Sizes = [
 			{
@@ -155,7 +155,7 @@ gt.Const.World.Settlements.LegendsWorldMaster <- [
 		]
 	},
 	{
-		Ratio = 0.27,
+		Ratio = 0.3,
 		Types = Const.World.Settlements.Legends_fortifications,
 		Sizes = [
 			{

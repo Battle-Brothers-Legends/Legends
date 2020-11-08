@@ -362,8 +362,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		if (this.hasSituation("situation.raided") || this.hasSituation("situation.razed")) {
             ret.push({
 				id = 4,
-				type = "description",
-				icon="ui/icons/warning.png",
+				type = "text",
+				icon = "ui/icons/warning.png",
 				text = "Has recently been raided."
 			});
         }

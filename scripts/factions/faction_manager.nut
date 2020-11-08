@@ -396,7 +396,7 @@ this.faction_manager <- {
 		// f.setMotto("\"" + a.Mottos[this.Math.rand(0, a.Mottos.len() - 1)] + "\"");
 		f.setBanner(banner);
 		f.addTrait(this.Const.FactionTrait.Undead);
-		f.setDiscovered(true);
+		f.setDiscovered(false);
 
 		local vars = [
 			[
