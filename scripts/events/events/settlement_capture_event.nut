@@ -97,7 +97,7 @@ this.settlement_capture_event <- this.inherit("scripts/events/event", {
             if(settlementFaction!=null) {
                 defeatedFaction.removeAlly(settlementFaction.getID());
 				settlementFaction.cloneAlliesFrom(_faction);
-				settlementFaction.addPlayerRelationEx(-15, "Attacked");
+				settlementFaction.setPlayerRelation(30);
             }
             e.removeFaction(defeatedFaction.getID());
         }
@@ -108,8 +108,8 @@ this.settlement_capture_event <- this.inherit("scripts/events/event", {
         _faction.addSettlement(e);
         _faction.addAlly(settlementFaction.getID());
 
-        _faction.addPlayerRelationEx(15.0, "Conquered a settlement for them");
-        defeatedFaction.addPlayerRelationEx(-30.0, "Took over one of their settlements");
+        _faction.addPlayerRelationEx(6.0 * e.getSize(), "Conquered a settlement for them");
+        defeatedFaction.addPlayerRelationEx(-40.0, "Took over one of their settlements");
 
         local situation = this.new("scripts/entity/world/settlements/situations/conquered_situation");
         situation.setValidForDays(3);

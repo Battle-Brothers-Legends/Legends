@@ -335,6 +335,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 			return ret;
 		}
+		
+		if (this.m.IsSpawningDefenders && this.m.DefenderSpawnList != null && this.m.Resources != 0)
+		{
+			if (!(this.m.Troops.len() != 0 && this.m.DefenderSpawnDay != 0 && this.World.getTime().Days - this.m.DefenderSpawnDay < 10))
+			{
+				this.createDefenders();
+			}
+		}
 
 		local ret = [
 			{
@@ -467,6 +475,31 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 				text = "Wealth " + this.getWealth() + " %"
 			});
 		}
+
+		if (this.isShowingDefenders() && !this.isHiddenToPlayer() && this.m.Troops.len() != 0 && this.getFaction() != 0)
+		{
+			local troopComposition = this.getTroopComposition();
+			foreach(c in troopComposition) {
+				c.type = "hint";
+			}
+			ret.extend(troopComposition);
+		}
+		else
+		{
+			ret.push({
+				id = 20,
+				type = "hint",
+				icon = "ui/orientation/player_01_orientation.png",
+				text = "Unknown garrison"
+			});
+		}
+
+		ret.push({
+			id = 21,
+			type = "hint",
+			icon = "ui/orientation/terrain_orientation.png",
+			text = "This settlement is " + this.Const.Strings.TerrainAlternative[this.getTile().Type]
+		});
 
 		return ret;
 	}
@@ -993,9 +1026,9 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
         this.location.onDropLootForPlayer(_lootTable);
 		this.dropMedicine(this.Math.rand(scaledResources * 0.15, scaledResources * 0.3), _lootTable);
 		this.dropArmorParts(this.Math.rand(scaledResources * 0.3, scaledResources * 0.6), _lootTable);
-		this.dropMoney(this.Math.rand(scaledResources * 10, scaledResources * 12), _lootTable);
+		// this.dropMoney(this.Math.rand(scaledResources * 10, scaledResources * 12), _lootTable);
 
-		this.dropTreasure(this.Math.rand(scaledResources * 0.01, 1 + scaledResources * 0.015), [
+		this.dropTreasure(this.Math.rand(scaledResources * 0.005, 1 + scaledResources * 0.01), [
 			"loot/silverware_item",
 			"loot/signet_ring_item",
 			"loot/silver_bowl_item",
@@ -1007,14 +1040,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		{
 			a.onUpdateProduce(itemPool);
 		}
-		if(itemPool.len() > 0) {
-			this.dropTreasure(this.Math.rand(itemPool.len() * 2, itemPool.len() * 4), itemPool, _lootTable);
+		foreach (item in itemPool) {
+			this.dropTreasure(this.Math.rand(2, 3), [item], _lootTable);
 		}
     }
 
 	function calculateLootMoney() {
 		local scaledResources = this.Math.pow(this.m.Resources, 1.1) * 0.4 * this.m.LootMult;
-		local money = this.Math.rand(scaledResources * 30, scaledResources * 40);
+		local money = this.Math.rand(scaledResources * 35, scaledResources * 45);
 		return money;
     }
 
@@ -2347,14 +2380,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 			if (faction != null)
 			{
-				if(settlementFaction!=null) {
-					settlementFaction.addPlayerRelationEx(-50, "Raided");
-				}
 				faction.addPlayerRelationEx(-50, "Raided one of their settlements");
 			}
 			else {
 				this.logError("Looted settlement with no owner!");
 			}
+			if(settlementFaction!=null) {
+					settlementFaction.addPlayerRelationEx(-100, "Raided");
+				}
 
 			if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled()) {
 				this.setResources(0);
@@ -2367,6 +2400,20 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 				a.setActive(false, true);
 			}
 			this.spawnFireAndSmoke();
+		}
+	}
+
+	function makeHostileToPlayer() {
+		local faction = this.getOwner();
+		local settlementFaction = this.getFactionOfType(this.Const.FactionType.Settlement);
+
+		if (faction != null && faction.getPlayerRelation() > 0)
+		{
+			faction.setPlayerRelation(0);
+		}
+
+		if (settlementFaction != null && settlementFaction.getPlayerRelation() > 0) {
+			settlementFaction.setPlayerRelation(0);
 		}
 	}
 
@@ -2483,7 +2530,6 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function onLeave()
 	{
-		this.onCombatLost();
 		if (this.World.LegendsMod.Configs().LegendCampUnlockEnabled())
 		{
 			return;

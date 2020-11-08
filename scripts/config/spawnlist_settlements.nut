@@ -42,7 +42,7 @@ gt.Const.World.Spawn.HumanVillage <- {
 	MaxR = 350,
 	Troops = [
 		{
-			Weight = 70,
+			Weight = 30,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.Militia,
@@ -55,7 +55,7 @@ gt.Const.World.Spawn.HumanVillage <- {
 			]
 		},
 		{
-			Weight = 20,
+			Weight = 10,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.MilitiaRanged,
@@ -64,7 +64,7 @@ gt.Const.World.Spawn.HumanVillage <- {
 			]
 		},
 		{
-			Weight = 9,
+			Weight = 10,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.MilitiaCaptain,
@@ -73,37 +73,40 @@ gt.Const.World.Spawn.HumanVillage <- {
 			]
 		},
 		{
-			Weight = 1,
+			Weight = 30,
+			Types = [
+				{
+					Type = this.Const.World.Spawn.Troops.Peasant,
+					Cost = 5
+				}
+			]
+		},
+		{
+			Weight = 20,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantButcher,
-					Cost = 15,
-					Roll = true
+					Cost = 10
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantMinstrel,
-					Cost = 15,
-					Roll = true
+					Cost = 10
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantWoodsman,
-					Cost = 15,
-					Roll = true
+					Cost = 10
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantMiner,
-					Cost = 15,
-					Roll = true
+					Cost = 10
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantMonk,
-					Cost = 20,
-					Roll = true
+					Cost = 15
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantFarmhand,
-					Cost = 15,
-					Roll = true
+					Cost = 10
 				}
 			]
 		}
