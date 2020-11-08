@@ -8,7 +8,7 @@ this.legends_village <- this.inherit("scripts/entity/world/settlement", {
 	function create()
 	{
 		this.settlement.create();
-		this.m.DefenderMult = 1.5;
+		this.m.DefenderMult = 1.6;
 		this.setDefenderSpawnList(this.Const.World.Spawn.HumanVillage);
 		this.m.CombatLocation.CutDownTrees = true;
 		this.m.IsMilitary = false;
