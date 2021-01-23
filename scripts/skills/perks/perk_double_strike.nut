@@ -22,6 +22,11 @@ this.perk_double_strike <- this.inherit("scripts/skills/skill", {
 		{
 			actor.getSkills().add(this.new("scripts/skills/effects/double_strike_effect"));
 		}
+		
+		if (!_targetEntity.isAlliedWith(actor) && actor.getSkills().hasSkill("effect.double_strike"))
+		{
+			actor.getSkills().getSkills().removeByID("effects.double_strike");
+		}		
 	}
 
 });

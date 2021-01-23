@@ -20,13 +20,15 @@ this.double_strike_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		_properties.DamageTotalMult *= 1.4;
+		_properties.DamageTotalMult *= 1.2;
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
 		this.removeSelf();
 	}
+
+
 
 });
 
