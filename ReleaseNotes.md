@@ -4880,7 +4880,7 @@ fixes bug in turn it in with gradually disapearing selections (taro)
 Fixes noble commander having 6+ stars on noble start
 
 
-16.0.0.30 Castle wars
+16.0.0.0 Castle wars
 
 **Taro's Stronghold mod added**
 Build a base for your company, add buildings, store items and upgrade it 
