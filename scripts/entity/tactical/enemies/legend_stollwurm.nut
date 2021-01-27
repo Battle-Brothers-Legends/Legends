@@ -108,14 +108,14 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 			this.m.IsCorpseFlipped = flip;
 			local body = this.getSprite("body");
 			local head = this.getSprite("head");
-			decal = _tile.spawnDetail("bust_stollwurm_body_01_dead", this.Const.Tactical.DetailFlag.Corpse, flip);
+			decal = _tile.spawnDetail("bust_acidwurm_body_01_dead", this.Const.Tactical.DetailFlag.Corpse, flip);
 			decal.Color = body.Color;
 			decal.Saturation = body.Saturation;
 			decal.Scale = 0.95;
 
 			if (_fatalityType != this.Const.FatalityType.Decapitated)
 			{
-				decal = _tile.spawnDetail("bust_stollwurm_head_01_dead", this.Const.Tactical.DetailFlag.Corpse, flip);
+				decal = _tile.spawnDetail("bust_acidwurm_head_01_dead", this.Const.Tactical.DetailFlag.Corpse, flip);
 				decal.Color = head.Color;
 				decal.Saturation = head.Saturation;
 				decal.Scale = 0.95;
@@ -125,7 +125,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 				local layers = [
 					head.getBrush().Name + "_dead"
 				];
-				local decap = this.Tactical.spawnHeadEffect(this.getTile(), layers, this.createVec(0, 0), 0.0, "bust_stollwurm_head_01_bloodpool");
+				local decap = this.Tactical.spawnHeadEffect(this.getTile(), layers, this.createVec(0, 0), 0.0, "bust_acidwurm_head_01_bloodpool");
 				decap[0].Color = head.Color;
 				decap[0].Saturation = head.Saturation;
 				decap[0].Scale = 0.95;
@@ -133,12 +133,12 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 
 			if (_skill && _skill.getProjectileType() == this.Const.ProjectileType.Arrow)
 			{
-				decal = _tile.spawnDetail("bust_stollwurm_body_01_dead_arrows", this.Const.Tactical.DetailFlag.Corpse, flip);
+				decal = _tile.spawnDetail("bust_acidwurm_body_01_dead_arrows", this.Const.Tactical.DetailFlag.Corpse, flip);
 				decal.Scale = 0.95;
 			}
 			else if (_skill && _skill.getProjectileType() == this.Const.ProjectileType.Javelin)
 			{
-				decal = _tile.spawnDetail("bust_stollwurm_body_01_dead_javelin", this.Const.Tactical.DetailFlag.Corpse, flip);
+				decal = _tile.spawnDetail("bust_acidwurm_body_01_dead_javelin", this.Const.Tactical.DetailFlag.Corpse, flip);
 				decal.Scale = 0.95;
 			}
 
@@ -314,7 +314,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.FatigueCosts = this.Const.DefaultMovementFatigueCost;
 		this.addSprite("socket").setBrush("bust_base_beasts");
 		local body = this.addSprite("body");
-		body.setBrush("bust_stollwurm_body_0" + this.Math.rand(1, 1));
+		body.setBrush("bust_acidwurm_body_0" + this.Math.rand(1, 1));
 
 		if (this.Math.rand(0, 100) < 90)
 		{
@@ -327,12 +327,12 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 		}
 
 		local head = this.addSprite("head");
-		head.setBrush("bust_stollwurm_head_0" + this.Math.rand(1, 1));
+		head.setBrush("bust_acidwurm_head_0" + this.Math.rand(1, 1));
 		head.Color = body.Color;
 		head.Saturation = body.Saturation;
 		local injury = this.addSprite("injury");
 		injury.Visible = false;
-		injury.setBrush("bust_stollwurm_body_01_injured");
+		injury.setBrush("bust_acidwurm_body_01_injured");
 		local body_blood = this.addSprite("body_blood");
 		body_blood.Visible = false;
 		this.addDefaultStatusSprites();

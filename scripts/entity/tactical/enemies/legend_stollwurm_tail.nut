@@ -462,7 +462,7 @@ this.legend_stollwurm_tail <- this.inherit("scripts/entity/tactical/actor", {
 			local decal;
 			this.m.IsCorpseFlipped = flip;
 			local body = this.getSprite("body");
-			decal = _tile.spawnDetail("bust_stollwurm_tail_01_dead", this.Const.Tactical.DetailFlag.Corpse, flip);
+			decal = _tile.spawnDetail("bust_acidwurm_tail_01_dead", this.Const.Tactical.DetailFlag.Corpse, flip);
 			decal.Color = body.Color;
 			decal.Saturation = body.Saturation;
 			decal.Scale = 0.95;
@@ -523,7 +523,7 @@ this.legend_stollwurm_tail <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.FatigueCosts = this.Const.DefaultMovementFatigueCost;
 		this.addSprite("socket").setBrush("bust_base_beasts");
 		local body = this.addSprite("body");
-		body.setBrush("bust_stollwurm_tail_0" + this.Math.rand(1, 1));
+		body.setBrush("bust_acidwurm_tail_0" + this.Math.rand(1, 1));
 
 		if (this.Math.rand(0, 100) < 90)
 		{
@@ -540,7 +540,7 @@ this.legend_stollwurm_tail <- this.inherit("scripts/entity/tactical/actor", {
 		head.Saturation = body.Saturation;
 		local injury = this.addSprite("injury");
 		injury.Visible = false;
-		injury.setBrush("bust_stollwurm_tail_01_injured");
+		injury.setBrush("bust_acidwurm_tail_01_injured");
 		local body_blood = this.addSprite("body_blood");
 		this.addDefaultStatusSprites();
 		this.getSprite("status_rooted").Scale = 0.54;
