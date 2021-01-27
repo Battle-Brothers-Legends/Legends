@@ -6,6 +6,7 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 		Banner = "banner_beasts_01",
 		DefenderSpawnList = null,
 		DefenderSpawnDay = 0,
+		DefenderMult = 1.0,
 		RoamerSpawnList = null,
 		CombatLocation = null,
 		Resources = 0,
@@ -258,38 +259,35 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 			}
 		];
 
-		if (!this.isAlliedWithPlayer())
+		if (this.isShowingDefenders() && !this.isHiddenToPlayer() && this.m.Troops.len() != 0 && this.getFaction() != 0)
 		{
-			if (this.isShowingDefenders() && !this.isHiddenToPlayer() && this.m.Troops.len() != 0 && this.getFaction() != 0)
-			{
-				ret.extend(this.getTroopComposition());
-			}
-			else
-			{
-				ret.push({
-					id = 20,
-					type = "text",
-					icon = "ui/orientation/player_01_orientation.png",
-					text = "Unknown garrison"
-				});
-			}
-
+			ret.extend(this.getTroopComposition());
+		}
+		else
+		{
 			ret.push({
-				id = 21,
-				type = "hint",
-				icon = "ui/orientation/terrain_orientation.png",
-				text = "This location is " + this.Const.Strings.TerrainAlternative[this.getTile().Type]
+				id = 20,
+				type = "text",
+				icon = "ui/orientation/player_01_orientation.png",
+				text = "Unknown garrison"
 			});
+		}
 
-			if (this.isShowingDefenders() && this.getCombatLocation().Template[0] != null && this.getCombatLocation().Fortification != 0 && !this.getCombatLocation().ForceLineBattle)
-			{
-				ret.push({
-					id = 20,
-					type = "hint",
-					icon = "ui/orientation/palisade_01_orientation.png",
-					text = "This location has fortifications"
-				});
-			}
+		ret.push({
+			id = 21,
+			type = "hint",
+			icon = "ui/orientation/terrain_orientation.png",
+			text = "This location is " + this.Const.Strings.TerrainAlternative[this.getTile().Type]
+		});
+
+		if (this.isShowingDefenders() && this.getCombatLocation().Template[0] != null && this.getCombatLocation().Fortification != 0 && !this.getCombatLocation().ForceLineBattle)
+		{
+			ret.push({
+				id = 20,
+				type = "hint",
+				icon = "ui/orientation/palisade_01_orientation.png",
+				text = "This location has fortifications"
+			});
 		}
 
 		return ret;
@@ -598,6 +596,13 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 		}
 	}
 
+	function makeHostileToPlayer() {
+		if (this.World.FactionManager.getFaction(this.getFaction()) != null)
+		{
+			this.World.FactionManager.getFaction(this.getFaction()).setPlayerRelation(0);
+		}
+	}
+
 	function onVisibleToPlayer()
 	{
 		if (!this.m.IsSpawningDefenders || this.m.DefenderSpawnList == null || this.isAlliedWithPlayer())
@@ -615,7 +620,7 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 
 	function createDefenders()
 	{
-		local resources = this.m.Resources;
+		local resources = this.m.Resources * this.m.DefenderMult;
 
 		if (this.m.IsScalingDefenders)
 		{

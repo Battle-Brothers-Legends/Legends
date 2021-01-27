@@ -48,8 +48,12 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		ConnectedToByRoads = [],
 		IsCoastal = false,
 		IsMilitary = false,
+		IsUndead = false,
 		IsActive = true,
-		IsUpgrading = false
+		IsUpgrading = false,
+		IsFringe = false,
+		ImageFolder = "",
+		LootMult = 1.0
 	},
 
 	function setUpgrading (_v)
@@ -158,6 +162,11 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	function isMilitary()
 	{
 		return this.m.IsMilitary;
+	}
+
+	function isUndead()
+	{
+		return this.m.IsUndead;
 	}
 
 	function isSouthern()
@@ -326,6 +335,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 			return ret;
 		}
+		
+		if (this.m.IsSpawningDefenders && this.m.DefenderSpawnList != null && this.m.Resources != 0)
+		{
+			if (!(this.m.Troops.len() != 0 && this.m.DefenderSpawnDay != 0 && this.World.getTime().Days - this.m.DefenderSpawnDay < 10))
+			{
+				this.createDefenders();
+			}
+		}
 
 		local ret = [
 			{
@@ -346,9 +363,19 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 				id = 3,
 				type = "description",
 				icon = "ui/icons/special.png",
-				text = "Is currently being upgraded"
+				text = "Is currently being upgraded."
 			});
 		}
+
+		if (this.hasSituation("situation.raided") || this.hasSituation("situation.razed")) {
+            ret.push({
+				id = 4,
+				type = "text",
+				icon = "ui/icons/warning.png",
+				text = "Has recently been raided."
+			});
+        }
+
 
 		if (this.m.IsVisited || this.World.State.getDistantVisionBonus())
 		{
@@ -360,7 +387,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 				}
 
 				ret.push({
-					id = 4,
+					id = 5,
 					type = "text",
 					icon = b.getTooltipIcon(),
 					text = b.getName()
@@ -370,7 +397,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		else
 		{
 			ret.push({
-				id = 4,
+				id = 5,
 				type = "text",
 				text = "You\'ve never been to this place."
 			});
@@ -400,7 +427,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		{
 			local f = this.World.FactionManager.getFaction(i);
 			ret.push({
-				id = 5,
+				id = 6,
 				type = "hint",
 				icon = f.getUIBanner(),
 				text = "Relations: " + f.getPlayerRelationAsText()
@@ -412,7 +439,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			foreach( s in this.m.Situations )
 			{
 				ret.push({
-					id = 6,
+					id = 7,
 					type = "text",
 					text = "Has current event: " + s.getName()
 				});
@@ -420,10 +447,11 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			this.World.State.setDistantVisionBonus(false);
 		}
 
+
 		if (this.Const.LegendMod.DebugMode)
 		{
 			ret.push({
-				id = 6,
+				id = 7,
 				type = "hint",
 				text = "Resources: " + this.getResources()
 			});
@@ -432,7 +460,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		if (this.Const.LegendMod.DebugMode)
 		{
 			ret.push({
-				id = 6,
+				id = 7,
 				type = "hint",
 				text = "Generating Resources: " + this.getNewResources()
 			});
@@ -442,11 +470,36 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		if (this.Const.LegendMod.DebugMode || (this.m.IsVisited && this.LegendsMod.Configs().LegendWorldEconomyEnabled()))
 		{
 			ret.push({
-				id = 6,
+				id = 7,
 				type = "hint",
 				text = "Wealth " + this.getWealth() + " %"
 			});
 		}
+
+		if (this.isShowingDefenders() && !this.isHiddenToPlayer() && this.m.Troops.len() != 0 && this.getFaction() != 0)
+		{
+			local troopComposition = this.getTroopComposition();
+			foreach(c in troopComposition) {
+				c.type = "hint";
+			}
+			ret.extend(troopComposition);
+		}
+		else
+		{
+			ret.push({
+				id = 20,
+				type = "hint",
+				icon = "ui/orientation/player_01_orientation.png",
+				text = "Unknown garrison"
+			});
+		}
+
+		ret.push({
+			id = 21,
+			type = "hint",
+			icon = "ui/orientation/terrain_orientation.png",
+			text = "This settlement is " + this.Const.Strings.TerrainAlternative[this.getTile().Type]
+		});
 
 		return ret;
 	}
@@ -946,14 +999,57 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		this.m.ShopSeed = this.Time.getRealTime() + this.Math.rand();
 		this.m.RosterSeed = this.Time.getRealTime() + this.Math.rand();
 		this.m.Modifiers = this.new("scripts/entity/world/settlement_modifiers");
-		this.m.IsAttackable = false;
+		this.m.IsAttackable = true;
 		this.m.IsDestructible = false;
 		this.m.IsShowingStrength = true;
 		this.m.IsScalingDefenders = true;
 		this.m.IsShowingLabel = true;
 		this.m.VisibilityMult = 2.0;
 		this.m.Buildings.resize(6, null);
+		this.setDefenderSpawnList(this.Const.World.Spawn.SettlementDefault);
+
 	}
+
+	function isAttackable() {
+        if (!this.m.IsAttackable) {
+            return false;
+        }
+        if (this.hasSituation("situation.raided") || this.hasSituation("situation.razed")) {
+            return false;
+        }
+        return true;
+    }
+
+    function onDropLootForPlayer(_lootTable) {
+		local scaledResources = this.Math.pow(this.m.Resources, 1.1) * 0.4 * this.m.LootMult;
+
+        this.location.onDropLootForPlayer(_lootTable);
+		this.dropMedicine(this.Math.rand(scaledResources * 0.15, scaledResources * 0.3), _lootTable);
+		this.dropArmorParts(this.Math.rand(scaledResources * 0.3, scaledResources * 0.6), _lootTable);
+		// this.dropMoney(this.Math.rand(scaledResources * 10, scaledResources * 12), _lootTable);
+
+		this.dropTreasure(this.Math.rand(scaledResources * 0.005, 1 + scaledResources * 0.01), [
+			"loot/silverware_item",
+			"loot/signet_ring_item",
+			"loot/silver_bowl_item",
+			"loot/golden_chalice_item"
+		], _lootTable);
+
+		local itemPool = [];
+		foreach( a in this.m.AttachedLocations )
+		{
+			a.onUpdateProduce(itemPool);
+		}
+		foreach (item in itemPool) {
+			this.dropTreasure(this.Math.rand(2, 3), [item], _lootTable);
+		}
+    }
+
+	function calculateLootMoney() {
+		local scaledResources = this.Math.pow(this.m.Resources, 1.1) * 0.4 * this.m.LootMult;
+		local money = this.Math.rand(scaledResources * 35, scaledResources * 45);
+		return money;
+    }
 
 	function getSituationByID( _id )
 	{
@@ -2086,7 +2182,6 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 			foreach( h in this.m.HousesTiles )
 			{
-				continue;
 				local tile = this.World.getTileSquare(h.X, h.Y);
 				tile.clear(this.Const.World.DetailType.Houses);
 				local d = tile.spawnDetail("world_houses_0" + this.getHousesType() + "_0" + h.V, this.Const.World.ZLevel.Object - 3, this.Const.World.DetailType.Houses);
@@ -2109,7 +2204,6 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 			foreach( h in this.m.HousesTiles )
 			{
-				continue;
 				local tile = this.World.getTileSquare(h.X, h.Y);
 				tile.clear(this.Const.World.DetailType.Houses | this.Const.World.DetailType.Lighting);
 				local d = tile.spawnDetail("world_houses_0" + this.getHousesType() + "_0" + h.V + "_ruins", this.Const.World.ZLevel.Object - 3, this.Const.World.DetailType.Houses);
@@ -2143,8 +2237,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	function destroy()
 	{
 		this.setActive(false);
+		this.updateSprites(true);
+		foreach(a in this.getAttachedLocations()) {
+			a.setActive(false, true);
+		}
 		this.getTile().spawnDetail(this.getSpriteName() + "_ruins", this.Const.World.ZLevel.Object - 3, 0);
+		this.onFinish();
 		this.die();
+		this.World.EntityManager.updateSettlementHeat();
 	}
 
 	function onUpdate()
@@ -2259,6 +2359,54 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function onCombatLost()
 	{
+		this.World.Events.fire("event.settlement.settlement_capture");
+	}
+
+	function onRaidedByPlayer() {
+		if(this.World.FactionManager.getFaction(this.m.Factions[0]).isPlayerRelationPermanent()) {
+			this.destroy();
+		}
+		else {
+			local faction = this.getOwner();
+        	local settlementFaction = this.getFactionOfType(this.Const.FactionType.Settlement);
+
+			if (faction != null)
+			{
+				faction.addPlayerRelationEx(-50, "Raided one of their settlements");
+			}
+			else {
+				this.logError("Looted settlement with no owner!");
+			}
+			if(settlementFaction!=null) {
+					settlementFaction.addPlayerRelationEx(-100, "Raided");
+				}
+
+			if (this.World.LegendsMod.Configs().LegendWorldEconomyEnabled()) {
+				this.setResources(0);
+				this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 7);
+			}
+			else {
+				this.addSituation(this.new("scripts/entity/world/settlements/situations/raided_situation"), 20);
+			}
+			foreach(a in this.getAttachedLocations()) {
+				a.setActive(false, true);
+			}
+			this.spawnFireAndSmoke();
+		}
+	}
+
+	function makeHostileToPlayer() {
+		local faction = this.getOwner();
+		local settlementFaction = this.getFactionOfType(this.Const.FactionType.Settlement);
+
+		if (faction != null && faction.getPlayerRelation() > 0)
+		{
+			faction.setPlayerRelation(0);
+		}
+
+		if (settlementFaction != null && settlementFaction.getPlayerRelation() > 0) {
+			settlementFaction.setPlayerRelation(0);
+		}
 	}
 
 	function onRaided()
@@ -2607,6 +2755,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		}
 
 		this.setResources(this.getResources() + this.getNewResources());
+	}
+
+	function isFringe() {
+		return this.m.IsFringe;
+	}
+
+	function setFringe( _isFringe ) {
+		this.m.IsFringe = _isFringe;
 	}
 
 	function onSerialize( _out )

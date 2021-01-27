@@ -1322,23 +1322,25 @@ this.world_state <- this.inherit("scripts/states/state", {
 		this.m.LastEnteredLocation = this.WeakTableRef(_location);
 		this.m.IsRunningUpdatesWhilePaused = false;
 
-		if (_location.isEnterable())
-		{
-			this.m.LastEnteredTown = this.WeakTableRef(_location);
-		}
-
 		if (_location.onEnter())
 		{
-			if (_location.isEnterable())
+			if (_location.isAttackable() && (!_location.isAlliedWithPlayer() || (this.m.IsForcingAttack && this.World.Contracts.getActiveContract() == null)))
 			{
-				this.showTownScreen();
-			}
-			else if (_location.isAttackable() && !_location.isAlliedWithPlayer())
-			{
+				_location.makeHostileToPlayer();
 				if (_location.onEnteringCombatWithPlayer())
 				{
+					this.logInfo("entering combat");
 					this.showCombatDialog();
 				}
+				else {
+					this.logInfo("not entering combat");
+				}
+				
+			}
+			else if (_location.isEnterable())
+			{
+				this.m.LastEnteredTown = this.WeakTableRef(_location);
+				this.showTownScreen();
 			}
 	//		else if (this.m.IsForcingAttack == true  && _location.isAttackable() && _location.isAlliedWithPlayer())
 	//		{
@@ -3019,7 +3021,7 @@ this.world_state <- this.inherit("scripts/states/state", {
 						this.Cursor.setCursor(this.Const.UI.Cursor.Attack);
 					}
 				}
-				else if (entity.isAttackable() && entity.getVisibilityMult() != 0 && !entity.isAlliedWithPlayer())
+				else if (entity.isAttackable() && entity.getVisibilityMult() != 0 && (!entity.isAlliedWithPlayer() || (this.m.IsForcingAttack && this.World.Contracts.getActiveContract() == null)))
 				{
 					this.Cursor.setCursor(this.Const.UI.Cursor.Attack);
 				}

@@ -835,7 +835,6 @@ gt.Const.World.Settlements.Master <- [
 	}
 ];
 
-
 gt.Const.World.Settlements.Legends_villages_coast <- [
 	{
 		IsCoastal = true,
@@ -853,6 +852,18 @@ gt.Const.World.Settlements.Legends_villages_coast <- [
 		}
 	}
 ];
+
+
+gt.Const.World.Settlements.Legends_undead_forts <- [
+	{
+		Script = "scripts/entity/world/settlements/legends_undead_fort",
+		function isSuitable( _terrain)
+		{
+			return true;
+		}
+	}
+];
+
 gt.Const.World.Settlements.Legends_villages <- [
 	{
 		IsCoastal = true,

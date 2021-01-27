@@ -1,3 +1,4 @@
+// TODO: update this to not include hostile settlements
 this.visit_settlements_ambition <- this.inherit("scripts/ambitions/ambition", {
 	m = {},
 	function create()

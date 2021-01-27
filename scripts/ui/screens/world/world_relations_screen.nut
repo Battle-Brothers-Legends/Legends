@@ -130,6 +130,9 @@ this.world_relations_screen <- {
 
 		foreach( f in factions )
 		{
+			// if(f!=null) {
+			// 	this.logInfo("Faction: " + f.getName() + " " + f.isHidden() + " " + f.isDiscovered() + " " + f.getSettlements().len());
+			// }
 			if (f == null || f.isHidden() || !f.isDiscovered() || f.getSettlements().len() == 0)
 			{
 				continue;

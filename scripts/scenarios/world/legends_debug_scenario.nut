@@ -987,6 +987,12 @@ this.legends_debug_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		}, null);
 	}
 
+	function onInit()
+	{
+		this.starting_scenario.onInit();
+		this.World.State.getPlayer().m.BaseMovementSpeed = 500;
+	}
+
 	function onBuildPerkTree( _tree)
 	{
 		if (_tree == null)
