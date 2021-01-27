@@ -4879,3 +4879,19 @@ fixes ratcatcher having an infection without the perks
 fixes bug in turn it in with gradually disapearing selections (taro)
 Fixes noble commander having 6+ stars on noble start
 
+
+16.0.0.30 Castle wars
+
+**Taro's Stronghold mod added**
+Build a base for your company, add buildings, store items and upgrade it 
+This feature has not been widely integrated into the rest of the mod, so feedback is appreciated. 
+Build it from the retinue menu, upgrade using the cart.  
+Store items in the market 
+Add buildings, locations and a road to your stronghold
+
+**0/3rd's Attackable Settlements** 
+Towns, forts and City States can now be attacked 
+This feature needs a fair bit of testing, since it can result in some unpredictable situations. 
+
+**Kuharsen's Rare Beasts - Stollwurm**
+The stollwurm now uses new graphics 
