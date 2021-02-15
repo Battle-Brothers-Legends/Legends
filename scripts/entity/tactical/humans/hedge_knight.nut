@@ -141,6 +141,7 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 				[5, "legend_helm_curved"],
 				[2, "wallace_sallet"],
 				[2, "deep_sallet"],
+				[2, "two_piece_barbute"],
 				[2, "italo_norman_helm"],
 				[2, "legend_enclave_vanilla_great_helm_01"],
 				[2, "legend_enclave_vanilla_armet_01"],
@@ -212,6 +213,8 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
             [3, "named/deep_sallet_named"],
             [3, "named/barbute_named"],
 			[3, "named/italo_norman_helm_named"],
+            [3, "named/fluted_kettle_helm_named"],
+            [3, "named/two_piece_barbute_named"],
 			[3, "named/wallace_sallet_named"],
 			[3, "named/named_helm_with_lion_pelt"]
 		]));

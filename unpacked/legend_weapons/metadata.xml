@@ -529,5 +529,15 @@
   <sprite id="icon_named_warhammer_05" offsetY="35" ic="FF3B404A" width="65" height="108" img="icons\icon_named_warhammer_05.png" left="0" right="49" top="-70" bottom="11" />
   <sprite id="icon_named_warhammer_05_bloodied" offsetY="35" ic="FF3B404A" width="65" height="108" img="icons\icon_named_warhammer_05_bloodied.png" left="0" right="49" top="-70" bottom="11" />
 
+  <sprite id="icon_named_greatsword_05" offsetY="35" ic="FF3B404A" width="136" height="159" img="icons\icon_named_greatsword_05.png" left="-72" right="30" top="-59" bottom="60" />
+  <sprite id="icon_named_greatsword_05_bloodied" offsetY="35" ic="FF3B404A" width="136" height="159" img="icons\icon_named_greatsword_05_bloodied.png" left="-72" right="30" top="-59" bottom="60" />
 
+  <sprite id="icon_named_greatsword_06" offsetY="35" ic="FF3B404A" width="144" height="162" img="icons\icon_named_greatsword_06.png" left="-76" right="32" top="-60" bottom="62" />
+  <sprite id="icon_named_greatsword_06_bloodied" offsetY="35" ic="FF3B404A" width="144" height="162" img="icons\icon_named_greatsword_06_bloodied.png" left="-76" right="32" top="-60" bottom="62" />
+  
+  <sprite id="icon_named_two_handed_axe_07" offsetY="35" ic="FF3B404A" width="143" height="132" img="icons\icon_named_two_handed_axe_07.png" left="-86" right="21" top="-55" bottom="44" />
+  <sprite id="icon_named_two_handed_axe_07_bloodied" offsetY="35" ic="FF3B404A" width="143" height="132" img="icons\icon_named_two_handed_axe_07_bloodied.png" left="-86" right="21" top="-55" bottom="44" />
+  
+  <sprite id="icon_named_two_handed_axe_08" offsetY="35" ic="FF3B404A" width="147" height="129" img="icons\icon_named_two_handed_axe_08.png" left="-87" right="23" top="-55" bottom="42" />
+  <sprite id="icon_named_two_handed_axe_08_bloodied" offsetY="35" ic="FF3B404A" width="147" height="129" img="icons\icon_named_two_handed_axe_08_bloodied.png" left="-87" right="23" top="-55" bottom="42" />
  </brush>

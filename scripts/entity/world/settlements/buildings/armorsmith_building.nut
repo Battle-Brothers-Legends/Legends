@@ -379,6 +379,11 @@ this.armorsmith_building <- this.inherit("scripts/entity/world/settlements/build
 			P = 1.0,
 			S = "helmets/rondel_helm"
 		});
+		list.push({
+			R = 80,
+			P = 1.0,
+			S = "helmets/two_piece_barbute"
+		});
 
 		if (!this.LegendsMod.Configs().LegendArmorsEnabled())
 		{

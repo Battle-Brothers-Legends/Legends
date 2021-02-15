@@ -338,7 +338,7 @@ layers = [
  "title" :  "Rusted Aventail", \
  "desc" :  "A rusty mail aventail that still offers good protection - it leaves horrible stains though." \
 },
-{"name" : "barb_open_chain"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 225, "con" : 65, "stam" : -3, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "barb_open_chain"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 225, "con" : 65, "stam" : -4, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Rusted Open Chain", \
  "desc" :  "A rusty open faced mail chain patched together by the northern tribes." \
 },
@@ -376,7 +376,7 @@ layers = [
  "title" :  "Leather Hood", \
  "desc" :  "A closed leather cap that protects the head and neck. Padded for extra protection." \
 },
-{"name" : "padded_hood"                     , "layer" : "hood", "min" : 1, "max" : 3, "base" : True, "value" : 115, "con" : 50, "stam" : -2, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "padded_hood"                     , "layer" : "hood", "min" : 1, "max" : 3, "base" : True, "value" : 115, "con" : 50, "stam" : -3, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Full Aketon Cap", \
  "desc" :  "A large padded cloth cap also covering the neck." \
 },
@@ -388,15 +388,15 @@ layers = [
  "title" :  "Southern Cap", \
  "desc" :  "A simple cap of rough fibres." \
 },
-{"name" : "southern_turban_light_hood"       , "layer" : "hood", "min" : 1, "max" : 6, "base" : True, "value" : 90, "con" : 40, "stam" : -1, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "southern_turban_light_hood"       , "layer" : "hood", "min" : 1, "max" : 6, "base" : True, "value" : 90, "con" : 25, "stam" : -1, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Southern light hood", \
  "desc" :  "A southern hood made of light materials." \
 },
-{"name" : "southern_niqaab"                     , "layer" : "hood", "min" : 1, "max" : 4, "base" : True, "value" : 115, "con" : 50, "stam" : -2, "vis" : 0, "hair" : "true", "beard" : "true",  \
+{"name" : "southern_niqaab"                     , "layer" : "hood", "min" : 1, "max" : 4, "base" : True, "value" : 60, "con" : 35, "stam" : -1, "vis" : 0, "hair" : "true", "beard" : "true",  \
  "title" :  "Niqaab", \
  "desc" :  "A headwrap, protects from the sun and light blows." \
 },
-{"name" : "open_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 3, "base" : True, "value" : 225, "con" : 65, "stam" : -3, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "open_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 3, "base" : True, "value" : 225, "con" : 65, "stam" : -4, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Chain Mail Hood", \
  "desc" :  "A hood made of chainmail. Offer good protection and visibiliy." \
 },
@@ -404,15 +404,15 @@ layers = [
  "title" :  "Aventail", \
  "desc" :  "A mail aventail that extends from below the eyeline to cover the neck." \
 },
-{"name" : "aventail"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 150, "con" : 60, "stam" : -3, "vis" : 0, "hair" : "false", "beard" : "true",  \
+{"name" : "aventail"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 150, "con" : 55, "stam" : -3, "vis" : 0, "hair" : "false", "beard" : "true",  \
  "title" :  "Aventail", \
  "desc" :  "A mail aventail that extends from below the eyeline to cover the neck and lower face." \
 },
-{"name" : "rusty_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 150, "con" : 70, "stam" : -4, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "rusty_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 300, "con" : 70, "stam" : -4, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Rusty Mail Coif", \
  "desc" :  "A rusty mail coif that still offers good protection - it leaves horrible stains though." \
 },
-{"name" : "chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 4, "base" : True, "value" : 300, "con" : 75, "stam" : -4, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 4, "base" : True, "value" : 300, "con" : 80, "stam" : -5, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Mail Coif", \
  "desc" :  "A sturdy chain hood." \
 },
@@ -420,23 +420,23 @@ layers = [
  "title" :  "Full Mail Coif", \
  "desc" :  "A mail coif that also protects the neck." \
 },
-{"name" : "bronze_chain"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 600, "con" : 90, "stam" : -6, "vis" : 0, "hair" : "false", "beard" : "false",  \
+{"name" : "bronze_chain"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 225, "con" : 65, "stam" : -4, "vis" : 0, "hair" : "false", "beard" : "false",  \
  "title" :  "Bronze Chain", \
  "desc" :  "Bronze Chain." \
 },
-{"name" : "enclave_bevor"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 750, "con" : 95, "stam" : -7, "vis" : 0, "hair" : "false", "beard" : "true",  \
+{"name" : "enclave_bevor"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 750, "con" : 95, "stam" : -6, "vis" : 0, "hair" : "false", "beard" : "true",  \
  "title" :  "Bevor", \
  "desc" :  "A solid metal bevor." \
 },
-{"name" : "southern_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 260, "con" : 75, "stam" : -4, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "southern_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 300, "con" : 80, "stam" : -5, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Southern Mail Hood", \
  "desc" :  "A Mail Hood of southern design." \
 },
-{"name" : "southern_open_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 200, "con" : 65, "stam" : -3, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "southern_open_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 225, "con" : 65, "stam" : -4, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Southern Chain Mail Hood", \
  "desc" :  "An open mail hood of southern design." \
 },
-{"name" : "southern_open_hood"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 90, "con" : 40, "stam" : -1, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "southern_open_hood"                     , "layer" : "hood", "min" : 1, "max" : 1, "base" : True, "value" : 70, "con" : 30, "stam" : -1, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Southern Hood", \
  "desc" :  "A southern hood made of cloth that wraps around the head." \
 },
@@ -460,19 +460,19 @@ layers = [
 
 
 
-{"name" : "ancient_conic_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 200, "con" : 60, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_conic_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 200, "con" : 65, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Ancient Conic Helm", \
  "desc" :  "Conic Helm of an ancient household guard." \
 },
-{"name" : "ancient_kettle"                     , "layer" : "helm", "min" : 1, "max" : 3, "value" : 200, "con" : 60, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_kettle"                     , "layer" : "helm", "min" : 1, "max" : 3, "value" : 200, "con" : 65, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Ancient Kettle", \
  "desc" :  "A kettle helm from an ancient honor guard." \
 },
-{"name" : "ancient_dome"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 200, "con" : 60, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_dome"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 200, "con" : 65, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Ancient Dome", \
  "desc" :  "A domed helm of an ancient household guard." \
 },
-{"name" : "ancient_crested"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 200, "con" : 60, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_crested"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 200, "con" : 65, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Ancient Crested Helm", \
  "desc" :  "Crested Helm of an ancient honor guard." \
 },
@@ -480,38 +480,29 @@ layers = [
  "title" :  "Tailed Ancient Dome", \
  "desc" :  "A domed and tailed helm of an ancient household guard." \
 },
-{"name" : "ancient_face_plate"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 350, "con" : 95, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_face_plate"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 550, "con" : 120, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Ancient Face Plate", \
  "desc" :  "The protective helm of an ancient legionary." \
 },
-{"name" : "ancient_legionaire"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 350, "con" : 95, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_legionaire"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 550, "con" : 120, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Ancient Legionaire Helm", \
  "desc" :  "The helm of an ancient legionary." \
 },
-{"name" : "ancient_side_hawk"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 350, "con" : 95, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_side_hawk"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 550, "con" : 120, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Ancient Side Hawk", \
  "desc" :  "The conic helm of an ancient legionary." \
 },
-{"name" : "ancient_tailed_conic_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 350, "con" : 95, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_tailed_conic_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 550, "con" : 120, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Tailed Ancient Conic Helm", \
  "desc" :  "The tailed conic helm of an ancient legionary." \
 },
-
-{"name" : "ancient_beard_mask"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 600, "con" : 130, "stam" : -12, "vis" : -3, "hair" : "true", "beard" : "true",  \
- "title" :  "Ancient Bearded Mask", \
- "desc" :  "Bearded Mask of an ancient honor guard." \
-},
-{"name" : "ancient_lion_mask"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 600, "con" : 130, "stam" : -12, "vis" : -3, "hair" : "true", "beard" : "true",  \
- "title" :  "Ancient Lion Mask", \
- "desc" :  "A Lion Mask of an ancient honor guard." \
-},
-{"name" : "ancient_mask"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 600, "con" : 130, "stam" : -12, "vis" : -3, "hair" : "true", "beard" : "true",  \
- "title" :  "Ancient Mask", \
- "desc" :  "A masked helm of an ancient honor guard." \
-},
-{"name" : "ancient_face_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 500, "con" : 120, "stam" : -10, "vis" : -2, "hair" : "true", "beard" : "false",  \
+{"name" : "ancient_face_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 500, "con" : 100, "stam" : -8, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Ancient Face Helm", \
  "desc" :  "A helm of an ancient honor guard." \
+},
+{"name" : "ancient_lion_mask"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 600, "con" : 150, "stam" : -15, "vis" : -3, "hair" : "true", "beard" : "true",  \
+ "title" :  "Ancient Lion Mask", \
+ "desc" :  "A masked helm of an ancient honor guard." \
 },
 
 {"name" : "orc_strapped_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 400, "con" : 160, "stam" : -18, "vis" : -1, "hair" : "true", "beard" : "false",  \
@@ -538,11 +529,11 @@ layers = [
  "title" :  "Orc Behemoth Helm", \
  "desc" :  "The distinctive helm of an orc behemoth." \
 },
-{"name" : "crude_metal_helm"                     , "layer" : "helm", "min" : 1, "max" : 3, "value" :500, "con" : 110, "stam" : -8, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "crude_metal_helm"                     , "layer" : "helm", "min" : 1, "max" : 3, "value" :950, "con" : 130, "stam" : -8, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Crude Metal Helm", \
  "desc" :  "Although crudely made and rusty, this metal helmet is a durable and sturdy piece of armor." \
 },
-{"name" : "crude_cylinder_helm"                     , "layer" : "helm", "min" : 1, "max" : 2, "value" : 600, "con" : 155, "stam" : -12, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "crude_cylinder_helm"                     , "layer" : "helm", "min" : 1, "max" : 2, "value" : 1200, "con" : 175, "stam" : -15, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Crude Cylinder Helm", \
  "desc" :  "This heavy metal helmet also protects the wearers face, albeit at the cost of visibility." \
 },
@@ -582,199 +573,211 @@ layers = [
  "title" :  "Southern Spiked Cap", \
  "desc" :  "A metal skull cap with a fashionable spike." \
 },
-{"name" : "viking_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 200, "con" : 55, "stam" : -3, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "viking_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 1100, "con" : 115, "stam" : -7, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Viking Helm", \
  "desc" :  "A nordic helmet guarding face and neck with additional metal plates." \
 },
-{"name" : "norman_helm"                     , "layer" : "helm", "min" : 1, "max" : 5, "value" : 150, "con" : 50, "stam" : -3, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "norman_helm"                     , "layer" : "helm", "min" : 1, "max" : 5, "value" : 225, "con" : 75, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Nasal Helmet", \
  "desc" :  "A metal helmet with added noseguard." \
 },
-{"name" : "flat_top_helm_low"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 225, "con" : 70, "stam" : -4, "vis" : -1, "hair" : "true", "beard" : "false",  \
- "title" :  "Rusted Flat Top Helm", \
- "desc" :  "A flat top helm that is worn out, rusted, dented and will never be fully repairable." \
-},
-{"name" : "flat_top_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 325, "con" : 85, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
+#{"name" : "flat_top_helm_low"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 200, "con" : 60, "stam" : -4, "vis" : -1, "hair" : "true", "beard" : "false",  \
+# "title" :  "Rusted Flat Top Helm", \
+# "desc" :  "A flat top helm that is worn out, rusted, dented and will never be fully repairable." \
+#},
+{"name" : "flat_top_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 550, "con" : 90, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Flat Top Helm", \
  "desc" :  "A flat full-metal helmet with noseguard." \
 },
-{"name" : "flat_top_helm_polished"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 550, "con" : 100, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
- "title" :  "Hardened Flat Top Helm", \
- "desc" :  "A outstandingly well made and maintained flat full-metal helmet with noseguard." \
-},
-{"name" : "barbute"                     , "layer" : "helm", "min" : 1, "max" : 7, "value" : 1250, "con" : 75, "stam" : -3, "vis" : -2, "hair" : "true", "beard" : "false",  \
+#{"name" : "flat_top_helm_polished"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 550, "con" : 100, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
+# "title" :  "Hardened Flat Top Helm", \
+# "desc" :  "A outstandingly well made and maintained flat full-metal helmet with noseguard." \
+#},
+{"name" : "barbute"                     , "layer" : "helm", "min" : 1, "max" : 7, "value" : 1650, "con" : 140, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Barbute", \
  "desc" :  "A sturdy yet light barbute helmet, a design uncommon in these lands, made from especially light and durable steel." \
 },
-{"name" : "barbute_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2750, "con" : 85, "stam" : -4, "vis" : -2, "hair" : "true", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 2, "rminStam" : 4, "rminCond" : 85, "rmaxCond" : 105, "names" : Names,  \
+{"name" : "two_piece_barbute"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2750, "con" : 150, "stam" : -10, "vis" : -2, "hair" : "true", "beard" : "false", \
+ "title" :  "Barbute", \
+ "desc" :  "A barbute composed of two steel plates riveted together. " \
+},
+{"name" : "barbute_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2750, "con" : 145, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 7, "rminStam" : 9, "rminCond" : 145, "rmaxCond" : 165, "names" : Names,  \
  "title" :  "Barbute", \
  "desc" :  "A superb barbute helmet of foreign origin, this helmet has been blackened and polished to a dark shine. " \
 },
-{"name" : "horsetail"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 200, "con" : 60, "stam" : -3, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "two_piece_barbute_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2950, "con" : 155, "stam" : -10, "vis" : -2, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 8, "rminStam" : 10, "rminCond" : 155, "rmaxCond" : 175, "names" : Names,  \
+ "title" :  "Barbute", \
+ "desc" :  "A sturdy barbute composed of two riveted pieces of metal, with a gilded top and rim. Offers good protection. " \
+},
+{"name" : "horsetail"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 225, "con" : 75, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Steppe Helm", \
  "desc" :  "A nasal helmet witch an attached mail neck guard fashioned in the way of the steppe folks." \
 },
-{"name" : "basinet"                     , "layer" : "helm", "min" : 1, "max" : 7, "value" : 1250, "con" : 80, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "basinet"                     , "layer" : "helm", "min" : 1, "max" : 7, "value" : 850, "con" : 105, "stam" : -7, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Basinet", \
  "desc" :  "A well made metal bascinet." \
 },
-{"name" : "bascinet_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2500, "con" : 90, "stam" : -4, "vis" : -1, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 0, "rminViz" : 1, "rmaxStam" : 2, "rminStam" : 4, "rminCond" : 90, "rmaxCond" : 115, "names" : Names,  \
+{"name" : "bascinet_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2400, "con" : 115, "stam" : -7, "vis" : -1, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 0, "rminViz" : 1, "rmaxStam" : 6, "rminStam" : 4, "rminCond" : 115, "rmaxCond" : 135, "names" : Names,  \
  "title" :  "Bascinet", \
  "desc" :  "A heavy and durable bascinet. This one has a pointed head and is blackened." \
 },
-{"name" : "enclave_great_bascinet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2800, "con" : 180, "stam" : -13, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "enclave_great_bascinet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3000, "con" : 200, "stam" : -13, "vis" : -3, "hair" : "true", "beard" : "true",  \
  "title" :  "Peaked Bascinet", \
  "desc" :  "A well made peaked bascinet." \
 },
-{"name" : "enclave_venitian_bascinet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3000, "con" : 185, "stam" : -14, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "enclave_venitian_bascinet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3000, "con" : 185, "stam" : -12, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Great Bascinet", \
  "desc" :  "A tall helm composed of a peaked bascinet and riveted cheek protection." \
 },
-{"name" : "kettle_helm_low"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 250, "con" : 75, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
- "title" :  "Rusted Kettle Helm", \
- "desc" :  "A full-metal helmet with a broad rim, it has been poorly maintained and is now rusted, dented and will never be fully repaired." \
-},
-{"name" : "kettle_helm_med"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 500, "con" : 95, "stam" : -7, "vis" : -1, "hair" : "true", "beard" : "false",  \
+#{"name" : "kettle_helm_low"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 250, "con" : 75, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
+# "title" :  "Rusted Kettle Helm", \
+# "desc" :  "A full-metal helmet with a broad rim, it has been poorly maintained and is now rusted, dented and will never be fully repaired." \
+#},
+#{"name" : "kettle_helm_med"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 500, "con" : 95, "stam" : -7, "vis" : -1, "hair" : "true", "beard" : "false",  \
+# "title" :  "Kettle Helm", \
+# "desc" :  "A full-metal helmet with a broad rim." \
+#},
+#{"name" : "kettle_helm_high"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 850, "con" : 125, "stam" : -9, "vis" : -1, "hair" : "true", "beard" : "false",  \
+# "title" :  "Hardened Kettle Helm", \
+# "desc" :  "A hardended full-metal helmet with a broad rim, excellent quality and military grade." \
+#},
+{"name" : "kettle_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 750, "con" : 100, "stam" : -6, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Kettle Helm", \
  "desc" :  "A full-metal helmet with a broad rim." \
 },
-{"name" : "kettle_helm_high"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 850, "con" : 125, "stam" : -9, "vis" : -1, "hair" : "true", "beard" : "false",  \
- "title" :  "Hardened Kettle Helm", \
- "desc" :  "A hardended full-metal helmet with a broad rim, excellent quality and military grade." \
-},
-{"name" : "kettle_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 750, "con" : 115, "stam" : -8, "vis" : -2, "hair" : "true", "beard" : "false",  \
- "title" :  "Kettle Helm", \
- "desc" :  "A full-metal helmet with a broad rim." \
-},
-{"name" : "kettle_helm_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3500, "con" : 130, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 7, "rminStam" : 9, "rminCond" : 130, "rmaxCond" : 155, "names" : Names, \
+{"name" : "kettle_helm_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3500, "con" : 130, "stam" : -8, "vis" : -2, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 6, "rminStam" : 8, "rminCond" : 130, "rmaxCond" : 155, "names" : Names, \
  "title" :  "Kettle Helm", \
  "desc" :  "An exceptional and sturdy kettle helm. Blackened and polished, it has a gilded point." \
 },
-{"name" : "enclave_kettle"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1250, "con" : 145, "stam" : -10, "vis" : -2, "hair" : "true", "beard" : "false",  \
+{"name" : "fluted_kettle_helm_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3500, "con" : 130, "stam" : -8, "vis" : -2, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 6, "rminStam" : 8, "rminCond" : 130, "rmaxCond" : 155, "names" : Names, \
+ "title" :  "Kettle Helm", \
+ "desc" :  "A kettle helm with distinct fluting on it's peak as well as a gilded rim at it's base." \
+},
+{"name" : "enclave_kettle"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1650, "con" : 140, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Kettle Sallet", \
  "desc" :  "A full-metal sallet with a broad rim." \
 },
-{"name" : "enclave_skullcap"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 600, "con" : 65, "stam" : -4, "vis" : 0, "hair" : "false", "beard" : "false",  \
+{"name" : "enclave_skullcap"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 200, "con" : 70, "stam" : -4, "vis" : 0, "hair" : "false", "beard" : "false",  \
  "title" :  "Metal Skullcap", \
  "desc" :  "A metal cap that covers the head." \
 },
-{"name" : "scale_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 725, "con" : 75, "stam" : -5, "vis" : -1, "hair" : "false", "beard" : "false",  \
+{"name" : "scale_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 200, "con" : 70, "stam" : -4, "vis" : 0, "hair" : "false", "beard" : "false",  \
  "title" :  "Scale Skullcap", \
  "desc" :  "A skullcap composed of several overlapping metal scales." \
 },
-{"name" : "rondel_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 775, "con" : 85, "stam" : -6, "vis" : -1, "hair" : "false", "beard" : "false",  \
+{"name" : "rondel_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 500, "con" : 85, "stam" : -6, "vis" : -1, "hair" : "false", "beard" : "false",  \
  "title" :  "Rondel Helm", \
  "desc" :  "A short skullcap with two rondels afixed to each side, providing extra protection to the wearer's head." \
 },
-{"name" : "deep_sallet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1000, "con" : 100, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "deep_sallet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1650, "con" : 140, "stam" : -9, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Deep Sallet", \
  "desc" :  "A metal sallet with a deep skull as well as tall sides, providing good protection." \
 },
-{"name" : "deep_sallet_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3200, "con" : 105, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 5, "rminStam" : 6, "rminCond" : 105, "rmaxCond" : 125, "names" : Names,  \
+{"name" : "deep_sallet_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3200, "con" : 150, "stam" : -10, "vis" : -1, "hair" : "true", "beard" : "false",  "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 8, "rminStam" : 10, "rminCond" : 150, "rmaxCond" : 170, "names" : Names,  \
  "title" :  "Deep Sallet", \
  "desc" :  "A decorated deep sallet. It bears a gilded trim with decorative leaf plates pinned to the front ridge." \
 },
-{"name" : "wallace_sallet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1500, "con" : 105, "stam" : -7, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "wallace_sallet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1650, "con" : 140, "stam" : -9, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Sallet", \
  "desc" :  "A deep sallet covering the head protectively." \
 },
-{"name" : "wallace_sallet_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2500, "con" : 110, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 5, "rminStam" : 6, "rminCond" : 110, "rmaxCond" : 135, "names" : Names, \
+{"name" : "wallace_sallet_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3200, "con" : 150, "stam" : -10, "vis" : -1, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 8, "rminStam" : 10, "rminCond" : 150, "rmaxCond" : 170, "names" : Names, \
  "title" :  "Sallet", \
  "desc" :  "A skillfully painted sallet. It is made of strong steel and should protect one's skull from all kinds of trauma." \
 },
-{"name" : "flat_top_face_plate"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 900, "con" : 120, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "flat_top_face_plate"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 1950, "con" : 150, "stam" : -10, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Flat Top Face Plate", \
  "desc" :  "A flat full-metal helmet with faceplate." \
 },
-{"name" : "carthaginian"                     , "layer" : "helm", "min" : 1, "max" : 3, "value" : 1600, "con" : 105, "stam" : -5, "vis" : -2, "hair" : "true", "beard" : "false",  \
+{"name" : "carthaginian"                     , "layer" : "helm", "min" : 1, "max" : 3, "value" : 850, "con" : 105, "stam" : -7, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Carthaginian Helm", \
  "desc" :  "A sturdy alloy helmet of foreign design." \
 },
-{"name" : "conic_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 700, "con" : 110, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "conic_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 400, "con" : 80, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Conic Helm", \
  "desc" :  "A heavy conic helmet." \
 },
-{"name" : "sallet"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 800, "con" : 50, "stam" : -2, "vis" : 0, "hair" : "true", "beard" : "false",  \
+{"name" : "sallet"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 950, "con" : 85, "stam" : -5, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Sallet", \
  "desc" :  "A metal sallet helmet with an extended neckguard, a design uncommon in these lands. It is well crafted to offer maximum protection with minimum weight, and without impairing vision." \
 },
-{"name" : "nordic_helm_low"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 460, "con" : 110, "stam" : -7, "vis" : -2, "hair" : "true", "beard" : "false",  \
- "title" :  "Rusted Nordic Helm", \
- "desc" :  "A poorly maintained nordic helmet guarding face and neck with additional metal plates. It is rusted, dented, bent and will never be fully repaired." \
-},
-{"name" : "nordic_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 1000, "con" : 125, "stam" : -8, "vis" : -2, "hair" : "true", "beard" : "false",  \
+#{"name" : "nordic_helm_low"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 460, "con" : 110, "stam" : -7, "vis" : -2, "hair" : "true", "beard" : "false",  \
+# "title" :  "Rusted Nordic Helm", \
+# "desc" :  "A poorly maintained nordic helmet guarding face and neck with additional metal plates. It is rusted, dented, bent and will never be fully repaired." \
+#},
+{"name" : "nordic_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 750, "con" : 100, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Nordic Helm", \
  "desc" :  "A nordic helmet guarding face and neck with additional metal plates." \
 },
-{"name" : "nordic_helm_high"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 1750, "con" : 135, "stam" : -8, "vis" : -2, "hair" : "true", "beard" : "false",  \
- "title" :  "Hardened Nordic Helm", \
- "desc" :  "A spectacularly well constructed and maintained nordic helmet guarding face and neck with additional metal plates." \
-},
-{"name" : "bronze_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1000, "con" : 115, "stam" : -8, "vis" : -1, "hair" : "true", "beard" : "false",  \
+#{"name" : "nordic_helm_high"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 1750, "con" : 135, "stam" : -8, "vis" : -2, "hair" : "true", "beard" : "false",  \
+# "title" :  "Hardened Nordic Helm", \
+# "desc" :  "A spectacularly well constructed and maintained nordic helmet guarding face and neck with additional metal plates." \
+#},
+{"name" : "bronze_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 850, "con" : 105, "stam" : -7, "vis" : -2, "hair" : "true", "beard" : "false",  \
  "title" :  "Bronze Helm", \
  "desc" :  "Bronze Helm." \
 },
-{"name" : "great_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 2500, "con" : 175, "stam" : -12, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "great_helm"                     , "layer" : "helm", "min" : 1, "max" : 6, "value" : 2500, "con" : 175, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Great Helm", \
  "desc" :  "A closed metal helm with breathing holes. Great in the way of protection but hard to breathe in and limiting the field of view." \
 },
-{"name" : "enclave_great_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2650, "con" : 180, "stam" : -12, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "enclave_great_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2500, "con" : 175, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Great Helm", \
  "desc" :  "A closed metal helm with breathing holes. Great in the way of protection but hard to breathe in and limiting the field of view." \
 },
-{"name" : "legend_armet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1750, "con" : 155, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "legend_armet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2700, "con" : 180, "stam" : -12, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Armet", \
  "desc" :  "A finely crafted close helm of outstanding workmanship." \
 },
-{"name" : "enclave_armet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1400, "con" : 140, "stam" : -9, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "enclave_armet"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2500, "con" : 170, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Armet", \
  "desc" :  "A finely crafted armet of outstanding workmanship." \
 },
-{"name" : "legend_frogmouth"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2250, "con" : 160, "stam" : -10, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "legend_frogmouth"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 3450, "con" : 220, "stam" : -14, "vis" : -3, "hair" : "true", "beard" : "true",  \
  "title" :  "Frogmouth", \
  "desc" :  "A gloriously frogmouth helm of excellent construction." \
 },
-{"name" : "southern_gladiator_helm_crested"                     , "layer" : "helm", "min" : 1, "max" : 13, "value" : 2500, "con" : 130, "stam" : -6, "vis" : -3, "hair" : "true", "beard" : "true",  \
+{"name" : "southern_gladiator_helm_crested"                     , "layer" : "helm", "min" : 1, "max" : 13, "value" : 2500, "con" : 130, "stam" : -8, "vis" : -3, "hair" : "true", "beard" : "true",  \
  "title" :  "Crested Gladiator Helm", \
  "desc" :  "An impressive metal helmet crafted to intimidate the opponents of pit fighters in arenas of the southern city states." \
 },
-{"name" : "southern_gladiator_helm_split"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2500, "con" : 130, "stam" : -6, "vis" : -3, "hair" : "true", "beard" : "true",  \
+{"name" : "southern_gladiator_helm_split"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2500, "con" : 130, "stam" : -8, "vis" : -3, "hair" : "true", "beard" : "true",  \
  "title" :  "Split Gladiator Helm", \
  "desc" :  "An impressive metal helmet crafted to intimidate the opponents of pit fighters in arenas of the southern city states." \
 },
-{"name" : "southern_gladiator_helm_masked"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2500, "con" : 130, "stam" : -6, "vis" : -3, "hair" : "true", "beard" : "true",  \
+{"name" : "southern_gladiator_helm_masked"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2500, "con" : 130, "stam" : -8, "vis" : -3, "hair" : "true", "beard" : "true",  \
  "title" :  "Masked Gladiator Helm", \
  "desc" :  "An impressive metal helmet crafted to intimidate the opponents of pit fighters in arenas of the southern city states." \
 },
-{"name" : "southern_helmet_nasal"                     , "layer" : "helm", "min" : 1, "max" : 8, "value" : 750, "con" : 125, "stam" : -7, "vis" : -2, "hair" : "true", "beard" : "false",  \
+{"name" : "southern_helmet_nasal"                     , "layer" : "helm", "min" : 1, "max" : 8, "value" : 700, "con" : 90, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Heavy Lamellar Helmet", \
  "desc" :  "A heavy helmet made from overlapping metal plates." \
 },
-{"name" : "italo_norman_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 425, "con" : 90, "stam" : -6, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "italo_norman_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1950, "con" : 150, "stam" : -10, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Italio Norman Helm", \
  "desc" :  "A curved metal helm in a distinctive style. It has a large duck-bill shaped faceplate covering the front." \
 },
-{"name" : "italo_norman_helm_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2000, "con" : 110, "stam" : -5, "vis" : -2, "hair" : "true", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 4, "rminStam" : 5, "rminCond" : 110, "rmaxCond" : 135, "names" : Names,  \
+{"name" : "italo_norman_helm_named"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2900, "con" : 160, "stam" : -10, "vis" : -2, "hair" : "true", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 8, "rminStam" : 10, "rminCond" : 160, "rmaxCond" : 180, "names" : Names,  \
  "title" :  "Italio Conic Helm", \
  "desc" :  "A well-built and lavishly decorated pointed conic helm. It has a large duck-bill shaped faceplate covering the front." \
 },
-{"name" : "southern_conic_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 350, "con" : 75, "stam" : -4, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "southern_conic_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 350, "con" : 75, "stam" : -5, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Southern Conic Helm", \
  "desc" :  "A conic helm from the south." \
 },
-{"name" : "southern_named_conic"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2000, "con" : 85, "stam" : -3, "vis" : -1, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 3, "rminStam" : 4, "rminCond" : 85, "rmaxCond" : 105, "names" : Names,  \
+{"name" : "southern_named_conic"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2000, "con" : 90, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 5, "rminStam" : 6, "rminCond" : 90, "rmaxCond" : 115, "names" : Names,  \
  "title" :  "Southern Conic", \
  "desc" :  "An expertly crafted southern helm." \
 },
-{"name" : "southern_peaked_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 2000, "con" : 115, "stam" : -8, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "southern_peaked_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 750, "con" : 105, "stam" : -7, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Southern Peaked Helmet", \
  "desc" :  "A southern metal helmet usually worn with a mail coif to protect the neck." \
 },
-{"name" : "southern_peaked_nasal_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1500, "con" : 150, "stam" : -11, "vis" : -1, "hair" : "true", "beard" : "false",  \
+{"name" : "southern_peaked_nasal_helm"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1500, "con" : 130, "stam" : -8, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Turban Helmet", \
  "desc" :  "A full helmet crafted from overlapping long metal splints in the shape of a traditional southern head wrap." \
 },
-{"name" : "legend_ancient_gladiator"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1200, "con" : 150, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "legend_ancient_gladiator"                     , "layer" : "helm", "min" : 1, "max" : 1, "value" : 1400, "con" : 100, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Ancient Gladiator Helm", \
  "desc" :  "The distinctive helm of an ancient gladiator." \
 },
@@ -806,7 +809,7 @@ layers = [
  "title" :  "Glimpse of Davkul", \
  "desc" :  "The Glimpse of Davkul is a gift bestowed upon man by ancient and dark powers, a helmet merged with human skin and bones through the most unspeakable of rituals. A glimpse of a future where man shall become one with creations from a realm beyond. It shall never break, but instead keep regrowing its scarred skin on the spot." \
 },
-{"name" : "rotten_flat_top_face_mask"                     , "layer" : "helm", "min" : 1, "max" : 5, "value" : 400, "con" : 110, "stam" : -8, "vis" : -2, "hair" : "true", "beard" : "true",  \
+{"name" : "rotten_flat_top_face_mask"                     , "layer" : "helm", "min" : 1, "max" : 5, "value" : 800, "con" : 130, "stam" : -11, "vis" : -2, "hair" : "true", "beard" : "true",  \
  "title" :  "Rotten Flat Top Face Mask", \
  "desc" :  "Rotten Flat Top Face Mask." \
 },
@@ -836,7 +839,14 @@ layers = [
  "title" :  "Cloth Long Hood", \
  "desc" :  "A simple hood to protect against weather and scratches." \
 },
-
+{"name" : "ancient_beard_mask"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 120, "stam" : -12, "vis" : -3, "hair" : "true", "beard" : "true",  \
+ "title" :  "Ancient Bearded Mask", \
+ "desc" :  "Bearded Mask of an ancient honor guard." \
+},
+{"name" : "ancient_mask"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 120, "stam" : -12, "vis" : -3, "hair" : "true", "beard" : "true",  \
+ "title" :  "Ancient Mask", \
+ "desc" :  "A masked helm of an ancient honor guard." \
+},
 {"name" : "orc_leather_mask"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 150, "con" : 45, "stam" : -6, "vis" : -1, "hair" : "true", "beard" : "false",  \
  "title" :  "Orc Leather Mask", \
  "desc" :  "A basic leather mask worn by young orcs." \
@@ -930,7 +940,7 @@ layers = [
  "title" :  "Long Faceplate", \
  "desc" :  "A long faceplate." \
 },
-{"name" : "faceplate_winged"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 45, "stam" : -4, "vis" : 0, "hair" : "false", "beard" : "true",  \
+{"name" : "faceplate_winged"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 45, "stam" : -3, "vis" : 0, "hair" : "false", "beard" : "true",  \
  "title" :  "Winged Faceplate", \
  "desc" :  "A glorious faceplate formed into the shape of wings." \
 },
@@ -946,39 +956,39 @@ layers = [
  "title" :  "Sharp Faceplate", \
  "desc" :  "Sharp Faceplate." \
 },
-{"name" : "enclave_great_jaw"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 350, "con" : 50, "stam" : -5, "vis" : 0, "hair" : "false", "beard" : "false",  \
- "title" :  "A rough metal bevor", \
- "desc" :  "A rough metal bevor." \
-},
+#{"name" : "enclave_great_jaw"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 350, "con" : 50, "stam" : -5, "vis" : 0, "hair" : "false", "beard" : "false",  \
+# "title" :  "A rough metal bevor", \
+# "desc" :  "A rough metal bevor." \
+#},
 {"name" : "facemask"                     , "layer" : "top", "min" : 1, "max" : 6, "value" : 150, "con" : 20, "stam" : -1, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Facemask", \
  "desc" :  "A metal faceplate in the shape of a mask." \
 },
-{"name" : "faceplate_pointed"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 50, "stam" : -4, "vis" : -1, "hair" : "false", "beard" : "true",  \
+{"name" : "faceplate_pointed"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 50, "stam" : -3, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Pointed Faceplate", \
  "desc" :  "A long nosed faceplate designed to deflect glancing blows." \
 },
-{"name" : "enclave_armet_visor"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 300, "con" : 35, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "true",  \
+{"name" : "enclave_armet_visor"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 45, "stam" : -3, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Armet Visor", \
  "desc" :  "A visor that fits on the armet, protecting the lower jaw while leaving a slit for eyesight." \
 },
-{"name" : "wallace_sallet_visor"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 150, "con" : 20, "stam" : -1, "vis" : -1, "hair" : "false", "beard" : "true",  \
+{"name" : "wallace_sallet_visor"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 250, "con" : 30, "stam" : -1, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Sallet Visor", \
  "desc" :  "A visor made for sallets. It has two eye-slits as well as a few breathing holes in the center." \
 },
-{"name" : "wallace_sallet_visor_named"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 700, "con" : 35, "stam" : -1, "vis" : -1, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 1, "rminStam" : 2, "rminCond" : 35, "rmaxCond" : 50, "names" : Names, \
+{"name" : "wallace_sallet_visor_named"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 700, "con" : 35, "stam" : -1, "vis" : -1, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 1, "rminStam" : 2, "rminCond" : 35, "rmaxCond" : 60, "names" : Names, \
  "title" :  "Sallet Visor", \
  "desc" :  "This visor bears an exquisite caricature of a beast's face on the front, putting terror into any who gaze upon it." \
 },
-{"name" : "enclave_venitian_bascinet_visor"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 500, "con" : 45, "stam" : -3, "vis" : -1, "hair" : "false", "beard" : "true",  \
+{"name" : "enclave_venitian_bascinet_visor"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 500, "con" : 50, "stam" : -3, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Great Bascinet Visor", \
  "desc" :  "A visor that fits on the great bascinet, covering the the only hole for the face, it increases the wearer's defense greatly." \
 },
-{"name" : "enclave_great_bascinet_visor"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 900, "con" : 65, "stam" : -6, "vis" : -1, "hair" : "false", "beard" : "true",  \
+{"name" : "enclave_great_bascinet_visor"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 900, "con" : 75, "stam" : -6, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Great Bascinet Visor", \
  "desc" :  "Visor made for the great bascinet. Provides much protection to the wearer's face, but limits vision." \
 },
-{"name" : "faceplate_pointed_slit"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 50, "stam" : -4, "vis" : -1, "hair" : "false", "beard" : "true",  \
+{"name" : "faceplate_pointed_slit"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 600, "con" : 50, "stam" : -3, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Slit Pointed Faceplate", \
  "desc" :  "Slit Pointed Faceplate." \
 },
@@ -986,7 +996,7 @@ layers = [
  "title" :  "Full Faceplate", \
  "desc" :  "A very well crafted full faceplate." \
 },
-{"name" : "bascinet_visor_named"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 1000, "con" : 50, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 1, "rmaxStam" : 2, "rminStam" : 3, "rminCond" : 50, "rmaxCond" : 70, "names" : Names,  \
+{"name" : "bascinet_visor_named"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 2000, "con" : 60, "stam" : -4, "vis" : -2, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 3, "rminStam" : 4, "rminCond" : 60, "rmaxCond" : 80, "names" : Names,  \
  "title" :  "Pointed Visor", \
  "desc" :  "A gilded visor with a pointed snout and plenty of holes to breath through." \
 },
@@ -994,7 +1004,7 @@ layers = [
 #  "title" :  "Southern Faceplate", \
 #  "desc" :  "A faceplate in the southern style" \
 # },
-{"name" : "southern_faceplate_bearded"                     , "layer" : "top", "min" : 1, "max" : 2, "value" : 700, "con" : 60, "stam" : -5, "vis" : -2, "hair" : "false", "beard" : "true",  \
+{"name" : "southern_faceplate_bearded"                     , "layer" : "top", "min" : 1, "max" : 2, "value" : 700, "con" : 60, "stam" : -4, "vis" : -2, "hair" : "false", "beard" : "true",  \
  "title" :  "Southern Bearded Faceplate", \
  "desc" :  "A faceplate in the southern bearded style." \
 },
@@ -1020,7 +1030,7 @@ layers = [
  "title" :  "Unhold head Spike", \
  "desc" :  "The heavy spiked armor used by barbarian unholds." \
 },
-{"name" : "faceplate_gold"                     , "layer" : "top", "min" : 1, "max" : 2, "value" : 1600, "con" : 65, "stam" : -5, "vis" : -1, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 0, "rminViz" : 1, "rmaxStam" : 4, "rminStam" : 5, "rminCond" : 65, "rmaxCond" : 85, "names" : Names,  \
+{"name" : "faceplate_gold"                     , "layer" : "top", "min" : 1, "max" : 2, "value" : 1600, "con" : 60, "stam" : -5, "vis" : -1, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 0, "rminViz" : 1, "rmaxStam" : 4, "rminStam" : 5, "rminCond" : 60, "rmaxCond" : 80, "names" : Names,  \
  "title" :  "Gold Faceplate", \
  "desc" :  "A gilded faceplate of excellent quality." \
 },
@@ -1033,11 +1043,11 @@ layers = [
  "title" :  "Golden Helm", \
  "desc" :  "A golden helmet and facemask, showing the visage of an emperor from an age long past, imbued with mystical energies. When you hold it into the light, it almost looks as if the face were moving and making expressions of disgust." \
 },
-{"name" : "faceplate_raised"                     , "layer" : "top", "min" : 1, "max" : 2, "value" :800, "con" : 50, "stam" : -3, "vis" : 0, "hair" : "false", "beard" : "true", "named" : True, "rminViz" : 0, "rmaxViz" : 0, "rmaxStam" : 2, "rminStam" : 3, "rminCond" : 50, "rmaxCond" : 70, "names" : Names,  \
+{"name" : "faceplate_raised"                     , "layer" : "top", "min" : 1, "max" : 2, "value" :800, "con" : 50, "stam" : -4, "vis" : 0, "hair" : "false", "beard" : "true", "named" : True, "rminViz" : 0, "rmaxViz" : 0, "rmaxStam" : 2, "rminStam" : 4, "rminCond" : 50, "rmaxCond" : 70, "names" : Names,  \
  "title" :  "Raised Faceplate", \
  "desc" :  "A faceplate raised up to give more air and vision." \
 },
-{"name" : "faceplate_full_01_named"                     , "layer" : "top", "min" : 1, "max" : 3, "value" : 2000, "con" : 75, "stam" : -6, "vis" : -2, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 5, "rminStam" : 6, "rminCond" : 75, "rmaxCond" : 100, "names" : Names,  \
+{"name" : "faceplate_full_01_named"                     , "layer" : "top", "min" : 1, "max" : 3, "value" : 2000, "con" : 75, "stam" : -5, "vis" : -2, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 4, "rminStam" : 5, "rminCond" : 75, "rmaxCond" : 100, "names" : Names,  \
  "title" :  "Full Faceplate", \
  "desc" :  "An exceptionally well crafted faceplate of high worksmanship." \
 },
@@ -1087,6 +1097,10 @@ layers = [
 {"name" : "sack"                     , "layer" : "vanity", "min" : 1, "max" : 12, "value" : 50, "con" : 5, "stam" : 0, "vis" : -1, "hair" : "true", "beard" : "true",  \
  "title" :  "Sack", \
  "desc" :  "A rough hewn hession sack with two holes in it." \
+},
+{"name" : "executioner_hood"                     , "layer" : "vanity", "min" : 1, "max" : 1, "value" : 50, "con" : 5, "stam" : 0, "vis" : -1, "hair" : "true", "beard" : "true",  \
+ "title" :  "Executioner Hood", \
+ "desc" :  "A red cloth hood, made of fine fabric." \
 },
 {"name" : "antler"                     , "layer" : "vanity", "min" : 1, "max" : 1, "value" : 20, "con" : 2, "stam" : 0, "vis" : 0, "hair" : "false", "beard" : "false",  \
  "title" :  "Antlers", \

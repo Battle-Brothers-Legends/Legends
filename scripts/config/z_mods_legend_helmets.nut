@@ -232,6 +232,19 @@ gt.Const.LegendMod.HelmObjs.extend([
             [1, "vanity/legend_helmet_wizard_cowl"]
         ]
     }]
+    },{ //avg of 32 dura
+        ID = "executioner_hood", //40
+        Script = "",
+        Sets = [{
+        Hoods = [
+            [1, "hood/legend_helmet_cloth_cap"] // 10
+        ],
+        Helms = [],
+        Tops = [],
+        Vanity = [
+            [1, "vanity/legend_helmet_executioner_hood"]
+        ]
+    }]
     },{
         ID = "decayed_closed_flat_top_with_mail", //230, -19, -3, 1250
         Script = "",
@@ -664,7 +677,7 @@ gt.Const.LegendMod.HelmObjs.extend([
             [3, "hood/legend_helmet_chain_hood"],//80, -5,
         ],
         Helms = [
-            [1, "helm/legend_helmet_kettle_helm_high"],
+            [1, "helm/legend_helmet_kettle_helm"],
         ],
         Tops = [
             [1, ""],
@@ -682,7 +695,7 @@ gt.Const.LegendMod.HelmObjs.extend([
             [1, "hood/legend_helmet_simple_hood"] //30
         ],
         Helms = [
-            [1, "helm/legend_helmet_kettle_helm_low"] //85
+            [1, "helm/legend_helmet_kettle_helm"] //85
         ],
         Tops = [],
         Vanity = [  ]
@@ -1095,7 +1108,7 @@ gt.Const.LegendMod.HelmObjs.extend([
             [1, "hood/legend_helmet_chain_hood_full"] // 90, -6,
         ],
         Helms = [
-            [1, "helm/legend_helmet_nordic_helm_high"] //175
+            [1, "helm/legend_helmet_nordic_helm"] //175
         ],
         Tops = [],
         Vanity = []
@@ -1108,7 +1121,7 @@ gt.Const.LegendMod.HelmObjs.extend([
             [1, "hood/legend_helmet_simple_hood"] //30
         ],
         Helms = [
-            [1, "helm/legend_helmet_nordic_helm_low"] //95, -6, -1
+            [1, "helm/legend_helmet_nordic_helm"] //95, -6, -1
         ],
         Tops = [],
         Vanity = []
@@ -1148,7 +1161,7 @@ gt.Const.LegendMod.HelmObjs.extend([
             [1, "hood/legend_helmet_padded_hood"] //50
         ],
         Helms = [
-            [1, "helm/legend_helmet_kettle_helm_med"] //95, -7
+            [1, "helm/legend_helmet_kettle_helm"] //95, -7
         ],
         Tops = [],
         Vanity = []
@@ -1702,6 +1715,21 @@ gt.Const.LegendMod.HelmObjs.extend([
         ],
         Helms = [
              [1, "helm/legend_helmet_rondel_helm"] //75. -5. 1
+        ],
+        Tops = [
+        ],
+        Vanity = [
+        ]
+    }]
+    },{
+        ID = "two_piece_barbute", //170, -10, -2, 1000
+        Script = "",
+        Sets = [{
+        Hoods = [
+            [1, "hood/legend_helmet_chain_hood_full"], //90, -6, 0
+        ],
+        Helms = [
+             [1, "helm/legend_helmet_two_piece_barbute"] //75. -5. 1
         ],
         Tops = [
         ],
