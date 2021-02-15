@@ -5052,3 +5052,7 @@ Fixes tooltips that overflow and prevent seeing and reading all the info
 
 **Changes**
 Reduces cost of painter tent changes
+
+**Helmets**
+Reworked all helmet layers to better match their value based on their appearence and how much of the head they protect (No more tiny helmets with more constitution than large helmets)
+Added two named helmets, one regular helmet and a new vanity helmet layer.
