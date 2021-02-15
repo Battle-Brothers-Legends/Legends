@@ -69,21 +69,7 @@ this.legend_warlock_background <- this.inherit("scripts/skills/backgrounds/chara
 		}
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{
@@ -148,7 +134,7 @@ this.legend_warlock_background <- this.inherit("scripts/skills/backgrounds/chara
 		items.equip(this.Const.World.Common.pickArmor([
 			[1, "thick_dark_tunic"]
 		]));
-		
+
 		items.equip(this.new("scripts/items/weapons/legend_grisly_scythe"));
 	}
 });

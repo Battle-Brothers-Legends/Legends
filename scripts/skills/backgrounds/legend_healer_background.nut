@@ -79,21 +79,7 @@ this.legend_healer_background <- this.inherit("scripts/skills/backgrounds/charac
 		this.m.Modifiers.Gathering = this.Const.LegendMod.ResourceModifiers.Gather[2];
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{

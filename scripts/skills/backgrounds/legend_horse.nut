@@ -21,7 +21,7 @@ this.legend_horse <- this.inherit("scripts/skills/backgrounds/character_backgrou
 			"trait.ambitious",
 			"trait.seductive",
 			"trait.gift_of_people",
-			"trait.double_tongued"			
+			"trait.double_tongued"
 		];
 		this.m.Variant = this.Math.rand(1, 7)
 		this.m.Faces = this.Const.Faces.Horse;
@@ -160,21 +160,7 @@ this.legend_horse <- this.inherit("scripts/skills/backgrounds/character_backgrou
 		actor.getSprite("injury_body").setBrush(body + "_injured");
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{

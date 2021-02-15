@@ -68,24 +68,16 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 13,
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] repair rate, [color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] maximum tools and [color=" + this.Const.UI.Color.PositiveValue + "]-20%[/color]tool usage"
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()
@@ -136,7 +128,7 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 	{
 		local items = this.getContainer().getActor().getItems();
 		items.equip(this.new("scripts/items/weapons/legend_hammer"));
-		
+
 		items.equip(this.Const.World.Common.pickArmor([
 			[1, "legend_blacksmith_apron"]
 		]));

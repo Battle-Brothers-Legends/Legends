@@ -67,21 +67,7 @@ this.vagabond_background <- this.inherit("scripts/skills/backgrounds/character_b
 		}
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{
@@ -149,7 +135,7 @@ this.vagabond_background <- this.inherit("scripts/skills/backgrounds/character_b
 			[1, "leather_wraps"],
 			[1, "leather_tunic"]
 		]))
-		
+
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, ""],
 			[1, "hood"],

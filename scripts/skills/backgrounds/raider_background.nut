@@ -108,21 +108,7 @@ this.raider_background <- this.inherit("scripts/skills/backgrounds/character_bac
 		this.m.BadEnding = "As the %companyname% speedily declined, %name% the raider departed from the company and went on her own way again. She returned to raiding, taking her greedy violence along the shorelines of river villages. You\'re not sure if it\'s true, but word has it that she was impaled with a pitchfork by a stable boy. Word has it that the town hoisted her body parts along the outer walls as a warning to future would-be raiders.";
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{

@@ -43,6 +43,9 @@ var OptionsMenuModuleGameplayPanel = function(_dataSource)
     this.mRestoreEquipmentLabel         = null;
     this.mAutoPauseAfterCityLabel       = null;
 
+	this.mEnemyTooltipsCheckbox	= null;
+	this.mEnemyTooltipsLabel	= null;
+
 	this.mOptions = {
 		AISpeed: {
 			Control: null,
@@ -147,6 +150,19 @@ OptionsMenuModuleGameplayPanel.prototype.createDIV = function (_parentDiv)
 		radioClass: 'iradio_flat-orange',
 		increaseArea: '30%'
     });
+
+	control = $('<div class="control"></div>');
+	row.append(control);
+	this.mEnemyTooltipsCheckbox = $('<input type="checkbox" id="cb-enemytooltips-overlays" name="enemytooltips-overlays" />');
+	control.append(this.mEnemyTooltipsCheckbox);
+	var mEnemyTooltipsLabel = $('<label class="text-font-normal font-color-subtitle" for="cb-enemytooltips-overlays">Enhanced Enemy Tooltips</label>');
+	this.mEnemyTooltipsLabel = mEnemyTooltipsLabel;
+	control.append(mEnemyTooltipsLabel);
+	this.mEnemyTooltipsCheckbox.iCheck({
+		checkboxClass: 'icheckbox_flat-orange',
+		radioClass: 'iradio_flat-orange',
+		increaseArea: '30%'
+	});
 
 	// create: other options
 	row = $('<div class="row"></div>');
@@ -288,7 +304,10 @@ OptionsMenuModuleGameplayPanel.prototype.destroyDIV = function ()
 	this.mAutoLootCheckbox.remove();
     this.mAutoLootCheckbox = null;
     this.mRestoreEquipmentCheckbox.remove();
-    this.mRestoreEquipmentCheckbox = null;
+	this.mRestoreEquipmentCheckbox = null;
+
+	this.mEnemyTooltipsCheckbox.remove();
+	this.mEnemyTooltipsCheckbox	= null;
 
     this.mContainer.empty();
     this.mContainer = null;
@@ -328,6 +347,12 @@ OptionsMenuModuleGameplayPanel.prototype.setupEventHandler = function ()
         var self = _event.data;
         self.mDataSource.updateGameplayOption(OptionsMenuModuleIdentifier.QueryResult.Gameplay.OrientationOverlays, self.mOrientationOverlaysCheckbox.prop('checked') === true);
     });
+
+	this.mEnemyTooltipsCheckbox.on('ifChecked ifUnchecked', null, this, function (_event)
+    {
+        var self = _event.data;
+        self.mDataSource.updateGameplayOption("EnemyTooltips", self.mEnemyTooltipsCheckbox.prop('checked') === true);
+	});
 
     this.mMovementPlayerCheckbox.on('ifChecked ifUnchecked', null, this, function (_event)
     {
@@ -392,6 +417,7 @@ OptionsMenuModuleGameplayPanel.prototype.bindTooltips = function ()
 	this.mAutoPauseAfterCityLabel.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.MenuScreen.Options.AutoPauseAfterCity });
 	this.mOptions.AISpeed.Control.bindTooltip({ contentType: 'ui-element', elementId: 'legend.aispeed' });
 	this.mOptions.AISpeed.Title.bindTooltip({ contentType: 'ui-element', elementId: 'legend.aispeed' });
+	this.mEnemyTooltipsLabel.bindTooltip({ contentType: 'ui-element', elementId: 'legend.enemytooltip' });
 };
 
 OptionsMenuModuleGameplayPanel.prototype.unbindTooltips = function ()
@@ -409,6 +435,7 @@ OptionsMenuModuleGameplayPanel.prototype.unbindTooltips = function ()
 	this.mAutoPauseAfterCityLabel.unbindTooltip();
 	this.mOptions.AISpeed.Control.unbindTooltip();
 	this.mOptions.AISpeed.Title.unbindTooltip();
+	this.mEnemyTooltipsLabel.unbindTooltip();
 };
 
 
@@ -555,6 +582,12 @@ OptionsMenuModuleGameplayPanel.prototype.onOptionsLoaded = function (_dataSource
 	}
 
 	this.mOptions.AISpeed.Value = gameplayOptions["AISpeed"]
+
+	if ("EnemyTooltips" in gameplayOptions)
+	{
+		this.selectCheckboxOption(this.mEnemyTooltipsCheckbox, gameplayOptions["EnemyTooltips"]);
+	}
+
 
 };
 

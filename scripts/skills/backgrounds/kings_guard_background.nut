@@ -20,7 +20,7 @@ this.kings_guard_background <- this.inherit("scripts/skills/backgrounds/characte
 		this.m.Modifiers.Salvage = this.Const.LegendMod.ResourceModifiers.Salvage[2];
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[1];
 		this.m.PerkTreeDynamic = {
-			Weapon = [			
+			Weapon = [
 				this.Const.Perks.GreatSwordTree,
 				this.Const.Perks.PolearmTree,
 				this.Const.Perks.AxeTree,
@@ -41,21 +41,7 @@ this.kings_guard_background <- this.inherit("scripts/skills/backgrounds/characte
 		}
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onAdded()
 	{
@@ -63,7 +49,7 @@ this.kings_guard_background <- this.inherit("scripts/skills/backgrounds/characte
 		local actor = this.getContainer().getActor();
 		actor.setTitle("the Kingsguard");
 		this.m.Container.add(this.new("scripts/skills/traits/loyal_trait"));
-		this.m.Container.add(this.new("scripts/skills/traits/fearless_trait"));		
+		this.m.Container.add(this.new("scripts/skills/traits/fearless_trait"));
 	}
 
 });

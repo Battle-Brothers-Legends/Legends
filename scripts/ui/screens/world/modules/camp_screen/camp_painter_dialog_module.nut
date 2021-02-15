@@ -43,7 +43,7 @@ this.camp_painter_dialog_module <- this.inherit("scripts/ui/screens/ui_module", 
 						bodyarmorfinal[key] <- {
 							Link = this.IO.scriptFilenameByHash(value.ClassNameHash),
 							ID = value.m.ID,
-							Value = this.Math.max(120, value.m.Value * 0.50),
+							Value = this.Math.max(50, value.m.Value * 0.025),
 							Variant = value.m.Variant,
 							Variants = this.Math.max(value.m.Variants.len(), 1),
 							Icon = value.m.Icon,
@@ -87,7 +87,7 @@ this.camp_painter_dialog_module <- this.inherit("scripts/ui/screens/ui_module", 
 						helmetfinal[key] <- {
 							Link = this.IO.scriptFilenameByHash(value.ClassNameHash),
 							ID = value.m.ID,
-							Value = this.Math.max(120, value.m.Value * 0.50),
+							Value = this.Math.max(50, value.m.Value * 0.025),
 							Variant = value.m.Variant,
 							Variants = this.Math.max(value.m.Variants.len(), 1),
 							Icon = value.m.Icon,
@@ -108,6 +108,7 @@ this.camp_painter_dialog_module <- this.inherit("scripts/ui/screens/ui_module", 
 					ExtraVanity = null
 				};
 			}
+
 			local shield = {};
 			if (b.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand) != null)
 			{
@@ -115,7 +116,7 @@ this.camp_painter_dialog_module <- this.inherit("scripts/ui/screens/ui_module", 
 				shield.Shield <- {
 					Link = this.IO.scriptFilenameByHash(shielditem.ClassNameHash),
 					ID = shielditem.m.ID,
-					Value = this.Math.max(120, shielditem.m.Value * 0.50),
+					Value = this.Math.max(50, shielditem.m.Value * 0.025),
 					Variant = shielditem.m.Variant,
 					Variants = this.Math.max(shielditem.m.Variants.len(), 1),
 					Icon = shielditem.m.IconLarge,

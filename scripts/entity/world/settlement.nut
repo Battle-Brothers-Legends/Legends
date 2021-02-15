@@ -450,6 +450,32 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			});
 		}
 
+		if (this.World.Retinue.hasFollower("follower.agent"))
+		{
+			local contracts = this.getContracts();
+			local situations = this.getSituations();
+			local addedSituations = {};
+
+			foreach( i, s in situations )
+			{
+				if (s.isValid() && !(s.getValidUntil() == 0 && !this.World.Contracts.hasContractWithSituation(s.getInstanceID())))
+				{
+					local id = s.getID();
+
+					if (!(id in addedSituations))
+					{
+						ret.push({
+							id = 10 + contracts.len() + i,
+							type = "text",
+							icon = s.getIcon(),
+							text = s.getName()
+						});
+						addedSituations[id] <- true;
+					}
+				}
+			}
+		}
+
 		return ret;
 	}
 
@@ -1614,8 +1640,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		local roster = this.World.getRoster(this.getID());
 		local allbros = roster.getAll();
 		local current = [];
-
-		for( local i = 0; i < allbros.len(); i = i )
+		for( local i = 0; i < allbros.len(); i = ++i )
 		{
 			if (allbros[i].isStabled())
 			{
@@ -1625,8 +1650,6 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			{
 				current.push(allbros[i]);
 			}
-
-			i = ++i;
 		}
 
 		local iterations = this.Math.max(1, daysPassed / 2);
@@ -1747,17 +1770,14 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		local allbros = roster.getAll();
 		local current = [];
 
-		for( local i = 0; i < allbros.len(); i = i )
+		for( local i = 0; i < allbros.len(); i = ++i )
 		{
 			if (!allbros[i].isStabled())
 			{
-			}
-			else
-			{
-				current.push(allbros[i]);
+				continue
 			}
 
-			i = ++i;
+			current.push(allbros[i]);
 		}
 
 		local iterations = this.Math.max(1, daysPassed / 2);
@@ -1806,17 +1826,13 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		}
 		else
 		{
-			for( local i = 0; i < current.len(); i = i )
+			for( local i = 0; i < current.len(); i = ++i )
 			{
 				if (current[i].isStabled())
 				{
+					continue
 				}
-				else
-				{
-					current = [];
-				}
-
-				i = ++i;
+				current = [];
 			}
 		}
 
@@ -1977,7 +1993,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 		this.m.IsCoastal = false;
 
-		for( local i = 0; i < 6; i = i )
+		for( local i = 0; i < 6; i = ++i )
 		{
 			if (!myTile.hasNextTile(i))
 			{
@@ -1987,8 +2003,6 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 				this.m.IsCoastal = true;
 				break;
 			}
-
-			i = ++i;
 		}
 
 		if (this.m.IsCoastal)
@@ -2053,15 +2067,13 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 					{
 						local isDeepSea = true;
 
-						for( local i = 0; i != 6; i = i )
+						for( local i = 0; i != 6; i = ++i )
 						{
 							if (tile.hasNextTile(i) && tile.getNextTile(i).Type != this.Const.World.TerrainType.Ocean)
 							{
 								isDeepSea = false;
 								break;
 							}
-
-							i = ++i;
 						}
 
 						if (!isDeepSea)
@@ -2289,6 +2301,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	function onEnter()
 	{
 		this.location.onEnter();
+
 		this.m.CurrentBuilding = null;
 		this.updateSituations();
 		this.updateRoster();

@@ -69,21 +69,7 @@ this.legend_ancient_summoner_background <- this.inherit("scripts/skills/backgrou
 		}
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{

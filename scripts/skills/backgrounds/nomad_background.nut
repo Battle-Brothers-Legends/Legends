@@ -76,7 +76,7 @@ this.nomad_background <- this.inherit("scripts/skills/backgrounds/character_back
 				0.1, //stepps
 				0.0, //ocean
 				0.1, //desert
-				0.1 //oasis				
+				0.1 //oasis
 			];
 		this.m.PerkTreeDynamic = {
 			Weapon = [
@@ -98,28 +98,14 @@ this.nomad_background <- this.inherit("scripts/skills/backgrounds/character_back
 			Enemy = [
 				this.Const.Perks.SouthernersTree,
 				this.Const.Perks.DirewolfTree
-				
+
 			],
 			Class = [],
 			Magic = []
 		}
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{

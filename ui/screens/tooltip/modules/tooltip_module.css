@@ -3,11 +3,13 @@
  *	@Company:		Overhype Studios
  *
  *	@Copyright:		(c) Overhype Studios | 2013 - 2020
- * 
+ *
  *  @Author:		Overhype Studios
  *  @Date:			20.09.2013 (refactored: 16.03.2017)
  *  @Description:	Global Tooltip Module CSS
  */
+
+
 .tooltip-module
 {
 	max-width: 24.0rem;
@@ -16,12 +18,12 @@
 	padding  : 0.6rem;
     padding-bottom: 1.0rem;
 	position : absolute;
-	
+
 	overflow: hidden;
 	/*pointer-events: none;*/
 
-    background-image: url("coui://gfx/ui/skin/tooltip_255_bottom.png");
-    background-size: 25.5rem 55.3rem;
+    background-image: url("coui://gfx/ui/skin/mod_tooltip_255_bottom.png");
+    background-size: 25.5rem 100rem;
     background-position: bottom;
 }
 
@@ -31,7 +33,7 @@
     width: 30.0rem;
 
     background-image: url("coui://gfx/ui/skin/tooltip_315_bottom.png");
-    background-size: 31.5rem 55.3rem;
+    background-size: 31.5rem 85.3rem;
     background-position: bottom;
 }
 
@@ -114,7 +116,7 @@
 
 
 /*
-	Generic Rows 
+	Generic Rows
 */
 .tooltip-module .row
 {
@@ -163,7 +165,7 @@
 
 
 /*
-	Header 
+	Header
 */
 .tooltip-module .row.title-container
 {
@@ -186,7 +188,7 @@
 {
 	width       : 1.2rem;
 	height      : 2.3rem;
-	margin-right: 0.6rem; 
+	margin-right: 0.6rem;
 	float       : left;
 }
 
@@ -198,7 +200,7 @@
 
 
 .tooltip-module .row.description-container
-{	
+{
 	/*margin-top: 0.6rem;*/
 }
 
@@ -266,12 +268,12 @@
 
 
 /*
-	Left Content 
+	Left Content
 */
 .tooltip-module .left-content-container .l-image-container
 {
 	width: 5.6rem;
-	margin-top: 0.4rem; 
+	margin-top: 0.4rem;
 }
 
 /* define special height as the image is loaded asyncronous and thus the tooltip will be wrong in height */
@@ -342,7 +344,7 @@
 .tooltip-module .content-child-container .l-right-column.is-full-width
 {
 	width: 18.0rem;
-	margin-left: 0; 
+	margin-left: 0;
 }
 
 /* Special Content Cases */
@@ -396,7 +398,7 @@
 .tooltip-module.is-ui-element-content .content-child-container .l-right-column.is-full-width
 {
 	width: 23.0rem;
-	margin-left: 0; 
+	margin-left: 0;
 }
 
 
@@ -419,7 +421,7 @@
 	margin  : auto;
 }
 
-.tooltip-module .progressbar-container .progressbar, 
+.tooltip-module .progressbar-container .progressbar,
 .tooltip-module .progressbar-container .progressbar-preview
 {
 	width   : 100%;
@@ -553,3 +555,17 @@
 {
 	width: 21.5rem;
 }
+
+
+/* Do not trim children in the text rows at the right border. */
+.tooltip-module.is-entity-content .content-child-container .l-right-column
+{
+    width: 16.5rem;
+}
+
+/* Move the margin 1rem to the left. */
+.tooltip-module.is-entity-content .row.content-child-container
+{
+    margin-left: 3rem;
+}
+

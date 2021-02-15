@@ -127,24 +127,16 @@ this.witchhunter_background <- this.inherit("scripts/skills/backgrounds/characte
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 14,
 				type = "text",
 				icon = "ui/icons/bravery.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] Resolve at morale checks against fear, panic or mind control effects"
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()

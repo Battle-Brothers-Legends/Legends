@@ -175,24 +175,16 @@ this.legend_beggar_commander_background <- this.inherit("scripts/skills/backgrou
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 12,
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Can evolve by defeating strong enemies."
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()

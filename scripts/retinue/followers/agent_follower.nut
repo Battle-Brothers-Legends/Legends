@@ -5,12 +5,11 @@ this.agent_follower <- this.inherit("scripts/retinue/follower", {
 		this.follower.create();
 		this.m.ID = "follower.agent";
 		this.m.Name = "The Agent";
-		this.m.Description = "The Agent has eyes and ears everywhere and will know where to go for a well-paying contract. She is also skilled at maintaining good relations with the important people of the lands. ";
+		this.m.Description = "The Agent has eyes and ears everywhere and knows where to go for current events to take advantage of and well-paying contracts both.";
 		this.m.Image = "ui/campfire/agent_01";
 		this.m.Cost = 2000;
 		this.m.Effects = [
-			"Reveals available contracts in the tooltip of settlements no matter where you are",
-			"Makes good relations with any faction decay slower and bad relations recover faster"
+			"Reveals available contracts and active situations in the tooltip of settlements no matter where you are"
 		];
 		this.m.Requirements = [
 			{
@@ -26,20 +25,6 @@ this.agent_follower <- this.inherit("scripts/retinue/follower", {
 
 	function onUpdate()
 	{
-		if ("RelationDecayGoodMult" in this.World.Assets.m) {
-			if (this.World.Assets.getOrigin().getID() == "scenario.sato_escaped_slaves") {
-				this.World.Assets.m.RelationDecayGoodMult = 1.05;
-			} else {
-				this.World.Assets.m.RelationDecayGoodMult = 0.9;
-			}
-		}
-		if ("RelationDecayBadMult" in this.World.Assets.m) {
-			if (this.World.Assets.getOrigin().getID() == "scenario.sato_escaped_slaves") {
-				this.World.Assets.m.RelationDecayBadMult = 0.95;
-			} else {
-				this.World.Assets.m.RelationDecayBadMult = 1.1;
-			}
-		}
 	}
 
 	function onEvaluate()
@@ -53,11 +38,11 @@ this.agent_follower <- this.inherit("scripts/retinue/follower", {
 			"background.assassin",
 			"background.assassin_southern"
 		];
-		
+
 		local brothers = this.World.getPlayerRoster().getAll();
 		foreach( bro in brothers )
 		{
-			
+
 			local id = bro.getBackground().getID();
 			if (availableBGs.find(id) != null)
 			{
@@ -65,7 +50,7 @@ this.agent_follower <- this.inherit("scripts/retinue/follower", {
 				break;
 			}
 
-		}	
+		}
 
 		foreach( n in nobles )
 		{

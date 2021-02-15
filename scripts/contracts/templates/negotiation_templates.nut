@@ -48,6 +48,27 @@ gt.Const.Contracts.Overview <- [
 		ShowDifficulty = true,
 		function start()
 		{
+			this.Contract.m.BulletpointsPayment = [];
+
+			if (this.Contract.m.Payment.Advance != 0)
+			{
+				this.Contract.m.BulletpointsPayment.push("Get " + this.Contract.m.Payment.getInAdvance() + " crowns in advance");
+			}
+
+			if (this.Contract.m.Payment.Count != 0)
+			{
+				this.Contract.m.BulletpointsPayment.push("Get " + this.Contract.m.Payment.getPerCount() + " crowns per head you bring back, up to " + this.Contract.m.Payment.MaxCount + " total");
+			}
+
+			if (this.Contract.m.Payment.Completion != 0)
+			{
+				this.Contract.m.BulletpointsPayment.push("Get " + this.Contract.m.Payment.getOnCompletion() + " crowns on completion");
+			}
+
+			if (this.Contract.m.Payment.IsFinal)
+			{
+				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no, no.  | %SPEECH_START%Who do you think you are? I tell you how you\'re getting paid.  | He just looks at you sternly and shakes his head.%SPEECH_ON% | %SPEECH_START%No way!%SPEECH_OFF%He shouts, bursting with anger.%SPEECH_ON% | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Do not push me too far!  | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }%SPEECH_OFF%";
+			}
 			this.Contract.m.IsNegotiated = true;
 		}
 
@@ -92,24 +113,43 @@ gt.Const.Contracts.NegotiationDefault <- [
 				{
 					if (!this.World.Retinue.hasFollower("follower.negotiator"))
 					{
-						this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						if (this.Math.rand(1, 100) <= 66) {
+							this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						}
 					}
+					else
+					{
+						if (this.Math.rand(1, 100) <= 10) {
+							this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						}
+					}
+
 
 					this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
 
-					if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+					local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+
+					if (this.Math.rand(1, 100) <= failChance)
 					{
 						return "Negotiation.Fail";
 					}
-
-					if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+					else if (this.Math.rand(1, 100) <= failChance)
 					{
 						this.Contract.m.Payment.IsFinal = true;
+						return "Overview"
 					}
 					else
 					{
 						this.Contract.m.Payment.IsFinal = false;
-						this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
+						if (this.World.Retinue.hasFollower("follower.negotiator"))
+						{
+							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
+						}
+						else
+						{
+							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(6, 15) * 0.01);
+						}
+
 					}
 
 					return "Negotiation";
@@ -123,22 +163,36 @@ gt.Const.Contracts.NegotiationDefault <- [
 					Text = this.Contract.m.Payment.Advance == 0 ? "We need payment in advance." : "We need more payment in advance.",
 					function getResult()
 					{
-						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
 
-						if (this.Contract.m.Payment.Advance >= this.World.Assets.m.AdvancePaymentCap || this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+						if (!this.World.Retinue.hasFollower("follower.negotiator"))
 						{
-							return "Negotiation.Fail";
+							if (this.Math.rand(1, 100) <= 10) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
 						}
 
-						if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+
+						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
+
+						if (this.Math.rand(1, 100) <= failChance || this.Contract.m.Payment.Advance >= this.World.Assets.m.AdvancePaymentCap)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							return "Overview"
 						}
 						else
 						{
 							this.Contract.m.Payment.IsFinal = false;
-							this.Contract.m.Payment.Advance = this.Math.minf(1.0, this.Contract.m.Payment.Advance + 0.25);
-							this.Contract.m.Payment.Completion = this.Math.maxf(0.0, this.Contract.m.Payment.Completion - 0.25);
+
+							local p = 1.0 * this.Math.rand(15, 30)
+							p = p / 100.0
+							if (this.World.Retinue.hasFollower("follower.negotiator"))
+							{
+								p = p * 2
+							}
+
+							this.Contract.m.Payment.Advance = this.Math.minf(1.0, this.Contract.m.Payment.Advance + p);
+							this.Contract.m.Payment.Completion = this.Math.maxf(0.0, this.Contract.m.Payment.Completion - p);
 						}
 
 						return "Negotiation";
@@ -153,22 +207,35 @@ gt.Const.Contracts.NegotiationDefault <- [
 					Text = this.Contract.m.Payment.Completion == 0 ? "We need payment once the work is done." : "We need more payment once the work is done.",
 					function getResult()
 					{
-						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
-
-						if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+						if (!this.World.Retinue.hasFollower("follower.negotiator"))
 						{
-							return "Negotiation.Fail";
+							if (this.Math.rand(1, 100) <= 10) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
 						}
 
-						if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+
+						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
+
+						if (this.Math.rand(1, 100) <= failChance)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							return "Overview"
 						}
 						else
 						{
 							this.Contract.m.Payment.IsFinal = false;
-							this.Contract.m.Payment.Advance = this.Math.maxf(0.0, this.Contract.m.Payment.Advance - 0.25);
-							this.Contract.m.Payment.Completion = this.Math.minf(1.0, this.Contract.m.Payment.Completion + 0.25);
+
+							local p = 1.0 * this.Math.rand(15, 30)
+							p = p / 100.0
+							if (this.World.Retinue.hasFollower("follower.negotiator"))
+							{
+								p = p * 2
+							}
+
+							this.Contract.m.Payment.Advance = this.Math.maxf(0.0, this.Contract.m.Payment.Advance - p);
+							this.Contract.m.Payment.Completion = this.Math.minf(1.0, this.Contract.m.Payment.Completion + p);
 						}
 
 						return "Negotiation";
@@ -287,24 +354,42 @@ gt.Const.Contracts.NegotiationPerHead <- [
 				{
 					if (!this.World.Retinue.hasFollower("follower.negotiator"))
 					{
-						this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						if (this.Math.rand(1, 100) <= 66) {
+							this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						}
 					}
+					else
+					{
+						if (this.Math.rand(1, 100) <= 10) {
+							this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						}
+					}
+
 
 					this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
 
-					if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+					local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+
+					if (this.Math.rand(1, 100) <= failChance)
 					{
 						return "Negotiation.Fail";
 					}
-
-					if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+					else if (this.Math.rand(1, 100) <= failChance)
 					{
 						this.Contract.m.Payment.IsFinal = true;
+						return "Overview"
 					}
 					else
 					{
 						this.Contract.m.Payment.IsFinal = false;
-						this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
+						if (this.World.Retinue.hasFollower("follower.negotiator"))
+						{
+							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
+						}
+						else
+						{
+							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(6, 15) * 0.01);
+						}
 					}
 
 					return "Negotiation";
@@ -318,16 +403,31 @@ gt.Const.Contracts.NegotiationPerHead <- [
 					Text = this.Contract.m.Payment.Count == 0 ? "We need to be paid per head we return with." : "We need to be paid more per head we return with.",
 					function getResult()
 					{
+						if (!this.World.Retinue.hasFollower("follower.negotiator"))
+						{
+							if (this.Math.rand(1, 100) <= 66) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
+						}
+						else
+						{
+							if (this.Math.rand(1, 100) <= 10) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
+						}
+
 						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
 
-						if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+
+						if (this.Math.rand(1, 100) <= failChance)
 						{
 							return "Negotiation.Fail";
 						}
-
-						if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+						else if (this.Math.rand(1, 100) <= failChance)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							return "Overview"
 						}
 						else
 						{
@@ -362,16 +462,21 @@ gt.Const.Contracts.NegotiationPerHead <- [
 					Text = this.Contract.m.Payment.Advance == 0 ? "We need payment in advance." : "We need more payment in advance.",
 					function getResult()
 					{
-						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
-
-						if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+						if (!this.World.Retinue.hasFollower("follower.negotiator"))
 						{
-							return "Negotiation.Fail";
+							if (this.Math.rand(1, 100) <= 10) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
 						}
 
-						if (this.Contract.m.Payment.Advance >= this.World.Assets.m.AdvancePaymentCap || this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+
+						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
+
+						if (this.Math.rand(1, 100) <= failChance || this.Contract.m.Payment.Advance >= this.World.Assets.m.AdvancePaymentCap)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							return "Overview"
 						}
 						else
 						{
@@ -406,16 +511,21 @@ gt.Const.Contracts.NegotiationPerHead <- [
 					Text = this.Contract.m.Payment.Completion == 0 ? "We need payment once the work is done." : "We need more payment once the work is done.",
 					function getResult()
 					{
-						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
-
-						if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+						if (!this.World.Retinue.hasFollower("follower.negotiator"))
 						{
-							return "Negotiation.Fail";
+							if (this.Math.rand(1, 100) <= 10) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
 						}
 
-						if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+
+						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
+
+						if (this.Math.rand(1, 100) <= failChance)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							return "Overview"
 						}
 						else
 						{
@@ -570,24 +680,43 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 				{
 					if (!this.World.Retinue.hasFollower("follower.negotiator"))
 					{
-						this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						if (this.Math.rand(1, 100) <= 66) {
+							this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						}
 					}
+					else
+					{
+						if (this.Math.rand(1, 100) <= 10) {
+							this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+						}
+					}
+
 
 					this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
 
-					if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+					local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+
+					if (this.Math.rand(1, 100) <= failChance)
 					{
 						return "Negotiation.Fail";
 					}
-
-					if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+					else if (this.Math.rand(1, 100) <= failChance)
 					{
 						this.Contract.m.Payment.IsFinal = true;
+						return "Overview"
 					}
 					else
 					{
 						this.Contract.m.Payment.IsFinal = false;
-						this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
+						if (this.World.Retinue.hasFollower("follower.negotiator"))
+						{
+							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
+						}
+						else
+						{
+							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(6, 15) * 0.01);
+						}
+
 					}
 
 					return "Negotiation";
@@ -601,16 +730,32 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 					Text = this.Contract.m.Payment.Count == 0 ? "We need to be paid per head we arrive with." : "We need to be paid more per head we arrive with.",
 					function getResult()
 					{
+						if (!this.World.Retinue.hasFollower("follower.negotiator"))
+						{
+							if (this.Math.rand(1, 100) <= 66) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
+						}
+						else
+						{
+							if (this.Math.rand(1, 100) <= 10) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
+						}
+
+
 						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
 
-						if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+
+						if (this.Math.rand(1, 100) <= failChance)
 						{
 							return "Negotiation.Fail";
 						}
-
-						if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+						else if (this.Math.rand(1, 100) <= failChance)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							return "Overview"
 						}
 						else
 						{
@@ -645,16 +790,21 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 					Text = this.Contract.m.Payment.Advance == 0 ? "We need payment in advance." : "We need more payment in advance.",
 					function getResult()
 					{
-						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
-
-						if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+						if (!this.World.Retinue.hasFollower("follower.negotiator"))
 						{
-							return "Negotiation.Fail";
+							if (this.Math.rand(1, 100) <= 10) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
 						}
 
-						if (this.Contract.m.Payment.Advance >= this.World.Assets.m.AdvancePaymentCap || this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+
+						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
+
+						if (this.Math.rand(1, 100) <= failChance || this.Contract.m.Payment.Advance >= this.World.Assets.m.AdvancePaymentCap)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							return "Overview"
 						}
 						else
 						{
@@ -689,16 +839,21 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 					Text = this.Contract.m.Payment.Completion == 0 ? "We need payment once the work is done." : "We need more payment once the work is done.",
 					function getResult()
 					{
-						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
-
-						if (this.Contract.m.Payment.Annoyance > this.Const.Contracts.Settings.NegotiationMaxAnnoyance)
+						if (!this.World.Retinue.hasFollower("follower.negotiator"))
 						{
-							return "Negotiation.Fail";
+							if (this.Math.rand(1, 100) <= 10) {
+								this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelationEx(-0.5);
+							}
 						}
 
-						if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
+						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+
+						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
+
+						if (this.Math.rand(1, 100) <= failChance)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							return "Overview"
 						}
 						else
 						{

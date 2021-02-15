@@ -74,21 +74,7 @@ this.crucified_background <- this.inherit("scripts/skills/backgrounds/character_
 		}
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onSetAppearance()
 	{

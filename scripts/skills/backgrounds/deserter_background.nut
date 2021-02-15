@@ -110,24 +110,16 @@ this.deserter_background <- this.inherit("scripts/skills/backgrounds/character_b
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 16,
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Is always content with being in reserve"
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()

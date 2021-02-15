@@ -150,24 +150,16 @@ this.legend_berserker_background <- this.inherit("scripts/skills/backgrounds/cha
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 12,
 				type = "text",
 				icon = "ui/icons/regular_damage.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+25%[/color] Damage when unarmed"
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()

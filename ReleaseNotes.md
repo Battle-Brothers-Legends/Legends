@@ -4987,9 +4987,68 @@ https://drive.google.com/file/d/1UBglJMURv54uh59C2VKrjYWuKNZJ3rIX/view?usp=shari
 
 
 15.0.1.3
+*Save Game compatible with 15.0.1.2*
 
 **New Painter Tent**
 Paint system has been replaced with a new Painter tent found in your camp screen
 
+**Contract Negotiations**
+In Vanilla, when negotiating a contract, the default meta action was to always negotiate once, and then accept because there was a no harm. No more!
+
+When negotiating for more pay:
+*There is a 66% chance that relations will be hurt (10% if you have negotiator follower) (It was 100% chance in Vanilla)
+*There is always a chance that negotiations will completely fail and the contract is lost. Starts out 10% chance and increases to 90% chance over time. (in Vanilla, this was guarenteed to always happen after either 2 or 3 rounds)
+*If fail doesn't happen, there is the same incremental 10-90% chance negotations are ended or successfull.
+*The negotiator retinue member slows that 10% to 90% climb in half.
+*If successfull, 3% to 10% increase in pay (6% to 15% if negotiator)
+
+When negotiating for advanced pay:
+*If you don't have negotiator retinue, there is a 10% chance of relation hit.
+*Higher chance of ending negotiations, but no longer can the contract be completley failed.
+*If successfull, a 15% to 30% advanced in pay (30%-60% with negotiator).
+*If over 50% increase, negotiations are completed. (75% with negotiator)
+
 **Changes**
-Vala recruitment event now works again
+Vala recruitment event now works again.
+
+**Fixes**
+Fixes unarmed lunge skill
+
+**Download**
+https://drive.google.com/file/d/1IhoXpkXt-UNgmpMuUF43sJ7gRJFy9HIA/view?usp=sharing
+
+
+15.0.1.4
+
+**Patrol Tent**
+An upgraded patrol tent now has the chance to reveal the number of defenders in an enemy camp within the patrol radius.
+
+**Mod integrations**
+Integrated Vazl's Veteran ranges into the character background tooltip
+-Shows projection of the character's base attribute ranges calculated as if that attribute is improved on every level up from its current level to 11.
+
+Integrated @MrBrut tactical tooltips mod.
+-This extends tactical tooltips to show a bro's perks, status, and items in the bag
+-There is a new option in Options -> Gameplay -> Enhanced Enemy Tooltips that will extend the new tooltips to enemies as well.
+
+**Fixes**
+Fixes incorrect brush dimensions for damaged armor layers (damaged armor looks correct now)
+Fixes invalid jesterhat variants (full effect fixed on new games or once existing ones from saves are removed)
+
+
+15.0.1.5
+
+**Mod integrations**
+Integrates Sato's Retinue changes
+*The Agent: Instead of affecting faction relation growth/decay, the Agent instead reveals active settlement situations (e.g. Ambushed Trade Routes) as well as contracts when you hover over one on the world map. It's thematic, keeps her relevant for planning your next move when you're not doing contracts, and helps justify her really difficult unlock requirements and high price.
+*The Negotiator: In addition to his current effects, he gets the Agent's old relations growth/decay boost. His cost has been bumped to 3500 crowns (up from 3000) to compensate. This felt thematic and helps make him a more attractive retinue member late game.
+*The Scout: Renamed to "the Guide", because that's what he does. Instead of increasing your speed by 15% on all terrain, he now reduces the speed penalty of "rough terrain" (forests, swamps, etc. and not snow or desert) by 15%. To help explain this a bit more: the old ability made you move 7.5% faster on swamps, 9.75% faster on forests, and 15% faster on plains  - the new one is 15%, 15%, and 0%. In practice, this should make the Scout/Guide more relevant for difficult terrain, but make him less of an auto-pick for every map and point of the campaign.
+
+Integrates MrBrut's Tactical Hit factors mod
+*Adds enhanced hit chance and resistance info when aiming at an opponent
+
+**Fixes**
+Fixes tooltips that overflow and prevent seeing and reading all the info
+
+**Changes**
+Reduces cost of painter tent changes

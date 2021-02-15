@@ -93,24 +93,16 @@ this.houndmaster_background <- this.inherit("scripts/skills/backgrounds/characte
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 14,
 				type = "text",
 				icon = "ui/icons/bravery.png",
 				text = "Wardogs unleashed by this character will start at confident morale."
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()

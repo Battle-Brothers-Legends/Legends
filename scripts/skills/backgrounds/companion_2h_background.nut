@@ -75,24 +75,10 @@ this.companion_2h_background <- this.inherit("scripts/skills/backgrounds/charact
 			Enemy = [],
 			Class = [],
 			Magic = []
-		}		
+		}
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{

@@ -4,12 +4,12 @@ this.scout_follower <- this.inherit("scripts/retinue/follower", {
 	{
 		this.follower.create();
 		this.m.ID = "follower.scout";
-		this.m.Name = "The Scout";
-		this.m.Description = "The Scout is an expert in finding mountain passes, navigating through treacherous swamps, and guiding anyone safely through the darkest of forests.";
+		this.m.Name = "The Guide";
+		this.m.Description = "The Guide is an expert in finding mountain passes, navigating through treacherous swamps, and guiding anyone safely through the darkest of forests."
 		this.m.Image = "ui/campfire/scout_01";
 		this.m.Cost = 1250;
 		this.m.Effects = [
-			"Makes the company travel 15% faster on any terrain",
+			"Reduces the movement penalty of difficult terrain by 15%",
 			"Prevents sickness and accidents due to terrain"
 		];
 		this.m.Requirements = [
@@ -22,10 +22,11 @@ this.scout_follower <- this.inherit("scripts/retinue/follower", {
 
 	function onUpdate()
 	{
-		if ("TerrainTypeSpeedMult" in this.World.Assets.m) {
-			for( local i = 0; i < this.World.Assets.m.TerrainTypeSpeedMult.len(); i = ++i )
+		for( local i = 0; i < this.World.Assets.m.TerrainTypeSpeedMult.len(); i = ++i )
+		{
+			if (this.Const.World.TerrainTypeSpeedMult[i] <= 0.65 && this.Const.World.TerrainTypeSpeedMult[i] > 0.0)
 			{
-				this.World.Assets.m.TerrainTypeSpeedMult[i] *= 1.15;
+				this.World.Assets.m.TerrainTypeSpeedMult[i] *= (this.Const.World.TerrainTypeSpeedMult[i] + 0.15) / this.Const.World.TerrainTypeSpeedMult[i];
 			}
 		}
 	}
@@ -46,13 +47,13 @@ this.scout_follower <- this.inherit("scripts/retinue/follower", {
 		foreach( bro in brothers )
 		{
 			local id = bro.getBackground().getID();
-			
+
 			if (availableBGs.find(id) != null)
 			{
 				this.m.Requirements[0].IsSatisfied = true;
 				return;
 			}
-		}			
+		}
 	}
 
 });

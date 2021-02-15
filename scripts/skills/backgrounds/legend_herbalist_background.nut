@@ -133,24 +133,16 @@ this.legend_herbalist_background <- this.inherit("scripts/skills/backgrounds/cha
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 13,
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Herbalists provide [color=" + this.Const.UI.Color.PositiveValue + "]+100%[/color] medicine when assigned to gathering in camp, [color=" + this.Const.UI.Color.PositiveValue + "]-50%[/color] medicine consumption, [color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] speed while in the crafting tent,  [color=" + this.Const.UI.Color.PositiveValue + "]+20%[/color] speed while in healing tent. Increases movement speed in forests by 5% ). "
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()

@@ -53,24 +53,16 @@ this.legend_cannibal_background <- this.inherit("scripts/skills/backgrounds/char
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 13,
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Cannibals provide Strange Meat after a fight, likes hanging out with butchers, may try to eat others. Increased results when assigned to hunting in camp."
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()
@@ -131,7 +123,7 @@ this.legend_cannibal_background <- this.inherit("scripts/skills/backgrounds/char
 
 		items.equip(this.Const.World.Common.pickArmor([
 			[1, "tattered_sackcloth"]
-		]));		
+		]));
 		items.equip(this.new("scripts/items/weapons/butchers_cleaver"));
 	}
 });

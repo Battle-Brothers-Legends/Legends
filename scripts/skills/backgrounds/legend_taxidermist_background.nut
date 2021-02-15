@@ -69,24 +69,16 @@ this.legend_taxidermist_background <- this.inherit("scripts/skills/backgrounds/c
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 13,
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+100%[/color] crafting rate in the crafting tent, [color=" + this.Const.UI.Color.PositiveValue + "]-10%[/color] medicine usage, [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] maximum medicine capacity,  [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] faster healing while in the heal tent. "
 			}
-		];
+		)
+		return ret
 	}
 	function onBuildDescription()
 	{
@@ -142,6 +134,6 @@ this.legend_taxidermist_background <- this.inherit("scripts/skills/backgrounds/c
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, ""],
 			[1, "feathered_hat"]
-		]));	
+		]));
 	}
 });

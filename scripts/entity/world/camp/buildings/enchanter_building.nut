@@ -242,8 +242,6 @@ this.enchanter_building <- this.inherit("scripts/entity/world/camp/camp_building
 
 	function isHidden()
 	{
-		return false;
-
 		local roster = this.World.getPlayerRoster().getAll();
         foreach( bro in roster )
         {

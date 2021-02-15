@@ -26,7 +26,7 @@ this.slave_southern_background <- this.inherit("scripts/skills/backgrounds/slave
 			"the Obedient",
 			"the Shackled",
 			"the Bound"
-		];
+		]
 	}
 
 	function onBuildDescription()

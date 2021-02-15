@@ -738,6 +738,7 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 		_out.writeString(this.m.Banner);
 		_out.writeBool(this.m.IsVisited);
 		_out.writeU16(this.m.Resources);
+		_out.writeBool(this.m.IsShowingDefenders);
 		this.m.Loot.onSerialize(_out);
 	}
 
@@ -749,6 +750,10 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 		this.m.Banner = _in.readString();
 		this.m.IsVisited = _in.readBool();
 		this.m.Resources = _in.readU16();
+		if (_in.getMetaData().getVersion() >= 66)
+		{
+			this.m.IsShowingDefenders = _in.readBool();
+		}
 		this.m.Loot.onDeserialize(_in);
 		this.getLabel("name").Visible = this.Const.World.AI.VisualizeNameOfLocations && this.m.IsShowingLabel;
 		this.onUpdate();

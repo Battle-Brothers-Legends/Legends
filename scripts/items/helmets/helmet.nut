@@ -383,6 +383,11 @@ this.helmet <- this.inherit("scripts/items/item", {
 		return true;
 	}
 
+	function getUpgrade( _slot = -1 )
+	{
+		return null
+	}
+
 	function onSerialize( _out )
 	{
 		this.item.onSerialize(_out);

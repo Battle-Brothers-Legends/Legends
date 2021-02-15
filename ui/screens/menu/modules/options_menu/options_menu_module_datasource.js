@@ -414,6 +414,9 @@ OptionsMenuModuleDatasource.prototype.applyGameplayOptions = function ()
 	value = this.getGameplayOption("AISpeed");
 	options.push(value * 10);
 
+	value = this.getGameplayOption("EnemyTooltips");
+	options.push(value);
+
 	this.notifyBackendApplyGameplayOptions(options);
 };
 

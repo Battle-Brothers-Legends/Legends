@@ -297,6 +297,7 @@ this.options_menu_module <- this.inherit("scripts/ui/screens/ui_module", {
 		settings.RestoreEquipment = _data[9];
 		settings.AutoPauseAfterCity = _data[10];
 		this.LegendsMod.Configs().setAISpeed((_data[11] * 1.0) / 10.0);
+		this.LegendsMod.Configs().setEnemeyTooltips(_data[12]);
 		this.Settings.save();
 		settings = this.Settings.getTempGameplaySettings();
 		settings.ShowOverlayStats = _data[1];
@@ -319,6 +320,7 @@ this.options_menu_module <- this.inherit("scripts/ui/screens/ui_module", {
 		_target.restoreEquipment <- settings.RestoreEquipment;
 		_target.autoPauseAfterCity <- settings.AutoPauseAfterCity;
 		_target.AISpeed <- this.LegendsMod.Configs().AISpeed();
+		_target.EnemyTooltips <- this.LegendsMod.Configs().EnemeyTooltips();
 
 	}
 

@@ -70,7 +70,7 @@ this.legend_unarmed_lunge_skill <- this.inherit("scripts/skills/skill", {
 			local average = (actor.getInitiative() +  actor.getHitpointsMax()) * 0.25;
 
 
-			if (offhand != null)
+			if (offhand != this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand))
 			{
 				average = average * 0.5;
 				ret.HasOffhand = true;

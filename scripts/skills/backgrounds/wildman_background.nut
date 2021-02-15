@@ -118,24 +118,16 @@ this.wildman_background <- this.inherit("scripts/skills/backgrounds/character_ba
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 15,
 				type = "text",
 				icon = "ui/icons/xp_received.png",
 				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-15%[/color] Experience Gain"
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()

@@ -35,7 +35,8 @@ this.scout_building <- this.inherit("scripts/entity/world/camp/camp_building", {
 		desc += "Make sure someone is on patrol in order to have eyes and ears and the local landscape."
 		desc += "The more men assigned on patrol, the faster and further your visibility grows."
 		desc += "\n\n"
-		desc += "The Patrol station can be upgraded by purchasing a patrol cart from a settlement merchant. An upgraded tent has a 15% increase in patrol speed. "
+		desc += "The Patrol station can be upgraded by purchasing a patrol cart from a settlement merchant. An upgraded tent has a 15% increase in patrol speed and "
+        desc += "has a chance of revealing the defenders of any camps encountered."
 		desc += "Additionally, while on patrol there's a chance that the location of enemy outposts can be determined."
 		return desc;
 	}
@@ -183,12 +184,14 @@ this.scout_building <- this.inherit("scripts/entity/world/camp/camp_building", {
 			return
 		}
 
-        local r = this.Math.min(75, 10 * this.Math.pow(this.m.Camp.getCampTimeHours(), mod.Craft/2));
+        // local r = this.Math.min(75, 10 * this.Math.pow(this.m.Camp.getCampTimeHours(), mod.Craft/2));
 
-        if (this.Math.rand(1, 100) > r)
-        {
-            return;
-        }
+        // if (this.Math.rand(1, 100) > r)
+        // {
+        //     return;
+        // }
+
+        local bro = mod.Modifiers[this.Math.rand(0, mod.Modifiers.len() - 1)][1];
 
         local locations = [];
         foreach( s in this.World.EntityManager.getLocations() )
@@ -198,14 +201,27 @@ this.scout_building <- this.inherit("scripts/entity/world/camp/camp_building", {
                 continue;
             }
 
+            //If within patrol radius, give chance to discover defenders
+            if (!s.isShowingDefenders() && s.m.IsSpawningDefenders && s.getDefenderCount() > 0 && this.m.Camp.getCampTimeHours() > 3)
+            {
+                if (s.isVisibleToEntity(this.World.State.getPlayer(), this.m.Radius))
+                {
+                    this.m.Results.push({
+                        Icon = "ui/icons/vision.png",
+                        Text = "While on patrol, " + bro + " discovered " + s.getName() + " has " + s.getDefenderCount() + " defenders."
+                    });
+                }
+                s.m.IsShowingDefenders = true;
+            }
+
+
             if (s.getLoot().isEmpty())
             {
                 continue;
             }
 
-            local d = s.getTile().getDistanceTo(this.World.State.getPlayer().getTile()) - this.Math.rand(1, 10);
-
-            if (d > 20)
+            local d = s.getTile().getDistanceTo(this.World.State.getPlayer().getTile())
+            if (d - this.Math.rand(1, 10) > 20)
             {
                 continue;
             }
@@ -241,11 +257,10 @@ this.scout_building <- this.inherit("scripts/entity/world/camp/camp_building", {
 		local distance = location != null  ? this.World.State.getPlayer().getTile().getDistanceTo(location.getTile()) : 0;
 		distance = this.Const.Strings.Distance[this.Math.min(this.Const.Strings.Distance.len() - 1, distance / 30.0 * (this.Const.Strings.Distance.len() - 1))];
         local direction = location != null ? this.Const.Strings.Direction8[this.World.State.getPlayer().getTile().getDirection8To(location.getTile())] : "";
-        local bro = mod.Modifiers[this.Math.rand(0, mod.Modifiers.len() - 1)][1];
 
         this.m.Results.push({
             Icon = "ui/icons/vision.png",
-            Text = "While on patrol " + bro + " came across some " + tracks + " tracks. The tracks lead off towards the " + direction + ". The age of the tracks indicate that the group must be " + distance + "."
+            Text = "While on patrol, " + bro + " came across some " + tracks + " tracks. The tracks lead off towards the " + direction + ". The age of the tracks indicate that the group must be " + distance + "."
         });
 
     }

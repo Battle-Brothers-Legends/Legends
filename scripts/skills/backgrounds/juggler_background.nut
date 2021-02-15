@@ -67,28 +67,20 @@ this.juggler_background <- this.inherit("scripts/skills/backgrounds/character_ba
 		this.m.Bodies = this.Const.Bodies.Skinny;
 	}
 
-	
+
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 15,
 				type = "text",
 				icon = "ui/icons/chance_to_hit_head.png",
 				text = "Higher Chance To Hit Head"
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()
@@ -178,7 +170,7 @@ this.juggler_background <- this.inherit("scripts/skills/backgrounds/character_ba
 			[1, ""]
 		]));
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		this.character_background.onUpdate(_properties);

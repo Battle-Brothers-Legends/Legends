@@ -110,24 +110,16 @@ this.killer_on_the_run_background <- this.inherit("scripts/skills/backgrounds/ch
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
+		local ret = this.character_background.getTooltip()
+		ret.push(
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/chance_to_hit_head.png",
 				text = "Higher Chance To Hit Head"
 			}
-		];
+		)
+		return ret
 	}
 
 	function onBuildDescription()

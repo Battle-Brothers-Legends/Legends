@@ -108,18 +108,7 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 
 	function getTooltip()
 	{
-		local ret = [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
+		local ret = this.character_background.getTooltip()
 
 		if (("State" in this.World) && this.World.State != null && this.World.Assets.getOrigin().getID() == "scenario.manhunters")
 		{

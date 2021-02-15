@@ -65,21 +65,7 @@ this.legend_shieldmaiden_background <- this.inherit("scripts/skills/backgrounds/
 		}
 	}
 
-	function getTooltip()
-	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			}
-		];
-	}
+
 
 	function onBuildDescription()
 	{
@@ -138,7 +124,7 @@ this.legend_shieldmaiden_background <- this.inherit("scripts/skills/backgrounds/
 			[1, "ragged_surcoat"],
 			[1, "gambeson"]
 		]));
-		
+
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "open_leather_cap"],
 			[1, "aketon_cap"],
