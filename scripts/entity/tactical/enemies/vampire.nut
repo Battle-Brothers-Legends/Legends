@@ -1,7 +1,7 @@
 this.vampire <- this.inherit("scripts/entity/tactical/actor", {
 	m = {
 		WasInjured = false,
-		IsLady
+		IsLady = false
 	},
 	function create()
 	{
