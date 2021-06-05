@@ -84,6 +84,7 @@ this.city_state <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMin = 4;
 		this.m.HousesMax = 6;
 		this.m.AttachedLocationsMax = 6;
+		this.setDefenderSpawnList(this.Const.World.Spawn.Southern);
 	}
 
 	function getSpriteName()

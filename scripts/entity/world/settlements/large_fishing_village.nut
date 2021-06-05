@@ -90,6 +90,7 @@ this.large_fishing_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMax = 6;
 		this.m.AttachedLocationsMax = 6 + 2;
 		this.m.ProduceString = "fish";
+		this.setDefenderSpawnList(this.Const.World.Spawn.Noble);
 	}
 
 	function onBuild( _settings )

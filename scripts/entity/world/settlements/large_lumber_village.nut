@@ -95,6 +95,7 @@ this.large_lumber_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMax = 5;
 		this.m.AttachedLocationsMax = 6;
 		this.m.ProduceString = "wood";
+		this.setDefenderSpawnList(this.Const.World.Spawn.Noble);
 	}
 
 	function onBuild( _settings )

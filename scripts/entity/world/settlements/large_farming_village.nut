@@ -98,6 +98,7 @@ this.large_farming_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMin = 4;
 		this.m.HousesMax = 6;
 		this.m.AttachedLocationsMax = 7;
+		this.setDefenderSpawnList(this.Const.World.Spawn.Noble);
 	}
 
 	function onBuild( _settings )

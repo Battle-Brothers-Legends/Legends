@@ -100,6 +100,7 @@ this.medium_mining_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMax = 3;
 		this.m.AttachedLocationsMax = 4;
 		this.m.ProduceString = "ore";
+		this.setDefenderSpawnList(this.Const.World.Spawn.Militia);
 	}
 
 	function onBuild( _settings )

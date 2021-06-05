@@ -92,6 +92,7 @@ this.small_swamp_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMax = 2;
 		this.m.AttachedLocationsMax = 3;
 		this.m.ProduceString = "mushrooms";
+		this.setDefenderSpawnList(this.Const.World.Spawn.PeasantsArmed);
 	}
 
 

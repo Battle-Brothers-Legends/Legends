@@ -87,6 +87,7 @@ this.small_tundra_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMax = 2;
 		this.m.AttachedLocationsMax = 3;
 		this.m.ProduceString = "pelts";
+		this.setDefenderSpawnList(this.Const.World.Spawn.PeasantsArmed);
 	}
 
 	function onBuild( _settings )

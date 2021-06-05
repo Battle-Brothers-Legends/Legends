@@ -82,6 +82,7 @@ this.small_steppe_fort <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMin = 1;
 		this.m.HousesMax = 2;
 		this.m.AttachedLocationsMax = 3;
+		this.setDefenderSpawnList(this.Const.World.Spawn.PeasantsArmed);
 	}
 
 	function onBuild( _settings )

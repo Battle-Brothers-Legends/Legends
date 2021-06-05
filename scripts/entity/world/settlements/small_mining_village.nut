@@ -86,6 +86,7 @@ this.small_mining_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMin = 1;
 		this.m.HousesMax = 2;
 		this.m.AttachedLocationsMax = 3;
+		this.setDefenderSpawnList(this.Const.World.Spawn.PeasantsArmed);
 		this.m.ProduceString = "ore";
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/crowd_building"), 5);
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/marketplace_building"), 2);

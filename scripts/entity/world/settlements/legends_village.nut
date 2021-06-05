@@ -9,6 +9,7 @@ this.legends_village <- this.inherit("scripts/entity/world/settlement", {
 	{
 		this.settlement.create();
 		this.m.IsMilitary = false;
+		this.setDefenderSpawnList(this.Const.World.Spawn.Militia);
 	}
 
 	function getUIBackgroundCenter()

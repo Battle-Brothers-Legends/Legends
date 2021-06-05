@@ -18,10 +18,10 @@ this.legends_berserker_scenario <- this.inherit("scripts/scenarios/world/startin
 	function onSpawnAssets()
 	{
 		local roster = this.World.getPlayerRoster();
-
+		local bro;
 		for( local i = 0; i < 1; i = i )
 		{
-			local bro;
+			
 			bro = roster.create("scripts/entity/tactical/player");
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 			i = ++i;
@@ -31,6 +31,9 @@ this.legends_berserker_scenario <- this.inherit("scripts/scenarios/world/startin
 		bros[0].setStartValuesEx([
 			"legend_berserker_commander_background"
 		]);
+		bro.m.PerkPoints = 999;
+		bro.m.LevelUps = 999;
+		bro.m.Level = 99;
 		bros[0].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 		bros[0].getSkills().add(this.new("scripts/skills/perks/perk_berserk"));
 		bros[0].getFlags().set("IsPlayerCharacter", true);

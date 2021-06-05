@@ -100,6 +100,7 @@ this.small_lumber_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMax = 2;
 		this.m.AttachedLocationsMax = 3;
 		this.m.ProduceString = "wood";
+		this.setDefenderSpawnList(this.Const.World.Spawn.PeasantsArmed);
 	}
 
 	function onBuild( _settings )

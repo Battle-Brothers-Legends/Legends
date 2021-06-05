@@ -117,6 +117,7 @@ this.medium_fishing_village <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMax = 3;
 		this.m.AttachedLocationsMax = 4 + 1;
 		this.m.ProduceString = "fish";
+		this.setDefenderSpawnList(this.Const.World.Spawn.Militia);
 	}
 
 

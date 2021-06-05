@@ -141,6 +141,7 @@ this.large_forest_fort <- this.inherit("scripts/entity/world/settlement", {
 		this.m.HousesMin = 3;
 		this.m.HousesMax = 4;
 		this.m.AttachedLocationsMax = 5;
+		this.setDefenderSpawnList(this.Const.World.Spawn.Noble);
 	}
 
 	function onBuild( _settings )
