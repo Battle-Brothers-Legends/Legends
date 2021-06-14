@@ -18,11 +18,11 @@ this.legend_mummy_shield <- this.inherit("scripts/items/shields/shield", {
 		this.m.Variant = this.m.Variants[this.Math.rand(0, this.m.Variants.len() - 1)];
 		this.updateVariant();
 		this.m.Value = 200;
-		this.m.MeleeDefense = 15;
-		this.m.RangedDefense = 20;
-		this.m.StaminaModifier = -12;
-		this.m.Condition = 40;
-		this.m.ConditionMax = 40;
+		this.m.MeleeDefense = 10;
+		this.m.RangedDefense = 12;
+		this.m.StaminaModifier = -6;
+		this.m.Condition = 20;
+		this.m.ConditionMax = 20;
 	}
 
 	function updateVariant()

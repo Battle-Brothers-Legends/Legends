@@ -17,12 +17,12 @@ this.legend_mummy_tower_shield <- this.inherit("scripts/items/shields/shield", {
 		];
 		this.m.Variant = this.m.Variants[this.Math.rand(0, this.m.Variants.len() - 1)];
 		this.updateVariant();
-		this.m.Value = 800;
-		this.m.MeleeDefense = 25;
-		this.m.RangedDefense = 15;
-		this.m.StaminaModifier = -20;
-		this.m.Condition = 48;
-		this.m.ConditionMax = 48;
+		this.m.Value = 400;
+		this.m.MeleeDefense = 20;
+		this.m.RangedDefense = 10;
+		this.m.StaminaModifier = -14;
+		this.m.Condition = 30;
+		this.m.ConditionMax = 30;
 	}
 
 	function updateVariant()
