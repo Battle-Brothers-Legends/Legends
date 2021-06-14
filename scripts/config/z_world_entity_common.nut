@@ -926,15 +926,16 @@ gt.Const.World.Common.convNameToList <- function ( _named )
 	local retArr = [];
 	foreach( search in findString )
 	{
+		if (list[0].find(search) != null ) //was this list
+		{
 			foreach( item in list )
 			{
-				if (item.find(search) != null)
-				{
-					retArr.push([1, item.slice(item.find(search) + search.len())]);
-					break;
-				}
+				retArr.push(
+					[1, item.slice(item.find(search) + search.len())]
+				);
 			}
 			break; //can skip 1-2 list[0].finds with this
+		}
 	}
 	return retArr;
 }
