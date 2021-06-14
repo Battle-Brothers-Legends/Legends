@@ -5287,4 +5287,4 @@ Fixes mercenaries not getting clarity perk on legendary
 Overall lowers mummy hitpoints
 Makes 25 the max hire limit for origins now, way easier fix for some weird bugs happening
 Lowers stats and cost of mummy shields
-Should fix an enemy unit retreating and dying to an AOO from the 3Head flail cascade skill
+Cascade shouldn't cause errors when it kills something due to an attack of opportunity
