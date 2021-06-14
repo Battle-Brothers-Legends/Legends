@@ -5288,3 +5288,4 @@ Overall lowers mummy hitpoints
 Makes 25 the max hire limit for origins now, way easier fix for some weird bugs happening
 Lowers stats and cost of mummy shields
 Cascade shouldn't cause errors when it kills something due to an attack of opportunity
+Should fix named item spawns again but this time for Southerners
