@@ -3,14 +3,18 @@ this.player_horserider_test <- this.inherit("scripts/entity/tactical/player", {
         Rider = null,
         Horse = null,
         RiderSkills = [], //actual actives not IDs
-        HorseSkills = [],
-        PlayerBodyArmor = null,
-        PlayerStartHelmetDurability = 0,
-        PlayerStartBodyDurability = 0,
+        HorseSkills = [], //if we add osmething like an injury we should add it to both the horse/rider skill array and to the actual horserider test entity : the only time we can get new skills in combat is by gettig hit with something for an injury or for something like a daze which is removed on end of combat
+        HorseBodyArmor = null,
+        RiderBodyArmor = null,
+        RiderStartHelmetDurability = 0,
+        RiderStartBodyDurability = 0,
+        PlayerHPPct = 1.0,
+        HorseHPPct = 1.0
     },
 
     function setRider( _a )
 	{
+        this.m.PlayerHPPct = _a.getHitpointsPct();
 		this.m.Rider = this.WeakTableRef((typeof _a == "instance") ? _a.get() : _a);
 	}
 
@@ -21,6 +25,7 @@ this.player_horserider_test <- this.inherit("scripts/entity/tactical/player", {
 
 	function setHorse( _a )
 	{
+        this.m.HorseHPPct = _a.getHitpointsPct();
 		this.m.PlaceInFormation = _a.getPlaceInFormation();
 		this.m.Horse = this.WeakTableRef((typeof _a == "instance") ? _a.get() : _a);
 	}
@@ -32,19 +37,39 @@ this.player_horserider_test <- this.inherit("scripts/entity/tactical/player", {
 
     function setScenarioValues()
     {
+
+        this.getRider().getItems().transferTo(this.m.Items);
+		this.m.RiderBodyArmor = this.m.Items.getItemAtSlot(this.Const.ItemSlot.Body);
+		if (this.m.RiderBodyArmor != null)
+        {
+			this.m.Items.unequip(this.m.RiderBodyArmor);
+            this.m.RiderStartBodyDurability = this.m.RiderBodyArmor.getCondition();
+
+            local head = this.m.Items.getItemAtSlot(this.Const.ItemSlot.Head)
+            this.m.RiderStartHelmetDurability = head.getCondition();
+
+            head.m.Condition = (this.m.RiderStartHelmetDurability + this.m.RiderBodyArmor.getCondition()); 
+        }
+
+		this.m.HorseBodyArmor = this.getHorse().getItems().getItemAtSlot(this.Const.ItemSlot.Body);
+		if (this.m.HorseBodyArmor != null)
+			this.m.Items.equip(this.m.HorseBodyArmor)
+
+
         local rSkills = this.getRider().getSkills();
         local hSkills = this.getHorse().getSkills();
 
-        foreach(rS in rSkills)
+        foreach(rS in rSkills.m.Skills)
         {
-            this.m.RiderSkills.push(rs)
+            if (rS.getID().find("_background") == null)
+                this.m.RiderSkills.push(rS)
         }
-        foreach(hS in hSkills)
+        foreach(hS in hSkills.m.Skills)
         {
             local hadHorseSkill = false;
             foreach(rS in this.m.RiderSkills)
             {
-                if (rS.getID() == hs.getID() && !hS.isStacking()) //not adding the same skill twice
+                if (rS.getID() == hS.getID() && !hS.isStacking() && hS.getID().find("_background") == null && hS.getID() != "injury.legend_donkey") //not adding the same skill twice
                 {
                     hadHorseSkill = true;
                 }
@@ -176,30 +201,48 @@ this.player_horserider_test <- this.inherit("scripts/entity/tactical/player", {
         {
             this.getSkills().add(this.new("scripts/skills/actives/legend_horse_kick"));
         }
-
-        this.getRider().getItems().transferTo(this.m.Items);
-		this.m.PlayerBodyArmor = this.m.Items.getItemAtSlot(this.Const.ItemSlot.Body);
-		if (this.m.PlayerBodyArmor != null)
-        {
-			this.m.Items.unequip(this.m.PlayerBodyArmor);
-            this.m.PlayerStartBodyDurability = this.m.PlayerBodyArmor.getCondition();
-
-            local head = this.m.Items.getItemAtSlot(this.Const.ItemSlot.Head)
-            this.m.PlayerStartHelmetDurability = head.getCondition();
-
-            head.setCondition(this.m.PlayerStartHelmetDurability + this.m.PlayerBodyArmor.getCondition()); 
-        }
-
-		this.m.horseArmor = this.getHorse().getItems().getItemAtSlot(this.Const.ItemSlot.Body);
-		if (this.m.horseArmor != null)
-			this.m.Items.equip(this.m.horseArmor)
-
         
         local c = this.m.CurrentProperties;
 		this.m.ActionPoints = c.ActionPoints;
-		this.m.Hitpoints = c.Hitpoints;
+		this.m.Hitpoints = totalHitpoints;
         this.m.Talents.resize(this.Const.Attributes.COUNT, 0);
 		this.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - 1);
     }
+
+    function onCombatFinished()
+	{
+		if (this.m.HorseBodyArmor != null)
+		{
+			this.m.Items.unequip(this.m.HorseBodyArmor);
+			this.getHorse().getItems().equip(this.m.HorseBodyArmor);
+		}
+		if (this.m.RiderBodyArmor != null)
+		{
+            local armorPct = 
+            this.m.RiderBodyArmor.setCondition( (this.m.RiderStartBodyDurability) * )
+			this.m.Items.equip(this.m.RiderBodyArmor);
+		}
+		this.m.Items.transferTo(this.getRider().getItems());
+
+        foreach(rS in this.m.RiderSkills)
+        {
+            rS.setContainer(this.getRider().getSkills()); //we shouldn't have to re-add the skills or anything funny 
+        }
+        foreach(hS in this.m.HorseSkills)
+        {
+            hS.setContainer(this.getHorse().getSkills());
+        }
+
+		local horseHP = this.getHorse().getHitpoints();
+		local riderHP = this.getRider().getHitpoints();
+
+		local hpMissing = this.getHitpointsPct();
+        this.getRider().setHitpoints(this.getRider().getHitpointsMax() * this.m.PlayerHPPct * hpMissing)
+        this.getHorse().setHitpoints(this.getHorse().getHitpointsMax() * this.m.HorseHPPct * hpMissing)
+		// this.getRider().setHitpoints( (riderHP * hpMissing > 0) ? (riderHP * hpMissing) : riderHP )
+		// this.getHorse().setHitpoints( (horseHP * hpMissing > 0) ? (horseHP * hpMissing) : horseHP )
+
+		this.World.getPlayerRoster().remove(this);
+	}
 
 });

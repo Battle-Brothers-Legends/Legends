@@ -18,7 +18,7 @@
 				this.World.FactionManager.getFaction(e).setIsTemporaryEnemy(true);
 			}
 		}
-		// local riderMap = {}
+		local riderMap = {}
 		local hasSheildsUpPerk = false;
 
 		foreach( p in all_players )
@@ -38,24 +38,24 @@
 				continue;
 			}
 
-			// if (p.getRiderID() != "")
-			// {
-			// 	local key = "" + p.getRiderID();
-			// 	if (!(key in riderMap))
-			// 	{
-			// 		riderMap[key] <- [null, null] //horse, rider
-			// 	}
-			// 	local pair = riderMap[key]
-			// 	if (p.isStabled())
-			// 	{
-			// 		pair[0] = p
-			// 	}
-			// 	else
-			// 	{
-			// 		pair[1] = p
-			// 	}
-			// 	continue
-			// }
+			if (p.getRiderID() != "")
+			{
+				local key = "" + p.getRiderID();
+				if (!(key in riderMap))
+				{
+					riderMap[key] <- [null, null] //horse, rider
+				}
+				local pair = riderMap[key]
+				if (p.isStabled())
+				{
+					pair[0] = p
+				}
+				else
+				{
+					pair[1] = p
+				}
+				continue
+			}
 
 			players.push(p);
 			local items = p.getItems().getAllItemsAtSlot(this.Const.ItemSlot.Bag);
@@ -69,37 +69,37 @@
 			}
 		}
 
-		// foreach(k, v in riderMap)
-		// {
-		// 	local p
-		// 	if (v[0] != null && v[1] != null)
-		// 	{
-		// 		p = this.World.getPlayerRoster().create("scripts/entity/tactical/legends_player_horserider");
-		// 		p.setHorse(v[0]);
-		// 		p.setRider(v[1]);
-		// 		p.setScenarioValues();
-		// 	}
-		// 	else if (v[0] != null)
-		// 	{
-		// 		p = v[0];
-		// 	}
-		// 	else
-		// 	{
-		// 		p = v[1];
-		// 	}
+		foreach(k, v in riderMap)
+		{
+			local p
+			if (v[0] != null && v[1] != null)
+			{
+				p = this.World.getPlayerRoster().create("scripts/entity/tactical/player_horserider_test");
+				p.setHorse(v[0]);
+				p.setRider(v[1]);
+				p.setScenarioValues();
+			}
+			else if (v[0] != null)
+			{
+				p = v[0];
+			}
+			else
+			{
+				p = v[1];
+			}
 
-		// 	players.push(p);
-		// 	local items = p.getItems().getAllItemsAtSlot(this.Const.ItemSlot.Bag);
+			players.push(p);
+			local items = p.getItems().getAllItemsAtSlot(this.Const.ItemSlot.Bag);
 
-		// 	foreach( item in items )
-		// 	{
-		// 		if ("setLoaded" in item)
-		// 		{
-		// 			item.setLoaded(false);
-		// 		}
-		// 	}
+			foreach( item in items )
+			{
+				if ("setLoaded" in item)
+				{
+					item.setLoaded(false);
+				}
+			}
 
-		// }
+		}
 
 		if (this.World.State.isUsingGuests() && this.World.getGuestRoster().getSize() != 0)
 		{
