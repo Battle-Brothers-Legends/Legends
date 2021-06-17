@@ -63,54 +63,6 @@ this.bandit_poacher <- this.inherit("scripts/entity/tactical/human", {
 
 	function assignRandomEquipment()
 	{
-		local weapons = [
-			[
-				"weapons/short_bow",
-				"ammo/quiver_of_arrows"
-			]
-		];
-
-		if (this.Const.DLC.Wildmen)
-		{
-			weapons.push([
-				"weapons/legend_sling"
-			]);
-		}
-
-		local n = this.Math.rand(0, weapons.len() - 1);
-
-		foreach( w in weapons[n] )
-		{
-			this.m.Items.equip(this.new("scripts/items/" + w));
-		}
-
-
-
-		if (this.Math.rand(1, 100) <= 50)
-		{
-			this.m.Items.addToBag(this.new("scripts/items/weapons/legend_shiv"));
-		}
-		else
-		{
-			this.m.Items.addToBag(this.new("scripts/items/weapons/knife"));
-		}
-
-		local item = this.Const.World.Common.pickArmor([
-			[20, "leather_wraps"]
-		])
-		this.m.Items.equip(item);
-
-		if (this.Math.rand(1, 100) <= 50)
-		{
-			local item = this.Const.World.Common.pickHelmet([
-				[1, "headscarf"],
-				[1, "mouth_piece"]
-			])
-			if (item != null)
-			{
-				this.m.Items.equip(item);
-			}
-		}
 	}
 
 });
