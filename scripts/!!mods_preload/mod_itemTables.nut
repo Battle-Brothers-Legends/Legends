@@ -105,7 +105,7 @@ this.Const.ItemTables <-
 				}
 			}
 			// individual item table
-			else if (typeof item == "table" && (!("Scripts" in item)){
+			else if (typeof item == "table" && (!("Scripts" in item))){
 				if (!("Script" in _item)){
 					this.logInfo("Item does not have a script\n");
 					continue
@@ -355,5 +355,5 @@ this.Const.ItemTables <-
 	}
 	this.Const.ItemTables.setItemSlotOnChosen(_entityType, _itemslot, _onChosenFunction)
 }
-::pushItems <- this.Const.ItemTables.pushItems
+::pushItems <- this.Const.ItemTables.pushItems;
 ::equipActor <- this.Const.ItemTables.equipActor;
