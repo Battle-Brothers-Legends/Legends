@@ -728,6 +728,323 @@ helmets = [
 ::pushItems(entity, "Body", armors);
 ::pushItems(entity, "Head", helmets);
 
-
 ::setItemSlotIsValid(entity, "Offhand", @(i) this.Math.rand(1, 100) <= this.m.isLow ? 66 : 75);
 ::setItemSlotIsValid(entity, "Bag", @(i) this.getIdealRange() == 1 && this.Math.rand(1, 100) <= this.m.isLow ? 25 : 35);
+
+::setItemSlotOnChosen(entity, "Body", function(i)
+{
+	if (this.m.Name == "Disguised Bandit")
+	{
+		i.setUpgrade(this.new("scripts/items/" +
+			(this.LegendsMod.Configs().LegendArmorsEnabled() ? "legend_armor/armor_upgrades/legend_direwolf_pelt_upgrade" : "armor_upgrades/direwolf_pelt_upgrade")));
+	}
+});
+
+//-----------------------------------------------------------------------------------------------------------------
+//Marksman
+entity = "BanditMarksman";
+
+weapons = [
+	{
+		Script = "scripts/items/weapons/short_bow",
+		isValid = function(i)
+		{
+			i.Weight = this.m.isLow ? 2 : 1
+		},
+		onChosen = @(i) this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_arrows"))
+	},
+	{
+		Script = "scripts/items/weapons/hunting_bow",
+		isValid = @(i) !this.m.isLow,
+		onChosen = @(i) this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_arrows"))
+	},
+	{
+		Script = "scripts/items/weapons/light_crossbow",
+		onChosen = @(i) this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_bolts"))
+	},
+	{
+		Script = "scripts/items/weapons/crossbow",
+		isValid = @(i) !this.m.isLow,
+		onChosen = @(i) this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_bolts"))
+	}
+];
+
+bag = [
+	{
+		Scripts = [
+			"scripts/items/weapons/dagger",
+			"scripts/items/weapons/hatchet",
+			"scripts/items/weapons/bludgeon"
+		],
+		isValid = @(i) !this.m.isLow
+	},
+	"scripts/items/weapons/knife"
+];
+
+armors = [
+	{
+		Scripts = [
+			"thick_tunic",
+			"padded_surcoat",
+			"blotched_gambeson"
+		],
+		isValid = @(i) !this.m.isLow
+	},
+	"leather_wraps"
+];
+
+helmets = [
+	{
+		Scripts = [
+			"hood",
+			"open_leather_cap",
+			"full_leather_cap"
+		],
+		isValid = @(i) !this.m.isLow
+	},
+	"headscarf",
+	"mouth_piece"
+];
+
+::pushItems(entity, "Mainhand", weapons);
+::pushItems(entity, "Bag", bag);
+::pushItems(entity, "Body", armors);
+::pushItems(entity, "Head", helmets);
+
+::setItemSlotIsValid(entity, "Head", @(i) this.Math.rand(1, 100) <= 50);
+
+//-----------------------------------------------------------------------------------------------------------------
+//Veteran
+
+entity = "BanditVeteran";
+
+weapons = [
+	{
+		Script = "scripts/items/weapons/legend_infantry_axe",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/hooked_blade",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/pike",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/warbrand",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_bloody_harvest"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_forceful_swing"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/longaxe",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/two_handed_wooden_hammer",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_sundering_strikes"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smackdown"));
+		}
+	},
+	{
+		Scripts = [
+			"scripts/items/weapons/two_handed_wooden_flail",
+			"scripts/items/weapons/legend_reinforced_flail"
+		],
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_head_hunter"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_flow"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/two_handed_mace",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_onslaught"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/longsword",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_vengeance"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_feint"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/legend_bastardsword",
+		Weight = 2,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_forceful_swing"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_bloody_harvest"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/shortsword",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_feint"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/hand_axe",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/boar_spear",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_spearthrust"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/morning_star",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_onslaught"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_head_hunter"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/falchion",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/arming_sword",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_feint"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_duelist"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/flail",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_head_hunter"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_flow"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/scramasax",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_bloodbath"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/military_pick",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_sundering_strikes"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smackdown"));
+		}
+	},
+	{
+		Script = "scripts/items/weapons/legend_glaive",
+		Weight = 8,
+		onChosen = function(i)
+		{
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
+			if (isLegendary()) this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
+		}
+	},
+];
+
+offhands = [
+	{
+		Scripts = [
+			"scripts/items/shields/kite_shield",
+			"scripts/items/shields/legend_tower_shield"
+		],
+		Weights = [3, 1]
+	}
+];
+
+bag = [
+	"scripts/items/weapons/throwing_axe",
+	"scripts/items/weapons/javelin",
+	"scripts/items/weapons/throwing_spear"
+];
+
+armors = [
+	"worn_mail_shirt",
+	"patched_mail_shirt",
+	"leather_lamellar",
+	"basic_mail_shirt"
+];
+
+helmets = [
+	"nasal_helmet",
+	"rondel_helm",
+	"legend_enclave_vanilla_skullcap_01",
+	"legend_enclave_vanilla_kettle_sallet_01",
+	"scale_helm",
+	"deep_sallet",
+	"dented_nasal_helmet",
+	"nasal_helmet_with_rusty_mail",
+	"rusty_mail_coif",
+	"headscarf"
+];
+
+::pushItems(entity, "Mainhand", weapons);
+::pushItems(entity, "Offhand", offhands);
+::pushItems(entity, "Bag", bag);
+::pushItems(entity, "Body", armors);
+::pushItems(entity, "Head", helmets);
+
+::setItemSlotIsValid(entity, "Offhand", @(i) this.Math.rand(1, 100) <= 75);
+::setItemSlotIsValid(entity, "Bag", @(i) this.getIdealRange() == 1 && this.Math.rand(1, 100) <= 35);
+::setItemSlotIsValid(entity, "Head", @(i) this.Math.rand(1, 100) <= 85);
