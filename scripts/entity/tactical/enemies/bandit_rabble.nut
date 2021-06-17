@@ -86,7 +86,7 @@ this.bandit_rabble <- this.inherit("scripts/entity/tactical/human", {
 		this.setDirty(true);
 	}
 
-	function assignRandomEquipment()
+	/*function assignRandomEquipment()
 	{
 
 		local r = this.Math.rand(1, 13);
@@ -266,7 +266,7 @@ this.bandit_rabble <- this.inherit("scripts/entity/tactical/human", {
 			])
 			this.m.Items.equip(item);
 		}
-	}
+	}*/
 
 	function makeMiniboss()
 	{
