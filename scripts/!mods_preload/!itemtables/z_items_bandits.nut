@@ -1048,3 +1048,104 @@ helmets = [
 ::setItemSlotIsValid(entity, "Offhand", @(i) this.Math.rand(1, 100) <= 75);
 ::setItemSlotIsValid(entity, "Bag", @(i) this.getIdealRange() == 1 && this.Math.rand(1, 100) <= 35);
 ::setItemSlotIsValid(entity, "Head", @(i) this.Math.rand(1, 100) <= 85);
+
+//-----------------------------------------------------------------------------------------------------------------
+//Master Archer
+
+entity = "MasterArcher"
+
+weapons = [
+	{
+		Script = "scripts/items/weapons/war_bow",
+		Weight = 2,
+		onChosen = @(i) this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_arrows"))
+	},
+	{
+		Script = "scripts/items/weapons/heavy_crossbow",
+		onChosen = @(i) this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_bolts"))
+	}
+];
+
+bag = [
+	"scripts/items/weapons/dagger",
+	"scripts/items/weapons/scramasax",
+	"scripts/items/weapons/hatchet"
+];
+
+armors = [
+	"thick_tunic",
+	"padded_surcoat",
+	"leather_lamellar",
+	"basic_mail_shirt",
+	"ragged_surcoat",
+	"basic_mail_shirt"
+];
+
+helmets = [
+	"hood",
+	"headscarf"
+];
+
+::pushItems(entity, "Mainhand", weapons);
+::pushItems(entity, "Bag", bag);
+::pushItems(entity, "Body", armors);
+::pushItems(entity, "Head", helmets);
+
+::setItemSlotIsValid(entity, "Head", @(i)this.Math.rand(1, 100) <= 50);
+
+//-----------------------------------------------------------------------------------------------------------------
+//Leader
+
+entity = "BanditLeader";
+
+weapons = [
+	"scripts/items/weapons/noble_sword",
+	"scripts/items/weapons/fighting_axe",
+	"scripts/items/weapons/warhammer",
+	"scripts/items/weapons/legend_glaive",
+	"scripts/items/weapons/fighting_spear",
+	"scripts/items/weapons/winged_mace",
+	"scripts/items/weapons/arming_sword",
+	"scripts/items/weapons/military_cleaver",
+	"scripts/items/weapons/greatsword",
+	"scripts/items/weapons/greataxe",
+	"scripts/items/weapons/legend_swordstaff",
+	"scripts/items/weapons/legend_bastardsword",
+	"scripts/items/weapons/warbrand",
+	"scripts/items/weapons/legend_estoc"
+];
+
+offhands = [
+	"shields/wooden_shield",
+	"shields/heater_shield",
+	"shields/kite_shield"
+];
+
+bag = [
+	"weapons/throwing_axe",
+	"weapons/javelin"
+];
+
+armors = [
+	"reinforced_mail_hauberk",
+	"worn_mail_shirt",
+	"patched_mail_shirt",
+	"mail_shirt",
+	"footman_armor",
+	"leather_scale_armor",
+	"light_scale_armor",
+	"red_bandit_leader_armor"
+];
+
+helmets = [
+	"closed_mail_coif",
+	"padded_kettle_hat",
+	"kettle_hat_with_closed_mail",
+	"kettle_hat_with_mail",
+	"padded_flat_top_helmet",
+	"nasal_helmet_with_mail",
+	"flat_top_with_mail",
+	"padded_nasal_helmet",
+	"bascinet_with_mail",
+	"red_bandit_leader_helmet"
+];
