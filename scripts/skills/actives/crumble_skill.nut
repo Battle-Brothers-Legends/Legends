@@ -42,6 +42,7 @@ this.crumble_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 0;
 		this.m.ChanceDisembowel = 0;
 		this.m.ChanceSmash = 50;
+		this.m.DamageType = this.Const.DamageType.Blunt;
 	}
 
 	function getTooltip()

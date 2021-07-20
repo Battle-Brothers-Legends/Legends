@@ -44,6 +44,7 @@ this.gore_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 0;
 		this.m.ChanceDisembowel = 25;
 		this.m.ChanceSmash = 25;
+		this.m.DamageType = this.Const.DamageType.Blunt; //Not Sure about this, I don't know what Trickster god is and what this attack looks like.
 	}
 
 	function getTooltip()

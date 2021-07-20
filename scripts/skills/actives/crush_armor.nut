@@ -35,6 +35,7 @@ this.crush_armor <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 0;
 		this.m.ChanceDisembowel = 0;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Blunt | this.Const.DamageType.Piercing;
 	}
 
 	function getTooltip()

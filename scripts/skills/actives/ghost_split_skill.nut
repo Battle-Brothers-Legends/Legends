@@ -33,6 +33,7 @@ this.ghost_split_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 50;
 		this.m.ChanceDisembowel = 25;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Cutting;
 	}
 
 	function getTooltip()

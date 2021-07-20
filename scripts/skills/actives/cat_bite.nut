@@ -29,6 +29,7 @@ this.cat_bite <- this.inherit("scripts/skills/skill", {
 		this.m.FatigueCost = 10;
 		this.m.MinRange = 1;
 		this.m.MaxRange = 1;
+		this.m.DamageType = this.Const.DamageType.Cutting;
 	}
 
 	function onUpdate( _properties )

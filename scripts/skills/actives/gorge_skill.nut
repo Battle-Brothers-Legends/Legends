@@ -36,6 +36,7 @@ this.gorge_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 0;
 		this.m.ChanceDisembowel = 50;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Blunt | this.Const.DamageType.Cutting;
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )

@@ -45,6 +45,7 @@ this.gash_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 75;
 		this.m.ChanceDisembowel = 33;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Slashing;
 	}
 
 	function getTooltip()

@@ -55,6 +55,7 @@ this.fire_handgonne_skill <- this.inherit("scripts/skills/skill", {
 		this.m.MaxRange = 2;
 		this.m.MaxRangeBonus = 1;
 		this.m.MaxLevelDifference = 4;
+		this.m.DamageType = this.Const.DamageType.Burning | this.Const.DamageType.Piercing;
 	}
 
 	function getTooltip()

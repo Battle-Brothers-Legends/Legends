@@ -22,6 +22,7 @@ this.skill <- {
 		ProjectileTimeScale = 1.0,
 		IsProjectileRotated = true,
 		Type = this.Const.SkillType.None,
+		DamageType = this.Const.DamageType.None,
 		Container = null,
 		Item = null,
 		ActionPointCost = 0,
@@ -116,6 +117,16 @@ this.skill <- {
 	function isType( _t )
 	{
 		return (this.m.Type & _t) != 0;
+	}
+
+	function getDamageType()
+	{
+		return this.m.DamageType;
+	}
+
+	function isDamageType(_damageType)
+	{
+		return (this.m.DamageType & _damageType) != 0;
 	}
 
 	function getProjectileType()

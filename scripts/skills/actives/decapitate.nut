@@ -49,6 +49,7 @@ this.decapitate <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 100;
 		this.m.ChanceDisembowel = 0;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Cutting;
 	}
 
 	function getTooltip()

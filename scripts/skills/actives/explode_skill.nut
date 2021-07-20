@@ -26,6 +26,7 @@ this.explode_skill <- this.inherit("scripts/skills/skill", {
 		this.m.FatigueCost = 0;
 		this.m.MinRange = 0;
 		this.m.MaxRange = 0;
+		this.m.DamageType = this.Const.DamageType.Blunt | this.Const.DamageType.Burning;
 	}
 
 	function isUsable()

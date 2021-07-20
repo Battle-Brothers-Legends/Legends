@@ -58,6 +58,7 @@ this.aimed_shot <- this.inherit("scripts/skills/skill", {
 		this.m.MaxRange = 7;
 		this.m.MaxLevelDifference = 4;
 		this.m.ProjectileType = this.Const.ProjectileType.Arrow;
+		this.m.DamageType = this.Const.DamageType.Piercing;
 	}
 
 	function getTooltip()

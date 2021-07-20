@@ -32,6 +32,7 @@ this.ghost_swing_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 99;
 		this.m.ChanceDisembowel = 50;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Slashing;
 	}
 
 	function getTooltip()

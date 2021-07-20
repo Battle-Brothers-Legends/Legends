@@ -34,6 +34,7 @@ this.ghoul_claws <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 33;
 		this.m.ChanceDisembowel = 33;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Slashing;
 	}
 
 	function getTooltip()

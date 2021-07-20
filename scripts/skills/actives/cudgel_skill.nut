@@ -39,6 +39,7 @@ this.cudgel_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 0;
 		this.m.ChanceDisembowel = 0;
 		this.m.ChanceSmash = 66;
+		this.m.DamageType = this.Const.DamageType.Blunt;
 	}
 
 	function getTooltip()

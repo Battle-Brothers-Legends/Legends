@@ -48,6 +48,7 @@ this.fire_mortar_skill <- this.inherit("scripts/skills/skill", {
 		this.m.MinRange = 3;
 		this.m.MaxRange = 999;
 		this.m.MaxLevelDifference = 4;
+		this.m.DamageType = this.Const.DamageType.Piercing | this.Const.DamageType.Burning;
 	}
 
 	function isUsable()

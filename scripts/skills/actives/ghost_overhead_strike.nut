@@ -38,6 +38,7 @@ this.ghost_overhead_strike <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 99;
 		this.m.ChanceDisembowel = 50;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Cutting;
 	}
 
 	function onAfterUpdate( _properties )

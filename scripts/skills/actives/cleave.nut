@@ -43,6 +43,7 @@ this.cleave <- this.inherit("scripts/skills/skill", {
 		this.m.ChanceDecapitate = 50;
 		this.m.ChanceDisembowel = 33;
 		this.m.ChanceSmash = 0;
+		this.m.DamageType = this.Const.DamageType.Cutting;
 	}
 
 	function addResources()
