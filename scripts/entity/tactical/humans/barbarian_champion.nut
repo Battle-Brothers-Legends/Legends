@@ -83,7 +83,11 @@ this.barbarian_champion <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_last_stand"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 		}
-
+		
+		if (this.Math.rand(0, 100) < 101){
+			this.logInfo("transformed?")
+			this.m.Skills.add(this.new("scripts/skills/effects/werewolf_transformation_effect"))
+		}
 	}
 
 	function assignRandomEquipment()

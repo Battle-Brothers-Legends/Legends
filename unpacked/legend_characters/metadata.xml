@@ -765,5 +765,13 @@ top="-52" bottom="2" />
   <sprite id="enclave_vanilla_armet_02_damaged" offsetY="35" ic="FF353857" width="104" height="142" img="entity\helmets\armet_2_damaged.png" left="-23" right="34" top="-24" bottom="48" />
   <sprite id="enclave_vanilla_armet_02_dead" offsetX="6" offsetY="10" f="64F0" f1="-15" f2="-15" ic="FF353957" width="131" height="125" img="entity\helmets\armet_2_dead.png" left="-56" right="13" top="-60" bottom="8" />
 
+  <sprite id="were_body_black" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\details\were_body_black.png" left="-42" right="40" top="-49" bottom="9" />
+  <sprite id="were_body_blonde" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\details\were_body_blonde.png" left="-42" right="40" top="-49" bottom="9" />
+  <sprite id="were_body_brown" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\details\were_body_brown.png" left="-42" right="40" top="-49" bottom="9" />
+  <sprite id="were_body_white" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\details\were_body_white.png" left="-42" right="40" top="-49" bottom="9" />
+  <sprite id="were_head_black" offsetY="35" ic="FF5C7BA9" width="104" height="142" img="entity\details\were_head_black.png" left="-21" right="29" top="-20" bottom="48" />
+  <sprite id="were_head_blonde" offsetY="35" ic="FF5C7BA9" width="104" height="142" img="entity\details\were_head_blonde.png" left="-21" right="29" top="-20" bottom="48" />
+  <sprite id="were_head_brown" offsetY="35" ic="FF5C7BA9" width="104" height="142" img="entity\details\were_head_brown.png" left="-21" right="29" top="-20" bottom="48" />
+  <sprite id="were_head_white" offsetY="35" ic="FF5C7BA9" width="104" height="142" img="entity\details\were_head_white.png" left="-21" right="29" top="-20" bottom="48" />
 
 </brush>
