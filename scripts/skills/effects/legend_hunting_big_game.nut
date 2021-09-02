@@ -27,13 +27,10 @@ this.legend_hunting_big_game <- this.inherit("scripts/skills/skill", {
 		local actor = this.getContainer().getActor();
 		local targetHP = _targetEntity.getHitpoints()
 		local ourHP =  actor.getHitpoints();
-		local HPratio = targetHP / ourHP;
-		local ratiopercent = HPratio / 100;
-		local bonus = ratiopercent + 1.0;
-		if ( bonus > 1.0 )
+		local ratio = targetHP / ourHP.tofloat();
+		if (ratio > 1.0)
 		{
-			_properties.DamageRegularMult += bonus; 
+			_properties.DamageRegularMult *= 1.0 + ratio * 0.01; 
 		}
 	}
-
 });

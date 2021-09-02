@@ -1,7 +1,5 @@
 this.legend_bone_platings_upgrade <- this.inherit("scripts/items/legend_armor/legend_armor_upgrade", {
-	m = {
-		IsUsed = false
-	},
+	m = {},
 	function create()
 	{
 		this.legend_armor_upgrade.create();
@@ -45,25 +43,9 @@ this.legend_bone_platings_upgrade <- this.inherit("scripts/items/legend_armor/le
 		});
 	}
 
-	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
+	function onCombatStarted()
 	{
-		if (this.m.IsUsed)
-		{
-			return;
-		}
-
-		if (_hitInfo.BodyPart == this.Const.BodyPart.Body && _hitInfo.DamageDirect < 1.0)
-		{
-			this.m.IsUsed = true;
-			_properties.DamageReceivedTotalMult = 0.0;
-			this.Tactical.EventLog.logEx("Damage absorbed by Bone Plating");
-		}
+		this.addSkill(this.new("scripts/skills/effects/bone_plating_effect"));
 	}
-
-	function onCombatFinished()
-	{
-		this.m.IsUsed = false;
-	}
-
 });
 

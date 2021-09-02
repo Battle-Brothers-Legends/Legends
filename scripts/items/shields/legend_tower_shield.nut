@@ -5,7 +5,7 @@ this.legend_tower_shield <- this.inherit("scripts/items/shields/shield", {
 		this.shield.create();
 		this.m.ID = "shield.legend_tower_shield";
 		this.m.Name = "Tower Shield";
-		this.m.Description = "A large square shield that offers excellent protection for yourself and others, very heavy and hard to maneuver";
+		this.m.Description = "A large square shield that offers excellent protection for yourself and others. It is stout, heavy and broad - offering excellent protection from attacks aimed at the sides.";
 		this.m.AddGenericSkill = true;
 		this.m.ShowOnCharacter = true;
 		this.m.Variants = [
@@ -55,8 +55,8 @@ this.legend_tower_shield <- this.inherit("scripts/items/shields/shield", {
 		this.m.Variant = this.Math.rand(1, 21); //random one is only 1-21 though
 		this.updateVariant();
 		this.m.Value = 1000;
-		this.m.MeleeDefense = 25;
-		this.m.RangedDefense = 25;
+		this.m.MeleeDefense = 30;
+		this.m.RangedDefense = 15;
 		this.m.StaminaModifier = -30;
 		this.m.Condition = 96;
 		this.m.ConditionMax = 96;

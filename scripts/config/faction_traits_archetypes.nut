@@ -236,7 +236,7 @@ gt.Const.FactionArchetypes <- [
 				this.Const.FactionTrait.Schemer,
 				this.Const.FactionTrait.Sheriff
 			],
-			Description = "House %noblehousename% works in the dark to protect its lands. the agents of %noblehousename%  have eyes in every shady corner and ears in every wall, inside and outside their borders. Peace is maintained through their lands, because %noblehousename% is always watching.",
+			Description = "House %noblehousename% works in the dark to protect its lands. The agents of %noblehousename%  have eyes in every shady corner and ears in every wall, inside and outside their borders. Peace is maintained through their lands, because %noblehousename% is always watching.",
 			Mottos = [
 				"Eyes on all",
 				"Security through surveilence",

@@ -18,11 +18,11 @@ this.legend_joint_cover_upgrade <- this.inherit("scripts/items/legend_armor/lege
 		this.m.SpriteDamagedBack = "upgrade_10_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_10_back_dead";
-		this.m.Value = 900;
-		this.m.Condition = 20;
-		this.m.ConditionMax = 20;
-		this.m.ConditionModifier = 20;
-		this.m.StaminaModifier = -2;
+		this.m.Value = 450;
+		this.m.Condition = 30;
+		this.m.ConditionMax = 30;
+		this.m.ConditionModifier = 30;
+		this.m.StaminaModifier = -4;
 	}
 
 

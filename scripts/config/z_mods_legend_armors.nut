@@ -1559,7 +1559,8 @@ gt.Const.LegendMod.ArmorObjs.extend([{
             [4, "armor_upgrades/legend_bone_platings_upgrade"]
         ]
     }]
-},{
+},
+{
     ID = "barbarian_chosen_armor_01", // ~~186
     Script = "",
     Sets = [{
@@ -1595,7 +1596,95 @@ gt.Const.LegendMod.ArmorObjs.extend([{
             [1, "armor_upgrades/legend_direwolf_pelt_upgrade"],
         ]
     }]
-},{
+},
+{
+    ID = "brown_monk_armor_00", // ~~186
+    Script = "",
+    Sets = [{
+        Cloth = [
+            [1, "cloth/legend_robes", 1]
+        ],
+        Chain = [
+        ],
+        Plate = [
+            [2, ""],
+            [1, "plate/legend_armor_leather_jacket_simple"]
+        ],
+        Cloak = [
+            [2, ""],
+            [1, "cloak/legend_southern_shoulder_cloth", 7],
+            [1, "cloak/legend_southern_shoulder_cloth", 6]
+        ],
+        Tabard = [
+            [1, "tabard/legend_southern_wrap_left", 6]
+        ],
+        Attachments =[
+            [9, ""],
+            [1, "armor_upgrades/legend_leather_neckguard_upgrade"]
+        ]
+    }]
+},
+{
+    ID = "dark_southern_armor_00", // ~~186
+    Script = "",
+    Sets = [{
+        Cloth = [
+            [1, "cloth/legend_thick_tunic"],
+            [1, "cloth/legend_tunic"],
+            [1, "cloth/legend_tunic_wrap"],
+            [1, "cloth/legend_tunic_collar_thin"],
+            [1, "cloth/legend_tunic_collar_deep"]
+        ],
+        Chain = [
+            [1, "chain/legend_armor_short_mail"]
+        ],
+        Plate = [
+        ],
+        Cloak = [
+            [1, "cloak/legend_animal_pelt", 4]
+        ],
+        Tabard = [
+            [1, "tabard/legend_southern_overcloth"]
+        ],
+        Attachments =[
+        ]
+    }]
+},
+{
+    ID = "white_nomad_leader_armor_00", // ~~186
+    Script = "",
+    Sets = [{
+        Cloth = [
+            [1, "cloth/legend_thick_tunic"],
+            [1, "cloth/legend_tunic"],
+            [1, "cloth/legend_tunic_wrap"],
+            [1, "cloth/legend_tunic_collar_thin"],
+            [1, "cloth/legend_tunic_collar_deep"]
+        ],
+        Chain = [
+            [1, "chain/legend_southern_mail"],
+        ],
+        Plate = [
+            
+            [1, "plate/legend_armor_leather_lamellar_harness_heavy"], //130
+            [1, "plate/legend_armor_leather_lamellar_harness_reinforced"], //150
+            [1, "plate/legend_southern_scale"],// 155
+        ],
+        Cloak = [
+            [3, ""],
+            [1, "cloak/legend_southern_scarf"],// 5
+        ],
+        Tabard = [
+            [2, ""],
+            [1, "tabard/legend_southern_shoulder_cloth"],// 5
+            [1, "tabard/legend_southern_wrap"],// 5
+            [1, "tabard/legend_southern_shoulder_cloth"],// 5
+        ],
+        Attachments =[
+        ]
+    }]
+},
+{
     ID = "special/heraldic_armor", // 250
     Script = "scripts/items/legend_armor/armor/legend_armor_heraldic",
     Sets = [{

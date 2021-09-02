@@ -83,8 +83,8 @@ this.legends_druid_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/roots_and_berries_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/pickled_mushrooms_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/accessory/legend_apothecary_mushrooms_item"));
-		this.World.Assets.getStash().add(this.new("scripts/items/accessory/therianthropy_potion_item"));
-		this.World.Assets.getStash().add(this.new("scripts/items/misc/legend_wolfsbane_item"));
+		//this.World.Assets.getStash().add(this.new("scripts/items/accessory/therianthropy_potion_item"));
+		//this.World.Assets.getStash().add(this.new("scripts/items/misc/legend_wolfsbane_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/misc/legend_mistletoe_item"));
 	}
 

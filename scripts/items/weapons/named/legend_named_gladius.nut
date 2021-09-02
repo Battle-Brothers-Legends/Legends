@@ -16,12 +16,12 @@ this.legend_named_gladius <- this.inherit("scripts/items/weapons/named/named_wea
 		this.m.ShowQuiver = false;
 		this.m.ShowArmamentIcon = true;
 		this.m.ArmamentIcon = "icon_legend_gladius_named_01";
-		this.m.Value = 950;
-		this.m.Condition = 65.0;
-		this.m.ConditionMax = 65.0;
+		this.m.Value = 3200;
+		this.m.Condition = 54.0;
+		this.m.ConditionMax = 54.0;
 		this.m.StaminaModifier = -8;
-		this.m.RegularDamage = 48;
-		this.m.RegularDamageMax = 52;
+		this.m.RegularDamage = 43;
+		this.m.RegularDamageMax = 48;
 		this.m.ArmorDamageMult = 0.8;
 		this.m.DirectDamageMult = 0.2;
 		this.randomizeValues();

@@ -19,11 +19,11 @@ this.legend_khopesh <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ShieldDamage = 0;
 		this.m.Condition = 64.0;
 		this.m.ConditionMax = 64.0;
-		this.m.StaminaModifier = -10;
+		this.m.StaminaModifier = -13;
 		this.m.Value = 1300;
 		this.m.RegularDamage = 40;
 		this.m.RegularDamageMax = 55;
-		this.m.ArmorDamageMult = 1.25;
+		this.m.ArmorDamageMult = 1.10;
 		this.m.DirectDamageMult = 0.25;
 	}
 

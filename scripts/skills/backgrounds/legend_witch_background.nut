@@ -51,7 +51,7 @@ this.legend_witch_background <- this.inherit("scripts/skills/backgrounds/charact
 		this.m.Modifiers.Injury = this.Const.LegendMod.ResourceModifiers.Injury[2];
 		this.m.Modifiers.MedConsumption = this.Const.LegendMod.ResourceModifiers.MedConsumption[3];
 
-				this.m.PerkTreeDynamic = {
+		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.DaggerTree,
 				this.Const.Perks.StavesTree,
@@ -68,8 +68,14 @@ this.legend_witch_background <- this.inherit("scripts/skills/backgrounds/charact
 				this.Const.Perks.InspirationalTree
 			],
 			Enemy = [],
-			Class = [],
-			Magic = [this.Const.Perks.EvocationMagicTree]
+			Class = [
+				this.Const.Perks.HealerClassTree
+			],
+			Magic = [
+				this.Const.Perks.PremonitionMagicTree,
+				this.Const.Perks.PhilosophyMagicTree,
+				this.Const.Perks.InventorMagicTree
+			]
 		}
 	}
 
@@ -118,32 +124,32 @@ this.legend_witch_background <- this.inherit("scripts/skills/backgrounds/charact
 	{
 		local c = {
 			Hitpoints = [
-				-10,
-				-10
+				-5,
+				-5
 			],
 			Bravery = [
 				0,
 				0
 			],
 			Stamina = [
-				15,
-				15
+				10,
+				10
 			],
 			MeleeSkill = [
 				-5,
 				-5
 			],
 			RangedSkill = [
-				10,
-				15
+				5,
+				10
 			],
 			MeleeDefense = [
 				-5,
 				-5
 			],
 			RangedDefense = [
-				-5,
-				-5
+				-2,
+				-2
 			],
 			Initiative = [
 				15,

@@ -46,7 +46,7 @@ Names = [
 "Redemption",
 "Pennance",
 "Rapture",
-"Gaurdian",
+"Guardian",
 "Hope",
 "Bullwark",
 "Bastion",
@@ -403,7 +403,7 @@ layers = [
     "desc" :  "A long and heavy chainmail that offers good protection but is very fatiguing to wear.", \
     "adesc" : "Includes a long and heavy chainmail that offers good protection but is very fatiguing to wear."
 },
-{"name": "legend_armor_mail_shirt",                       "layer": "chain", "min": 1, "max": 1, "value" : 350, "con" : 50, "stam" : -6, "impactSound" : "chain", "invSound" : "leather", \
+{"name": "legend_armor_mail_shirt",                       "layer": "chain", "min": 1, "max": 1, "value" : 375, "con" : 50, "stam" : -6, "impactSound" : "chain", "invSound" : "leather", \
     "title" :  "Basic Mail Shirt", \
     "desc" :  "A basic mail shirt. Offers decent and affordable protection against slashing and piercing attacks.", \
     "adesc" : "Includes a basic mail shirt that offers good protection against slashing and piercing attacks."
@@ -460,7 +460,7 @@ layers = [
     "desc" :  "A nomad cloth robe worn as an outer protection against both the heat and against cuts and bruises.", \
     "adesc" : "Includes a cloth robe"
 },
-{"name": "legend_southern_padded_chest",                       "layer": "chain", "min": 1, "max": 1, "value" : 100, "con" : 45, "stam" : -4, "impactSound" : "leather", "invSound" : "cloth", "brush" : "southern_padded_chest", \
+{"name": "legend_southern_padded_chest",                       "layer": "chain", "min": 1, "max": 1, "value" : 325, "con" : 45, "stam" : -4, "impactSound" : "leather", "invSound" : "cloth", "brush" : "southern_padded_chest", \
     "title" :  "Padded Vest", \
     "desc" :  "A thick cloth vest padded with dense wool to protect against blunt hits.", \
     "adesc" : "Includes a thick cloth vest."
@@ -780,7 +780,7 @@ layers = [
     "desc" :  "Leather arm guards worn by southern assassins", \
     "adesc" : "has leathered arm guards"
 },
-{"name": "legend_southern_strips",                   "layer": "plate", "min": 1, "max": 4, "value" : 180, "con" : 40, "stam" : -4, "impactSound" : "plate", "invSound" : "leather", "brush" : "southern_strips",\
+{"name": "legend_southern_strips",                   "layer": "plate", "min": 1, "max": 4, "value" : 275, "con" : 40, "stam" : -4, "impactSound" : "plate", "invSound" : "leather", "brush" : "southern_strips",\
     "title" :  "Linothorax", \
     "desc" :  "A breastplate made of several layers of linen.", \
     "adesc" : "Has a breastplate made of several layers of linen."
@@ -854,12 +854,12 @@ layers = [
     "adesc" : "Includes a dark wooly cloak"
 },
 {"name": "legend_animal_pelt",           "layer": "cloak", "min": 1, "max": 8, "value" : 250, "con" : 15, "stam" : -2, "bravery" : 2, "impactSound" : "leather", "invSound" : "cloth", "brush" : "animal_pelt",\
-    "title" :  "Southern Scarf", \
+    "title" :  "Animal Pelt", \
     "desc" :  "A cloak of dark wool that wraps around the shoulders.", \
     "adesc" : "Includes a dark wooly cloak"
 },
 {"name": "legend_southern_scarf_wrap",           "layer": "cloak", "min": 1, "max": 17, "value" : 150, "con" : 15, "stam" : -1, "bravery" : 0, "impactSound" : "leather", "invSound" : "cloth", "brush" : "southern_scarf_wrap",\
-    "title" :  "Southern Scarf", \
+    "title" :  "Southern Scarf Wrap", \
     "desc" :  "A cloak of dark wool that wraps around the shoulders.", \
     "adesc" : "Includes a dark wooly cloak"
 },
@@ -926,6 +926,7 @@ layers = [
 
 brush_only_layers = [
     #{"name": "legend_runed", "layer": "rune"},
+    {"name": "cloak_hexe", "layer": "cloak"},
     {"name": "cloak_spider", "layer": "cloak"},
     {"name" :"named_emperors_cloak", "min" : 1, "max" : 1, "layer" : "cloak"},
     {"name": "cloak_rich", "min" : 1, "max" : 5, "layer": "cloak"},

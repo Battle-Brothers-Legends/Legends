@@ -16,14 +16,13 @@ this.zombie_treasure_hunter <- this.inherit("scripts/entity/tactical/enemies/zom
 		this.zombie_knight.onInit();
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.ZombieTreasureHunter);
-		b.SurroundedBonus = 10;
 		b.IsAffectedByNight = false;
 		b.IsAffectedByInjuries = false;
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
 		b.FatigueDealtPerHitMult = 2.0;
 		b.DamageTotalMult = 1.25;
 		b.DamageReceivedArmorMult = 0.75;
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 		this.m.Skills.update();
 	}
 

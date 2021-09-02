@@ -11,7 +11,7 @@ this.legend_helmet_jester_hat <- this.inherit("scripts/items/legend_helmets/lege
 		this.m.Type = this.Const.Items.HelmetUpgrades.Vanity;
 		this.m.ID = "armor.head.legend_helmet_jester_hat";
 		this.m.Name = "Jester Hat";
-		this.m.Description = "The quintisential hat of performing folk in noble court";
+		this.m.Description = "The quintessential hat of performing folk in noble court";
 		this.m.ArmorDescription = this.m.Description;
 		this.m.Variants = [];
 		for(local i = 1; i < 65; i++)
@@ -47,7 +47,7 @@ this.legend_helmet_jester_hat <- this.inherit("scripts/items/legend_helmets/lege
 			id = 6,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Grants the wearer a +" + this.m.BonusHeadChance +"% chance to hit the head"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.BonusHeadChance + "%[/color] Chance To Hit Head"
 		});
 		return result
 	}

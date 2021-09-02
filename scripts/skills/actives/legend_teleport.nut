@@ -4,7 +4,7 @@ this.legend_teleport <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.legend_teleport";
 		this.m.Name = "Teleport";
-		this.m.Description = "";
+		this.m.Description = "Phase around the battlefield and teleport to a target hex.";
 		this.m.Icon = "skills/teleport_skill.png";
 		this.m.IconDisabled = "skills/teleport_skill_bw.png";
 		this.m.Overlay = "teleport";
@@ -34,6 +34,27 @@ this.legend_teleport <- this.inherit("scripts/skills/skill", {
 		this.m.MinRange = 1;
 		this.m.MaxRange = 8;
 		this.m.MaxLevelDifference = 8;
+	}
+
+	function getTooltip()
+	{
+		local ret = [
+			{
+				id = 1,
+				type = "title",
+				text = this.getName()
+			},
+			{
+				id = 2,
+				type = "description",
+				text = this.getDescription()
+			},
+			{
+				id = 3,
+				type = "text",
+				text = this.getCostString()
+			}
+		];
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )

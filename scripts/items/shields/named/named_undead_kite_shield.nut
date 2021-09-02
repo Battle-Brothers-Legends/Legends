@@ -19,8 +19,8 @@ this.named_undead_kite_shield <- this.inherit("scripts/items/shields/named/named
 		this.m.MeleeDefense = 15;
 		this.m.RangedDefense = 25;
 		this.m.StaminaModifier = -16;
-		this.m.Condition = 48;
-		this.m.ConditionMax = 48;
+		this.m.Condition = 51;
+		this.m.ConditionMax = 51;
 		this.randomizeValues();
 	}
 

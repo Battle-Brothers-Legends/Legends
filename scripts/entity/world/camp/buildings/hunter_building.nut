@@ -167,7 +167,7 @@ this.hunter_building <- this.inherit("scripts/entity/world/camp/camp_building", 
                 continue
             }
 
-			if (bro.getSkills().hasSkill("perk.legend_alcohol_brewer"))
+			if (bro.getSkills().hasSkill("perk.legend_alcohol_brewing"))
 			{
                brewerLevel += bro.getLevel()
             }
@@ -207,7 +207,7 @@ this.hunter_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 			return null;
 		}
 
-		local text =  "Hunted ... " + this.m.FoodAmount + " food";
+		local text =  "Hunted ... " + this.m.FoodAmount + " food and gained " + this.m.Items.len() + " items";
 		if (this.Stash.getNumberOfEmptySlots() == 0)
 		{
 			return text + " (Inventory is full!)";
@@ -223,124 +223,119 @@ this.hunter_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		}
 
 		this.m.Points += this.m.Craft;
-		if (this.Stash.getNumberOfEmptySlots() == 0)
+		local emptySlots = this.Stash.getNumberOfEmptySlots();
+		if (emptySlots == 0) return this.getUpdateText();
+		local item = null;
+
+		local brewerlevels = this.getBrewerLevel();
+		local dropLoot = -300.0 / (brewerlevels + 20) + 15 > this.Math.rand(1, 100);
+		if (dropLoot) // At level 10 there is a 5% chance per hour, increases asymptotically to 15% per hour
 		{
-			return this.getUpdateText();
+			local brewerLoot = this.new("scripts/mods/script_container");
+			brewerLoot.extend([
+				"scripts/items/supplies/beer_item",
+				"scripts/items/supplies/wine_item"
+			]);
+
+			if (16 <= brewerlevels)
+			{
+				brewerLoot.extend([
+					[2, "scripts/items/supplies/mead_item"],
+					"scripts/items/supplies/preserved_mead_item"
+				]);
+			}
+
+			item = this.new(brewerLoot.roll()); 
+			this.m.Items.push(item);
+			this.Stash.add(item);
+			if(--emptySlots == 0) return this.getUpdateText();
 		}
 
+		local cheflevels = this.getChefLevel();
+		dropLoot = -300.0 / (cheflevels + 20) + 15 > this.Math.rand(1, 100); // At level 10 there is a 5% chance per hour, increases asymptotically to 15% per hour
+		if (dropLoot)
+		{
+			local chefLoot = this.new("scripts/mods/script_container")
+			chefLoot.extend([
+				"scripts/items/supplies/dried_fruits_item",
+				"scripts/items/supplies/cured_venison_item",
+				"scripts/items/supplies/ground_grains_item",
+				"scripts/items/supplies/dried_fish_item",
+				"scripts/items/supplies/bread_item",
+				"scripts/items/supplies/smoked_ham_item",
+				"scripts/items/supplies/goat_cheese_item"
+			]);
+
+			if (16 <= cheflevels)
+			{
+				chefLoot.extend([
+					[3, "scripts/items/supplies/legend_pie_item"],
+					[3, "scripts/items/supplies/legend_pudding_item"],
+					[3, "scripts/items/supplies/legend_porridge_item"]
+				]);
+			}
+
+			item = this.new(chefLoot.roll()); 
+			this.m.Items.push(item);
+			this.Stash.add(item);
+			if(--emptySlots == 0) return this.getUpdateText();
+		}
+		
+
 		local r = this.Math.rand(1, 4);
-		local item = null;
-		local secondary = [];
-		if (r == 1 || r == 2)
+		
+		local huntingLoot = this.new("scripts/mods/script_container");
+		if (r <= 2)
 		{
 			item = this.new("scripts/items/supplies/legend_fresh_meat_item");
-			secondary = [
+			huntingLoot.extend([
 				"scripts/items/misc/adrenaline_gland_item",
 				"scripts/items/misc/poison_gland_item",
 				"scripts/items/misc/spider_silk_item",
 				"scripts/items/misc/werewolf_pelt_item",
 				"scripts/items/accessory/spider_poison_item",
 				"scripts/items/supplies/strange_meat_item"
-
-			];
+			]);
 		}
 		else if (r == 3)
 		{
 			item = this.new("scripts/items/supplies/roots_and_berries_item");
-			secondary = [
+			huntingLoot.extend([
 				"scripts/items/supplies/cured_venison_item"
-
-			];
+			]);
 		}
-		else if (r == 4)
+		else
 		{
 			item = this.new("scripts/items/supplies/legend_fresh_fruit_item");
-				secondary = [
+				huntingLoot.extend([
 				"scripts/items/supplies/dried_fruits_item"
-
-			];
-		}
-
-		local cheflevels = this.getChefLevel();
-		local brewerlevels = this.getBrewerLevel();
-		if (cheflevels >= 1 && cheflevels <= 15)
-		{
-			secondary.extend([
-				"scripts/items/supplies/dried_fruits_item",
-				"scripts/items/supplies/cured_venison_item",
-				"scripts/items/supplies/legend_porridge_item",
-				"scripts/items/supplies/legend_pudding_item",
-				"scripts/items/supplies/ground_grains_item",
-				"scripts/items/supplies/legend_pie_item",
-				"scripts/items/supplies/dried_fish_item"
 			]);
 		}
 
-		if (cheflevels > 15)
+		if (item.getValue() != null && this.m.Points < item.getValue())
 		{
-			secondary.extend([
-				"scripts/items/supplies/smoked_ham_item",
-				"scripts/items/supplies/bread_item",
-				"scripts/items/supplies/goat_cheese_item"
-			]);
+			return this.getUpdateText();
 		}
 
-		if ( brewerlevels >= 1 && brewerlevels <= 15 )
-		{
-			secondary.extend([
-				"scripts/items/supplies/beer_item",
-				"scripts/items/supplies/wine_item"
-			]);
-		}
-
-
-		if ( brewerlevels > 15)
-		{
-			secondary.extend([
-				"scripts/items/supplies/beer_item",
-				"scripts/items/supplies/wine_item",
-				"scripts/items/supplies/mead_item",
-				"scripts/items/supplies/mead_item",
-				"scripts/items/supplies/preserved_mead_item"
-			]);
-		}
-		if (item.getValue() != null)
-		{
-			if (this.m.Points < item.getValue())
-			{
-				return this.getUpdateText();
-			}
-			this.m.Points -= item.getValue();
-		}
-
-
+		this.m.Points -= item.getValue();
 		item.randomizeAmount();
 		this.m.FoodAmount += item.getAmount();
 		item.randomizeBestBefore();
 		this.m.Items.push(item);
 		this.Stash.add(item);
 
-		if (secondary.len() == 0 || !this.getUpgraded())
+		if (!this.getUpgraded() || huntingLoot.len() == 0)
 		{
 			return this.getUpdateText();
 		}
-		local secondarychance = this.Math.min(8, 100 - (cheflevels + brewerlevels));
 
-		if (this.Math.rand(1, secondarychance) <= this.m.Camp.getCampTimeHours())
+		if (this.Math.rand(1, 5) == 1)
 		{
-			item = this.new(secondary[this.Math.rand(0, secondary.len()-1)]);
+			item = this.new(huntingLoot.roll());
 			this.m.Items.push(item);
 			this.Stash.add(item);
 		}
-
-		//Roll twice
-		if (this.Math.rand(1, secondarychance) <= this.m.Camp.getCampTimeHours())
-		{
-			item = this.new(secondary[this.Math.rand(0, secondary.len()-1)]);
-			this.m.Items.push(item);
-			this.Stash.add(item);
-		}
-
+		
 		return this.getUpdateText();
 	}
 

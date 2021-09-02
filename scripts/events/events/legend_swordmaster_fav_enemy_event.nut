@@ -72,7 +72,7 @@ this.legend_swordmaster_fav_enemy_event <- this.inherit("scripts/events/event", 
 		});
 		this.m.Screens.push({
 			ID = "A2",
-			Text = "[img]gfx/ui/events/event_134.png[/img]{Marching through countryside. Your feet are still tired from the strain of the last few days. Your marching is interrupted by a lean, young and eager looking fellow.%SPEECH_ON%Stop right there, rabble!%SPEECH_OFF% He shouts to you and your company. Slightly confused, your mercenaries throw glances to each other, raising their shoulders. %randombrother% replies, slightly amused.%SPEECH_ON%What in the hells do you think you´re doing, little wanker? Those rabble you\'re talking to will cut your throat just for fun. Didn\'t your parents teach you any common sense?%SPEECH_OFF%Carelessly, the young fellow proceeds. %SPEECH_ON%My name is %enemyname%. Looks like it is I who will have to teach you some common sense. It is I who decide which throats get cut! One more insolent comment like that from any of you, and I\'ll have you all hanged!%SPEECH_OFF% Your mercenaries start to fall in laughter. %randombrother2% replies with an angry voice. %SPEECH_ON% Ha. You? I don\'t see your army. Or is it the lordship himself, which wants to do all the dirty work, hm? Come here and try me.%SPEECH_OFF% %enemyname% answers. %SPEECH_ON% It is not you I want to fight. It is %chosen%. I heard he\'s a good fighter. I want to beat him. In the glory of my name, I demand a fight to life or death!%SPEECH_OFF% The haughtiness juvenile raises his weapon, pointing it toward %chosen%. \n\n Despite fact that couple meters separates the %enemyname% and %chosen%, you can feel the tension in the air.}",
+			Text = "[img]gfx/ui/events/event_134.png[/img]{Marching through countryside. Your feet are still tired from the strain of the last few days. Your marching is interrupted by a lean, young and eager looking fellow.%SPEECH_ON%Stop right there, rabble!%SPEECH_OFF% He shouts to you and your company. Slightly confused, your mercenaries throw glances to each other, raising their shoulders. %randombrother% replies, slightly amused.%SPEECH_ON%What in the hells do you think you´re doing, little wanker? Those rabble you\'re talking to will cut your throat just for fun. Didn\'t your parents teach you any common sense?%SPEECH_OFF%Carelessly, the young fellow proceeds. %SPEECH_ON%My name is %enemyname%. Looks like it is I who will have to teach you some common sense. It is I who decide which throats get cut! One more insolent comment like that from any of you, and I\'ll have you all hanged!%SPEECH_OFF% Your mercenaries start to fall in laughter. %randombrother2% replies with an angry voice. %SPEECH_ON% Ha. You? I don\'t see your army. Or is it the lordship himself, which wants to do all the dirty work, hm? Come here and try me.%SPEECH_OFF% %enemyname% answers. %SPEECH_ON% It is not you I want to fight. It is %chosen%. I heard he\'s a good fighter. I want to beat him. In the glory of my name, I demand a fight to life or death!%SPEECH_OFF% The haughtiness juvenile raises his weapon, pointing it toward %chosen%. \n\n Despite the fact that a couple meters separates the %enemyname% and %chosen%, you can feel the tension in the air.}",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -193,7 +193,7 @@ this.legend_swordmaster_fav_enemy_event <- this.inherit("scripts/events/event", 
 		});
 		this.m.Screens.push({
 			ID = "N",
-			Text = "[img]gfx/ui/events/event_35.png[/img]{%chosen% heads off to confront %enemyname% while rest observe from distance.}",
+			Text = "[img]gfx/ui/events/event_35.png[/img]{%chosen% heads off to confront %enemyname% while the rest of the company observes from a distance.}",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -296,7 +296,7 @@ this.legend_swordmaster_fav_enemy_event <- this.inherit("scripts/events/event", 
 		});
 		this.m.Screens.push({
 			ID = "Victory",
-			Text = "[img]gfx/ui/events/event_96.png[/img]{%chosen% stands victorious over badly wounded %enemyname%. The defeated nobleman can barely catch his breath. Every gasp of air comes with great pain for him. Bleeding and shaking, he is soon to depart from the world of living. Duel was meant to be to the death but %chosen% does not deliver a final blow. The rest of your mercenaries gather around the winner. Most of the company is cheering the now glorious %chosen%, but some are more concerned about the unfinished business laying on the ground in a pool of his own blood. %randombrother% speaks up with strong contempt for the loser of this duel. %SPEECH_ON%What you waiting for %chosen%? You think this whipster would show you mercy?%SPEECH_OFF% The company champion answers. %SPEECH_ON%I will take his equipment as a reward, he's no good to me dead. %SPEECH_OFF% }",
+			Text = "[img]gfx/ui/events/event_96.png[/img]{%chosen% stands victorious over a badly wounded %enemyname%. The defeated nobleman can barely catch his breath. Every gasp of air comes with great pain for him. Bleeding and shaking, he is soon to depart from the world of the living. The duel was meant to be to the death but %chosen% does not deliver a final blow. The rest of your mercenaries gather around the winner. Most of the company is cheering the now glorious %chosen%, but some are more concerned about the unfinished business laying on the ground in a pool of his own blood. %randombrother% speaks up with strong contempt for the loser of this duel. %SPEECH_ON%What you waiting for %chosen%? You think this whipster would show you mercy?%SPEECH_OFF% The company champion answers. %SPEECH_ON%I will take his equipment as a reward, he's no good to me dead.%SPEECH_OFF% }",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -363,7 +363,7 @@ this.legend_swordmaster_fav_enemy_event <- this.inherit("scripts/events/event", 
 				{
 					if (bro.getBackground().isCombatBackground() && this.Math.rand(1, 100) <= 33)
 					{
-						bro.improveMood(0.5, "The company\'s champion won impressive duel");
+						bro.improveMood(0.5, "The company\'s champion won an impressive duel");
 					}
 
 					if (bro.getMoodState() > this.Const.MoodState.Neutral)

@@ -795,7 +795,7 @@ this.tactical_entity_manager <- {
 
 	function resurrect( _info, _delay = 0 )
 	{
-		if (!_info.Tile.IsCorpseSpawned)
+		if (!this.MSU.Tile.canResurrectOnTile(_info.Tile, true))
 		{
 			return;
 		}

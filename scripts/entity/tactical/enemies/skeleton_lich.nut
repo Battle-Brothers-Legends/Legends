@@ -236,8 +236,6 @@ this.skeleton_lich <- this.inherit("scripts/entity/tactical/skeleton", {
 		b.IsAffectedByNight = false;
 		b.IsAffectedByInjuries = false;
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToDisarm = true;
 		b.DamageReceivedTotalMult *= 0.5;
 		this.m.ActionPoints = b.ActionPoints;
@@ -262,6 +260,8 @@ this.skeleton_lich <- this.inherit("scripts/entity/tactical/skeleton", {
 		skill = this.new("scripts/skills/actives/lightning_storm_skill");
 		skill.setCooldownAfterImpact(false);
 		this.m.Skills.add(skill);
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		this.m.Skills.add(this.new("scripts/skills/actives/summon_mirror_image_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/summon_flying_skulls_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/geomancy_skill"));

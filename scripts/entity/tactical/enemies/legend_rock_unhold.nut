@@ -251,8 +251,8 @@ this.legend_rock_unhold <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/actives/sweep_zoc_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/fling_back_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/unstoppable_charge_skill"));
-	 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Hitpoints = 2 * b.Hitpoints;
 			b.MeleeSkill += 10;
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_battleheart"));
@@ -261,7 +261,7 @@ this.legend_rock_unhold <- this.inherit("scripts/entity/tactical/actor", {
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smackdown"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_bloody_harvest"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-			}
+		}
 		if (!this.Tactical.State.isScenarioMode())
 		{
 			local dateToSkip = 0;

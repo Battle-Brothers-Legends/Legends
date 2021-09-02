@@ -92,7 +92,7 @@ this.bandage_ally_skill <- this.inherit("scripts/skills/skill", {
 		}
 
 		local tile = this.getContainer().getActor().getTile();
-		return this.skill.isUsable() && (!tile.hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions()) || !this.m.Container.hasSkill("perk.legend_mastery_bandage"));
+		return this.skill.isUsable() && (!tile.hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions()) || this.m.Container.hasSkill("perk.legend_mastery_bandage"));
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )

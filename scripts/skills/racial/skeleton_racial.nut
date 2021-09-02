@@ -37,7 +37,7 @@ this.skeleton_racial <- this.inherit("scripts/skills/skill", {
 			_properties.DamageReceivedRegularMult *= 0.5;
 		}
 
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
 			_properties.DamageReceivedRegularMult *= 0.75;
 		}
@@ -46,44 +46,44 @@ this.skeleton_racial <- this.inherit("scripts/skills/skill", {
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
+			if (_targetEntity.getCurrentProperties().IsImmuneToBleeding || _damageInflictedHitpoints <= this.Const.Combat.MinDamageToApplyBleeding || _targetEntity.getHitpoints() <= 0)
 			{
-				if (_targetEntity.getCurrentProperties().IsImmuneToBleeding || _damageInflictedHitpoints <= this.Const.Combat.MinDamageToApplyBleeding || _targetEntity.getHitpoints() <= 0)
-				{
-					return;
-				}
-
-				if (!_targetEntity.isAlive())
-				{
-					return;
-				}
-
-				if (_targetEntity.getFlags().has("undead"))
-				{
-					return;
-				}
-
-				if (!_targetEntity.isHiddenToPlayer())
-				{
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_targetEntity) + " is bleeding");
-				}
-
-				local effect = this.new("scripts/skills/effects/bleeding_effect");
-				effect.setDamage(this.getContainer().getActor().getCurrentProperties().IsSpecializedInCleavers ? 5 : 3);
-				local bleed = _targetEntity.getSkills().getSkillByID("effects.bleeding_effect");
-				if (bleed == null)
-				{
-					if (this.getContainer().getActor().getFaction() == this.Const.Faction.Player )
-					{
-						effect.setActor(this.getContainer().getActor());
-					}
-					_targetEntity.getSkills().add(effect);
-				}
-				else
-				{
-					effect.resetTime();
-				}
+				return;
 			}
+
+			if (!_targetEntity.isAlive())
+			{
+				return;
+			}
+
+			if (_targetEntity.getFlags().has("undead"))
+			{
+				return;
+			}
+
+			if (!_targetEntity.isHiddenToPlayer())
+			{
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_targetEntity) + " is bleeding");
+			}
+
+			local effect = this.new("scripts/skills/effects/bleeding_effect");
+			effect.setDamage(this.getContainer().getActor().getCurrentProperties().IsSpecializedInCleavers ? 5 : 3);
+			local bleed = _targetEntity.getSkills().getSkillByID("effects.bleeding_effect");
+			if (bleed == null)
+			{
+				if (this.getContainer().getActor().getFaction() == this.Const.Faction.Player )
+				{
+					effect.setActor(this.getContainer().getActor());
+				}
+				_targetEntity.getSkills().add(effect);
+			}
+			else
+			{
+				effect.resetTime();
+			}
+		}
 	}
 
 });

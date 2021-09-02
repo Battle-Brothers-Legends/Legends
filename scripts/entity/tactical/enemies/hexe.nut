@@ -212,24 +212,15 @@ this.hexe <- this.inherit("scripts/entity/tactical/actor", {
 				{
 					if (this.LegendsMod.Configs().LegendArmorsEnabled())
 					{
-						local rune;
-						local selected = this.Math.rand(11,13);
-						switch(selected)
-						{
-							case 11:
-								rune = this.new("scripts/items/legend_helmets/runes/legend_rune_clarity");
-								break;
-
-							case 12:
-								rune = this.new("scripts/items/legend_helmets/runes/legend_rune_bravery");
-								break;
-
-							case 13:
-								rune = this.new("scripts/items/legend_helmets/runes/legend_rune_luck");
-								break;
-						}
+						local options = this.new("scripts/mods/script_container");
+						options.extend([
+							"scripts/items/legend_helmets/runes/legend_rune_clarity",
+							"scripts/items/legend_helmets/runes/legend_rune_bravery",
+							"scripts/items/legend_helmets/runes/legend_rune_luck"
+						]);
+						local rune = this.new(options.roll());
 						rune.setRuneVariant(selected);
-						rune.setRuneBonus(false);
+						rune.setRuneBonus(true);
 						// rune.setRuneVariant(0);
 						rune.drop(_tile);
 					}
@@ -305,17 +296,17 @@ this.hexe <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/actives/hex_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/fake_drink_night_vision_skill"));
 
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_inspiring_presence"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 			this.m.Skills.add(this.new("scripts/skills/actives/legend_magic_missile"));
-			b.IsImmuneToStun = true;
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 			b.Initiative += 50;
 			b.RangedSkill += 75;
 			b.Stamina += 70;
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-			}
+		}
 
 	}
 

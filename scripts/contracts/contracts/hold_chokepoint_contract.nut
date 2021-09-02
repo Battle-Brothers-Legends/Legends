@@ -909,10 +909,10 @@ this.hold_chokepoint_contract <- this.inherit("scripts/contracts/contract", {
 		local party = cityState.spawnEntity(tiles[0].Tile, "Regiment of " + cityState.getNameOnly(), true, this.Const.World.Spawn.Southern, this.Math.rand(100, 150) * this.getDifficultyMult() * this.getScaledDifficultyMult());
 		party.getSprite("body").setBrush(party.getSprite("body").getBrush().Name + "_" + cityState.getBannerString());
 		party.setDescription("Conscripted soldiers loyal to their city state.");
-		party.getLoot().Money = this.Math.rand(50, 200);
-		party.getLoot().ArmorParts = this.Math.rand(0, 25);
-		party.getLoot().Medicine = this.Math.rand(0, 3);
-		party.getLoot().Ammo = this.Math.rand(0, 30);
+		party.getLoot().Money = this.Math.rand(100, 300);
+		party.getLoot().ArmorParts = this.Math.rand(10, 35);
+		party.getLoot().Medicine = this.Math.rand(5, 15);
+		party.getLoot().Ammo = this.Math.rand(10, 40);
 		local r = this.Math.rand(1, 4);
 
 		if (r <= 2)
@@ -926,6 +926,12 @@ this.hold_chokepoint_contract <- this.inherit("scripts/contracts/contract", {
 		else if (r == 4)
 		{
 			party.addToInventory("supplies/dried_lamb_item");
+		}
+
+		local arr = ["trade/silk_item", "trade/silk_item", "trade/incense_item", "trade/spices_item"]
+		for(local i = 0; i < this.Math.round(r/2); i++) //adds either 1 silk, 1 silk, 2 incense, 2 spices
+		{
+			party.addToInventory(arr[r-1])
 		}
 
 		local c = party.getController();

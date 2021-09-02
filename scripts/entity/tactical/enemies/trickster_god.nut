@@ -145,8 +145,6 @@ this.trickster_god <- this.inherit("scripts/entity/tactical/actor", {
 		b.setValues(this.Const.Tactical.Actor.TricksterGod);
 		b.IsImmuneToDisarm = true;
 		b.IsImmuneToRoot = true;
-		b.IsImmuneToStun = true;
-		b.IsImmuneToPoison = true;
 		b.IsAffectedByNight = false;
 		b.IsAffectedByInjuries = false;
 		b.IsAffectedByRain = false;
@@ -171,7 +169,9 @@ this.trickster_god <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		this.m.Skills.add(this.new("scripts/skills/racial/trickster_god_racial"));
 		this.m.Skills.add(this.new("scripts/skills/actives/teleport_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/gore_skill"));

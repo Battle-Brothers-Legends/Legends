@@ -22,9 +22,9 @@ this.named_skullhammer <- this.inherit("scripts/items/weapons/named/named_weapon
 		this.m.ShieldDamage = 26;
 		this.m.Condition = 120.0;
 		this.m.ConditionMax = 120.0;
-		this.m.StaminaModifier = -16;
-		this.m.RegularDamage = 45;
-		this.m.RegularDamageMax = 65;
+		this.m.StaminaModifier = -17;
+		this.m.RegularDamage = 50;
+		this.m.RegularDamageMax = 70;
 		this.m.ArmorDamageMult = 1.8;
 		this.m.DirectDamageMult = 0.5;
 		this.m.DirectDamageAdd = 0.1;

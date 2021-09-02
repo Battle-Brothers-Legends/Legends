@@ -38,12 +38,7 @@ this.raise_undead <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (!_targetTile.IsCorpseSpawned)
-		{
-			return false;
-		}
-
-		if (!_targetTile.Properties.get("Corpse").IsResurrectable)
+		if (!this.MSU.Tile.canResurrectOnTile(_targetTile))
 		{
 			return false;
 		}

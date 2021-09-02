@@ -42,8 +42,8 @@ this.legend_noble_halberdier <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Hitpoints = b.Hitpoints * 2;
@@ -93,7 +93,7 @@ this.legend_noble_halberdier <- this.inherit("scripts/entity/tactical/human", {
 
 			if (banner <= 4)
 			{
-				this.m.Items.equip(this.Const.World.Common.pickHelmet([
+				helmet = this.Const.World.Common.pickHelmet([
 					[1, "flat_top_helmet"],
 					[1, "padded_flat_top_helmet"],
 					[1, "flat_top_with_mail"],
@@ -101,24 +101,25 @@ this.legend_noble_halberdier <- this.inherit("scripts/entity/tactical/human", {
 					[1, "rondel_helm"],
 					[1, "scale_helm"],
 					[1, "legend_enclave_vanilla_kettle_sallet_01"],
-					[1, "legend_enclave_vanilla_kettle_sallet_03"]
-				]))
+					[1, "legend_enclave_vanilla_kettle_sallet_03"],
+					[5, "heavy_noble_house_helmet_00"]
+				])
 			}
 			else if (banner <= 7)
 			{
-				this.m.Items.equip(this.Const.World.Common.pickHelmet([
+				helmet = this.Const.World.Common.pickHelmet([
 					[1, "flat_top_helmet"],
 					[1, "padded_flat_top_helmet"],
 					[1, "flat_top_with_mail"],
 					[1, "mail_coif"],
 					[1, "legend_enclave_vanilla_kettle_sallet_02"],
-					[1, "legend_enclave_vanilla_kettle_sallet_03"]
-
-				]))
+					[1, "legend_enclave_vanilla_kettle_sallet_03"],
+					[5, "heavy_noble_house_helmet_00"]
+				])
 			}
 			else
 			{
-				this.m.Items.equip(this.Const.World.Common.pickHelmet([
+				helmet = this.Const.World.Common.pickHelmet([
 					[1, "nasal_helmet"],
 					[1, "padded_nasal_helmet"],
 					[1, "nasal_helmet_with_mail"],
@@ -126,13 +127,16 @@ this.legend_noble_halberdier <- this.inherit("scripts/entity/tactical/human", {
 					[1, "rondel_helm"],
 					[1, "scale_helm"],
 					[1, "legend_enclave_vanilla_kettle_sallet_01"],
-					[1, "legend_enclave_vanilla_kettle_sallet_02"]
-
-				]))
+					[1, "legend_enclave_vanilla_kettle_sallet_02"],
+					[5, "heavy_noble_house_helmet_00"]
+				])
 			}
 
-			this.m.Items.getItemAtSlot(this.Const.ItemSlot.Head).setPlainVariant();
-			this.m.Items.equip(helmet);
+			if (helmet != null)
+			{
+				if ("setPlainVariant" in helmet) { helmet.setPlainVariant(); }
+				this.m.Items.equip(helmet);
+			}
 		}
 		else
 		{

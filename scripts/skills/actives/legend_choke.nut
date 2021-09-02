@@ -243,6 +243,11 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 			mod = mod + 25;
 		}
 
+		if (_targetEntity.getMoraleState() == this.Const.MoraleState.Fleeing)
+		{
+			mod += 50;
+		}
+
 		local chance = (1.0 - _targetEntity.getFatiguePct()) * 50;
 		return mod - this.Math.round(chance);
 	}

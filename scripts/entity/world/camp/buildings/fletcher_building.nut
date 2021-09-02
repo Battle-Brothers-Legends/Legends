@@ -206,7 +206,7 @@ this.fletcher_building <- this.inherit("scripts/entity/world/camp/camp_building"
 		];
 
 		//this can be upgrade system
-		if (this.Math.rand(1, 100) <= this.m.Camp.getCampTimeHours())
+		if (this.Math.rand(1, 100) <= this.m.Camp.getElapsedHours())
 		{
 			local item = this.new(secondary[this.Math.rand(0, secondary.len()-1)]);
 			this.m.Items.push(item);

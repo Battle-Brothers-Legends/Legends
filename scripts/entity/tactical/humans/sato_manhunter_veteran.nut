@@ -60,7 +60,7 @@ this.sato_manhunter_veteran <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
 	}
 
 	function onOtherActorDeath( _killer, _victim, _skill )

@@ -38,6 +38,11 @@ this.witch_being_burned_event <- this.inherit("scripts/events/event", {
 			return;
 		}
 
+		if (this.World.getPlayerRoster().getSize() >= this.World.Assets.getBrothersMax())
+		{
+			return;
+		}
+
 		local towns = this.World.EntityManager.getSettlements();
 		local playerTile = this.World.State.getPlayer().getTile();
 		local foundTown = false;

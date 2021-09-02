@@ -166,8 +166,8 @@ this.cultist_vs_uneducated_event <- this.inherit("scripts/events/event", {
 				cultist_candidates.push(bro);
 			}
 			else if ((bro.getBackground().isLowborn() && !bro.getSkills().hasSkill("trait.bright")) ||
-						(!bro.getBackground().isNoble() && bro.getSkills().hasSkill("trait.dumb"))	   ||
-						bro.getSkills().hasSkill("injury.brain_damage") )
+						(!bro.getBackground().isNoble() && bro.getSkills().hasSkill("trait.dumb")) ||
+						bro.getSkills().hasSkill("injury.brain_damage"))
 					{
 						//this.logInfo("1");
 						if(bro.getBackground().getID() != "background.legend_commander_berserker" &&

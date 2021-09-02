@@ -2,7 +2,7 @@ this.firstborn <- this.inherit("scripts/entity/tactical/player", {
 	m = {},
 	function getPlaceInFormation()
 	{
-		return 21;
+		return 26;
 	}
 
 	function isReallyKilled( _fatalityType )

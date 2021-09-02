@@ -52,6 +52,7 @@ var TacticalCombatResultScreenDatasource = function ()
     this.mStatistics = null;
     this.mStashList = null;
     this.mFoundLootList = null;
+    this.mStashData = null;
 
 	// init the datasource
 	this.init();
@@ -264,6 +265,8 @@ TacticalCombatResultScreenDatasource.prototype.loadStashList = function (_data, 
         this.notifyEventListener(TacticalCombatResultScreenDatasourceIdentifier.Stash.Loaded, this.mStashList);
     }
 
+    this.getStashChangeData()
+
     return this.mStashList;
 };
 
@@ -326,6 +329,7 @@ TacticalCombatResultScreenDatasource.prototype.updateStashList = function (_data
             }
         }
     }
+    this.getStashChangeData()
 };
 
 TacticalCombatResultScreenDatasource.prototype.getStashList = function()
@@ -546,4 +550,18 @@ TacticalCombatResultScreenDatasource.prototype.notifyBackendLootAllItemsButtonPr
     {
         self.loadFromData(_data);
     });
+};
+
+TacticalCombatResultScreenDatasource.prototype.getStashChangeData = function(_callback)
+{
+    var self = this;
+    this.notifyBackendGetStashChangeData(function(res)
+    {
+        self.mStashData = res;
+    });
+};
+
+TacticalCombatResultScreenDatasource.prototype.notifyBackendGetStashChangeData = function (_callback)
+{
+    SQ.call(this.mSQHandle, 'getStashChangeData', null, _callback);
 };

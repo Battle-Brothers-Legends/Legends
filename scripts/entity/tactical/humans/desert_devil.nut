@@ -39,14 +39,14 @@ this.desert_devil <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_head_hunter"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
-		this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_dodge"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_pathfinder"));
 		this.m.Skills.add(this.new("scripts/skills/actives/throw_dirt_skill"));
-		this.m.Skills.add(this.new("scripts/skills/actives/adrenaline_skill"));
-		this.m.Skills.add(this.new("scripts/skills/actives/footwork"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_adrenalin"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_footwork"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 	}
 
 	function onDeath( _killer, _skill, _tile, _fatalityType )
@@ -86,12 +86,14 @@ this.desert_devil <- this.inherit("scripts/entity/tactical/human", {
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
 			[1, "oriental/assassin_robe"],
-			[1, "leather_scale_armor"]
+			[1, "blade_dancer_armor_00"]
+			// [1, "leather_scale_armor"]
 		]));
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{
 			local helm =this.Const.World.Common.pickHelmet([
-				[1, "oriental/blade_dancer_head_wrap"]
+				[1, "oriental/blade_dancer_head_wrap"],
+				[1, "blade_dancer_helmet_00"]
 			]) 
 			this.m.Items.equip(helm);
 		}

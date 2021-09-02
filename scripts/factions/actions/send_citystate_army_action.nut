@@ -132,10 +132,10 @@ this.send_citystate_army_action <- this.inherit("scripts/factions/faction_action
 			party.setDescription("Conscripted soldiers loyal to their city state.");
 			party.setFootprintType(this.Const.World.FootprintsType.CityState);
 			party.getFlags().set("IsRandomlySpawned", true);
-			party.getLoot().Money = this.Math.rand(50, 200);
-			party.getLoot().ArmorParts = this.Math.rand(0, 25);
-			party.getLoot().Medicine = this.Math.rand(0, 3);
-			party.getLoot().Ammo = this.Math.rand(0, 30);
+			party.getLoot().Money = this.Math.rand(100, 300);
+		party.getLoot().ArmorParts = this.Math.rand(10, 35);
+		party.getLoot().Medicine = this.Math.rand(5, 15);
+		party.getLoot().Ammo = this.Math.rand(10, 40);
 			local r = this.Math.rand(1, 4);
 
 			if (r <= 2)
@@ -149,6 +149,12 @@ this.send_citystate_army_action <- this.inherit("scripts/factions/faction_action
 			else if (r == 4)
 			{
 				party.addToInventory("supplies/dried_lamb_item");
+			}
+
+			local arr = ["trade/silk_item", "trade/silk_item", "trade/incense_item", "trade/spices_item"]
+			for(local i = 0; i < this.Math.round(r/2); i++) //adds either 1 silk, 1 silk, 2 incense, 2 spices
+			{
+				party.addToInventory(arr[r-1])
 			}
 
 			local c = party.getController();

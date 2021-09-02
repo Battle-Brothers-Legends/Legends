@@ -10,7 +10,7 @@ this.legend_helm_wings_named <- this.inherit("scripts/items/helmets/named/named_
 			"Redemption",
 			"Pennance",
 			"Rapture",
-			"Gaurdian",
+			"Guardian",
 			"Hope"
 		];
 		this.m.Description = "An exquisite closed metal helm with golden winged neck plate. Outstanding protection at the expense of breathing";

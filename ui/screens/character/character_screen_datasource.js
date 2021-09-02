@@ -1900,6 +1900,7 @@ CharacterScreenDatasource.prototype.notifyBackendRemoveArmorUpgrade = function (
     var self = this;
     var activeCharacterID = this.mBrothersList[this.mSelectedBrotherIndex]['id'];
     SQ.call(this.mSQHandle, 'onRemoveArmorUpgrade', [_slot, activeCharacterID], function (data) {
+    	if (data === null) return
         if ('stashSpaceUsed' in data)
             self.mStashSpaceUsed = data.stashSpaceUsed;
 

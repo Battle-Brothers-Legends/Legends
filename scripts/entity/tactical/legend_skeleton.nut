@@ -33,7 +33,6 @@ this.legend_skeleton <- this.inherit("scripts/entity/tactical/skeleton", {
 		b.IsAffectedByNight = false;
 		b.IsAffectedByInjuries = false;
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
 		this.m.ActionPoints = b.ActionPoints;
 		this.m.Hitpoints = b.Hitpoints;
 		this.m.CurrentProperties = clone b;
@@ -127,6 +126,7 @@ this.legend_skeleton <- this.inherit("scripts/entity/tactical/skeleton", {
 		this.m.Skills.add(this.new("scripts/skills/special/double_grip"));
 		this.m.Skills.add(this.new("scripts/skills/actives/hand_to_hand"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_pathfinder"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 	}
 
 	function setItem( _i )

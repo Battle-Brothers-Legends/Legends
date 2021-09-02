@@ -18,11 +18,11 @@ this.legend_metal_plating_upgrade <- this.inherit("scripts/items/legend_armor/le
 		this.m.SpriteDamagedBack = "upgrade_12_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_12_back_dead";
-		this.m.Value = 1350;
-		this.m.Condition = 25;
-		this.m.ConditionMax = 25;
-		this.m.ConditionModifier = 25;
-		this.m.StaminaModifier = -2;
+		this.m.Value = 135;
+		this.m.Condition = 15;
+		this.m.ConditionMax = 15;
+		this.m.ConditionModifier = 15;
+		this.m.StaminaModifier = -1;
 	}
 
 

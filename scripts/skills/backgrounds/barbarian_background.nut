@@ -43,7 +43,7 @@ this.barbarian_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.Hairs = this.Const.Hair.WildMale;
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = this.Const.Beards.WildExtended;
-		this.m.Ethnicity = 2;
+		this.m.Ethnicity = 0;
 
 		this.m.IsFemaleBackground = false;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Dreaded;

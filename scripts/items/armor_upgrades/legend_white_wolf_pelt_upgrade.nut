@@ -9,7 +9,7 @@ this.legend_white_wolf_pelt_upgrade <- this.inherit("scripts/items/armor_upgrade
 		this.m.ArmorDescription = "A mantle of the white wolf has been attached to this armor, which transforms the wearer into an imposing figure.";
 		this.m.Icon = "armor_upgrades/upgrade_white_wolf.png";
 		this.m.IconLarge = this.m.Icon;
-		this.m.OverlayIcon = "armor_upgrades/icon_upgrade_01.png";
+		this.m.OverlayIcon = "armor_upgrades/icon_upgrade_white_wolf.png";
 		this.m.OverlayIconLarge = "armor_upgrades/inventory_upgrade_white_wolf.png";
 		this.m.SpriteFront = "upgrade_white_wolf_front";
 		this.m.SpriteBack = "upgrade_white_wolf_back";

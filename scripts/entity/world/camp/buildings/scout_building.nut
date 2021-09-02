@@ -31,12 +31,12 @@ this.scout_building <- this.inherit("scripts/entity/world/camp/camp_building", {
 	function getDescription()
 	{
 		local desc = "";
-		desc += "Getting ambushed while camping is the surest way to ruin a good nights sleep."
-		desc += "Make sure someone is on patrol in order to have eyes and ears and the local landscape."
+		desc += "Getting ambushed while camping is the surest way to ruin a good nights sleep. "
+		desc += "Make sure someone is on patrol in order to have eyes and ears and the local landscape. "
 		desc += "The more men assigned on patrol, the faster and further your visibility grows."
 		desc += "\n\n"
 		desc += "The Patrol station can be upgraded by purchasing a patrol cart from a settlement merchant. An upgraded tent has a 15% increase in patrol speed and "
-        desc += "has a chance of revealing the defenders of any camps encountered."
+        desc += "has a chance of revealing the defenders of any camps encountered. "
 		desc += "Additionally, while on patrol there's a chance that the location of enemy outposts can be determined."
 		return desc;
 	}
@@ -156,11 +156,10 @@ this.scout_building <- this.inherit("scripts/entity/world/camp/camp_building", {
 		foreach (b in this.m.Results)
 		{
 			res.push({
-		 		id = id,
+		 		id = id++,
 		 		icon = b.Icon,
 		 		text = b.Text
 			})
-			++id;
 		}
         return res;
     }

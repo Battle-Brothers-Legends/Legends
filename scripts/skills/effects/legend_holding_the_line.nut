@@ -13,6 +13,18 @@ this.legend_holding_the_line <- this.inherit("scripts/skills/effects/legend_comm
 		this.m.IsRemovedAfterBattle = true;
 	}
 
+	function getTooltip()
+	{
+		local ret = this.skill.getTooltip();
+		ret.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/melee_defense.png",
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + 10 + "[/color] Melee Defense"
+		});
+		return ret;
+	}
+
 	function onUpdate( _properties )
 	{
 		_properties.MeleeDefense += 10;

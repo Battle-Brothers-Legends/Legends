@@ -5,7 +5,7 @@ this.legend_mummy_tower_shield <- this.inherit("scripts/items/shields/shield", {
 		this.shield.create();
 		this.m.ID = "shield.legend_mummy_tower_shield";
 		this.m.Name = "Ancient Southern Tower Shield";
-		this.m.Description = "A tall and heavy southern tower shield that offers good protection, but is very bulky to handle.";
+		this.m.Description = "A tall and heavy southern tower shield that offers good protection, but is very bulky to handle but covers a whole man with ease, despite being tall and narrow.";
 		this.m.AddGenericSkill = true;
 		this.m.ShowOnCharacter = true;
 		this.m.Variants = [
@@ -17,12 +17,12 @@ this.legend_mummy_tower_shield <- this.inherit("scripts/items/shields/shield", {
 		];
 		this.m.Variant = this.m.Variants[this.Math.rand(0, this.m.Variants.len() - 1)];
 		this.updateVariant();
-		this.m.Value = 800;
-		this.m.MeleeDefense = 25;
-		this.m.RangedDefense = 15;
-		this.m.StaminaModifier = -20;
-		this.m.Condition = 48;
-		this.m.ConditionMax = 48;
+		this.m.Value = 850;
+		this.m.MeleeDefense = 15;
+		this.m.RangedDefense = 30;
+		this.m.StaminaModifier = -30;
+		this.m.Condition = 52;
+		this.m.ConditionMax = 52;
 	}
 
 	function updateVariant()
@@ -38,7 +38,8 @@ this.legend_mummy_tower_shield <- this.inherit("scripts/items/shields/shield", {
 	{
 		this.shield.onEquip();
 		this.addSkill(this.new("scripts/skills/actives/shieldwall"));
-		this.addSkill(this.new("scripts/skills/actives/knock_back"));
+		this.addSkill(this.new("scripts/skills/actives/legend_fortify_skill"));
+		this.addSkill(this.new("scripts/skills/actives/legend_safegaurd"));
 	}
 
 });

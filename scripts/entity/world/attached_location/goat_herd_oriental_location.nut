@@ -19,6 +19,8 @@ this.goat_herd_oriental_location <- this.inherit("scripts/entity/world/attached_
 		_list.push("shepherd_southern_background");
 		_list.push("shepherd_southern_background");
 		_list.push("shepherd_southern_background");
+		_list.push("legend_muladi_background");
+		_list.push("legend_muladi_background");
 	}
 
 	function onUpdateShopList( _id, _list )
@@ -36,9 +38,24 @@ this.goat_herd_oriental_location <- this.inherit("scripts/entity/world/attached_
 				S = "supplies/dried_lamb_item"
 			});
 			_list.push({
+				R = 10,
+				P = 1.0,
+				S = "weapons/legend_staff"
+			});
+			_list.push({
+				R = 60,
+				P = 1.0,
+				S = "weapons/legend_tipstaff"
+			});
+			_list.push({
 				R = 20,
 				P = 1.0,
 				S = "weapons/legend_slingstaff"
+			});
+				_list.push({
+				R = 90,
+				P = 1.0,
+				S = "tents/tent_hunter"
 			});
 		}
 	}

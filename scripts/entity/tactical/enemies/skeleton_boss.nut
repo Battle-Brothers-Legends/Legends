@@ -20,7 +20,6 @@ this.skeleton_boss <- this.inherit("scripts/entity/tactical/skeleton", {
 		b.IsAffectedByNight = false;
 		b.IsAffectedByInjuries = false;
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
 		b.IsImmuneToDisarm = true;
 		b.IsSpecializedInCleavers = true;
 		this.m.ActionPoints = b.ActionPoints;
@@ -34,13 +33,14 @@ this.skeleton_boss <- this.inherit("scripts/entity/tactical/skeleton", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_full_force"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
-			}
+		}
 
 	}
 

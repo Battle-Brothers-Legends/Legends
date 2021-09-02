@@ -317,15 +317,6 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 				this.m.LastFireTime = this.Time.getRealTimeF();
 			}
 		}
-
-		local brothers = this.World.getPlayerRoster().getAll();
-		foreach (bro in brothers)
-		{
-			if (bro.getSkills().hasSkill("perk.legend_vala_inscribe_weapon") || bro.getSkills().hasSkill("perk.legend_vala_inscribe_helmet") || bro.getSkills().hasSkill("perk.legend_vala_inscribe_armor") || bro.getSkills().hasSkill("perk.legend_vala_inscribe_shield"))
-			{
-				bro.getSkills().update();
-			}
-		}
 	}
 
 
@@ -484,13 +475,11 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 
 		foreach( bro in this.World.getPlayerRoster().getAll() )
 		{
-			if (!bro.getSkills().hasSkill("perk.legend_barter_paymaster"))
+			if (bro.getSkills().hasSkill("perk.legend_barter_paymaster"))
 			{
-				continue;
+				this.m.WageMultiplier = bro.getBarterModifier();
+				return;
 			}
-
-			this.m.WageMultiplier = bro.getBarterModifier();
-			break;
 		}
 	}
 
@@ -508,7 +497,7 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 			barterMult += bro.getBarterModifier();
 			if (bro.getSkills().hasSkill("perk.legend_barter_greed"))
 			{
-				greed = 2;
+				greed += 1;
 			}
 		}
 
@@ -565,7 +554,7 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 		this.m.MedsMultiplier = s;
 	}
 
-	function calculateStashModifier()
+	function calculateStashModifier(resize = true)
 	{
 		if (this.World.State.m.AppropriateTimeToRecalc == 1)	////Leonion's fix
 		{
@@ -578,10 +567,12 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 				s += bro.getStashModifier();
 			}
 
-			if (s != this.Stash.getCapacity())
+			if (resize && s != this.Stash.getCapacity())
 			{
 				this.Stash.resize(s);
 			}
+			
+			return s;
 		}
 	}
 

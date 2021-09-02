@@ -149,10 +149,10 @@ this.defend_holy_site_southern_contract <- this.inherit("scripts/contracts/contr
 					local party = f.spawnEntity(this.Contract.m.Destination.getTile(), candidates[this.Math.rand(0, candidates.len() - 1)].getNameOnly() + " Company", true, this.Const.World.Spawn.Noble, this.Math.rand(100, 150) * this.Contract.getDifficultyMult() * this.Contract.getScaledDifficultyMult());
 					party.getSprite("body").setBrush(party.getSprite("body").getBrush().Name + "_" + f.getBannerString());
 					party.setDescription("Professional soldiers in service to local lords.");
-					party.getLoot().Money = this.Math.rand(50, 200);
-					party.getLoot().ArmorParts = this.Math.rand(0, 25);
-					party.getLoot().Medicine = this.Math.rand(0, 3);
-					party.getLoot().Ammo = this.Math.rand(0, 30);
+					party.getLoot().Money = this.Math.rand(100, 300);
+		party.getLoot().ArmorParts = this.Math.rand(10, 35);
+		party.getLoot().Medicine = this.Math.rand(5, 15);
+		party.getLoot().Ammo = this.Math.rand(10, 40);
 					local r = this.Math.rand(1, 4);
 
 					if (r == 1)
@@ -1210,10 +1210,10 @@ this.defend_holy_site_southern_contract <- this.inherit("scripts/contracts/contr
 		local party = f.spawnEntity(tiles[0].Tile, "Regiment of " + candidates[this.Math.rand(0, candidates.len() - 1)].getNameOnly(), true, this.Const.World.Spawn.Southern, this.Math.rand(100, 150) * this.getScaledDifficultyMult());
 		party.getSprite("body").setBrush(party.getSprite("body").getBrush().Name + "_" + f.getBannerString());
 		party.setDescription("Conscripted soldiers loyal to their city state.");
-		party.getLoot().Money = this.Math.rand(50, 200);
-		party.getLoot().ArmorParts = this.Math.rand(0, 25);
-		party.getLoot().Medicine = this.Math.rand(0, 3);
-		party.getLoot().Ammo = this.Math.rand(0, 30);
+		party.getLoot().Money = this.Math.rand(100, 300);
+		party.getLoot().ArmorParts = this.Math.rand(10, 35);
+		party.getLoot().Medicine = this.Math.rand(5, 15);
+		party.getLoot().Ammo = this.Math.rand(10, 40);
 		local r = this.Math.rand(1, 4);
 
 		if (r <= 2)
@@ -1227,6 +1227,12 @@ this.defend_holy_site_southern_contract <- this.inherit("scripts/contracts/contr
 		else if (r == 4)
 		{
 			party.addToInventory("supplies/dried_lamb_item");
+		}
+
+		local arr = ["trade/silk_item", "trade/silk_item", "trade/incense_item", "trade/spices_item"]
+		for(local i = 0; i < this.Math.round(r/2); i++) //adds either 1 silk, 1 silk, 2 incense, 2 spices
+		{
+			party.addToInventory(arr[r-1])
 		}
 
 		local c = party.getController();

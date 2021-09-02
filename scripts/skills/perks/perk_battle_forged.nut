@@ -1,5 +1,7 @@
 this.perk_battle_forged <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		ArmorPercentageAsReduction = 5
+	},
 	function create()
 	{
 		this.m.ID = "perk.battle_forged";
@@ -15,54 +17,38 @@ this.perk_battle_forged <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		local armor = this.getContainer().getActor().getArmor(this.Const.BodyPart.Head) + this.getContainer().getActor().getArmor(this.Const.BodyPart.Body);
-		local fm = this.Math.floor((1.0 - armor * 0.05 * 0.01) * 100);
-		return fm >= 100;
+		return this.getReductionPercentage() <= 0;
 	}
 
 	function getDescription()
 	{
-		return "Specialize in heavy armor! Armor damage taken is reduced by a percentage equal to [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] of the current total armor value of both body and head armor. The heavier your armor and helmet, the more you benefit.";
+		return "Specialize in heavy armor! Armor damage taken is reduced by a percentage equal to [color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.ArmorPercentageAsReduction + "[/color] of the current total armor value of both body and head armor. The heavier your armor and helmet, the more you benefit.";
+	}
+	
+	function getReductionPercentage()
+	{
+		local armor = this.getContainer().getActor().getArmor(this.Const.BodyPart.Head) + this.getContainer().getActor().getArmor(this.Const.BodyPart.Body);
+		return this.Math.floor(armor * this.m.ArmorPercentageAsReduction * 0.01);
 	}
 
 	function getTooltip()
 	{
-		local armor = this.getContainer().getActor().getArmor(this.Const.BodyPart.Head) + this.getContainer().getActor().getArmor(this.Const.BodyPart.Body);
-		local fm = this.Math.floor((1.0 - armor * 0.035 * 0.01) * 100);
 		local tooltip = this.skill.getTooltip();
 
-		if (fm < 100)
-		{
-			tooltip.push({
-				id = 6,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]" + fm + "%[/color] of any damage to armor from attacks"
-			});
-		}
-		else
-		{
-			tooltip.push({
-				id = 6,
-				type = "text",
-				icon = "ui/tooltips/warning.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]This character\'s armor isn\'t protective enough to grant any benefit from having the Battleforged perk[/color]"
-			});
-		}
+		tooltip.push({
+			id = 6,
+			type = "text",
+			icon = "ui/icons/special.png",
+			text = "Only receive [color=" + this.Const.UI.Color.PositiveValue + "]" + (100 - this.getReductionPercentage()) + "%[/color] of any damage to armor from attacks"
+		});
 
 		return tooltip;
 	}
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		if (_attacker != null && _attacker.getID() == this.getContainer().getActor().getID() || _skill != null && !_skill.isAttack())
-		{
-			return;
-		}
-
-		local armor = this.getContainer().getActor().getArmor(this.Const.BodyPart.Head) + this.getContainer().getActor().getArmor(this.Const.BodyPart.Body);
-		_properties.DamageReceivedArmorMult *= 1.0 - armor * 0.035 * 0.01;
+		if (_attacker != null && _attacker.getID() == this.getContainer().getActor().getID() || _skill != null && !_skill.isAttack()) return;
+		
+		_properties.DamageReceivedArmorMult *= 1.0 - this.getReductionPercentage() * 0.01;
 	}
-
 });
-

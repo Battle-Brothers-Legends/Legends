@@ -41,8 +41,8 @@ this.legend_noble_fencer <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_back_to_basics"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_feint"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Hitpoints = b.Hitpoints * 2;
@@ -96,34 +96,37 @@ this.legend_noble_fencer <- this.inherit("scripts/entity/tactical/human", {
 
 			if (banner <= 4)
 			{
-				this.m.Items.equip(this.Const.World.Common.pickHelmet([
+				helmet = this.Const.World.Common.pickHelmet([
 					[1, "kettle_hat"],
 					[1, "padded_kettle_hat"],
 					[1, "kettle_hat_with_mail"],
 					[1, "mail_coif"]
-				]))
+				])
 			}
 			else if (banner <= 7)
 			{
-				this.m.Items.equip(this.Const.World.Common.pickHelmet([
+				helmet = this.Const.World.Common.pickHelmet([
 					[1, "flat_top_helmet"],
 					[1, "padded_flat_top_helmet"],
 					[1, "flat_top_with_mail"],
 					[1, "mail_coif"]
-				]))
+				])
 			}
 			else
 			{
-				this.m.Items.equip(this.Const.World.Common.pickHelmet([
+				helmet = this.Const.World.Common.pickHelmet([
 					[1, "nasal_helmet"],
 					[1, "padded_nasal_helmet"],
 					[1, "nasal_helmet_with_mail"],
 					[1, "mail_coif"]
-				]))
+				])
 			}
 
-			this.m.Items.getItemAtSlot(this.Const.ItemSlot.Head).setPlainVariant();
-			this.m.Items.equip(helmet);
+			if (helmet != null)
+			{
+				if ("setPlainVariant" in helmet) { helmet.setPlainVariant(); }
+				this.m.Items.equip(helmet);
+			}
 		}
 		else
 		{

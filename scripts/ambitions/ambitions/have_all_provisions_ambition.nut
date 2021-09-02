@@ -42,7 +42,6 @@ this.have_all_provisions_ambition <- this.inherit("scripts/ambitions/ambition", 
 		local legend_pie = false;
 		local legend_porridge = false;
 		local legend_pudding = false;
-		local legend_cooking_spices = false;
 		local items = this.World.Assets.getStash().getItems();
 
 		foreach( item in items )
@@ -132,10 +131,6 @@ this.have_all_provisions_ambition <- this.inherit("scripts/ambitions/ambition", 
 				else if (item.getID() == "supplies.legend_pudding")
 				{
 					legend_pudding = true;
-				}
-				else if (item.getID() == "supplies.legend_cooking_spices")
-				{
-					legend_cooking_spices = true;
 				}
 			}
 		}
@@ -232,11 +227,6 @@ this.have_all_provisions_ambition <- this.inherit("scripts/ambitions/ambition", 
 			ret = ret + "\n- Pudding";
 		}
 
-		if (!legend_cooking_spices)
-		{
-			ret = ret + "\n- Cooking Spices";
-		}
-
 		if (this.Const.DLC.Desert)
 		{
 			if (!dates)
@@ -281,7 +271,6 @@ this.have_all_provisions_ambition <- this.inherit("scripts/ambitions/ambition", 
 		local legend_pie = false;
 		local legend_porridge = false;
 		local legend_pudding = false;
-		local legend_cooking_spices = false;
 		local items = this.World.Assets.getStash().getItems();
 
 		foreach( item in items )
@@ -372,14 +361,10 @@ this.have_all_provisions_ambition <- this.inherit("scripts/ambitions/ambition", 
 				{
 					legend_pudding = true;
 				}
-				else if (item.getID() == "supplies.legend_cooking_spices")
-				{
-					legend_cooking_spices = true;
-				}
 			}
 		}
 
-		local hasLegend = legend_fresh_fruit && legend_fresh_meat && legend_cooking_spices && legend_pie && legend_porridge && legend_pudding;
+		local hasLegend = legend_fresh_fruit && legend_fresh_meat && legend_pie && legend_porridge && legend_pudding;
 
 		if (!this.Const.DLC.Desert)
 		{

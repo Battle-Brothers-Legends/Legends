@@ -29,6 +29,7 @@ this.legend_nun_background <- this.inherit("scripts/skills/backgrounds/character
 			"trait.greedy",
 			"trait.bloodthirsty",
 			"trait.aggressive",
+			"trait.seductive",
 			"trait.double_tongued"
 		];
 		this.m.Titles = [

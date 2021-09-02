@@ -8,7 +8,8 @@ this.legend_demon_hound_bite_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Höllenhund Curse";
 		this.m.Description = "This character has been bitten and cursed by a Höllenhund. Fatigue recovery is reduced.";
 		this.m.Icon = "skills/demon_hound_bite.png";
-		this.m.IconMini = "demon_hound_bite";
+		this.m.IconMini = "demon_hound_bite_effect";
+		this.m.Overlay = "demon_hound_bite_effect";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;

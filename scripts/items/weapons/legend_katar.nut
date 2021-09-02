@@ -5,7 +5,7 @@ this.legend_katar <- this.inherit("scripts/items/weapons/weapon", {
 		this.weapon.create();
 		this.m.ID = "weapon.legend_katar";
 		this.m.Name = "Katar";
-		this.m.Description = "An H-shaped horizontal blade sitting above the knuckles. Has a thickened tip that is particularily effective at piercing armor.";
+		this.m.Description = "An H-shaped horizontal blade sitting above the knuckles. Has a thickened tip that is particularily effective at piercing armor but its construction prevents it from being gripped with two hands.";
 		this.m.Categories = "Dagger, One-Handed";
 		this.m.IconLarge = "weapons/melee/legend_katar_01.png";
 		this.m.Icon = "weapons/melee/legend_katar_01_70x70.png";
@@ -16,13 +16,13 @@ this.legend_katar <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ShowQuiver = false;
 		this.m.ShowArmamentIcon = true;
 		this.m.ArmamentIcon = "icon_katar_01";
-		this.m.Condition = 60.0;
-		this.m.ConditionMax = 60.0;
+		this.m.Condition = 75.0;
+		this.m.ConditionMax = 75.0;
 		this.m.Value = 1250;
-		this.m.RegularDamage = 25;
-		this.m.RegularDamageMax = 40;
+		this.m.RegularDamage = 30;
+		this.m.RegularDamageMax = 45;
 		this.m.ArmorDamageMult = 1.25;
-		this.m.DirectDamageMult = 0.2;
+		this.m.DirectDamageMult = 0.3;
 	}
 
 	function onEquip()
@@ -33,7 +33,7 @@ this.legend_katar <- this.inherit("scripts/items/weapons/weapon", {
 		s.m.IconDisabled = "skills/active_198_sw.png";
 		s.m.Overlay = "active_198";
 		this.addSkill(s);
-		this.addSkill(this.new("scripts/skills/actives/puncture"));
+		this.addSkill(this.new("scripts/skills/actives/deathblow_skill"));
 	}
 
 });

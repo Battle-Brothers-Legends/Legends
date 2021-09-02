@@ -111,6 +111,11 @@ this.militia_trainingcamp_oriental_location <- this.inherit("scripts/entity/worl
 		}
 	}
 
+	function onUpdateProduce( _list )
+	{
+		_list.push("supplies/ammo_small_item");
+	}
+
 	function onUpdateDraftList( _list, _gender)
 	{
 		if (!this.isActive())
@@ -119,6 +124,8 @@ this.militia_trainingcamp_oriental_location <- this.inherit("scripts/entity/worl
 		}
 
 		_list.push("nomad_background");
+		_list.push("legend_dervish_background");
+		_list.push("legend_dervish_background");
 	}
 
 	function onUpdateShopList( _id, _list )
@@ -164,6 +171,16 @@ this.militia_trainingcamp_oriental_location <- this.inherit("scripts/entity/worl
 				R = 60,
 				P = 1.0,
 				S = "weapons/oriental/light_southern_mace"
+			});
+			_list.push({
+				R = 30,
+				P = 1.0,
+				S = "supplies/ammo_small_item"
+			});
+				_list.push({
+				R = 90,
+				P = 1.0,
+				S = "tents/tent_fletcher"
 			});
 
 			if (this.Const.DLC.Unhold)

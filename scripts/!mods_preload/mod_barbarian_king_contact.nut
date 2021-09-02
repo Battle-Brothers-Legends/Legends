@@ -1,36 +1,37 @@
-::mods_hookNewObject("contracts/contract/barbarian_king_contract", function(o) {
-
-
-	local csFn = o.createScreens;
-    o.createScreens = function()
+this.getroottable().Const.LegendMod.hookBarbarianKingContract <- function()
+{
+	::mods_hookExactClass("contracts/contract/barbarian_king_contract", function(o) 
 	{
-		csFn();
-		foreach (s in this.m.Screens)
+		local createScreens = o.createScreens;
+	    o.createScreens = function()
 		{
-			if (s.ID != "AGreaterThreat5")
+			createScreens();
+			foreach (s in this.m.Screens)
 			{
-				continue;
-			}
-
-			s.start = function ()
-			{
-				if (this.Contract.m.Destination != null && !this.Contract.m.Destination.isNull() && this.Contract.m.Destination.isAlive())
+				if (s.ID != "AGreaterThreat5")
 				{
-					this.Contract.m.Destination.die();
-					this.Contract.m.Destination = null;
+					continue;
 				}
 
-				local item = this.Const.World.Common.pickHelmet([[1, "barbarians/heavy_horned_plate_helmet"]]);
-				this.World.Assets.getStash().add(item);
-				this.List.push({
-					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + this.Const.Strings.getArticle(item.getName()) + item.getName()
-				});
+				s.start = function ()
+				{
+					if (this.Contract.m.Destination != null && !this.Contract.m.Destination.isNull() && this.Contract.m.Destination.isAlive())
+					{
+						this.Contract.m.Destination.die();
+						this.Contract.m.Destination = null;
+					}
+
+					local item = this.Const.World.Common.pickHelmet([[1, "barbarians/heavy_horned_plate_helmet"]]);
+					this.World.Assets.getStash().add(item);
+					this.List.push({
+						id = 10,
+						icon = "ui/items/" + item.getIcon(),
+						text = "You gain " + this.Const.Strings.getArticle(item.getName()) + item.getName()
+					});
+				}
+				break;
 			}
-			break;
 		}
-	}
-
-
-})
+	});
+	delete this.Const.LegendMod.hookBarbarianKingContract;
+}

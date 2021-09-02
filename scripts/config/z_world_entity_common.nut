@@ -129,6 +129,43 @@ gt.Const.World.Common.assignTroops = function( _party, _partyList, _resources, _
 	return p;
 }
 
+gt.Const.World.Common.addTroop = function ( _party, _troop, _updateStrength = true, _minibossify = 0 )
+{
+	local troop = clone _troop.Type;
+	troop.Party <- this.WeakTableRef(_party);
+	troop.Faction <- _party.getFaction();
+	troop.Name <- "";
+
+	if (troop.Variant > 0)
+	{
+		_minibossify = _minibossify + this.World.Assets.m.ChampionChanceAdditional;
+		local upperBound = ("DieRoll" in troop) ? troop.DieRoll : 100;
+		if (!this.Const.DLC.Wildmen || this.Math.rand(1, upperBound) > troop.Variant + _minibossify + (this.World.getTime().Days > 90 ? 0 : -1))
+		{
+			troop.Variant = 0;
+		}
+		else
+		{
+			troop.Strength = this.Math.round(troop.Strength * 1.35);
+			troop.Variant = this.Math.rand(1, 255);
+
+			if ("NameList" in _troop.Type)
+			{
+				troop.Name = this.generateName(_troop.Type.NameList) + ((_troop.Type.TitleList != null) ? " " + _troop.Type.TitleList[this.Math.rand(0, _troop.Type.TitleList.len() - 1)] : "");
+			}
+		}
+	}
+
+	_party.getTroops().push(troop);
+
+	if (_updateStrength)
+	{
+		_party.updateStrength();
+	}
+
+	return troop;
+}
+
 gt.Const.World.Common.addUnitsToCombat = function( _into, _partyList, _resources, _faction, _minibossify = 0 )
 {
 	local p
@@ -681,8 +718,10 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 		{
 			return null;
 		}
+		if (helm == "named/legend_helm_stag_named" || helm == "named/legend_helm_swan_named") {helm = "named/legend_helm_full_named"};
 		local item = this.new("scripts/items/helmets/" + helm);
-		if (variant != null)
+		if (item == null) return null;
+		if (variant != null && "setVariant" in item)
 		{
 			item.setVariant(variant);
 		}
@@ -776,12 +815,14 @@ gt.Const.World.Common.pickArmor <- function (_armors)
 
 	if (!this.LegendsMod.Configs().LegendArmorsEnabled())
 	{
+		if (armorID == "seedmaster_noble_armor" || armorID == "citreneking_noble_armor" ) {armorID = "mail_hauberk"};	
 		local item = this.new("scripts/items/armor/" + armorID);
-		if (faction != null)
+		if (item == null) return null;
+		if (faction != null && "setFaction" in item)
 		{
 			item.setFaction(faction);
 		}
-		else if (variant != null)
+		else if (variant != null && "setVariant" in item)
 		{
 			item.setVariant(variant);
 		}
@@ -917,6 +958,97 @@ gt.Const.World.Common.pickArmorUpgrade <- function (_armors)
 	}
 
 	return null;
+}
+
+/*
+
+	_outfitArr
+	[
+		[1, "my outfit"]
+		[1, "my outfit"]
+	]
+
+	_armorArr same
+	_helmetArr same
+
+
+*/
+
+//Operating assuming that if we have chance not -1 we sent in an armor and helmet array that aren't null
+gt.Const.World.Common.pickOutfit <- function ( _outfitArr, _armorArr = null, _helmetArr = null, _chance = 0) 
+{
+	if (_chance != 0)
+	{
+		if (this.Math.rand(1, 100) >= _chance)
+		{
+			// this.logInfo("Pick outfit rolled against a chance and returned two things")
+			return [this.Const.World.Common.pickArmor(_armorArr), this.Const.World.Common.pickHelmet(_helmetArr)]
+		}
+	}
+	else if (_armorArr != null && _helmetArr != null && _armorArr.len() > 0 && _helmetArr.len() > 0)
+	{
+		local armorCount = 0
+		local helmCount = 0
+		local outfitCount = 0
+
+		foreach (t in _armorArr)
+		{
+			if (t[0] > 0)
+			{
+				armorCount += 1
+			}
+		}
+		foreach (t in _helmetArr)
+		{
+			if (t[0] > 0)
+			{
+				helmCount += 1
+			}
+		}
+		foreach (t in _outfitArr)
+		{
+			if (t[0] > 0)
+			{
+				outfitCount += 1
+			}
+		}
+
+		if (this.Math.rand(1, armorCount * helmCount) > outfitCount)
+		{
+			// this.logInfo("Pick outfit rolled against an armor*helmcount and returned two things")
+			return [this.Const.World.Common.pickArmor(_armorArr), this.Const.World.Common.pickHelmet(_helmetArr)]
+		}
+	}
+
+	local candidates = [];
+	local totalWeight = 0;
+	foreach (t in _outfitArr)
+	{
+		if (t[0] == 0)
+		{
+			continue;
+		}
+		candidates.push(t);
+		totalWeight += t[0];
+	}
+
+	local r = this.Math.rand(0, totalWeight);
+	local outfitID = "";
+	foreach (t in candidates)
+	{
+		r = r - t[0];
+		if (r > 0)
+		{
+			continue;
+		}
+		outfitID = t[1];
+		break;
+	}
+
+	local layersObj = this.Const.LegendMod.Outfits[outfitID];
+	// this.logInfo("Pick outfit picked an outfit")
+	return [this.Const.World.Common.pickArmor(layersObj.Body), this.Const.World.Common.pickHelmet(layersObj.Helmet)]
+
 }
 
 gt.Const.World.Common.convNameToList <- function ( _named )

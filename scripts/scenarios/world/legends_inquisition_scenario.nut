@@ -160,7 +160,7 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/bread_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/wine_item"));
-		this.World.Assets.getStash().add(this.new("scripts/items/accessory/legend_wolfsbane_necklace_item"));
+		//this.World.Assets.getStash().add(this.new("scripts/items/accessory/legend_wolfsbane_necklace_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/tools/holy_water_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/weapons/legend_wooden_stake"));
 		this.World.Assets.getStash().add(this.new("scripts/items/weapons/legend_wooden_stake"))

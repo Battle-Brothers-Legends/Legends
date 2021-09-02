@@ -45,7 +45,7 @@ this.nomad_background <- this.inherit("scripts/skills/backgrounds/character_back
 			"the Wanderer",
 			"the Waylayer"
 		];
-		this.m.Ethnicity = this.Math.rand(1,2);
+		this.m.Ethnicity = this.Math.rand(1, 2);
 		if (this.m.Ethnicity == 1)
 		{
 			this.m.Bodies = this.Const.Bodies.SouthernMuscular;

@@ -1016,6 +1016,23 @@ this.tooltip_events <- {
 		local player = this.Tactical.getEntityByID(_entityId);
 		local perk = player.getBackground().getPerk(_perkId);
 
+		local vars = [
+			[
+				"name",
+				player.getNameOnly()
+			],
+			[
+				"fullname",
+				player.getName()
+			],
+			[
+				"title",
+				player.getTitle()
+			]
+		];
+		this.Const.LegendMod.extendVarsWithPronouns(vars, player.getGender());
+		local tooltip = this.buildTextFromTemplate(perk.Tooltip, vars);
+
 		if (perk != null)
 		{
 			local ret = [
@@ -1027,7 +1044,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = perk.Tooltip
+					text = tooltip
 				}
 			];
 
@@ -1133,6 +1150,15 @@ this.tooltip_events <- {
 			local dailyMoney = 0;
 			local barterMult = 0.0;
 			local brolist = [];
+			local greed = 1;
+
+			foreach(bro in this.World.getPlayerRoster().getAll())
+			{
+				if (bro.getSkills().hasSkill("perk.legend_barter_greed"))
+				{
+					greed += 1;
+				}
+			}
 
 			foreach( bro in this.World.getPlayerRoster().getAll() )
 			{
@@ -1143,7 +1169,7 @@ this.tooltip_events <- {
 					bro.getName(),
 					bro.getBackground().getNameOnly()
 				];
-				local bm = bro.getBarterModifier() * 100.0;
+				local bm = this.Math.floor(bro.getBarterModifier() * 10000.0 / greed) / 100;
 
 				if (bm > 0)
 				{
@@ -2888,18 +2914,38 @@ this.tooltip_events <- {
 			];
 
 		case "tactical-screen.topbar.options-bar-module.FleeButton":
-			local ret = [
-				{
-					id = 1,
-					type = "title",
-					text = "Retreat from combat"
-				},
-				{
-					id = 2,
-					type = "description",
-					text = "Retreat from combat and run for your lives. Better to fight another day than to die here pointlessly."
-				}
-			];
+			local ret = [];
+
+			if (this.Tactical.State.isEnemyRetreatDialogShown())
+			{
+				ret.extend([
+					{
+						id = 1,
+						type = "title",
+						text = "End combat"
+					},
+					{
+						id = 2,
+						type = "description",
+						text = "The enemy is fleeing the battle. There is no point in running them down."
+					}
+				]);
+			}
+			else
+			{
+				ret.extend([
+					{
+						id = 1,
+						type = "title",
+						text = "Retreat from combat"
+					},
+					{
+						id = 2,
+						type = "description",
+						text = "Retreat from combat and run for your lives. Better to fight another day than to die here pointlessly."
+					}
+				]);
+			}
 
 			if (!this.Tactical.State.isScenarioMode() && this.Tactical.State.getStrategicProperties() != null && this.Tactical.State.getStrategicProperties().IsFleeingProhibited)
 			{
@@ -3512,7 +3558,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Set time to pass normally."
+					text = "Set time to pass normally. (1x Speed)"
 				}
 			];
 
@@ -3526,7 +3572,35 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Set time to pass faster than normal."
+					text = "Set time to pass faster than normal. (2x Speed)"
+				}
+			];
+
+		case "world-screen.topbar.TimeVeryfastButton":
+			return [
+				{
+					id = 1,
+					type = "title",
+					text = "Very Fast Speed (3)"
+				},
+				{
+					id = 2,
+					type = "description",
+					text = "Set time to pass much faster than normal. (4x Speed)"
+				}
+			];
+		
+		case "world-screen.topbar.TimeLudicrousButton":
+			return [
+				{
+					id = 1,
+					type = "title",
+					text = "Ludicrous Speed (4)"
+				},
+				{
+					id = 2,
+					type = "description",
+					text = "Set time to pass insanely quickly. (8x Speed)"
 				}
 			];
 
@@ -5013,6 +5087,7 @@ this.tooltip_events <- {
 			local ret = [
 				{
 					id = 1,
+					type = "title",
 					text = "Time Required"
 				},
 				{
@@ -5021,6 +5096,21 @@ this.tooltip_events <- {
 					text = desc
 				}
 			];
+			return ret;
+
+		case "crafting.CraftForeverButton":
+			local ret = [
+				{
+					id = 1,
+					type = "title",
+					text = "Continuously Craft"
+				},
+				{
+					id = 2,
+					type = "description",
+					text = "Sets this item to be crafted repeatedly as long as there are enough ingredients."
+				}
+			]
 			return ret;
 
 		case "healer.Supplies":

@@ -5,7 +5,7 @@ this.perk_legend_specialist_knife_damage <- this.inherit("scripts/skills/skill",
 		this.m.ID = "perk.legend_specialist_knife_damage";
 		this.m.Name = this.Const.Strings.PerkName.LegendSpecialistKnifeDamage;
 		this.m.Description = this.Const.Strings.PerkDescription.LegendSpecialistKnifeDamage;
-		this.m.Icon = "ui/perks/woodaxe_01.png";
+		this.m.Icon = "ui/perks/knife_01.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

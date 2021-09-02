@@ -19,17 +19,12 @@ this.perk_legend_specialist_shovel_skill <- this.inherit("scripts/skills/skill",
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 		if (item != null)
 		{
-			local ids = [
-				"weapon.legend_shovel",
-				"weapon.legend_named_shovel"
-			]
-
-			if(item.getID() in ids)
+			if (this.hasShovel(item))
 			{
 				_properties.MeleeSkill += 12;
 			}
 
-			ids = [
+			local ids = [
 				"weapon.two_handed_mace",
 				"weapon.two_handed_flanged_mace",
 				"weapon.named_two_handed_mace",
@@ -43,12 +38,43 @@ this.perk_legend_specialist_shovel_skill <- this.inherit("scripts/skills/skill",
 				"weapon.polemace",
 				"weapon.legend_military_goedendag",
 				"weapon.legend_named_military_goedendag"
-			]
-			if (item.getID() in ids)
+			];
+
+			if (ids.find(item.getID()) != null)
 			{
 				_properties.MeleeSkill += 3;
 			}
 		}
+	}
+
+	function hasShovel(_item)
+	{
+		local ids = [
+			"weapon.legend_shovel",
+			"weapon.legend_named_shovel"
+		];
+
+		if (_item != null && ids.find(_item.getID()) != null)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	function onAdded()
+	{
+		local actor = this.getContainer().getActor();
+		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+
+		if (this.hasShovel(item) && !actor.getSkills().hasSkill("actives.knock_out"))
+		{
+			item.addSkill(this.new("scripts/skills/actives/knock_out"));
+		}
+	}
+
+	function onRemoved()
+	{
+		this.getContainer().getActor().getSkills().removeByID("actives.knock_out");
 	}
 
 });

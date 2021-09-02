@@ -67,13 +67,13 @@ this.unhold_bog <- this.inherit("scripts/entity/tactical/enemies/unhold", {
 		this.m.Skills.add(this.new("scripts/skills/actives/sweep_zoc_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/fling_back_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/unstoppable_charge_skill"));
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Skills.add(this.new("scripts/skills/racial/legend_bog_unhold_racial"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_battleheart"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			this.m.Hitpoints = 2 * b.Hitpoints;
-			}
+		}
 
 	}
 

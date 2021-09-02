@@ -35,13 +35,13 @@ this.legend_named_warlock_hood <- this.inherit("scripts/items/helmets/named/name
 			id = 6,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Increases your morale by[color=" + this.Const.UI.Color.PositiveEventValue + "] +20[/color] points each time you get hit."
+			text = "Increases your morale by[color=" + this.Const.UI.Color.PositiveValue + "] +20[/color] points each time you get hit."
 		});
 		result.push({
 			id = 7,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Increase max hitpoints by [color=" + this.Const.UI.Color.PositiveEventValue + "] +10[/color]."
+			text = "Increase max hitpoints by [color=" + this.Const.UI.Color.PositiveValue + "] +10[/color]."
 		});
 		return result;
 	}

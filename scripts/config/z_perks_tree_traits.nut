@@ -7,6 +7,7 @@ if (!("Perks" in gt.Const))
 
 gt.Const.Perks.AgileTree <- {
 	ID = "AgileTree",
+	Name = "Agile",
 	Descriptions = [
 		"is agile",
 		"moves gracefully",
@@ -68,6 +69,7 @@ gt.Const.Perks.AgileTree <- {
 };
 gt.Const.Perks.IndestructibleTree <- {
 	ID = "IndestructibleTree",
+	Name = "Tenacious",
 	Descriptions = [
 		"is practicaly indestructible",
 		"is stubbornly relentless",
@@ -129,6 +131,7 @@ gt.Const.Perks.IndestructibleTree <- {
 };
 gt.Const.Perks.MartyrTree <- {
 	ID = "MartyrTree",
+	Name = "Martyr",
 	Descriptions = [
 		"has martyr complex",
 		"strictly penatant ",
@@ -190,6 +193,7 @@ gt.Const.Perks.MartyrTree <- {
 };
 gt.Const.Perks.ViciousTree <- {
 	ID = "ViciousTree",
+	Name = "Vicious",
 	Descriptions = [
 		"is vicious",
 		"seems fiendishly barbarous",
@@ -253,6 +257,7 @@ gt.Const.Perks.ViciousTree <- {
 };
 gt.Const.Perks.DeviousTree <- {
 	ID = "DeviousTree",
+	Name = "Devious",
 	Descriptions = [
 		"is devious",
 		"strikes you as shifty",
@@ -308,6 +313,7 @@ gt.Const.Perks.DeviousTree <- {
 };
 gt.Const.Perks.InspirationalTree <- {
 	ID = "InspirationalTree",
+	Name = "Inspirational",
 	Descriptions = [
 		"is inspirational",
 		"arouses loyalty in people",
@@ -371,6 +377,7 @@ gt.Const.Perks.InspirationalTree <- {
 };
 gt.Const.Perks.IntelligentTree <- {
 	ID = "IntelligentTree",
+	Name = "Intelligent",
 	Descriptions = [
 		"is intelligent",
 		"is strikingly astute",
@@ -433,6 +440,7 @@ gt.Const.Perks.IntelligentTree <- {
 };
 gt.Const.Perks.CalmTree <- {
 	ID = "CalmTree",
+	Name = "Calm",
 	Descriptions = [
 		"is calm",
 		"is soothingly relaxed",
@@ -495,6 +503,7 @@ gt.Const.Perks.CalmTree <- {
 };
 gt.Const.Perks.FastTree <- {
 	ID = "FastTree",
+	Name =  "Fast",
 	Descriptions = [
 		"is fast",
 		"runs quickly",
@@ -555,6 +564,7 @@ gt.Const.Perks.FastTree <- {
 };
 gt.Const.Perks.LargeTree <- {
 	ID = "LargeTree",
+	Name = "Large",
 	Descriptions = [
 		"is large",
 		"has a hulking form",
@@ -616,6 +626,7 @@ gt.Const.Perks.LargeTree <- {
 };
 gt.Const.Perks.OrganisedTree <- {
 	ID = "OrganisedTree",
+	Name = "Organized",
 	Descriptions = [
 		"is organized",
 		"coordinates activities effectively",
@@ -679,6 +690,7 @@ gt.Const.Perks.OrganisedTree <- {
 };
 gt.Const.Perks.SturdyTree <- {
 	ID = "SturdyTree",
+	Name = "Sturdy",
 	Descriptions = [
 		"is sturdy",
 		"is built to last",
@@ -740,6 +752,7 @@ gt.Const.Perks.SturdyTree <- {
 };
 gt.Const.Perks.FitTree <- {
 	ID = "FitTree",
+	Name = "Fit",
 	Descriptions = [
 		"can run all day",
 		"lifts weight for hours",
@@ -800,6 +813,7 @@ gt.Const.Perks.FitTree <- {
 };
 gt.Const.Perks.TrainedTree <- {
 	ID = "TrainedTree",
+	Name = "Trained",
 	Descriptions = [
 		"is well trained",
 		"has great qualifications",

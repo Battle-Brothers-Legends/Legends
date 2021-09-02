@@ -211,16 +211,6 @@ this.town_shop_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 						if (this.Stash.swap(sourceItemIdx, firstEmptySlotIdx))
 						{
 							sourceItem.item.playInventorySound(this.Const.Items.InventoryEventType.PlacedInBag);
-
-							if (sourceItem.item.isItemType(this.Const.Items.ItemType.TradeGood))
-							{
-								this.World.Statistics.getFlags().increment("TradeGoodsSold");
-
-								if (this.LegendsMod.Configs().LegendWorldEconomyEnabled())
-								{
-									this.m.Parent.m.Town.setResources(this.m.Parent.m.Town.getResources() + sourceItem.item.getResourceValue());
-								}
-							}
 						}
 						else
 						{
@@ -242,7 +232,6 @@ this.town_shop_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 
 					if (removedItem.isItemType(this.Const.Items.ItemType.TradeGood))
 					{
-						this.World.Statistics.getFlags().increment("TradeGoodsSold");
 
 						if (this.LegendsMod.Configs().LegendWorldEconomyEnabled())
 						{
@@ -263,16 +252,6 @@ this.town_shop_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 			};
 			this.UIDataHelper.convertItemsToUIData(this.m.Shop.getStash().getItems(), result.Shop, this.Const.UI.ItemOwner.Shop);
 			result.Stash = this.UIDataHelper.convertStashToUIData(false, this.m.InventoryFilter);
-
-			if (this.World.Statistics.getFlags().has("TradeGoodsSold") && this.World.Statistics.getFlags().get("TradeGoodsSold") >= 10)
-			{
-				this.updateAchievement("Trader", 1, 1);
-			}
-
-			if (this.World.Statistics.getFlags().has("TradeGoodsSold") && this.World.Statistics.getFlags().get("TradeGoodsSold") >= 50)
-			{
-				this.updateAchievement("MasterTrader", 1, 1);
-			}
 
 			return result;
 
@@ -308,11 +287,6 @@ this.town_shop_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 						this.Stash.insert(sourceItem.item, targetItemIdx);
 						shopStash.removeByIndex(sourceItemIdx);
 						sourceItem.item.setBought(true);
-
-						if (sourceItem.item.isItemType(this.Const.Items.ItemType.TradeGood))
-						{
-							this.World.Statistics.getFlags().increment("TradeGoodsBought");
-						}
 					}
 					else if (this.Stash.hasEmptySlot())
 					{
@@ -320,11 +294,6 @@ this.town_shop_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 						this.Stash.add(sourceItem.item);
 						shopStash.removeByIndex(sourceItemIdx);
 						sourceItem.item.setBought(true);
-
-						if (sourceItem.item.isItemType(this.Const.Items.ItemType.TradeGood))
-						{
-							this.World.Statistics.getFlags().increment("TradeGoodsBought");
-						}
 					}
 					else
 					{
@@ -342,11 +311,6 @@ this.town_shop_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 					this.Stash.add(sourceItem.item);
 					shopStash.removeByIndex(sourceItemIdx);
 					sourceItem.item.setBought(true);
-
-					if (sourceItem.item.isItemType(this.Const.Items.ItemType.TradeGood))
-					{
-						this.World.Statistics.getFlags().increment("TradeGoodsBought");
-					}
 				}
 				else
 				{

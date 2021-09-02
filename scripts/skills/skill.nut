@@ -10,6 +10,7 @@ this.skill <- {
 		KilledString = "Killed",
 		Delay = 0,
 		HitChanceBonus = 0,
+		Sound = [],
 		SoundOnUse = [],
 		SoundOnHit = [],
 		SoundOnMiss = [],
@@ -100,7 +101,28 @@ this.skill <- {
 
 	function getDescription()
 	{
-		return this.m.Description;
+		local actor = this.getContainer().getActor();
+		local gender = -1;
+		if (actor != null)
+		{
+			gender = actor.getGender()
+		}
+		local vars = [
+			[
+				"name",
+				actor.getNameOnly()
+			],
+			[
+				"fullname",
+				actor.getName()
+			],
+			[
+				"title",
+				actor.getTitle()
+			]
+		];
+		this.Const.LegendMod.extendVarsWithPronouns(vars, gender);
+		return this.buildTextFromTemplate(this.m.Description, vars);
 	}
 
 	function getKilledString()
@@ -987,7 +1009,7 @@ this.skill <- {
 		this.Tactical.spawnAttackEffect(_effect[dir].Brush, _tile, _effect[dir].Offset.X + this.Const.Tactical.Settings.AttackEffectOffsetX, _effect[dir].Offset.Y + this.Const.Tactical.Settings.AttackEffectOffsetY, this.Const.Tactical.Settings.AttackEffectFadeInDuration, this.Const.Tactical.Settings.AttackEffectStayDuration, this.Const.Tactical.Settings.AttackEffectFadeOutDuration, _effect[dir].Movement0, secondMovementDelay, _effect[dir].Movement1, false);
 	}
 
-	function spawnIcon( _brush, _tile )
+	function spawnIcon(_brush, _tile)
 	{
 		if (!_tile.IsVisibleForPlayer)
 		{
@@ -1753,8 +1775,11 @@ this.skill <- {
 			}
 			if (r >= 7 && r < 9)
 			{
-				local loot = this.new("scripts/items/supplies/legend_cooking_spices_item");
-				loot.drop(_targetEntity.getTile());
+				if (this.Math.rand(1, 8) == 8)
+				{
+					local loot = this.new("scripts/items/supplies/legend_cooking_spices_item");
+					loot.drop(_targetEntity.getTile());
+				}
 			}
 			if (r == 10)
 			{
@@ -2226,6 +2251,12 @@ this.skill <- {
 		this.Sound.play(_data.Sound, this.Const.Sound.Volume.Skill, _data.Pos);
 	}
 
+	function playSound()
+	{
+		local sound = this.m.Sound[this.Math.rand(0, this.m.Sound.len() - 1)];
+		this.Sound.play(sound, this.Const.Sound.Volume.Skill, this.getContainer().getActor().getPos());
+	}
+
 	function divertAttack( _user, _targetEntity )
 	{
 		local tile = _targetEntity.getTile();
@@ -2325,7 +2356,7 @@ this.skill <- {
 
 		if (this.m.InjuriesOnBody != null && bodyPart == this.Const.BodyPart.Body)
 		{
-		if (_info.TargetEntity.getFlags().has("skeleton"))
+			if (_info.TargetEntity.getFlags().has("skeleton"))
 			{
 				injuries = this.Const.Injury.SkeletonBody;
 			}

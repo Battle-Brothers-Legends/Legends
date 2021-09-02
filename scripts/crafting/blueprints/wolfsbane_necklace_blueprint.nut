@@ -21,5 +21,9 @@ this.wolfsbane_necklace_blueprint <- this.inherit("scripts/crafting/blueprint", 
 		_stash.add(this.new("scripts/items/accessory/legend_wolfsbane_necklace_item"));
 	}
 
-});
+	function isValid()
+	{
+		return false;
+	}
 
+});

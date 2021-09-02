@@ -1248,9 +1248,3 @@ gt.Const.Faces.AfricanMale <- [
 	"bust_head_african_16",
 	"bust_head_african_17"
 ]
-
-gt.Const.Faces.BarberAfricanFemale <- gt.Const.Faces.AfricanFemale
-gt.Const.Faces.BarberAfricanMale <- gt.Const.Faces.AfricanMale
-
-gt.Const.Bodies.BarberAfricanFemale <- gt.Const.Bodies.AfricanFemale
-gt.Const.Bodies.BarberAfricanMale <- gt.Const.Bodies.AfricanMale

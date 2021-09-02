@@ -432,8 +432,8 @@ for( local row = 0; row < this.Const.Perks.Perks.len(); row = ++row )
 	for( local i = 0; i < this.Const.Perks.Perks[row].len(); i = ++i )
 	{
 		local perk = this.Const.Perks.Perks[row][i];
-		perk.Row <- row;
-		perk.Unlocks <- row;
+		perk.Row <- row; // This
+		perk.Unlocks <- row; // And this seems to be clutter, never used anywhere
 		gt.Const.Perks.LookupMap[perk.ID] <- perk;
 	}
 }

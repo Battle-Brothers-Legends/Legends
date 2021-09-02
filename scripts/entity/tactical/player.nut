@@ -936,6 +936,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		this.m.CombatStats.DamageDealtArmor = 0;
 		this.m.CombatStats.Kills = 0;
 		this.m.CombatStats.XPGained = 0;
+		this.m.Items.onCombatStarted();
 		this.m.Skills.onCombatStarted();
 		this.m.Skills.update();
 		this.getAIAgent().getProperties().BehaviorMult[this.Const.AI.Behavior.ID.Retreat] = 0.0;
@@ -1969,6 +1970,51 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Talents.resize(this.Const.Attributes.COUNT, 0);
 		this.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - 1);
 	}
+	
+	function pickTraits( _backgrounds, _maxTraits )
+	{
+		if(_maxTraits <= 0) {return;}
+		
+		local available_traits = [];
+		foreach(trait in this.Const.CharacterTraits)
+		{
+			local available = 1;
+			foreach(bg in _backgrounds)
+			{
+				if(bg.getID() == trait[0] || bg.isExcluded(trait[0]))
+				{
+					available = 0;
+					break;
+				}
+			}
+			if(available == 1) {available_traits.push(trait);}
+		}
+		local picked_traits = [];
+		while(_maxTraits > 0 && available_traits.len() > 0)
+		{
+			local pick = this.Math.rand(0, available_traits.len() - 1);
+			local picked = available_traits[pick];
+			available_traits.remove(pick);
+			local accept = 1;
+			if(picked_traits.len() > 0)
+			{
+				foreach(trait in picked_traits)
+				{
+					if(trait.getID() == picked[0] || trait.isExcluded(picked[0]))
+					{
+						accept = 0;
+						break;
+					}
+				}
+			}
+			if(accept == 1)
+			{
+				picked_traits.push(this.new(picked[1]));
+				_maxTraits -= 1;
+			}
+		}
+		_backgrounds.extend(picked_traits);
+	}
 
 	function setStartValuesEx( _backgrounds, _addTraits = true, _gender = -1, _addEquipment = true )
 	{
@@ -2037,37 +2083,8 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 				}
 			}
 
-			for( local i = 0; i < maxTraits; i = ++i )
-			{
-				while (true)
-				{
-					local trait = this.Const.CharacterTraits[this.Math.rand(0, this.Const.CharacterTraits.len() - 1)];
-					local nextTrait = false;
-
-					for( local k = 0; k < traits.len(); k = ++k )
-					{
-						if (traits[k].getID() == trait[0] || traits[k].isExcluded(trait[0]))
-						{
-							nextTrait = true;
-							break;
-						}
-
-					}
-
-					if (this.getSkills().hasSkill("trait.intensive_training_trait") && this.getSkills().getSkillByID("trait.intensive_training_trait").isExcluded(trait[0]))
-					{
-						nextTrait = true;
-						break;
-					}
-
-					if (!nextTrait)
-					{
-						traits.push(this.new(trait[1]));
-						break;
-					}
-				}
-			}
-
+			pickTraits( traits, maxTraits );
+			
 			for( local i = 1; i < traits.len(); i = ++i )
 			{
 				this.m.Skills.add(traits[i]);
@@ -2670,7 +2687,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			break;
 
 		case 4:
-			title = _slot == this.Const.ItemSlot.Body ? "Upgrade Attachment Layer" : "Second Vanity Layer";
+			title = _slot == this.Const.ItemSlot.Body ? "Upgrade Attachment Layer" : "Aesthetic Vanity Layer";
 			break;
 
 		case 5:
@@ -2722,7 +2739,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		tt.push({
 			id = 1,
 			type = "hint",
-			icon = "ui/icons/mouse_right_button.png",
+			icon = "ui/icons/mouse_left_button.png",
 			text = "UnEquip layer"
 		});
 

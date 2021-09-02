@@ -145,9 +145,6 @@ this.legend_banshee <- this.inherit("scripts/entity/tactical/actor", {
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.LegendBanshee);
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
-		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToRoot = true;
 		b.IsImmuneToDisarm = true;
 		b.IsIgnoringArmorOnAttack = true;
@@ -196,6 +193,9 @@ this.legend_banshee <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/actives/legend_banshee_scream"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		if ("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));

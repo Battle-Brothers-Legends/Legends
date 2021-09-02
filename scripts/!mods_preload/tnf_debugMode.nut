@@ -612,7 +612,7 @@ o.helper_handleContextualKeyInput = function(_key)
 }
 });
 
-::mods_hookNewObject("states/tactical_state", function (o) {
+::mods_hookExactClass("states/tactical_state", function (o) {
 
 local updateCurrentEntity = o.updateCurrentEntity;
 o.updateCurrentEntity = function()

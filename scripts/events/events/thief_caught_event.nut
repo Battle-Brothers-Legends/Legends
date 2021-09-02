@@ -9,7 +9,7 @@ this.thief_caught_event <- this.inherit("scripts/events/event", {
 		this.m.Cooldown = 30.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_33.png[/img]During a short rest, your company managed to catch a theif that tried to make off with some of your supplies. The villain\'s clothes are but rags and looks more skeleton than human. What are you going to do with the crook?",
+			Text = "[img]gfx/ui/events/event_33.png[/img]During a short rest, your company managed to catch a thief that tried to make off with some of your supplies. The villain\'s clothes are but rags and looks more skeleton than human. What are you going to do with the crook?",
 			Image = "",
 			List = [],
 			Characters = [],

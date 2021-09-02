@@ -103,11 +103,8 @@ this.legend_donkey <- this.inherit("scripts/entity/tactical/actor", {
 		this.actor.onInit();
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.Donkey);
-		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToRoot = true;
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
 		b.IsAffectedByNight = false;
 		b.IsMovable = false;
 		b.TargetAttractionMult = 1.5;
@@ -124,6 +121,9 @@ this.legend_donkey <- this.inherit("scripts/entity/tactical/actor", {
 		injury.Visible = false;
 		injury.setBrush("donkey_tactical_injured");
 		this.addDefaultStatusSprites();
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		this.m.Skills.update();
 	}
 

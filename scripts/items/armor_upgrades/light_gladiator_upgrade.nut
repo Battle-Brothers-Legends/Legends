@@ -18,7 +18,7 @@ this.light_gladiator_upgrade <- this.inherit("scripts/items/armor_upgrades/armor
 		this.m.SpriteCorpseFront = "upgrade_24_front_dead";
 		this.m.SpriteCorpseBack = null;
 		this.m.Value = 200;
-		this.m.ConditionModifier = 30;
+		this.m.ConditionModifier = 45;
 		this.m.StaminaModifier = 2;
 	}
 
@@ -29,7 +29,7 @@ this.light_gladiator_upgrade <- this.inherit("scripts/items/armor_upgrades/armor
 			id = 14,
 			type = "text",
 			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30[/color] Durability"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+45[/color] Durability"
 		});
 		result.push({
 			id = 14,

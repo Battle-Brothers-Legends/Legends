@@ -33,7 +33,8 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 			"trait.dastard",
 			"trait.insecure"
 		];
-		if (this.Math.rand(1, 2))
+		this.m.Ethnicity = this.Math.rand(1, 2);
+		if (this.m.Ethnicity == 1)
 		{
 			this.m.Bodies = this.Const.Bodies.Gladiator;
 			this.m.Faces = this.Const.Faces.SouthernMale;
@@ -41,7 +42,6 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 			this.m.HairColors = this.Const.HairColors.Southern;
 			this.m.Beards = this.Const.Beards.Southern;
 			this.m.BeardChance = 60;
-			this.m.Ethnicity = 1;
 		}
 		else
 		{
@@ -51,7 +51,6 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 			this.m.HairColors = this.Const.HairColors.African;
 			this.m.Beards = this.Const.Beards.Southern;
 			this.m.BeardChance = 60;
-			this.m.Ethnicity = 2;
 		}
 		
 		this.m.Names = this.Const.Strings.SouthernNames;
@@ -117,7 +116,7 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 		else
 		{
 			this.m.Faces = this.Const.Faces.AfricanFemale;
-			this.m.Hairs = this.Const.Hair.AfricanFemale;
+			this.m.Hairs = this.Const.Hair.SouthernFemale;
 			this.m.HairColors = this.Const.HairColors.African;
 			this.m.Bodies = this.Const.Bodies.AfricanFemaleMuscular;
 		}

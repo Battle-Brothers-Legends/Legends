@@ -61,8 +61,8 @@ this.bandit_marksman <- this.inherit("scripts/entity/tactical/human", {
 			b.RangedDefense += 5;
 		}
 
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 
 		if (!this.Tactical.State.isScenarioMode() && this.World.getTime().Days >= 20)
 		{

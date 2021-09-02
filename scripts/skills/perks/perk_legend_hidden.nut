@@ -5,8 +5,8 @@ this.perk_legend_hidden <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "perk.legend_hidden";
 		this.m.Name = this.Const.Strings.PerkName.LegendHidden;
 		this.m.Description = this.Const.Strings.PerkDescription.LegendHidden;
-		this.m.Icon = "ui/perks/hide_circle.png";
-		this.m.IconDisabled = "ui/perks/hide_circle_bw.png"
+		this.m.Icon = "ui/perks/hidden.png";
+		this.m.IconDisabled = "ui/perks/hidden_bw.png"
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

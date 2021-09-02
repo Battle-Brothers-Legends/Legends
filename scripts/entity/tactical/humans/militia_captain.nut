@@ -38,12 +38,12 @@ this.militia_captain <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_captain"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
 		this.m.Skills.add(this.new("scripts/skills/actives/rally_the_troops"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
-			this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_shield_skill"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_shield_push"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smashing_shields"));

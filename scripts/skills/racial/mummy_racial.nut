@@ -39,7 +39,7 @@ this.mummy_racial <- this.inherit("scripts/skills/skill", {
 			_properties.DamageReceivedRegularMult *= 0.75;
 		}
 
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
 			_properties.DamageReceivedRegularMult *= 0.75;
 		}
@@ -54,7 +54,6 @@ this.mummy_racial <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	
 	function onDeath()
 	{
 		this.skill.onDeath();
@@ -62,41 +61,6 @@ this.mummy_racial <- this.inherit("scripts/skills/skill", {
 		{
 			this.m.Killer.getSkills().add(this.new("scripts/skills/effects/mummy_curse_effect"));
 		}
-
-		// local user = this.getContainer().getActor();
-		// local myTile = user.getTile();
-		// local actors = this.Tactical.Entities.getAllInstances();
-		
-		// local actors = this.Tactical.Entities.getInstancesOfFaction(user.getFaction());
-		
-		// foreach( act in actors )
-		// {
-		// 	foreach (a in act)
-		// 	{
-
-		// 		if (a.getID() == user.getID())
-		// 		{
-		// 			continue;
-		// 		}
-
-		// 		if (myTile.getDistanceTo(a.getTile()) > 2)
-		// 		{
-		// 			continue;
-		// 		}
-
-		// 		if (a.getFaction() == user.getFaction())
-		// 		{
-		// 			continue;
-		// 		}
-		
-		// 		a.getSkills().add(this.new("scripts/skills/effects/mummy_curse_effect"));
-		// 	}
-		// }	
-		
-		
-		// this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill);
-		// this.Time.scheduleEvent(this.TimeUnit.Virtual, 30, this.teleport.bindenv(this), null);
 	}	
 
 });
-

@@ -47,12 +47,12 @@ this.perk_legend_specialist_cult_armor <- this.inherit("scripts/skills/skill", {
 					"legend_armor.body.legend_reinforced_animal_hide_armor"
 				]
 
-				foreach (v in validLayers)
+				foreach (l in item.getUpgradeIDs())
 				{
-					if (item.hasLayerID(v))
+					if (validLayers.find(l) != null)
 					{
 						_properties.Bravery += this.Math.floor(healthMissing * 0.5);
-						return
+						return;
 					}
 				}
 			}

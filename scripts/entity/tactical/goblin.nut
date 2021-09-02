@@ -214,7 +214,7 @@ this.goblin <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/footwork"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_footwork"));
 
 		if (this.Const.DLC.Unhold)
 		{

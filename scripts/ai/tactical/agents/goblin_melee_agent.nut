@@ -34,6 +34,7 @@ this.goblin_melee_agent <- this.inherit("scripts/ai/tactical/agent", {
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_default"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_puncture"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_throw_net"));
+		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_thresh"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_defend_spearwall"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_defend_shieldwall"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_defend_knock_back"));

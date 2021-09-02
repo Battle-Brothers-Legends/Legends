@@ -855,6 +855,17 @@ this.asset_manager <- {
 		local items = this.m.Stash.getItems();
 		local food = [];
 
+		foreach(bro in this.World.getPlayerRoster().getAll())
+		{
+			foreach(item in bro.getItems().getAllItemsAtSlot(this.Const.ItemSlot.Bag))
+			{
+				if (item != null && item.isItemType(this.Const.Items.ItemType.Food) && this.Time.getVirtualTimeF() >= item.getBestBeforeTime())
+				{
+					item.removeSelf();
+				}
+			}
+		}
+
 		foreach( i, item in items )
 		{
 			if (item != null && item.isItemType(this.Const.Items.ItemType.Food))
@@ -2141,6 +2152,8 @@ this.asset_manager <- {
 				bro.Bro.getNameOnly()
 			]
 		];
+
+		this.Const.LegendMod.extendVarsWithPronouns(vars, bro.Bro.getGender());
 
 		if (_isPositive)
 		{

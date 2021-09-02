@@ -272,8 +272,6 @@ this.sand_golem <- this.inherit("scripts/entity/tactical/actor", {
 		b.IsAffectedByNight = false;
 		b.IsImmuneToDisarm = true;
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToFire = true;
 		b.IsAffectedByInjuries = false;
 		this.m.ActionPoints = b.ActionPoints;
@@ -296,6 +294,8 @@ this.sand_golem <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		this.m.Skills.add(this.new("scripts/skills/actives/merge_golem_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/throw_golem_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/headbutt_skill"));
@@ -362,7 +362,7 @@ this.sand_golem <- this.inherit("scripts/entity/tactical/actor", {
 			this.getSprite("status_rooted_back").Scale = 0.6;
 			this.setSpriteOffset("status_rooted", this.createVec(-7, 14));
 			this.setSpriteOffset("status_rooted_back", this.createVec(-7, 14));
-			b.IsImmuneToKnockBackAndGrab = true;
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
 
 			if (this.m.WorldTroop != null && ("Party" in this.m.WorldTroop) && this.m.WorldTroop.Party != null && !this.m.WorldTroop.Party.isNull())
 			{

@@ -10,6 +10,7 @@ this.fishing_huts_oriental_location <- this.inherit("scripts/entity/world/attach
 	function onUpdateProduce( _list )
 	{
 		_list.push("supplies/dried_fish_item");
+		_list.push("supplies/armor_parts_small_item");
 	}
 
 	function onUpdateDraftList( _list, _gender)
@@ -23,6 +24,12 @@ this.fishing_huts_oriental_location <- this.inherit("scripts/entity/world/attach
 		_list.push("fisherman_southern_background");
 		_list.push("fisherman_southern_background");
 		_list.push("fisherman_southern_background");
+
+		if (_gender)
+		{
+			_list.push("legend_qiyan_background");
+		}
+
 	}
 
 	function onUpdateShopList( _id, _list )
@@ -33,6 +40,11 @@ this.fishing_huts_oriental_location <- this.inherit("scripts/entity/world/attach
 				R = 0,
 				P = 1.0,
 				S = "supplies/dried_fish_item"
+			});
+			_list.push({
+				R = 0,
+				P = 1.0,
+				S = "supplies/armor_parts_small_item"
 			});
 			_list.push({
 				R = 20,

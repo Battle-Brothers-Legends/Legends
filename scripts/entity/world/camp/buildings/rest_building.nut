@@ -15,7 +15,7 @@ this.rest_building <- this.inherit("scripts/entity/world/camp/camp_building", {
 	function getDescription()
 	{
 		local desc = "";
-		desc += "Kicking ass is tough work. Grab a log, kick the shoes off and relax by the camp fire."
+		desc += "Kicking ass is tough work. Grab a log, kick the shoes off and relax by the camp fire. "
 		desc += "Resting can improve the mood of even the grumpiest brother."
 		return desc;
 	}

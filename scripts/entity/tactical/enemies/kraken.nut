@@ -272,9 +272,6 @@ this.kraken <- this.inherit("scripts/entity/tactical/actor", {
 		b.setValues(this.Const.Tactical.Actor.Kraken);
 		b.TargetAttractionMult = 3.0;
 		b.IsAffectedByNight = false;
-		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToStun = true;
-		b.IsImmuneToPoison = true;
 		b.IsMovable = false;
 		b.IsAffectedByInjuries = false;
 		b.IsRooted = true;
@@ -318,6 +315,9 @@ this.kraken <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		local myTile = this.getTile();
 
 		for( local i = 0; i < 8; i = ++i )

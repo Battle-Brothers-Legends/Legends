@@ -9,9 +9,9 @@ this.heraldic_plates_upgrade <- this.inherit("scripts/items/armor_upgrades/armor
 		this.m.ArmorDescription = "Large protective plates have been fixed at the shoulders of this armor.";
 		this.m.Variant = this.Math.rand(14, 18);
 		this.updateVariant();
-		this.m.Value = 500;
+		this.m.Value = 250;
 		this.m.ConditionModifier = 40;
-		this.m.StaminaModifier = 4;
+		this.m.StaminaModifier = 5;
 	}
 
 	function updateVariant()
@@ -48,7 +48,7 @@ this.heraldic_plates_upgrade <- this.inherit("scripts/items/armor_upgrades/armor
 			id = 14,
 			type = "text",
 			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-4[/color] Maximum Fatigue"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-5[/color] Maximum Fatigue"
 		});
 		return result;
 	}

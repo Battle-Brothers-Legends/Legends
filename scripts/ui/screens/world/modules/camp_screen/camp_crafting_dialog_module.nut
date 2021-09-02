@@ -79,6 +79,14 @@ this.camp_crafting_dialog_module <- this.inherit("scripts/ui/screens/ui_module",
 		this.loadCraftList();
 	}
 
+	function onCraftForever (_result)
+	{
+		if (this.getTent().onCraftForever(_result.ID))
+		{
+			this.loadCraftList();
+		}
+	}
+
 	function onLeaveButtonPressed()
 	{
 		this.m.Parent.onModuleClosed();

@@ -53,7 +53,6 @@ this.spider_eggs <- this.inherit("scripts/entity/tactical/actor", {
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.SpiderEggs);
 		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToRoot = true;
 		b.IsImmuneToBleeding = true;
 		b.IsImmuneToPoison = true;
@@ -72,6 +71,7 @@ this.spider_eggs <- this.inherit("scripts/entity/tactical/actor", {
 		body.setBrush("nest_01");
 		body.setHorizontalFlipping(flip);
 		this.addDefaultStatusSprites();
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 		this.m.Skills.add(this.new("scripts/skills/racial/skeleton_racial"));
 		this.m.Skills.update();
 	}

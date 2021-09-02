@@ -34,7 +34,6 @@ this.legend_fencer_agent <- this.inherit("scripts/ai/tactical/agent", {
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_default"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_splitshield"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_swing"));
-		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_split"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_thresh"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_crush_armor"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_decapitate"));

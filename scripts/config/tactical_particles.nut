@@ -2692,8 +2692,8 @@ gt.Const.Tactical.SmokeParticles <- [
 		LifeTimeQuantity = 0,
 		SpawnRate = 2,
 		Brushes = [
-			"dust_01",
-			"dust_02"
+			"dust_light_01",
+			"dust_light_02"
 		],
 		Stages = [
 			{

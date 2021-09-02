@@ -48,7 +48,7 @@ this.legend_beggar_intro_event <- this.inherit("scripts/events/event", {
 		this.m.Screens.push({
 			ID = "C",
 			Title = "Beggar",
-			Text = "[img]gfx/ui/events/event_04.png[/img]Shock does little to lend a man speed, and the soldier\'s outrage slows the drawing of his sword. Retreading the cloaked man\'s steps, you vault onto and over a decaying roof, landing amidst another street. A horn bellows nearby.\n\nYour safety is brief, snuffed out of your mind by the growing swell of clattering armor. The only way out is to skip town entirely.\n\nAs the adrenaline wears off, you begin to realize the true impact of this ordeal. Wholly convinced of your guilt, the vengeful weight of (Noble House) will crash down upon you in time. Your gold may buy you weapons and those to wield them, but for how long? \n\nYou stare at the shimmering fortune in your hands. Was it worth it? A heave of your plunder convinces you. With dreams of a fresh start, you continue on.",
+			Text = "[img]gfx/ui/events/event_04.png[/img]Shock does little to lend a man speed, and the soldier\'s outrage slows the drawing of his sword. Retreading the cloaked man\'s steps, you vault onto and over a decaying roof, landing amidst another street. A horn bellows nearby.\n\nYour safety is brief, snuffed out of your mind by the growing swell of clattering armor. The only way out is to skip town entirely.\n\nAs the adrenaline wears off, you begin to realize the true impact of this ordeal. Wholly convinced of your guilt, the vengeful weight of %enemynoble% will crash down upon you in time. Your gold may buy you weapons and those to wield them, but for how long? \n\nYou stare at the shimmering fortune in your hands. Was it worth it? A heave of your plunder convinces you. With dreams of a fresh start, you continue on.",
 			Image = "",
             Banner = "",
 			List = [],
@@ -82,9 +82,23 @@ this.legend_beggar_intro_event <- this.inherit("scripts/events/event", {
 
 	function onPrepareVariables( _vars )
 	{
+		local homevillage = this.World.Flags.get("HomeVillage");
 		_vars.push([
 			"home",
-			this.World.Flags.get("HomeVillage")
+			homevillage
+		]);
+		foreach (s in this.World.EntityManager.getSettlements())
+		{
+			if (s.getName() == homevillage)
+			{
+				homevillage = s;
+				break;
+			}
+		}
+		local noblehouse = homevillage.getFactionOfType(this.Const.FactionType.NobleHouse);
+		_vars.push([
+			"enemynoble",
+			noblehouse.getName()
 		]);
 	}
 

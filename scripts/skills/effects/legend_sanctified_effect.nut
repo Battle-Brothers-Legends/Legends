@@ -8,46 +8,34 @@ this.legend_sanctified_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Sancitified";
 		this.m.Description = "This character is being cleansed by holy light";
 		this.m.Icon = "ui/perks/holybluefire_circle.png";
+		this.m.IconMini = "mini_bluefire_circle";
 		this.m.Overlay = "bluefire_circle";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
-		this.m.IsHidden = true;
 		this.m.IsRemovedAfterBattle = true;
 	}
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
-			{
-				id = 12,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "Not psychologically affected by injuries, losing hitpoints. Immune to bleeding or poison for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] more turns"
-			}
-		];
+		local ret = this.skill.getTooltip();
+		ret.push({
+			id = 12,
+			type = "text",
+			icon = "ui/icons/special.png",
+			text = "Not psychologically affected by injuries or losing hitpoints. Immune to bleeding and poison for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] more turns"
+		});
+		return ret;
 	}
 
 	function onAdded()
 	{
-		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
-		this.Tactical.TurnSequenceBar.pushEntityBack(this.getContainer().getActor().getID());
+		this.m.TurnsLeft = 2;
 	}
 
 	function onRefresh()
 	{
-		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
-		this.Tactical.TurnSequenceBar.pushEntityBack(this.getContainer().getActor().getID());
-		this.spawnIcon("status_effect_65", this.getContainer().getActor().getTile());
+		this.m.TurnsLeft = 2;
+		this.spawnIcon("bluefire_circle", this.getContainer().getActor().getTile());
 	}
 
 	function onTurnEnd()

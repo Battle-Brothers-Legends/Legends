@@ -22,7 +22,6 @@ this.skeleton_priest <- this.inherit("scripts/entity/tactical/skeleton", {
 		b.IsAffectedByNight = false;
 		b.IsAffectedByInjuries = false;
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
 		this.m.ActionPoints = b.ActionPoints;
 		this.m.Hitpoints = b.Hitpoints;
 		this.m.CurrentProperties = clone b;
@@ -30,12 +29,13 @@ this.skeleton_priest <- this.inherit("scripts/entity/tactical/skeleton", {
 		this.m.FatigueCosts = this.Const.DefaultMovementFatigueCost;
 		this.m.Skills.add(this.new("scripts/skills/actives/horror_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/miasma_skill"));
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
-			}
+		}
 
 	}
 

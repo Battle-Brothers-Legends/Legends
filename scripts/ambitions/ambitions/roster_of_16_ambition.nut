@@ -19,6 +19,11 @@ this.roster_of_16_ambition <- this.inherit("scripts/ambitions/ambition", {
 			return;
 		}
 
+		if (this.World.Assets.getBrothersMax() < 16) return;
+
+		local previous = this.World.Ambitions.getAmbition("ambition.roster_of_12");
+		if (previous.getScore() != 0 && !previous.isDone()) return;
+
 		if (this.World.getPlayerRoster().getSize() >= 16)
 		{
 			this.m.IsDone = true;

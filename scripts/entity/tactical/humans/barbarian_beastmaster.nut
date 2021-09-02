@@ -75,7 +75,7 @@ this.barbarian_beastmaster <- this.inherit("scripts/entity/tactical/human", {
 
 		if (!this.Tactical.State.isScenarioMode() && this.World.getTime().Days >= 30)
 		{
-			this.m.Skills.add(this.new("scripts/skills/effects/dodge_effect"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_dodge"));
 		}
 	}
 

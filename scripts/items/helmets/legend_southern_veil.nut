@@ -4,7 +4,7 @@ this.legend_southern_veil <- this.inherit("scripts/items/helmets/helmet", {
 	{
 		this.helmet.create();
 		this.m.ID = "armor.head.legend_southern_veil";
-		this.m.Name = "southern Veil";
+		this.m.Name = "Southern Veil";
 		this.m.Description = "A translucent southern veil made of soft material";
 		this.m.ShowOnCharacter = true;
 		this.m.IsDroppedAsLoot = false;
@@ -36,11 +36,11 @@ this.legend_southern_veil <- this.inherit("scripts/items/helmets/helmet", {
 	function updateVariant()
 	{
 		local variant = this.m.Variant > 9 ? this.m.Variant : "0" + this.m.Variant;
-		this.m.Sprite = "southern_veil_0" + variant;
-		this.m.SpriteDamaged = "southern_veil_0" + variant + "_damaged";
-		this.m.SpriteCorpse = "southern_veil_0" + variant + "_dead";
+		this.m.Sprite = "southern_veil_" + variant;
+		this.m.SpriteDamaged = "southern_veil_" + variant + "_damaged";
+		this.m.SpriteCorpse = "southern_veil_" + variant + "_dead";
 		this.m.IconLarge = "";
-		this.m.Icon = "helmets/icon_southern_veil_0" + variant + ".png";
+		this.m.Icon = "helmets/icon_southern_veil_" + variant + ".png";
 	}
 
 });

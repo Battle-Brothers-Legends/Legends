@@ -119,7 +119,6 @@ this.send_peasants_action <- this.inherit("scripts/factions/faction_action", {
 					[1, "supplies/dried_fish_item"],
 					[1, "supplies/beer_item"],
 					[1, "supplies/goat_cheese_item"],
-					[1, "supplies/legend_cooking_spices_item"],
 					[1, "supplies/legend_fresh_fruit_item"],
 					[1, "supplies/legend_fresh_meat_item"],
 					[1, "supplies/legend_pie_item"],

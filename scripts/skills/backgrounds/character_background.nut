@@ -443,7 +443,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 				text = this.getDescription()
 			}
 		];
-		ret.extend(this.getAttributesTooltip())
+		if (this.getContainer() != null) ret.extend(this.getAttributesTooltip())
 		return ret
 	}
 
@@ -779,6 +779,9 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			"title",
 			this.getContainer().getActor().getTitle()
 		]);
+		
+		this.Const.LegendMod.extendVarsWithPronouns(vars, this.getContainer().getActor().getGender());
+
 		this.m.Description = this.buildTextFromTemplate(this.m.RawDescription, vars);
 	}
 

@@ -187,9 +187,7 @@ this.skeleton_lich_mirror_image <- this.inherit("scripts/entity/tactical/actor",
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.SkeletonLichMirrorImage);
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
 		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToRoot = true;
 		b.IsImmuneToDisarm = true;
 		b.IsImmuneToFire = true;
@@ -224,6 +222,8 @@ this.skeleton_lich_mirror_image <- this.inherit("scripts/entity/tactical/actor",
 		this.addDefaultStatusSprites();
 		this.getSprite("status_rooted").Scale = 0.55;
 		this.setSpriteOffset("status_rooted", this.createVec(-5, -5));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		this.m.Skills.add(this.new("scripts/skills/racial/ghost_racial"));
 		this.m.Skills.add(this.new("scripts/skills/actives/ghastly_touch"));
 		this.m.Skills.add(this.new("scripts/skills/actives/wither_skill"));

@@ -926,7 +926,7 @@ gt.Const.LegendMod.HelmObjs.extend([
             [1, "top/legend_helmet_cloth_long_hood"], //10
         ],
         Vanity = [
-            [1, "vanity/legend_helmet_witchhunter_helm"] //10
+            // [1, "vanity/legend_helmet_witchhunter_helm"] //10
         ]
     }]
     },{
@@ -1279,7 +1279,7 @@ gt.Const.LegendMod.HelmObjs.extend([
             [1, "top/legend_helmet_cloth_long_hood"], //10
         ],
         Vanity = [
-            [1, "vanity/legend_helmet_witchhunter_helm"] //10
+            // [1, "vanity/legend_helmet_witchhunter_helm"] //10
         ]
     }]
     },{
@@ -1966,7 +1966,108 @@ gt.Const.LegendMod.HelmObjs.extend([
             [1, "vanity/legend_helmet_ponytail", 1], //10
             [1, "vanity/legend_helmet_ponytail", 4], //10
         ]
-    }]
+        }]
+    },
+	{
+        ID = "heavy_noble_house_helmet_00", //190 ish
+        Script = "",
+        Sets = [{
+            Hoods = [
+                [1, "hood/legend_helmet_aventail"],
+                [1, "hood/legend_helmet_enclave_bevor"],
+                [1, "hood/legend_helmet_chain_hood_full"],
+            ],
+            Helms = [
+                [1, "helm/legend_helmet_rondel_helm"], //170
+                [1, "helm/legend_helmet_norman_helm"], //170
+                [1, "helm/legend_helmet_barbute"], //170
+                [1, "helm/legend_helmet_sallet"], //170
+                [1, "helm/legend_helmet_deep_sallet"] //170
+            ],
+            Tops = [
+                [1, "top/legend_helmet_faceplate_winged"], //20
+                [1, "top/legend_helmet_faceplate_snub_nose"], //20
+                [1, "top/legend_helmet_faceplate_snub_slit"], //20
+                [1, "top/legend_helmet_faceplate_short"], //20
+                [1, "top/legend_helmet_faceplate_full"], //20
+                [1, "top/legend_helmet_faceplate_curved"], //20
+                [1, "top/legend_helmet_faceplate_full_breaths"], //20
+            ],
+            Vanity = [
+            ]
+        }]
+    },
+	{
+        ID = "brown_monk_helmet_00", //190 ish
+        Script = "",
+        Sets = [{
+            Hoods = [
+                [1, "hood/legend_helmet_cloth_cap"],
+            ],
+            Helms = [
+            ],
+            Tops = [
+                [3, ""],
+                [1, "top/legend_helmet_cloth_long_hood", 3] //20
+            ],
+            Vanity = [
+            ]
+        }]
+    },
+	{
+        ID = "dark_southern_helmet_00", //190 ish
+        Script = "",
+        Sets = [{
+            Hoods = [
+                [1, "hood/legend_helmet_chain_hood"], //80, -5
+		        [1, "hood/legend_helmet_southern_niqaab"] //100
+            ],
+            Helms = [
+            ],
+            Tops = [
+                [1, "top/legend_helmet_cloth_long_hood", 4] //20
+            ],
+            Vanity = [
+            ]
+        }]
+    },
+	{
+        ID = "white_nomad_leader_helmet_00", //190 ish
+        Script = "",
+        Sets = [{
+            Hoods = [
+                [1, "hood/legend_helmet_southern_open_chain_hood"], //6
+                [1, "hood/legend_helmet_chain_hood"], //80, -5
+                [1, "hood/legend_helmet_chain_hood"] //80, -5
+            ],
+            Helms = [
+                [1, "helm/legend_helmet_enclave_skullcap"], //120, -12, -1
+                [1, "helm/legend_helmet_southern_conic_helm"] //120, -12, -1
+            ],
+            Tops = [
+                [1, ""], //20, -1
+                [1, "top/legend_helmet_nose_plate"] //20, -1, 0
+            ],
+            Vanity = [
+            ]
+        }]
+    },
+	{
+        ID = "great_jaw_helmet_00", //190 ish
+        Script = "",
+        Sets = [{
+            Hoods = [
+                [1, "hood/legend_helmet_chain_hood"]
+            ],
+            Helms = [
+                [1, "helm/legend_helmet_nordic_helm_high"] //120, -12, -1
+            ],
+            Tops = [
+                [1, "top/legend_helmet_enclave_great_jaw"] //20, -1, 0
+            ],
+            Vanity = [
+            ]
+        }]
     }
 ])
 

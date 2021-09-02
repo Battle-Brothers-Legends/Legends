@@ -74,7 +74,10 @@
 <sprite id="bluefire_circle" ic="FF23165B" img="skills\bluefire_circle.png" />
 <sprite id="incoming_circle" ic="FF23165B" img="skills\incoming_circle.png" />
 <sprite id="throw_sand" ic="FF23165B" img="skills\throw_sand_01.png" />
+<sprite id="boneplating_effect" ic="FF23165B" img="skills\boneplating_effect.png" />
+<sprite id="trait_invictus" ic="FF23165B" img="skills\trait_invictus.png" />
 
+<sprite id="mini_boneplating_effect" offsetY="35" ic="FF344955" img="skills\mini\mini_boneplating_effect.png" />
 <sprite id="mini_safegaurd_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_safegaurd_circle.png" />
 <sprite id="mini_shimmering_visage_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_shimmering_visage_circle.png" />
 <sprite id="mini_fortified_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_fortified_circle.png" />
@@ -137,6 +140,7 @@
 
 <sprite id="demon_hound_flame_01" ic="FF23165B" img="skills\demon_hound_flame_01.png" />
 <sprite id="demon_hound_bite" ic="FF23165B" img="skills\demon_hound_bite.png" />
+<sprite id="demon_hound_bite_effect" ic="FF23165B" img="skills\demon_hound_bite_effect.png" />
 <sprite id="mini_graze_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_graze_circle.png" />
 <sprite id="mini_bleed_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_bleed_circle.png" />
 <sprite id="mini_food_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_food_circle.png" />

@@ -2000,5 +2000,47 @@ gt.Const.LegendMod.ArmorObjs.extend([
         Attachments =[
         ]
     }]
+},{
+    ID = "blade_dancer_armor_00", //127
+    Script = "",
+    Sets = [{
+        Cloth = [
+            [1, "cloth/legend_gladiator_harness"] // 40
+        ],
+        Chain = [
+            [1, "chain/legend_armor_mail_shirt"] //50
+        ],
+        Plate = [
+            [1, "plate/legend_armor_plate_ancient_chest_restored"], // 110
+        ],
+        Cloak = [
+        ],
+        Tabard = [
+            [1, "tabard/legend_southern_wrap_left"],// 2
+        ],
+        Attachments =[
+        ]
+    }]
+},{
+    ID = "nomad_archer_armor_00", //127
+    Script = "",
+    Sets = [{
+        Cloth = [
+            [1, "cloth/legend_gladiator_harness"] // 40
+        ],
+        Chain = [
+            // [1, "chain/legend_armor_mail_shirt"] //50
+        ],
+        Plate = [
+            // [1, "plate/legend_armor_plate_ancient_chest_restored"], // 110
+        ],
+        Cloak = [
+        ],
+        Tabard = [
+            [1, "tabard/legend_southern_wrap_left"],// 2
+        ],
+        Attachments =[
+        ]
+    }]
 }
 ])

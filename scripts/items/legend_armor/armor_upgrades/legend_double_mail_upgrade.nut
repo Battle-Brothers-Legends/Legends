@@ -18,11 +18,11 @@ this.legend_double_mail_upgrade <- this.inherit("scripts/items/legend_armor/lege
 		this.m.SpriteDamagedBack = "upgrade_19_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_19_back_dead";
-		this.m.Value = 450;
-		this.m.Condition = 15;
-		this.m.ConditionMax = 15;
-		this.m.ConditionModifier = 15;
-		this.m.StaminaModifier = -1;
+		this.m.Value = 225;
+		this.m.Condition = 20;
+		this.m.ConditionMax = 20;
+		this.m.ConditionModifier = 20;
+		this.m.StaminaModifier = -3;
 	}
 
 

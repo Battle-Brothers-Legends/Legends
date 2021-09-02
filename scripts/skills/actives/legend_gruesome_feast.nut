@@ -159,7 +159,7 @@ this.legend_gruesome_feast <- this.inherit("scripts/skills/skill", {
 				continue;
 			}
 
-			if (this.getTile().getDistanceTo(a.getTile()) > 4)
+			if (_user.getTile().getDistanceTo(a.getTile()) > 4)
 			{
 				continue;
 			}

@@ -78,23 +78,13 @@ this.weapon <- this.inherit("scripts/items/item", {
 
 	function getShieldDamage()
 	{
-		if (this.getContainer() == null)
+		if (this.getContainer() == null || this.getContainer().getActor() == null)
 		{
 			return this.m.ShieldDamage;
 		}
-
-		if (this.getContainer().getActor() == null)
-		{
-			return this.m.ShieldDamage;
-		}
-
 		local skill = this.getContainer().getActor().getSkills().getSkillByID("perk.legend_smashing_shields")
-		if (skill == null)
-		{
-			return this.m.ShieldDamage;
-		}
 
-		return this.Math.round( this.m.ShieldDamage + this.m.ShieldDamage * skill.getModifier());
+		return skill == null ? this.m.ShieldDamage : this.Math.round(this.m.ShieldDamage * skill.getModifier());
 	}
 
 	function isDoubleGrippable()

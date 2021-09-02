@@ -310,7 +310,7 @@ this.repair_building <- this.inherit("scripts/entity/world/camp/camp_building", 
             return "No repairs queued";
         }
 
-		local percent = (this.m.PointsRepaired / this.m.PointsNeeded) * 100.0;
+		local percent = this.Math.floor((this.m.PointsRepaired / this.m.PointsNeeded) * 10000) / 100.0;
 		if (percent >= 100)
 		{
 			return "Repaired ... 100%";
@@ -431,7 +431,7 @@ this.repair_building <- this.inherit("scripts/entity/world/camp/camp_building", 
         local items = [];
         local stash = [];
         local roster = this.World.getPlayerRoster().getAll()
-        foreach( bro in roster)
+        foreach (bro in roster)
         {
 			local bitems = bro.getItems().getAllItems();
 			foreach( item in bitems )
@@ -446,20 +446,10 @@ this.repair_building <- this.inherit("scripts/entity/world/camp/camp_building", 
                     continue;
                 }
 
-                if (item.isToBeRepaired())
-                {
-                    items.push({
-                        Bro = bro.getID(),
-                        Item = item
-                    });
-                }
-                else
-                {
-                    stash.push({
-                        Bro = bro.getID(),
-                        Item = item
-                    });
-                }
+                items.push({
+                    Bro = bro.getID(),
+                    Item = item
+                });
             }
         }
         local stashItems = this.Stash.getItems();

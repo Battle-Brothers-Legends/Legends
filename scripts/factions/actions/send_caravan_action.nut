@@ -143,7 +143,6 @@ this.send_caravan_action <- this.inherit("scripts/factions/faction_action", {
 					[0, "supplies/dried_fish_item"],
 					[0, "supplies/beer_item"],
 					[0, "supplies/goat_cheese_item"],
-					[1, "supplies/legend_cooking_spices_item"],
 					[1, "supplies/legend_fresh_fruit_item"],
 					[1, "supplies/legend_fresh_meat_item"],
 					[1, "supplies/legend_pie_item"],

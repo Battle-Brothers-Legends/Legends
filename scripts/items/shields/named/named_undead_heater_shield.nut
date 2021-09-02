@@ -19,8 +19,8 @@ this.named_undead_heater_shield <- this.inherit("scripts/items/shields/named/nam
 		this.m.MeleeDefense = 20;
 		this.m.RangedDefense = 15;
 		this.m.StaminaModifier = -14;
-		this.m.Condition = 32;
-		this.m.ConditionMax = 32;
+		this.m.Condition = 35;
+		this.m.ConditionMax = 35;
 		this.randomizeValues();
 	}
 

@@ -19,13 +19,14 @@ this.legend_named_estoc <- this.inherit("scripts/items/weapons/named/named_weapo
 		this.m.ArmamentIcon = "icon_legend_named_estoc_01";
 		this.m.Condition = 56.0;
 		this.m.ConditionMax = 56.0;
-		this.m.StaminaModifier = -10;
+		this.m.StaminaModifier = -14;
 		this.m.Value = 4200;
-		this.m.RegularDamage = 50;
-		this.m.RegularDamageMax = 85;
-		this.m.ArmorDamageMult = 1.0;
-		this.m.DirectDamageMult = 0.2;
-		this.m.DirectDamageAdd = 0.2;
+		this.m.RegularDamage = 45;
+		this.m.RegularDamageMax = 60;
+		this.m.ArmorDamageMult = 0.60;
+		this.m.DirectDamageMult = 0.3;
+		this.m.DirectDamageAdd = 0.3;
+		this.m.ChanceToHitHead = 5;
 		this.randomizeValues();
 	}
 
@@ -35,7 +36,6 @@ this.legend_named_estoc <- this.inherit("scripts/items/weapons/named/named_weapo
 		this.addSkill(this.new("scripts/skills/actives/slash"));
 		this.addSkill(this.new("scripts/skills/actives/lunge_skill"));
 		this.addSkill(this.new("scripts/skills/actives/riposte"));
-		this.addSkill(this.new("scripts/skills/actives/split"));
 	}
 
 	function onUpdateProperties( _properties )

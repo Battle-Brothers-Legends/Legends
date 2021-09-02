@@ -1,10 +1,9 @@
 this.legend_threw_sand_effect <- this.inherit("scripts/skills/skill", {
-	m = {
-	},
+	m = {},
 
 	function create()
 	{
-		this.m.ID = "effects.legend_summoned_bear_effect";
+		this.m.ID = "effects.legend_threw_sand_effect";
 		this.m.Name = "Threw pocket sand";
 		this.m.Icon = "ui/perks/throw_sand_01.png";
 		this.m.IconMini = "mini_throw_sand_circle";
@@ -18,11 +17,4 @@ this.legend_threw_sand_effect <- this.inherit("scripts/skills/skill", {
 	{
 		return "This character has thrown pocket sand and can't do so again this battle";
 	}
-
-
-	function onCombatFinished()
-	{
-		this.removeSelf();
-	}
 });
-

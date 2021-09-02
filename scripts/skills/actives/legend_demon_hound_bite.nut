@@ -69,8 +69,6 @@ this.legend_demon_hound_bite <- this.inherit("scripts/skills/skill", {
 			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_targetEntity) + " sprit is being drained");
 		}
 
-		//TODO get new status icon effect
-		this.spawnIcon("demon_hound_bite", _targetEntity.getTile());
 		local poison = _targetEntity.getSkills().getSkillByID("effects.legend_demon_hound_bite_effect");
 
 		if (poison == null)

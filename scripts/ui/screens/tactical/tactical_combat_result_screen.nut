@@ -431,5 +431,29 @@ this.tactical_combat_result_screen <- {
 		return null;
 	}
 
+	function getStashChangeData()
+	{
+		local ret = {
+			popup = false,
+			deletedNum = 0
+		};
+		local capacity = this.Stash.getCapacity();
+		local current = this.World.State.getPlayer().calculateStashModifier(false);
+
+		if (capacity > current)
+		{
+			for (local i = current - 1 ; i < capacity - 1; i = ++i)
+			{
+				if (this.Stash.getItemAtIndex(i).item != null)
+				{
+					ret.deletedNum++;
+				}
+			}
+			ret.popup = ret.deletedNum != 0; 
+		}
+
+		return ret;
+	}
+
 };
 

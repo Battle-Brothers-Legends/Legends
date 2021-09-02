@@ -581,7 +581,11 @@ OptionsMenuModuleGameplayPanel.prototype.onOptionsLoaded = function (_dataSource
         this.selectCheckboxOption(this.mAutoPauseAfterCityCheckbox, gameplayOptions[OptionsMenuModuleIdentifier.QueryResult.Gameplay.AutoPauseAfterCity]);
 	}
 
-	this.mOptions.AISpeed.Value = gameplayOptions["AISpeed"]
+	if ("AISpeed" in gameplayOptions)
+	{
+		this.mOptions.AISpeed.Control.val(gameplayOptions["AISpeed"]);
+		this.mOptions.AISpeed.Label.text('' + gameplayOptions["AISpeed"]);
+	}
 
 	if ("EnemyTooltips" in gameplayOptions)
 	{

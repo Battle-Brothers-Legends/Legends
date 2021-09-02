@@ -1,9 +1,9 @@
 
-this.legend_helmet_witchhunter_helm <- this.inherit("scripts/items/legend_helmets/legend_helmet_upgrade", {
+this.legend_helmet_witchhunter_helm <- this.inherit("scripts/items/legend_helmets/legend_named_helmet_upgrade", {
 	m = {},
 	function create()
 	{
-		this.legend_helmet_upgrade.create();
+		this.legend_named_helmet_upgrade.create();
 		this.m.Type = this.Const.Items.HelmetUpgrades.Vanity;
 		this.m.ID = "armor.head.legend_helmet_witchhunter_helm";
 		this.m.Name = "Witchhunter Helm";
@@ -59,4 +59,11 @@ this.legend_helmet_witchhunter_helm <- this.inherit("scripts/items/legend_helmet
 		this.m.OverlayIcon = this.m.Icon;
 		this.m.OverlayIconLarge = this.m.OverlayIcon;
 	}
+
+	function onDeserialize( _in )
+	{
+		if ( _in.getMetaData().getVersion() < 67) this.legend_helmet_upgrade.onDeserialize( _in );
+		else this.legend_named_helmet_upgrade.onDeserialize( _in );
+	}
+
 });

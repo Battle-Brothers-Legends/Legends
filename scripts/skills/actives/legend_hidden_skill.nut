@@ -31,7 +31,7 @@ this.legend_hidden_skill <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "Blend into the terrain and remain unseen until attacking or moving adjacent to an enemy. Not usable if visible to opponents";
+		return "Blend into the terrain and remain unseen until attacking or moving adjacent to an enemy.";
 	}
 
 	function getTooltip()
@@ -110,55 +110,6 @@ this.legend_hidden_skill <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-		
-
-		local hostiles = [];
-		if (("State" in this.Tactical) && this.Tactical.State != null)
-		{
-
-			for( local i = 0; i != this.World.FactionManager.getFactions().len(); i = ++i )
-			{
-				if (!this.World.FactionManager.isAlliedWithPlayer(i))
-				{
-					foreach(h in this.Tactical.Entities.m.Instances[i])
-					{
-						hostiles.push(h)
-					}
-				}
-			}
-
-			// this.logWarning("Hostiles length = " + hostiles.len())
-			foreach (h in hostiles)
-			{
-				local actGet = this.getContainer().getActor().get();
-				// this.logWarning("checking hostile: " + h)
-				// this.logWarning("out actor = " + actGet.getTile())
-				local check = h.getAIAgent().getVisibleOpponents().find(actGet)
-				// this.logWarning("check = " + check)
-				if (check != null)
-				{
-					return false;
-				}
-			}
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-		
-
-		// local actor = this.getContainer().getActor();
-		// local opponents = actor.getAIAgent().getKnownOpponents();
-
-		// foreach( o in opponents )
-		// {
-		// 	if (actor.getTile().IsVisibleForEntity )
-		// 	{
-		// 		return false;
-		// 	}
-		// }
-		
 		return true;
 	}
 

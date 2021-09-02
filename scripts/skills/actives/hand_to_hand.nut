@@ -72,7 +72,7 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 		}
 
 		local backgrounds = [
-			"background.legend_druid_commander",
+			"background.legend_commander_druid",
 			"background.legend_druid",
 			"background.brawler",
 			"background.legend_commander_berserker",
@@ -81,15 +81,13 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 
 		foreach( bg in backgrounds )
 		{
-			if (!actor.getSkills().hasSkill(bg))
+			if (actor.getSkills().hasSkill(bg))
 			{
-				continue;
+				ret.Min *= 1.25;
+				ret.Max *= 1.25;
+				ret.HasBro = true;
+				break;
 			}
-
-			ret.Min *= 1.25;
-			ret.Max *= 1.25;
-			ret.HasBro = true;
-			break;
 		}
 
 		ret.Min = this.Math.max(5, this.Math.floor(ret.Min));

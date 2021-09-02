@@ -5,7 +5,7 @@ this.perk_legend_hair_splitter <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "perk.legend_hair_splitter";
 		this.m.Name = this.Const.Strings.PerkName.LegendHairSplitter;
 		this.m.Description = this.Const.Strings.PerkDescription.LegendHairSplitter;
-		this.m.Icon = "skills/hairsplit_circle.png";
+		this.m.Icon = "ui/perks/hairsplit_circle.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

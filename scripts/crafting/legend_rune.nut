@@ -72,7 +72,7 @@ this.legend_rune <- this.inherit("scripts/crafting/blueprint", {
 			case 11:
 				max1 = this.isUpgraded() ? 2 : 1;
 				max2 = this.isUpgraded() ? 9 : 6;
-				return "This item has the power of the rune sigil of Clarity:\n[color=" + this.Const.UI.Color.PositiveValue + "]+1 to +" + max1 + "[/color] Vision.\n[color=" + this.Const.UI.Color.PositiveValue + "]+3% to +" + max2 + "%[/color] Experience gain.";
+				return "This item has the power of the rune sigil of Clarity:\n[color=" + this.Const.UI.Color.PositiveValue + "]0 to +" + max1 + "[/color] Vision.\n[color=" + this.Const.UI.Color.PositiveValue + "]+3% to +" + max2 + "%[/color] Experience gain.";
 				break;
 
 			case 12:

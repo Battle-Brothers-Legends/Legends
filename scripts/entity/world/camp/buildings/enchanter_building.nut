@@ -3,8 +3,8 @@ this.enchanter_building <- this.inherit("scripts/entity/world/camp/camp_building
 		BaseCraft = 13.0,
         ItemsCrafted = [],
         Queue = [],
-		PointsNeeded = 0,
-		PointsCrafted = 0,
+		CurrentProgress = 0,
+		CurrentCraft = null,
 		NumBros = 0
 	},
     function create()
@@ -224,20 +224,10 @@ this.enchanter_building <- this.inherit("scripts/entity/world/camp/camp_building
     {
 		this.onInit();
 		this.m.ItemsCrafted = [];
-		this.m.PointsNeeded = 0;
-		this.m.PointsCrafted = 0;
-
+		this.m.CurrentProgress = 0;
+		this.m.CurrentCraft = null;
 		local mod = this.getModifiers()
 		this.m.NumBros = mod.Assigned;
-        foreach (i, r in this.m.Queue)
-        {
-            if (r == null)
-            {
-                continue;
-            }
-
-            this.m.PointsNeeded += r.Blueprint.getCost() - r.Points;
-        }
     }
 
 	function isHidden()
@@ -354,13 +344,13 @@ this.enchanter_building <- this.inherit("scripts/entity/world/camp/camp_building
 			return "No one assigned to enchant";
 		}
 
-		local percent = (this.m.PointsCrafted / this.m.PointsNeeded) * 100.0;
-		if (percent >= 100)
-		{
-			return "Enchanted ... 100%";
-		}
+		local crafted = this.m.ItemsCrafted.len();
+		local numToCraft = this.m.Queue.len();
+		local progress = this.Math.floor(10000 * this.m.CurrentProgress) / 100.0;
 
-		return "Enchanted ... " + percent + "%";
+		if (crafted == numToCraft) return "Crafted ..." + crafted + " / " + crafted;
+
+		return "Enchanted ... " + crafted + "/" + numToCraft + " ... " + progress + "% of " + this.m.CurrentCraft;
 	}
 
     function update ()
@@ -390,7 +380,6 @@ this.enchanter_building <- this.inherit("scripts/entity/world/camp/camp_building
                 needed = modifiers.Craft;
             }
 			r.Points += needed;
-			this.m.PointsCrafted += needed
             modifiers.Craft -= needed;
 
 			if (r.Points >= r.Blueprint.getCost())
@@ -402,6 +391,8 @@ this.enchanter_building <- this.inherit("scripts/entity/world/camp/camp_building
 
             if (modifiers.Craft <= 0)
             {
+            	this.m.CurrentProgress = r.Points / r.Blueprint.getCostForCraft();
+            	this.m.CurrentCraft = r.Blueprint.getName();
                 break
             }
         }

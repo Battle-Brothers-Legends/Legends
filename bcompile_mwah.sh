@@ -1,5 +1,5 @@
 BBDir="${1-"c:\\Program Files (x86)\\Steam\\steamapps\\common\\Battle Brothers\\data"}"
-RepoDir="${2-"battlebrothers"}"
+RepoDir="${2-"Legends"}"
 
 rm -rf  "$BBDir\\brushes" "$BBDir\\gfx" "$BBDir\\preload" "$BBDir\\scripts" "$BBDir\\sounds" "$BBDir\\ui"
 
@@ -9,6 +9,7 @@ echo $resp
 if [ $resp -ne "0" ]
 then
     echo "Failed to build Legends!"
+    $SHELL
     exit 1
 fi
 

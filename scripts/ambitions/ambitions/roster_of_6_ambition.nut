@@ -14,6 +14,8 @@ this.roster_of_6_ambition <- this.inherit("scripts/ambitions/ambition", {
 
 	function onUpdateScore()
 	{
+		if (this.World.Assets.getBrothersMax() < 6) return;
+
 		if (this.World.getPlayerRoster().getSize() >= 6)
 		{
 			this.m.IsDone = true;

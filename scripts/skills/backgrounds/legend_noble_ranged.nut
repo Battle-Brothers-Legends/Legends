@@ -5,7 +5,7 @@ this.legend_noble_ranged <- this.inherit("scripts/skills/backgrounds/character_b
 		this.character_background.create();
 		this.m.ID = "background.legend_noble_ranged";
 		this.m.Name = "Arbalester";
-		this.m.Icon = "ui/traits/trait_icon_32.png";
+		this.m.Icon = "ui/backgrounds/background_nobleranged.png";
 		this.m.HiringCost = 300;
 		this.m.DailyCost = 35;
 		this.m.DailyCostMult = 1.0;

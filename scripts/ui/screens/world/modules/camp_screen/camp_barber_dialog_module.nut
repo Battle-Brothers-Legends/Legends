@@ -71,21 +71,9 @@ this.camp_barber_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 		local temp = this.World.getTemporaryRoster().getAll()[0];
 		local color;
 
-		local bros = this.World.getPlayerRoster().getAll();
-		local isFemale = false;
-		local ethnicity = 0;
-
-		//for somereason, the World.getEntityByID isn't working here??
-		//So we are iterating over all bros...
-		foreach (bro in bros)
-		{
-			if (bro.getID() == _entityID)
-			{
-				isFemale = bro.getBackground().isFemaleBackground();
-				ethnicity = bro.getBackground().getEthnicity();
-				break;
-			}
-		}
+		local bro = this.Tactical.getEntityByID(_entityID);
+		local isFemale = bro.getGender() == 1;
+		local ethnicity = bro.getEthnicity();
 
 		if (temp.getSprite("hair").HasBrush)
 		{
@@ -178,7 +166,7 @@ this.camp_barber_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 				}
 				else if (ethnicity == 2)
 				{
-					this.changeIndex(this.Const.Bodies.BarberAfricanFemale, temp.getSprite("body"), _change);
+					this.changeIndex(this.Const.Bodies.AfricanFemale, temp.getSprite("body"), _change);
 					this.changeIndexEx(this.Const.Tattoos.All, temp.getSprite("tattoo_body"), 0, "", "", temp.getSprite("body").getBrush().Name);
 				}
 				else
@@ -197,7 +185,7 @@ this.camp_barber_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 				}
 				else if (ethnicity == 2)
 				{
-					this.changeIndex(this.Const.Bodies.BarberAfricanMale, temp.getSprite("body"), _change);
+					this.changeIndex(this.Const.Bodies.AfricanMale, temp.getSprite("body"), _change);
 					this.changeIndexEx(this.Const.Tattoos.All, temp.getSprite("tattoo_body"), 0, "", "", temp.getSprite("body").getBrush().Name);
 				}
 				else
@@ -217,11 +205,11 @@ this.camp_barber_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 				}
 				else if (ethnicity == 2)
 				{
-					this.changeIndex(this.Const.Faces.BarberAfricanFemale, temp.getSprite("head"), _change);
+					this.changeIndex(this.Const.Faces.AfricanFemale, temp.getSprite("head"), _change);
 				}
 				else
 				{
-					this.changeIndex(this.Const.Faces.AllFemale, temp.getSprite("head"), _change);
+					this.changeIndex(this.Const.Faces.AllWhiteFemale, temp.getSprite("head"), _change);
 				}
 			}
 			else
@@ -232,11 +220,11 @@ this.camp_barber_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 				}
 				else if (ethnicity == 2)
 				{
-					this.changeIndex(this.Const.Faces.BarberAfricanMale, temp.getSprite("head"), _change);
+					this.changeIndex(this.Const.Faces.AfricanMale, temp.getSprite("head"), _change);
 				}
 				else
 				{
-					this.changeIndex(this.Const.Faces.AllMale, temp.getSprite("head"), _change);
+					this.changeIndex(this.Const.Faces.AllWhiteMale, temp.getSprite("head"), _change);
 				}
 			}
 		}

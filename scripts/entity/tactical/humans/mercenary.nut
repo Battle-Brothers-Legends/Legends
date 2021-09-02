@@ -40,8 +40,8 @@ this.mercenary <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
@@ -164,59 +164,61 @@ this.mercenary <- this.inherit("scripts/entity/tactical/human", {
 				}
 			}
 		}
-		this.m.Items.equip(this.Const.World.Common.pickArmor([
+
+		local armor = [
 			[1, "sellsword_armor"],
 			[1, "padded_leather"],
 			[1, "patched_mail_shirt"],
-			[1, "basic_mail_shirt"],
-			[1, "mail_shirt"],
+			// [1, "basic_mail_shirt"],
+			// [1, "mail_shirt"],
 			[1, "reinforced_mail_hauberk"],
 			[1, "mail_hauberk"],
 			[1, "lamellar_harness"],
 			[1, "footman_armor"],
 			[1, "light_scale_armor"],
 			[1, "leather_scale_armor"],
-			[1, "northern_mercenary_armor_00"],
-			[1, "northern_mercenary_armor_01"],
-			[1, "northern_mercenary_armor_02"]
-		]));
+		]
 
-		if (this.Math.rand(1, 100) <= 95)
+		local helm = [
+			[1, ""],
+			[5, "nasal_helmet_with_mail"],
+			[5, "nasal_helmet"],
+			[5, "mail_coif"],
+			[5, "reinforced_mail_coif"],
+			[5, "headscarf"],
+			[5, "kettle_hat"],
+			[5, "kettle_hat_with_mail"],
+			[5, "rondel_helm"],
+			[5, "deep_sallet"],
+			[5, "scale_helm"],
+			[5, "flat_top_helmet"],
+			[5, "flat_top_with_mail"],
+			[5, "closed_flat_top_helmet"],
+			[5, "closed_mail_coif"],
+			[5, "bascinet_with_mail"],
+			[5, "nordic_helmet"],
+			[5, "nordic_helmet_with_closed_mail"],
+			[5, "legend_enclave_vanilla_kettle_sallet_02"],
+			[5, "legend_enclave_vanilla_kettle_sallet_03"],
+			[5, "legend_enclave_vanilla_skullcap_01"],
+			[5, "steppe_helmet_with_mail"],
+			[5, "barbute_helmet"]
+		];
+
+		if (this.LegendsMod.Configs().LegendArmorsEnabled())
 		{
-			local helm = [
-				[1, "nasal_helmet_with_mail"],
-				[1, "nasal_helmet"],
-				[1, "mail_coif"],
-				[1, "reinforced_mail_coif"],
-				[1, "headscarf"],
-				[1, "kettle_hat"],
-				[1, "kettle_hat_with_mail"],
-				[1, "rondel_helm"],
-				[2, "deep_sallet"],
-				[1, "scale_helm"],
-				[1, "flat_top_helmet"],
-				[1, "flat_top_with_mail"],
-				[1, "closed_flat_top_helmet"],
-				[1, "closed_mail_coif"],
-				[1, "bascinet_with_mail"],
-				[1, "nordic_helmet"],
-				[1, "nordic_helmet_with_closed_mail"],
-				[1, "legend_enclave_vanilla_kettle_sallet_02"],
-				[1, "legend_enclave_vanilla_kettle_sallet_03"],
-				[1, "legend_enclave_vanilla_skullcap_01"],
-				[1, "steppe_helmet_with_mail"],
-				[1, "barbute_helmet"]
-			];
+			helm.push([5, "theamson_barbute_helmet"])
+		}
 
-			if (this.LegendsMod.Configs().LegendArmorsEnabled())
-			{
-				helm.push([1, "theamson_barbute_helmet"])
-				helm.push([1, "northern_mercenary_helmet_00"])
-				helm.push([1, "northern_mercenary_helmet_01"])
-				helm.push([1, "northern_mercenary_helmet_02"])
-			}
+		local outfits = [
+			[1, "northern_mercenary_outfit_00"],
+			[1, "northern_mercenary_outfit_01"],
+			[1, "northern_mercenary_outfit_02"]
+		]
 
-			this.m.Items.equip(this.Const.World.Common.pickHelmet(helm))
+		foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helm) ) 
+		{
+			this.m.Items.equip(item)
 		}
 	}
 

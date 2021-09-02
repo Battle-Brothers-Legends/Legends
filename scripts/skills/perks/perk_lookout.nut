@@ -5,8 +5,8 @@ this.perk_lookout <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "perk.lookout";
 		this.m.Name = this.Const.Strings.PerkName.Lookout;
 		this.m.Description = this.Const.Strings.PerkDescription.Lookout;
-		this.m.Icon = "ui/perks/lookout.png";
-		this.m.IconDisabled = "ui/perks/lookout_bw.png"
+		this.m.Icon = "ui/perks/lookout_circle.png";
+		this.m.IconDisabled = "ui/perks/lookout_circle_bw.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;

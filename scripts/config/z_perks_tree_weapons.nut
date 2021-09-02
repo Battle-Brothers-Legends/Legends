@@ -7,6 +7,7 @@ if (!("Perks" in gt.Const))
 
 gt.Const.Perks.MaceTree <- {
 	ID = "Mace",
+	Name = "Mace",
 	Descriptions = [
 		"maces"
 	],
@@ -24,6 +25,7 @@ gt.Const.Perks.MaceTree <- {
 
 gt.Const.Perks.FlailTree <- {
 	ID = "Flail",
+	Name = "Flail",
 	Descriptions = [
 		"flails"
 	],
@@ -40,6 +42,7 @@ gt.Const.Perks.FlailTree <- {
 
 gt.Const.Perks.HammerTree <- {
 	ID = "Hammer",
+	Name = "Hammer",
 	Descriptions = [
 		"hammers"
 	],
@@ -56,6 +59,7 @@ gt.Const.Perks.HammerTree <- {
 
 gt.Const.Perks.AxeTree <- {
 	ID = "Axe",
+	Name = "Axe",
 	Descriptions = [
 		"axes"
 	],
@@ -72,6 +76,7 @@ gt.Const.Perks.AxeTree <- {
 
 gt.Const.Perks.CleaverTree <- {
 	ID = "Cleaver",
+	Name = "Cleaver",
 	Descriptions = [
 		"cleavers"
 	],
@@ -88,6 +93,7 @@ gt.Const.Perks.CleaverTree <- {
 
 gt.Const.Perks.GreatSwordTree <- {
 	ID = "GreatSword",
+	Name = "Two-Handed Sword",
 	Descriptions = [
 		"greatswords"
 	],
@@ -104,6 +110,7 @@ gt.Const.Perks.GreatSwordTree <- {
 
 gt.Const.Perks.SwordTree <- {
 	ID = "Sword",
+	Name = "One-Handed Sword",
 	Descriptions = [
 		"swords"
 	],
@@ -119,6 +126,7 @@ gt.Const.Perks.SwordTree <- {
 
 gt.Const.Perks.DaggerTree <- {
 	ID = "Dagger",
+	Name = "Dagger",
 	Descriptions = [
 		"daggers"
 	],
@@ -134,6 +142,7 @@ gt.Const.Perks.DaggerTree <- {
 };
 gt.Const.Perks.PolearmTree <- {
 	ID = "Polearm",
+	Name = "Polearm",
 	Descriptions = [
 		"polearms"
 	],
@@ -150,6 +159,7 @@ gt.Const.Perks.PolearmTree <- {
 
 gt.Const.Perks.SpearTree <- {
 	ID = "Spear",
+	Name = "Spear",
 	Descriptions = [
 		"spears"
 	],
@@ -166,6 +176,7 @@ gt.Const.Perks.SpearTree <- {
 
 gt.Const.Perks.CrossbowTree <- {
 	ID = "Crossbow",
+	Name = "Crossbow",
 	Descriptions = [
 		"crossbows"
 	],
@@ -182,6 +193,7 @@ gt.Const.Perks.CrossbowTree <- {
 
 gt.Const.Perks.BowTree <- {
 	ID = "Bow",
+	Name = "Bow",
 	Descriptions = [
 		"bows"
 	],
@@ -198,6 +210,7 @@ gt.Const.Perks.BowTree <- {
 
 gt.Const.Perks.ThrowingTree <- {
 	ID = "Throwing",
+	Name = "Throwing",
 	Descriptions = [
 		"throwing weapons"
 	],
@@ -214,6 +227,7 @@ gt.Const.Perks.ThrowingTree <- {
 
 gt.Const.Perks.SlingsTree <- {
 	ID = "Slings",
+	Name = "Sling"
 	Descriptions = [
 		"slings"
 	],
@@ -230,6 +244,7 @@ gt.Const.Perks.SlingsTree <- {
 
 gt.Const.Perks.StavesTree <- {
 	ID = "Staves",
+	Name = "Staff"
 	Descriptions = [
 		"staves"
 	],
@@ -244,26 +259,9 @@ gt.Const.Perks.StavesTree <- {
 	]
 };
 
-gt.Const.Perks.FistTree <- {
-	ID = "FistTree",
-	Descriptions = [
-		"unarmed combat"
-	],
-	Tree = [
-		[gt.Const.Perks.PerkDefs.LegendUnarmedTraining],
-		[gt.Const.Perks.PerkDefs.LegendKick],
-		[gt.Const.Perks.PerkDefs.LegendGrapple],
-		[gt.Const.Perks.PerkDefs.LegendSpecFists],
-		[],
-		[],
-		[]
-	]
-};
-
 gt.Const.Perks.WeaponTrees <- {
 	Tree = [
 		gt.Const.Perks.MaceTree,
-		gt.Const.Perks.FistTree,
 		gt.Const.Perks.FlailTree,
 		gt.Const.Perks.HammerTree,
 		gt.Const.Perks.AxeTree,

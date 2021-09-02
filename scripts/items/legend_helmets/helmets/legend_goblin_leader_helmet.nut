@@ -4,7 +4,7 @@ this.legend_goblin_leader_helmet <- this.inherit("scripts/items/helmets/greenski
 	{
 		this.goblin_leader_helmet.create();
 		this.m.ID = "armor.head.legend_goblin_leader_helmet";
-		this.m.IsDroppedAsLoot = true;
+		this.m.IsDroppedAsLoot = false;
 	}
 
 	function getLootLayers()

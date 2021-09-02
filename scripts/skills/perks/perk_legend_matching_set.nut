@@ -7,7 +7,7 @@ this.perk_legend_matching_set <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.LegendMatchingSet;
 		this.m.Icon = "ui/perks/matching_set.png";
 		this.m.IconDisabled = "ui/perks/matching_set_bw.png"
-		this.m.Type = this.Const.SkillType.Perk;
+		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
@@ -19,7 +19,7 @@ this.perk_legend_matching_set <- this.inherit("scripts/skills/skill", {
 		return "Balanced as scales, this character can shift the weight of armor to equally distribute the load, granting fatigue recovery.";
 	}
 
-	function getTooltip()
+	function getBonus()
 	{
 		local actor = this.getContainer().getActor();
 		local body = actor.getArmor(this.Const.BodyPart.Body);
@@ -28,10 +28,22 @@ this.perk_legend_matching_set <- this.inherit("scripts/skills/skill", {
 		local bonus = 0;
 		if ((body + head) <= 400 )
 		{
-		local diff = this.Math.abs(body - head);
-		local diffadj = diff / 10;
-		local bonus = this.Math.max(1, (5 - diffadj));
+			local diff = this.Math.abs(body - head);
+			local diffadj = diff / 10;
+			bonus = this.Math.max(1, (5 - diffadj));
 		}
+		return bonus;
+	}
+
+	function isHidden()
+	{
+		this.getBonus() == 0;
+	}
+
+	function getTooltip()
+	{
+		local tooltip = this.skill.getTooltip();
+		local bonus = this.getBonus();
 
 		if (bonus > 0)
 		{
@@ -57,17 +69,7 @@ this.perk_legend_matching_set <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		local actor = this.getContainer().getActor();
-		local body = actor.getArmor(this.Const.BodyPart.Body);
-		local head = actor.getArmor(this.Const.BodyPart.Head);
-
-		if ((body + head) <= 400 )
-		{
-			local diff = this.Math.abs(body - head);
-			local diffadj = this.Math.floor(diff / 10);
-			local bonus = this.Math.max(1, (5 - diffadj));
-			_properties.FatigueRecoveryRate += bonus;
-		}
+		_properties.FatigueRecoveryRate += this.getBonus();
 	}
 
 });

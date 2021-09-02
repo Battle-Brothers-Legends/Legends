@@ -80,7 +80,7 @@ this.ai_raise_undead <- this.inherit("scripts/ai/tactical/behavior", {
 				continue;
 			}
 
-			if (!c.IsCorpseSpawned || !c.Properties.get("Corpse").IsResurrectable)
+			if (!this.Const.TileUtils.canResurrectOnTile())
 			{
 				continue;
 			}

@@ -137,33 +137,128 @@ this.gatherer_building <- this.inherit("scripts/entity/world/camp/camp_building"
         return mod.Assigned;
     }
 
+    function getUpdateText()
+    {
+    	if (this.World.Assets.getMedicine() + this.m.MedsAdded >= this.World.Assets.getMaxMedicine())
+    	{
+    		return "Gathered ... " + this.Math.floor(this.m.MedsAdded) + " meds and " + this.m.Items.len() + " items";
+    	}
+
+    	local points = this.Math.floor(this.m.Craft * this.m.Camp.getElapsedHours());
+    	this.m.MedsAdded = this.Math.min(this.World.Assets.getMaxMedicine(), (points / 3.0));
+    	return "Gathered ... " + this.Math.floor(this.m.MedsAdded) + " meds and " + this.m.Items.len() + " items";
+    }
+
 	function update()
 	{
-		if (this.m.NumBros == 0)
+		if (this.m.NumBros == 0) return null;
+
+		local levels = this.getAllLevels();
+		local emptySlots = this.Stash.getNumberOfEmptySlots();
+		if (emptySlots == 0) return this.getUpdateText();
+		local item = null;
+		this.logInfo(this.m.Craft);
+		local dropLoot = -3.0 / (this.m.Craft + 0.4) + 7.5 > this.Math.rand(1, 100);
+		if (dropLoot && this.getUpgraded())
 		{
-			return null
+			local r = this.Math.rand(1,2)
+			if (r == 1) item = this.new("scripts/items/supplies/roots_and_berries_item");
+			else item = this.new("scripts/items/supplies/medicine_small_item");
+
+			this.m.Items.push(item);
+			this.Stash.add(item);
+			if(--emptySlots == 0) return this.getUpdateText();
 		}
 
-		if (this.World.Assets.getMedicine() + this.m.MedsAdded >= this.World.Assets.getMaxMedicine())
+		local dropLoot = -600.0 / (levels.Woodsman + 60) + 10 > this.Math.rand(1, 100);
+		if (dropLoot)
 		{
-			return "Gathered ... " + this.Math.floor(this.m.MedsAdded) + " meds";
+			if (levels.Woodsman < 10) item = this.new("scripts/items/trade/legend_raw_wood_item");
+			else item = this.new("scripts/items/trade/quality_wood_item");
+
+			this.m.Items.push(item);
+			this.Stash.add(item);
+			if(--emptySlots == 0) return this.getUpdateText();
 		}
 
-		local points = this.Math.floor(this.m.Craft * this.m.Camp.getElapsedHours());
-		this.m.MedsAdded = this.Math.min(this.World.Assets.getMaxMedicine(), (points / 3.0));
-		return "Gathered ... " + this.Math.floor(this.m.MedsAdded) + " meds";
+		dropLoot = -600.0 / (levels.Miner + 60) + 10 > this.Math.rand(1, 100);
+		if (dropLoot)
+		{
+			local r = levels.Miner > 10 ? 1 : this.Math.rand(1, 3);
+			if (r < 3) item = this.new("scripts/items/trade/peat_bricks_item");
+			else item = this.new("scripts/items/trade/uncut_gems_item");
+			this.m.Items.push(item);
+			this.Stash.add(item);
+			if(--emptySlots == 0) return this.getUpdateText();
+		}
+
+		dropLoot = levels.Apothecary > 0 ? -600.0 / (levels.Apothecary + levels.Brewer + 60) + 10 > this.Math.rand(1, 100) : false;
+		if (dropLoot)
+		{
+			local loot = this.new("scripts/mods/script_container");
+			loot.extend([
+				"scripts/items/accessory/berserker_mushrooms_item",
+				"scripts/items/accessory/antidote_item",
+				"scripts/items/accessory/poison_item",
+				"scripts/items/misc/mysterious_herbs_item",
+				"scripts/items/misc/legend_mistletoe_item",
+				//"scripts/items/misc/legend_wolfsbane_item",
+				"scripts/items/supplies/medicine_item"
+			]);
+
+			if (levels.Brewer == 0 && levels.Apothecary >= 10)
+			{
+				loot.extend([
+					"scripts/items/accessory/legend_apothecary_mushrooms_item",
+					"scripts/items/misc/happy_powder_item"
+				]);
+			}
+			else if (levels.Brewer >= 0 && levels.Apothecary >= 10)
+			{
+				loot.extend([
+					"scripts/items/accessory/lionheart_potion_item",
+					"scripts/items/accessory/iron_will_potion_item",
+					"scripts/items/accessory/recovery_potion_item",
+					"scripts/items/accessory/cat_potion_item"
+				]);
+				if (levels.Brewer >= 20 && levels.Apothecary >= 60)
+				{
+					loot.extend([
+						"scripts/items/misc/miracle_drug_item",
+						"scripts/items/accessory/spider_poison_item",
+						"scripts/items/misc/potion_of_oblivion_item",
+						"scripts/items/misc/potion_of_knowledge_item"
+					]);
+				}
+			}
+			item = this.new(loot.roll());
+			this.m.Items.push(item);
+			this.Stash.add(item);
+			if(--emptySlots == 0) return this.getUpdateText();
+		}
+
+		return getUpdateText();
 	}
 
-	function getApothecaryLevel()
+	function getAllLevels()
 	{
+		local map = {
+			Brewer = 0,
+			Woodsman = 0,
+			Miner = 0,
+			Apothecary = 0
+		};
 		local roster = this.World.getPlayerRoster().getAll();
-		local apothecaryLevel = 0;
+
         foreach( bro in roster )
         {
-            if (bro.getCampAssignment() != this.m.ID)
-            {
-                continue
-            }
+            if (bro.getCampAssignment() != this.m.ID) continue;
+
+			if (bro.getSkills().hasSkill("perk.legend_potion_brewer")) map.Brewer += bro.getLevel();
+
+			if (bro.getSkills().hasSkill("perk.legend_specialist_woodaxe_damage")) map.Woodsman += bro.getLevel();
+
+			if (bro.getSkills().hasSkill("perk.legend_specialist_pickaxe_damage")) map.Miner += bro.getLevel();
 
 			switch (bro.getBackground().getID())
 			{
@@ -171,86 +266,13 @@ this.gatherer_building <- this.inherit("scripts/entity/world/camp/camp_building"
 				case "background.legend_vala_commander":
 				case "background.legend_herbalist":
 				case "background.legend_alchemist":
-					apothecaryLevel += bro.getLevel()
+				case "background.legend_druid":
+					map.Apothecary += bro.getLevel()
 			}
 
-
-			if (bro.getSkills().hasSkill("perk.legend_gatherer"))
-			{
-               apothecaryLevel += bro.getLevel()
-            }
-
-			return apothecaryLevel;
-
+			if (bro.getSkills().hasSkill("perk.legend_gatherer")) map.Apothecary += bro.getLevel();
         }
-
-	}
-
-
-	function getBrewerLevel()
-	{
-		local roster = this.World.getPlayerRoster().getAll();
-		local brewerLevel = 0;
-        foreach( bro in roster )
-        {
-            if (bro.getCampAssignment() != this.m.ID)
-            {
-                continue
-            }
-
-			if (bro.getSkills().hasSkill("perk.legend_potion_brewer"))
-			{
-               brewerLevel += bro.getLevel()
-            }
-
-			return brewerLevel;
-
-        }
-
-	}
-
-	function getWoodsmanLevel()
-	{
-		local roster = this.World.getPlayerRoster().getAll();
-		local woodsmanLevel = 0;
-        foreach( bro in roster )
-        {
-            if (bro.getCampAssignment() != this.m.ID)
-            {
-                continue
-            }
-
-			if (bro.getSkills().hasSkill("perk.legend_specialist_woodaxe_damage"))
-			{
-               woodsmanLevel += bro.getLevel()
-            }
-
-			return woodsmanLevel;
-
-        }
-
-	}
-
-	function getMinerLevel()
-	{
-		local roster = this.World.getPlayerRoster().getAll();
-		local minerLevel = 0;
-        foreach( bro in roster )
-        {
-            if (bro.getCampAssignment() != this.m.ID)
-            {
-                continue
-            }
-
-			if (bro.getSkills().hasSkill("perk.legend_specialist_pickaxe_damage"))
-			{
-               minerLevel += bro.getLevel()
-            }
-
-			return minerLevel;
-
-        }
-
+        return map;
 	}
 
     function completed()
@@ -260,143 +282,6 @@ this.gatherer_building <- this.inherit("scripts/entity/world/camp/camp_building"
 		{
 			this.World.Assets.addMedicine(this.Math.floor(this.m.MedsAdded));
 		}
-
-		if (!this.getUpgraded())
-		{
-			return
-		}
-
-		if (this.Stash.getNumberOfEmptySlots() == 0)
-		{
-			return
-		}
-
-		local secondary = [
-			"scripts/items/supplies/roots_and_berries_item",
-			"scripts/items/supplies/medicine_small_item"
-		];
-
-		//check for apothecaries
-		local apothecarylevels = this.getApothecaryLevel();
-
-		// set it to something that wont break if none are present
-		if (apothecarylevels == null)
-		{
-		apothecarylevels = 0;
-		}
-
-
-		//check for brewers
-		local brewerlevels = this.getBrewerLevel();
-		if (brewerlevels == null)
-		{
-			brewerlevels = 0;
-		}
-
-		//check for woodsmen
-		local woodsmanlevels = this.getWoodsmanLevel();
-
-		// set it to something that wont break if none are present
-		if (woodsmanlevels == null)
-		{
-		woodsmanlevels = 0;
-		}
-
-		if (woodsmanlevels >= 1 && woodsmanlevels < 10)
-		{
-			secondary.extend([
-				"scripts/items/trade/legend_raw_wood_item"
-			]);
-		}
-
-		if (woodsmanlevels >= 10)
-		{
-			secondary.extend([
-				"scripts/items/trade/quality_wood_item"
-			]);
-		}
-
-		//check for miners
-		local minerlevels = this.getMinerLevel();
-
-		// set it to something that wont break if none are present
-		if (minerlevels == null)
-		{
-		minerlevels = 0;
-		}
-
-		if (minerlevels >= 1 && minerlevels < 10)
-		{
-			secondary.extend([
-				"scripts/items/trade/peat_bricks_item"
-			]);
-		}
-
-		if (minerlevels >= 5)
-		{
-			secondary.extend([
-				"scripts/items/trade/peat_bricks_item"
-			]);
-		}
-
-		if (minerlevels >= 10)
-		{
-			secondary.extend([
-				"scripts/items/trade/uncut_gems_item"
-			]);
-		}
-
-		if (apothecarylevels >= 1 && apothecarylevels < 10)
-		{
-			secondary.extend([
-				"scripts/items/accessory/berserker_mushrooms_item",
-				"scripts/items/accessory/antidote_item",
-				"scripts/items/accessory/poison_item",
-				"scripts/items/misc/mysterious_herbs_item",
-				"scripts/items/misc/legend_mistletoe_item",
-				"scripts/items/misc/legend_wolfsbane_item",
-				"scripts/items/supplies/medicine_item"
-			])
-		}
-
-		if (apothecarylevels >= 10 && brewerlevels < 1)
-		{
-			secondary.extend([
-				"scripts/items/accessory/legend_apothecary_mushrooms_item",
-				"scripts/items/misc/happy_powder_item"
-			]);
-		}
-
-		if (apothecarylevels >= 10 && brewerlevels >= 1)
-		{
-			secondary.extend([
-				"scripts/items/accessory/lionheart_potion_item",
-				"scripts/items/accessory/iron_will_potion_item",
-				"scripts/items/accessory/recovery_potion_item",
-				"scripts/items/accessory/cat_potion_item"
-			]);
-		}
-
-		if (apothecarylevels >= 60 && brewerlevels >= 20 )
-		{
-			secondary.extend([
-				"scripts/items/misc/miracle_drug_item",
-				"scripts/items/accessory/spider_poison_item",
-				"scripts/items/misc/potion_of_oblivion_item",
-				"scripts/items/misc/potion_of_knowledge_item"
-			]);
-		}
-
-
-		local secondarychance = this.Math.min(8, 100 - apothecarylevels);
-		if (this.Math.rand(1, secondarychance) <= this.m.Camp.getCampTimeHours())
-		{
-			local item = this.new(secondary[this.Math.rand(0, secondary.len()-1)]);
-			this.m.Items.push(item);
-			this.Stash.add(item);
-		}
-
-
     }
 
 	function onClicked( _campScreen )

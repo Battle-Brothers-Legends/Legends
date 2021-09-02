@@ -198,7 +198,7 @@ this.kobold <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/footwork"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_footwork"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_boondock_blade"));
 		if (this.Const.DLC.Unhold)
 		{

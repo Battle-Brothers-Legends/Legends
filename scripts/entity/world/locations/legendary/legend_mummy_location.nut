@@ -2,7 +2,7 @@ this.legend_mummy_location <- this.inherit("scripts/entity/world/location", {
 	m = {},
 	function getDescription()
 	{
-		return "An ancient ruin, in a style of architecture you have never seen before";
+		return "An ancient ruin, in a style of architecture you have never seen before.";
 	}
 
 	function create()

@@ -7,6 +7,7 @@ if (!("Perks" in gt.Const))
 
 gt.Const.Perks.BeastClassTree <- {
 	ID = "BeastClassTree",
+	Name = "Nets",
 	Descriptions = [
 		"catching beasts"
 	],
@@ -23,6 +24,7 @@ gt.Const.Perks.BeastClassTree <- {
 
 gt.Const.Perks.BardClassTree <- {
 	ID = "BardClassTree",
+	Name = "Bard",
 	Descriptions = [
 		"entertaining"
 	],
@@ -42,6 +44,7 @@ gt.Const.Perks.BardClassTree <- {
 
 gt.Const.Perks.HealerClassTree <- {
 	ID = "HealerClassTree",
+	Name = "Healing",
 	Descriptions = [
 		"healing"
 	],
@@ -58,6 +61,7 @@ gt.Const.Perks.HealerClassTree <- {
 
 gt.Const.Perks.FaithClassTree <- {
 	ID = "FaithClassTree",
+	Name = "Faith",
 	Descriptions = [
 		"faith"
 	],
@@ -74,6 +78,7 @@ gt.Const.Perks.FaithClassTree <- {
 
 gt.Const.Perks.FistsClassTree <- {
 	ID = "FistsClassTree",
+	Name = "Unarmed",
 	Descriptions = [
 		"unarmed combat"
 	],
@@ -90,6 +95,7 @@ gt.Const.Perks.FistsClassTree <- {
 
 gt.Const.Perks.ChefClassTree <- {
 	ID = "ChefClassTree",
+	Name = "Chef",
 	Descriptions = [
 		"cooking"
 	],
@@ -106,6 +112,7 @@ gt.Const.Perks.ChefClassTree <- {
 
 gt.Const.Perks.RepairClassTree <- {
 	ID = "RepairClassTree",
+	Name = "Repair",
 	Descriptions = [
 		"repairs"
 	],
@@ -122,6 +129,7 @@ gt.Const.Perks.RepairClassTree <- {
 
 gt.Const.Perks.BarterClassTree <- {
 	ID = "BarterClassTree",
+	Name = "Barter",
 	Descriptions = [
 		"bartering"
 	],
@@ -144,6 +152,7 @@ gt.Const.Perks.BarterClassTree <- {
 
 gt.Const.Perks.KnifeClassTree <- {
 	ID = "KnifeClassTree",
+	Name = "Knives",
 	Descriptions = [
 		"knives"
 	],
@@ -160,6 +169,7 @@ gt.Const.Perks.KnifeClassTree <- {
 
 gt.Const.Perks.ButcherClassTree <- {
 	ID = "ButcherClassTree",
+	Name = "Butcher",
 	Descriptions = [
 		"butchery"
 	],
@@ -176,6 +186,7 @@ gt.Const.Perks.ButcherClassTree <- {
 
 gt.Const.Perks.HammerClassTree <- {
 	ID = "HammerClassTree",
+	Name = "Blacksmith",
 	Descriptions = [
 		"hammers"
 	],
@@ -192,6 +203,7 @@ gt.Const.Perks.HammerClassTree <- {
 
 gt.Const.Perks.MilitiaClassTree <- {
 	ID = "MilitiaClassTree",
+	Name = "Militia",
 	Descriptions = [
 		"militia"
 	],
@@ -208,6 +220,7 @@ gt.Const.Perks.MilitiaClassTree <- {
 
 gt.Const.Perks.PickaxeClassTree <- {
 	ID = "PickaxeClassTree",
+	Name = "Miner",
 	Descriptions = [
 		"pickaxes"
 	],
@@ -224,6 +237,7 @@ gt.Const.Perks.PickaxeClassTree <- {
 
 gt.Const.Perks.PitchforkClassTree <- {
 	ID = "PitchforkClassTree",
+	Name = "Farmer",
 	Descriptions = [
 		"pitchforks"
 	],
@@ -240,6 +254,7 @@ gt.Const.Perks.PitchforkClassTree <- {
 
 gt.Const.Perks.ShortbowClassTree <- {
 	ID = "ShortbowClassTree",
+	Name = "Shortbow",
 	Descriptions = [
 		"shortbows"
 	],
@@ -256,6 +271,7 @@ gt.Const.Perks.ShortbowClassTree <- {
 
 gt.Const.Perks.ShovelClassTree <- {
 	ID = "ShovelClassTree",
+	Name = "Gravedigger",
 	Descriptions = [
 		"shovels"
 	],
@@ -272,6 +288,7 @@ gt.Const.Perks.ShovelClassTree <- {
 
 gt.Const.Perks.WoodaxeClassTree <- {
 	ID = "WoodaxeClassTree",
+	Name = "Lumberjack",
 	Descriptions = [
 		"axes"
 	],
@@ -288,6 +305,7 @@ gt.Const.Perks.WoodaxeClassTree <- {
 
 gt.Const.Perks.SickleClassTree <- {
 	ID = "SickleClassTree",
+	Name = "Sickle",
 	Descriptions = [
 		"sickles"
 	],
@@ -304,6 +322,7 @@ gt.Const.Perks.SickleClassTree <- {
 
 gt.Const.Perks.NinetailsClassTree <- {
 	ID = "NinetailsClassTree",
+	Name = "Cat O' Nine Tails",
 	Descriptions = [
 		"ninetails"
 	],
@@ -320,6 +339,7 @@ gt.Const.Perks.NinetailsClassTree <- {
 
 gt.Const.Perks.JugglerClassTree <- {
 	ID = "JugglerClassTree",
+	Name = "Juggler",
 	Descriptions = [
 		"acrobatics"
 	],
@@ -336,6 +356,7 @@ gt.Const.Perks.JugglerClassTree <- {
 
 gt.Const.Perks.HoundmasterClassTree <- {
 	ID = "HoundmasterClassTree",
+	Name = "Hound Master",
 	Descriptions = [
 		"training dogs"
 	],

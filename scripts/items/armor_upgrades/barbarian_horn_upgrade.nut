@@ -17,9 +17,9 @@ this.barbarian_horn_upgrade <- this.inherit("scripts/items/armor_upgrades/armor_
 		this.m.SpriteDamagedBack = "upgrade_23_back_damaged";
 		this.m.SpriteCorpseFront = "upgrade_23_front_dead";
 		this.m.SpriteCorpseBack = "upgrade_23_back_dead";
-		this.m.Value = 500;
+		this.m.Value = 250;
 		this.m.ConditionModifier = 40;
-		this.m.StaminaModifier = 4;
+		this.m.StaminaModifier = 3;
 	}
 
 	function getTooltip()
@@ -35,7 +35,7 @@ this.barbarian_horn_upgrade <- this.inherit("scripts/items/armor_upgrades/armor_
 			id = 14,
 			type = "text",
 			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-4[/color] Maximum Fatigue"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Maximum Fatigue"
 		});
 		return result;
 	}

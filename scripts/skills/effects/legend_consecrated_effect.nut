@@ -8,33 +8,23 @@ this.legend_consecrated_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Consecrated";
 		this.m.Description = "This character is being consecrated by holy light";
 		this.m.Icon = "ui/perks/holyfire_circle.png";
+		this.m.IconMini = "mini_fire_circle";
 		this.m.Overlay = "fire_circle";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
-		this.m.IsHidden = true;
 		this.m.IsRemovedAfterBattle = true;
 	}
 
 	function getTooltip()
 	{
-		return [
-			{
-				id = 1,
-				type = "title",
-				text = this.getName()
-			},
-			{
-				id = 2,
-				type = "description",
-				text = this.getDescription()
-			},
-			{
-				id = 12,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "Loses any immunity to injuries, bleeding and poison for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] more turns."
-			}
-		];
+		local ret = this.skill.getTooltip();
+		ret.push({
+			id = 12,
+			type = "text",
+			icon = "ui/icons/special.png",
+			text = "Loses any immunity to injuries, bleeding and poison for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] more turns."
+		});
+		return ret;
 	}
 
 	function onAdded()
@@ -47,7 +37,7 @@ this.legend_consecrated_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
 		this.Tactical.TurnSequenceBar.pushEntityBack(this.getContainer().getActor().getID());
-		this.spawnIcon("status_effect_65", this.getContainer().getActor().getTile());
+		this.spawnIcon("fire_circle", this.getContainer().getActor().getTile());
 	}
 
 	function onTurnEnd()

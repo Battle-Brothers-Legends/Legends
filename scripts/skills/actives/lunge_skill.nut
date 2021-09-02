@@ -148,7 +148,7 @@ this.lunge_skill <- this.inherit("scripts/skills/skill", {
 		{
 			this.m.FatigueCostMult = _properties.IsSpecializedInSwords ? this.Const.Combat.WeaponSpecFatigueMult : 1.0;
 		}
-		this.m.ActionPointCost = _properties.IsFleetfooted ? 2 : 4;
+		this.m.ActionPointCost = _properties.IsFleetfooted ? 3 : 4;
 	}
 
 	function onUse( _user, _targetTile )

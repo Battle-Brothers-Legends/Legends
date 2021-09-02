@@ -59,8 +59,8 @@ this.nomad_archer <- this.inherit("scripts/entity/tactical/human", {
 		}
 
 		this.m.Skills.add(this.new("scripts/skills/actives/throw_dirt_skill"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_pathfinder"));
 
@@ -113,17 +113,28 @@ this.nomad_archer <- this.inherit("scripts/entity/tactical/human", {
 		];
 		this.m.Items.addToBag(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 
-		this.m.Items.equip(this.Const.World.Common.pickArmor([
+
+		local armor = [
 			[1, "oriental/nomad_robe"],
 			[1, "oriental/thick_nomad_robe"],
-			[1, "oriental/cloth_sash"]
-		]));
-		local helms = [
+			[1, "oriental/cloth_sash"],
+			[1, "nomad_archer_armor_00"]
+		]
+
+		local helmet = [
 			[1, "oriental/nomad_head_wrap"],
 			[1, "oriental/nomad_head_wrap"],
 			[1, "oriental/nomad_leather_cap"]
-		];
-		this.m.Items.equip(this.Const.World.Common.pickHelmet(helms));
+		]
+
+		local outfits = [
+			[1, "dark_southern_outfit_00"]
+		]
+
+		foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) ) 
+		{
+			this.m.Items.equip(item)
+		}
 	}
 
 });

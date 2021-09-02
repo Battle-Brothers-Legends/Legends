@@ -6,7 +6,7 @@ this.legend_parrying_dagger_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.legend_parrying_dagger";
 		this.m.Name = "Parry defense";
-		this.m.Description = "Parrying daggers work best against a single opponent, +40 defense when there is only a single enemy within 2 tiles";
+		this.m.Description = "Parrying daggers work best against a single opponent, +20 defense when there is only a single enemy within 2 tiles";
 		this.m.Icon = "ui/perks/perk_61.png";
 		this.m.IconMini = "perk_61_mini";
 		this.m.Type = this.Const.SkillType.StatusEffect;

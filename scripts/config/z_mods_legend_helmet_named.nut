@@ -112,7 +112,7 @@ gt.Const.LegendMod.HelmObjs.extend([
         [1, "hood/legend_helmet_chain_hood"] //80
     ],
     Helms = [
-        [1, "helm/legend_helmet_legend_frogmouth"] //265
+        [1, "helm/legend_helmet_legend_frogmouth_close"] //265
     ],
     Tops = [
     ],
@@ -133,7 +133,7 @@ gt.Const.LegendMod.HelmObjs.extend([
         [1, "hood/legend_helmet_chain_scarf"] //70
     ],
     Helms = [
-        [1, "helm/legend_helmet_legend_frogmouth"] //265
+        [1, "helm/legend_helmet_legend_frogmouth_close"] //265
     ],
     Tops = [],
     Vanity = []

@@ -227,9 +227,6 @@ this.legend_vala_warden_script <- this.inherit("scripts/entity/tactical/actor", 
 		local b = this.m.BaseProperties;
 		b.setValues(WardenProperties);
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
-		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToRoot = true;
 		b.IsImmuneToZoneOfControl = false;
 		b.IsIgnoringArmorOnAttack = true;
@@ -270,6 +267,9 @@ this.legend_vala_warden_script <- this.inherit("scripts/entity/tactical/actor", 
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		// additional skills based on Vala's daily swap?
 	}
 });

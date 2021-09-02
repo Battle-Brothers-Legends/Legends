@@ -1015,7 +1015,7 @@ gt.Const.Strings.LegendArmorLayers <- [
 "Redemption",
 "Pennance",
 "Rapture",
-"Gaurdian",
+"Guardian",
 "Hope",
 "Bullwark",
 "Bastion",

@@ -29,8 +29,8 @@ this.engineer <- this.inherit("scripts/entity/tactical/human", {
 		this.setAppearance();
 		this.getSprite("socket").setBrush("bust_base_southern");
 		this.m.Skills.add(this.new("scripts/skills/actives/load_mortar_skill"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 	}
 
 	function onOtherActorDeath( _killer, _victim, _skill )

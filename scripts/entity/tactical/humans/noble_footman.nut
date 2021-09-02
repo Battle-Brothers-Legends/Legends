@@ -37,8 +37,8 @@ this.noble_footman <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_brawny"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
@@ -129,10 +129,11 @@ this.noble_footman <- this.inherit("scripts/entity/tactical/human", {
 					[1, "padded_kettle_hat"],
 					[1, "kettle_hat_with_mail"],
 					[1, "mail_coif"],
-					[1, "legend_enclave_vanilla_skullcap_01"]
+					[1, "legend_enclave_vanilla_skullcap_01"],
+					[5, "heavy_noble_house_helmet_00"]
 				])
 			}
-			else if (banner <= 7)
+		else if (banner <= 7)
 			{
 				helmet = this.Const.World.Common.pickHelmet([
 					[1, "flat_top_helmet"],
@@ -141,25 +142,27 @@ this.noble_footman <- this.inherit("scripts/entity/tactical/human", {
 					[1, "rondel_helm"],
 					[1, "scale_helm"],
 					[1, "mail_coif"],
-					[1, "legend_enclave_vanilla_skullcap_01"]
+					[1, "legend_enclave_vanilla_skullcap_01"],
+					[5, "heavy_noble_house_helmet_00"]
 				])
 			}
-			else
+		else
 			{
 				helmet = this.Const.World.Common.pickHelmet([
 					[1, "nasal_helmet"],
 					[1, "padded_nasal_helmet"],
 					[1, "nasal_helmet_with_mail"],
 					[1, "mail_coif"],
-					[1, "legend_enclave_vanilla_skullcap_01"]
+					[1, "legend_enclave_vanilla_skullcap_01"],
+					[5, "heavy_noble_house_helmet_00"]
 				])
 			}
 
 		if (helmet != null)
-		{
-			// helmet.setPlainVariant();
-			this.m.Items.equip(helmet);
-		}
+			{
+				if ("setPlainVariant" in helmet) { helmet.setPlainVariant(); }
+				this.m.Items.equip(helmet);
+			}
 	}
 
 });

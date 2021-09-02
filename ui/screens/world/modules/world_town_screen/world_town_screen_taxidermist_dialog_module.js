@@ -389,6 +389,17 @@ WorldTownScreenTaxidermistDialogModule.prototype.addListEntry = function (_data)
     }, null, 'opacity-none');
     image.bindTooltip({ contentType: 'ui-item', itemId: _data.ID, itemOwner: 'craft' });
 
+    if(_data.isAmountShown) 
+    {
+        var amountLayer =$('<div class="amount-layer display-block"/>');
+        column.append(amountLayer);
+        var amountLabel = $('<div class="label text-font-very-small font-shadow-outline"/>');
+        amountLayer.append(amountLabel);
+        amountLabel.text(_data.Amount);
+        amountLayer.removeClass('display-none').addClass('display-block');
+        amountLabel.css({'color' : "#ffffff"});
+    }
+    
     // right column
     column = $('<div class="column is-right"/>');
     entry.append(column);
@@ -431,6 +442,14 @@ WorldTownScreenTaxidermistDialogModule.prototype.addListEntry = function (_data)
         {
             icon = $('<img src="' + Path.ITEMS + _data.Ingredients[i].ImagePath + '"/>');
             icon.bindTooltip({ contentType: 'ui-item', itemId: _data.Ingredients[i].InstanceID, entityId: _data.ID, itemOwner: 'blueprint' });
+
+            var amountLayer =$('<div class="amount-layer display-block"/>');
+            iconContainer.append(amountLayer);
+            var amountLabel = $('<div class="label text-font-very-small font-shadow-outline font-size-10"/>');
+            amountLayer.append(amountLabel);
+            amountLabel.text(_data.Ingredients[i].InvTotal + "/" + _data.Ingredients[i].Num);
+            amountLayer.removeClass('display-none').addClass('display-block');
+            amountLabel.css({'color' : "#ffffff"})
         }
         iconContainer.append(icon);
 
@@ -500,6 +519,14 @@ WorldTownScreenTaxidermistDialogModule.prototype.updateDetailsPanel = function(_
             {
                 icon = $('<img src="' + Path.ITEMS + data.Ingredients[i].ImagePath + '"/>');
                 icon.bindTooltip({ contentType: 'ui-item', itemId: data.Ingredients[i].InstanceID, entityId: data.ID, itemOwner: 'blueprint' });
+                
+                var amountLayer =$('<div class="amount-layer display-block"/>');
+                iconContainer.append(amountLayer);
+                var amountLabel = $('<div class="label text-font-very-small font-shadow-outline font-size-15"/>');
+                amountLayer.append(amountLabel);
+                amountLabel.text(data.Ingredients[i].InvTotal + "/" + data.Ingredients[i].Num);
+                amountLayer.removeClass('display-none').addClass('display-block');
+                amountLabel.css({'color' : "#ffffff"});
             }
 
             iconContainer.append(icon);

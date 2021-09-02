@@ -5,7 +5,7 @@ this.legend_mage_swordstaff <- this.inherit("scripts/items/weapons/weapon", {
 		this.weapon.create();
 		this.m.ID = "weapon.legend_mage_swordstaff";
 		this.m.Name = "Bladed Magestaff";
-		this.m.Description = "While the nature of its construction remains a myth, this unique mage's swordstaff is permeated with magic";
+		this.m.Description = "While the nature of its construction remains a myth, this unique mage's swordstaff is permeated with magic.";
 		this.m.Categories = "Sword/Spear/Mystic Staff, Two-Handed";
 		this.m.IconLarge = "weapons/melee/legend_swordstaff_01_legendary_01.png";
 		this.m.Icon = "weapons/melee/legend_swordstaff_01_legendary_01_70x70.png";

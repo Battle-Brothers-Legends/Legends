@@ -23,7 +23,6 @@ this.legend_armor_named_warlock_cloak <- this.inherit("scripts/items/legend_armo
 		this.m.ConditionMax = 180;
 		this.m.StaminaModifier = 8;
 		this.randomizeValues();
-
 	}
 
 
@@ -34,25 +33,25 @@ this.legend_armor_named_warlock_cloak <- this.inherit("scripts/items/legend_armo
 			id = 6,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Grants [color=" + this.Const.UI.Color.PositiveEventValue + "] +10%[/color] Melee skill when at confident morale."
+			text = "Grants [color=" + this.Const.UI.Color.PositiveValue + "] +10%[/color] Melee skill when at confident morale."
 		});
 		result.push({
 			id = 7,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Grants [color=" + this.Const.UI.Color.PositiveEventValue + "] +10%[/color] Melee defense when at confident morale."
+			text = "Grants [color=" + this.Const.UI.Color.PositiveValue + "] +10%[/color] Melee defense when at confident morale."
 		});
 		result.push({
 			id = 8,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Grants [color=" + this.Const.UI.Color.PositiveEventValue + "] +10%[/color] Ranged defense when at confident morale."
+			text = "Grants [color=" + this.Const.UI.Color.PositiveValue + "] +10%[/color] Ranged defense when at confident morale."
 		});
 		result.push({
 			id = 9,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Increase max hitpoints by [color=" + this.Const.UI.Color.PositiveEventValue + "] +20[/color]."
+			text = "Increase max hitpoints by [color=" + this.Const.UI.Color.PositiveValue + "] +20[/color]."
 		});
 		return result;
 	}
@@ -61,35 +60,12 @@ this.legend_armor_named_warlock_cloak <- this.inherit("scripts/items/legend_armo
 	{
 		this.legend_named_armor.onUpdateProperties(_properties);
 		_properties.Hitpoints += 20;
-	}
 
-
-	function onEquip()
-	{
-		this.legend_named_armor.onEquip();
-		local a = this.getContainer().getActor();
-		if (a == null)
+		if (this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Confident)
 		{
-			return;
-		}
-
-		if (!a.getSkills().hasSkill("perk.legend_assured_conquest"))
-		{
-			a.getSkills().add(this.new("scripts/skills/perks/perk_legend_assured_conquest"));
+			_properties.MeleeSkill *= 1.1;
+			_properties.MeleeDefense *= 1.1;
+			_properties.RangedDefense *= 1.1;
 		}
 	}
-
-	function onUnequip()
-	{
-		local a = this.getContainer().getActor();
-		if (a == null)
-		{
-			return;
-
-		}
-		a.getSkills().removeByID("perk.legend_assured_conquest");
-		this.legend_named_armor.onUnequip();
-	}
-
 });
-

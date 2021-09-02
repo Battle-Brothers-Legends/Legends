@@ -69,6 +69,8 @@ this.stone_watchtower_oriental_location <- this.inherit("scripts/entity/world/at
 		}
 
 		_list.push("nomad_background");
+		_list.push("nomad_background");
+		_list.push("nomad_background");
 	}
 
 	function onUpdateShopList( _id, _list )
@@ -114,6 +116,16 @@ this.stone_watchtower_oriental_location <- this.inherit("scripts/entity/world/at
 				R = 60,
 				P = 1.0,
 				S = "weapons/scimitar"
+			});
+				_list.push({
+				R = 90,
+				P = 1.0,
+				S = "tents/tent_train"
+			});
+				_list.push({
+				R = 90,
+				P = 1.0,
+				S = "tents/tent_scout"
 			});
 			_list.push({
 				R = 60,

@@ -91,8 +91,6 @@ this.kraken_tentacle <- this.inherit("scripts/entity/tactical/actor", {
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.KrakenTentacle);
 		b.IsAffectedByNight = false;
-		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToPoison = true;
 		b.IsMovable = false;
 		b.IsAffectedByInjuries = false;
 		b.IsImmuneToDisarm = true;
@@ -117,6 +115,8 @@ this.kraken_tentacle <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		this.Tactical.getTemporaryRoster().add(this);
 	}
 

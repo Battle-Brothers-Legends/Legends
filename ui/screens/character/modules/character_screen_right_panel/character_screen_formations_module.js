@@ -326,13 +326,13 @@ CharacterScreenFormationsModule.prototype.isRegistered = function () {
 
 CharacterScreenFormationsModule.prototype.show = function () {
     // NOTE: (js) HACK which prevents relayouting..
-    this.mContainer.removeClass('opacity-none').addClass('opacity-full');
+    this.mContainer.removeClass('opacity-none no-pointer-events').addClass('opacity-full');
     //this.mContainer.removeClass('display-none').addClass('display-block');
 };
 
 CharacterScreenFormationsModule.prototype.hide = function () {
     // NOTE: (js) HACK which prevents relayouting..
-    this.mContainer.removeClass('opacity-full is-top').addClass('opacity-none');
+    this.mContainer.removeClass('opacity-full is-top').addClass('opacity-none no-pointer-events');
     //this.mContainer.removeClass('display-block is-top').addClass('display-none');
 };
 

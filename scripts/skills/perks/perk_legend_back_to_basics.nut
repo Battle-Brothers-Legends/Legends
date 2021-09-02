@@ -1,51 +1,84 @@
 this.perk_legend_back_to_basics <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		BasicsStacks = 0
+	},
 	function create()
 	{
 		this.m.ID = "perk.legend_back_to_basics";
 		this.m.Name = this.Const.Strings.PerkName.LegendBackToBasics;
 		this.m.Description = this.Const.Strings.PerkDescription.LegendBackToBasics;
-		this.m.Icon = "skills/status_effect_14.png";
-		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Perk;
-		this.m.IsActive = false;
-		this.m.IsStacking = false;
-		this.m.IsHidden = false;
+		this.m.Icon = "ui/perks/back_to_basics_circle.png";
+		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Order = this.Const.SkillOrder.Last;
+	}
+
+	function getDescription()
+	{
+		return "Years of practice lead this character to fall back to their instincts and basic training under extreme stress."
+	}
+
+	function getTooltip()
+	{
+		local tooltip = this.skill.getTooltip();
+		if (this.m.BasicsStacks != 0)
+		{
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/melee_defense.png",
+				text = "Gaining an additional [color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.BasicsStacks * 5 + "[/color] melee defense."
+			});
+		}
+		if (this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Fleeing)
+		{
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/bravery.png",
+				text = "If this character take damage, they have a chance to rally. The chance is equal to half their resolve."
+			});
+		}
+		return tooltip;
 	}
 
 	function onUpdate( _properties )
 	{
 		_properties.IsAffectedByLosingHitpoints = false;
+		_properties.MeleeDefense += 5 * this.m.BasicsStacks;
+		this.m.IsHidden = (this.m.BasicsStacks == 0 || this.getContainer().getActor().getMoraleState() == this.Const.MoraleState.Fleeing);
+	}
+
+	function onTurnStart()
+	{
+		this.m.BasicsStacks = 0;
 	}
 
 	function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
 	{
-		if (_attacker == null)
-		{
-			return;
-		}
+		if (_attacker == null) return;
 
+		this.m.BasicsStacks += 1;
+		
 		local a = this.getContainer().getActor();
-
-		a.getSkills().add(this.new("scripts/skills/effects/legend_back_to_basics_effect"));
-		
 		if (!a.getSkills().hasSkill("effects.rallied"))
+		{
+			local difficulty = this.Math.floor(a.getCurrentProperties().getBravery() * 0.5);
+			local morale = a.getMoraleState();
+
+			if (a.getMoraleState() == this.Const.MoraleState.Fleeing)
 			{
-				local difficulty = this.Math.floor(a.getCurrentProperties().getBravery() * 0.5);
-				local morale = a.getMoraleState();
-
-				if (a.getMoraleState() == this.Const.MoraleState.Fleeing)
-				{
-					a.checkMorale(this.Const.MoraleState.Wavering - this.Const.MoraleState.Fleeing, difficulty, this.Const.MoraleCheckType.Default, "status_effect_56");
-				}
-
-				if (morale != a.getMoraleState())
-				{
-					a.getSkills().add(this.new("scripts/skills/effects/rallied_effect"));
-				}
+				a.checkMorale(this.Const.MoraleState.Wavering - this.Const.MoraleState.Fleeing, difficulty, this.Const.MoraleCheckType.Default, "status_effect_56");
 			}
-		
+
+			if (morale != a.getMoraleState())
+			{
+				a.getSkills().add(this.new("scripts/skills/effects/rallied_effect"));
+			}
+		}
 	}
 
-
+	function onCombatFinished()
+	{
+		this.m.BasicsStacks = 0;
+	}
 });

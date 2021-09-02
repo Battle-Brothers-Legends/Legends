@@ -20,7 +20,6 @@ this.skeleton_heavy_bodyguard <- this.inherit("scripts/entity/tactical/skeleton"
 		b.IsAffectedByNight = false;
 		b.IsAffectedByInjuries = false;
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
 		b.IsSpecializedInAxes = true;
 		b.IsSpecializedInCleavers = true;
 		b.IsSpecializedInPolearms = true;
@@ -30,13 +29,14 @@ this.skeleton_heavy_bodyguard <- this.inherit("scripts/entity/tactical/skeleton"
 		this.m.ActionPointCosts = this.Const.DefaultMovementAPCost;
 		this.m.FatigueCosts = this.Const.DefaultMovementFatigueCost;
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
-			}
+		}
 	}
 
 	function onDeath( _killer, _skill, _tile, _fatalityType )

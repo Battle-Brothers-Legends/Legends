@@ -495,4 +495,21 @@ gt.Const.LegendMod.HelmObjs.extend([
     Vanity = [
     ]
 }]
+},{
+    ID = "blade_dancer_helmet_00", //70
+    Script = "",
+    Sets = [{
+    Hoods = [
+      [1, "hood/legend_helmet_southern_open_hood"] //40
+    ],
+    Helms = [
+    ],
+    Tops = [ //only want black or grey face masks
+      [1, "top/legend_helmet_facemask", 1], //20
+      [1, "top/legend_helmet_facemask", 2] //20
+    ],
+    Vanity = [
+		  [1, "vanity/legend_helmet_southern_turban_full", 3] //10
+    ]
+}]
 }])

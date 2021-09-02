@@ -19,13 +19,12 @@ this.perk_legend_specialist_shovel_damage <- this.inherit("scripts/skills/skill"
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 		if (item != null)
 		{
-
 			local ids = [
 				"weapon.legend_shovel",
 				"weapon.legend_named_shovel"
-			]
+			];
 
-			if (item.getID() in ids)
+			if (ids.find(item.getID()) != null)
 			{
 				_properties.DamageRegularMin += 4;
 				_properties.DamageRegularMax += 12;
@@ -39,9 +38,15 @@ this.perk_legend_specialist_shovel_damage <- this.inherit("scripts/skills/skill"
 				"weapon.goedendag",
 				"weapon.legend_military_goedendag",
 				"weapon.legend_two_handed_club",
-				"weapon.two_handed_spiked_mace"
-			]
-			if (item.getID() in ids)
+				"weapon.two_handed_spiked_mace",
+				"weapon.legend_bough",
+				"weapon.named_polemace",
+				"weapon.polemace",
+				"weapon.legend_military_goedendag",
+				"weapon.legend_named_military_goedendag"
+			];
+
+			if (ids.find(item.getID()) != null)
 			{
 				_properties.DamageRegularMin += 1;
 				_properties.DamageRegularMax += 3;

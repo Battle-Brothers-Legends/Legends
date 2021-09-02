@@ -17,9 +17,9 @@ this.metal_pauldrons_upgrade <- this.inherit("scripts/items/armor_upgrades/armor
 		this.m.SpriteDamagedBack = "upgrade_11_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_11_back_dead";
-		this.m.Value = 500;
+		this.m.Value = 250;
 		this.m.ConditionModifier = 40;
-		this.m.StaminaModifier = 4;
+		this.m.StaminaModifier = 5;
 	}
 
 	function getTooltip()
@@ -35,7 +35,7 @@ this.metal_pauldrons_upgrade <- this.inherit("scripts/items/armor_upgrades/armor
 			id = 14,
 			type = "text",
 			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-4[/color] Maximum Fatigue"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-5[/color] Maximum Fatigue"
 		});
 		return result;
 	}

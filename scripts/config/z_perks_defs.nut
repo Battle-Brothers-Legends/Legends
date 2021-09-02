@@ -584,7 +584,7 @@ gt.Const.Perks.PerkDefObjects <- [
 	},
 	{
 		ID = "perk.legend_full_force",
-		Script = "scripts/skills/perks/legend_perk_full_force",
+		Script = "scripts/skills/perks/perk_legend_full_force",
 		Name = this.Const.Strings.PerkName.LegendFullForce,
 		Tooltip = this.Const.Strings.PerkDescription.LegendFullForce,
 		Icon = "ui/perks/fullforce_circle.png",
@@ -3465,8 +3465,11 @@ gt.Const.Perks.PerkDefObjects <- [
 ];
 gt.Const.Perks.PerkDefs <- {};
 
+gt.Const.Perks.TempiToConst <- {};
+
 foreach( i, v in gt.Const.Perks.PerkDefObjects )
 {
 	gt.Const.Perks.PerkDefs[v.Const] <- i;
-}
 
+	gt.Const.Perks.TempiToConst[i] <- v.Const;
+}

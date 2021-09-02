@@ -108,7 +108,27 @@ TacticalCombatResultScreen.prototype.createDIV = function (_parentDiv)
         
 		if(self.mLootPanel.isVisible() || !self.mSwitchToLootButton.isEnabled())
 		{
-			self.notifyBackendLeaveButtonPressed();
+            if (self.mDataSource.mStashData.popup)
+            {
+               self.mCurrentPopupDialog = $('.tactical-combat-result-screen').createPopupDialog('Stash Size Changed', null, null, 'stash-resize-popup');
+                self.mCurrentPopupDialog.addPopupDialogOkButton(function (_dialog)
+                {
+                    self.notifyBackendLeaveButtonPressed();
+                    self.mCurrentPopupDialog = null;
+                    _dialog.destroyPopupDialog();
+                });
+                
+                self.mCurrentPopupDialog.addPopupDialogCancelButton(function (_dialog)
+                {
+                    self.mCurrentPopupDialog = null;
+                    _dialog.destroyPopupDialog();
+                });
+                self.mCurrentPopupDialog.addPopupDialogContent(self.createStashResizeHeader());
+            }
+            else
+            {
+                self.notifyBackendLeaveButtonPressed();
+            }
 		}
 		else
 		{
@@ -118,6 +138,16 @@ TacticalCombatResultScreen.prototype.createDIV = function (_parentDiv)
 		}
 
     }, '', 1);
+};
+
+TacticalCombatResultScreen.prototype.createStashResizeHeader = function ()
+{
+    var label = "By continuing you would delete the last " + this.mDataSource.mStashData.deletedNum + " items in your stash.";
+    var text = $('<div class="header-text text-font-normal font-style-italic font-bottom-shadow font-color-subtitle">' + label + '</div>');
+
+    var result = $('<div class="resize-header"/>');
+    result.append(text);
+    return result;
 };
 
 TacticalCombatResultScreen.prototype.destroyDIV = function ()

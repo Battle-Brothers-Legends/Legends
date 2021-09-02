@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 gt.Const.Serialization <- {
-	Version = 66
+	Version = 67
 };
 gt.Const.DLC <- {
 	Mask = 0,
@@ -223,11 +223,6 @@ gt.Const.Difficulty <- {
 	XPMult = [
 		1.1,
 		1.0,
-		1.0,
-		1.0
-	],
-	XPMult = [
-		1.1,
 		1.0,
 		1.0
 	],

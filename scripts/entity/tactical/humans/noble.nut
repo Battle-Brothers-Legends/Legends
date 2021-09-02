@@ -43,7 +43,7 @@ this.noble <- this.inherit("scripts/entity/tactical/human", {
 		this.m.CurrentProperties = clone b;
 		this.getSprite("socket").setBrush("bust_base_military");
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));

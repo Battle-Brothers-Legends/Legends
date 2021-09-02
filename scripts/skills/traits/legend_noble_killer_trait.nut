@@ -32,7 +32,7 @@ this.legend_noble_killer_trait <- this.inherit("scripts/skills/traits/character_
 			{
 				id = 10,
 				type = "text",
-				icon = "ui/icons/bravery.png",
+				icon = "ui/icons/melee_skill.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Skill when in a battle against a noble house"
 			}
 		];

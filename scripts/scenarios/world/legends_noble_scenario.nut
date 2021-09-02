@@ -4,7 +4,7 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	{
 		this.m.ID = "scenario.legends_noble";
 		this.m.Name = "Noble";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_96.png[/img][/p][p]From a noble family, you were born to rule. With your trusted company at your side, it is time to conquer the world, as is your birthright.\n\n[color=#bcad8c]Usurper:[/color] Start as a noble, with your retainers.\n[color=#bcad8c]Highborn:[/color] Noble\'s will cost 25% less, lowborns will cost 50% more, can\'t hire outlaws\n[color=#bcad8c]Trained leader:[/color] Your studies at the academy gave tactical and campaign skills, everyone begins with Rotation.\n[color=#bcad8c]Avatar:[/color] if your character dies, it is game over.[/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_96.png[/img][/p][p]From a noble family, you were born to rule. With your trusted company at your side, it is time to conquer the world, as is your birthright.\n\n[color=#bcad8c]Usurper:[/color] Start as a noble, with your retainers.\n[color=#bcad8c]Highborn:[/color] Nobles will cost 25% less, lowborns will cost 50% more, can\'t hire outlaws\n[color=#bcad8c]Trained leader:[/color] Your studies at the academy gave tactical and campaign skills, everyone begins with Rotation.\n[color=#bcad8c]Avatar:[/color] if your character dies, it is game over.[/p]";
 		this.m.Difficulty = 2;
 		this.m.Order = 170;
 	}
@@ -147,7 +147,7 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[5].setStartValuesEx([
 		"legend_noble_ranged"
 		], false);
-		bros[5].getBackground().m.RawDescription = "%name% has one the house archery contest several years running, but never shuts up about it. The constant stream of narration, makes the great aim easy to dodge.";
+		bros[5].getBackground().m.RawDescription = "%name% has won the house archery contest several years running, but never shuts up about it. The constant stream of narration makes the great aim easy to dodge.";
 		bros[5].getBackground().buildDescription(true);
 		bros[5].getSkills().add(this.new("scripts/skills/traits/sureshot_trait"));
 		bros[5].getSkills().add(this.new("scripts/skills/traits/teamplayer_trait"));

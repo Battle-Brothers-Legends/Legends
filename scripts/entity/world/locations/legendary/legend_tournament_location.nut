@@ -2,7 +2,7 @@ this.legend_tournament_location <- this.inherit("scripts/entity/world/location",
 	m = {},
 	function getDescription()
 	{
-		return "A walled tournament ground";
+		return "A walled tournament ground.";
 	}
 
 	function create()

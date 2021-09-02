@@ -115,9 +115,6 @@ this.alp_shadow <- this.inherit("scripts/entity/tactical/actor", {
 		}
 
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
-		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToRoot = true;
 		b.IsImmuneToDisarm = true;
 		b.IsIgnoringArmorOnAttack = true;
@@ -156,6 +153,9 @@ this.alp_shadow <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/actives/nightmare_touch_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/nightmare_touch_zoc_skill"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 	}
 
 	function onRender()

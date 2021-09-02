@@ -62,21 +62,27 @@ this.legend_peasant_monk <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/weapons/legend_tipstaff"));
 		}
 
-		this.m.Items.equip(this.Const.World.Common.pickArmor([
+		local armor = [
 			[1, "sackcloth"],
 			[1, "thick_tunic"],
 			[1, "apron"],
 			[1, "tattered_sackcloth"],
 			[6, "linen_tunic"]
-		]));
+		]
 
-		if (this.Math.rand(1, 100) <= 66)
+		local helmet = [
+			[1, "straw_hat"],
+			[2, "hood"],
+			[1, "headscarf"]
+		]
+
+		local outfits = [
+			[1, "brown_monk_outfit_00"]
+		]
+
+		foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) ) 
 		{
-			this.m.Items.equip(this.Const.World.Common.pickHelmet([
-				[1, "straw_hat"],
-				[2, "hood"],
-				[1, "headscarf"]
-			]))
+			this.m.Items.equip(item)
 		}
 	}
 

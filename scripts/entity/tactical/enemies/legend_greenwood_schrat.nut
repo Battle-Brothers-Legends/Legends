@@ -184,9 +184,6 @@ this.legend_greenwood_schrat <- this.inherit("scripts/entity/tactical/actor", {
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.LegendGreenwoodSchrat);
 		b.IsImmuneToBleeding = true;
-		b.IsImmuneToPoison = true;
-		b.IsImmuneToKnockBackAndGrab = true;
-		b.IsImmuneToStun = true;
 		b.IsImmuneToRoot = true;
 		b.IsIgnoringArmorOnAttack = true;
 		b.IsAffectedByNight = false;
@@ -229,8 +226,11 @@ this.legend_greenwood_schrat <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/actives/legend_grow_greenwood_shield_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/uproot_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/uproot_zoc_skill"));
-			 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Hitpoints = 2 * b.Hitpoints;
 			b.MeleeSkill += 10;
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
@@ -241,7 +241,7 @@ this.legend_greenwood_schrat <- this.inherit("scripts/entity/tactical/actor", {
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_shield_push"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_bash"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-			}
+		}
 		if (!this.Tactical.State.isScenarioMode())
 		{
 			local dateToSkip = 0;

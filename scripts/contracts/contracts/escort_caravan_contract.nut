@@ -296,6 +296,13 @@ this.escort_caravan_contract <- this.inherit("scripts/contracts/contract", {
 
 				this.World.State.setEscortedEntity(this.Contract.m.Caravan);
 				this.World.Camp.onEscort(true);
+
+				if (!this.World.State.isPaused())
+				{
+					this.World.setSpeedMult(this.Const.World.SpeedSettings.EscortMult);
+				}
+
+				this.World.State.m.LastWorldSpeedMult = this.Const.World.SpeedSettings.EscortMult;
 			}
 
 			function update()
@@ -319,13 +326,6 @@ this.escort_caravan_contract <- this.inherit("scripts/contracts/contract", {
 				this.World.Assets.setUseProvisions(false);
 				this.World.getCamera().moveTo(this.World.State.getPlayer());
 				//this.World.Camp.update(null);
-
-				if (!this.World.State.isPaused())
-				{
-					this.World.setSpeedMult(this.Const.World.SpeedSettings.EscortMult);
-				}
-
-				this.World.State.m.LastWorldSpeedMult = this.Const.World.SpeedSettings.EscortMult;
 
 				if (this.Flags.get("IsFleeing"))
 				{
@@ -1236,7 +1236,6 @@ this.escort_caravan_contract <- this.inherit("scripts/contracts/contract", {
 					[1, "supplies/beer_item"],
 					[1, "supplies/bread_item"],
 					[1, "supplies/goat_cheese_item"],
-					[1, "supplies/legend_cooking_spices_item"],
 					[1, "supplies/legend_fresh_fruit_item"],
 					[1, "supplies/legend_fresh_meat_item"],
 					[1, "supplies/legend_pie_item"],

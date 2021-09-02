@@ -1,15 +1,13 @@
-this.legend_cured_venison_blueprint <- this.inherit("scripts/crafting/blueprint", {
+this.legend_cured_venison_blueprint <- this.inherit("scripts/crafting/food_blueprint", {
 	m = {},
 	function create()
 	{
-		this.blueprint.create();
+		this.food_blueprint.create();
 		this.m.ID = "blueprint.legend_cured_vension";
-		this.m.Type = this.Const.Items.ItemType.Food;
 		this.m.PreviewCraftable = this.new("scripts/items/supplies/cured_venison_item");
-		this.m.Cost = 10;
 		local ingredients = [
 			{
-				Script = "scripts/items/supplies/legend_cooking_spices_item",
+				Script = "scripts/items/trade/legend_cooking_spices_trade_item",
 				Num = 1
 			},
 			{

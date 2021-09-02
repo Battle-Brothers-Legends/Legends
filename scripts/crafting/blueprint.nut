@@ -8,7 +8,8 @@ this.blueprint <- {
 		Cost = 0,
 		TimesCrafted = 0,
 		Enchanter = false,
-		Type = this.Const.Items.ItemType.None
+		Type = this.Const.Items.ItemType.None,
+		CraftMultiplier = 1.0
 	},
 	function isValid()
 	{
@@ -48,6 +49,11 @@ this.blueprint <- {
 	function getCost()
 	{
 		return this.Math.ceil(this.m.Cost * this.World.Assets.m.TaxidermistPriceMult);
+	}
+
+	function getCostForCraft () 
+	{
+	    return getCost() * this.m.CraftMultiplier;
 	}
 
 	function getSounds()
@@ -153,22 +159,7 @@ this.blueprint <- {
 
 	function isCraftable()
 	{
-		local itemsMap = {};
-
-		foreach( item in this.World.Assets.getStash().getItems() )
-		{
-			if (item == null)
-			{
-				continue;
-			}
-
-			if (!(item.getID() in itemsMap))
-			{
-				itemsMap[item.getID()] <- 0;
-			}
-
-			itemsMap[item.getID()] = itemsMap[item.getID()] + 1;
-		}
+		local itemsMap = this.World.Assets.getStash().getNumItemsMap(true);
 
 		foreach( c in this.m.PreviewComponents )
 		{
@@ -277,6 +268,8 @@ this.blueprint <- {
 			ret.Variants <- 0;
 			ret.ItemPath <- 0;
 		}
+		ret.isAmountShown <- this.m.PreviewCraftable.isAmountShown();
+		if(this.m.PreviewCraftable.isAmountShown()) ret.Amount <- this.m.PreviewCraftable.getAmountString();
 		return ret;
 	}
 
@@ -296,8 +289,8 @@ this.blueprint <- {
 			{
 				itemsMap[item.getID()] <- 0;
 			}
-
-			itemsMap[item.getID()] = itemsMap[item.getID()] + 1;
+			if ("Uses" in item.m) itemsMap[item.getID()] = itemsMap[item.getID()] + item.m.Uses;
+			else itemsMap[item.getID()] = itemsMap[item.getID()] + 1;
 		}
 
 		foreach( c in this.m.PreviewSkills )
@@ -350,16 +343,14 @@ this.blueprint <- {
 				num = itemsMap[c.Instance.getID()];
 			}
 
-			for( local j = 1; j <= c.Num; j = j )
-			{
-				ret.push({
-					InstanceID = i,
-					ImagePath = c.Instance.getIcon(),
-					IsMissing = j > num,
-					IsSkill = 0
-				});
-				j = ++j;
-			}
+			ret.push({
+				InstanceID = i,
+				ImagePath = c.Instance.getIcon(),
+				IsMissing = c.Num > num,
+				Num = c.Num,
+				InvTotal = num,
+				IsSkill = 0
+			});
 		}
 
 		return ret;
@@ -397,7 +388,14 @@ this.blueprint <- {
 
 				if (!hasAlchemist || item.getMagicNumber() > 25)
 				{
-					stash.remove(item);
+					if ("Uses" in item.m && item.m.Uses > 1)
+					{
+						item.m.Uses -= 1;
+					}
+					else
+					{
+						stash.remove(item);
+					}
 				}
 				else
 				{

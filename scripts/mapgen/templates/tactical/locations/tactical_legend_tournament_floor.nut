@@ -79,8 +79,8 @@ this.tactical_legend_tournament_floor <- this.inherit("scripts/mapgen/tactical_t
 				}
 				else if (this.Math.rand(1, 100) <= 66)
 				{
-					local tile = this.Tactical.getTileSquare(x, y);
-					local o = tile.spawnObject("entity/tactical/objects/legend_tournament_spectator");
+					// local tile = this.Tactical.getTileSquare(x, y);
+					// local o = tile.spawnObject("entity/tactical/objects/legend_tournament_spectator");
 					
 				// causes endless error on loading a battle: the index setFlipped does not exist 
 				//	if (tile.Coords.X > (_rect.X + _rect.W) / 2)

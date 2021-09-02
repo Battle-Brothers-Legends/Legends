@@ -22,7 +22,7 @@ this.perk_legend_specialist_cult_hood <- this.inherit("scripts/skills/skill", {
 		{
 			if (::mods_isClass(item, "legend_helmet") != null)
 			{
-				local layers = item.getIDAsArray();
+				local layers = item.getUpgradeIDs();
 				foreach(l in layers)
 				{
 					if (l != null && (l == "armor.head.legend_helmet_sack" || l == "armor.head.legend_helmet_cult_hood"))

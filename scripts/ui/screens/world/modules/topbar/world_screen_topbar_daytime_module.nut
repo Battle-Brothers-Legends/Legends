@@ -3,7 +3,10 @@ this.world_screen_topbar_daytime_module <- this.inherit("scripts/ui/screens/ui_m
 		OnPausePressedListener = null,
 		OnTimePausePressedListener = null,
 		OnTimeNormalPressedListener = null,
-		OnTimeFastPressedListener = null
+		OnTimeFastPressedListener = null,
+		OnTimeVeryfastPressedListener = null,
+		OnTimeLudicrousPressedListener = null
+
 	},
 	function clearEventListener()
 	{
@@ -11,6 +14,8 @@ this.world_screen_topbar_daytime_module <- this.inherit("scripts/ui/screens/ui_m
 		this.m.OnTimePausePressedListener = null;
 		this.m.OnTimeNormalPressedListener = null;
 		this.m.OnTimeFastPressedListener = null;
+		this.m.OnTimeVeryfastPressedListener = null;
+		this.m.OnTimeLudicrousPressedListener = null;
 	}
 
 	function setOnPausePressedListener( _listener )
@@ -31,6 +36,16 @@ this.world_screen_topbar_daytime_module <- this.inherit("scripts/ui/screens/ui_m
 	function setOnTimeFastPressedListener( _listener )
 	{
 		this.m.OnTimeFastPressedListener = _listener;
+	}
+
+	function setOnTimeVeryfastPressedListener( _listener )
+	{
+		this.m.OnTimeVeryfastPressedListener = _listener;
+	}
+
+	function setOnTimeLudicrousPressedListener( _listener )
+	{
+		this.m.OnTimeLudicrousPressedListener = _listener;
 	}
 
 	function create()
@@ -103,6 +118,22 @@ this.world_screen_topbar_daytime_module <- this.inherit("scripts/ui/screens/ui_m
 		if (this.m.OnTimeFastPressedListener != null)
 		{
 			this.m.OnTimeFastPressedListener();
+		}
+	}
+
+	function onTimeVeryfastButtonPressed()
+	{
+		if (this.m.OnTimeVeryfastPressedListener != null)
+		{
+			this.m.OnTimeVeryfastPressedListener();
+		}
+	}
+
+	function onTimeLudicrousButtonPressed()
+	{
+		if (this.m.OnTimeLudicrousPressedListener != null)
+		{
+			this.m.OnTimeLudicrousPressedListener();
 		}
 	}
 

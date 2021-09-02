@@ -27,16 +27,20 @@ this.orc_young_low <- this.inherit("scripts/entity/tactical/enemies/orc_young", 
 
 		if (this.Math.rand(1, 100) <= 75)
 		{
-			local r = this.Math.rand(1, 2);
+			local r = this.Math.rand(1, 3);
 
-			if (r == 1)
-			{
-				weapon = this.new("scripts/items/weapons/greenskins/orc_wooden_club");
-			}
-			else if (r == 2)
-			{
-				weapon = this.new("scripts/items/weapons/greenskins/orc_metal_club");
-			}
+				if (r == 1)
+				{
+					weapon = this.new("scripts/items/weapons/greenskins/orc_wooden_club");
+				}
+				else if (r == 2)
+				{
+					weapon = this.new("scripts/items/weapons/greenskins/orc_metal_club");
+				}
+				else if (r == 3)
+				{
+					weapon = this.new("scripts/items/weapons/legend_chain");
+				}
 		}
 		else
 		{

@@ -1,13 +1,13 @@
 this.legend_bribe <- this.inherit("scripts/skills/skill", {
 	m = {
-	Cost = 0,
-	Money = 0
+		Cost = null,
+		EntityName = null
 	},
 	function create()
 	{
 		this.m.ID = "actives.legend_bribe";
 		this.m.Name = "Bribe";
-		this.m.Description = "Throw coins at an enemy to bribe them away from battle. Only works on humans and goblins, more powerful enemies cost more. ";
+		this.m.Description = "Throw coins at an enemy to bribe them away from battle. Only works on humans, more powerful enemies cost more.";
 		this.m.Icon = "skills/coins_square.png";
 		this.m.IconDisabled = "skills/coins_square_bw.png";
 		this.m.Overlay = "active_41";
@@ -22,7 +22,8 @@ this.legend_bribe <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = true;
 		this.m.IsTargeted = true;
 		this.m.IsStacking = false;
-		this.m.IsAttack = false;
+		this.m.IsAttack = true;
+		this.m.IsIgnoredAsAOO = true;
 		this.m.IsVisibleTileNeeded = false;
 		this.m.ActionPointCost = 4;
 		this.m.FatigueCost = 0;
@@ -32,23 +33,35 @@ this.legend_bribe <- this.inherit("scripts/skills/skill", {
 	}
 
 
-		function getTooltip( )
+	function getTooltip()
 	{
-		local ret = this.getDefaultTooltip();
-		ret.extend([
-			{
-				id = 6,
-				type = "text",
-				icon = "ui/icons/vision.png",
-				text = "Has a range of [color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.MaxRange + "[/color], can only target humans or goblins."
-			}
-		]);
+		local ret = this.getDefaultUtilityTooltip();
+		
+		ret.push({
+			id = 6,
+			type = "text",
+			icon = "ui/icons/vision.png",
+			text = "Has a range of [color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.MaxRange + "[/color], can only target humans."
+		});
+
+		if (this.m.Cost != null)
+		{
 			ret.push({
 				id = 8,
 				type = "text",
 				icon = "ui/icons/asset_money.png",
-				text = "This will cost [color=" + this.Const.UI.Color.PositiveValue +"]" + this.m.Cost + "[/color] crowns out of " + this.m.Money +" total"
+				text = "Bribing " + this.m.EntityName + " will cost [color=" + this.Const.UI.Color.PositiveValue +"]" + this.m.Cost + "[/color] crowns out of " + this.World.Assets.getMoney() + " total."
 			});
+		}
+		else
+		{
+			ret.push({
+				id = 8,
+				type = "text",
+				icon = "ui/icons/asset_money.png",
+				text = "The cost the XP that would be granted by killing the enemy, to the power of 1.3. Hover over an enemy while preparing this skill to update the tooltip."
+			});
+		}
 
 		return ret;
 	}
@@ -62,21 +75,28 @@ this.legend_bribe <- this.inherit("scripts/skills/skill", {
 
 		local target = _targetTile.getEntity();
 		local xp = target.getXPValue();
-		this.m.Cost = this.Math.floor(this.Math.pow(xp, 1.3));
-		local money = this.World.Assets.getMoney();
-		this.m.Money = money;
 		if (!target.getFlags().has("human"))
 		{
 			return false;
 		}
 
-		if (money < xp )
+		if (this.World.Assets.getMoney() < xp )
 		{
 			return false;
 		}
 
+		this.m.Cost = this.Math.floor(this.Math.pow(xp, 1.3));
+		this.m.EntityName = target.getName();
+
 		return true;
 	}
+
+	function onCombatFinished()
+	{
+		this.m.Cost = null;
+		this.m.EntityName = null;
+	}
+
 	function onUse( _user, _targetTile )
 	{
 		local target = _targetTile.getEntity();

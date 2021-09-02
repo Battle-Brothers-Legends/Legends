@@ -60,37 +60,12 @@ this.legend_lindwurm_scales_upgrade <- this.inherit("scripts/items/legend_armor/
 
 	function onUnequip()
 	{
+		local c = this.m.Armor.getContainer();
+
+		if (c != null && c.getActor() != null && !c.getActor().isNull())
+		{
+			c.getActor().getFlags().remove("body_immune_to_acid");
+		}
 		this.legend_armor_upgrade.onUnequip();
-		local c = this.m.Armor.getContainer();
-
-		if (c != null && c.getActor() != null && !c.getActor().isNull())
-		{
-			c.getActor().getFlags().remove("body_immune_to_acid");
-		}
 	}
-
-	function onAdded()
-	{
-		this.legend_armor_upgrade.onAdded();
-		local c = this.m.Armor.getContainer();
-
-		if (c != null && c.getActor() != null && !c.getActor().isNull())
-		{
-			c.getActor().getFlags().add("body_immune_to_acid");
-		}
-	}
-
-	function onRemoved(_app)
-	{
-
-		local c = this.m.Armor.getContainer();
-
-		if (c != null && c.getActor() != null && !c.getActor().isNull())
-		{
-			c.getActor().getFlags().remove("body_immune_to_acid");
-		}
-		this.legend_armor_upgrade.onRemoved(_app);
-	}
-
 });
-

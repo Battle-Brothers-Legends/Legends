@@ -1,8 +1,6 @@
 
 this.legend_helmet_demon_alp_helm <- this.inherit("scripts/items/legend_helmets/legend_helmet_upgrade", {
-	m = {
-        GruesomeFromHelm = true
-    },
+	m = {},
 	function create()
 	{
 		this.legend_helmet_upgrade.create();
@@ -35,12 +33,10 @@ this.legend_helmet_demon_alp_helm <- this.inherit("scripts/items/legend_helmets/
 		this.m.HideBeard = false;
 	}
 
-
 	function getTooltip()
 	{
 		local result = this.legend_helmet_upgrade.getTooltip();
-		this.onArmorTooltip(result)
-		return result;
+		return this.onArmorTooltip(result);
 	}
 
 	function onArmorTooltip( result )
@@ -51,29 +47,18 @@ this.legend_helmet_demon_alp_helm <- this.inherit("scripts/items/legend_helmets/
 			icon = "ui/icons/special.png",
 			text = "Grants the Horrific Scream active skill"
 		});
-		return result
+		
+		return result;
 	}
 
-    //only remove & add the scream if we don't have the horrify perk already
-    function onAdded()
+    function onEquip()
 	{
-		this.legend_helmet_upgrade.onAdded();
-		local skills = this.getContainer().getActor().getSkills();
-        local hasPerk = skills.hasSkill("perk.legend_item_horrify");
-        if (!hasPerk) //sloppy i'm literally just assuming people won't wear two of these at once please god 
-        {
-		   	skills.add(this.new("scripts/skills/perks/perk_legend_item_horrify"));
-        }
+		this.legend_helmet_upgrade.onEquip();
+		if (!this.getContainer().getActor().getSkills().hasSkill("perk.legend_horrify"))
+		{
+			this.addSkill(this.new("scripts/skills/actives/legend_horrific_scream"))
+		}
 	}
-
-    function onRemoved(_app)
-    {
-		local skills = this.getContainer().getActor().getSkills();
-        local hasPerk = skills.hasSkill("perk.legend_item_horrify");
-        skills.removeByID("actives.legend_horrific_scream");
-
-		this.legend_helmet_upgrade.onRemoved(_app);
-    }
 
 	function updateVariant()
 	{

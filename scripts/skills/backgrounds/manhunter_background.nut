@@ -58,8 +58,7 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 			Weapon = [
 				this.Const.Perks.MaceTree,
 				this.Const.Perks.PolearmTree,
-				this.Const.Perks.ThrowingTree,
-				this.Const.Perks.FistTree
+				this.Const.Perks.ThrowingTree
 			],
 			Defense = [
 				this.Const.Perks.LightArmorTree

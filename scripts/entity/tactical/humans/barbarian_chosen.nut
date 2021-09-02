@@ -123,6 +123,33 @@ this.barbarian_chosen <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
+		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body) && this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
+		{
+			local armor = [
+				[1, "barbarians/thick_plated_barbarian_armor"],
+				[1, "barbarians/reinforced_heavy_iron_armor"],
+			]
+
+			local helmet = [
+				[1, "barbarians/heavy_horned_plate_helmet"],
+				[1, "barbarian_chosen_helmet_00"],
+				[1, "barbarian_chosen_helmet_01"],
+				[1, "barbarian_chosen_helmet_02"],
+			];
+
+			local outfits = [
+				[1, "barbarian_chosen_outfit_00"],
+				[1, "barbarian_chosen_outfit_01"],
+				[1, "barbarian_chosen_outfit_02"]
+			]
+
+			foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) ) 
+			{
+				this.m.Items.equip(item)
+			}
+			return;
+		}
+		
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))
 		{
 			local armor = [
@@ -144,8 +171,6 @@ this.barbarian_chosen <- this.inherit("scripts/entity/tactical/human", {
 
 			this.m.Items.equip(this.Const.World.Common.pickArmor(armor));
 		}
-
-
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{
 			local helmet = [

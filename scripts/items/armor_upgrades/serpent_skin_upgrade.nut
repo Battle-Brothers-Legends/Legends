@@ -18,8 +18,8 @@ this.serpent_skin_upgrade <- this.inherit("scripts/items/armor_upgrades/armor_up
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_27_back_dead";
 		this.m.Value = 600;
-		this.m.ConditionModifier = 30;
-		this.m.StaminaModifier = 2;
+		this.m.ConditionModifier = 20;
+		this.m.StaminaModifier = 3;
 	}
 
 	function getTooltip()
@@ -29,13 +29,13 @@ this.serpent_skin_upgrade <- this.inherit("scripts/items/armor_upgrades/armor_up
 			id = 14,
 			type = "text",
 			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30[/color] Durability"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] Durability"
 		});
 		result.push({
 			id = 14,
 			type = "text",
 			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-2[/color] Maximum Fatigue"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Maximum Fatigue"
 		});
 		result.push({
 			id = 15,

@@ -24,7 +24,7 @@ if (!("Wildmen" in gt.Const.DLC) || !this.Const.DLC.Wildmen)
 			"Barbarians look forward to meeting their ancestors in the afterlife.",
 			"Try different origins to tailor your campaign to your play style.",
 			"With the \'Lone Wolf\' origin you\'ll have a player character in the world. If you die, the campaign ends.",
-			"With the \'Peasant Militia\' origin you can take up to 16 men into battle at once.",
+			"With the \'Peasant Militia\' origin you can take up to 25 men into battle at once.",
 			"With the \'Cultists\' origin your god will demand sacrifices from you, but also bestow boons upon those loyal to him.",
 			"With the \'Band of Poachers\' origin you\'ll move faster on the worldmap.",
 			"With the \'Trading Caravan\' origin you\'ll get better prices for both buying and selling.",

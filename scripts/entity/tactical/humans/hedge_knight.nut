@@ -46,7 +46,7 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_berserk"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_hold_out"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
@@ -110,6 +110,51 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 				"shields/kite_shield"
 			];
 			this.m.Items.equip(this.new("scripts/items/" + shields[this.Math.rand(0, shields.len() - 1)]));
+		}
+
+
+		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body) && this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
+		{
+			local armor = [
+				[1, "coat_of_plates"],
+				[1, "coat_of_scales"],
+				[1, "reinforced_mail_hauberk"],
+				[1, "heavy_lamellar_armor"]
+			]
+
+			local helmet = [
+				[30, "full_helm"],
+				[10, "closed_flat_top_with_mail"],
+				[5, "legend_helm_breathed"],
+				[5, "legend_helm_full"],
+				[5, "legend_helm_bearded"],
+				[5, "legend_helm_point"],
+				[5, "legend_helm_snub"],
+				[5, "legend_helm_short"],
+				[5, "legend_helm_curved"],
+				[2, "wallace_sallet"],
+				[2, "deep_sallet"],
+				[2, "italo_norman_helm"],
+				[2, "legend_enclave_vanilla_great_helm_01"],
+				[2, "legend_enclave_vanilla_armet_01"],
+				[2, "legend_enclave_vanilla_armet_02"],
+				[2, "legend_enclave_vanilla_great_bascinet_01"],
+				[2, "legend_enclave_vanilla_great_bascinet_02"],
+				[2, "legend_enclave_vanilla_great_bascinet_03"],
+				[2, "legend_enclave_vanilla_kettle_sallet_01"],
+				[2, "legend_enclave_vanilla_kettle_sallet_02"],
+				[2, "legend_enclave_vanilla_kettle_sallet_03"]
+			]
+
+			local outfits = [
+				[1, "brown_hedgeknight_outfit_00"]
+			]
+
+			foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) ) 
+			{
+				this.m.Items.equip(item)
+			}
+			return;
 		}
 
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body))

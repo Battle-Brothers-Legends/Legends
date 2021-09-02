@@ -7,10 +7,10 @@ this.legends_farm_fort <- this.inherit("scripts/entity/world/settlements/legends
 			"Gardendorf",
 			"Walldorf",
 			"Hageturm",
-                        "Starkort,"
-                        "Todesmauer,"
-                        "Grimmigwand,"
-                        "Hochturm,"
+            "Starkort",
+            "Todesmauer",
+            "Grimmigwand",
+            "Hochturm",
 			"Wiesenwacht",
 			"Markwall",
 			"Hornwall",

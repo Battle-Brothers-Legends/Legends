@@ -17,10 +17,10 @@ this.werewolf_racial <- this.inherit("scripts/skills/skill", {
 	{
 		local healthMissing = _properties.Hitpoints - this.getContainer().getActor().getHitpoints();
 		local additionalDamage = this.Math.floor(healthMissing * 0.25);
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			local additionalDamage = this.Math.floor(healthMissing * 0.5);
-			}
+		}
 
 
 		if (additionalDamage > 0)

@@ -1692,10 +1692,10 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 		party.getSprite("banner").setBrush(enemyFaction.getBannerSmall());
 		party.setDescription("Professional soldiers in service to local lords.");
 		party.setFootprintType(this.Const.World.FootprintsType.Nobles);
-		party.getLoot().Money = this.Math.rand(50, 200);
-		party.getLoot().ArmorParts = this.Math.rand(0, 25);
-		party.getLoot().Medicine = this.Math.rand(0, 5);
-		party.getLoot().Ammo = this.Math.rand(0, 30);
+		party.getLoot().Money = this.Math.rand(100, 300);
+		party.getLoot().ArmorParts = this.Math.rand(10, 35);
+		party.getLoot().Medicine = this.Math.rand(5, 15);
+		party.getLoot().Ammo = this.Math.rand(10, 40);
 		local r = this.Math.rand(1, 4);
 
 		if (r == 1)

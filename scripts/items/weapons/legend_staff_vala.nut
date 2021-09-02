@@ -22,8 +22,8 @@ this.legend_staff_vala <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ConditionMax = 80.0;
 		this.m.StaminaModifier = -6;
 		this.m.RangeMin = 1;
-		this.m.RangeMax = 1;
-		this.m.RangeIdeal = 1;
+		this.m.RangeMax = 2;
+		this.m.RangeIdeal = 2;
 		this.m.RegularDamage = 20;
 		this.m.RegularDamageMax = 30;
 		this.m.ArmorDamageMult = 0.6;

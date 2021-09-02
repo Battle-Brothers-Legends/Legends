@@ -74,7 +74,7 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 				id = 13,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] repair rate, [color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] maximum tools and [color=" + this.Const.UI.Color.PositiveValue + "]-20%[/color]tool usage"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] repair rate, [color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] maximum tools and [color=" + this.Const.UI.Color.PositiveValue + "]-20%[/color] tool usage"
 			}
 		)
 		return ret

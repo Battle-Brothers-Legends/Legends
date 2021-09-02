@@ -19,10 +19,10 @@ this.legend_serpent_skin_upgrade <- this.inherit("scripts/items/legend_armor/leg
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_27_back_dead";
 		this.m.Value = 600;
-		this.m.ConditionModifier = 30;
-		this.m.Condition = 30;
-		this.m.ConditionMax = 30;
-		this.m.StaminaModifier = -2;
+		this.m.ConditionModifier = 20;
+		this.m.Condition = 20;
+		this.m.ConditionMax = 20;
+		this.m.StaminaModifier = -3;
 	}
 
 	function getTooltip()
@@ -60,36 +60,12 @@ this.legend_serpent_skin_upgrade <- this.inherit("scripts/items/legend_armor/leg
 
 	function onUnequip()
 	{
+		local c = this.m.Armor.getContainer();
+
+		if (c != null && c.getActor() != null && !c.getActor().isNull())
+		{
+			c.getActor().getSkills().removeByID("items.firearms_resistance");
+		}
 		this.legend_armor_upgrade.onUnequip();
-		local c = this.m.Armor.getContainer();
-
-		if (c != null && c.getActor() != null && !c.getActor().isNull())
-		{
-			c.getActor().getSkills().removeByID("items.firearms_resistance");
-		}
 	}
-
-	function onAdded()
-	{
-		this.legend_armor_upgrade.onAdded();
-		local c = this.m.Armor.getContainer();
-
-		if (c != null && c.getActor() != null && !c.getActor().isNull())
-		{
-			c.getActor().getSkills().add(this.new("scripts/skills/items/firearms_resistance_skill"));
-		}
-	}
-
-	function onRemoved( _app )
-	{
-		local c = this.m.Armor.getContainer();
-
-		if (c != null && c.getActor() != null && !c.getActor().isNull())
-		{
-			c.getActor().getSkills().removeByID("items.firearms_resistance");
-		}
-		this.legend_armor_upgrade.onRemoved(_app);
-	}
-
 });
-

@@ -795,38 +795,7 @@ this.item_container <- {
 		}
 	}
 
-	function collectGarbage()
-	{
-		if (this.m.IsUpdating)
-		{
-			return;
-		}
 
-		this.m.IsUpdating = true;
-
-		for( local i = 0; i < this.Const.ItemSlot.COUNT; i = ++i )
-		{
-			for( local j = 0; j < this.m.Items[i].len(); j = ++j )
-			{
-				if (this.m.Items[i][j] == null || this.m.Items[i][j] == -1)
-				{
-				}
-				else if (this.m.Items[i][j].isGarbage())
-				{
-					if (this.m.Items[i][j].isEquipped())
-					{
-						this.unequip(this.m.Items[i][j]);
-					}
-					else
-					{
-						this.removeFromBag(this.m.Items[i][j]);
-					}
-				}
-			}
-		}
-
-		this.m.IsUpdating = false;
-	}
 
 	function print()
 	{
@@ -869,113 +838,6 @@ this.item_container <- {
 		this.logInfo("##############################################");
 	}
 
-	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
-	{
-		this.m.IsUpdating = true;
-
-		for( local i = 0; i < this.Const.ItemSlot.COUNT; i = ++i )
-		{
-			for( local j = 0; j < this.m.Items[i].len(); j = ++j )
-			{
-				if (this.m.Items[i][j] == null || this.m.Items[i][j] == -1)
-				{
-				}
-				else
-				{
-					this.m.Items[i][j].onBeforeDamageReceived(_attacker, _skill, _hitInfo, _properties);
-
-					if (this.m.Items[i][j].isGarbage())
-					{
-						if (this.m.Items[i][j].isEquipped())
-						{
-							this.unequip(this.m.Items[i][j]);
-						}
-						else
-						{
-							this.removeFromBag(this.m.Items[i][j]);
-						}
-					}
-				}
-			}
-		}
-
-		this.m.IsUpdating = false;
-	}
-
-	function onDamageReceived( _damage, _fatalityType, _slotType, _attacker )
-	{
-		this.m.IsUpdating = true;
-
-		for( local i = 0; i < this.m.Items[_slotType].len(); i = ++i )
-		{
-			if (this.m.Items[_slotType][i] != null && this.m.Items[_slotType][i] != -1)
-			{
-				this.m.Items[_slotType][i].onDamageReceived(_damage, _fatalityType, _attacker);
-
-				if (this.m.Items[_slotType][i].isGarbage())
-				{
-					if (this.m.Items[_slotType][i].isEquipped())
-					{
-						this.unequip(this.m.Items[_slotType][i]);
-					}
-					else
-					{
-						this.removeFromBag(this.m.Items[_slotType][i]);
-					}
-				}
-			}
-		}
-
-		this.m.IsUpdating = false;
-	}
-
-	function onDamageDealt( _target, _skill, _hitInfo )
-	{
-		this.m.IsUpdating = true;
-
-		for( local i = 0; i < this.m.Items[this.Const.ItemSlot.Mainhand].len(); i = ++i )
-		{
-			if (this.m.Items[this.Const.ItemSlot.Mainhand][i] != null && this.m.Items[this.Const.ItemSlot.Mainhand][i] != -1)
-			{
-				this.m.Items[this.Const.ItemSlot.Mainhand][i].onDamageDealt(_target, _skill, _hitInfo);
-
-				if (this.m.Items[this.Const.ItemSlot.Mainhand][i].isGarbage())
-				{
-					this.unequip(this.m.Items[this.Const.ItemSlot.Mainhand][i]);
-				}
-			}
-		}
-
-		this.m.IsUpdating = false;
-	}
-
-	function onShieldHit( _attacker, _skill )
-	{
-		this.m.IsUpdating = true;
-
-		for( local i = 0; i < this.m.Items[this.Const.ItemSlot.Offhand].len(); i = ++i )
-		{
-			if (this.m.Items[this.Const.ItemSlot.Offhand][i] != null && this.m.Items[this.Const.ItemSlot.Offhand][i] != -1)
-			{
-				this.m.Items[this.Const.ItemSlot.Offhand][i].onShieldHit(_attacker, _skill);
-
-				if (this.m.Items[this.Const.ItemSlot.Offhand][i].isGarbage())
-				{
-					if (this.m.Items[this.Const.ItemSlot.Offhand][i].isEquipped())
-					{
-						this.unequip(this.m.Items[this.Const.ItemSlot.Offhand][i]);
-					}
-					else
-					{
-						this.removeFromBag(this.m.Items[this.Const.ItemSlot.Offhand][i]);
-					}
-				}
-			}
-		}
-
-		this.m.IsUpdating = false;
-	}
-
 	function onNewRound()
 	{
 		if (this.m.Actor.getSkills().hasSkill("perk.quick_hands"))
@@ -984,88 +846,125 @@ this.item_container <- {
 		}
 	}
 
-	function onMovementFinished()
+	function collectGarbage(_slotType = null)
 	{
+		if (this.m.IsUpdating) return;
 		this.m.IsUpdating = true;
 
-		for( local i = 0; i < this.Const.ItemSlot.COUNT; i = ++i )
+		if (_slotType != null)
 		{
-			for( local j = 0; j < this.m.Items[i].len(); j = ++j )
+			this.collectGarbageSlot(this.m.Items[_slotType]);
+		}
+		else
+		{
+			foreach (slot in this.m.Items)
 			{
-				if (this.m.Items[i][j] == null || this.m.Items[i][j] == -1)
-				{
-				}
-				else
-				{
-					this.m.Items[i][j].onMovementFinished();
-				}
+				this.collectGarbageSlot(slot);
 			}
 		}
 
 		this.m.IsUpdating = false;
+	}
+
+	function collectGarbageSlot(_slot)
+	{
+		foreach (item in _slot)
+		{
+			if (item != null && item != -1 && item.isGarbage())
+			{
+				if (item.isEquipped())
+				{
+					this.unequip(item);
+				}
+				else
+				{
+					this.removeFromBag(item);
+				}
+			}
+		}
+	}
+
+	function doOnFunction(_function, _argsArray = null, _slotType = null)
+	{
+		this.m.IsUpdating = true;
+
+		if (_argsArray == null) _argsArray = [];
+		_argsArray.insert(0, null);
+
+		if (_slotType != null)
+		{
+			this.doOnFunctionSlot(_function, _argsArray, this.m.Items[_slotType])
+		}
+		else
+		{
+			foreach (slot in this.m.Items)
+			{
+				this.doOnFunctionSlot(_function, _argsArray, slot);
+			}
+		}
+		
+		this.m.IsUpdating = false;
+	}
+
+	function doOnFunctionSlot(_function, _argsArray, _slot)
+	{
+		foreach (item in _slot)
+		{
+			if (item != null && item != -1)
+			{
+				_argsArray[0] = item;
+				item[_function].acall(_argsArray);
+			}
+		}
+	}
+
+	function onBeforeDamageReceived(_attacker, _skill, _hitInfo, _properties)
+	{
+		this.doOnFunction("onBeforeDamageReceived", [_attacker, _skill, _hitInfo, _properties]);
+		this.collectGarbage();
+	}
+
+	function onDamageReceived(_damage, _fatalityType, _slotType, _attacker)
+	{
+		this.doOnFunction("onDamageReceived", [_damage, _fatalityType, _attacker], _slotType);
+		this.collectGarbage(_slotType);
+	}
+
+	function onDamageDealt(_target, _skill, _hitInfo)
+	{
+		this.doOnFunction("onDamageDealt", [_target, _skill, _hitInfo], this.Const.ItemSlot.Mainhand)
+		this.collectGarbage(this.Const.ItemSlot.Mainhand);
+	}
+
+	function onShieldHit(_attacker, _skill)
+	{
+		this.doOnFunction("onShieldHit", [_attacker, _skill], this.Const.ItemSlot.Offhand);
+		this.collectGarbage(this.Const.ItemSlot.Offhand);
+	}
+
+	function onMovementFinished()
+	{
+		this.doOnFunction("onMovementFinished");
+	}
+
+	function onCombatStarted()
+	{
+		this.doOnFunction("onCombatStarted");
 	}
 
 	function onCombatFinished()
 	{
-		this.m.IsUpdating = true;
-
-		for( local i = 0; i < this.Const.ItemSlot.COUNT; i = ++i )
-		{
-			for( local j = 0; j < this.m.Items[i].len(); j = ++j )
-			{
-				if (this.m.Items[i][j] == null || this.m.Items[i][j] == -1)
-				{
-				}
-				else
-				{
-					this.m.Items[i][j].onCombatFinished();
-				}
-			}
-		}
-
-		this.m.IsUpdating = false;
+		this.doOnFunction("onCombatFinished");
 	}
 
 	function onActorDied( _onTile )
 	{
-		this.m.IsUpdating = true;
-
-		for( local i = 0; i < this.Const.ItemSlot.COUNT; i = ++i )
-		{
-			for( local j = 0; j < this.m.Items[i].len(); j = ++j )
-			{
-				if (this.m.Items[i][j] == null || this.m.Items[i][j] == -1)
-				{
-				}
-				else
-				{
-					this.m.Items[i][j].onActorDied(_onTile);
-				}
-			}
-		}
-
-		this.m.IsUpdating = false;
+		this.doOnFunction("onActorDied", [_onTile]);
 	}
 
 	function onFactionChanged( _faction )
 	{
-		this.m.IsUpdating = true;
-
-		for( local i = 0; i < this.Const.ItemSlot.COUNT; i = ++i )
-		{
-			for( local j = 0; j < this.m.Items[i].len(); j = ++j )
-			{
-				if (this.m.Items[i][j] == null || this.m.Items[i][j] == -1)
-				{
-				}
-				else
-				{
-					this.m.Items[i][j].onFactionChanged(_faction);
-				}
-			}
-		}
-
-		this.m.IsUpdating = false;
+		this.doOnFunction("onFactionChanged", [_faction]);
 	}
 
 	function onSerialize( _out )

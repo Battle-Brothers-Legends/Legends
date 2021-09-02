@@ -61,7 +61,7 @@ this.legend_field_triage <- this.inherit("scripts/skills/skill", {
 		{
 			return false
 		}
-		if (this.World.Assets.getMedicine() * 2 < 1)
+		if (this.World.Assets.getMedicine() < 1)
 		{
 			return false
 		}
@@ -73,12 +73,6 @@ this.legend_field_triage <- this.inherit("scripts/skills/skill", {
 	{
 		
 		if (!this.skill.onVerifyTarget(_originTile, _targetTile))
-		{
-			return false;
-		}
-
-		local meds = this.World.Assets.getMedicine();
-		if (meds <= 1 )
 		{
 			return false;
 		}

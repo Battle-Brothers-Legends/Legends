@@ -29,9 +29,9 @@ this.standard_bearer <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_brawny"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_inspiring_presence"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
 		this.m.Skills.add(this.new("scripts/skills/actives/rally_the_troops"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 
 		if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
@@ -98,8 +98,11 @@ this.standard_bearer <- this.inherit("scripts/entity/tactical/human", {
 				])
 			}
 
-			helmet.setPlainVariant();
-			this.m.Items.equip(helmet);
+			if (helmet != null)
+			{
+				if ("setPlainVariant" in helmet) { helmet.setPlainVariant(); }
+				this.m.Items.equip(helmet);
+			}
 		}
 	}
 

@@ -18,9 +18,9 @@ this.legend_named_bronze_armor <- this.inherit("scripts/items/legend_armor/legen
 		this.m.ImpactSound = this.Const.Sound.ArmorHalfplateImpact;
 		this.m.InventorySound = this.Const.Sound.ArmorHalfplateImpact;
 		this.m.Value = 9000;
-		this.m.Condition = 280;
-		this.m.ConditionMax = 280;
-		this.m.StaminaModifier = -35;
+		this.m.Condition = 300;
+		this.m.ConditionMax = 300;
+		this.m.StaminaModifier = -38;
 		this.randomizeValues();
 	}
 

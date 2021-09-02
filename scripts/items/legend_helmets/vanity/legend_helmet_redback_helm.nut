@@ -63,18 +63,10 @@ this.legend_helmet_redback_helm <- this.inherit("scripts/items/legend_helmets/le
 		_properties.IsImmuneToPoison = true;
 	}
 
-	function onAdded()
+	function onEquip()
 	{
-		this.legend_helmet_upgrade.onAdded();
-		local skills = this.getContainer().getActor().getSkills();
-		skills.add(this.new("scripts/skills/actives/web_skill"));
-	}
-
-    function onRemoved(_app)
-	{
-		local skills = this.getContainer().getActor().getSkills();
-		skills.removeByID("actives.web");
-		this.legend_helmet_upgrade.onRemoved(_app);
+		this.legend_helmet_upgrade.onEquip();
+		this.addSkill(this.new("scripts/skills/actives/web_skill"));
 	}
 
 	function updateVariant()

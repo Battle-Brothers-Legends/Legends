@@ -17,9 +17,9 @@ this.double_mail_upgrade <- this.inherit("scripts/items/armor_upgrades/armor_upg
 		this.m.SpriteDamagedBack = "upgrade_19_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_19_back_dead";
-		this.m.Value = 200;
+		this.m.Value = 100;
 		this.m.ConditionModifier = 20;
-		this.m.StaminaModifier = 2;
+		this.m.StaminaModifier = 3;
 	}
 
 	function getTooltip()
@@ -35,7 +35,7 @@ this.double_mail_upgrade <- this.inherit("scripts/items/armor_upgrades/armor_upg
 			id = 14,
 			type = "text",
 			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-2[/color] Maximum Fatigue"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Maximum Fatigue"
 		});
 		return result;
 	}

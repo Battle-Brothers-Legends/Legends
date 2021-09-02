@@ -5263,7 +5263,7 @@ Fixes mummy curse being 20% damage increase when it should've been 25%
 Danger pay can't select enemies + tooltip fix
 Fixes embalmed priests
 
-## 15.0.1.12
+15.0.1.12
 
 **Armor Set Additions**
 Adds new armor sets to Barb Chosen, Mercenaries, Hedgeknights, Southerner, Nomad Leaders
@@ -5282,9 +5282,372 @@ FIxes some missing perk icons
 Should actually fix movement on tiles when you have Clarity
 Fixes mercenaries not getting clarity perk on legendary
 
-## 15.0.1.13
+15.0.1.13
 
 Overall lowers mummy hitpoints
 Makes 25 the max hire limit for origins now, way easier fix for some weird bugs happening
 Cascade shouldn't cause errors when it kills something due to an attack of opportunity
 Should fix named item spawns again but this time for Southerners
+
+15.0.1.14 (Endy's Build)
+
+Changes some perk descriptions to indicate what trees they're from
+Cooking spices are now a trade good and usable in 8 separate crafts (i.e. 1 trade good used 8 times instead of having 8 salts to use 1 time)
+Bunch of typo fixes/icon fixes
+Fixes full force
+Fixes tail slam split skill
+Mage swordstaff now part of staff spec
+
+15.0.1.15
+
+**Balance Changes**
+Slight buff to two handed chain mace because of direct damage oddity -> had 20% reduced armor pen
+Slight nerf to ranged flail, -10 damage on average
+Leather neckguard moved to 5 durability (from 8) and cost lowered accordingly
+Clarity now doesn't have bonus AP attatched to it, now has a +10% armor ignore similar to duelist. When you use a potion like before it adds another +10%. Might be too strong, might be too weak.
+
+
+**Crafting System Improvements**
+You can now set an item to be crafted whenever enough ingredients are available.
+Crafting menu now shows in stash/required amounts for ingredients.
+You can now queue an item to craft in the crafting tent even if you don't have the required ingredients.
+Other minor optimizations and UI fixes/improvements.
+
+**Changes**
+Increases the amt. of tools & supplies you can gain when fighting Southern 'Noble' Parties
+Adds some trade goods to the Southern 'Noble' Parties also
+> Both of the above are holy war and non-holy war parties
+Slightly increases the 4 skull return item contract difficulty
+Witchhunter hat is turned into a named layer & drops off champion necromancers now
+(Old change but previously unmentioned) -> Hunters Cap (+1 vis) are now 2000 gold base cost
+Shows the amount (nutrition/ammo) of an item crafted in taxidermist/crafting tent.
+Second Vanity layer is now renamed to Aesthetic Vanity layer and no longer gives any stats or abilities.
+Daggers and choke now have a +50 chance to hit on fleeing targets, mostly for end of fight farming convenience but also opens up some interesting ways to get knife punctures out mid-fight
+Add 2 more speed buttons to the top of the worldmap and label them with their appropriate speeds.
+Changes greed to make it divide barter by 1 + the number of mercenaries with barter rather than just by 2 no matter how many mercenaries had barter.
+Swordmasters don't only spawn with 20 armor tunics anymore, but can still spawn with really bad helmets
+
+**Armor Sets Added**
+ Armor sets can now actually spawn as a set rather than individual pieces from a set with other random pieces
+
+Adds armor sets for the following enemies:
+  Nomad Archer
+  Bandit Raider
+  Monks
+  Hedgeknights
+  Bandit Leaders
+  Barb Chosen
+  Mercenaries
+
+Adds individual helmets for:
+ Most noble units
+
+Adds in a famed frogmouth layer, the darker black frogmouth variant. Previously only the unnamed grey variant would show up, even on supposed-to-be-named helmets
+Adds in the Rough Metal Bevor to blast furnace armory locations
+
+**Fixes**
+Mummies don't retreat anymore
+Swordmaster favoured enemy typos
+Once again fixes special die roll units spawning too frequently (Butcher/Rabble)
+Bunch of tournament typos
+Temporarily removes tournament spectators from grand tournament
+Ranged damage multiplier is now applied in character screen
+Integrates patch to fix full force (for real this time)
+Fix bandage ally being usable if in enemy ZoC and not having bandage mastery
+Now properly displays Barter Modifier in Money tooltip
+Fixes all the perks allowing for passive production at a tent (e.g. hunter building dropping alcohol)
+Unstoppable Force renamed to Immovable Object (lol)
+Witch burn event can't happen if you have max roster
+
+## 15.0.1.16 
+Died from too many patches
+
+## 15.0.1.17 (Did someone say FIXES?!)
+
+**Changes**
+Adds Warden and Spirit bond perk back to vala commander (sisterhood origin)
+Adds Mummies to necrosavant favorite enemies list
+Adds Boneplating effect indicator gfx and sfx
+Adds peacable specific gfx
+Adds Hyenas and Serpents to Big Game Hunt contract
+Adds Last Stand as a status effect, making its effects visible to the player, and cleans up the code
+Adds a warning popup when exiting a roster and items would get deleted due to losing troops
+Adds 2 new arena traits
+
+Buffs Battleforged perk back to 5% (from 3.5%)
+
+Reworks Witch and berserker for adventuring party. No more magic missile :)
+Reworks Estoc
+Reworks Mummy, mummy tower and tower shield 
+
+Reverts some of the speed changes for a more vanilla experience
+Removes +2 roster upgrade from noble commander
+Nerfs Brass khopesh 
+Nerfs Kopis 
+Nerfs named gladius to be in line with other named items and gladius progression
+Decreases drop rates of cooking spices
+
+*For Modders*
+Adds onCombatStarted function to items
+Makes all legends hooks queue and improves the hook types
+Adds new handling for onXYZ functions for item_container and skill_container
+
+**Fixes**
+Fixes the scavenger to work with layered armors
+Fixes mercenary failed to find helmet
+Fixes Noble battles not loading with unlayered armor
+Fixes druid commander not getting hand to hand bonus
+Fixes Vanity layer 105 armor 
+Fixes peacable not working as in description
+Fixes ethnicity changing for characters in barbershop
+Fixes voulge being considered one-handed
+Fixes vala staff having incorrect range for AI
+Fixes miller not being lowborn
+Fixes back to basics not working as intended
+Fixes hairsplitter using wrong gfx
+Fixes gravedigger perks
+Fixes food not spoiling in character bag slots
+Fixes movement after camping not remembering speed
+Fixes bug with formation buttons appearing in other inventory menus
+Fixes hexe cloak not having a brush
+Fixes bad healer tent handling
+Fixes camouflage skill using the wrong icon for tactical tooltips
+Fixes crafting camp screen % alignment
+Fixes wolfsbane appearing when all therianthropy has been removed
+Fixes warlock cloak stats to match description
+Fixes throw being usable every turn instead of once per battle
+Should fix goblin light helmet dropping
+Lots of typos
+
+# 15.0.1.17a
+
+Fixes armor damage getting calculated per layer resulting in damage getting increased substantially
+
+# 15.0.1.17b
+
+Fixes Kopis typo causing it to prevent fights with embalmed priests from loading
+
+# 15.0.1.17c
+
+Fixes being unable to fight witches
+Fixes battleforged tooltip
+Fixes "return to camp" button letting world run for a second
+
+Reverts changes to speed to once again allow changing of escort speed
+
+## 15.0.1.18
+**Changes**
+Assassin start changed to only give the Hide active to the commander, now grants backstabber to other backgrounds
+Removes a few magic perk groups from the random pool (Notably Premonition tree)
+Halves the amount of free trade goods you get for beating up southern armies (from //adds either 1 silk, 2 silk, 3 incense, 4 spices to //adds either 1 silk, 1 silk, 2 incense, 2 spices)
+"Regular" Orc Young now can't roll the Chain weapon, only "Low" Orc Young
+Goblins outside of the greenskin invasion should be *slightly* less in numbers now
+Removes Seductive from religious/celibate backgrounds. (Nun, Monk, Dervish)
+Testing some extra upward push on town resources, makes every town's tile give slightly more base wealth to a town
+Tweaks Roster ambitions so only the next one has a chance of showing up.
+Adds new allow flee button skin for when the enemies is retreating
+Limits map sliders to more reasonable thresholds
+
+
+**For Modders**
+Layers' skills can now be added with a simple this.addSkill()
+Removes onAdded/onRemoved functions from layers, all layers now use onEquip/onUnequip.
+Changes script_container roll() function to return script and not object
+
+**Fixes**
+Cant open inventory in combat with bone plating on someone
+"Fixes" Debilitates ordering, just lowers it for immediately after the Reload skills, given these mess up fire/reload easily
+Teleport gets a tooltip properly
+
+Fixed demon alp helm horrifying scream not being added/removed properly
+Fixes exploiting buyback for trade ambition & achievements
+Fixes hexe runes drops not being upgraded
+
+====Some armour attachments rebalanced;====
+Barbarian horn;
+Durability: 40
+Fatigue: -4 -> -3
+
+Double mail
+Durability: 20
+Fatigue: -2 -> -3
+
+Heavy gladiator
+Durability: 60
+Fatigue: -5 -> -6
+
+Heraldic plates
+Durability: 40
+Fatigue: -4 -> -5
+
+Joint cover
+Durability: 30
+Fatigue: -3 -> -4
+
+Light gladiator
+Durability: 30 -> 35
+Fatigue: 2
+
+Mail patch
+Durability: 20
+Fatigue: -2 -> -3
+
+Metal pauldrons
+Durability: 40
+Fatigue: -4 -> -5
+
+Metal plating
+Durability: 30 -> 15
+Fatigue: -3 -> -1
+
+Serpent skin
+Durability: 20
+Fatigue: -2 -> -3
+
+====Bandit spawnlist changes;====
+* Bandit rabble should now be less of a human wave and more of a supporting element for thugs and raiders.
+* The backline ranged spam of bandit rabble has also been capped off to you should see fewer groups of 10+ rabble poachers.
+* Early game groups now have a weaker backline, resulting in fewer units to chase down and kill - making solo starts less painful to grind through.
+
+====Nomad spawnlist changes;====
+* Slaves will spawn in roaming pods, but not in defences. Slaves now make up the bulk of easy pods
+* Outlaws are dialed back overall, as are the spawns of bandit leaders and specials
+* Nomad groups should now be smaller and less impossible for early game or solo origins
+* Slingers should appear more frequently in roaming pods, less so in harder pods and garrisons
+* Reduced the amount of backline ranged spam across all roaming groups
+* Garrisons will now have more elite enemies in them, as opposed to hordes of weaker ones
+
+====Mummy contract;====
+* New flavour text
+* Narritive meanders less now
+
+====Named barbarian weapons/armour tweaks;====
+(was->current)
+* Plated Fur
+ConditionMax = 130; -> 155
+StaminaModifier = -14; -> -17
+
+* Skull and Chain
+ConditionMax = 190; -> 210
+StaminaModifier = -24; -> -27
+
+* Bronze Armour
+ConditionMax = 280; -> 300
+StaminaModifier = -35; -> -38
+
+* Skullhammer (weapon)
+StaminaModifier = -16; -> -17
+RegularDamage = 45; -> 50
+RegularDamageMax = 65; -> 70
+
+====Southern city state attached location overhaul;====
+* Fishing huts
+Now produces 1 small tools
+Now produces 1 qiyan
+
+* Goat herder
+Now produces 1 tipstaff and staff
+Now produces 2 muladi
+
+* Incense dryer
+Now produces 1 alchemist
+Now produces 1 dervish
+Now produces 1 small tools
+Now produces 1 small medicine
+
+* Militia training camp
+Now produces 2 dervish
+Now produces 3 small ammo
+
+* Plantation
+Now produces 1 small medicine
+Now produces 1 qiyan
+
+* Silk Farm
+Now produces 1 muladi
+Now produces 2 qiyan
+
+* Stone watchtower
+Now produces 3 nomads (up from 1)
+
+====Background art;====
+New background art added for; Noble Footman, Noble Arbalist, Noble Warrior and Fletcher
+
+# 15.0.1.18a
+
+Fixes error with layered armor causing infinite loading
+
+# 15.0.1.18b
+
+Fixes combat continuing on forever on worldmap due to hookObjectOnce not working on combat_manager
+
+
+## 15.0.1.19
+**Changes** 
+Stollwurms get Battle Flow
+Integrate Leonion's bigger log mod (top version for now, as bottom version has problems with scaling)
+Return item contracts with a bribe will show original contract reward when the bribe is offered
+
+===Katar dagger;===
+Now has deathblow instead of puncture, damage increased by 5
+Has 15 more durability (now 75)
+Has 10% more direct damage
+
+===Caravan AI;===
+Caravan hands will be more eager to engage enemies in melee (or chase down ranged units), however they will not break formation.
+Caravan hands will stay in formation a little more often (and will split up less)
+Caravan hands have a stronger desire to finish opponents off that are near death or fleeing (which means they spread their damage out less)
+Caravan hands will avoid engaging multiple opponents at once (no more rushing headfirst into 3 orc warriors), unless the donkey is in danger
+Caravan hands will dogpile enemies engaged by allies more often (this increases their effectiveness by a large margin)
+
+Typical behaviour is now;
+Is the donkey in danger? if not, stay.
+Is another caravan hand in combat or a donkey engaged? If so, engage.
+Are all nearby enemies dead and no caravan hands engaged? If so, return to donkey.
+Am I (or the donkey) being hit with a ranged weapon by an enemy within a distance I can reach in a turn? If so, engage unit.
+
+* Caravan hands are still very defensive but only on legendary combat difficulty
+
+===Attachments;===
+Gladiator attachments;
+Light attachment dura up from 35 to 45
+Heavy attachment dura up from 60 to 75
+
+All attachments halfed in price, except for gladiator attachments and attachments made from beasts (unhold fur cloak, whitewolf cloak, etc.)
+
+===Named Shields;===
+Undead heater shield durability improved from 32 to 35
+Undead kite shield durability improved from 48 to 51
+Result: undead named shields and item farming made marginally less pointless.
+- undead shields are now much stronger in durability but still weak statsically.
+
+===Southern Attached locations, pt.2;===
+Southern attached locations now spawn related tents for legends...
+Incense Dryer = enchanting + crafting tents
+Plantation = healing + gathering tents
+Silk Farm = repair + salvage tents
+Stone Watchtower (Southern) = scouting + training tents
+Miltia barracks = fletching tent
+Goat farm = hunting tent
+
+===Tumble and Lunge;===
+Tumble now increases AP cost of lunge to 3, not 2.
+
+**For modders**
+Perks, skills, backgrounds & endings can now all use a new shared gendered pronoun system. Look at adventurous noble for an example on how to use it. z_legends_language.nut for source
+
+
+**Fixes**
+Makes the new green retreat flag work properly with a variable tooltip
+Changes a lot of enemies from having innate resistances or skills to having the appropriate perk
+Fixes potential crash after hexe fight
+Fixes buyback exploit
+Fixes mismatched ethnicities for certain backgrounds
+Fixes infinite boneplating
+Fixes some healer tent issues
+Fixes 2 skull big game hunt contract not working
+Fixes multiple issues with bribe
+Fixes named lute being one-handed
+Makes matching set effect visible as a status effect (like nimble and battleforged)
+Other minor fixes
+A lot of Typos and Syntax fixes in this build, hopefully no more missing full stops

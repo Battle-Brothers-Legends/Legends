@@ -88,10 +88,10 @@ this.goblin_fighter <- this.inherit("scripts/entity/tactical/goblin", {
 			this.m.Items.addToBag(this.new("scripts/items/weapons/greenskins/goblin_spiked_balls"));
 		}
 
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
-		this.m.Items.addToBag(this.new("scripts/items/weapons/greenskins/goblin_spiked_balls"));
-		this.m.Items.addToBag(this.new("scripts/items/weapons/greenskins/goblin_spiked_balls"));
+			this.m.Items.addToBag(this.new("scripts/items/weapons/greenskins/goblin_spiked_balls"));
+			this.m.Items.addToBag(this.new("scripts/items/weapons/greenskins/goblin_spiked_balls"));
 		}
 
 

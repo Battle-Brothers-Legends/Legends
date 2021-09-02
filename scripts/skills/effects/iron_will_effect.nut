@@ -7,16 +7,12 @@ this.iron_will_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Icon = "skills/status_effect_92.png";
 		this.m.IconMini = "status_effect_92_mini";
 		this.m.Overlay = "status_effect_92";
+		this.m.Description = "I feel invincible! Well, feelings may betray this character, but as %they% doesn\'t feel any injuries suffered, old or new, %they% also won\'t be affected by them until after combat ends and the adrenaline fades.";
 		this.m.Type = this.Const.SkillType.StatusEffect | this.Const.SkillType.DrugEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
 		this.m.IsStacking = false;
-	}
-
-	function getDescription()
-	{
-		return "I feel invincible! Well, feelings may betray this character, but as he doesn\'t feel any injuries suffered, old or new, he also won\'t be affected by them until after combat ends and the adrenaline fades.";
 	}
 
 	function getTooltip()

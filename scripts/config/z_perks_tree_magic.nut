@@ -7,6 +7,7 @@ if (!("Perks" in gt.Const))
 
 gt.Const.Perks.ValaChantMagicTree <- {
 	ID = "ValaChantMagicTree",
+	Name = "Vala Chant",
 	Descriptions = [
 		"chants"
 	],
@@ -23,6 +24,7 @@ gt.Const.Perks.ValaChantMagicTree <- {
 
 gt.Const.Perks.ValaTranceMagicTree <- {
 	ID = "ValaTranceMagicTree",
+	Name = "Vala Trance",
 	Descriptions = [
 		"trances"
 	],
@@ -39,6 +41,7 @@ gt.Const.Perks.ValaTranceMagicTree <- {
 
 gt.Const.Perks.ValaRuneMagicTree <- {
 	ID = "ValaRuneMagicTree",
+	Name = "Vala Rune"
 	Descriptions = [
 		"runes"
 	],
@@ -55,6 +58,7 @@ gt.Const.Perks.ValaRuneMagicTree <- {
 
 gt.Const.Perks.ValaSpiritMagicTree <- {
 	ID = "ValaSpiritMagicTree",
+	Name = "Vala Spirits",
 	Descriptions = [
 		"spirits"
 	],
@@ -71,6 +75,7 @@ gt.Const.Perks.ValaSpiritMagicTree <- {
 
 gt.Const.Perks.InventorMagicTree <- {
 	ID = "InventorMagicTree",
+	Name = "Inventor",
 	Descriptions = [
 		"inventor"
 	],
@@ -88,6 +93,7 @@ gt.Const.Perks.InventorMagicTree <- {
 
 gt.Const.Perks.RangerHuntMagicTree <- {
 	ID = "RangerHuntMagicTree",
+	Name = "Ranger",
 	Descriptions = [
 		"hunting"
 	],
@@ -104,6 +110,7 @@ gt.Const.Perks.RangerHuntMagicTree <- {
 
 gt.Const.Perks.BasicNecroMagicTree <- {
 	ID = "BasicNecroMagicTree",
+	Name = "Necromancy",
 	Descriptions = [
 		"necromancy"
 	],
@@ -120,6 +127,7 @@ gt.Const.Perks.BasicNecroMagicTree <- {
 
 gt.Const.Perks.WarlockMagicTree <- {
 	ID = "WarlockMagicTree",
+	Name = "Sorcery",
 	Descriptions = [
 		"sorcery"
 	],
@@ -136,6 +144,7 @@ gt.Const.Perks.WarlockMagicTree <- {
 
 gt.Const.Perks.VampireMagicTree <- {
 	ID = "VampireMagicTree",
+	Name = "Vampire",
 	Descriptions = [
 		"undeath"
 	],
@@ -152,6 +161,7 @@ gt.Const.Perks.VampireMagicTree <- {
 
 gt.Const.Perks.ZombieMagicTree <- {
 	ID = "ZombieMagicTree",
+	Name = "Zombie",
 	Descriptions = [
 		"weidergangers"
 	],
@@ -172,6 +182,7 @@ gt.Const.Perks.ZombieMagicTree <- {
 
 gt.Const.Perks.SkeletonMagicTree <- {
 	ID = "SkeletonMagicTree",
+	Name = "Skeleton",
 	Descriptions = [
 		"ancient undead"
 	],
@@ -191,6 +202,7 @@ gt.Const.Perks.SkeletonMagicTree <- {
 
 gt.Const.Perks.BerserkerMagicTree <- {
 	ID = "BerserkerMagicTree",
+	Name = "Berserker",
 	Descriptions = [
 		"berserking"
 	],
@@ -210,6 +222,7 @@ gt.Const.Perks.BerserkerMagicTree <- {
 
 gt.Const.Perks.CaptainMagicTree <- {
 	ID = "CaptainMagicTree",
+	Name = "Leadership",
 	Descriptions = [
 		"leading"
 	],
@@ -226,6 +239,7 @@ gt.Const.Perks.CaptainMagicTree <- {
 
 gt.Const.Perks.IllusionistMagicTree <- {
 	ID = "IllusionistMagicTree",
+	Name = "Illusion",
 	Descriptions = [
 		"illusion"
 	],
@@ -242,6 +256,7 @@ gt.Const.Perks.IllusionistMagicTree <- {
 
 gt.Const.Perks.DivinationMagicTree <- {
 	ID = "DivinationMagicTree",
+	Name = "Divination",
 	Descriptions = [
 		"divination"
 	],
@@ -258,6 +273,7 @@ gt.Const.Perks.DivinationMagicTree <- {
 
 gt.Const.Perks.ConjurationMagicTree <- {
 	ID = "ConjurationMagicTree",
+	Name = "Conjuration",
 	Descriptions = [
 		"conjuration"
 	],
@@ -274,6 +290,7 @@ gt.Const.Perks.ConjurationMagicTree <- {
 
 gt.Const.Perks.DruidMagicTree <- {
 	ID = "DruidMagicTree",
+	Name = "Druidic Arts",
 	Descriptions = [
 		"druidic arts"
 	],
@@ -290,6 +307,7 @@ gt.Const.Perks.DruidMagicTree <- {
 
 gt.Const.Perks.DruidTransformTree <- {
 	ID = "DruidTransformTree",
+	Name = "Druidic transformation",
 	Descriptions = [
 		"druidic transformation"
 	],
@@ -307,6 +325,7 @@ gt.Const.Perks.DruidTransformTree <- {
 
 gt.Const.Perks.TransmutationMagicTree <- {
 	ID = "TransmutationMagicTree",
+	Name = "Transmutation",
 	Descriptions = [
 		"transmutation"
 	],
@@ -323,6 +342,7 @@ gt.Const.Perks.TransmutationMagicTree <- {
 
 gt.Const.Perks.EvocationMagicTree <- {
 	ID = "EvocationMagicTree",
+	Name = "Evocation",
 	Descriptions = [
 		"evocation"
 	],
@@ -356,6 +376,7 @@ gt.Const.Perks.EvocationMagicTree <- {
 
 gt.Const.Perks.AssassinMagicTree <- {
 	ID = "AssassinMagicTree",
+	Name = "Assassin",
 	Descriptions = [
 		"assassination"
 	],
@@ -372,6 +393,7 @@ gt.Const.Perks.AssassinMagicTree <- {
 
 gt.Const.Perks.PremonitionMagicTree <- {
 	ID = "PremonitionMagicTree",
+	Name = "Premonition",
 	Descriptions = [
 		"premonition"
 	],
@@ -388,6 +410,7 @@ gt.Const.Perks.PremonitionMagicTree <- {
 
 gt.Const.Perks.PhilosophyMagicTree <- {
 	ID = "PhilosophyMagicTree",
+	Name = "Philosophy",
 	Descriptions = [
 		"philosophy"
 	],
@@ -403,6 +426,7 @@ gt.Const.Perks.PhilosophyMagicTree <- {
 
 gt.Const.Perks.AlchemyMagicTree <- {
 	ID = "AlchemyMagicTree"
+	Name = "Alchemy",
 	Descriptions = [
 		"alchemy"
 	],
@@ -421,6 +445,7 @@ gt.Const.Perks.AlchemyMagicTree <- {
 
 gt.Const.Perks.TherianthropyTree <- {
 	ID = "TherianthropyMagicTree",
+	Name = "Therianthropy",
 	Descriptions = [
 		"therianthropy"
 	],
@@ -450,14 +475,14 @@ gt.Const.Perks.MagicTrees <- {
 		gt.Const.Perks.SkeletonMagicTree,
 		gt.Const.Perks.BerserkerMagicTree,
 		gt.Const.Perks.DruidMagicTree,
-		gt.Const.Perks.DruidTransformTree,
+		// gt.Const.Perks.DruidTransformTree,
 		gt.Const.Perks.CaptainMagicTree,
 		gt.Const.Perks.IllusionistMagicTree,
 		gt.Const.Perks.ConjurationMagicTree,
 		gt.Const.Perks.TransmutationMagicTree,
 		gt.Const.Perks.EvocationMagicTree,
-		gt.Const.Perks.AssassinMagicTree,
-		gt.Const.Perks.PremonitionMagicTree,
+		// gt.Const.Perks.AssassinMagicTree,
+		// gt.Const.Perks.PremonitionMagicTree,
 		// gt.Const.Perks.AlchemyMagicTree,
 		// gt.Const.Perks.TherianthropyMagicTree,
 		gt.Const.Perks.PhilosophyMagicTree

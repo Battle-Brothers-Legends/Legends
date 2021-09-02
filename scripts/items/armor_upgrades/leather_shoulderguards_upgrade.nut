@@ -17,7 +17,7 @@ this.leather_shoulderguards_upgrade <- this.inherit("scripts/items/armor_upgrade
 		this.m.SpriteDamagedBack = "upgrade_08_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_08_back_dead";
-		this.m.Value = 100;
+		this.m.Value = 50;
 		this.m.ConditionModifier = 10;
 		this.m.StaminaModifier = 0;
 	}

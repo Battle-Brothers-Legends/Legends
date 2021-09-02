@@ -39,16 +39,16 @@ this.legend_light_padding_replacement_upgrade <- this.inherit("scripts/items/leg
 	{
 	}
 
-	function onAdded()
+	function onEquip()
 	{
 		this.m.StaminaModifier = -this.Math.floor(this.m.Armor.getStaminaModifier() * 0.2);
-		this.legend_armor_upgrade.onAdded();
+		this.legend_armor_upgrade.onEquip();
 	}
 
-	function onRemoved(_app)
+	function onUnequip()
 	{
 		this.m.StaminaModifier = 0;
-		this.legend_armor_upgrade.onRemoved(_app);
+		this.legend_armor_upgrade.onUnequip();
 	}
 
 });

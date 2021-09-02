@@ -35,12 +35,12 @@ gt.Const.World.Spawn.GoblinRoamers <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinSkirmisherLOW,
-					Cost = 10
+					Cost = 15
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinSkirmisher,
 					MinR = 400,
-					Cost = 15
+					Cost = 20
 				}
 			]
 		},
@@ -49,12 +49,12 @@ gt.Const.World.Spawn.GoblinRoamers <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusherLOW,
-					Cost = 15
+					Cost = 20
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusher,
 					MinR = 400,
-					Cost = 20
+					Cost = 25
 				}
 			]
 		},
@@ -87,12 +87,12 @@ gt.Const.World.Spawn.GoblinScouts <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinSkirmisherLOW,
-					Cost = 10
+					Cost = 15
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinSkirmisher,
 					MinR = 400,
-					Cost = 15
+					Cost = 20
 				}
 			]
 		},
@@ -101,12 +101,12 @@ gt.Const.World.Spawn.GoblinScouts <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusherLOW,
-					Cost = 15
+					Cost = 20
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusher,
 					MinR = 400,
-					Cost = 20
+					Cost = 25
 				}
 			]
 		},
@@ -139,12 +139,12 @@ gt.Const.World.Spawn.GoblinRaiders <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinSkirmisherLOW,
-					Cost = 10
+					Cost = 15
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinSkirmisher,
 					MinR = 400,
-					Cost = 15
+					Cost = 20
 				}
 			]
 		},
@@ -153,12 +153,12 @@ gt.Const.World.Spawn.GoblinRaiders <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusherLOW,
-					Cost = 15
+					Cost = 20
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusher,
 					MinR = 400,
-					Cost = 20
+					Cost = 25
 				}
 			]
 		},
@@ -211,12 +211,12 @@ gt.Const.World.Spawn.GoblinDefenders <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinSkirmisherLOW,
-					Cost = 10
+					Cost = 15
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinSkirmisher,
 					MinR = 400,
-					Cost = 15
+					Cost = 20
 				}
 			]
 		},
@@ -225,12 +225,12 @@ gt.Const.World.Spawn.GoblinDefenders <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusherLOW,
-					Cost = 15
+					Cost = 20
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusher,
 					MinR = 400,
-					Cost = 20
+					Cost = 25
 				}
 			]
 		},

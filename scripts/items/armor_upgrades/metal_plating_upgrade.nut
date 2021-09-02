@@ -17,9 +17,9 @@ this.metal_plating_upgrade <- this.inherit("scripts/items/armor_upgrades/armor_u
 		this.m.SpriteDamagedBack = "upgrade_12_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_12_back_dead";
-		this.m.Value = 300;
-		this.m.ConditionModifier = 30;
-		this.m.StaminaModifier = 3;
+		this.m.Value = 150;
+		this.m.ConditionModifier = 15;
+		this.m.StaminaModifier = 1;
 	}
 
 	function getTooltip()
@@ -29,13 +29,13 @@ this.metal_plating_upgrade <- this.inherit("scripts/items/armor_upgrades/armor_u
 			id = 14,
 			type = "text",
 			icon = "ui/icons/armor_body.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30[/color] Durability"
+			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+15[/color] Durability"
 		});
 		result.push({
 			id = 14,
 			type = "text",
 			icon = "ui/icons/fatigue.png",
-			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Maximum Fatigue"
+			text = "[color=" + this.Const.UI.Color.NegativeValue + "]-1[/color] Maximum Fatigue"
 		});
 		return result;
 	}

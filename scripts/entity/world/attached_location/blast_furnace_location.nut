@@ -237,6 +237,11 @@ this.blast_furnace_location <- this.inherit("scripts/entity/world/attached_locat
 				S = "helmets/legend_helm_curved"
 			});
 			_list.push({
+				R = 50,
+				P = 1.0,
+				S = "helmets/great_jaw_helmet_00"
+			});
+			_list.push({
 				R = 35,
 				P = 1.0,
 				S = "shields/heater_shield"

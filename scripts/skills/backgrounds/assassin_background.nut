@@ -9,8 +9,8 @@ this.assassin_background <- this.inherit("scripts/skills/backgrounds/character_b
 		this.m.Name = "Assassin";
 		this.m.Icon = "ui/backgrounds/background_53.png";
 		this.m.BackgroundDescription = "The same as any other mercenary, a skilled assassin can be hired for a good sum of crowns.";
-		this.m.GoodEnding = "%name% joined the company in place of the bastard nobleman he had come to kill. So strange was this agreement that you kept your eye on the assassin for many days. But all he did was fight for the %companyname%, and fight well. Last you heard, the assassin departed the company and has not been seen or heard from since. You checked in on the bastard nobleman himself to see if perhaps the assassin had finished the job, but the man was alive and well. A peculiar run in, in the end.";
-		this.m.BadEnding = "%name% joined the company in place of the bastard nobleman he had come to kill. So strange was this agreement that you kept your eye on the assassin for many days. But all he did was fight for the %companyname%, and fight well. Last you heard, the assassin departed the company not long after your hurried retirement. You decided to check in on his target the bastard nobleman only to find out that he had been slain by an unseen assassin. It appears %name% finished the job in the end.";
+		this.m.GoodEnding = "%name% joined the company in place of the bastard nobleman %they% had come to kill. So strange was this agreement that you kept your eye on the assassin for many days. But all %they% did was fight for the %companyname%, and fight well. Last you heard, the assassin departed the company and has not been seen or heard from since. You checked in on the bastard nobleman himself to see if perhaps the assassin had finished the job, but the man was alive and well. A peculiar run in, in the end.";
+		this.m.BadEnding = "%name% joined the company in place of the bastard nobleman %they% had come to kill. So strange was this agreement that you kept your eye on the assassin for many days. But all %they% did was fight for the %companyname%, and fight well. Last you heard, the assassin departed the company not long after your hurried retirement. You decided to check in on %their% target the bastard nobleman only to find out that %they% had been slain by an unseen assassin. It appears %name% finished the job in the end.";
 		this.m.HiringCost = 2000;
 		this.m.DailyCost = 25;
 		this.m.Excluded = [
@@ -126,9 +126,13 @@ this.assassin_background <- this.inherit("scripts/skills/backgrounds/character_b
 		this.m.BeardChance = 0;
 		this.m.Bodies = this.Const.Bodies.FemaleSkinny;
 		this.m.IsFemaleBackground = true;
-
 	}
 
+	function onBuildDescription()
+	{
+		return "{%name% likes %their% hoods and loose robes, as %they% walks you can make out a barely audible jingle under %their% coat. | %name% occasionally ducks into alleyways, bushes and dark doorways to exchange items with another figure in a flurry of hands as a predator would stash a fresh kill.} {Although shockingly average, %they% is much quieter than the other recruits you have had the displeasure of meeting. | %name% naturally gravitates to dark corners as rats would to grain and insists that %they% is very famous in certain circles, however %they% quickly changes the subject when you ask %them% for details.} {%They% is often lost in the maddening throng of the towns and hamlets dotted around the countryside - never have you met such an average looking mercenary who also doesn’t hesitate to slit the throat of the nearest man if it would so benefit %them%, even if %they% does grumble when travelling during daylight.}";
+	}
+	
 	function onChangeAttributes()
 	{
 		local c = {

@@ -38,8 +38,8 @@ this.noble_billman <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_reach_advantage"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Hitpoints = b.Hitpoints * 2;
@@ -107,7 +107,8 @@ this.noble_billman <- this.inherit("scripts/entity/tactical/human", {
 					[1, "padded_kettle_hat"],
 					[1, "kettle_hat_with_mail"],
 					[1, "mail_coif"],
-					[2, "legend_enclave_vanilla_skullcap_01"]
+					[2, "legend_enclave_vanilla_skullcap_01"],
+					[5, "heavy_noble_house_helmet_00"]
 				])
 			}
 			else if (banner <= 7)
@@ -119,7 +120,8 @@ this.noble_billman <- this.inherit("scripts/entity/tactical/human", {
 					[1, "scale_helm"],
 					[1, "flat_top_with_mail"],
 					[1, "mail_coif"],
-					[1, "legend_enclave_vanilla_skullcap_01"]
+					[1, "legend_enclave_vanilla_skullcap_01"],
+					[5, "heavy_noble_house_helmet_00"]
 				])
 			}
 			else
@@ -131,13 +133,17 @@ this.noble_billman <- this.inherit("scripts/entity/tactical/human", {
 					[1, "rondel_helm"],
 					[1, "scale_helm"],
 					[1, "mail_coif"],
-					[2, "legend_enclave_vanilla_skullcap_01"]
+					[2, "legend_enclave_vanilla_skullcap_01"],
+					[5, "heavy_noble_house_helmet_00"]
 
 				])
 			}
 
-			helmet.setPlainVariant();
-			this.m.Items.equip(helmet);
+			if (helmet != null)
+			{
+				if ("setPlainVariant" in helmet) { helmet.setPlainVariant(); }
+				this.m.Items.equip(helmet);
+			}
 		}
 		else
 		{

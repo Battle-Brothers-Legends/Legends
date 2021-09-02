@@ -1439,6 +1439,19 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		return null;
 	}
 
+	function getBuildings()
+	{
+		local ret = [];
+		foreach (b in this.m.Buildings)
+		{
+			if (b != null)
+			{
+				ret.push(b);
+			}
+		}
+		return ret;
+	}
+
 	function getRandomName( _names )
 	{
 		local name;
@@ -2434,6 +2447,63 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function onLeave()
 	{
+		foreach (item in this.World.Assets.getStash().getItems())
+		{
+			if (item != null && item.isBought())
+			{
+				item.setBought(false);
+				if (item.isItemType(this.Const.Items.ItemType.TradeGood))
+				{
+					this.World.Statistics.getFlags().increment("TradeGoodsBought");
+				}
+			}
+		}
+
+		foreach (bro in this.World.getPlayerRoster().getAll())
+		{
+			foreach (item in bro.getItems().getAllItems())
+			{
+				if (item.isBought())
+				{
+					item.setBought(false);
+				}
+			}
+		}
+
+		foreach (building in this.getBuildings())
+		{
+			local stash = building.getStash()
+			if (stash != null)
+			{
+				foreach (item in stash.getItems())
+				{
+					if (item != null && item.isSold())
+					{
+						item.setSold(false);
+						if (item.isItemType(this.Const.Items.ItemType.TradeGood))
+						{
+							this.World.Statistics.getFlags().increment("TradeGoodsSold");
+
+							if (this.LegendsMod.Configs().LegendWorldEconomyEnabled())
+							{
+								this.setResources(this.getResources() + item.getResourceValue());
+							}
+						}
+					}
+				}
+			}
+		}
+
+		if (this.World.Statistics.getFlags().has("TradeGoodsSold") && this.World.Statistics.getFlags().get("TradeGoodsSold") >= 10)
+		{
+			this.updateAchievement("Trader", 1, 1);
+		}
+
+		if (this.World.Statistics.getFlags().has("TradeGoodsSold") && this.World.Statistics.getFlags().get("TradeGoodsSold") >= 50)
+		{
+			this.updateAchievement("MasterTrader", 1, 1);
+		}
+
 		if (this.LegendsMod.Configs().LegendCampUnlockEnabled())
 		{
 			return;
@@ -2666,7 +2736,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			resources = resources + loc.getNewResources();
 		}
 
-		resources = resources + this.m.HousesTiles.len();
+		resources = resources + (this.m.HousesTiles.len() * 2);
+		// this.logWarning("Adding a total of: " + resources + " : to a town that has " + this.m.HousesTiles.len() + " total tiles.")
 		return resources;
 	}
 

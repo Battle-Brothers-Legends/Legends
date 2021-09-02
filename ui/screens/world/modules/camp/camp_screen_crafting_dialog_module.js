@@ -28,7 +28,8 @@ var CampScreenCraftingDialogModule = function(_parent)
         Container: null,
         Components: null,
         Cost: null,
-        CraftButton: null
+        CraftButton: null,
+        CraftForeverButton: null
     };
 
     // assets labels
@@ -240,6 +241,20 @@ CampScreenCraftingDialogModule.prototype.createDIV = function (_parentDiv)
         }
     }, '', 1);
 
+    craftButtonLayout = $('<div class="l-craft-forever-button"/>');
+    detailsRow.append(craftButtonLayout);
+    this.mDetailsPanel.CraftForeverButton = craftButtonLayout.createTextButton("Craft Forever", function ()
+    {
+        if (self.mSelectedEntry !== null)
+        {
+            var data = self.mSelectedEntry.data('entry');
+            if ('ID' in data && data['ID'] !== null)
+            {
+                self.notifyBackendCraftForever({ID: data['ID'], Variant: 1}, null)
+            }
+        }
+    }, '', 1);
+
 	// create footer button bar
     var footerButtonBar = $('<div class="l-button-bar"/>');
     this.mDialogContainer.findDialogFooterContainer().append(footerButtonBar);
@@ -341,7 +356,20 @@ CampScreenCraftingDialogModule.prototype.assignItemToSlot = function(_owner, _sl
         _slot.assignListItemOverlayImage();
 
         // show amount
-		_slot.assignListItemAmount('' + _item.Percentage +'%', '#ffffff');
+
+        var percentage = Math.round(_item.Percentage) == _item.Percentage ? _item.Percentage : _item.Percentage.toFixed(1);
+        
+		_slot.assignListItemAmount('' + percentage +'%', '#ffffff');
+
+        if (_item.Forever)
+        {
+            var infinityLayer =$('<div class="infinity-layer display-block"/>');
+            _slot.append(infinityLayer);
+
+            var infinityImage = $('<img/>');
+            infinityImage.attr('src', Path.GFX + "ui/icons/infinity.png");
+            infinityLayer.append(infinityImage)
+        }
 
         // bind tooltip
         _slot.assignListItemTooltip(_item.ID, "stash");
@@ -495,7 +523,15 @@ CampScreenCraftingDialogModule.prototype.addListEntry = function (_data)
         _image.removeClass('opacity-none');
     }, null, 'opacity-none');
     image.bindTooltip({ contentType: 'ui-item', itemId: _data.ID, itemOwner: 'craft' });
-
+    if(_data.isAmountShown) 
+    {
+        var amountLayer =$('<div class="amount-layer display-block"/>');
+        column.append(amountLayer);
+        var amountLabel = $('<div class="label text-font-very-small font-shadow-outline"/>');
+        amountLayer.append(amountLabel);
+        amountLabel.text(_data.Amount);
+        amountLabel.css({'color' : "#ffffff"});
+    }
     // right column
     column = $('<div class="column is-right"/>');
     entry.append(column);
@@ -537,6 +573,13 @@ CampScreenCraftingDialogModule.prototype.addListEntry = function (_data)
         {
             icon = $('<img src="' + Path.ITEMS + _data.Ingredients[i].ImagePath + '"/>');
             icon.bindTooltip({ contentType: 'ui-item', itemId: _data.Ingredients[i].InstanceID, entityId: _data.ID, itemOwner: 'blueprint' });
+
+            var amountLayer =$('<div class="amount-layer display-block"/>');
+            iconContainer.append(amountLayer);
+            var amountLabel = $('<div class="label text-font-very-small font-shadow-outline font-size-10"/>');
+            amountLayer.append(amountLabel);
+            amountLabel.text(_data.Ingredients[i].InvTotal + "/" + _data.Ingredients[i].Num);
+            amountLabel.css({'color' : "#ffffff"});
         }
         iconContainer.append(icon);
 
@@ -626,6 +669,13 @@ CampScreenCraftingDialogModule.prototype.updateDetailsPanel = function(_element)
             {
                 icon = $('<img src="' + Path.ITEMS + data.Ingredients[i].ImagePath + '"/>');
                 icon.bindTooltip({ contentType: 'ui-item', itemId: data.Ingredients[i].InstanceID, entityId: data.ID, itemOwner: 'blueprint' });
+
+                var amountLayer =$('<div class="amount-layer display-block"/>');
+                iconContainer.append(amountLayer);
+                var amountLabel = $('<div class="label text-font-very-small font-shadow-outline font-size-15"/>');
+                amountLayer.append(amountLabel);
+                amountLabel.text(data.Ingredients[i].InvTotal + "/" + data.Ingredients[i].Num);
+                amountLabel.css({'color' : "#ffffff"});
             }
             iconContainer.append(icon);
 
@@ -638,16 +688,6 @@ CampScreenCraftingDialogModule.prototype.updateDetailsPanel = function(_element)
         }
 
         this.mDetailsPanel.Container.removeClass('display-none').addClass('display-block');
-
-
-        if(!data['IsCraftable'])
-        {
-            this.mDetailsPanel.CraftButton.enableButton(false);
-        }
-        else
-        {
-            this.mDetailsPanel.CraftButton.enableButton(true);
-        }
     }
     else
     {
@@ -661,6 +701,7 @@ CampScreenCraftingDialogModule.prototype.bindTooltips = function ()
     this.mTimeAsset.bindTooltip({ contentType: 'ui-element', elementId:  'crafting.Time' });
     this.mBrothersAsset.bindTooltip({ contentType: 'ui-element', elementId: 'crafting.Bros' });
     this.mDetailsPanel.CraftButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.WorldTownScreen.TaxiDermistDialogModule.CraftButton });
+    this.mDetailsPanel.CraftForeverButton.bindTooltip({ contentType: 'ui-element', elementId: 'crafting.CraftForeverButton' });
     this.mLeaveButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.WorldTownScreen.HireDialogModule.LeaveButton });
     this.mFilterAllButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.CharacterScreen.RightPanelHeaderModule.FilterAllButton });
     this.mFilterWeaponsButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.CharacterScreen.RightPanelHeaderModule.FilterWeaponsButton });
@@ -675,6 +716,7 @@ CampScreenCraftingDialogModule.prototype.unbindTooltips = function ()
     this.mTimeAsset.unbindTooltip();
     this.mBrothersAsset.unbindTooltip();
     this.mDetailsPanel.CraftButton.unbindTooltip();
+    this.mDetailsPanel.CraftForeverButton.unbindTooltip();
     this.mLeaveButton.unbindTooltip();
     this.mFilterAllButton.unbindTooltip();
     this.mFilterWeaponsButton.unbindTooltip();
@@ -1022,6 +1064,10 @@ CampScreenCraftingDialogModule.prototype.notifyBackendCraft = function (_bluepri
     SQ.call(this.mSQHandle, 'onAdd', _blueprintID, _callback);
 };
 
+CampScreenCraftingDialogModule.prototype.notifyBackendCraftForever = function (_blueprintID, _callback)
+{
+    SQ.call(this.mSQHandle, 'onCraftForever', _blueprintID, _callback);
+};
 
 CampScreenCraftingDialogModule.prototype.notifyBackendFilterAllButtonClicked = function ()
 {

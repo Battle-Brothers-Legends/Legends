@@ -184,6 +184,13 @@ this.restore_location_contract <- this.inherit("scripts/contracts/contract", {
 				];
 				this.Contract.m.Location.getSprite("selection").Visible = true;
 				this.Contract.m.Home.getSprite("selection").Visible = false;
+
+				if (!this.World.State.isPaused())
+				{
+					this.World.setSpeedMult(this.Const.World.SpeedSettings.EscortMult);
+				}
+
+				this.World.State.m.LastWorldSpeedMult = this.Const.World.SpeedSettings.EscortMult;
 			}
 
 			function update()
@@ -206,13 +213,6 @@ this.restore_location_contract <- this.inherit("scripts/contracts/contract", {
 				this.World.State.getPlayer().setVisible(false);
 				this.World.Assets.setUseProvisions(false);
 				this.World.getCamera().moveTo(this.World.State.getPlayer());
-
-				if (!this.World.State.isPaused())
-				{
-					this.World.setSpeedMult(this.Const.World.SpeedSettings.EscortMult);
-				}
-
-				this.World.State.m.LastWorldSpeedMult = this.Const.World.SpeedSettings.EscortMult;
 
 				if (this.Flags.get("IsFleeing"))
 				{

@@ -2441,9 +2441,9 @@ this.character_screen <- {
 		if (upgrade != null && !upgrade.isDestroyedOnRemove())
 		{
 			this.World.Assets.getStash().add(upgrade);
+			bro.getSkills().update();
+			return this.UIDataHelper.convertStashAndEntityToUIData(bro, null, false, this.m.InventoryFilter);
 		}
-		bro.getSkills().update();
-		return this.UIDataHelper.convertStashAndEntityToUIData(bro, null, false, this.m.InventoryFilter);
 	}
 
 	function onRemoveArmorUpgrade( _data )

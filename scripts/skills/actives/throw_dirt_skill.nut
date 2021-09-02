@@ -4,9 +4,9 @@ this.throw_dirt_skill <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.throw_dirt";
 		this.m.Name = "Throw Dirt";
-		this.m.Description = "Throws dirt to distract the enemy. ";
+		this.m.Description = "Throws dirt to distract the enemy. Reduces inititive and damage output of the target by 35% for one turn. Can only be used once per battle.";
 		this.m.Icon = "skills/active_215.png";
-		this.m.IconDisabled = "skills/active_215.png";
+		this.m.IconDisabled = "skills/active_215_sw.png";
 		this.m.Overlay = "active_215";
 		this.m.SoundOnUse = [
 			"sounds/enemies/dlc6/throw_dirt_01.wav",

@@ -34,12 +34,12 @@ this.necromancer <- this.inherit("scripts/entity/tactical/human", {
 		this.getSprite("body").Saturation = 0.6;
 		this.m.Skills.add(this.new("scripts/skills/actives/raise_undead"));
 		this.m.Skills.add(this.new("scripts/skills/actives/possess_undead_skill"));
-		 if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-			}
+		}
 
 	}
 
@@ -99,6 +99,11 @@ this.necromancer <- this.inherit("scripts/entity/tactical/human", {
 		local weapons = [
 			"weapons/named/named_dagger"
 		];
+
+		local item = this.Const.World.Common.pickHelmet([
+			[1, "named/witchhunter_helm"],
+		])
+		this.m.Items.equip(item);
 
 		if (this.Const.DLC.Desert)
 		{

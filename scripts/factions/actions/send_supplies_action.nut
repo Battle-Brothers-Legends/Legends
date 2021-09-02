@@ -81,6 +81,7 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 		}
 		r = this.Math.rand(100, 200) * 0.01;
 		local party = _faction.spawnEntity(this.m.Start.getTile(), "Supply Caravan", false, spawnParty, r * 100 + this.Math.round(0.1 * this.m.Start.getResources()));
+		party.getSprite("body").setBrush(this.Const.World.Spawn.NobleCaravan.Body);
 		party.getSprite("base").Visible = false;
 		party.setMirrored(true);
 		party.setDescription("A caravan with armed escorts transporting provisions, supplies and equipment between settlements.");
@@ -143,7 +144,6 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 					[0, "supplies/dried_fish_item"],
 					[0, "supplies/beer_item"],
 					[0, "supplies/goat_cheese_item"],
-					[1, "supplies/legend_cooking_spices_item"],
 					[1, "supplies/legend_fresh_fruit_item"],
 					[1, "supplies/legend_fresh_meat_item"],
 					[1, "supplies/legend_pie_item"],

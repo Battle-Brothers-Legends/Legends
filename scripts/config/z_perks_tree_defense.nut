@@ -7,6 +7,7 @@ if (!("Perks" in gt.Const))
 
 gt.Const.Perks.ShieldTree <- {
 	ID = "ShieldTree",
+	Name = "Shield",
 	Descriptions = [
 		"shields"
 	],
@@ -24,6 +25,7 @@ gt.Const.Perks.ShieldTree <- {
 
 gt.Const.Perks.HeavyArmorTree <- {
 	ID = "HeavyArmorTree",
+	Name = "Heavy Armor",
 	Descriptions = [
 		"heavy armor"
 	],
@@ -40,6 +42,7 @@ gt.Const.Perks.HeavyArmorTree <- {
 
 gt.Const.Perks.MediumArmorTree <- {
 	ID = "MediumArmorTree",
+	Name = "Medium Armor",
 	Descriptions = [
 		"medium armor"
 	],
@@ -56,6 +59,7 @@ gt.Const.Perks.MediumArmorTree <- {
 
 gt.Const.Perks.LightArmorTree <- {
 	ID = "LightArmorTree",
+	Name = "Light Armor",
 	Descriptions = [
 		"light armor"
 	],

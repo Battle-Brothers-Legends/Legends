@@ -34,12 +34,9 @@ this.named_orc_axe_2h <- this.inherit("scripts/items/weapons/named/named_weapon"
 	function onEquip()
 	{
 		this.weapon.onEquip();
-		local skill;
-		skill = this.new("scripts/skills/actives/split_man");
-		this.addSkill(skill);
-		skill = this.new("scripts/skills/actives/round_swing");
-		this.addSkill(skill);
-		skill = this.new("scripts/skills/actives/split_shield");
+		this.addSkill(this.new("scripts/skills/actives/split_man"));
+		this.addSkill(this.new("scripts/skills/actives/round_swing"));
+		local skill = this.new("scripts/skills/actives/split_shield");
 		skill.setApplyAxeMastery(true);
 		skill.setFatigueCost(skill.getFatigueCostRaw() + 5);
 		this.addSkill(skill);

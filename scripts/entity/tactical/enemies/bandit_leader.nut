@@ -62,8 +62,8 @@ this.bandit_leader <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_sundering_strikes"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_quick_hands"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
-		this.m.Skills.add(this.new("scripts/skills/actives/recover_skill"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_recover"));
 
 		if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
@@ -134,13 +134,47 @@ this.bandit_leader <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.addToBag(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
-		if (this.m.Items.getItemAtSlot(this.Const.ItemSlot.Body) == null)
+		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body) && this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{
 			local armor = [
 				[1, "reinforced_mail_hauberk"],
 				[1, "worn_mail_shirt"],
 				[1, "patched_mail_shirt"],
-				[1, "mail_shirt"]
+				[1, "footman_armor"],
+				[1, "leather_scale_armor"],
+				[1, "light_scale_armor"]
+			]
+
+			local helmet = [
+				[1, "closed_mail_coif"],
+				[1, "padded_kettle_hat"],
+				[1, "kettle_hat_with_closed_mail"],
+				[1, "kettle_hat_with_mail"],
+				[1, "padded_flat_top_helmet"],
+				[1, "nasal_helmet_with_mail"],
+				[1, "flat_top_with_mail"],
+				[1, "padded_nasal_helmet"],
+				[1, "bascinet_with_mail"]
+			]
+
+			local outfits = [
+				[1, "red_bandit_leader_outfit_00"]
+			]
+
+			foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) ) 
+			{
+				this.m.Items.equip(item)
+			}
+			return;
+		}
+
+		if (this.m.Items.getItemAtSlot(this.Const.ItemSlot.Body) == null)
+		{
+			local armor = [
+				[1, "reinforced_mail_hauberk"],
+				[1, "worn_mail_shirt"],
+				[1, "patched_mail_shirt"]
+				// [1, "mail_shirt"]
 			];
 
 			if (this.Const.DLC.Unhold)

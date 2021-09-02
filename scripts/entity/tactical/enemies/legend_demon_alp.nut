@@ -296,7 +296,7 @@ this.legend_demon_alp <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_levitation"));
 		this.m.Skills.add(this.new("scripts/skills/actives/horrific_scream"));
-		this.m.Skills.add(this.new("scripts/skills/actives/footwork"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_footwork"));
 		this.m.Skills.add(this.new("scripts/skills/actives/gruesome_feast"));
 		this.m.Skills.add(this.new("scripts/skills/effects/gruesome_feast_effect"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));

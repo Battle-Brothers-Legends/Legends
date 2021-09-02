@@ -46,7 +46,7 @@ this.puncture <- this.inherit("scripts/skills/skill", {
 				id = 7,
 				type = "text",
 				icon = "ui/icons/hitchance.png",
-				text = "Hit chance determined by your targets fatigue, 0% if they are fresh and 100% if they are exhausted. If your target is dazed or parried hitchance is increased by +10%.  If they are stunned or netted you gain +25%. If they are grappled or sleeping you gain +50%. Dagger mastery doubles your chance to hit. These bonuses stack up to 100%.  "
+				text = "Hit chance determined by your targets fatigue, 0% if they are fresh and 100% if they are exhausted. If your target is dazed or parried hitchance is increased by +10%.  If they are stunned or netted you gain +25%. If they are grappled, sleeping, or fleeing you gain +50%. Dagger mastery doubles your chance to hit. These bonuses stack up to 100%.  "
 			},
 			{
 				id = 8,
@@ -97,6 +97,10 @@ this.puncture <- this.inherit("scripts/skills/skill", {
 		if (_targetEntity.getSkills().hasSkill("effects.net"))
 		{
 		mod += 25;
+		}
+		if (_targetEntity.getMoraleState() == this.Const.MoraleState.Fleeing)
+		{
+		mod += 50;
 		}
 		local chance = (1.0 - _targetEntity.getFatiguePct()) * 50;
 		return mod - this.Math.round(chance);

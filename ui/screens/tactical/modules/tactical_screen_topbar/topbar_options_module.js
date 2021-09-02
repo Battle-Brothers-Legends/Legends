@@ -22,13 +22,13 @@ var TacticalScreenTopbarOptionsModule = function()
 	this.mContainer = null;
 
 	// buttons
-    this.mToggleHighlightBlockedTilesButton	    = null;
+	this.mToggleHighlightBlockedTilesButton	    = null;
 	this.mSwitchMapLevelUpButton		        = null;
 	this.mSwitchMapLevelDownButton		        = null;
 	this.mToggleStatsOverlaysButton		        = null;
 	this.mCenterButton					        = null;
 	this.mTreesButton					        = null;
-    this.mFleeButton					        = null;
+	this.mFleeButton					        = null;
 	this.mQuitButton					        = null;
 };
 
@@ -61,160 +61,160 @@ TacticalScreenTopbarOptionsModule.prototype.onDisconnection = function ()
 
 TacticalScreenTopbarOptionsModule.prototype.createDIV = function (_parentDiv)
 {
-    var self = this;
+	var self = this;
 
 	// create: container
 	this.mContainer = $('<div class="topbar-options-module"></div>');
-    _parentDiv.append(this.mContainer);
+	_parentDiv.append(this.mContainer);
 
 	// create: buttons
-    var layout = $('<div class="l-center-camera-button"/>');
-    this.mContainer.append(layout);
-    this.mCenterButton = layout.createImageButton(Path.GFX + Asset.ICON_CENTER, function ()
-    {
-    	self.notifyBackendCenterButtonPressed();
-    }, '', 6);
-
-    layout = $('<div class="l-switch-map-level-up-button"/>');
-    this.mContainer.append(layout);
-    this.mSwitchMapLevelUpButton = layout.createImageButton(Path.GFX + Asset.BUTTON_SWITCH_MAP_LEVEL_UP, function()
+	var layout = $('<div class="l-center-camera-button"/>');
+	this.mContainer.append(layout);
+	this.mCenterButton = layout.createImageButton(Path.GFX + Asset.ICON_CENTER, function ()
 	{
-        self.notifyBackendSwitchMapLevelUpButtonPressed();
-    }, '', 6);
+		self.notifyBackendCenterButtonPressed();
+	}, '', 6);
 
-    layout = $('<div class="l-switch-map-level-down-button"/>');
-    this.mContainer.append(layout);
-    this.mSwitchMapLevelDownButton = layout.createImageButton(Path.GFX + Asset.BUTTON_SWITCH_MAP_LEVEL_DOWN, function()
+	layout = $('<div class="l-switch-map-level-up-button"/>');
+	this.mContainer.append(layout);
+	this.mSwitchMapLevelUpButton = layout.createImageButton(Path.GFX + Asset.BUTTON_SWITCH_MAP_LEVEL_UP, function()
 	{
-        self.notifyBackendSwitchMapLevelDownButtonPressed();
-    }, '', 6);
+		self.notifyBackendSwitchMapLevelUpButtonPressed();
+	}, '', 6);
 
-    layout = $('<div class="l-toggle-stats-overlays-button"/>');
-    this.mContainer.append(layout);
-    this.mToggleStatsOverlaysButton = layout.createImageButton(Path.GFX + Asset.BUTTON_TOGGLE_STATS_OVERLAYS_ENABLED, function()
+	layout = $('<div class="l-switch-map-level-down-button"/>');
+	this.mContainer.append(layout);
+	this.mSwitchMapLevelDownButton = layout.createImageButton(Path.GFX + Asset.BUTTON_SWITCH_MAP_LEVEL_DOWN, function()
 	{
-        self.notifyBackendToggleStatsOverlaysButtonPressed();
-    }, '', 6);
+		self.notifyBackendSwitchMapLevelDownButtonPressed();
+	}, '', 6);
 
-    layout = $('<div class="l-toggle-trees-button"/>');
-    this.mContainer.append(layout);
-    this.mTreesButton = layout.createImageButton(Path.GFX + Asset.BUTTON_TOGGLE_TREES_ENABLED, function ()
-    {
-        self.notifyBackendToggleTreesButtonPressed();
-    }, '', 6);
+	layout = $('<div class="l-toggle-stats-overlays-button"/>');
+	this.mContainer.append(layout);
+	this.mToggleStatsOverlaysButton = layout.createImageButton(Path.GFX + Asset.BUTTON_TOGGLE_STATS_OVERLAYS_ENABLED, function()
+	{
+		self.notifyBackendToggleStatsOverlaysButtonPressed();
+	}, '', 6);
 
-    layout = $('<div class="l-toggle-blocked-tile-highlights-button"/>');
-    this.mContainer.append(layout);
-    this.mToggleHighlightBlockedTilesButton = layout.createImageButton(Path.GFX + Asset.BUTTON_TOGGLE_HIGHLIGHT_BLOCKED_TILES_DISABLED, function ()
-    {
-        self.notifyBackendHighlightBlockedTilesButtonPressed();
-    }, '', 6);
+	layout = $('<div class="l-toggle-trees-button"/>');
+	this.mContainer.append(layout);
+	this.mTreesButton = layout.createImageButton(Path.GFX + Asset.BUTTON_TOGGLE_TREES_ENABLED, function ()
+	{
+		self.notifyBackendToggleTreesButtonPressed();
+	}, '', 6);
 
-    layout = $('<div class="l-flee-button"/>');
-    this.mContainer.append(layout);
-    this.mFleeButton = layout.createImageButton(Path.GFX + Asset.BUTTON_FLEE, function ()
-    {
-        self.notifyBackendFleeButtonPressed();
-    }, '', 6);
+	layout = $('<div class="l-toggle-blocked-tile-highlights-button"/>');
+	this.mContainer.append(layout);
+	this.mToggleHighlightBlockedTilesButton = layout.createImageButton(Path.GFX + Asset.BUTTON_TOGGLE_HIGHLIGHT_BLOCKED_TILES_DISABLED, function ()
+	{
+		self.notifyBackendHighlightBlockedTilesButtonPressed();
+	}, '', 6);
 
-    layout = $('<div class="l-quit-button"/>');
-    this.mContainer.append(layout);
-    this.mQuitButton = layout.createImageButton(Path.GFX + Asset.BUTTON_QUIT, function ()
-    {
-        self.notifyBackendQuitButtonPressed();
-    }, '', 6);
+	layout = $('<div class="l-flee-button"/>');
+	this.mContainer.append(layout);
+	this.mFleeButton = layout.createImageButton(Path.GFX + Asset.BUTTON_FLEE, function ()
+	{
+		self.notifyBackendFleeButtonPressed();
+	}, '', 6);
+
+	layout = $('<div class="l-quit-button"/>');
+	this.mContainer.append(layout);
+	this.mQuitButton = layout.createImageButton(Path.GFX + Asset.BUTTON_QUIT, function ()
+	{
+		self.notifyBackendQuitButtonPressed();
+	}, '', 6);
 };
 
 TacticalScreenTopbarOptionsModule.prototype.destroyDIV = function ()
 {
-    this.mToggleHighlightBlockedTilesButton.remove();
-    this.mToggleHighlightBlockedTilesButton = null;
+	this.mToggleHighlightBlockedTilesButton.remove();
+	this.mToggleHighlightBlockedTilesButton = null;
 	this.mCenterButton.remove();
 	this.mCenterButtonButton = null;
 	this.mSwitchMapLevelUpButton.remove();
-    this.mSwitchMapLevelUpButton = null;
-    this.mSwitchMapLevelDownButton.remove();
-    this.mSwitchMapLevelDownButton = null;
-    this.mToggleStatsOverlaysButton.remove();
-    this.mToggleStatsOverlaysButton = null;
-    this.mTreesButton.remove();
-    this.mTreesButton = null;
+	this.mSwitchMapLevelUpButton = null;
+	this.mSwitchMapLevelDownButton.remove();
+	this.mSwitchMapLevelDownButton = null;
+	this.mToggleStatsOverlaysButton.remove();
+	this.mToggleStatsOverlaysButton = null;
+	this.mTreesButton.remove();
+	this.mTreesButton = null;
 	this.mFleeButton.remove();
 	this.mFleeButton = null;    
 	this.mQuitButton.remove();
-    this.mQuitButton = null;
+	this.mQuitButton = null;
 
-    this.mContainer.empty();
-    this.mContainer.remove();
-    this.mContainer = null;
+	this.mContainer.empty();
+	this.mContainer.remove();
+	this.mContainer = null;
 };
 
 
 TacticalScreenTopbarOptionsModule.prototype.bindTooltips = function ()
 {
-    this.mToggleHighlightBlockedTilesButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.ToggleHighlightBlockedTilesButton });
+	this.mToggleHighlightBlockedTilesButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.ToggleHighlightBlockedTilesButton });
 	this.mCenterButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.CenterButton });
 	this.mSwitchMapLevelUpButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.SwitchMapLevelUpButton });
 	this.mSwitchMapLevelDownButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.SwitchMapLevelDownButton });
 	this.mToggleStatsOverlaysButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.ToggleStatsOverlaysButton });
 	this.mTreesButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.TreesButton });
-    this.mFleeButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.FleeButton });
+	this.mFleeButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.FleeButton });
 	this.mQuitButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.TacticalScreen.Topbar.OptionsBarModule.QuitButton });
 };
 
 TacticalScreenTopbarOptionsModule.prototype.unbindTooltips = function ()
 {
-    this.mToggleHighlightBlockedTilesButton.unbindTooltip();
+	this.mToggleHighlightBlockedTilesButton.unbindTooltip();
 	this.mCenterButton.unbindTooltip();
 	this.mSwitchMapLevelUpButton.unbindTooltip();
 	this.mSwitchMapLevelDownButton.unbindTooltip();
 	this.mToggleStatsOverlaysButton.unbindTooltip();
 	this.mTreesButton.unbindTooltip();
-    this.mFleeButton.unbindTooltip();
+	this.mFleeButton.unbindTooltip();
 	this.mQuitButton.unbindTooltip();
 };
 
 
 TacticalScreenTopbarOptionsModule.prototype.create = function(_parentDiv)
 {
-    this.createDIV(_parentDiv);
-    this.bindTooltips();
+	this.createDIV(_parentDiv);
+	this.bindTooltips();
 };
 
 TacticalScreenTopbarOptionsModule.prototype.destroy = function()
 {
-    this.unbindTooltips();
-    this.destroyDIV();
+	this.unbindTooltips();
+	this.destroyDIV();
 };
 
 
 TacticalScreenTopbarOptionsModule.prototype.register = function (_parentDiv)
 {
-    console.log('TacticalScreenTopbarOptionsModule::REGISTER');
+	console.log('TacticalScreenTopbarOptionsModule::REGISTER');
 
-    if (this.mContainer !== null)
-    {
-        console.error('ERROR: Failed to register Options Module. Reason: Options Module is already initialized.');
-        return;
-    }
+	if (this.mContainer !== null)
+	{
+		console.error('ERROR: Failed to register Options Module. Reason: Options Module is already initialized.');
+		return;
+	}
 
-    if (_parentDiv !== null && typeof(_parentDiv) == 'object')
-    {
-        this.create(_parentDiv);
-    }
+	if (_parentDiv !== null && typeof(_parentDiv) == 'object')
+	{
+		this.create(_parentDiv);
+	}
 };
 
 TacticalScreenTopbarOptionsModule.prototype.unregister = function ()
 {
-    console.log('TacticalScreenTopbarOptionsModule::UNREGISTER');
+	console.log('TacticalScreenTopbarOptionsModule::UNREGISTER');
 
-    if (this.mContainer === null)
-    {
-        console.error('ERROR: Failed to unregister Options Module. Reason: Options Module is not initialized.');
-        return;
-    }
+	if (this.mContainer === null)
+	{
+		console.error('ERROR: Failed to unregister Options Module. Reason: Options Module is not initialized.');
+		return;
+	}
 
-    this.destroy();
+	this.destroy();
 };
 
 TacticalScreenTopbarOptionsModule.prototype.isRegistered = function ()
@@ -236,13 +236,13 @@ TacticalScreenTopbarOptionsModule.prototype.registerEventListener = function (_l
 
 TacticalScreenTopbarOptionsModule.prototype.setHighlightBlockedTilesButtonState = function (_enable)
 {
-    if (_enable !== null && typeof (_enable) === 'boolean')
-    {
-        if (_enable === true)
-            this.mToggleHighlightBlockedTilesButton.changeButtonImage(Path.GFX + Asset.BUTTON_TOGGLE_HIGHLIGHT_BLOCKED_TILES_ENABLED);
-        else
-            this.mToggleHighlightBlockedTilesButton.changeButtonImage(Path.GFX + Asset.BUTTON_TOGGLE_HIGHLIGHT_BLOCKED_TILES_DISABLED);
-    }
+	if (_enable !== null && typeof (_enable) === 'boolean')
+	{
+		if (_enable === true)
+			this.mToggleHighlightBlockedTilesButton.changeButtonImage(Path.GFX + Asset.BUTTON_TOGGLE_HIGHLIGHT_BLOCKED_TILES_ENABLED);
+		else
+			this.mToggleHighlightBlockedTilesButton.changeButtonImage(Path.GFX + Asset.BUTTON_TOGGLE_HIGHLIGHT_BLOCKED_TILES_DISABLED);
+	}
 };
 
 
@@ -251,9 +251,9 @@ TacticalScreenTopbarOptionsModule.prototype.setToggleStatsOverlaysButtonState = 
 	if (_enable !== null && typeof(_enable) === 'boolean')
 	{
 		if (_enable === true)
-            this.mToggleStatsOverlaysButton.changeButtonImage(Path.GFX + Asset.BUTTON_TOGGLE_STATS_OVERLAYS_ENABLED);
-        else
-            this.mToggleStatsOverlaysButton.changeButtonImage(Path.GFX + Asset.BUTTON_TOGGLE_STATS_OVERLAYS_DISABLED);
+			this.mToggleStatsOverlaysButton.changeButtonImage(Path.GFX + Asset.BUTTON_TOGGLE_STATS_OVERLAYS_ENABLED);
+		else
+			this.mToggleStatsOverlaysButton.changeButtonImage(Path.GFX + Asset.BUTTON_TOGGLE_STATS_OVERLAYS_DISABLED);
 	}
 };
 
@@ -275,6 +275,17 @@ TacticalScreenTopbarOptionsModule.prototype.setFleeButtonEnabled = function (_en
 	this.mFleeButton.enableButton(_enabled);
 };
 
+TacticalScreenTopbarOptionsModule.prototype.changeFleeButtonToAllowRetreat = function (_allowRetreat)
+{
+	if (_allowRetreat === true) 
+	{
+		this.mFleeButton.changeButtonImage(Path.GFX + Legends.BUTTON_ALLOW_RETREAT);
+	}
+	else if(_allowRetreat === false)
+	{
+		this.mFleeButton.changeButtonImage(Path.GFX + Asset.BUTTON_FLEE);
+	}
+};
 
 TacticalScreenTopbarOptionsModule.prototype.notifyBackendCenterButtonPressed = function ()
 {
@@ -283,7 +294,7 @@ TacticalScreenTopbarOptionsModule.prototype.notifyBackendCenterButtonPressed = f
 
 TacticalScreenTopbarOptionsModule.prototype.notifyBackendHighlightBlockedTilesButtonPressed = function ()
 {
-    SQ.call(this.mSQHandle, 'onToggleHighlightBlockedTilesListenerButtonPressed');
+	SQ.call(this.mSQHandle, 'onToggleHighlightBlockedTilesListenerButtonPressed');
 };
 
 TacticalScreenTopbarOptionsModule.prototype.notifyBackendSwitchMapLevelUpButtonPressed = function ()

@@ -1,7 +1,6 @@
 local gt = this.getroottable();
 gt.Const.TipOfTheDay <- [
 	"As brothers we fight, as brothers we die!",
-	"Wolfsbane can help with lycanthropy",
 	"The arenas in the south do not sate the expectations of some - for that there is another place far, far away from prying eyes",
 	"Cooking recipes can heal and create a tidy profit",
 	"Ancient Scrolls can have random powerful effects when read. They can be identified by scholars.",
@@ -67,7 +66,7 @@ gt.Const.TipOfTheDay <- [
 	"Bakers and servants can craft rotten food into fresh pies and puddings",
 	"You can equip food and eat it in battle to restore health",
 	"It is said there are wise women in the north who can commune with spirits and carve rune stones",
-	"Houndmasters can buff and breed dogs",
+	"Houndmasters can improve and breed dogs",
 	"Retinue members can be hired by recruiting brothers with specfic perks unlocked.",
 	"Fishermen can develop powerful net skills",
 	"Inventors can craft prosthetics to help permanent injuries",
@@ -102,7 +101,7 @@ gt.Const.TipOfTheDay <- [
 	"Selling in rich and big cities will net you the most crowns for your goods.",
 	"Use throwing nets to restrict the movement of particularly dangerous enemies.",
 	"Use trading to supplement your income.",
-	"When a settlement\'s wealth is above 100%, it has a chance to grow and upgrade. Take care of your settlements...or don't.",
+	"When a settlement\'s wealth is above 100%, it has a chance to grow and upgrade. Take care of your settlements...or don\'t.",
 	"Every seven days settlements will increase in wealth naturally.",
 	"Successful contracts and trade caravans will increase a settlement\'s wealth.",
 	"Raiding will decrease a settlement\'s wealth over time, if it falls below 50%, it may decrease in size.",
@@ -180,7 +179,7 @@ gt.Const.TipOfTheDay <- [
 	"Higher renown will unlock more difficult contracts and better pay.",
 	"If your plan can fail with bad luck, maybe it isn\'t good enough of a plan.",
 	"Do the job. Survive. Get paid.",
-	"You need a minimum of 10% bonus arcoss all your brothers for a favoured enemy perk to spawn champions or legendary beasts more frequently",
+	"You need a minimum of 10% bonus across all your brothers for a favoured enemy perk to spawn champions or legendary beasts more frequently",
 	"You can change the styles of items in the painting tent, located in your camp. For a price, of course.",
 	"Tower shields are cumbersome, but can be used to protect others in addition to the user.",
 	"If a character waits their turn, their position in the turn order of the next round is determined with a penalty of 25% to Initiative.",
@@ -192,10 +191,14 @@ gt.Const.TipOfTheDay <- [
 	"Just because a brother can\'t deal damage, doesn\'t mean they can\'t be useful.",
 	"There are things more sinister in the sands than the old empire...",
 	"Consider that enemy encampments on hills are harder to assault, especially if they are fortified.",
-	"In the Inventory/Character Screen page, \'A\' key selects previous bro, \'D\' key selects next bro, \'S\' key toggles reserve status.",
+	"In the Inventory/Character Screen page, \'A\' key selects previous brother, \'D\' key selects next brother, \'S\' key toggles reserve status.",
 	"The \'Perfect Focus\' perk is a good way to deal a lot of damage quickly, for a price.",
 	"Nimble only protects hitpoints, not armour.",
+	"The \'Ballistics\' skill can greatly increase your chance to hit at far ranges",
+	"Most origins support 27 brothers, however some may require you to unlock more slots from commanders",
 	"At 15 points of intensive training will reward that brother with a free perk point and trait",
+	"Larger groups on the world map move more slowly - regardless of terrain",
+	"Staffs and slings are ideal supporting weapons for those brothers who are not fit for direct combat",
 	"The \'Intensive Training\' trait can be increased by spending time training with that brother"
 ];
 gt.Const.LoadingScreens <- [

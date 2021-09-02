@@ -49,12 +49,12 @@ this.legend_druid_background <- this.inherit("scripts/skills/backgrounds/charact
 			"The Wolf",
 			"The Sapling"
 		];
-		this.m.Faces = this.Const.Faces.AllWhiteMale;
-		this.m.Hairs = this.Const.Hair.UntidyMale;
-		this.m.HairColors = this.Const.HairColors.Young;
+		this.m.Faces = this.Const.Faces.AfricanMale;
+		this.m.Hairs = this.Const.Hair.WildMale;
+		this.m.HairColors = this.Const.HairColors.African;
 		this.m.Beards = this.Const.Beards.Untidy;
 		this.m.BeardChance = 100;
-		this.m.Bodies = this.Const.Bodies.LegendTattos;
+		this.m.Bodies = this.Const.Bodies.AfricanMale;
 		this.m.Ethnicity = 2;
 		this.m.Level = 3;
 		this.m.IsCombatBackground = true;
@@ -134,12 +134,12 @@ this.legend_druid_background <- this.inherit("scripts/skills/backgrounds/charact
 		{
 			return
 		}
-		this.m.Faces = this.Const.Faces.PrettyFemale;
+		this.m.Faces = this.Const.Faces.AfricanFemale;
 		this.m.Hairs = this.Const.Hair.AllFemale;
-		this.m.HairColors = this.Const.HairColors.Young;
+		this.m.HairColors = this.Const.HairColors.African;
 		this.m.Beards = null;
 		this.m.BeardChance = 0;
-		this.m.Bodies = this.Const.Bodies.AllFemale;
+		this.m.Bodies = this.Const.Bodies.AfricanFemale;
 		this.m.IsFemaleBackground = true;
 	}
 

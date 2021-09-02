@@ -66,7 +66,7 @@ this.legend_mummy <- this.inherit("scripts/entity/tactical/actor", {
 
 		if (_tile != null)
 		{
-			local decal = _tile.spawnDetail("bust_skeleton_vampire_dead", this.Const.Tactical.DetailFlag.Corpse, flip, false, this.Const.Combat.HumanCorpseOffset);
+			local decal = _tile.spawnDetail("mummy_dead", this.Const.Tactical.DetailFlag.Corpse, flip, false, this.Const.Combat.HumanCorpseOffset);
 			decal.Color = sprite_body.Color;
 			decal.Saturation = sprite_body.Saturation;
 			decal.Scale = 0.9;
@@ -431,7 +431,7 @@ this.legend_mummy <- this.inherit("scripts/entity/tactical/actor", {
 		local hairColor = this.Const.HairColors.Zombie[this.Math.rand(0, this.Const.HairColors.Zombie.len() - 1)];
 		this.addSprite("socket").setBrush("bust_base_undead");
 		local body = this.addSprite("body");
-		body.setBrush("bust_skeleton_body_03");
+		body.setBrush("mummy_body_01");
 		body.setHorizontalFlipping(true);
 		// body.Saturation = 0.8;
 
@@ -506,7 +506,7 @@ this.legend_mummy <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/racial/mummy_racial"));
 		this.m.Skills.add(this.new("scripts/skills/special/double_grip"));
 		this.m.Skills.add(this.new("scripts/skills/actives/hand_to_hand"));
-		this.m.Skills.add(this.new("scripts/skills/actives/rotation"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_rotation"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_expert"));

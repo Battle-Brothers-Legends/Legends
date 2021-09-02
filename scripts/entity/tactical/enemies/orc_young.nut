@@ -313,9 +313,9 @@ this.orc_young <- this.inherit("scripts/entity/tactical/actor", {
 
 		if (this.Math.rand(1, 100) <= 75)
 		{
-			if (this.Math.rand(1, 100) <= 50)
+			if (this.Math.rand(1, 100) <= 75)
 			{
-				local r = this.Math.rand(1, 2);
+				r = this.Math.rand(1, 3);
 
 				if (r == 1)
 				{
@@ -332,8 +332,7 @@ this.orc_young <- this.inherit("scripts/entity/tactical/actor", {
 			}
 			else
 			{
-				local r = this.Math.rand(1, 3);
-
+				r = this.Math.rand(1, 2);
 				if (r == 1)
 				{
 					weapon = this.new("scripts/items/weapons/greenskins/orc_wooden_club");
@@ -341,10 +340,6 @@ this.orc_young <- this.inherit("scripts/entity/tactical/actor", {
 				else if (r == 2)
 				{
 					weapon = this.new("scripts/items/weapons/greenskins/orc_metal_club");
-				}
-				else if (r == 3)
-				{
-					weapon = this.new("scripts/items/weapons/legend_chain");
 				}
 			}
 		}
@@ -385,7 +380,6 @@ this.orc_young <- this.inherit("scripts/entity/tactical/actor", {
 		}
 
 		local item = this.Const.World.Common.pickArmor([
-			[1, "greenskins/orc_young_very_light_armor"],
 			[1, "greenskins/orc_young_light_armor"],
 			[1, "greenskins/orc_young_medium_armor"],
 			[1, "greenskins/orc_young_heavy_armor"],
@@ -394,7 +388,6 @@ this.orc_young <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Items.equip(item);
 
 		local item = this.Const.World.Common.pickHelmet([
-			[1, ""],
 			[1, "greenskins/orc_young_light_helmet"],
 			[1, "greenskins/orc_young_medium_helmet"],
 			[1, "greenskins/orc_young_heavy_helmet"]

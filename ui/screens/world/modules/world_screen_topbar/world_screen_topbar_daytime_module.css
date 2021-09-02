@@ -103,6 +103,18 @@
 
 .world-screen .topbar-daytime-module .l-pause-button
 {
+    top: 8.1rem;
+    left: -1.0rem;
+    bottom: 0;
+    width: 3.9rem;
+    height: 3.9rem;
+    position: absolute;
+    margin: auto 0;
+    z-index: 10;
+}
+
+.world-screen .topbar-daytime-module .l-normal-time-button
+{
     top: 13.8rem;
     left: 1.0rem;
     bottom: 0;
@@ -113,7 +125,7 @@
 	z-index: 10;
 }
 
-.world-screen .topbar-daytime-module .l-normal-time-button
+.world-screen .topbar-daytime-module .l-fast-time-button
 {
     top: 16.0rem;
     left: 4.6rem;
@@ -125,9 +137,9 @@
 	z-index: 10;
 }
 
-.world-screen .topbar-daytime-module .l-fast-time-button
+.world-screen .topbar-daytime-module .l-veryfast-time-button
 {
-    top: 13.5rem;
+    top: 13.8rem;
     left: 8.1rem;
     bottom: 0;
     width: 3.9rem;
@@ -135,6 +147,19 @@
     position: absolute;
     margin: auto 0;
 	z-index: 10;
+}
+
+
+.world-screen .topbar-daytime-module .l-ludicrous-time-button
+{
+    top: 8.1rem;
+    left: 10rem;
+    bottom: 0;
+    width: 3.9rem;
+    height: 3.9rem;
+    position: absolute;
+    margin: auto 0;
+    z-index: 10;
 }
 
 

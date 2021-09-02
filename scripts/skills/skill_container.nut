@@ -574,20 +574,25 @@ this.skill_container <- {
 		}
 	}
 
-	function onBeforeActivation()
+	// New not stupid way of running the onXYZ functions
+	function doOnFunction(_function, _argsArray = null, aliveOnly = false)
 	{
-		this.m.IsUpdating = true;
+		if (_argsArray == null) _argsArray = [];
+		_argsArray.insert(0, null);
 
-		foreach( skill in this.m.Skills )
+		this.m.IsUpdating = true;
+		this.m.IsBusy = false;
+		this.m.BusyStack = 0;
+
+		foreach(skill in this.m.Skills)
 		{
-			if (skill.isGarbage())
+			if (!skill.isGarbage())
 			{
-				continue;
+				_argsArray[0] = skill;
+				skill[_function].acall(_argsArray);
 			}
 
-			skill.onBeforeActivation();
-
-			if (!this.m.Actor.isAlive())
+			if (aliveOnly && !this.m.Actor.isAlive())
 			{
 				break;
 			}
@@ -595,264 +600,81 @@ this.skill_container <- {
 
 		this.m.IsUpdating = false;
 		this.update();
+	}
+
+	function doOnFunctionWhenAlive(_function, _argsArray = null)
+	{
+		this.doOnFunction(_function, _argsArray, true);
+	}
+
+	function onBeforeActivation()
+	{
+		this.doOnFunctionWhenAlive("onBeforeActivation");
 	}
 
 	function onTurnStart()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onTurnStart();
-
-			if (!this.m.Actor.isAlive())
-			{
-				break;
-			}
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunctionWhenAlive("onTurnStart");
 	}
 
 	function onResumeTurn()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onResumeTurn();
-
-			if (!this.m.Actor.isAlive())
-			{
-				break;
-			}
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunctionWhenAlive("onResumeTurn");
 	}
 
 	function onRoundEnd()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( i, skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onRoundEnd();
-
-			if (!this.m.Actor.isAlive())
-			{
-				break;
-			}
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunctionWhenAlive("onRoundEnd");
 	}
 
 	function onTurnEnd()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( i, skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onTurnEnd();
-
-			if (!this.m.Actor.isAlive())
-			{
-				break;
-			}
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunctionWhenAlive("onTurnEnd");
 	}
 
 	function onWaitTurn()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( i, skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onWaitTurn();
-
-			if (!this.m.Actor.isAlive())
-			{
-				break;
-			}
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunctionWhenAlive("onWaitTurn");
 	}
 
 	function onNewRound()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( i, skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onNewRound();
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunction("onNewRound");
 	}
 
 	function onNewDay()
 	{
-		this.m.IsUpdating = true;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onNewDay();
-
-			if (!this.m.Actor.isAlive())
-			{
-				break;
-			}
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunctionWhenAlive("onNewDay");
 	}
 
 	function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
 	{
-		this.m.IsUpdating = true;
-
-		foreach( i, skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onDamageReceived(_attacker, _damageHitpoints, _damageArmor);
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunction("onDamageReceived", [_attacker, _damageHitpoints, _damageArmor]);
 	}
 
 	function onBeforeTargetHit( _caller, _targetEntity, _hitInfo )
 	{
-		this.m.IsUpdating = true;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onBeforeTargetHit(_caller, _targetEntity, _hitInfo);
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunction("onBeforeTargetHit", [_caller, _targetEntity, _hitInfo]);
 	}
 
 	function onTargetHit( _caller, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
-		this.m.IsUpdating = true;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onTargetHit(_caller, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor);
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunction("onTargetHit", [_caller, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor]);
 	}
 
 	function onTargetMissed( _caller, _targetEntity )
 	{
-		this.m.IsUpdating = true;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onTargetMissed(_caller, _targetEntity);
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunction("onTargetMissed", [_caller, _targetEntity]);
 	}
 
 	function onTargetKilled( _targetEntity, _skill )
 	{
-		this.m.IsUpdating = true;
+		this.doOnFunction("onTargetKilled", [_targetEntity, _skill]);
+	}
 
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onTargetKilled(_targetEntity, _skill);
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+	function onMissed( _attacker, _skill )
+	{
+		this.doOnFunction("onMissed", [_attacker, _skill]);
 	}
 
 	function onAfterDamageReceived()
@@ -860,83 +682,19 @@ this.skill_container <- {
 		this.update();
 	}
 
-	function onMissed( _attacker, _skill )
-	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onMissed(_attacker, _skill);
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
-	}
-
 	function onCombatStarted()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onCombatStarted();
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunction("onCombatStarted");
 	}
 
 	function onCombatFinished()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onCombatFinished();
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunction("onCombatFinished");
 	}
 
 	function onDeath()
 	{
-		this.m.IsUpdating = true;
-		this.m.IsBusy = false;
-		this.m.BusyStack = 0;
-
-		foreach( skill in this.m.Skills )
-		{
-			if (skill.isGarbage())
-			{
-				continue;
-			}
-
-			skill.onDeath();
-		}
-
-		this.m.IsUpdating = false;
-		this.update();
+		this.doOnFunction("onDeath");
 	}
 
 	function compareSkillsByOrder( _skill1, _skill2 )

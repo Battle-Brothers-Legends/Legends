@@ -5,7 +5,7 @@ this.legend_mummy_shield <- this.inherit("scripts/items/shields/shield", {
 		this.shield.create();
 		this.m.ID = "shield.legend_mummy_shield";
 		this.m.Name = "Ancient Southern Shield";
-		this.m.Description = "An shield made of wood and reinforced with bronze. Time has taken its toll and the wood has become brittle.";
+		this.m.Description = "A small shield made of wood and reinforced with bronze. Time has taken its toll and the wood has become brittle, but it is still an agile parrying tool.";
 		this.m.AddGenericSkill = true;
 		this.m.ShowOnCharacter = true;
 		this.m.Variants = [
@@ -18,11 +18,11 @@ this.legend_mummy_shield <- this.inherit("scripts/items/shields/shield", {
 		this.m.Variant = this.m.Variants[this.Math.rand(0, this.m.Variants.len() - 1)];
 		this.updateVariant();
 		this.m.Value = 200;
-		this.m.MeleeDefense = 15;
-		this.m.RangedDefense = 20;
-		this.m.StaminaModifier = -12;
-		this.m.Condition = 40;
-		this.m.ConditionMax = 40;
+		this.m.MeleeDefense = 8;
+		this.m.RangedDefense = 8;
+		this.m.StaminaModifier = -6;
+		this.m.Condition = 26;
+		this.m.ConditionMax = 26;
 	}
 
 	function updateVariant()
@@ -37,8 +37,9 @@ this.legend_mummy_shield <- this.inherit("scripts/items/shields/shield", {
 	function onEquip()
 	{
 		this.shield.onEquip();
-		this.addSkill(this.new("scripts/skills/actives/shieldwall"));
 		this.addSkill(this.new("scripts/skills/actives/knock_back"));
+		this.addSkill(this.new("scripts/skills/actives/legend_buckler_bash_skill"));
+		this.addSkill(this.new("scripts/skills/effects/legend_buckler_effect"));
 	}
 
 });

@@ -120,7 +120,7 @@ this.legend_demon_hound_aura_effect <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		_properties.Initiative *= penalty;
+		_properties.InitiativeMult *= 1.0 - penalty;
 		this.m.Penalty = penalty;
 		this.m.IsHidden = false;
 	}

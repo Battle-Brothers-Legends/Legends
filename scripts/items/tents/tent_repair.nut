@@ -36,7 +36,7 @@ this.tent_repair <- this.inherit("scripts/items/trade/trading_good_item", {
 		if (("State" in this.World) && this.World.State != null && this.World.State.getCurrentTown() != null)
 		{
 			local isBuildingPresent = this.World.State.getCurrentTown().hasAttachedLocation("attached_location.workshop");
-			return this.Math.floor(this.getValue() * this.World.State.getCurrentTown().getSellPriceMult() * (isBuildingPresent ? this.Const.World.Assets.BaseSellPrice : this.Const.World.Assets.SellPriceNotProducedHere));
+			return this.item.getSellPrice() * (isBuildingPresent ? this.Const.World.Assets.BaseSellPrice : this.Const.World.Assets.SellPriceNotProducedHere);
 		}
 
 		return this.item.getSellPrice();
