@@ -17,7 +17,7 @@ this.Const.ItemTables <-
 	{
 		local table = {};
 
-		table.ItemSlots <- array(this.Const.ItemSlot.len()-3);
+		table.ItemSlots <- array(this.Const.ItemSlot.COUNT);
 		Tables[_entityType] <- clone table;
 	}
 	function convertEntityType(_entityType)
@@ -95,20 +95,25 @@ this.Const.ItemTables <-
 		foreach (item in _items)
 		{
 			//just string
-			if(typeof item == "string"){
+			if (typeof item == "string")
+			{
 				item = {Script = item, Weight = 1}
 				itemsArray.push(item)
 			}
 			//array of strings
-			else if (typeof item == "array"){
-				foreach (i in item){
+			else if (typeof item == "array")
+			{
+				foreach (i in item)
+				{
 					local newItem = {Script = i, Weight = 1}
 					itemsArray.push(newItem)
 				}
 			}
 			// individual item table
-			else if (typeof item == "table" && (!("Scripts" in item))){
-				if (!("Script" in item)){
+			else if (typeof item == "table" && !("Scripts" in item))
+			{
+				if (!("Script" in item))
+				{
 					this.logError("Item does not have a script\n");
 					continue
 				}
@@ -116,22 +121,25 @@ this.Const.ItemTables <-
 				itemsArray.push(item)
 			}
 			// grouped item table
-			else if (typeof item == "table" && "Scripts" in item){
-				if ("Weights" in item && item.Weights.len() != item.Scripts.len()){
+			else if (typeof item == "table" && "Scripts" in item)
+			{
+				if ("Weights" in item && item.Weights.len() != item.Scripts.len())
+				{
 					this.logError("Length of Weights is not equal to length of Scripts in passed table!")
 					continue
 				}
 				for (local i = 0; i < item.Scripts.len(); i++) 
 				{
-				    local newItem = {Script = item.Scripts[i]}
-				    newItem.Weight <- "Weights" in item ? item.Weights[i] : 1;
-				    if ("isValid" in item) newItem.isValid <- item.isValid;
-				    if ("onChosen" in item) newItem.onChosen <- item.onChosen;
-				    itemsArray.push(newItem)
+					local newItem = {Script = item.Scripts[i]}
+					newItem.Weight <- "Weights" in item ? item.Weights[i] : 1;
+					if ("isValid" in item) newItem.isValid <- item.isValid;
+					if ("onChosen" in item) newItem.onChosen <- item.onChosen;
+					itemsArray.push(newItem)
 				}
 			}
 			//failure
-			else{
+			else
+			{
 				this.logError("Item with type " + typeof item + " is not valid formatting!\n")
 				continue;
 			}
@@ -141,18 +149,19 @@ this.Const.ItemTables <-
 
 	function pushItem(_table, _item)
 	{
-		
 		if ("isValid" in _item && _item.isValid != null) _table.NeedsValidation = true;
 
 		//check for existing item to override
 		local itemReplaced = false;
-		for (local i = 0; i < _table.Items.len(); i++) {
-		   if(_table.Items[i].Script == _item.Script){
-		   		this.logInfo("Overriding existing item with script " + _item.Script)
+		for (local i = 0; i < _table.Items.len(); i++)
+		{
+			if(_table.Items[i].Script == _item.Script)
+			{
+				this.logInfo("Overriding existing item with script " + _item.Script)
 				_table.Total -= _table.Items[i].Weight
 				_table.Items[i] = _item;
 				itemReplaced = true;
-		   }
+			}
 		}
 		if(!itemReplaced) _table.Items.push(_item);
 		
@@ -160,21 +169,25 @@ this.Const.ItemTables <-
 	}
 
 	//optional isValid function for the itemslot, ie only add a throwing weapon if random < 30
-	function setItemSlotIsValid(_entityType, _itemslot, _isValidFunction){
-        if (typeof _isValidFunction != "function"){
-            this.logError("isValidFunction is not a function!")
-            return
-        }
-        this.Tables[_entityType].ItemSlots[_itemslot].isValid = _isValidFunction
-    }
+	function setItemSlotIsValid(_entityType, _itemslot, _isValidFunction)
+	{
+		if (typeof _isValidFunction != "function")
+		{
+			this.logError("isValidFunction is not a function!")
+			return
+		}
+		this.Tables[_entityType].ItemSlots[_itemslot].isValid = _isValidFunction
+	}
 
-	function setItemSlotOnChosen(_entityType, _itemslot, _onChosenFunction){
-        if (typeof _onChosenFunction != "function"){
-            this.logError("onChosenFunction is not a function!")
-            return
-        }
-        this.Tables[_entityType].ItemSlots[_itemslot].onChosen = _onChosenFunction
-    }
+	function setItemSlotOnChosen(_entityType, _itemslot, _onChosenFunction)
+	{
+		if (typeof _onChosenFunction != "function")
+		{
+			this.logError("onChosenFunction is not a function!")
+			return
+		}
+		this.Tables[_entityType].ItemSlots[_itemslot].onChosen = _onChosenFunction
+	}
 
 	function rollItem(_actor, _itemslot, _doOnChosen = true)
 	{
@@ -186,13 +199,34 @@ this.Const.ItemTables <-
 		local skipslot = "skip" + _itemslot;
 		if(skipslot in _actor && _actor[skipslot] == true) return;
 
-		if (!itemslotTable.isValid()) return
+		if (!itemslotTable.isValid()) return;
+
+		if ("NeedsBalancing" in _itemslot)
+		{
+			local pow10 = 1;
+			foreach (item in _itemslot)
+			{
+				local maxAccuracy = 5;
+				local ints = floor(item.Weight).tostring().len();
+				local power = item.Weight.tostring().len() - ints == 0 ? 0 : item.Weight.tostring().len() - ints - 1;
+
+				if (power >= maxAccuracy) 
+				{
+					pow10 = maxAccuracy;
+					break;
+				}
+				else if (pow10 < power) pow10 = power;
+			}
+			local mult = pow(10, pow10);
+			_itemslot.apply(@(a) a.Weight = this.Math.ceil(a.Weight * mult));
+			_itemslot.Total = this.Math.ceil(_itemslot.Total * mult);
+			delete _itemslot.NeedsBalancing;
+		}
 
 		local items = [];
 		local total = 0;
 		if (itemslotTable.NeedsValidation)
 		{
-
 			foreach (item in itemslotTable.Items)
 			{
 				if (!("isValid" in item) || item.isValid.call(_actor, item))
@@ -235,8 +269,42 @@ this.Const.ItemTables <-
 		return null;
 	}
 
+	function stripActor(_actor)
+	{
+		local items = _actor.getItems()
+		local toClear = [];
+
+		for (local i = 0; i < this.Const.ItemSlot.COUNT; i = ++i)
+		{
+			for (local j = 0; j < this.m.Items[i].len(); j = ++j)
+			{
+				local item = items.m.Items[i][j]
+				if (item != null && item != -1 
+					&& !item.isItemType(this.Const.Items.ItemType.Named) 
+					&& !item.isItemType(this.Const.Items.ItemType.Legendary))
+				{
+					toClear.push(item);
+				}
+			}
+		}
+
+		foreach (item in toClear)
+		{
+			if (item.isInBag())
+			{
+				items.removeFromBag(item);
+			}
+			else
+			{
+				items.unequip(item);
+			}
+		}
+
+	}
+
 	//switch based on legends
-	function equipActor(_actor){
+	function equipActor(_actor)
+	{
 		local logActor = _actor.getName();
 		if ("LegendMod" in this.Const) equipLegendsActor(_actor)
 		else equipVanillaActor(_actor)
@@ -252,31 +320,35 @@ this.Const.ItemTables <-
 		local itemSlotTable = Tables[_actor.m.Type].ItemSlots
 		//iterate through the game itemslots
 		foreach(itemSlot in this.Const.ItemSlot){
-			if (!(itemSlot in itemSlotTable) || itemSlotTable[itemSlot] == null) continue
+			if (!(itemSlot in itemSlotTable) || itemSlotTable[itemSlot] == null) continue;
 
 			if (itemSlotTable[itemSlot].Items.len() == 0){
-				this.logInfo("No items in slot "  + itemSlot + " for actor " + _actor.getName() )
-				continue
+				this.logInfo("No items in slot "  + itemSlot + " for actor " + _actor.getName());
+				continue;
 			}
-			local item = this.rollItem(_actor, itemSlot)
+			local item = this.rollItem(_actor, itemSlot);
 
-			if (itemSlot == this.Const.ItemSlot.Bag){
-				_actor.m.Items.addToBag(item)
+			if (itemSlot == this.Const.ItemSlot.Bag)
+			{
+				_actor.m.Items.addToBag(item);
 			}
-			else {
-			    _actor.m.Items.equip(item)
+			else
+			{
+				_actor.m.Items.equip(item);
 			}
 		}
 	}
 
 	//return an array of [weight, script, [optional]] to be used by the legends picking functions
-	function returnItemsForLegends(_actor, _itemslot)
+	function returnItemsForLegends(_actor, _itemslot, _doOnChosen = true)
 	{
-		if (!(_actor.m.Type in Tables)){
+		if (!(_actor.m.Type in Tables))
+		{
 			this.logInfo("No items found for actor " + _actor.getName() + " Legends");
 			return []
 		}
-		if (!(_itemslot in Tables[_actor.m.Type].ItemSlots)){
+		if (!(_itemslot in Tables[_actor.m.Type].ItemSlots))
+		{
 			this.logInfo("No items found for actor " + _actor.getName() + " Legends at slot " + _itemslot);
 			return []
 		}
@@ -298,62 +370,135 @@ this.Const.ItemTables <-
 		return ret;
 	}
 
-	function equipLegendsActor(_actor)
+	function equipLegendsActor(_actor, _doOnChosen = true)
 	{
-		if (!(_actor.m.Type in Tables)){
+		if (!(_actor.m.Type in Tables))
+		{
 			this.logInfo("No items found for actor " + _actor.getName() + " Legends");
-			return
+			return;
 		}
 
 		local typeTable = Tables[_actor.m.Type]
 		for (local itemSlot = 0; itemSlot < typeTable.ItemSlots.len(); itemSlot++) 
 		{
-		    if (typeTable.ItemSlots[itemSlot] == null || typeTable.ItemSlots[itemSlot].Items.len() == 0)
-		    {
-		    	continue;
-		    }
-		    if (itemSlot == this.Const.ItemSlot.Body){
-		    	_actor.m.Items.equip(this.Const.World.Common.pickArmor(this.returnItemsForLegends(_actor, itemSlot)));
-		    }
-		    else if (itemSlot == this.Const.ItemSlot.Head){
-		    	_actor.m.Items.equip(this.Const.World.Common.pickHelmet(this.returnItemsForLegends(_actor, itemSlot)));
-		    }
-		    else if (itemSlot == this.Const.ItemSlot.Bag){
-		    	local item = this.rollItem(_actor, itemSlot);
-		        _actor.m.Items.equip(item);
-		    }
-		    else {
-		    	local item = this.rollItem(_actor, itemSlot);
-		        _actor.m.Items.equip(item);
-		    }
+			if (typeTable.ItemSlots[itemSlot] == null || typeTable.ItemSlots[itemSlot].Items.len() == 0) continue;
+
+			if (itemSlot == this.Const.ItemSlot.Body)
+			{
+				_actor.m.Items.equip(this.Const.World.Common.pickArmor(this.returnItemsForLegends(_actor, itemSlot, _doOnChosen)));
+			}
+			else if (itemSlot == this.Const.ItemSlot.Head)
+			{
+				_actor.m.Items.equip(this.Const.World.Common.pickHelmet(this.returnItemsForLegends(_actor, itemSlot, _doOnChosen)));
+			}
+			else if (itemSlot == this.Const.ItemSlot.Bag)
+			{
+				local item = this.rollItem(_actor, itemSlot, _doOnChosen);
+				_actor.m.Items.addToBag(item);
+			}
+			else
+			{
+				local item = this.rollItem(_actor, itemSlot, _doOnChosen);
+				_actor.m.Items.equip(item);
+			}
 		}
 	}
 }
 ::pushItems <- function(_entityType, _itemslot, _item){
 	_entityType = this.Const.ItemTables.convertEntityType(_entityType)
 	_itemslot = this.Const.ItemTables.convertItemSlot(_itemslot)
-	if (_entityType == null || _itemslot == null){
-		this.logError("At least one parameter invalid, returning")
-		return
+	if (_entityType == null || _itemslot == null)
+	{
+		this.logError("At least one parameter invalid, returning");
+		return;
 	}
 	this.Const.ItemTables.pushItems(_entityType, _itemslot, _item)
 }
 ::setItemSlotIsValid <- function(_entityType, _itemslot, _isValidFunction){
 	_entityType = this.Const.ItemTables.convertEntityType(_entityType)
 	_itemslot = this.Const.ItemTables.convertItemSlot(_itemslot)
-	if (_entityType == null || _itemslot == null){
-		this.logError("At least one parameter invalid, returning")
-		return
+	if (_entityType == null || _itemslot == null)
+	{
+		this.logError("At least one parameter invalid, returning");
+		return;
 	}
 	this.Const.ItemTables.setItemSlotIsValid(_entityType, _itemslot, _isValidFunction)
 }
 ::setItemSlotOnChosen <- function(_entityType, _itemslot, _onChosenFunction){
 	_entityType = this.Const.ItemTables.convertEntityType(_entityType)
 	_itemslot = this.Const.ItemTables.convertItemSlot(_itemslot)
-	if (_entityType == null || _itemslot == null){
-		this.logError("At least one parameter invalid, returning")
-		return
+	if (_entityType == null || _itemslot == null)
+	{
+		this.logError("At least one parameter invalid, returning");
+		return;
 	}
 	this.Const.ItemTables.setItemSlotOnChosen(_entityType, _itemslot, _onChosenFunction)
 }
 //::equipActor <- this.Const.ItemTables.equipActor;
+
+gt.Const.Tactical.Actor.MasterArcher <- {
+	XP = 450,
+	ActionPoints = 9,
+	Hitpoints = 80,
+	Bravery = 70,
+	Stamina = 135,
+	MeleeSkill = 65,
+	RangedSkill = 85,
+	MeleeDefense = 15,
+	RangedDefense = 25,
+	Initiative = 140,
+	FatigueEffectMult = 1.0,
+	MoraleEffectMult = 1.0,
+	Armor = [
+		0,
+		0
+	],
+	FatigueRecoveryRate = 20,
+
+	Groups = [
+		this.Const.EntityTables.MasterArcher,
+		this.Const.EntityTables.Bandit
+	]
+};
+
+
+this.Const.EntityTables <- {
+	function addGroupToEntity( _entityType, _group )
+	{
+		if (!(_entityType in this.Const.Tactical.Actor))
+		{
+			this.logError(_entityType + " is not a valid EntityType");
+			return;
+		}
+
+		if (!(Groups in this.Const.Tactical.Actor[_entityType]))
+		{
+			this.Const.Tactical.Actor[_entityType].Groups <- [];
+		}
+
+		this.Const.Tactical.Actor[_entityType].Groups.push(_group);
+	}
+
+	MasterArcher = {
+		isValid = @() true,
+		Skills = [
+			"scripts/skills/actives/etc"
+		],
+		Properties = {
+			Vision = 8,
+		}
+		Functions = [
+			function()
+			{
+				//dothing
+			},
+			function()
+			{
+				//dootherthing
+			}
+		]
+	},
+	Bandit = {
+
+	}
+}

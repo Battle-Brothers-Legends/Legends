@@ -1218,6 +1218,17 @@ gt.Const.CharacterProperties <- {
 		{
 			this.DamageTotalMult = _t.DamageTotalMult;
 		}
+
+		if (_t.rawin("Groups"))
+		{
+			foreach (group in Groups)
+			{
+				foreach (property, value in group.Properties)
+				{
+					this[property] = value;
+				}
+			}
+		}
 	}
 
 	function onSerialize( _out )
