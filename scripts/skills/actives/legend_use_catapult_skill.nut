@@ -71,7 +71,7 @@ this.legend_use_catapult_skill <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local ret = this.getDefaultRangedTooltip();
+		local ret = this.getDefaultTooltip();
 
 		ret.push({
 			id = 7,

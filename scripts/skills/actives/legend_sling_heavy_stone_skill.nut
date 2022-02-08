@@ -70,7 +70,7 @@ this.legend_sling_heavy_stone_skill <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local ret = this.getDefaultRangedTooltip();
+		local ret = this.getDefaultTooltip();
 
 		ret.push({
 			id = 7,

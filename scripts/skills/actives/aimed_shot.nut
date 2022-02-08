@@ -62,7 +62,7 @@ this.aimed_shot <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local ret = this.getDefaultRangedTooltip();
+		local ret = this.getDefaultTooltip();
 
 		local ammo = this.getAmmo();
 
