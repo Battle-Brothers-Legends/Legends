@@ -40,18 +40,15 @@ gt.Const.Items.ItemType <- {
 	Crafting = 131072,
 	Supply = 262144,
 	Food = 524288,
-	TradeGood = 1048576,
-	HorseArmor = 2097152,
-	HorseHelmet = 4194304,
-	Cultist = 8388608
+	TradeGood = 1048576
 };
+
 gt.Const.Items.ItemFilter <- {
 	Weapons = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.Accessory | this.Const.Items.ItemType.Tool | this.Const.Items.ItemType.Ammo,
 	Armor = this.Const.Items.ItemType.Armor | this.Const.Items.ItemType.Helmet | this.Const.Items.ItemType.Shield,
 	Misc = this.Const.Items.ItemType.Supply | this.Const.Items.ItemType.Food | this.Const.Items.ItemType.Misc | this.Const.Items.ItemType.TradeGood | this.Const.Items.ItemType.Loot | this.Const.Items.ItemType.Crafting,
 	Usable = this.Const.Items.ItemType.Usable,
-	HorseArmor = this.Const.Items.ItemType.HorseArmor,
-	All = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 | 16384 | 32768 | 65536 | 131072 | 262144 | 524288 | 1048576 | 2097152 | 4194304 | 8388608
+	All = 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 | 16384 | 32768 | 65536 | 131072 | 262144 | 524288 | 1048576
 };
 gt.Const.Items.AmmoType <- {
 	None = 0,

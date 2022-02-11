@@ -2,6 +2,7 @@
 ::mods_queue(null, "mod_MSU", function()
 {
 	::mods_registerJS("legends_assets.js");
+	this.Const.LegendMod.addLegendItemTypes();
 	this.Const.LegendMod.hookActor();
 	this.Const.LegendMod.hookAISkills();
 	this.Const.LegendMod.hookAIAgent();
@@ -17,8 +18,7 @@
 	this.Const.LegendMod.hookStrategy();
 	this.Const.LegendMod.hookTacticalEntityManager();
 	this.Const.LegendMod.hookTacticalState();
-	this.Const.LegendMod.hookWorldmapGenerator();
-	
+	this.Const.LegendMod.hookWorldmapGenerator();	
 
 	this.Const.LegendMod.hookMSU();
 
