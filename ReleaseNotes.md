@@ -6846,3 +6846,4 @@ Experimental: High tier ghouls (capable of swallowing bros) have been increased 
 
 ==Uber Changes==
 - Removed Pathfinder from Ancient Dead.
+- Improved Slingshot tooltip to mention it can target heads and daze enemies.

@@ -5,7 +5,7 @@ this.legend_slingshot <- this.inherit("scripts/items/weapons/weapon", {
 		this.weapon.create();
 		this.m.ID = "weapon.legend_slingshot";
 		this.m.Name = "Slingshot";
-		this.m.Description = "A primitive yet effective weapon for troublesome children and grown killers alike. With stones abundant everywhere, it will never run out of ammunition.";
+		this.m.Description = "A primitive yet effective weapon for troublesome children and grown killers alike. With stones abundant everywhere, it will never run out of ammunition. Can target the head to daze enemies.";
 		this.m.IconLarge = "weapons/ranged/legend_sling_01.png";
 		this.m.Icon = "weapons/ranged/legend_sling_01_70x70.png";
 		this.m.WeaponType = this.Const.Items.WeaponType.Sling;
