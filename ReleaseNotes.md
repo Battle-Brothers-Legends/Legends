@@ -6843,3 +6843,6 @@ Experimental: High tier ghouls (capable of swallowing bros) have been increased 
 
 ## 15.0.2.11b - Bastard Blades
 - Reverted fixes to scenarios due to lingering bugs.
+
+==Uber Changes==
+- Removed Pathfinder from Ancient Dead.
