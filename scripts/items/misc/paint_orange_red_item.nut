@@ -12,7 +12,7 @@ this.paint_orange_red_item <- this.inherit("scripts/items/trade/trading_good_ite
 		this.m.ProducingBuildings = [
 			"attached_location.dye_maker"
 		];
-		this.m.Value = 335;
+		this.m.Value = 380;
 		this.m.ResourceValue = 2;
 	}
 

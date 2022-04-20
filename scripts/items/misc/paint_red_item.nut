@@ -12,7 +12,7 @@ this.paint_red_item <- this.inherit("scripts/items/trade/trading_good_item", {
 		this.m.ProducingBuildings = [
 			"attached_location.dye_maker"
 		];
-		this.m.Value = 235;
+		this.m.Value = 270;
 		this.m.ResourceValue = 2;
 	}
 	function onSerialize( _out )
