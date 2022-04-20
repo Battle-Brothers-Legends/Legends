@@ -1,5 +1,46 @@
 ### Legend Mod Release Notes
 
+## 17 - Of Flesh and Faith
+
+New Origins
+  - Anatomists and Oathtakers have been made Legends compatible
+    • Layering and other rebalances will be added with version 18.
+
+Perk Balance
+  - With Throwing Mastery, damage increase at 2 tiles distance has been reduced to 30% instead of 40%.
+  - Footwork skill fatigue cost reduced to 20 from 25.
+  - Head Hunter no longer loses stacks on misses.
+
+Weapon Balance
+  - Two Handed Wooden Flail damage increased to 30-60 from 25-60.
+  - Two Handed Flail damage increased to 45-90 from 40-80.
+  - Orc Flail min damage up to 50 from 40.
+  - Cascade skill (Three Headed Flail) fatigue cost reduced to 13 from 15.
+  - Pound skill (Two Handed Flails) now ignores an additional 20% of armor on hits to the head with Flail Mastery and 10% without Flail Mastery. 
+  - Handgonne effectiveness against armor reduced to 90% from 100%.
+  - Split and Swing skills now gain +10% to hit (total +5%) from Sword Mastery up from +5% (total +0%).
+  - Aimed Shot skill now costs 20 fatigue, down from 25, and costs 7 action points, down from 8.
+  - Shield damage multiplier on named weapons increased to 1.5x-2.0x, up from 1.33x-1.8x.
+
+Backgrounds
+  - Hiring and daily cost changes.
+    • Brawler: 125 from 120.
+    • Deserter: 85 from 100.
+    • Disowned Noble: 135 from 60. Daily Cost 17 from 18.
+
+Enemy Balance
+  - Kraken now has less health and destroying tentacles inflicts a higher minimum damage to the Kraken as a whole.
+  - Ijirok now has slightly more health and slightly better stats.
+  - 'Chilled' status effect now lasts for two turns instead of one. It now applies -3 Action Points and -50 Initiative the first turn, and -2 Action Points and -30 Initiative on the second.
+  - Orc Warlords now have the Captain perk/effect and the Resilient perk.
+  - All ancient dead have gained +10 resolve, buffing their fearsome perk.
+
+Item Balance
+  - Alp Trophy Necklace value increased from 250 to 400.
+  - Hexen Trophy Necklace value increased from 250 to 550.
+  - When using Berserker Mushrooms, morale checks are no longer triggered on HP loss.
+  
+############################PRE VERSION 17###################################
 ## Alpha 1
 
 Mod Features:
