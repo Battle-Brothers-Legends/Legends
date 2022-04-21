@@ -32,7 +32,7 @@ this.legend_alchemist_background <- this.inherit("scripts/skills/backgrounds/cha
 		this.m.HairColors = this.Const.HairColors.Southern;
 		this.m.BeardChance = 50;
 		this.m.Ethnicity = 1;
-		this.m.BackgroundType = this.Const.BackgroundType.Female | this.Const.BackgroundType.Combat | this.Const.BackgroundType.Performing;
+		this.m.BackgroundType = this.Const.BackgroundType.Educated;
 		this.m.Modifiers.Barter = this.Const.LegendMod.ResourceModifiers.Barter[2];
 		this.m.Modifiers.Healing = this.Const.LegendMod.ResourceModifiers.Healing[1];
 		this.m.Modifiers.Injury = this.Const.LegendMod.ResourceModifiers.Injury[1];
