@@ -1,7 +1,7 @@
 this.legend_sling_heavy_stone_skill <- this.inherit("scripts/skills/skill", {
 	m = {
-		AdditionalAccuracy = -40,
-		AdditionalHitChance = 3
+		AdditionalAccuracy = -5,
+		AdditionalHitChance = -4
 	},
 	function create()
 	{
@@ -100,8 +100,8 @@ this.legend_sling_heavy_stone_skill <- this.inherit("scripts/skills/skill", {
 	function onAfterUpdate( _properties )
 	{
 		this.m.MaxRange = this.m.Item.getRangeMax() + (_properties.IsSpecializedInSlings ? 1 : 0);
-		this.m.AdditionalAccuracy = _properties.IsSpecializedInSlings ? -35 : -40;
-		this.m.AdditionalHitChance = _properties.IsSpecializedInSlings ? 8 : 3;
+		this.m.AdditionalAccuracy = _properties.IsSpecializedInSlings ? 0 : -5;
+		this.m.AdditionalHitChance = _properties.IsSpecializedInSlings ? -2 : -4;
 		this.m.FatigueCostMult = _properties.IsSpecializedInSlings ? this.Const.Combat.WeaponSpecFatigueMult : 1.0;
 		if (this.getContainer().hasSkill("perk.legend_specialist_sling_damage") && this.getContainer().hasSkill("perk.legend_specialist_sling_skill"))
 		{

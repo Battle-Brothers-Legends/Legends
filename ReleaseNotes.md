@@ -22,6 +22,13 @@ Weapon Balance
   - Aimed Shot skill now costs 20 fatigue, down from 25, and costs 7 action points, down from 8.
   - Shield damage multiplier on named weapons increased to 1.5x-2.0x, up from 1.33x-1.8x.
 
+Northern Sling Rebalance
+  - Default accuracy debuff reduced to -5 from -40.
+  - Hit chance modifier per tile of range changed to -4 from 3.
+  - Sling Mastery now reduces default accuracy debuff to 0 from -5.
+  - Sling Mastery now reduces hit chance modifier per tile of range from -4 to -2.
+  - With these changes, the sling will now act more like a traditional ranged weapon, losing accuracy based on distance. However, with Sling Mastery, it becomes the best weapon for range at -2 to hit per tile compared to -3 or -4 for Bow or Crossbow. Add Ballistics and you now have no penalty to hit based on distance. This rebalance should keep the theme and use case of the Northern Sling alive while making it more balanced and realistic of a weapon.
+
 Backgrounds
   - Hiring and daily cost changes.
     • Brawler: 125 from 120.
