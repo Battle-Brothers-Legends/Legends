@@ -12,6 +12,7 @@ this.anatomist_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.HiringCost = 130;
 		this.m.DailyCost = 12;
 		this.m.Excluded = [
+			"trait.aggressive",
 			"trait.ailing",
 			"trait.asthmatic",
 			"trait.bleeder",
@@ -22,8 +23,11 @@ this.anatomist_background <- this.inherit("scripts/skills/backgrounds/character_
 			"trait.hate_beasts",
 			"trait.fear_greenskins",
 			"trait.hate_greenskins",
+			"trait.fear_nobles",
+			"trait.hate_nobles",
 			"trait.fear_undead",
 			"trait.hate_undead",
+			"trait.firm",
 			"trait.teamplayer",
 			"trait.impatient",
 			"trait.clumsy",
@@ -35,6 +39,7 @@ this.anatomist_background <- this.inherit("scripts/skills/backgrounds/character_
 			"trait.iron_lungs",
 			"trait.irrational",
 			"trait.cocky",
+			"trait.sureshot",
 			"trait.strong",
 			"trait.tough",
 			"trait.superstitious"
@@ -55,6 +60,42 @@ this.anatomist_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = this.Const.Beards.Tidy;
 		this.m.Bodies = this.Const.Bodies.Skinny;
+		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Merciless;
+		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Kind;
+		this.m.BackgroundType = this.Const.BackgroundType.Educated;
+		this.m.Modifiers.Meds = this.Const.LegendMod.ResourceModifiers.Meds[3];
+		this.m.Modifiers.Healing = this.Const.LegendMod.ResourceModifiers.Healing[2];
+		this.m.Modifiers.Injury = this.Const.LegendMod.ResourceModifiers.Injury[2];
+		this.m.Modifiers.MedConsumption = this.Const.LegendMod.ResourceModifiers.MedConsumption[1];
+	}
+
+	//Default Male
+	function setGender(_gender = -1)
+	{
+		local r = _gender;
+		if (_gender == -1)
+		{
+			r = 0;
+			if (this.LegendsMod.Configs().LegendGenderEnabled())
+			{
+				r = this.Math.rand(0, 1);
+			}
+		}
+
+		if (r == 0)
+		{
+			return;
+		}
+		this.m.Faces = this.Const.Faces.AllWhiteFemale;
+		this.m.Hairs = this.Const.Hair.AllFemale;
+		this.m.HairColors = this.Const.HairColors.All;
+		this.m.Beards = null;
+		this.m.BeardChance = 1;
+		this.m.Bodies = this.Const.Bodies.FemaleSkinny;
+		this.addBackgroundType(this.Const.BackgroundType.Female);
+		this.m.GoodEnding = "Out of all the women you came to know in the %companyname%, it was %name% the anatomist who is perhaps the most difficult to forget. An unending stream of letters only helps ensure you never will. You skim over her latest, one-sided correspondence: \"Captain! I\'ve managed to...\" skimming, skimming, \"...the greatest invention! The most...\" skimming, skimming. \"I\'m going to be famous! My brain will be studied for its weight is surely...\" Nothing new, it seems, though you are glad she\'s still in good health, albeit perhaps more so in body than mind.";
+		this.m.BadEnding = "Having fled the %companyname%, %name% the anatomist continued her studies elsewhere. She was admonished by her peers for venturing out in such an uncouth manner and found herself suffering in intellectual mediocrity. Some years later, she made a small contribution to the study of beetles after which she promptly threw herself off a seaside cliff, donating her brain to the rocks and her body to the ocean.";
+
 	}
 
 	function getTooltip()
@@ -75,7 +116,14 @@ this.anatomist_background <- this.inherit("scripts/skills/backgrounds/character_
 
 	function onBuildDescription()
 	{
-		return "{%name% is a sharp man with a complexion wrecked by constant and virulent testing. You hope that his methodologies may be better applied to his enemies rather than his own self. | Rumors about %name% suggest he tried to figure out how to fly. Not by machine, rather, but by growing wings. How exactly he intended to do that, or what became of his experiments, is unknown. Yet, here he is, rather shrewdly grounded and looking over his shoulders. | Like many anatomists, %name% went out on his own into the world. Of course, also like many, he was quickly chewed up by the hungriness of those to whom science means nothing. For now, he will fight alongside sellswords, if only to buy himself extra time to truly get to his studies. | %name% is cynical to the world, upset that some of his peers could see to their education in full, while he must earn coin just to support his studies. May his anger present itself on the battlefield. | One would expect a man like %name% to appear after a battle, not actually participate in it. The fact such an intelligent, albeit bizarre figure would still need a sellsword\'s earnings has you wondering if your own prospects of getting anywhere in this world are even worse than you realized. | One cannot overstate %name%\'s intellect. He is a wicked smart man, the sort who can make you question why the gods bothered to give you a mind of your own if it is to be so dwarfed. But, in sellsword matters, he would be just another fighter. Hopefully his martial skills are as sharp as his wits. | You can never know for certain if it were hard times which forced %name% into sellswording, or if he\'s merely pursuing scientific inquiries by another, far crueler path. That he spends evenings dissecting wagon-crushed dogs and wingless butterflies makes you ponder a lot of things about the curious fellow. | Curiosity, not coin, brought %name% to sellswording. He has a keen interest in discovering the creatures of the world, and what they look like on the inside. So long as he makes said insides visible, you could care less what else he does with them.}";
+		if (this.isBackgroundType(this.Const.BackgroundType.Female))
+		{
+			return "{%name% is a sharp woman with a complexion wrecked by constant and virulent testing. You hope that her methodologies may be better applied to her enemies rather than her own self. | Rumors about %name% suggest she tried to figure out how to fly. Not by machine, rather, but by growing wings. How exactly she intended to do that, or what became of her experiments, is unknown. Yet, here she is, rather shrewdly grounded and looking over her shoulders. | Like many anatomists, %name% went out on her own into the world. Of course, also like many, she was quickly chewed up by the hungriness of those to whom science means nothing. For now, she will fight alongside sellswords, if only to buy himself extra time to truly get to her studies. | %name% is cynical to the world, upset that some of her peers could see to their education in full, while she must earn coin just to support her studies. May her anger present itself on the battlefield. | One would expect a woman like %name% to appear after a battle, not actually participate in it. The fact such an intelligent, albeit bizarre figure would still need a sellsword\'s earnings has you wondering if your own prospects of getting anywhere in this world are even worse than you realized. | One cannot overstate %name%\'s intellect. She is a wicked smart woman, the sort who can make you question why the gods bothered to give you a mind of your own if it is to be so dwarfed. But, in sellsword matters, she would be just another fighter. Hopefully her martial skills are as sharp as her wits. | You can never know for certain if it were hard times which forced %name% into sellswording, or if she\'s merely pursuing scientific inquiries by another, far crueler path. That she spends evenings dissecting wagon-crushed dogs and wingless butterflies makes you ponder a lot of things about the curious lass. | Curiosity, not coin, brought %name% to sellswording. She has a keen interest in discovering the creatures of the world, and what they look like on the inside. So long as she makes said insides visible, you could care less what else she does with them.}";
+		}
+		else
+		{
+			return "{%name% is a sharp man with a complexion wrecked by constant and virulent testing. You hope that his methodologies may be better applied to his enemies rather than his own self. | Rumors about %name% suggest he tried to figure out how to fly. Not by machine, rather, but by growing wings. How exactly he intended to do that, or what became of his experiments, is unknown. Yet, here he is, rather shrewdly grounded and looking over his shoulders. | Like many anatomists, %name% went out on his own into the world. Of course, also like many, he was quickly chewed up by the hungriness of those to whom science means nothing. For now, he will fight alongside sellswords, if only to buy himself extra time to truly get to his studies. | %name% is cynical to the world, upset that some of his peers could see to their education in full, while he must earn coin just to support his studies. May his anger present itself on the battlefield. | One would expect a man like %name% to appear after a battle, not actually participate in it. The fact such an intelligent, albeit bizarre figure would still need a sellsword\'s earnings has you wondering if your own prospects of getting anywhere in this world are even worse than you realized. | One cannot overstate %name%\'s intellect. He is a wicked smart man, the sort who can make you question why the gods bothered to give you a mind of your own if it is to be so dwarfed. But, in sellsword matters, he would be just another fighter. Hopefully his martial skills are as sharp as his wits. | You can never know for certain if it were hard times which forced %name% into sellswording, or if he\'s merely pursuing scientific inquiries by another, far crueler path. That he spends evenings dissecting wagon-crushed dogs and wingless butterflies makes you ponder a lot of things about the curious fellow. | Curiosity, not coin, brought %name% to sellswording. He has a keen interest in discovering the creatures of the world, and what they look like on the inside. So long as he makes said insides visible, you could care less what else he does with them.}";
+		}
 	}
 
 	function onChangeAttributes()
