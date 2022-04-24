@@ -49,6 +49,9 @@ Item Balance
   - Hexen Trophy Necklace value increased from 250 to 550.
   - When using Berserker Mushrooms, morale checks are no longer triggered on HP loss.
   
+Fixes
+  - Hopefully fixed a bug where orcs did full weapon damage even when disarmed.
+
 ############################PRE VERSION 17###################################
 ## Alpha 1
 

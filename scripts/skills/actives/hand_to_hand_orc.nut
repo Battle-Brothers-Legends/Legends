@@ -54,6 +54,14 @@ this.hand_to_hand_orc <- this.inherit("scripts/skills/skill", {
 			_properties.DamageRegularMin = 15;
 			_properties.DamageRegularMax = 30;
 			_properties.DamageArmorMult = 0.7;
+
+			//Untested fix, theoretically should fix being disarmed and getting extra weapon damage
+			local mhand = this.getContainer().getActor().getMainhandItem();
+			if (mhand != null)
+			{
+				_properties.DamageRegularMin -= mhand.m.RegularDamage;
+				_properties.DamageRegularMax -= mhand.m.RegularDamageMax;
+			}
 		}
 	}
 
