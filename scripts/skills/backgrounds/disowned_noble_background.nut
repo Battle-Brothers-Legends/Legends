@@ -87,7 +87,7 @@ this.disowned_noble_background <- this.inherit("scripts/skills/backgrounds/chara
 		this.addBackgroundType(this.Const.BackgroundType.Female);
 		this.m.Icon = "ui/backgrounds/background_08.png";
 		this.m.BackgroundDescription = "Disowned nobles often have profited from some training in melee fighting at court.";
-		this.m.GoodEnding = "A noble at heart, the disowned noblewoman %name% returned to her family. Word has it she kicked in the doors and demanded a royal seat. An usurper challenged her in combat and, well, %name% learned a lot in his days with the %companyname% and she now sits on a very, very comfortable throne.";
+		this.m.GoodEnding = "A noble at heart, the disowned noblewoman %name% returned to her family. Word has it she kicked in the doors and demanded a royal seat. An usurper challenged her in combat and, well, %name% learned a lot in her days with the %companyname% and she now sits on a very, very comfortable throne.";
 		this.m.BadEnding = "A woman of nobility at heart, %name% the disowned noblewoman returned to her family home. Word has it an usurper arrested her at the gates. Her head currently rests on a pike with crows for a crown.";
 	}
 
