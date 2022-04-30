@@ -61,6 +61,7 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 		this.m.Beards = this.Const.Beards.All;
 		this.m.BeardChance = 60;
 		this.m.Level = this.Math.rand(1, 3);
+		this.m.IsCombatBackground = true;
 		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Crusader;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.NeutralMin;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Saintly;
