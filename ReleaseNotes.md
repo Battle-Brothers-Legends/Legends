@@ -49,6 +49,9 @@ Item Balance
   - Hexen Trophy Necklace value increased from 250 to 550.
   - When using Berserker Mushrooms, morale checks are no longer triggered on HP loss.
   
+Typos
+  - Fixed Disowned Lady background using the Farrier description.
+
 Fixes
   - Hopefully fixed a bug where orcs did full weapon damage even when disarmed.
 

@@ -17,9 +17,11 @@ this.lindwurm_slayer_background <- this.inherit("scripts/skills/backgrounds/char
 			"trait.craven",
 			"trait.dastard",
 			"trait.disloyal",
+			"trait.double_tongued",
 			"trait.fainthearted",
-			"trait.fear_beasts",
 			"trait.fragile",
+			"trait.frail",
+			"trait.fear_beasts",
 			"trait.greedy",
 			"trait.hate_greenskins",
 			"trait.hate_undead",
@@ -28,6 +30,8 @@ this.lindwurm_slayer_background <- this.inherit("scripts/skills/backgrounds/char
 			"trait.insecure",
 			"trait.irrational",
 			"trait.night_blind",
+			"trait.pessimist",
+			"trait.slack",
 			"trait.team_player",
 			"trait.weasel"
 		];
@@ -36,6 +40,38 @@ this.lindwurm_slayer_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = this.Const.Beards.Untidy;
 		this.m.Bodies = this.Const.Bodies.Muscular;
+		this.m.Modifiers.Stash = this.Const.LegendMod.ResourceModifiers.Stash[1];
+		this.m.Modifiers.Repair = this.Const.LegendMod.ResourceModifiers.Repair[1];
+		this.m.Modifiers.Salvage = this.Const.LegendMod.ResourceModifiers.Salvage[2];
+		this.m.Modifiers.Hunting = this.Const.LegendMod.ResourceModifiers.Hunting[3];
+		this.m.Modifiers.Scout = this.Const.LegendMod.ResourceModifiers.Scout[1];
+		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[1];
+	}
+
+	//Default Male
+	function setGender(_gender = -1)
+	{
+		local r = _gender;
+		if (_gender == -1)
+		{
+			r = 0;
+			if (this.LegendsMod.Configs().LegendGenderEnabled())
+			{
+				r = this.Math.rand(0, 1);
+			}
+		}
+
+		if (r == 0)
+		{
+			return;
+		}
+		this.m.Faces = this.Const.Faces.AllFemale;
+		this.m.Hairs = this.Const.Hair.AllFemale;
+		this.m.HairColors = this.Const.HairColors.All;
+		this.m.Beards = null;
+		this.m.BeardChance = 1;
+		this.m.Bodies = this.Const.Bodies.AllFemale;
+		this.addBackgroundType(this.Const.BackgroundType.Female);
 	}
 
 	function getTooltip()
@@ -107,40 +143,39 @@ this.lindwurm_slayer_background <- this.inherit("scripts/skills/backgrounds/char
 	{
 		local items = this.getContainer().getActor().getItems();
 		local r;
-		local weapons = [
-			"weapons/fighting_spear",
-			"weapons/noble_sword"
-		];
-		items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 
+		r = this.Math.rand(0, 1);
+
+		if (r == 0)
+		{
+			items.equip(this.new("scripts/items/weapons/fighting_spear"));
+		}
+		else if (r == 1)
+		{
+			items.equip(this.new("scripts/items/weapons/noble_sword"));
+		}
 		if (items.getItemAtSlot(this.Const.ItemSlot.Offhand) == null)
 		{
 			items.equip(this.new("scripts/items/shields/buckler_shield"));
 		}
 
-		local armor = [
-			"armor/mail_hauberk",
-			"armor/reinforced_mail_hauberk"
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "mail_hauberk"],
+			[1, "leather_scale_armor"],
+			[1, "noble_mail_armor"],
+			[1, "light_scale_armor"],
+			[1, "footman_armor"],
+			[1, "reinforced_mail_hauberk"]
+		]));
+
+		local helm = [
+			[1, "feathered_hat"],
+			[1, "headscarf"],
+			[1, "mail_coif"],
+			[1, "greatsword_hat"]
 		];
 
-		if (this.Const.DLC.Unhold)
-		{
-			armor.extend([
-				"armor/leather_scale_armor",
-				"armor/noble_mail_armor",
-				"armor/light_scale_armor",
-				"armor/footman_armor"
-			]);
-		}
-
-		items.equip(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-		local helmets = [
-			"helmets/feathered_hat",
-			"helmets/headscarf",
-			"helmets/mail_coif",
-			"helmets/greatsword_hat"
-		];
-		items.equip(this.new("scripts/items/" + helmets[this.Math.rand(0, helmets.len() - 1)]));
+		items.equip(this.Const.World.Common.pickHelmet(helm));
 	}
 
 });
