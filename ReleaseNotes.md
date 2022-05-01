@@ -48,7 +48,10 @@ Item Balance
   - Alp Trophy Necklace value increased from 250 to 400.
   - Hexen Trophy Necklace value increased from 250 to 550.
   - When using Berserker Mushrooms, morale checks are no longer triggered on HP loss.
-  
+
+Other Balance
+  - Changed the relations gain/decay effect of the Negotiator(Meeting Point) to 15%, up from 10%, as they did in Vanilla.
+
 Typos
   - Fixed Disowned Lady background using the Farrier description.
 
