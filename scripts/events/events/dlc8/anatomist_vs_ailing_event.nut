@@ -157,6 +157,7 @@ this.anatomist_vs_ailing_event <- this.inherit("scripts/events/event", {
 					text = _event.m.Ailing.getName() + " is no longer Ailing"
 				});
 				local new_traits = [
+					"scripts/skills/traits/aggressive_trait",
 					"scripts/skills/traits/bloodthirsty_trait",
 					"scripts/skills/traits/brute_trait",
 					"scripts/skills/traits/cocky_trait",

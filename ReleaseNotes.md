@@ -2,10 +2,10 @@
 
 ## 17 - Of Flesh and Faith
 
-New Origins
-  - Anatomists and Oathtakers have been made Legends compatible
-    • Layering and other rebalances will be added with version 18.
-
+DLC Compatibility
+  - Anatomists and Oathtakers have been made Legends compatible.
+  - All events that give non-OFaF armors have been converted to layers.
+  
 Perk Balance
   - With Throwing Mastery, damage increase at 2 tiles distance has been reduced to 30% instead of 40%.
   - Footwork skill fatigue cost reduced to 20 from 25.

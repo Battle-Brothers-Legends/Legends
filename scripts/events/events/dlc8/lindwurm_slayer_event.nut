@@ -65,7 +65,7 @@ this.lindwurm_slayer_event <- this.inherit("scripts/events/event", {
 				_event.m.Dude.getItems().equip(this.new("scripts/items/weapons/fighting_spear"));
 				_event.m.Dude.getItems().equip(this.new("scripts/items/shields/buckler_shield"));
 				_event.m.Dude.getItems().equip(this.new("scripts/items/helmets/heavy_mail_coif"));
-				_event.m.Dude.getItems().equip(this.new("scripts/items/armor/named/lindwurm_armor"));
+				_event.m.Dude.getItems().equip(this.new("scripts/items/armor/named/legend_lindwurm_armor"));
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
 
@@ -127,7 +127,7 @@ this.lindwurm_slayer_event <- this.inherit("scripts/events/event", {
 				_event.m.Dude.getItems().equip(this.new("scripts/items/weapons/fighting_spear"));
 				_event.m.Dude.getItems().equip(this.new("scripts/items/shields/buckler_shield"));
 				_event.m.Dude.getItems().equip(this.new("scripts/items/helmets/heavy_mail_coif"));
-				_event.m.Dude.getItems().equip(this.new("scripts/items/armor/named/lindwurm_armor"));
+				_event.m.Dude.getItems().equip(this.new("scripts/items/armor/named/legend_lindwurm_armor"));
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
 

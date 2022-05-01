@@ -72,11 +72,12 @@ this.anatomist_dead_knight_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				this.Characters.push(_event.m.Anatomist.getImagePath());
-				local armor_list = [
-					"decayed_coat_of_scales",
-					"decayed_reinforced_mail_hauberk"
-				];
-				local item = this.new("scripts/items/armor/" + armor_list[this.Math.rand(0, armor_list.len() - 1)]);
+
+				local item = this.Const.World.Common.pickArmor([
+					[1, "decayed_coat_of_scales"],
+					[1, "decayed_reinforced_mail_hauberk"]
+				]);
+
 				item.setCondition(item.getConditionMax() / 2 - 1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -125,11 +126,13 @@ this.anatomist_dead_knight_event <- this.inherit("scripts/events/event", {
 			{
 				this.Characters.push(_event.m.Anatomist.getImagePath());
 				this.Characters.push(_event.m.Noble.getImagePath());
+
 				local armor_list = [
-					"armor/decayed_reinforced_mail_hauberk",
-					"helmets/decayed_closed_flat_top_with_mail"
+					 this.Const.World.Common.pickArmor("decayed_reinforced_mail_hauberk");,
+					 this.Const.World.Common.pickHelmet("decayed_closed_flat_top_with_mail");
 				];
-				local item = this.new("scripts/items/" + armor_list[this.Math.rand(0, armor_list.len() - 1)]);
+
+				local item = this.new(armor_list[this.Math.rand(0, armor_list.len() - 1)]);
 				item.setCondition(item.getConditionMax() / 2 - 1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -219,10 +222,10 @@ this.anatomist_dead_knight_event <- this.inherit("scripts/events/event", {
 			{
 				this.Characters.push(_event.m.Anatomist.getImagePath());
 				local armor_list = [
-					"armor/decayed_reinforced_mail_hauberk",
-					"helmets/decayed_closed_flat_top_with_mail"
+					 this.Const.World.Common.pickArmor("decayed_reinforced_mail_hauberk");,
+					 this.Const.World.Common.pickHelmet("decayed_closed_flat_top_with_mail");
 				];
-				local item = this.new("scripts/items/" + armor_list[this.Math.rand(0, armor_list.len() - 1)]);
+				local item = this.new(armor_list[this.Math.rand(0, armor_list.len() - 1)]);
 				item.setCondition(item.getConditionMax() / 2 - 1);
 				this.World.Assets.getStash().add(item);
 				this.List.push({

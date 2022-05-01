@@ -186,20 +186,13 @@ this.disowned_noble_welcomed_back_event <- this.inherit("scripts/events/event", 
 			{
 				local item;
 				local stash = this.World.Assets.getStash();
-				local armor_list = [
-					"mail_hauberk",
-					"reinforced_mail_hauberk"
-				];
 
-				if (this.Const.DLC.Unhold)
-				{
-					armor_list.extend([
-						"footman_armor",
-						"light_scale_armor",
-						"sellsword_armor",
-						"noble_mail_armor"
-					]);
-				}
+				local armor_list = this.Const.World.Common.pickArmor([
+					[1, "footman_armor"],
+					[1, "light_scale_armor"],
+					[1, "sellsword_armor"],
+					[1, "noble_mail_armor"]
+				]);
 
 				local weapons_list = [
 					"noble_sword",

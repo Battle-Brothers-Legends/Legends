@@ -224,10 +224,10 @@ this.missing_kids_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				local attachmentList = [
-					"mail_patch_upgrade",
-					"double_mail_upgrade"
+					"legend_mail_patch_upgrade",
+					"legend_double_mail_upgrade"
 				];
-				local item = this.new("scripts/items/armor_upgrades/" + attachmentList[this.Math.rand(0, attachmentList.len() - 1)]);
+				local item = this.new("scripts/items/legend_armor/armor_upgrades/" + attachmentList[this.Math.rand(0, attachmentList.len() - 1)]);
 				this.List.push({
 					id = 10,
 					icon = "ui/items/" + item.getIcon(),

@@ -211,19 +211,19 @@ this.anatomist_wants_skull_event <- this.inherit("scripts/events/event", {
 					this.World.Assets.getStash().add(item);
 				}
 
-				local armorList = [
-					"leather_tunic",
-					"leather_tunic",
-					"thick_tunic",
-					"thick_tunic",
-					"padded_surcoat",
-					"padded_leather"
-				];
+				local armorList = this.Const.World.Common.pickArmor([
+					[1, "leather_tunic"],
+					[1, "leather_tunic"],
+					[1, "thick_tunic"],
+					[1, "thick_tunic"],
+					[1, "padded_surcoat"],
+					[1, "padded_leather"]
+				]);
 				itemAmount = this.Math.rand(1, 2);
 
 				for( local i = 0; i < itemAmount; i = ++i )
 				{
-					item = this.new("scripts/items/armor/" + armorList[this.Math.rand(0, armorList.len() - 1)]);
+					item = this.new(armorList[this.Math.rand(0, armorList.len() - 1)]);
 					this.List.push({
 						id = 10,
 						icon = "ui/items/" + item.getIcon(),
