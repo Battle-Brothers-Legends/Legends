@@ -36,7 +36,8 @@ Backgrounds
     • Disowned Noble: 135 from 60. Daily Cost 17 from 18.
   - Alchemist background type changed to Educated from Female, Combat and Performing.
   - Qiyan background type added Combat in addition to Female and Performing.
-  
+  - Druid and Druid Commander now start with a staff.
+
 Enemy Balance
   - Kraken now has less health and destroying tentacles inflicts a higher minimum damage to the Kraken as a whole.
   - Ijirok now has slightly more health and slightly better stats.

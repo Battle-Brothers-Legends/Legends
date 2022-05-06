@@ -223,6 +223,7 @@ this.legend_druid_background <- this.inherit("scripts/skills/backgrounds/charact
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "barbarians/bear_headpiece"]
 		]));
+		items.equip(this.new("scripts/items/weapons/legend_staff"));;
 		//this.getContainer().getActor().TherianthropeInfectionRandom();
 	}
 
