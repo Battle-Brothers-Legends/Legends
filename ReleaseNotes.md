@@ -39,6 +39,7 @@ Backgrounds
   - Druid and Druid Commander now start with a staff.
 
 Enemy Balance
+  - Adjusted Brigand spawns to fix return item contracts being too hard in the early game. Spawns are finicky, so let us know how your experience is now.
   - Kraken now has less health and destroying tentacles inflicts a higher minimum damage to the Kraken as a whole.
   - Ijirok now has slightly more health and slightly better stats.
   - 'Chilled' status effect now lasts for two turns instead of one. It now applies -3 Action Points and -50 Initiative the first turn, and -2 Action Points and -30 Initiative on the second.
