@@ -250,16 +250,17 @@ gt.Const.World.Spawn.BanditRaiders <-
 		{
 			Weight = 54,
 			Types = [
-				// {
-				// 	Type = this.Const.World.Spawn.Troops.BanditRabble,
-				// 	// MaxR = 0.15 * 400,
-				// 	//MaxR = 60, Luft change
-				// 	MaxR = 100,
-				// 	Cost = 9
-				// },
+				{
+					Type = this.Const.World.Spawn.Troops.BanditRabble,
+					// MaxR = 0.15 * 400,
+					//MaxR = 60, Luft change
+					MaxR = 150,
+					Cost = 9
+				},
 				{
 					Type = this.Const.World.Spawn.Troops.BanditThug,
-					//MinR = 80,					
+					//MinR = 80,
+					MinR = 115,
 					Cost = 8
 				},
 				{
