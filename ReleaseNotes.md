@@ -4,7 +4,8 @@
 
 DLC Compatibility
   - Anatomists and Oathtakers have been made Legends compatible.
-  - All events that give non-OFaF armors have been converted to layers.
+  - OFaF armors have not yet been converted into layers.
+  - New events that give non-OFaF armors have been converted to layers.
   
 Perk Balance
   - With Throwing Mastery, damage increase at 2 tiles distance has been reduced to 30% instead of 40%.
