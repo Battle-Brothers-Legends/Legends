@@ -50,7 +50,6 @@ Item Balance
   - When using Berserker Mushrooms, morale checks are no longer triggered on HP loss.
 
 Other Balance
-  - Set the default settlements to 19 (vanilla) instead of 27. This was done in consideration of balance. 19 settlements is what the game was designed around. More settlements than this means more patrols and more caravans, leading to less dangerous roads and travel. Players are of course still free to adjust this according to their own preferences.
   - Changed the relations gain/decay effect of the Negotiator(Meeting Point) to 15%, up from 10%, as they did in Vanilla.
 
 Typos
