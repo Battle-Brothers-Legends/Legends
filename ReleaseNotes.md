@@ -9,6 +9,8 @@ Roses are red, violets are blue, I fucked with demon alp AI again - who knows wh
 
 Few typos fixed in various events and skills
 
+Reduced cabal orgin card fluff so it no longer runs off the screen
+
 
 ## 16.0.4 - Last Knight Standing
 
