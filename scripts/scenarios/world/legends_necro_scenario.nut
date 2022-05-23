@@ -4,7 +4,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	{
 		this.m.ID = "scenario.legends_necro";
 		this.m.Name = "The Cabal";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_29.png[/img][/p][p] Death is no barrier, others flee from its yawning abyss, but we embrace the other side. \n\n[color=#bcad8c]Dark arts:[/color] Start with three apprentice necromancers - all focusing on differant cornerstones of necromancy.\n[color=#bcad8c]Gruesome harvest:[/color] Collect human corpses to fashion new minions, maintain them with medical supplies.\n[color=#bcad8c]Blood magic:[/color] Cultists and other macabre backgrounds will flock to join you and cost 25% less to maintain. Cannot hire pious backgrounds. Everyone else costs 50% more to upkeep\n[color=#bcad8c]Avatars:[/color] If all three necromancers die, the spell is broken and the story ends.[/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_29.png[/img][/p][p] Death is no barrier, others flee from its yawning abyss, but we embrace the other side. \n\n[color=#bcad8c]Dark arts:[/color] Start with three apprentice necromancers.\n[color=#bcad8c]Gruesome harvest:[/color] Collect human corpses to fashion new minions, maintain them with medical supplies.\n[color=#bcad8c]Blood magic:[/color] Cultists and other macabre backgrounds will flock to join you and cost 25% less to maintain. Cannot hire pious backgrounds. Everyone else costs 50% more to upkeep\n[color=#bcad8c]Avatars:[/color] If all three necromancers die, the spell is broken and the story ends.[/p]";
 		this.m.Difficulty = 3;
 		this.m.Order = 310;
 		this.m.IsFixedLook = true;
