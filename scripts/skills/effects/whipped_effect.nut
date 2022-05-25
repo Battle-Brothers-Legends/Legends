@@ -105,7 +105,6 @@ this.whipped_effect <- this.inherit("scripts/skills/skill", {
 		_properties.RangedSkill += 14 + this.m.Level;
 		_properties.MeleeDefense += 5 + this.m.Level;
 		_properties.RangedDefense += 5 + this.m.Level;
-		_properties.Bravery -= 5 + this.m.Level;
 		_properties.Initiative += 9 + this.m.Level;
 		local actor = this.getContainer().getActor();
 		actor.getSprite("status_sweat").setBrush(this.m.TurnsLeft > 1 ? "bust_slave_whipped" : "bust_slave_whipped_expiring");
