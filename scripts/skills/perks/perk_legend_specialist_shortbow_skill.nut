@@ -18,7 +18,7 @@ this.perk_legend_specialist_shortbow_skill <- this.inherit("scripts/skills/skill
 		local item = this.getContainer().getActor().getMainhandItem();
 		if (item != null)
 		{
-			if (item.getID() == "weapon.short_bow" || item.getID() == "weapon.goblin_bow" || item.getID() == "weapon.wonky_bow")
+			if (item.getID() == "weapon.short_bow" || item.getID() == "weapon.goblin_bow" || item.getID() == "weapon.wonky_bow" || item.getID() == "weapon.goblin_heavy_bow")
 			{
 				_properties.RangedSkill += 12;
 				_properties.DamageDirectMult *= 1.25;

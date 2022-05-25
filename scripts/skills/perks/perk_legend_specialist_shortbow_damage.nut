@@ -18,7 +18,7 @@ this.perk_legend_specialist_shortbow_damage <- this.inherit("scripts/skills/skil
 		local item = this.getContainer().getActor().getMainhandItem();
 		if (item != null)
 		{
-			if (item.getID() == "weapon.short_bow" || item.getID() == "weapon.goblin_bow" || item.getID() == "weapon.wonky_bow")
+			if (item.getID() == "weapon.short_bow" || item.getID() == "weapon.goblin_bow" || item.getID() == "weapon.wonky_bow" || item.getID() == "weapon.goblin_heavy_bow")
 			{
 				_properties.DamageRegularMin += 6;
 				_properties.DamageRegularMax += 16;
