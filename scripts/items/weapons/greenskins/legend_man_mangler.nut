@@ -46,8 +46,10 @@ this.legend_man_mangler <- this.inherit("scripts/items/weapons/weapon", {
 	function onEquip()
 	{
 		this.weapon.onEquip();
-		local skillToAdd = this.new("scripts/skills/actives/legend_great_slash");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
+		local overheadstrike = this.new("scripts/skills/actives/overhead_strike");
+		overheadstrike.m.DirectDamageMult = this.m.DirectDamageMult; //Sets Overhead Stike's Direct Damage Mult to Man Mangler's Direct Damage Mult
+		overheadstrike.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
+		this.addSkill(overheadstrike);
 		this.addSkill(skillToAdd);
 		skillToAdd = this.new("scripts/skills/actives/split_shield");
 		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);

@@ -42,7 +42,7 @@ this.named_warbrand <- this.inherit("scripts/items/weapons/named/named_weapon", 
 	function onEquip()
 	{
 		this.named_weapon.onEquip();
-		local slash = this.new("scripts/skills/actives/legend_great_slash");
+		local slash = this.new("scripts/skills/actives/slash");
 		slash.m.FatigueCost = 13;
 		this.addSkill(slash);
 		this.addSkill(this.new("scripts/skills/actives/split"));
