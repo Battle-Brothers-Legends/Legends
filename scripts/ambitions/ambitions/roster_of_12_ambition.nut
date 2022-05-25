@@ -14,7 +14,7 @@ this.roster_of_12_ambition <- this.inherit("scripts/ambitions/ambition", {
 
 	function onUpdateScore()
 	{
-		if (this.World.Assets.getOrigin().getID() == "scenario.militia")
+		if (this.World.Assets.getOrigin().getID() == "scenario.militia" || this.World.Assets.getOrigin().getID() == "scenario.lone_wolf")
 		{
 			return;
 		}
