@@ -33,7 +33,7 @@ gt.Const.World.Spawn.BanditRoamers <-
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.BanditThug,
-					MinR = 180,
+					MinR = 130,
 					Cost = 8
 				},
 				{
@@ -72,7 +72,7 @@ gt.Const.World.Spawn.BanditRoamers <-
 				{
 					Type = this.Const.World.Spawn.Troops.BanditRabblePoacher,
 					// MaxR = 0.20 * 420,
-					MaxR = 45,
+					MaxR = 130,
 					Cost = 8
 				},
 				{
@@ -91,6 +91,10 @@ gt.Const.World.Spawn.BanditRoamers <-
 			MinR = 0.50 * 385,
 			Types =
 			[
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantBlacksmith,
+					Cost = 20
+				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantButcher,
 					Cost = 20
@@ -113,6 +117,18 @@ gt.Const.World.Spawn.BanditRoamers <-
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantFarmhand,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantPoacher,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantSquire,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantWitchHunter,
 					Cost = 20
 				}
 			]
@@ -143,7 +159,7 @@ gt.Const.World.Spawn.BanditScouts <-
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.BanditThug,
-					MinR = 115,					
+					MinR = 130,
 					Cost = 8
 				},
 				{
@@ -179,7 +195,7 @@ gt.Const.World.Spawn.BanditScouts <-
 			[
 				{
 					Type = this.Const.World.Spawn.Troops.BanditRabblePoacher,
-					MaxR = 85,
+					MaxR = 130,
 					Cost = 8
 				},
 				{
@@ -206,6 +222,10 @@ gt.Const.World.Spawn.BanditScouts <-
 			Types =
 			[
 				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantBlacksmith,
+					Cost = 20
+				},
+				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantButcher,
 					Cost = 20
 				},
@@ -227,6 +247,18 @@ gt.Const.World.Spawn.BanditScouts <-
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantFarmhand,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantPoacher,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantSquire,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantWitchHunter,
 					Cost = 20
 				}
 			]
@@ -260,7 +292,7 @@ gt.Const.World.Spawn.BanditRaiders <-
 				{
 					Type = this.Const.World.Spawn.Troops.BanditThug,
 					//MinR = 80,
-					MinR = 115,
+					MinR = 130,
 					Cost = 8
 				},
 				{
@@ -365,6 +397,10 @@ gt.Const.World.Spawn.BanditRaiders <-
 			Types =
 			[
 				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantBlacksmith,
+					Cost = 20
+				},
+				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantButcher,
 					Cost = 20
 				},
@@ -386,6 +422,18 @@ gt.Const.World.Spawn.BanditRaiders <-
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantFarmhand,
+					Cost = 20
+				}
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantPoacher,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantSquire,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantWitchHunter,
 					Cost = 20
 				}
 			]
@@ -416,11 +464,12 @@ gt.Const.World.Spawn.BanditDefenders <-
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.BanditThug,
-					MinR = 115,					
+					//MinR = 110,
 					Cost = 8
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.BanditRaiderLOW,
+					MinR = 130,
 					Cost = 16
 				},
 				{
@@ -496,6 +545,10 @@ gt.Const.World.Spawn.BanditDefenders <-
 			Types =
 			[
 				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantBlacksmith,
+					Cost = 20
+				},
+				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantButcher,
 					Cost = 20
 				},
@@ -517,6 +570,18 @@ gt.Const.World.Spawn.BanditDefenders <-
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.LegendPeasantFarmhand,
+					Cost = 20
+				}
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantPoacher,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantSquire,
+					Cost = 20
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.LegendPeasantWitchHunter,
 					Cost = 20
 				}
 			]
