@@ -84,7 +84,7 @@ this.perk_legend_specialist_cult_armor <- this.inherit("scripts/skills/skill", {
 		local damageBonus = this.getDamageBonus();
 		if (damageBonus != 0)
 		{
-			item = this.getContainer().getActor().getMainhandItem();
+			local item = this.getContainer().getActor().getMainhandItem();
 			if (item != null)
 			{
 				_properties.DamageRegularMax += item.m.RegularDamageMax * damageBonus;
