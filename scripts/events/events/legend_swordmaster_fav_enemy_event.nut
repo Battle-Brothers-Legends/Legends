@@ -491,7 +491,7 @@ this.legend_swordmaster_fav_enemy_event <- this.inherit("scripts/events/event", 
 				continue;
 			}
 //
-			if (bro.getLevel() > 10) // level check		
+			if (bro.getLevel() < 11) // level check		
 			{
 				continue;
 			}
