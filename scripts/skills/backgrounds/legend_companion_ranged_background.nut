@@ -171,7 +171,7 @@ this.legend_companion_ranged_background <- this.inherit("scripts/skills/backgrou
 				0
 			],
 			RangedSkill = [
-				15,
+				13,
 				10
 			],
 			MeleeDefense = [

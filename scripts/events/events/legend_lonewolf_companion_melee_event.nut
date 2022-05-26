@@ -83,9 +83,9 @@ this.legend_lonewolf_companion_melee_event <- this.inherit("scripts/events/event
 				_event.m.Dude.getBaseProperties().Hitpoints += 0;
 				_event.m.Dude.getBaseProperties().Bravery += 5;
 				_event.m.Dude.getBaseProperties().Stamina += 3;
-				_event.m.Dude.getBaseProperties().MeleeSkill += 10;
+				_event.m.Dude.getBaseProperties().MeleeSkill += 4;
 				_event.m.Dude.getBaseProperties().RangedSkill += 0;
-				_event.m.Dude.getBaseProperties().MeleeDefense += 0;
+				_event.m.Dude.getBaseProperties().MeleeDefense -= 5;
 				_event.m.Dude.getBaseProperties().RangedDefense += 0;
 				_event.m.Dude.getBaseProperties().Initiative += 0;
 			}
