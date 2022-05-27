@@ -39,12 +39,13 @@ this.legend_peasant_squire <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_footwork"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 		this.getSprite("socket").setBrush("bust_base_militia");
-			if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-			}
+		}
 	}
 
 	function assignRandomEquipment()
@@ -61,18 +62,10 @@ this.legend_peasant_squire <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
-		this.m.Items.equip(this.Const.World.Common.pickArmor([
-			[1, "leather_tunic"]
-		]));
+		this.m.Items.equip(this.Const.World.Common.pickArmor([[1, "worn_mail_shirt"]]));
 
+		this.m.Items.equip(this.Const.World.Common.pickHelmet([[1, "padded_nasal_helmet"]]))
 
-		if (this.Math.rand(1, 100) <= 66)
-		{
-			this.m.Items.equip(this.Const.World.Common.pickHelmet([
-				[1, "feathered_hat"],
-				[3, "aketon_cap"]
-			]))
-		}
 	}
 
 });
