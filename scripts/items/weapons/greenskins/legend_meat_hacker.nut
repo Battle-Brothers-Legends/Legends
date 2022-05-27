@@ -26,6 +26,7 @@ this.legend_meat_hacker <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ArmorDamageMult = 1.2;
 		this.m.DirectDamageMult = 0.3;
 		this.m.ChanceToHitHead = 0;
+		this.m.FatigueOnSkillUse = 5;
 	}
 
 	function getTooltip()
@@ -45,7 +46,7 @@ this.legend_meat_hacker <- this.inherit("scripts/items/weapons/weapon", {
 		this.weapon.onEquip();
 		local skill;
 		skill = this.new("scripts/skills/actives/split_man");
-		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 5));
+		skill.m.DirectDamageMult = this.m.DirectDamageMult; //Sets Split Man's Direct Damage Mult to Meat Hacker's Direct Damage Mult
 		this.addSkill(skill);
 		skill = this.new("scripts/skills/actives/split_shield");
 		skill.setApplyAxeMastery(true);

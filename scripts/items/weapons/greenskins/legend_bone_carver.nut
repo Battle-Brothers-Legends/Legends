@@ -25,6 +25,7 @@ this.legend_bone_carver <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.RegularDamageMax = 60;
 		this.m.ArmorDamageMult = 1.0;
 		this.m.DirectDamageMult = 0.25;
+		this.m.FatigueOnSkillUse = 5;
 	}
 
 	function getTooltip()
@@ -44,10 +45,8 @@ this.legend_bone_carver <- this.inherit("scripts/items/weapons/weapon", {
 		this.weapon.onEquip();
 		local skill;
 		skill = this.new("scripts/skills/actives/cleave");
-		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 5));
 		this.addSkill(skill);
 		skill = this.new("scripts/skills/actives/decapitate");
-		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 5));
 		this.addSkill(skill);
 	}
 

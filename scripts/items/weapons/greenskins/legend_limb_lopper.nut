@@ -18,7 +18,7 @@ this.legend_limb_lopper <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ShowArmamentIcon = true;
 		this.m.ArmamentIcon = "icon_legend_limb_lopper_01";
 		this.m.Value = 1600;
-		this.m.ShieldDamage = 32.0;
+		this.m.ShieldDamage = 32;
 		this.m.Condition = 64.0;
 		this.m.ConditionMax = 64.0;
 		this.m.StaminaModifier = -26;
@@ -26,6 +26,7 @@ this.legend_limb_lopper <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.RegularDamageMax = 90;
 		this.m.ArmorDamageMult = 1.3;
 		this.m.DirectDamageMult = 0.25;
+		this.m.FatigueOnSkillUse = 5;
 	}
 
 
@@ -46,14 +47,12 @@ this.legend_limb_lopper <- this.inherit("scripts/items/weapons/weapon", {
 		this.weapon.onEquip();
 		local skill;
 		skill = this.new("scripts/skills/actives/cleave");
-		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 5));
 		this.addSkill(skill);
 		skill = this.new("scripts/skills/actives/decapitate");
-		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 5));
 		this.addSkill(skill);
 		skill = this.new("scripts/skills/actives/split_shield");
 		skill.setApplyAxeMastery(true);
-		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 5));
+		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 10)); // 10 because 2h weapons should get +5 on split shield (see 2h mace), and then +5 because of being orc weapon.
 		this.addSkill(skill);
 	}
 

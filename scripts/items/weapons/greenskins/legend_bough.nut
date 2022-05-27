@@ -27,6 +27,7 @@ this.legend_bough <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ArmorDamageMult = 1.35;
 		this.m.DirectDamageMult = 0.5;
 		this.m.ChanceToHitHead = 0;
+		this.m.FatigueOnSkillUse = 5;
 	}
 
 	function getTooltip()
@@ -46,10 +47,8 @@ this.legend_bough <- this.inherit("scripts/items/weapons/weapon", {
 		this.weapon.onEquip();
 		local skill;
 		skill = this.new("scripts/skills/actives/cudgel_skill");
-		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 5));
 		this.addSkill(skill);
 		skill = this.new("scripts/skills/actives/strike_down_skill");
-		skill.setFatigueCost(this.Math.round(skill.getFatigueCostRaw() + 5));
 		this.addSkill(skill);
 		skill = this.new("scripts/skills/actives/split_shield");
 		skill.setFatigueCost(skill.getFatigueCostRaw() + 10); // 10 because 2h weapons should get +5 on split shield (see 2h mace), and then +5 because of being orc weapon.

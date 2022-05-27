@@ -1,6 +1,6 @@
 this.legend_man_mangler <- this.inherit("scripts/items/weapons/weapon", {
 	m = {
-		StunChance = 5
+		StunChance = 0
 		},
 	function create()
 	{
@@ -20,7 +20,7 @@ this.legend_man_mangler <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ShowArmamentIcon = true;
 		this.m.ArmamentIcon = "icon_legend_man_mangler_01";
 		this.m.Value = 1600;
-		this.m.ShieldDamage = 19;
+		this.m.ShieldDamage = 32;
 		this.m.Condition = 64.0;
 		this.m.ConditionMax = 64.0;
 		this.m.StaminaModifier = -26;
@@ -29,6 +29,7 @@ this.legend_man_mangler <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ArmorDamageMult = 1.0;
 		this.m.DirectDamageMult = 0.35;
 		this.m.ChanceToHitHead = 5;
+		this.m.FatigueOnSkillUse = 5;
 	}
 
 	function getTooltip()
@@ -46,18 +47,18 @@ this.legend_man_mangler <- this.inherit("scripts/items/weapons/weapon", {
 	function onEquip()
 	{
 		this.weapon.onEquip();
-		local overheadstrike = this.new("scripts/skills/actives/overhead_strike");
-		overheadstrike.m.DirectDamageMult = this.m.DirectDamageMult; //Sets Overhead Stike's Direct Damage Mult to Man Mangler's Direct Damage Mult
-		overheadstrike.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
-		this.addSkill(overheadstrike);
-		this.addSkill(skillToAdd);
-		skillToAdd = this.new("scripts/skills/actives/split_shield");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
-		this.addSkill(skillToAdd);
-		skillToAdd = this.new("scripts/skills/actives/overhead_strike");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
-		skillToAdd.setStunChance(this.m.StunChance);
-		this.addSkill(skillToAdd);
+		local slash = this.new("scripts/skills/actives/slash");
+		slash.m.DirectDamageMult = this.m.DirectDamageMult; //Sets Slash's Direct Damage Mult to Man Mangler's Direct Damage Mult
+		this.addSkill(slash);
+
+		local splitShield = this.new("scripts/skills/actives/split_shield");
+		splitShield.setFatigueCost(splitShield.getFatigueCostRaw() + 10); // 10 because 2h weapons should get +5 on split shield (see 2h mace), and then +5 because of being orc weapon.
+		this.addSkill(splitShield);
+
+		local overheadStrike = this.new("scripts/skills/actives/overhead_strike");
+		overheadStrike.m.DirectDamageMult = this.m.DirectDamageMult; //Sets Overhead Strike's Direct Damage Mult to Man Mangler's Direct Damage Mult
+		overheadStrike.setStunChance(this.m.StunChance);
+		this.addSkill(overheadStrike);
 	}
 
 });

@@ -24,6 +24,7 @@ this.legend_skin_flayer <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.RegularDamageMax = 60;
 		this.m.ArmorDamageMult = 0.9;
 		this.m.DirectDamageMult = 0.2;
+		this.m.FatigueOnSkillUse = 5;
 	}
 
 function getTooltip()
@@ -45,7 +46,6 @@ function getTooltip()
 		slash.m.Icon = "skills/active_78.png";
 		slash.m.IconDisabled = "skills/active_78_sw.png";
 		slash.m.Overlay = "active_78";
-		slash.setFatigueCost(this.Math.round(slash.getFatigueCostRaw() + 5));
 		this.addSkill(slash);
 	}
 

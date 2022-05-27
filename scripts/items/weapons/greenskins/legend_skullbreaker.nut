@@ -28,6 +28,7 @@ this.legend_skullbreaker <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ArmorDamageMult = 2.1;
 		this.m.DirectDamageMult = 0.5;
 		this.m.ChanceToHitHead = 0;
+		this.m.FatigueOnSkillUse = 5;
 	}
 
 	function getTooltip()
@@ -46,15 +47,13 @@ this.legend_skullbreaker <- this.inherit("scripts/items/weapons/weapon", {
 	{
 		this.weapon.onEquip();
 		local skillToAdd = this.new("scripts/skills/actives/smite_skill");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
 		this.addSkill(skillToAdd);
 
 		skillToAdd = this.new("scripts/skills/actives/shatter_skill");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
 		this.addSkill(skillToAdd);
 		
 		skillToAdd = this.new("scripts/skills/actives/split_shield");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
+		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 10); // 10 because 2h weapons should get +5 on split shield (see 2h mace), and then +5 because of being orc weapon.
 		this.addSkill(skillToAdd);
 	}
 

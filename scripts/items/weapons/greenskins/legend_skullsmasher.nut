@@ -27,6 +27,7 @@ this.legend_skullsmasher <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ArmorDamageMult = 2.25;
 		this.m.DirectDamageMult = 0.5;
 		this.m.ChanceToHitHead = 0;
+		this.m.FatigueOnSkillUse = 5;
 	}
 
 	function getTooltip()
@@ -45,12 +46,11 @@ this.legend_skullsmasher <- this.inherit("scripts/items/weapons/weapon", {
 	{
 		this.weapon.onEquip();
 		local skillToAdd = this.new("scripts/skills/actives/hammer");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
 		this.addSkill(skillToAdd);
 
 		skillToAdd = this.new("scripts/skills/actives/crush_armor");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
 		this.addSkill(skillToAdd);
+
 		skillToAdd = this.new("scripts/skills/actives/legend_harvest_rock");
 		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
 		this.addSkill(skillToAdd);
