@@ -98,19 +98,19 @@ this.legend_clothing_merchant_event <- this.inherit("scripts/events/event", {
 				{
 				case 1:
 					local item = ::new(::MSU.Class.WeightedContainer([
-						[1, "helmet_scripts/vanity/legend_helmet_southern_top_tail"],
-						[1, "helmet_scripts/vanity/legend_helmet_wizard_cowl"],
-						[1, "helmet_scripts/vanity/legend_helmet_wreath"],
-						[1, "helmet_scripts/vanity/legend_helmet_warlock_hood"],
-						[1, "helmet_scripts/vanity/legend_helmet_royal_hood"],
-						[1, "helmet_scripts/vanity/legend_helmet_lion_pelt"],
-						[1, "legend_armor_scripts/tabard/legend_noble_vest"],
-						[1, "helmet_scripts/vanity/legend_helmet_noble_buckle"],
-						[1, "legend_armor_scripts/cloak/legend_noble_shawl"],
-						[1, "legend_armor_scripts/cloth/legend_southern_noble_surcoat"],
-						[1, "helmet_scripts/vanity/legend_helmet_ponytail"],
-						[1, "helmet_scripts/vanity/legend_helmet_royal_hood"],
-						[1, "helmet_scripts/vanity/legend_helmet_southern_silk_headscarf"]
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_southern_top_tail"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_wizard_cowl"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_wreath"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_warlock_hood"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_royal_hood"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_lion_pelt"],
+						[1, "scripts/items/legend_armor/tabard/legend_noble_vest"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_noble_buckle"],
+						[1, "scripts/items/legend_armor/cloak/legend_noble_shawl"],
+						[1, "scripts/items/legend_armor/cloth/legend_southern_noble_surcoat"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_ponytail"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_royal_hood"],
+						[1, "scripts/items/legend_helmets/vanity/legend_helmet_southern_silk_headscarf"]
 					]).roll());
 
 					this.World.Assets.getStash().add(item); //add random item from above, take money, capitalism.

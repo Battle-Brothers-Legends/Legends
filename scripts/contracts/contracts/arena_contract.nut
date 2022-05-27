@@ -965,9 +965,9 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 
 					case 3:
 						a = ::new(::MSU.Array.rand([
-							"helmet_scripts/helm/legend_helmet_southern_gladiator_helm_crested",
-							"helmet_scripts/helm/legend_helmet_southern_gladiator_helm_split",
-							"helmet_scripts/helm/legend_helmet_southern_gladiator_helm_masked"
+							"scripts/items/legend_helmets/helm/legend_helmet_southern_gladiator_helm_crested",
+							"scripts/items/legend_helmets/helm/legend_helmet_southern_gladiator_helm_split",
+							"scripts/items/legend_helmets/helm/legend_helmet_southern_gladiator_helm_masked"
 						]));
 						this.List.push({
 							id = 12,
