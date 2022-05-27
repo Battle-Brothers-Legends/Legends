@@ -13,6 +13,7 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 		IsLowerVanity = false,
 		ImpactSound = this.Const.Sound.ArmorLeatherImpact,
 		InventorySound = this.Const.Sound.ArmorLeatherImpact,
+		EquipSound = "sounds/inventory/armor_upgrade_use_01.wav",
 		IsDestroyedOnRemove = false,
 		Variants = [],
 		HideHair = false,
@@ -273,6 +274,11 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 		this.Sound.play(this.m.ImpactSound[0], this.Const.Sound.Volume.Inventory);
 	}
 
+	function playEquipSound()
+	{
+		this.Sound.play(this.m.EquipSound, this.Const.Sound.Volume.Inventory);
+	}
+
 	function addArmor( _a)
 	{
 		if (_a + this.m.Condition <= this.m.ConditionMax)
@@ -436,12 +442,14 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 	function onEquip()
 	{
 		this.item.onEquip();
+		if(!this.World.State.isInLoadingScreen()) this.playEquipSound();
 		this.setCurrentSlotType(this.m.SlotType);
 	}
 
 	function onUnequip()
 	{
 		this.item.onUnequip()
+		if(!this.World.State.isInLoadingScreen()) this.playEquipSound();
 		this.setCurrentSlotType(this.Const.ItemSlot.None);
 	}
 
@@ -452,14 +460,7 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 		local armor = _item == null ? _actor.getItems().getItemAtSlot(this.Const.ItemSlot.Head) : _item;
 		if (armor == null) return false;
 
-		local success = armor.setUpgrade(this);
-
-		if (success)
-		{
-			this.Sound.play("sounds/inventory/armor_upgrade_use_01.wav", this.Const.Sound.Volume.Inventory);
-		}
-
-		return success;
+		return armor.setUpgrade(this);
 	}
 
 	function onDamageReceived( _damage, _fatalityType, _attacker )

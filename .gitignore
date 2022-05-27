@@ -53,3 +53,7 @@ bcompile_uber.sh
 bbrushes_uber.sh
 build_compile_midas.sh
 unstaged_build_midas.sh
+/.vs/ProjectSettings.json
+/.vs/git-Legends/v16/.suo
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
