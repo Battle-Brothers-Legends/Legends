@@ -100,8 +100,9 @@ this.split_shield <- this.inherit("scripts/skills/skill", {
 	function onAfterUpdate( _properties )
 	{
 		this.m.FatigueCostMult = this.m.ApplyAxeMastery && _properties.IsSpecializedInAxes ? this.Const.Combat.WeaponSpecFatigueMult : 1.0;
+		local attack = this.getSkills().getAttackOfOpportunity();
 
-		if (this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand) != null && this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand).getBlockedSlotType() != null)
+		if (this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand) != null && this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand).getBlockedSlotType() != null || !attack.isDuelistValid())
 		{
 			this.m.ActionPointCost = 6;
 		}
