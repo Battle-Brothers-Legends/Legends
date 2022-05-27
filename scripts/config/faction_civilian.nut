@@ -431,7 +431,7 @@ gt.Const.Tactical.Actor.LegendPeasantMonk <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantBlacksmith <- {
-	XP = 350,
+	XP = 200,
 	ActionPoints = 9,
 	Hitpoints = 80,
 	Bravery = 60,
@@ -551,7 +551,7 @@ gt.Const.Tactical.Actor.LegendPeasantMiner <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantSquire <- {
-	XP = 400,
+	XP = 250,
 	ActionPoints = 9,
 	Hitpoints = 130,
 	Bravery = 75,
@@ -571,13 +571,13 @@ gt.Const.Tactical.Actor.LegendPeasantSquire <- {
 };
 
 gt.Const.Tactical.Actor.LegendPeasantWitchHunter <- {
-	XP = 400,
+	XP = 250,
 	ActionPoints = 9,
 	Hitpoints = 90,
 	Bravery = 90,
 	Stamina = 100,
 	MeleeSkill = 50,
-	RangedSkill = 80,
+	RangedSkill = 70,
 	MeleeDefense = 20,
 	RangedDefense = 30,
 	Initiative = 110,
