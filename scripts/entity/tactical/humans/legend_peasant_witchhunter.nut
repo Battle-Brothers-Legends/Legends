@@ -36,12 +36,13 @@ this.legend_peasant_witchhunter <- this.inherit("scripts/entity/tactical/human",
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_crossbow"));
 		this.getSprite("socket").setBrush("bust_base_militia");
-			if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
-			{
+
+		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-			}
+		}
 	}
 
 	function assignRandomEquipment()
@@ -51,7 +52,7 @@ this.legend_peasant_witchhunter <- this.inherit("scripts/entity/tactical/human",
 
 		this.m.Items.equip(this.new("scripts/items/weapons/light_crossbow"));
 		this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_bolts"));
-		this.m.Items.equip(this.new("scripts/items/weapons/shortsword"));
+		this.m.Items.addToBag(this.new("scripts/items/weapons/shortsword"));
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
 			[1, "thick_tunic"]
@@ -60,8 +61,8 @@ this.legend_peasant_witchhunter <- this.inherit("scripts/entity/tactical/human",
 		if (this.Math.rand(1, 100) <= 66)
 		{
 			this.m.Items.equip(this.Const.World.Common.pickHelmet([
-				[8, "witchhunter_hat"],
-				[1, "hood"]
+				[1, "witchhunter_hat"],
+				[6, "hood"]
 			]))
 		}
 	}
