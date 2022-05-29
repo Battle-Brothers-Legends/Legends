@@ -6,11 +6,11 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 	function create()
 	{
 		this.m.ID = "event.legend_lonewolf_companion_blacksmith";
-		this.m.Title = "In trouble";
+		this.m.Title = "Last stand";
 		this.m.Cooldown = 115.0 * this.World.getTime().SecondsPerDay; //—
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_30.png[/img]{As you wander a common sight comes into view — an insolated gathering of homes with no name is in the process of being raided. Figures of all shapes and sizes dart from home to home, taking anything that isn\'t nailed down or fighting back. In the distance, a stockier figure dressed in a blacksmith's apon is holding their ground, cutting bandits down left, right and centre.\n However, they show signs of beginning to slow down.}",
+			Text = "[img]gfx/ui/events/event_30.png[/img]{As you wander a common sight comes into view — an isolated gathering of homes with no name is in the process of being raided. Figures of all shapes and sizes dart from home to home, taking anything that isn\'t nailed down or fighting back. In the distance, a stockier figure dressed in a blacksmith's apon is holding their ground, cutting bandits down left, right and centre.\n However, they show signs of beginning to slow down.}",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -130,7 +130,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 		});
 		this.m.Screens.push({ //blacksmith recruit
 			ID = "C",
-			Text = "[img]gfx/ui/events/event_50.png[/img]{The company quickly forms in behind you, staggering their swinging arcs in an oblique order with you at the speartip. You begin a slow but steady forward march, and occasional thrown spear heralding your advance as it foinds a mark in the braver looters. The bandits and scavengers begin to disperse, perhaps mistaking you for a noble patrol coming to save the day.\n\n Another looter throws hismelf at you, who you kick to the ground before %randombrother% finishes them off. The blacksmith is in sight, curved sword in hand slashing down on each looter as they come within reach. The remaining looters lose ground and flee as %companyname% cuts through to the blacksmith, who has collapsed from exhaustion.}",
+			Text = "[img]gfx/ui/events/event_50.png[/img]{The company quickly forms in behind you, staggering their swinging arcs in an oblique order with you at the speartip. You begin a slow but steady forward march, and occasional thrown spear heralding your advance as it foinds a mark in the braver looters. The bandits and scavengers begin to disperse, perhaps mistaking you for a noble patrol coming to save the day.\n\n Another looter throws hismelf at you, who you kick to the ground before %randombrother% finishes them off. The blacksmith is in sight, curved sword in hand slashing down on each looter as they come within reach. The remaining looters lose ground and flee as %companyname% cuts through to the blacksmith, who has collapsed from exhaustion.\n What remains of the militia cheer or grumble as the rest of the looters disappear.}",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -175,7 +175,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 		});
 		this.m.Screens.push({ //skip
 			ID = "D",
-			Text = "[img]gfx/ui/events/event_94.png[/img]I'm not waiting around for this. It isn\'t our problem.",
+			Text = "[img]gfx/ui/events/event_94.png[/img]I\'m not waiting around for this. It isn\'t our problem.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -204,6 +204,10 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 			return;
 		}
 
+		if (this.World.getTime().Days < 50)
+		{
+			return;
+		}
 
 		local brothers = this.World.getPlayerRoster().getAll();
 
@@ -212,12 +216,12 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 			return;
 		}
 
-		if (brothers.len() < 7)
+		if (brothers.len() > 7)
 		{
 			return;
 		}
 
-		this.m.Score = 15;
+		this.m.Score = 8;
 	}
 
 	function onPrepareVariables( _vars )
@@ -231,6 +235,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 	function onClear()
 	{
 		this.m.Dude = null;
+		this.m.Looted = null;
 	}
 
 });
