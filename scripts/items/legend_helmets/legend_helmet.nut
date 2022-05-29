@@ -77,6 +77,19 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 		return false
 	}
 
+	function isBought()
+	{
+		foreach (u in this.m.Upgrades)
+		{
+			if (u != null && u.isBought() == false)
+			{
+				return false;
+			}
+		}		
+		
+		return this.m.IsBought;
+	}
+
 	function getIcon()
 	{
 		if (this.isArmorNamed()) 

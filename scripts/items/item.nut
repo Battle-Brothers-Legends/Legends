@@ -413,7 +413,7 @@ this.item <- {
 
 	function getBuyPrice()
 	{
-		if (this.m.IsSold)
+		if (this.isSold())
 		{
 			return this.getSellPrice();
 		}
@@ -430,7 +430,7 @@ this.item <- {
 
 	function getSellPrice()
 	{
-		if (this.m.IsBought)
+		if (this.isBought())
 		{
 			return this.getBuyPrice();
 		}
