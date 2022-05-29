@@ -320,7 +320,7 @@ layers = [
     "title" :  "Noble Tunic", \
     "desc" :  "A fine linen tunic of exquisite material, embroided with pleasing patterns. Fashionable but offering little in protection.", \
     "adesc" :"",
-    "named" : True, "rminStam" : 0, "rmaxStam": 2, "rminCond" : 40, "rmaxCond" : 50,  "names" : Names + ['Heraldic Tunic', "Splendor", "Grandiosity", "Pageantry", "Swank", "Duty", "Honor", "Noble"]
+    "named" : True, "rminStam" : 0, "rmaxStam": 2, "rminCond" : 46, "rmaxCond" : 56,  "names" : Names + ['Heraldic Tunic', "Splendor", "Grandiosity", "Pageantry", "Swank", "Duty", "Honor", "Noble"]
 },
 
 {"name": "legend_southern_robe",                 "layer": "cloth", "min": 1, "max": 6, "value" : 35, "con" : 25, "stam" : -1, "impactSound" : "leather", "invSound" : "cloth", "brush" : "southern_robe", \
