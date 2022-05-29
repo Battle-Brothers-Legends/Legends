@@ -211,7 +211,7 @@ this.legend_old_man_sells <- this.inherit("scripts/events/event", {
 
 		local brothers = this.World.getPlayerRoster().getAll();
 
-		if (brothers.len() < 5)
+		if (brothers.len() > 5)
 		{
 			return;
 		}
@@ -233,7 +233,7 @@ this.legend_old_man_sells <- this.inherit("scripts/events/event", {
 				return false;
 			}
 		}
-		this.m.Score = 10;
+		this.m.Score = 25;
 	}
 
 	function onPrepare()
