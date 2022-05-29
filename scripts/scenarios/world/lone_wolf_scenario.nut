@@ -35,7 +35,7 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		bros[0].setTitle("the Lone Wolf");
 		bros[0].getSkills().add(this.new("scripts/skills/perks/perk_legend_favoured_enemy_swordmaster"));
 		bros[0].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
-		bros[0].getSkills().add(this.new("scripts/skills/special/relationship_check")); //enables relationships.
+		bros[0].getSkills().add(this.new("scripts/skills/traits/legend_lw_relationship_trait"));
 		bros[0].setPlaceInFormation(4);
 		bros[0].getFlags().set("IsPlayerCharacter", true);
 		bros[0].getSprite("miniboss").setBrush("bust_miniboss_lone_wolf");
@@ -146,10 +146,6 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 	{
 	}
 
-	function onHiredByScenario( bro ) //recruits via events
-	{
-	}
-
 	function onUpdateHiringRoster( _roster )
 	{
 		local garbage = [];
@@ -157,10 +153,10 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 
 		foreach( i, bro in bros )
 		{
-			if (bro.getBackground().getID() != "background.legend_donkey")
+			if (bro.getBackground().getID() != "background.legend_donkey") //this.Const.BackgroundType.Stabled
 			{
 				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.0)
-				bro.getBaseProperties().DailyWageMult *= 1.0;
+				bro.getBackground().m.DailyCostMult = 0.0;
 				bro.getSkills().update();
 			
 				garbage.push(bro);
@@ -168,8 +164,9 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 			else
 			{
 				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.0)
-				bro.getBaseProperties().DailyWageMult *= 0.0;
+				bro.getBackground().m.DailyCostMult = 0.0;
 				bro.getSkills().update();
+				bro.getContainer().add(this.new("scripts/skills/traits/legend_lw_relationship_trait"));
 			}
 		}
 
@@ -177,6 +174,10 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		{
 			_roster.remove(g);
 		}
+	}
+
+	function onHiredByScenario( bro ) //recruits via events
+	{
 	}
 
 });

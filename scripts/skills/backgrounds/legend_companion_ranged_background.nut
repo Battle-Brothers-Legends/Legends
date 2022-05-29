@@ -155,15 +155,15 @@ this.legend_companion_ranged_background <- this.inherit("scripts/skills/backgrou
 	{
 		local c = {
 			Hitpoints = [ //THIS BACKGROUND GAINS EXTRA STATS IN RECRUITMENT EVENTS DEPENDING ON PLAYER CHOICES
-				5,
-				5
+				3,
+				0
 			],
 			Bravery = [
-				8,
-				5
+				5,
+				7
 			],
 			Stamina = [
-				10,
+				9,
 				5
 			],
 			MeleeSkill = [
@@ -171,19 +171,19 @@ this.legend_companion_ranged_background <- this.inherit("scripts/skills/backgrou
 				0
 			],
 			RangedSkill = [
-				13,
-				10
+				6,
+				9
 			],
 			MeleeDefense = [
 				-3,
 				0
 			],
 			RangedDefense = [
-				7,
+				4,
 				5
 			],
 			Initiative = [
-				10,
+				9,
 				5
 			]
 		};
@@ -193,7 +193,7 @@ this.legend_companion_ranged_background <- this.inherit("scripts/skills/backgrou
 	function onAdded() // enables relationships
 	{
 		this.character_background.onAdded();
-		this.getContainer().add(this.new("scripts/skills/special/relationship_check"));
+		this.getContainer().add(this.new("scripts/skills/traits/legend_lw_relationship_trait"));
 	}
 
 	function onSetAppearance()
