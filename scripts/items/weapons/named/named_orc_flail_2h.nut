@@ -18,12 +18,12 @@ this.named_orc_flail_2h <- this.inherit("scripts/items/weapons/named/named_weapo
 		this.m.ShowQuiver = false;
 		this.m.ShowArmamentIcon = true;
 		this.m.ArmamentIcon = "icon_named_orc_weapon_05";
-		this.m.Value = 1300;
+		this.m.Value = 2100;
 		this.m.ShieldDamage = 0;
 		this.m.Condition = 64.0;
 		this.m.ConditionMax = 64.0;
 		this.m.StaminaModifier = -30;
-		this.m.RegularDamage = 40;
+		this.m.RegularDamage = 50;
 		this.m.RegularDamageMax = 100;
 		this.m.ArmorDamageMult = 1.25;
 		this.m.DirectDamageMult = 0.3;
