@@ -42,6 +42,7 @@ this.legend_infantry_axe <- this.inherit("scripts/items/weapons/weapon", {
 		this.addSkill(splitman);
 		local skillToAdd = this.new("scripts/skills/actives/split_shield");
 		skillToAdd.setApplyAxeMastery(true);
+		skillToAdd.m.ActionPointCost = 4;
 		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
 		this.addSkill(skillToAdd);
 	}
