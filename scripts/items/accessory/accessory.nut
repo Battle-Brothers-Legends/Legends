@@ -3,6 +3,7 @@ this.accessory <- this.inherit("scripts/items/item", {
 		StaminaModifier = 0,
 		StashModifier = 0,
 		AddGenericSkill = true,
+		InventorySound = "sounds/combat/armor_leather_impact_03.wav",
 		ShowOnCharacter = false,
 		Sprite = null,
 		SpriteCorpse = null
@@ -115,6 +116,11 @@ this.accessory <- this.inherit("scripts/items/item", {
 		}
 
 		return result;
+	}
+
+	function playInventorySound( _eventType )
+	{
+		this.Sound.play(this.m.InventorySound, this.Const.Sound.Volume.Inventory);
 	}
 
 	function onEquip()
