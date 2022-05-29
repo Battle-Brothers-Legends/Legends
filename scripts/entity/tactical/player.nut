@@ -37,7 +37,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			Tags = null
 		},
 		Formations = null,
-		VeteranPerks = 5,
+		VeteranPerks = 4,
 		CampAssignment = "camp.rest",
 		LastCampAssignment = "camp.rest",
 		CampHealing = 0,
@@ -3046,7 +3046,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		{
 			this.m.VeteranPerks = _in.readU8();
 
-			if (this.m.VeteranPerks == 0)
+			if (this.m.VeteranPerks == 5)
 			{
 				this.m.VeteranPerks = 4;
 			}
