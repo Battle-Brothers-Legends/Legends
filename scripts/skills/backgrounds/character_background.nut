@@ -49,8 +49,8 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 				0.0,//plains
 				0.0, //swamp
 				0.0, //hills
-				0.0, //forest
-				0.0, //forest
+				0.0, //forest (pine?)
+				0.0, //forest (snow?)
 				0.0, //forest_leaves
 				0.0, //autumn_forest
 				0.0, //mountains
