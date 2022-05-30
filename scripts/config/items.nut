@@ -20,7 +20,7 @@ gt.Const.Items.Default <- {
 };
 gt.Const.Items.ItemType <- {
 	None = 0,
-	Loot = 1,
+	Cultist = 1,
 	Crafting = 2,
 	Misc = 4,
 	Legendary = 8,
@@ -40,10 +40,10 @@ gt.Const.Items.ItemType <- {
 	Usable = 131072,
 	Supply = 262144,
 	Food = 524288,
-	TradeGood = 1048576,
+	Loot = 1048576,
 	HorseArmor = 2097152,
 	HorseHelmet = 4194304,
-	Cultist = 8388608,
+	TradeGood = 8388608,
 	Quest = 16777216
 };
 gt.Const.Items.ItemFilter <- {
