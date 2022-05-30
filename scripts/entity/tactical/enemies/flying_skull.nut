@@ -10,7 +10,8 @@ this.flying_skull <- this.inherit("scripts/entity/tactical/actor", {
 		DistortAnimationStartTimeC = 0,
 		DurationC = 0.2,
 		IsFlippingC = false,
-		IsExploded = false
+		IsExploded = false,
+		HasKilledPlayer = false
 	},
 	function create()
 	{
