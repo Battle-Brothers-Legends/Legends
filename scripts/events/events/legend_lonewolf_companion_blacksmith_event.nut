@@ -225,10 +225,6 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 
 	function onPrepareVariables( _vars )
 	{
-		_vars.push([
-			"recruit",
-			this.m.Dude.getName()
-		]);
 	}
 
 	function onClear()
