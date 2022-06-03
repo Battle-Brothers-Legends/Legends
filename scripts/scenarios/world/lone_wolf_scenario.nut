@@ -154,19 +154,12 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		foreach( i, bro in bros )
 		{
 			if (bro.getBackground().getID() != "background.legend_donkey") //this.Const.BackgroundType.Stabled
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.0)
-				bro.getBackground().m.DailyCostMult = 0.0;
-				bro.getSkills().update();
-			
+			{			
 				garbage.push(bro);
 			}
 			else
 			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.0)
-				bro.getBackground().m.DailyCostMult = 0.0;
-				bro.getSkills().update();
-				bro.getContainer().add(this.new("scripts/skills/traits/legend_lw_relationship_trait"));
+				this.setupBro(bro);
 			}
 		}
 
@@ -176,8 +169,16 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		}
 	}
 
-	function onHiredByScenario( bro ) //recruits via events
+	function onHiredByScenario( _bro ) //recruits via events
 	{
+		this.setupBro(_bro);
+	}
+
+	function setupBro( _bro )
+	{
+		_bro.m.HiringCost = 0;
+		_bro.getBaseProperties().DailyWage = 0;
+		_bro.getSkills().add(this.new("scripts/skills/traits/legend_lw_relationship_trait"));
 	}
 
 });
