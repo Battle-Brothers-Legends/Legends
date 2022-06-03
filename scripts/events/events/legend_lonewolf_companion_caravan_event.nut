@@ -236,10 +236,6 @@ this.legend_lonewolf_companion_caravan_event <- this.inherit("scripts/events/eve
 	function onPrepareVariables( _vars )
 	{
 		_vars.push([
-			"recruit",
-			this.m.Dude.getName()
-		]);
-		_vars.push([
 			"Bro1",
 			this.m.Bro1.getNameOnly()
 		]);
