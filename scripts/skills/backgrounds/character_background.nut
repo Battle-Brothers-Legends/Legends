@@ -636,102 +636,6 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		return this.m.PerkTreeMap[id];
 	}
 
-	function addPerk( _perk, _row = 0, _isRefundable = true )
-	{
-		local perkDefObject = clone this.Const.Perks.PerkDefObjects[_perk];
-		//Dont add dupes
-		if (this.m.PerkTreeMap == null || perkDefObject.ID in this.m.PerkTreeMap)
-		{
-			return false;
-		}
-
-		perkDefObject.Row <- _row;
-		perkDefObject.Unlocks <- _row;
-		perkDefObject.IsRefundable <- _isRefundable;
-
-		for (local i = this.getPerkTree().len(); i < _row + 1; i = ++i)
-		{
-			this.getPerkTree().push([]);
-		}
-		this.getPerkTree()[_row].push(perkDefObject);
-		this.m.CustomPerkTree[_row].push(_perk);
-		this.m.PerkTreeMap[perkDefObject.ID] <- perkDefObject;
-		return true;
-	}
-
-	function addPerkGroup(_Tree) {
-		foreach(index, arrAdd in _Tree)
-		{
-			foreach (perkAdd in arrAdd)
-			{
-				this.addPerk(perkAdd, index);
-			}
-		}
-	}
-
-	function removePerk( _perk )
-	{
-		local perkDefObject = this.Const.Perks.PerkDefObjects[_perk];
-		if (!(perkDefObject.ID in this.m.PerkTreeMap))
-		{
-			return false;
-		}
-
-		local row = this.m.PerkTreeMap[perkDefObject.ID].Row;
-
-		local perkTree = this.getPerkTree();
-		foreach (i, perk in perkTree[row])
-		{
-			if (perk.ID == perkDefObject.ID)
-			{
-				perkTree[row].remove(i);
-				break;
-			}
-		}
-
-		foreach (i, perk in this.m.CustomPerkTree[row])
-		{
-			if (perk == _perk)
-			{
-				this.m.CustomPerkTree[row].remove(i);
-				break;
-			}
-		}
-
-		delete this.m.PerkTreeMap[perkDefObject.ID];
-		
-		return true;
-	}
-
-	function hasPerkGroup( _group )
-	{
-		foreach (row in _group.Tree)
-		{
-			foreach (perk in row)
-			{
-				if (!this.hasPerk(perk)) return false;
-			}
-		}
-
-		return true;
-	}
-
-	function removePerkGroup( _group )
-	{
-		foreach (i, row in _group.Tree)
-		{
-			foreach (perk in row)
-			{
-				this.removePerk(perk);
-			}
-		}
-	}
-
-	function hasPerk( _perk )
-	{
-		return this.Const.Perks.PerkDefObjects[_perk].ID in this.m.PerkTreeMap;		
-	}
-
 	function buildDescription( _isFinal = false )
 	{
 		if (this.isBackgroundType(this.Const.BackgroundType.Scenario))
@@ -1096,6 +1000,10 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		this.m.PerkTreeMap = pT.Map;
 	}
 
+	// this.m.PerkTree is an array of arrays that contains PerkDefObjects
+	// this.m.PerkTreeMap is a table that contains perk IDs as keys whose value is the PerkDefObject
+	// this.m.CustomPerkTree is an array of arrays that contains perkDefs
+
 	function getPerkTreeDynamicMins()
 	{
 		local mins = this.m.PerkTreeDynamicMins;
@@ -1153,6 +1061,8 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		{
 			return a;
 		}
+
+		this.m.PerkTree.build();
 
 		if (this.m.CustomPerkTree == null)
 		{
