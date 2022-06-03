@@ -35,10 +35,9 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 		bros[0].setPlaceInFormation(4);
 		bros[0].setVeteranPerks(2);
 		bros[0].getBaseProperties().Hitpoints += 10;
-		bros[0].getBaseProperties().MeleeDefense += 5;
+		bros[0].getBaseProperties().MeleeSkill += 10;
 		bros[0].getSkills().add(this.new("scripts/skills/traits/legend_inquisition_disciple_trait"));
 		this.addScenarioPerk(bros[0].getBackground(), this.Const.Perks.PerkDefs.LegendMindOverBody);
-		bros[0].m.PerkPointsSpent += 1;
 		local items = bros[0].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
 		items.equip(this.Const.World.Common.pickHelmet([[1, "barbarians/leather_helmet"]]));
@@ -49,7 +48,7 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 		talents.resize(this.Const.Attributes.COUNT, 0);
 		talents[this.Const.Attributes.Bravery] = 3;
 		talents[this.Const.Attributes.Hitpoints] = 3;
-		bros[0].fillTalentValues(1, true);
+		talents[this.Const.Attributes.MeleeSkill] = 2;
 		bros[1].setStartValuesEx([
 			"witchhunter_background"
 		]);
@@ -71,7 +70,6 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 		bros[1].setVeteranPerks(2);
 		bros[1].getSkills().add(this.new("scripts/skills/traits/legend_undead_killer_trait"));
 		this.addScenarioPerk(bros[1].getBackground(), this.Const.Perks.PerkDefs.LegendMindOverBody);
-		bros[1].m.PerkPointsSpent += 1;
 
 		bros[2].setStartValuesEx([
 			"legend_nun_background"
@@ -79,11 +77,13 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 		bros[2].m.Talents = [];
 		local talents = bros[2].getTalents();
 		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.Fatigue] = 3;
-		talents[this.Const.Attributes.MeleeSkill] = 3;
-		bros[2].fillTalentValues(1, true);
-		bros[2].getBaseProperties().Hitpoints += 10;
-		bros[2].getBaseProperties().MeleeSkill += 5;
+		talents[this.Const.Attributes.Bravery] = 3;
+		talents[this.Const.Attributes.MeleeSkill] = 2;
+		talents[this.Const.Attributes.MeleeDefense] = 3;
+		bros[2].getBaseProperties().Stamina += 10;
+		bros[2].getBaseProperties().MeleeSkill += 10;
+		bros[2].getBaseProperties().Hitpoints += 7;
+		bros[2].getBaseProperties().Initiative -= 5;
 		bros[2].getBackground().m.RawDescription = "{%name% is a huge figure, who spent many years in a temple healing and carrying the sick, learning the power of both strength and compassion. It was clear the ills of the world must be sought out and healed at their source. While healing a witch hunter, %name% was convinced to join the hunt to heal the world. }";
 		bros[2].setPlaceInFormation(5);
 		local heavy = this.new("scripts/skills/traits/heavy_trait");
@@ -94,7 +94,6 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 		bros[2].getSkills().add(heavy);
 		bros[2].setVeteranPerks(2);
 		this.addScenarioPerk(bros[2].getBackground(), this.Const.Perks.PerkDefs.LegendMindOverBody);
-		bros[2].m.PerkPointsSpent += 1;
 		local items = bros[2].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
