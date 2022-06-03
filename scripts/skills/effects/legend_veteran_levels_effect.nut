@@ -15,9 +15,10 @@ this.legend_veteran_levels_effect <- this.inherit("scripts/skills/skill", {
 	{
 		local actor = this.getContainer().getActor();
 
-		if (actor.m.Level > 11 && actor.m.VeteranPerks > 0)
+		if (actor.getLevel() > this.Const.XP.MaxLevelWithPerkpoints && actor.getVeteranPerks() > 0)
 		{
-			if ((actor.m.Level - 1) % actor.m.VeteranPerks == 0)
+			local veteranlevels = actor.getLevel() - this.Const.XP.MaxLevelWithPerkpoints;
+			if (veteranlevels % actor.getVeteranPerks() == 0)
 			{
 				++actor.m.PerkPoints;
 			}
