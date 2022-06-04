@@ -111,7 +111,7 @@ this.accessory <- this.inherit("scripts/items/item", {
 				id = 9,
 				type = "text",
 				icon = "ui/icons/bag.png",
-				text = "Provides [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.StashModifier + "[/color] stash spaces. If you remove the bag, spaces at the bottom of the stash will be lost, along with any items in those spaces."
+				text = "Provides [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.StashModifier + "[/color] stash spaces. If you remove this accessory, spaces at the bottom of the stash will be lost, along with any items in those spaces."
 			});
 		}
 
