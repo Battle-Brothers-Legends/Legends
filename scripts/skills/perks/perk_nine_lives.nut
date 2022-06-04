@@ -1,5 +1,7 @@
 this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		EffectGranted = false
+	},
 
 	function create()
 	{
@@ -14,9 +16,22 @@ this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function onUpdate( _properties )
+	{
+		if(this.m.EffectGranted == false)
+		{
+			this.onCombatStarted();
+		}
+		delete this.onUpdate;
+	}
+
 	function onCombatStarted()
 	{
-		this.getContainer().add(this.new("scripts/skills/effects/legends_nine_lives_cheat_death_effect"));
+		if(this.m.EffectGranted == false)
+		{
+			this.m.EffectGranted = true;
+			this.getContainer().add(this.new("scripts/skills/effects/legends_nine_lives_cheat_death_effect"));
+		}
 	}
 
 });
