@@ -176,6 +176,7 @@ this.accessory <- this.inherit("scripts/items/item", {
 
 	function onUpdateProperties( _properties )
 	{
+		_properties.Stamina += getStaminaModifier();
 	}
 
 	function onSerialize( _out )
