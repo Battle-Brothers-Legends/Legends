@@ -1544,13 +1544,14 @@ this.actor <- this.inherit("scripts/entity/tactical/entity", {
 			}
 			else
 			{
-				local nineLivesSkill = this.m.Skills.getSkillByID("effects.nine_lives_cheat_death");
+				local nineLivesSkill = this.m.Skills.getSkillByID("perk.nine_lives");
 
 				if (nineLivesSkill != null && (!nineLivesSkill.isSpent() || nineLivesSkill.getLastFrameUsed() == this.Time.getFrame()))
 				{
 					this.getSkills().removeByType(this.Const.SkillType.DamageOverTime);
-					this.m.Hitpoints = this.Math.rand(nineLivesSkill.m.MinHP, nineLivesSkill.m.MaxHP);
+					this.m.Hitpoints = this.Math.rand(11, 15);
 					nineLivesSkill.setSpent(true);
+					this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(this) + " has nine lives!");
 				}
 			}
 		}
