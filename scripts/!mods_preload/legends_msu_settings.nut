@@ -41,4 +41,8 @@
 	local combat = ::Legends.Mod.ModSettings.addPage("Combat");
 
 	combat.addElement(::MSU.Class.BooleanSetting("EnhancedTooltips", false, "Enhanced Enemy Tooltips", "Enemy tooltips in tactical battles will show more information, like perks and statuses"));
+
+	local misc = ::Legends.Mod.ModSettings.addPage("Misc");
+	misc.addElement(::MSU.Class.BooleanSetting("AutoRepairLayer", false, "Autorepair Layer", "Any Body or Helmet Layer that you strip from a piece of armor is automatically marked as 'to be repaired'."));
+
 }
