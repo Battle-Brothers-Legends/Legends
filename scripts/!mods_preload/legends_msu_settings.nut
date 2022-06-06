@@ -43,4 +43,6 @@
 	local misc = ::Legends.Mod.ModSettings.addPage("Misc");
 	local myEnumTooltip = "Define how Blueprints are shown: 'All Ingredients Available' is the Vanilla behavior; 'One Ingredient Available' shows recipes when one ingredient is fully satisfied; 'Always' shows all recipes at all time";
 	misc.addElement(::MSU.Class.EnumSetting("ShowBlueprintsWhen", "All Ingredients Available", ["All Ingredients Available", "One Ingredient Available", "Always"], "Show Blueprints when", myEnumTooltip));
+	misc.addElement(::MSU.Class.BooleanSetting("AutoRepairLayer", false, "Autorepair Layer", "Any Body or Helmet Layer that you strip from a piece of armor is automatically marked as 'to be repaired'."));
+
 }

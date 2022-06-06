@@ -441,7 +441,8 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 
 	function onUnequip()
 	{
-		this.item.onUnequip()
+		this.item.onUnequip();
+        if (::Legends.Mod.ModSettings.getSetting("AutoRepairLayer").getValue()) this.setToBeRepaired(true, 0);
 		this.setCurrentSlotType(this.Const.ItemSlot.None);
 	}
 
