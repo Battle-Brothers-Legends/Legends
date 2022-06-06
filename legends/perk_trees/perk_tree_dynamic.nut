@@ -30,6 +30,7 @@
 	function build()
 	{
 		this.LocalMap = {};
+		this.Traits = null;
 
 		if (!("PerkGroupMultipliers" in this.Player.getBackground().m))
 		{
@@ -184,9 +185,9 @@
 
 		foreach (category in this.LocalMap)
 		{
-			foreach (tree in category)
+			foreach (perkGroup in category)
 			{
-				foreach (rowNumber, perksInRow in tree.getTree())
+				foreach (rowNumber, perksInRow in perkGroup.getTree())
 				{
 					dynamicTree[rowNumber] = array(perksInRow.len());
 					foreach (i, perk in perksInRow)
@@ -301,6 +302,7 @@
 		}
 
 		this.LocalMap = null;
+		this.Traits = null;
 
 		this.__build(dynamicTree);
 
