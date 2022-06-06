@@ -1,6 +1,6 @@
 ::Legends.Class.PerkGroupCollection <- class
 {
-	Array = null,
+	Array = null;
 
 	constructor( _array = null )
 	{

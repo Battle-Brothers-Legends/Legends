@@ -1,12 +1,12 @@
 ::Legends.Class.PerkGroup <- class
 {
-	ID = null,
-	Name = null,
-	Descriptions = null,
-	SelfMultiplier = null,
-	PerkGroupMultipliers = null,
-	SpecialPerkMultipliers = null,
-	Tree = null,
+	ID = null;
+	Name = null;
+	Descriptions = null;
+	SelfMultiplier = null;
+	PerkGroupMultipliers = null;
+	SpecialPerkMultipliers = null;
+	Tree = null;
 
 	constructor( _id, _name, _descriptions, _selfMultiplier = null )
 	{
