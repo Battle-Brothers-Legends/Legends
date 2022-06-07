@@ -34,7 +34,7 @@ this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 	{
 		if (_f && !this.m.IsSpent)
 		{
-			if (this.m.MinHP != 11 || this.m.MaxHP != 15))
+			if (this.m.MinHP != 11 || this.m.MaxHP != 15)
 			{
 				this.getContainer().getActor().m.Hitpoints = ::Math.rand(this.m.MinHP, this.m.MaxHP);
 				this.getContainer().getActor().setDirty(true);
