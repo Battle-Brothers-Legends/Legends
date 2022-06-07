@@ -1,43 +1,46 @@
-::Legends.Class.PerkTreeDynamic <- class extends ::Legends.Class.PerkTree
-{
-	DynamicPerkTreeMap = null;
-	Player = null;
-	Mins = null;
-	LocalMap = null;
-	Traits = null;
-	OrderOfAssignment = ["Profession", "Enemy", "Traits", "Class", "Defense", "Weapon", "Styles"];
-
-	constructor( _player, _map, _mins = null )
+this.perk_tree_dynamic <- ::inherit("scripts/legends/perk_trees/perk_tree", {
+	m = {
+		DynamicPerkTreeMap = null,
+		Player = null,
+		Mins = null,
+		LocalMap = null,
+		Traits = null
+	},
+	function create()
 	{
-		base.constructor();
+	}
+
+	function init( _player, _map, _mins = null )
+	{
+		this.perk_tree.init();
 		if (!::MSU.isKindOf(_player, "player")) throw ::MSU.Exception.InvalidType(_player);
-		this.Player = ::MSU.asWeakTableRef(_player);
-		this.DynamicPerkTreeMap = _map;
-		if (_mins == null) this.Mins = {};
+		this.m.Player = ::MSU.asWeakTableRef(_player);
+		this.m.DynamicPerkTreeMap = _map;
+		if (_mins == null) this.m.Mins = {};
 		else this.setMins(_mins);
 	}
 
 	function getMins()
 	{
-		return this.Mins;
+		return this.m.Mins;
 	}
 
 	function setMins( _mins )
 	{
-		this.Mins = _mins;
+		this.m.Mins = _mins;
 	}
 
 	function build()
 	{
-		this.LocalMap = {};
-		this.Traits = null;
+		this.m.LocalMap = {};
+		this.m.Traits = null;
 
-		if (!("PerkGroupMultipliers" in this.Player.getBackground().m))
+		if (!("PerkGroupMultipliers" in this.m.Player.getBackground().m))
 		{
-			this.DynamicPerkTreeMap = {};
-			this.Player.getBackground().m.PerkGroupMultipliers <- [];
+			this.m.DynamicPerkTreeMap = {};
+			this.m.Player.getBackground().m.PerkGroupMultipliers <- [];
 
-			foreach (categoryName, perkGroups in this.DynamicPerkTreeMap)
+			foreach (categoryName, perkGroups in this.m.DynamicPerkTreeMap)
 			{
 				local PTRCategory = [];
 				foreach (perkGroup in perkGroups)
@@ -57,39 +60,39 @@
 					}
 				}
 
-				this.DynamicPerkTreeMap[categoryName] <- PTRCategory;
+				this.m.DynamicPerkTreeMap[categoryName] <- PTRCategory;
 			}
 		}
 
-		foreach (categoryName, perkGroupContainers in this.DynamicPerkTreeMap)
+		foreach (categoryName, perkGroupContainers in this.m.DynamicPerkTreeMap)
 		{
 			foreach (container in perkGroupContainers)
 			{
 				if (typeof treeContainer != "instance" || (!(treeContainer instanceof ::Legends.Class.PerkGroup) && !(treeContainer instanceof ::MSU.Class.WeightedContainer)))
 				{
-					::logError("Background " + this.Player.getBackground().getID() + " has wrongly formatted dynamic perk tree -- Category: " + categoryName);
+					::logError("Background " + this.m.Player.getBackground().getID() + " has wrongly formatted dynamic perk tree -- Category: " + categoryName);
 				}
 			}
 		}
 
-		this.Traits = this.Player == null ? null : this.Player.getSkills().getSkillsByFunction(@(skill) skill.m.Type == ::Const.SkillType.Trait);
+		this.m.Traits = this.m.Player == null ? null : this.m.Player.getSkills().getSkillsByFunction(@(skill) skill.m.Type == ::Const.SkillType.Trait);
 
 		foreach (categoryName in this.OrderOfAssignment)
 		{
-			if (!(categoryName in this.LocalMap))
+			if (!(categoryName in this.m.LocalMap))
 			{
-				this.LocalMap[categoryName] <- [];
+				this.m.LocalMap[categoryName] <- [];
 			}
 
-			if (categoryName in this.DynamicPerkTreeMap)
+			if (categoryName in this.m.DynamicPerkTreeMap)
 			{
-				local exclude = array(this.LocalMap[categoryName].len());
-				foreach (i, tree in this.LocalMap[categoryName])
+				local exclude = array(this.m.LocalMap[categoryName].len());
+				foreach (i, tree in this.m.LocalMap[categoryName])
 				{
 					exclude[i] = tree.ID;
 				}
 
-				foreach (treeContainer in this.DynamicPerkTreeMap[categoryName])
+				foreach (treeContainer in this.m.DynamicPerkTreeMap[categoryName])
 				{
 					local tree;
 
@@ -117,18 +120,18 @@
 						}
 					}
 
-					this.LocalMap[categoryName].push(tree);
+					this.m.LocalMap[categoryName].push(tree);
 					if (tree.ID != ::Const.Perks.NoTree.ID) exclude.push(tree.ID);
 				}
 			}
 
-			if (categoryName in this.Mins)
+			if (categoryName in this.m.Mins)
 			{
 				if (categoryName == "Styles")
 				{
 					local hasRangedWeaponTree = false;
 					local hasMeleeWeaponTree = false;
-					foreach (tree in this.LocalMap.Weapon)
+					foreach (tree in this.m.LocalMap.Weapon)
 					{
 						if (!hasRangedWeaponTree && this.Const.Perks.RangedWeaponTrees.Tree.find(tree) != null)
 						{
@@ -143,23 +146,23 @@
 
 					if (!hasRangedWeaponTree)
 					{
-						this.Player.getBackground().m.PerkGroupMultipliers.push([0, ::Const.Perks.RangedTree]);
+						this.m.Player.getBackground().m.PerkGroupMultipliers.push([0, ::Const.Perks.RangedTree]);
 					}
 					if (!hasMeleeWeaponTree)
 					{
-						this.Player.getBackground().m.PerkGroupMultipliers.push([0, ::Const.Perks.OneHandedTree]);
-						this.Player.getBackground().m.PerkGroupMultipliers.push([0, ::Const.Perks.TwoHandedTree]);
+						this.m.Player.getBackground().m.PerkGroupMultipliers.push([0, ::Const.Perks.OneHandedTree]);
+						this.m.Player.getBackground().m.PerkGroupMultipliers.push([0, ::Const.Perks.TwoHandedTree]);
 					}
 				}
 
-				local exclude = array(this.LocalMap[categoryName].len());
-				foreach (i, tree in this.LocalMap[categoryName])
+				local exclude = array(this.m.LocalMap[categoryName].len());
+				foreach (i, tree in this.m.LocalMap[categoryName])
 				{
 					exclude[i] = tree.ID;
 				}
 
 				local r = ::Math.rand(0, 100);
-				for (local i = this.LocalMap[_categoryName].len(); i < _mins[_categoryName]; i++)
+				for (local i = this.m.LocalMap[_categoryName].len(); i < _mins[_categoryName]; i++)
 				{
 					if (_categoryName == "Enemy")
 					{
@@ -175,24 +178,24 @@
 					}
 
 					local t = this.__getWeightedRandomTreeFromCategory(_categoryName, exclude);
-					this.LocalMap[categoryName].push(t);
+					this.m.LocalMap[categoryName].push(t);
 					exclude.push(t.ID);
 				}
 			}
 		}
 
-		local dynamicTree = array(11);
+		this.m.PerkDefsTree = array(11);
 
-		foreach (category in this.LocalMap)
+		foreach (category in this.m.LocalMap)
 		{
 			foreach (perkGroup in category)
 			{
 				foreach (rowNumber, perksInRow in perkGroup.getTree())
 				{
-					dynamicTree[rowNumber] = array(perksInRow.len());
+					this.m.PerkDefsTree[rowNumber] = array(perksInRow.len());
 					foreach (i, perk in perksInRow)
 					{
-						dynamicTree[rowNumber][i] = perk;
+						this.m.PerkDefsTree[rowNumber][i] = perk;
 					}
 				}
 			}
@@ -200,11 +203,11 @@
 
 		foreach (perk in ::Const.Perks.SpecialTrees.Perks)
 		{
-			local chance = perk.Func(this.Player, perk.Chance);
+			local chance = perk.Func(this.m.Player, perk.Chance);
 
 			if (chance == 0) continue;
 
-			foreach (multiplier in this.Player.getBackground().m.SpecialPerkMultipliers)
+			foreach (multiplier in this.m.Player.getBackground().m.SpecialPerkMultipliers)
 			{
 				if (multiplier[1] == perk.Perk)
 				{
@@ -229,7 +232,7 @@
 
 			if (chance == 0) continue;
 
-			foreach (category in this.LocalMap)
+			foreach (category in this.m.LocalMap)
 			{
 				foreach (tree in category)
 				{
@@ -255,7 +258,7 @@
 
 				while (row >= 0 && row <= 6)
 				{
-					if (dynamicTree[row].len() < 13)
+					if (this.m.PerkDefsTree[row].len() < 13)
 					{
 						hasRow = true;
 						break;
@@ -272,12 +275,12 @@
 
 				row = hasRow ? this.Math.max(0, this.Math.min(row, 6)) : perk.Row;
 
-				dynamicTree[row].push(perk.Perk);
+				this.m.PerkDefsTree[row].push(perk.Perk);
 			}
 		}
 
 		local attributes = ::Const.Perks.TraitsTrees.getBaseAttributes();
-		foreach (tree in this.LocalMap.Traits)
+		foreach (tree in this.m.LocalMap.Traits)
 		{
 			if ("Attributes" in tree)
 			{
@@ -301,19 +304,19 @@
 			}
 		}
 
-		this.LocalMap = null;
-		this.Traits = null;
+		this.m.LocalMap = null;
+		this.m.Traits = null;
 
-		this.__build(dynamicTree);
+		this.__build(this.m.PerkDefsTree);
 
 		return attributes;
 	}
 
 	function __applyMultipliers( _perkGroupContainer )
 	{
-		local multipliers = clone this.Player.getBackground().m.PerkGroupMultipliers;
+		local multipliers = clone this.m.Player.getBackground().m.PerkGroupMultipliers;
 
-		foreach (category in this.LocalMap)
+		foreach (category in this.m.LocalMap)
 		{
 			foreach (perkGroup in category)
 			{
@@ -324,7 +327,7 @@
 			}
 		}
 
-		local weapon = this.Player.getMainhandItem();
+		local weapon = this.m.Player.getMainhandItem();
 		if (weapon != null)
 		{
 			local perkGroups = [];
@@ -344,9 +347,9 @@
 			}
 		}
 
-		if (this.Player.getTalents().len() > 0)
+		if (this.m.Player.getTalents().len() > 0)
 		{
-			local talents = this.Player.getTalents();
+			local talents = this.m.Player.getTalents();
 
 			for (local attribute = 0; attribute < this.Const.Attributes.COUNT; attribute++)
 			{
@@ -361,9 +364,9 @@
 			}
 		}
 
-		if (this.Traits != null)
+		if (this.m.Traits != null)
 		{
-			foreach (trait in this.Traits)
+			foreach (trait in this.m.Traits)
 			{
 				multipliers.extend(trait.m.PerkGroupMultipliers);
 			}
@@ -401,4 +404,4 @@
 		local tree = potentialTrees.roll();
 		return tree != null ? tree : ::Const.Perks.NoTree;
 	}
-}
+});

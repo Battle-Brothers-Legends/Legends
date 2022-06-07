@@ -1,24 +1,22 @@
 // Base (abstract) class - never instantiated on its own
-::Legends.Class.PerkTree <- class
-{
-	IDMap = null;
-	Tree = null;
-	PerkDefsTree = null;
+this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
+	m = {
+		IDMap = {},
+		Tree = [],
+		PerkDefsTree = {}
+	}
 
-	constructor()
+	function init()
 	{
-		this.IDMap = {};
-		this.Tree = [];
-		this.PerkDefsTree = {};
 	}
 
 	function build()
 	{
+		this.__build(this.m.PerkDefsTree);
 	}
 
 	function rebuild()
 	{
-
 	}
 
 	function __build( _perkDefsTree )

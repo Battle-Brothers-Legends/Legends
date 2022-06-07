@@ -1,44 +1,48 @@
-::Legends.Class.PerkGroup <- class
-{
-	ID = null;
-	Name = null;
-	Descriptions = null;
-	SelfMultiplier = null;
-	PerkGroupMultipliers = null;
-	SpecialPerkMultipliers = null;
-	Tree = null;
+this.perk_group <- ::inherit("scripts/config/legend_dummy_bb_class", {
+	m = {
+		ID = null,
+		Name = null,
+		Descriptions = null,
+		SelfMultiplier = null,
+		PerkGroupMultipliers = null,
+		SpecialPerkMultipliers = null,
+		Tree = null
+	},
+	function create()
+	{
+	}
 
-	constructor( _id, _name, _descriptions, _selfMultiplier = null )
+	function init( _id, _name, _descriptions, _selfMultiplier = null )
 	{
 		::MSU.requireString(_id, _name);
 
 		if (_selfMultiplier == null) _selfMultiplier = 1.0;
 
-		this.ID = _id;
-		this.Name = _name;
+		this.m.ID = _id;
+		this.m.Name = _name;
 		this.setDescriptions(_descriptions);
 		this.setSelfMultiplier(_selfMultiplier);
 	}
 
 	function getID()
 	{
-		return this.ID;
+		return this.m.ID;
 	}
 
 	function getName()
 	{
-		return this.Name;
+		return this.m.Name;
 	}
 
 	function setName( _name )
 	{
 		::MSU.requireString(_name);
-		this.Name = _name;
+		this.m.Name = _name;
 	}
 
 	function getDescriptions()
 	{
-		return this.Descriptions;
+		return this.m.Descriptions;
 	}
 
 	function setDescriptions( _descriptions )
@@ -48,23 +52,23 @@
 		{
 			::MSU.requireString(desc);
 		}
-		this.Descriptions = _descriptions;
+		this.m.Descriptions = _descriptions;
 	}
 
 	function getSelfMultiplier()
 	{
-		return this.SelfMultiplier;
+		return this.m.SelfMultiplier;
 	}
 
 	function setSelfMultiplier( _multiplier )
 	{
 		::MSU.requireOneFromTypes(["integer", "float"], _multiplier);
-		this.SelfMultiplier = _multiplier;
+		this.m.SelfMultiplier = _multiplier;
 	}
 
 	function getTree()
 	{
-		return this.Tree;
+		return this.m.Tree;
 	}
 
 	function setTree( _tree )
@@ -80,16 +84,16 @@
 			::MSU.requireArray(row);
 			foreach (perk in row)
 			{
-				this.__validatePerk(perk);
+				::Const.Perks.validatePerk(perk);
 			}
 		}
 
-		this.Tree = _tree;
+		this.m.Tree = _tree;
 	}
 
 	function getPerkGroupMultipliers()
 	{
-		return this.PerkGroupMultipliers;
+		return this.m.PerkGroupMultipliers;
 	}
 
 	function setPerkGroupMultipliers( _multipliers )
@@ -107,12 +111,12 @@
 			::MSU.requireInstanceOf(::Legends.Class.PerkGroup, entry[1]);
 		}
 
-		this.PerkGroupMultipliers = _multipliers;
+		this.m.PerkGroupMultipliers = _multipliers;
 	}
 
 	function getSpecialPerkMultipliers()
 	{
-		return this.SpecialPerkMultipliers;
+		return this.m.SpecialPerkMultipliers;
 	}
 
 	function setSpecialPerkMultipliers( _multipliers )
@@ -127,15 +131,15 @@
 				throw ::MSU.Exception.InvalidValue(entry);
 			}
 			::MSU.requireOneFromTypes(["integer", "float"], entry[0]);
-			this.__validatePerk(entry[1]);
+			::Const.Perks.validatePerk(entry[1]);
 		}
 
-		this.SpecialPerkMultipliers = _multipliers;
+		this.m.SpecialPerkMultipliers = _multipliers;
 	}
 
 	function findPerk( _perk )
 	{
-		foreach (row in this.Tree)
+		foreach (row in this.m.Tree)
 		{
 			foreach (perk in row)
 			{
@@ -148,13 +152,13 @@
 	function addPerk( _perk, _tier )
 	{
 		::MSU.requireInteger(_tier);
-		if (_tier < 1 || _tier > this.Tree.len())
+		if (_tier < 1 || _tier > this.m.Tree.len())
 		{
 			::logError("The value of _tier must be between 1 and the length of the perk tree inclusive.");
 			::MSU.Exception.InvalidValue(_tier);
 		}
 
-		this.__validatePerk(_perk);
+		::Const.Perks.validatePerk(_perk);
 
 		local row = this.findPerk(_perk);
 		if (row != null)
@@ -163,12 +167,12 @@
 			return false;
 		}
 
-		this.Tree[_tier-1].push(_perk);
+		this.m.Tree[_tier-1].push(_perk);
 	}
 
 	function removePerk( _perk )
 	{
-		foreach (row in this.Tree)
+		foreach (row in this.m.Tree)
 		{
 			foreach (i, perk in row)
 			{
@@ -179,11 +183,11 @@
 
 	function getRandomPerk( _exclude = null )
 	{
-		local tree = this.Tree;
+		local tree = this.m.Tree;
 		if (_exclude != null)
 		{
-			tree = array(this.Tree.len());
-			foreach (i, row in this.Tree)
+			tree = array(this.m.Tree.len());
+			foreach (i, row in this.m.Tree)
 			{
 				tree[i] = [];
 				foreach (perk in row)
@@ -195,14 +199,4 @@
 
 		return ::MSU.Array.rand(::MSU.Array.rand(tree));
 	}
-
-	function __validatePerk( _perk )
-	{
-		::MSU.requireInteger(_perk);
-		if (_perk < 0 || _perk > ::Const.Perks.PerkDefs.len())
-		{
-			::logError("The PerDef " + _perk + " does not exist in the ::Const.Perks.PerkDefs table");
-			::MSU.Exception.InvalidValue(_perk);
-		}
-	}
-}
+});

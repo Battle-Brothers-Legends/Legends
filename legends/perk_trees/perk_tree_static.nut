@@ -1,20 +1,18 @@
-::Legends.Class.PerkTreeStatic <- class extends ::Legends.Class.PerkTree
+this.perk_tree_static <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 {
-	constructor( _perkDefsTree )
+	m = {},
+	function create()
 	{
-		base.constructor();
-		this.PerkDefsTree = _perkDefsTree;
+	}
+
+	function init( _perkDefsTree )
+	{
+		this.perk_tree.init();
+		this.m.PerkDefsTree = _perkDefsTree;
 	}
 
 	function build()
 	{
-		if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
-		{
-			this.__build(this.PerkDefsTree);
-		}
-		else
-		{
-			this.__build(::Const.Perks.DefaultCustomPerkTree);
-		}
+		this.__build(this.m.PerkDefsTree);
 	}
-}
+});

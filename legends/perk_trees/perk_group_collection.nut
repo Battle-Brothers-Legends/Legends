@@ -1,19 +1,19 @@
-::Legends.Class.PerkGroupCollection <- class
-{
-	Array = null;
-
-	constructor( _array = null )
+this.perk_group_collection <- ::inherit("scripts/config/legend_dummy_bb_class", {
+	m = {
+		Array = []
+	},
+	function create()
 	{
-		if (_array == null) this.Array = [];
-		else
+	}
+
+	function init( _array = null )
+	{
+		::MSU.requireArray(_array);
+		foreach (group in _array)
 		{
-			::MSU.requireArray(_array);
-			foreach (group in _array)
-			{
-				::MSU.requireInstanceOf(::Legends.Class.PerkGroup, group);
-			}
-			this.Array = _array;
+			::MSU.requireInstanceOf(::Legends.Class.PerkGroup, group);
 		}
+		this.m.Array = _array;
 	}
 
 	function getRandomGroup( _exclude = null )
@@ -42,4 +42,4 @@
 
 		return this.getRandomGroup().getRandomPerk();
 	}
-}
+});
