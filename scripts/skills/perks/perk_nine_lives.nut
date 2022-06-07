@@ -1,7 +1,11 @@
 this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 	m = {
 		IsSpent = false,
-		LastFrameUsed = 0
+		LastFrameUsed = 0,
+		MinHP = 11,
+		MaxHP = 15,
+		RemoveDamageOverTime = true,
+		DamageOverTimeSkills = []
 	},
 	function isSpent()
 	{
@@ -20,7 +24,7 @@ this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.NineLives;
 		this.m.Icon = "ui/perks/perk_07.png";
 		this.m.Type = this.Const.SkillType.Perk;
-		this.m.Order = this.Const.SkillOrder.Perk;
+		this.m.Order = this.Const.SkillOrder.VeryLast + 10000;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
@@ -30,11 +34,40 @@ this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 	{
 		if (_f && !this.m.IsSpent)
 		{
+			if (this.m.MinHP != 11 || this.m.MaxHP != 15))
+			{
+				this.getContainer().getActor().m.Hitpoints = ::Math.rand(this.m.MinHP, this.m.MaxHP);
+				this.getContainer().getActor().setDirty(true);
+			}
+			foreach (skill in this.m.DamageOverTimeSkills)
+			{
+				skill.m.SkillType += ::Const.SkillType.DamageOverTime;
+			}
+			this.m.DamageOverTimeSkills.clear();
+
+			this.onProc();
+
 			this.getContainer().add(this.new("scripts/skills/effects/nine_lives_effect"));
 		}
 
 		this.m.IsSpent = _f;
 		this.m.LastFrameUsed = this.Time.getFrame();
+	}
+
+	function onProc()
+	{
+	}
+
+	function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
+	{
+		if (!this.m.RemoveDamageOverTime && _damageHitpoints > this.getContainer().getActor().getHitpoints())
+		{
+			this.m.DamageOverTimeSkills = this.getContainer().getSkillsByFunction(@(skill) skill.isType(::Const.SkillType.DamageOverTime));
+			foreach (skill in this.m.DamageOverTimeSkills)
+			{
+				skill.m.SkillType -= ::Const.SkillType.DamageOverTime;
+			}
+		}
 	}
 
 	function onCombatStarted()
@@ -52,7 +85,7 @@ this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		if (this.m.IsSpent && this.m.LastFrameUsed == this.Time.getFrame())
+		if (this.m.RemoveDamageOverTime && this.m.IsSpent && this.m.LastFrameUsed == this.Time.getFrame())
 		{
 			this.getContainer().removeByType(this.Const.SkillType.DamageOverTime);
 		}
