@@ -97,7 +97,6 @@ this.legends_mutant_scenario <- this.inherit("scripts/scenarios/world/starting_s
 		this.World.Statistics.getFlags().set("isIjirokPotionAcquired", false);
 		this.World.Statistics.getFlags().set("isIfritPotionAcquired", false);
 		this.World.Statistics.getFlags().set("isHyenaPotionAcquired", false);
-		this.World.Assets.m.Money = this.World.Assets.m.Money;
 
 		this.World.Assets.addBusinessReputation(this.m.StartingBusinessReputation);
 		this.World.Flags.set("HasLegendCampTraining", true);
@@ -544,6 +543,15 @@ this.legends_mutant_scenario <- this.inherit("scripts/scenarios/world/starting_s
 		this.World.Statistics.getFlags().set("shouldDropIfritPotion", false);
 		this.World.Statistics.getFlags().set("shouldDropHyenaPotion", false);
 		return true;
+	}
+
+	function onInit()
+	{
+		this.starting_scenario.onInit();
+		this.World.Assets.m.BuyPriceMult = 1.2;
+		this.World.Assets.m.SellPriceMult = 0.8;
+		this.World.Assets.m.ExtraLootChance = 50;
+		this.World.Assets.m.FootprintVision = 1.5;
 	}
 
 });
