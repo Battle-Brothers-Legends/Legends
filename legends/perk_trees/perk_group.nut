@@ -1,27 +1,30 @@
 this.perk_group <- ::inherit("scripts/config/legend_dummy_bb_class", {
 	m = {
-		ID = null,
-		Name = null,
-		Descriptions = null,
-		SelfMultiplier = null,
-		PerkGroupMultipliers = null,
-		SpecialPerkMultipliers = null,
-		Tree = null
+		ID = "perk_group.not_initialized",
+		Name = "Not Initialized Perk Group",
+		FlavorTexts = ["Uninitialized perk group"],
+		SelfMultiplier = 1.0,
+		Multipliers = [],
+		Tree = [ [], [], [], [], [], [], [], [], [], [], [] ] // length 11
 	},
 	function create()
 	{
 	}
 
-	function init( _id, _name, _descriptions, _selfMultiplier = null )
+	function init( _id, _name, _flavorText, _tree, _selfMultiplier = null, _multipliers = null )
 	{
-		::MSU.requireString(_id, _name);
-
-		if (_selfMultiplier == null) _selfMultiplier = 1.0;
+		::MSU.requireString(_id);
 
 		this.m.ID = _id;
-		this.m.Name = _name;
-		this.setDescriptions(_descriptions);
-		this.setSelfMultiplier(_selfMultiplier);
+		this.setName(_name);
+		this.setFlavorText(_flavorText);
+
+		if (_selfMultiplier != null) this.setSelfMultiplier(_selfMultiplier);
+		if (_multipliers != null) this.setMultipliers(_multipliers);
+
+		::Const.Perks.PerkGroup.LookupMap[_id] <- this;
+
+		return this;
 	}
 
 	function getID()
@@ -40,19 +43,40 @@ this.perk_group <- ::inherit("scripts/config/legend_dummy_bb_class", {
 		this.m.Name = _name;
 	}
 
-	function getDescriptions()
+	function getFlavorTexts()
 	{
-		return this.m.Descriptions;
+		return this.m.FlavorTexts;
 	}
 
-	function setDescriptions( _descriptions )
+	function setFlavorTexts( _flavorTexts )
 	{
-		::MSU.requireArray(_descriptions);
-		foreach (desc in _descriptions)
+		::MSU.requireArray(_flavorTexts);
+		foreach (text in _flavorTexts)
 		{
-			::MSU.requireString(desc);
+			::MSU.requireString(text);
 		}
-		this.m.Descriptions = _descriptions;
+		this.m.FlavorTexts = _flavorTexts;
+	}
+
+	function addFlavorText( _flavorText )
+	{
+		switch (typeof _flavorText)
+		{
+			case "string":
+				this.m.FlavorTexts.push(_flavorText);
+				break;
+
+			case "array":
+				foreach (text in _flavorText)
+				{
+					::MSU.requireString(text);
+				}
+				this.m.FlavorTexts.extend(_flavorText);
+				break;
+
+			default:
+				throw ::MSU.Exception.InvalidType(_flavorText);
+		}
 	}
 
 	function getSelfMultiplier()
@@ -84,57 +108,88 @@ this.perk_group <- ::inherit("scripts/config/legend_dummy_bb_class", {
 			::MSU.requireArray(row);
 			foreach (perk in row)
 			{
-				::Const.Perks.validatePerk(perk);
+				if (::Const.Perks.findById(perk) == null) throw ::MSU.Exception.InvalidValue(perk);
 			}
 		}
 
 		this.m.Tree = _tree;
 	}
 
-	function getPerkGroupMultipliers()
+	function getMultipliers( _type = null )
 	{
-		return this.m.PerkGroupMultipliers;
+		switch (_type)
+		{
+			case "perk":
+				return this.m.Multipliers.filter(@(idx, multiplier) ::Const.Perks.SpecialPerk.findById(multiplier[1]) != null);
+
+			case "perk_group":
+				return this.m.Multipliers.filter(@(idx, multiplier) ::Const.Perks.PerkGroup.findById(multiplier[1]) != null);
+
+			case null:
+				return this.m.Multipliers;
+
+			default:
+				throw ::MSU.Exception.InvalidValue(_type);
+		}
 	}
 
-	function setPerkGroupMultipliers( _multipliers )
+	function setMultipliers( _multipliers )
 	{
 		::MSU.requireArray(_multipliers);
-		foreach (entry in _multipliers)
+		foreach (multiplier in _multipliers)
 		{
-			::MSU.requireArray(entry);
-			if (entry.len() != 2)
-			{
-				::logError("Each entry in _multipliers must be a length 2 array");
-				throw ::MSU.Exception.InvalidValue(entry);
-			}
-			::MSU.requireOneFromTypes(["integer", "float"], entry[0]);
-			::MSU.requireInstanceOf(::Legends.Class.PerkGroup, entry[1]);
+			this.__validateMultiplier(multiplier);
 		}
-
-		this.m.PerkGroupMultipliers = _multipliers;
+		this.m.Multipliers = _multipliers;
 	}
 
-	function getSpecialPerkMultipliers()
+	function addMultiplier( _multiplier )
 	{
-		return this.m.SpecialPerkMultipliers;
-	}
-
-	function setSpecialPerkMultipliers( _multipliers )
-	{
-		::MSU.requireArray(_multipliers);
-		foreach (entry in _multipliers)
+		this.__validateMultiplier(_multiplier);
+		foreach (multiplier in this.m.Multipliers)
 		{
-			::MSU.requireArray(entry);
-			if (entry.len() != 2)
+			if (multiplier[1] == _multiplier[1])
 			{
-				::logError("Each entry in _multipliers must be a length 2 array");
-				throw ::MSU.Exception.InvalidValue(entry);
+				::logError(format("The perk group %s already contains a multiplier of %s for %s", this.getID(), multiplier[0], multiplier[1]));
+				return;
 			}
-			::MSU.requireOneFromTypes(["integer", "float"], entry[0]);
-			::Const.Perks.validatePerk(entry[1]);
 		}
 
-		this.m.SpecialPerkMultipliers = _multipliers;
+		this.m.Multipliers.push(_multiplier);
+	}
+
+	function removeMultiplier( _item )
+	{
+		if (::Const.Perks.findById(_item) == null || ::Const.Perks.PerkGroup.findById(_item) == null)
+		{
+			::logError("_item must be a valid perk or perk group ID.");
+			throw ::MSU.Exception.InvalidValue(_multiplier);
+		}
+
+		foreach (i, multiplier in this.m.Multipliers)
+		{
+			if (multiplier[1] == _item) return this.m.Multipliers.remove(i);
+		}
+	}
+
+	function __validateMultiplier( _multiplier )
+	{
+		::MSU.requireArray(_multiplier);
+
+		if (_multiplier.len() != 2)
+		{
+			::logError("Each multiplier must be a length 2 array.");
+			throw ::MSU.Exception.InvalidValue(_multiplier);
+		}
+
+		::MSU.requireOneFromTypes(["integer", "float"], _multiplier[0]);
+		::MSU.requireString(_multiplier[1]);
+
+		if (::Const.Perks.findById(_multiplier[1]) == null || ::Const.Perks.PerkGroup.findById(_multiplier[1]) == null)
+		{
+			::logError("The secomd element in a multiplier must be a valid perk or perk group ID.");
+			throw ::MSU.Exception.InvalidValue(_multiplier);
+		}
 	}
 
 	function findPerk( _perk )
@@ -146,25 +201,17 @@ this.perk_group <- ::inherit("scripts/config/legend_dummy_bb_class", {
 				if (perk == _perk) return row;
 			}
 		}
-		return null;
 	}
 
 	function addPerk( _perk, _tier )
 	{
-		::MSU.requireInteger(_tier);
-		if (_tier < 1 || _tier > this.m.Tree.len())
-		{
-			::logError("The value of _tier must be between 1 and the length of the perk tree inclusive.");
-			::MSU.Exception.InvalidValue(_tier);
-		}
-
-		::Const.Perks.validatePerk(_perk);
+		if (::Const.Perks.findById(_perk) == null) throw ::MSU.Exception.InvalidValue(_perk);
 
 		local row = this.findPerk(_perk);
 		if (row != null)
 		{
 			::logWarning("Perk " + _perk + " already exists in perk group " + this.getID() + " at tier " + (row + 1);
-			return false;
+			return;
 		}
 
 		this.m.Tree[_tier-1].push(_perk);
@@ -181,22 +228,27 @@ this.perk_group <- ::inherit("scripts/config/legend_dummy_bb_class", {
 		}
 	}
 
-	function getRandomPerk( _exclude = null )
+	function getRandomPerk( _tier = null, _exclude = null )
 	{
-		local tree = this.m.Tree;
-		if (_exclude != null)
+		local perks = [];
+		if (_tier != null)
 		{
-			tree = array(this.m.Tree.len());
-			foreach (i, row in this.m.Tree)
+			foreach (perk in this.m.Tree[tier-1])
 			{
-				tree[i] = [];
+				if (_exclude == null || _exclude.find(perk) == null) perks.push(perk);
+			}
+		}
+		else
+		{
+			foreach (row in this.m.Tree)
+			{
 				foreach (perk in row)
 				{
-					if (_exclude.find(perk) == null) tree[i].push(perk);
+					if (_exclude == null || _exclude.find(perk) == null) perks.push(perk);
 				}
 			}
 		}
 
-		return ::MSU.Array.rand(::MSU.Array.rand(tree));
+		return ::MSU.Array.rand(perks);
 	}
 });

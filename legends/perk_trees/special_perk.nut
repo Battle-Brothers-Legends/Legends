@@ -18,6 +18,10 @@ this.special_perk <- ::inherit("scripts/config/legend_dummy_bb_class", {
 		this.setFlavorText(_flavorText);
 		if (_chanceFunction == null) _chanceFunction = @() this.Chance;
 		else this.setChanceFunction(_chanceFunction);
+
+		::Const.Perks.SpecialPerks.LookupMap[_perk] <- this;
+
+		return this;
 	}
 
 	function getChance()

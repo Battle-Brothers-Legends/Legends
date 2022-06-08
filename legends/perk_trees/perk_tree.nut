@@ -1,9 +1,8 @@
 // Base (abstract) class - never instantiated on its own
 this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 	m = {
-		IDMap = {},
 		Tree = [],
-		PerkDefsTree = {}
+		TreeTemplate = []
 	}
 
 	function init()
@@ -12,20 +11,20 @@ this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 
 	function build()
 	{
-		this.__build(this.m.PerkDefsTree);
+		this.__build(this.m.TreeTemplate);
 	}
 
 	function rebuild()
 	{
 	}
 
-	function __build( _perkDefsTree )
+	function __build( _treeTemplate )
 	{
-		::MSU.requireArray(_perkDefsTree);
+		::MSU.requireArray(_treeTemplate);
 
 		this.clear():
 
-		foreach (row in _perkDefsTree)
+		foreach (row in _treeTemplate)
 		{
 			::MSU.requireArray(row);
 			foreach (perk in row)
@@ -35,15 +34,15 @@ this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 		}
 	}
 
-	function toPerkDefsTree()
+	function toTreeTemplate()
 	{
-		local ret = array(this.Tree.len());
-		foreach (i, row in this.Tree)
+		local ret = array(this.m.Tree.len());
+		foreach (i, row in this.m.Tree)
 		{
-			ret[i] = [];
-			foreach (perkDefObject in row)
+			ret[i] = array(row.len());
+			foreach (i, perkDef in row)
 			{
-				ret[i].push(::Const.Perks.PerkDefs[perkDefObject.Const]);
+				ret[i][j] = perkDef.ID;
 			}
 		}
 		return ret;
@@ -51,120 +50,76 @@ this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 
 	function getTree()
 	{
-		return this.Tree;
+		return this.m.Tree;
 	}
 
 	function merge( _other )
 	{
-		_other = _other.toPerkDefsTree();
-		local perkDefsTree = this.toPerkDefsTree();
+		_other = _other.toTreeTemplate();
+		local template = this.toTreeTemplate();
 		foreach (i, row in _other)
 		{
-			foreach (perk in row)
+			if (template.len() < i + 1) template[i] = [];
+
+			foreach (perkDef in row)
 			{
-				if (perkDefsTree[i].find(perk) == null) perkDefsTree[i].push(perk);
+				if (template[i].find(perk) == null) template[i].push(perk);
 			}
 		}
-		this.__build(perkDefsTree);
+		this.__build(template);
 	}
 
 	function clear()
 	{
-		this.IDMap.clear();
-		this.Tree.clear();
+		this.m.Tree.clear();
 	}
 
-	function __getPerkDef( _perk )
+	function hasPerk( _id )
 	{
-		switch (typeof _perk)
+		foreach (row in this.m.Tree)
 		{
-			case "integer":
-				return ::Const.Perks.PerkDefObjects[_perk].ID in this.IDMap;
-
-			case "string":
-				return _perk in this.IDMap;
-
-			default:
-				throw ::MSU.Exception.InvalidType(_perk);
+			foreach (perkDef in row)
+			{
+				if (perkDef.ID == _id) return true;
+			}
 		}
+
+		return false;
 	}
 
-	function hasPerk( _perk )
+	function getPerk( _id )
 	{
-		switch (typeof _perk)
+		foreach (row in this.m.Tree)
 		{
-			case "integer":
-				return ::Const.Perks.PerkDefObjects[_perk].ID in this.IDMap;
-
-			case "string":
-				return _perk in this.IDMap;
-
-			default:
-				throw ::MSU.Exception.InvalidType(_perk);
+			foreach (perkDef in row)
+			{
+				if (perkDef.ID == _id) return perkDef;
+			}
 		}
-	}
-
-	function getPerk( _perk )
-	{
-
 	}
 
 	function addPerk( _perk, _tier = 1, _isRefundable = true )
 	{
 		if (this.hasPerk(_perk)) return;
 
-		local perkDefObject;
-		switch (typeof _perk)
+		local perkDef = clone ::Const.Perks.findById(_perk);
+		perkDef.Row <- _tier - 1;
+		perkDef.Unlocks <- _tier - 1;
+		perkDef.IsRefundable <- _isRefundable;
+		for (local i = this.m.Tree.len(); i < tier; i++)
 		{
-			case "integer":
-				perkDefObject = clone ::Const.Perks.PerkDefObjects[_perk];
-				break;
-
-			case "string":
-				perkDefObject = clone ::Const.Perks.findById(_perk);
-				break;
-
-			default:
-				throw ::MSU.Exception.InvalidType(_perk);
+			this.m.Tree.push([]);
 		}
-
-		perkDefObject.Row <- _tier - 1;
-		perkDefObject.Unlocks <- _tier - 1;
-		perkDefObject.IsRefundable <- _isRefundable;
-		for (local i = this.Tree.len(); i < tier; i++)
-		{
-			this.Tree.push([]);
-		}
-		this.Tree[_tier - 1].push(perkDefObject);
-		this.IDMap[perkDefObject.ID] <- perkDefObject;
+		this.m.Tree[_tier - 1].push(perkDef);
 	}
 
 	function removePerk( _perk )
 	{
-		local perkDef;
-		switch (typeof _perk)
+		foreach (row in this.m.Tree)
 		{
-			case "integer":
-				perkDef = ::Const.Perks.PerkDefObjects[_perk].Const;
-				break;
-
-			case "string":
-				perkDef = _perk;
-				break;
-
-			default:
-				throw ::MSU.Exception.InvalidType(_perk);
-		}
-
-		if (::Const.Perks.PerkDefObjects[perkDef].ID in this.IDMap)
-		{
-			delete this.IDMap[id];
-			foreach (row in this.Tree)
+			foreach (i, perk in row)
 			{
-				foreach (i, perk in row)
-				{
-					if (perk == perkDef) return row.remove(i);
-				}
+				if (perk.ID == _perk) return row.remove(i);
 			}
 		}
 	}

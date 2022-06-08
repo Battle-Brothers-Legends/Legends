@@ -1,19 +1,28 @@
 this.perk_group_collection <- ::inherit("scripts/config/legend_dummy_bb_class", {
 	m = {
-		Array = []
+		Groups = []
 	},
 	function create()
 	{
 	}
 
-	function init( _array = null )
+	function init( _groups = null )
 	{
-		::MSU.requireArray(_array);
-		foreach (group in _array)
+		::MSU.requireArray(_groups);
+		foreach (group in _groups)
 		{
-			::MSU.requireInstanceOf(::Legends.Class.PerkGroup, group);
+			if (!::MSU.isKindOf("perk_group", group))
+			{
+				::logError("Each element in _groups must be a perk_group object.");
+				throw ::MSU.Exception.InvalidType(group);
+			}
 		}
-		this.m.Array = _array;
+		this.m.Groups = _groups;
+	}
+
+	function getList()
+	{
+		return this.m.Groups;
 	}
 
 	function getRandomGroup( _exclude = null )
@@ -21,25 +30,14 @@ this.perk_group_collection <- ::inherit("scripts/config/legend_dummy_bb_class", 
 		if (_exclude != null)
 		{
 			::MSU.requireArray(_exclude);
-			return ::MSU.Array.rand(this.Array.filter(@(idx, group) _exclude.find(group) == null));
+			return ::MSU.Groups.rand(this.Groups.filter(@(idx, group) _exclude.find(group.getID()) == null));
 		}
 
-		return ::MSU.Array.rand(this.Array);
+		return ::MSU.Groups.rand(this.Groups);
 	}
 
 	function getRandomPerk( _exclude = null )
 	{
-		if (_exclude != null)
-		{
-			local perks = [];
-			foreach (group in this.Array)
-			{
-				local perk = group.getRandomPerk(_exclude);
-				perks.push(perk);
-			}
-			return ::MSU.Array.rand(perks);
-		}
-
-		return this.getRandomGroup().getRandomPerk();
+		return this.getRandomGroup().getRandomPerk(null, _exclude);
 	}
 });
