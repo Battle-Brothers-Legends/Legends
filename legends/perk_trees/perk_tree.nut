@@ -2,7 +2,7 @@
 this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 	m = {
 		Tree = [],
-		TreeTemplate = []
+		Template = []
 	}
 
 	function init()
@@ -11,20 +11,16 @@ this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 
 	function build()
 	{
-		this.__build(this.m.TreeTemplate);
+		this.buildFromTemplate(this.m.Template);
 	}
 
-	function rebuild()
+	function buildFromTemplate( _template )
 	{
-	}
-
-	function __build( _treeTemplate )
-	{
-		::MSU.requireArray(_treeTemplate);
+		::MSU.requireArray(_template);
 
 		this.clear():
 
-		foreach (row in _treeTemplate)
+		foreach (row in _template)
 		{
 			::MSU.requireArray(row);
 			foreach (perk in row)
@@ -34,7 +30,7 @@ this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 		}
 	}
 
-	function toTreeTemplate()
+	function toTemplate()
 	{
 		local ret = array(this.m.Tree.len());
 		foreach (i, row in this.m.Tree)
@@ -53,10 +49,31 @@ this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 		return this.m.Tree;
 	}
 
+	function getTemplate()
+	{
+		return this.m.Template;
+	}
+
+	function setTemplate( _template )
+	{
+		::MSU.requireArray(_template);
+		foreach (row in _template)
+		{
+			foreach (perkID in row)
+			{
+				if (::Const.Perks.findById(perkID) == null)
+				{
+					::logError(perkID + " is not a valid perk ID.");
+					throw ::MSU.Exception.InvalidValue(perkID);
+				}
+			}
+		}
+	}
+
 	function merge( _other )
 	{
-		_other = _other.toTreeTemplate();
-		local template = this.toTreeTemplate();
+		_other = _other.toTemplate();
+		local template = this.toTemplate();
 		foreach (i, row in _other)
 		{
 			if (template.len() < i + 1) template[i] = [];
@@ -66,7 +83,7 @@ this.perk_tree <- ::inherit("scripts/config/legend_dummy_bb_class", {
 				if (template[i].find(perk) == null) template[i].push(perk);
 			}
 		}
-		this.__build(template);
+		this.buildFromTemplate(template);
 	}
 
 	function clear()

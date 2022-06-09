@@ -65,59 +65,27 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 				0.0 //oasis
 			]
 		},
-		PerkTreeDynamicMins = {
-			Weapon = 8,
-			Defense = 2,
-			Traits = 8,
-			Enemy = 1,
-			EnemyChance = 0.01,
-			Class = 1,
-			ClassChance = 0.01,
-			Magic = 1,
-			MagicChance = 0
-		},
-		PerkTreeDynamicMinsMagic = {
-			Weapon = 8,
-			Defense = 2,
-			Traits = 8,
-			Enemy = 1,
-			EnemyChance = 0.01,
-			Class = 1,
-			ClassChance = 0.01,
-			Magic = 1,
-			MagicChance = 0.001
-		},
-		PerkTreeDynamicMinsBeast = {
-			Weapon = 8,
-			Defense = 2,
-			Traits = 8,
-			Enemy = 1,
-			EnemyChance = 0.05,
-			Class = 1,
-			ClassChance = 0.02,
-			Magic = 1,
-			MagicChance = 0.001
-		},
-		PerkTreeDynamic = {
-			Weapon = [
-				this.Const.Perks.SwordTree,
-				this.Const.Perks.DaggerTree,
-				this.Const.Perks.PolearmTree
-			],
-			Defense = [this.Const.Perks.MediumArmorTree],
-			Traits = [
-				this.Const.Perks.FitTree,
-				this.Const.Perks.IntelligentTree,
-				this.Const.Perks.AgileTree,
-				this.Const.Perks.FastTree
-			],
-			Enemy = [],
-			Class = [],
-			Magic = []
-		},
-		CustomPerkTree = null,
-		PerkTreeMap = null,
-		PerkTree = null,
+		PerkTree = ::new("scripts/legends/perk_tree/perk_tree_dynamic").init(
+			this,
+			{
+				Weapon = [
+					"perk_group.weapon.sword",
+					"perk_group.weapon.dagger",
+					"perk_group.weapon.polearm"
+				],
+				Defense = [
+					"perk_group.defense.medium_armor"
+				],
+				Traits = [
+					"perk_group.trait.unstoppable",
+					"perk_group.trait.talented",
+					"perk_group.trait.agile",
+					"perk_group.trait.fast"
+				],
+				Enemy = [],
+				Class = [],
+			}
+		);
 		IsGuaranteed = [],
 		IsScenarioOnly = false,
 		IsNew = true,
@@ -582,58 +550,9 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
-	function getPerkTreeDescription()
-	{
-		local text = "";
-		foreach (i, group in this.m.PerkTree)
-		{
-			text += "\nTier " + (i + 1) + ": ";
-			foreach (p in group)
-			{
-				text += p.Name + ", ";
-			}
-		}
-		return text;
-	}
-
 	function getPerkTree()
 	{
-		if (this.m.PerkTree != null)
-		{
-			return this.m.PerkTree;
-		}
-
-		local pT = this.Const.Perks.PerksTreeTemplate
-		if (pT == null)
-		{
-			return [];
-		}
-		return pT.Tree;
-	}
-
-	// Input can be a Perk Id or a PerkDef
-	function getPerk( _perk )
-	{
-		local id;
-		local perkDef;
-		if (typeof _perk == "string")
-		{
-			id = _perk;
-			local basePerkDefObject = this.Const.Perks.findById(_perk);			
-			perkDef = this.Const.Perks.PerkDefs[basePerkDefObject.Const];
-		}
-		else
-		{
-			id = this.Const.Perks.PerkDefObjects[_perk].ID;
-			perkDef = _perk;
-		}
-		
-		if (!(id in this.m.PerkTreeMap))
-		{
-			return null;
-		}
-
-		return this.m.PerkTreeMap[id];
+		return this.m.PerkTree;
 	}
 
 	function buildDescription( _isFinal = false )
@@ -1004,22 +923,6 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 	// this.m.PerkTreeMap is a table that contains perk IDs as keys whose value is the PerkDefObject
 	// this.m.CustomPerkTree is an array of arrays that contains perkDefs
 
-	function getPerkTreeDynamicMins()
-	{
-		local mins = this.m.PerkTreeDynamicMins;
-
-		if (this.World.Assets.getOrigin().getID() == "scenario.beast_hunters")
-		{
-			mins = this.m.PerkTreeDynamicMinsBeast;
-		}
-		else if (this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			mins = this.m.PerkTreeDynamicMinsMagic;
-		}
-
-		return mins;
-	}
-
 	function buildPerkTree()
 	{
 		local a = {
@@ -1057,34 +960,13 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			]
 		};
 		
-		if (this.m.PerkTree != null)
+		if (this.m.PerkTree.getTree().len() == 0)
 		{
 			return a;
 		}
 
-		this.m.PerkTree.build();
-
-		if (this.m.CustomPerkTree == null)
-		{
-			if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
-			{
-
-				local mins = this.getPerkTreeDynamicMins();
-
-				local result  = this.Const.Perks.GetDynamicPerkTree(mins, this.m.PerkTreeDynamic);
-				this.m.CustomPerkTree = result.Tree
-				a = result.Attributes;
-			}
-			else
-			{
-				this.m.CustomPerkTree = this.Const.Perks.DefaultCustomPerkTree;
-			}
-			
-		}
-
-		local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
-		this.m.PerkTree = pT.Tree;
-		this.m.PerkTreeMap = pT.Map;
+		local attributes = this.m.PerkTree.build();
+		if (attributes != null) a = attributes;
 
 		//When deserializing, the scenario isn't set yet, so it will be null - in this case, the sceario should
 		//already have added its perks so we should be ok. This will fail though loading an old save

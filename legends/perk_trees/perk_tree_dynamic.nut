@@ -10,11 +10,11 @@ this.perk_tree_dynamic <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 	{
 	}
 
-	function init( _player, _map, _mins = null )
+	function init( _background, _map, _mins = null )
 	{
 		this.perk_tree.init();
-		if (!::MSU.isKindOf(_player, "player")) throw ::MSU.Exception.InvalidType(_player);
-		this.m.Player = ::MSU.asWeakTableRef(_player);
+		if (!::MSU.isKindOf(_background, "character_background")) throw ::MSU.Exception.InvalidType(_background);
+		this.m.Player = ::MSU.asWeakTableRef(_background.getContainer().getActor());
 		this.m.DynamicPerkTreeMap = _map;
 		if (_mins == null) _mins = ::Const.Perks.DynamicPerkTreeMins;
 		else this.setMins(_mins);
@@ -89,7 +89,7 @@ this.perk_tree_dynamic <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 		this.m.LocalMap = {};
 		this.m.Traits = this.m.Player == null ? null : this.m.Player.getSkills().getSkillsByFunction(@(skill) skill.m.Type == ::Const.SkillType.Trait);
 
-		foreach (categoryName in this.OrderOfAssignment)
+		foreach (categoryName in ::Const.Perks.OrderOfAssignment)
 		{
 			this.m.LocalMap[categoryName] <- [];
 
@@ -183,7 +183,7 @@ this.perk_tree_dynamic <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 			}
 		}
 
-		this.m.TreeTemplate = array(11);
+		this.m.Template = array(11);
 
 		foreach (category in this.m.LocalMap)
 		{
@@ -191,10 +191,10 @@ this.perk_tree_dynamic <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 			{
 				foreach (rowNumber, perkIDs in perkGroup.getTree())
 				{
-					this.m.TreeTemplate[rowNumber] = array(perkIDs.len());
+					this.m.Template[rowNumber] = array(perkIDs.len());
 					foreach (i, perkID in perkIDs)
 					{
-						this.m.TreeTemplate[rowNumber][i] = perkID;
+						this.m.Template[rowNumber][i] = perkID;
 					}
 				}
 			}
@@ -211,7 +211,7 @@ this.perk_tree_dynamic <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 
 			while (row >= 0 && row <= 6)
 			{
-				if (this.m.TreeTemplate[row].len() < 13)
+				if (this.m.Template[row].len() < 13)
 				{
 					hasRow = true;
 					break;
@@ -228,7 +228,7 @@ this.perk_tree_dynamic <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 
 			row = hasRow ? this.Math.max(0, this.Math.min(row, 6)) : object.Tier - 1;
 
-			this.m.TreeTemplate[row].push(object.getID());
+			this.m.Template[row].push(object.getID());
 		}
 
 		local attributes = ::Const.Perks.TraitsTrees.getBaseAttributes();
@@ -259,7 +259,7 @@ this.perk_tree_dynamic <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 		this.m.LocalMap = null;
 		this.m.Traits = null;
 
-		this.__build(this.m.TreeTemplate);
+		this.__build(this.m.Template);
 
 		return attributes;
 	}

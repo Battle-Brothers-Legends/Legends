@@ -1630,7 +1630,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			return true;
 		}
 
-		local perk = this.getBackground().getPerk(_id);
+		local perk = this.getBackground().getPerkTree().getPerk(_id);
 
 		if (perk == null)
 		{
@@ -1669,7 +1669,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			return false;
 		}
 
-		local perk = this.getBackground().getPerk(_id);
+		local perk = this.getBackground().getPerkTree().getPerk(_id);
 		if (perk == null)
 		{
 			return false;

@@ -32,18 +32,20 @@
 	Magic = []
 };
 
-::Const.Perks.DefaultStaticPerkTree <- array(::Const.Perks.Perks.len());
+::Const.Perks.DefaultPerkTreeTemplate <- array(::Const.Perks.Perks.len());
 ::Const.Perks.PerkDefs <- [];
 
 foreach (i, row in ::Const.Perks.Perks)
 {
-	::Const.Perks.DefaultStaticPerkTree[i] = array(row.len());
+	::Const.Perks.DefaultPerkTreeTemplate[i] = array(row.len());
 	foreach (j, perkDef in row)
 	{
-		::Const.Perks.DefaultStaticPerkTree[i][j] = perkDef.ID;
+		::Const.Perks.DefaultPerkTreeTemplate[i][j] = perkDef.ID;
 		::Const.Perks.PerkDefs.push(perkDef);
 	}
 }
+
+::Const.Perks.DefaultStaticPerkTree <- ::new("scripts/legends/perk_tree/perk_tree_static").init(::Const.Perks.DefaultPerkTreeTemplate);
 
 ::Const.Perks.PerkGroup < {};
 ::Const.Perks.PerkGroup.ButcherProfession <- ::new("scripts/config/legends/perks/perk_group").init(

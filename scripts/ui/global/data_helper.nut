@@ -236,7 +236,7 @@ this.data_helper <- {
 		local bg = _entity.getBackground();
 		if (bg != null)
 		{
-			result.perkTree = _entity.getBackground().getPerkTree();
+			result.perkTree = _entity.getBackground().getPerkTree().getTree();
 		}
 		this.addStatsToUIData(_entity, result.stats);
 		local skills = _entity.getSkills();
@@ -626,7 +626,7 @@ this.data_helper <- {
 
 	function convertPerksToUIData()
 	{
-		return this.Const.Perks.PerksTreeTemplate;
+		return ::Const.Perks.DefaultStaticPerkTree;
 	}
 
 	function convertCombatResultRosterToUIData()

@@ -5,14 +5,15 @@ this.perk_tree_static <- ::inherit("scripts/legends/perk_trees/perk_tree", {
 	{
 	}
 
-	function init( _perkDefsTree )
+	function init( _template )
 	{
 		this.perk_tree.init();
-		this.m.PerkDefsTree = _perkDefsTree;
+		this.setTemplate(_template);
+		return this;
 	}
 
 	function build()
 	{
-		this.__build(this.m.PerkDefsTree);
+		this.__build(this.m.Template);
 	}
 });

@@ -234,7 +234,7 @@ this.starting_scenario <- {
 			isRefundable = false;
 		}
 		
-		_background.addPerk(_perk, _row, isRefundable);
-		if (!isRefundable) _background.getPerk(_perk).IsRefundable = false;
+		_background.getPerkTree().addPerk(_perk, _row, isRefundable);
+		if (!isRefundable) _background.getPerkTree().getPerk(_perk).IsRefundable = false;
 	}
 };
