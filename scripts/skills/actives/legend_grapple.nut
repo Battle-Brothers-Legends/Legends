@@ -92,7 +92,7 @@ this.legend_grapple <- this.inherit("scripts/skills/skill", {
 			id = 7,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Has a " + chance.StunChance + " to grapple"
+			text = "Has a " + chance.StunChance + "% chance to stun"
 		});
 
 		if (chance.HasTraining)

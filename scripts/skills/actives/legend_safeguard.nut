@@ -1,9 +1,9 @@
-this.legend_safegaurd <- this.inherit("scripts/skills/skill", {
+this.legend_safeguard <- this.inherit("scripts/skills/skill", {
 	m = {},
 
 	function create()
 	{
-		this.m.ID = "actives.legend_safegaurd";
+		this.m.ID = "actives.legend_safeguard";
 		this.m.Name = "Safeguard";
 		this.m.Description = "Use your shield to protect an ally, leaving yourself exposed";
 		this.m.Icon = "skills/fortify_square.png";
@@ -60,7 +60,7 @@ this.legend_safegaurd <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-		if (this.getContainer().hasSkill("effects.legend_safegaurding"))
+		if (this.getContainer().hasSkill("effects.legend_safeguarding"))
 		{
 			return false;
 		}
@@ -79,14 +79,14 @@ this.legend_safegaurd <- this.inherit("scripts/skills/skill", {
 		}
 
 		local target = _targetTile.getEntity();
-		target.getSkills().add(this.new("scripts/skills/effects/legend_safegaurded_effect"));
+		target.getSkills().add(this.new("scripts/skills/effects/legend_safeguarded_effect"));
 
 		if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
 		{
 			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " is safeguarding " + this.Const.UI.getColorizedEntityName(target) + " for one turn");
 		}
 
-		this.getContainer().add(this.new("scripts/skills/effects/legend_safegaurding_effect"));
+		this.getContainer().add(this.new("scripts/skills/effects/legend_safeguarding_effect"));
 	}
 
 	function onVerifyTarget( _originTile, _targetTile )
@@ -101,7 +101,7 @@ this.legend_safegaurd <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (_targetTile.getEntity().getSkills().hasSkill("effects.legend_safegaurded"))
+		if (_targetTile.getEntity().getSkills().hasSkill("effects.legend_safeguarded"))
 		{
 			return false;
 		}
@@ -112,7 +112,7 @@ this.legend_safegaurd <- this.inherit("scripts/skills/skill", {
 
 	function onRemoved()
 	{
-		this.m.Container.removeByID("effects.legend_safegaurding");
+		this.m.Container.removeByID("effects.legend_safeguarding");
 	}
 });
 

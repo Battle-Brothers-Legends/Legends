@@ -93,7 +93,7 @@ this.legend_lonewolf_companion_melee_event <- this.inherit("scripts/events/event
 		});
 		this.m.Screens.push({ //Defensive archetype
 			ID = "C",
-			Text = "[img]gfx/ui/events/event_76.png[/img]{%recruit% brings their weapon to bare and nods to indicate they are ready to be tested — you start to play with them at first, little, lazily stabs and swinging to see if they flinch, but every attack you make is met by their defence.\n After a few more blows a sense of slef doubt begins to set in. You gradually try harder and harder to make your weapon connect with anything but their own blade, eventually resorting to elaborate feints and chambers to try and land any hit worthy of merit.\n\n You begin to tire and the recruit speaks up again. %SPEECH_ON%Done?%SPEECH_OFF% You take a long inhale %SPEECH_ON%Done. Fall in line.%SPEECH_OFF% %recruit% gleefully packs their bags and waits for your orders.",
+			Text = "[img]gfx/ui/events/event_76.png[/img]{%recruit% brings their weapon to bare and nods to indicate they are ready to be tested — you start to play with them at first, little, lazily stabs and swinging to see if they flinch, but every attack you make is met by their defence.\n After a few more blows a sense of self doubt begins to set in. You gradually try harder and harder to make your weapon connect with anything but their own blade, eventually resorting to elaborate feints and chambers to try and land any hit worthy of merit.\n\n You begin to tire and the recruit speaks up again. %SPEECH_ON%Done?%SPEECH_OFF% You take a long inhale %SPEECH_ON%Done. Fall in line.%SPEECH_OFF% %recruit% gleefully packs their bags and waits for your orders.",
 			Image = "",
 			List = [],
 			Characters = [],

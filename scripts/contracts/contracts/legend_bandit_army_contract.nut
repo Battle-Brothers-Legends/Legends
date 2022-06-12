@@ -580,7 +580,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "FirstIntel",
 			Title = "At %location1%...",
-			Text = "[img]gfx/ui/events/event_45.png[/img]You reach %location1% and order everyone to start gathering any information related to these local bandits. News of your arrival spreads and commoners begin to ask you if the threat of the horde is real.\n\n With your agenda in mind and little care for the safety of every individual here, you tell them the main force of the bandits has already been defeated — locals are told you were hired to hunt down the remaining bandits that most likely retreated back to their encampment. Being small folk with small minds, you are able to collect a few hints about where their main force operates from. A few oppertunistic merchants are willing to trade as you prepare to head out from %location1%.",
+			Text = "[img]gfx/ui/events/event_45.png[/img]You reach %location1% and order everyone to start gathering any information related to these local bandits. News of your arrival spreads and commoners begin to ask you if the threat of the horde is real.\n\n With your agenda in mind and little care for the safety of every individual here, you tell them the main force of the bandits has already been defeated — locals are told you were hired to hunt down the remaining bandits that most likely retreated back to their encampment. Being small folk with small minds, you are able to collect a few hints about where their main force operates from. A few opportunistic merchants are willing to trade as you prepare to head out from %location1%.",
 			Image = "",
 			Characters = [],
 			List = [],

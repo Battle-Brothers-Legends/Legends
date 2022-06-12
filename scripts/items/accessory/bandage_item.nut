@@ -12,7 +12,7 @@ this.bandage_item <- this.inherit("scripts/items/accessory/accessory", {
 		this.m.ShowOnCharacter = false;
 		this.m.IconLarge = "";
 		this.m.Icon = "consumables/bandages_01.png";
-		this.m.StaminaModifier = -2;
+		this.m.StaminaModifier = -3;
 		this.m.Value = 25;
 	}
 

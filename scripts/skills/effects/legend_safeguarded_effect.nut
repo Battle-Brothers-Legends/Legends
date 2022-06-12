@@ -1,12 +1,12 @@
-this.legend_safegaurded_effect <- this.inherit("scripts/skills/skill", {
+this.legend_safeguarded_effect <- this.inherit("scripts/skills/skill", {
 	m = {},
 	function create()
 	{
-		this.m.ID = "effects.legend_safegaurded";
-		this.m.Name = "Safegaurded";
+		this.m.ID = "effects.legend_safeguarded"; 
+		this.m.Name = "Safeguarded";
 		this.m.Description = "This character is being safeguarded";
-		this.m.Icon = "ui/perks/safegaurd_circle.png";
-		this.m.IconMini = "mini_safegaurd_circle";
+		this.m.Icon = "ui/perks/safegaurd_circle.png";//incorrect spelling but don't change I can't be arsed to mess with brush files
+		this.m.IconMini = "mini_safegaurd_circle";//incorrect spelling but don't change I can't be arsed to mess with brush files
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
