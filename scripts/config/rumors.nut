@@ -264,7 +264,7 @@ gt.Const.Strings.RumorsItemsNomads <- [
 	],
 	[
 		"A shield reflecting the sunlight like a mirror, more blinding than the midday in the desert! Where I saw that? Some Nomads had it in the %direction% %distance% from here, if I recall correctly.",
-		"All my life I\'ve been hunting nomdas across the borders %terrain%, but I never saw one wield a shield like this one before. It was %distance% to the %direction% at one of their camps.",
+		"All my life I\'ve been hunting nomads across the borders %terrain%, but I never saw one wield a shield like this one before. It was %distance% to the %direction% at one of their camps.",
 		"Nomads do not only take from the living but from the dead as well! Word has it they plundered the so-called %item% from a tomb %direction% of here where they have their camp still. They really do not have any decency."
 	],
 	[

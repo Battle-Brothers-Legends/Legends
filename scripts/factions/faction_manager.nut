@@ -1057,6 +1057,11 @@ this.faction_manager <- {
 		local feuding = 0;
 		local nobles = this.getFactionsOfType(this.Const.FactionType.NobleHouse);
 
+		if (nobles.len() <= 2)
+		{
+			return false;
+		}
+
 		foreach( n in nobles )
 		{
 			if (n.getSettlements().len() >= 2)

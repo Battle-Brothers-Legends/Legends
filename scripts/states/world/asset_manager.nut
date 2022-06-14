@@ -28,6 +28,7 @@ this.asset_manager <- {
 		HitpointsPerHourMult = 1.0,
 		RepairSpeedMult = 1.0,
 		HiringCostMult = 1.0,
+		CampingMult = 1.5,
 		RosterSizeAdditionalMin = 0,
 		RosterSizeAdditionalMax = 0,
 		XPMult = 1.0,
@@ -524,7 +525,7 @@ this.asset_manager <- {
 		}
 
 		ret.ArmorParts = this.Math.ceil(ret.ArmorParts);
-		ret.Hours = this.Math.ceil(ret.Hours * (this.isCamping() ? 0.5 : 1.0) / this.m.RepairSpeedMult);
+		ret.Hours = this.Math.ceil(ret.Hours / (this.isCamping() ? this.m.CampingMult : 1.0) / this.m.RepairSpeedMult);
 		return ret;
 	}
 
@@ -641,6 +642,7 @@ this.asset_manager <- {
 		this.m.HitpointsPerHourMult = 1.0;
 		this.m.RepairSpeedMult = 1.0;
 		this.m.HiringCostMult = 1.0;
+		this.m.CampingMult = 1.5;
 		this.m.RosterSizeAdditionalMin = 0;
 		this.m.RosterSizeAdditionalMax = 0;
 		this.m.XPMult = 1.0;
@@ -914,7 +916,7 @@ this.asset_manager <- {
 			this.m.LastHourUpdated = this.World.getTime().Hours;
 			this.consumeFood();
 			local roster = this.World.getPlayerRoster().getAll();
-			local campMultiplier = this.isCamping() ? 1.5 : 1.0;
+			local campMultiplier = this.isCamping() ? this.m.CampingMult : 1.0;
 
 			foreach( bro in roster )
 			{

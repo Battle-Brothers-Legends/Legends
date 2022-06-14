@@ -43,6 +43,36 @@ this.hunting_schrats_action <- this.inherit("scripts/factions/faction_action", {
 			return;
 		}
 
+		local mapSize = this.World.getMapSize();
+		local villageTile = village.getTile();
+		local x = this.Math.max(3, villageTile.SquareCoords.X - 11);
+		local x_max = this.Math.min(mapSize.X - 3, villageTile.SquareCoords.X + 11);
+		local y = this.Math.max(3, villageTile.SquareCoords.Y - 11);
+		local y_max = this.Math.min(mapSize.Y - 3, villageTile.SquareCoords.Y + 11);
+		local numWoods = 0;
+
+		while (x <= x_max)
+		{
+			while (y <= y_max)
+			{
+				local tile = this.World.getTileSquare(x, y);
+
+				if (tile.Type == this.Const.World.TerrainType.Forest || tile.Type == this.Const.World.TerrainType.LeaveForest || tile.Type == this.Const.World.TerrainType.AutumnForest)
+				{
+					numWoods = ++numWoods;
+				}
+
+				y = ++y;
+			}
+
+			x = ++x;
+		}
+
+		if (numWoods == 0)
+		{
+			return;
+		}
+
 		this.m.Score = 1;
 	}
 

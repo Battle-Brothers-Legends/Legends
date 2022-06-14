@@ -409,6 +409,14 @@ this.ai_retreat <- this.inherit("scripts/ai/tactical/behavior", {
 				continue;
 			}
 
+			if (movementCosts.ActionPointsRequired <= bestCost && (movementCosts.End.Coords.X == 0 || movementCosts.End.Coords.Y == 0 || movementCosts.End.Coords.X == mapSize.X - 1 || movementCosts.End.Coords.Y == mapSize.Y - 1))
+			{
+				bestTarget = target.Tile;
+				bestCost = movementCosts.ActionPointsRequired;
+				bestDanger = 0;
+				continue;
+			}
+
 			if (movementCosts.ActionPointsRequired <= bestCost || bestDanger > 0)
 			{
 				local danger = 0.0;

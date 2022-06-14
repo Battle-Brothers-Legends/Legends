@@ -151,7 +151,6 @@ this.knight <- this.inherit("scripts/entity/tactical/human", {
 			if (r == 1)
 			{
 				local helmet = this.new("scripts/items/helmets/full_helm");
-				helmet.setPlainVariant();
 				this.m.Items.equip(helmet);
 			}
 			else if (r == 2)

@@ -121,14 +121,14 @@ this.ai_mortar <- this.inherit("scripts/ai/tactical/behavior", {
 				}
 				else
 				{
-					tiles.push(target.Actor.getTile());
+					tiles.push(target.Actor.getTile().getNextTile(i));
 				}
 			}
 		}
 
 		foreach( tile in tiles )
 		{
-			if (myTile.getDistanceTo(tile) < this.m.Skill.getMinRange())
+			if (!this.m.Skill.isUsableOn(tile))
 			{
 				continue;
 			}
