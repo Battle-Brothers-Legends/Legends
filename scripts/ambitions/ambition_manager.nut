@@ -171,7 +171,7 @@ this.ambition_manager <- {
 
 		if (this.m.ActiveAmbition != null)
 		{
-			if (this.m.ActiveAmbition.isSuccess() && this.World.Events.canFireEvent(true)) //changed to true (ignores evaluating)
+			if (this.m.ActiveAmbition.isSuccess() && this.World.Events.canFireEvent(true))
 			{
 				//this.logInfo("Ambition success");
 				if (this.World.Events.fire("event.ambition_fulfilled"))

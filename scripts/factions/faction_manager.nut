@@ -349,7 +349,7 @@ this.faction_manager <- {
 		f.addTrait(this.Const.FactionTrait.Bandit);
 		this.m.Factions.push(f);
 	}
-	
+
 	function createFreeCompany()
 	{
 		local f = this.new("scripts/factions/free_company_faction");
@@ -1282,6 +1282,11 @@ this.faction_manager <- {
 	{
 		local feuding = 0;
 		local nobles = this.getFactionsOfType(this.Const.FactionType.NobleHouse);
+
+		if (nobles.len() <= 2)
+		{
+			return false;
+		}
 
 		foreach( n in nobles )
 		{

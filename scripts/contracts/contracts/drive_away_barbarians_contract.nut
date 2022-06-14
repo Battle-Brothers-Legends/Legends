@@ -455,7 +455,7 @@ this.drive_away_barbarians_contract <- this.inherit("scripts/contracts/contract"
 			List = [],
 			Options = [
 				{
-					Text = "We\'ll leave noone alive.",
+					Text = "We\'ll leave no one alive.",
 					function getResult()
 					{
 						this.World.Assets.addMoralReputation(-1);
