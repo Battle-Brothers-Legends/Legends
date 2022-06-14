@@ -15,9 +15,9 @@ this.ijirok_armor <- this.inherit("scripts/items/armor/armor", {
 		this.m.ImpactSound = this.Const.Sound.ArmorHalfplateImpact;
 		this.m.InventorySound = this.Const.Sound.ArmorHalfplateImpact;
 		this.m.Value = 12000;
-		this.m.Condition = 440; //was 320
-		this.m.ConditionMax = 440;
-		this.m.StaminaModifier = -38; //was -32
+		this.m.Condition = 350; //was 320
+		this.m.ConditionMax = 350;
+		this.m.StaminaModifier = -25; //was -32
 		this.m.ItemType = this.m.ItemType | this.Const.Items.ItemType.Legendary;
 	}
 
@@ -28,7 +28,7 @@ this.ijirok_armor <- this.inherit("scripts/items/armor/armor", {
 			id = 6,
 			type = "text",
 			icon = "ui/icons/health.png",
-			text = "Heals [color=" + this.Const.UI.Color.PositiveValue + "]12[/color] hitpoints of the wearer each turn" //was 10
+			text = "Heals [color=" + this.Const.UI.Color.PositiveValue + "]15[/color] hitpoints of the wearer each turn" //was 10
 		});
 		return result;
 	}
@@ -48,7 +48,7 @@ this.ijirok_armor <- this.inherit("scripts/items/armor/armor", {
 	{
 		local actor = this.getContainer().getActor();
 		local healthMissing = actor.getHitpointsMax() - actor.getHitpoints();
-		local healthAdded = this.Math.min(healthMissing, 12); //was 10
+		local healthAdded = this.Math.min(healthMissing, 15); //was 10
 
 		if (healthAdded <= 0)
 		{
