@@ -6,8 +6,8 @@ this.nine_lives_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Nine Lives";
 		this.m.Description = "This character seems to have nine lives! Just having had a close encounter with death, they are in a heightened state of survival until their next turn.";
 		this.m.Icon = "ui/perks/perk_07.png";
-		this.m.IconMini = "perk_07_mini";
-		this.m.Overlay = "perk_07";
+		// this.m.IconMini = "perk_07_mini";	It would be confusing if the perk 'nine lives' AND this effect both show the same icon. So the less important one (this) doesn't show it anymore for the time being
+		// this.m.Overlay = "perk_07";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
