@@ -23,7 +23,9 @@ this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.NineLives;
 		this.m.Description = this.Const.Strings.PerkDescription.NineLives;
 		this.m.Icon = "ui/perks/perk_07.png";
-		this.m.Type = this.Const.SkillType.Perk;
+		this.m.IconMini = "perk_07_mini";
+		this.m.Overlay = "perk_07";
+		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.VeryLast + 10000;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
@@ -34,6 +36,7 @@ this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 	{
 		if (_f && !this.m.IsSpent)
 		{
+			this.m.IsHidden = true;
 			if (this.m.MinHP != 11 || this.m.MaxHP != 15)
 			{
 				this.getContainer().getActor().m.Hitpoints = ::Math.rand(this.m.MinHP, this.m.MaxHP);
