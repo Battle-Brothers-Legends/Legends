@@ -89,7 +89,7 @@ this.shieldwall <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-		if (this.getContainer().hasSkill("effects.legend_safegaurding"))
+		if (this.getContainer().hasSkill("effects.legend_safeguarding"))
 		{
 			return false;
 		}
