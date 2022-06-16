@@ -108,40 +108,6 @@ gt.Const.Perks.RangerHuntMagicTree <- {
 	]
 };
 
-gt.Const.Perks.BasicNecroMagicTree <- {
-	ID = "BasicNecroMagicTree",
-	Name = "Necromancy",
-	Descriptions = [
-		"necromancy"
-	],
-	Tree = [
-		[],
-		[],
-		[],
-		[],
-		[],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendRaiseUndead]
-	]
-};
-
-gt.Const.Perks.WarlockMagicTree <- {
-	ID = "WarlockMagicTree",
-	Name = "Sorcery",
-	Descriptions = [
-		"sorcery"
-	],
-	Tree = [
-		[gt.Const.Perks.PerkDefs.LegendWither],
-		[gt.Const.Perks.PerkDefs.LegendRust],
-		[],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendInsects],
-		[gt.Const.Perks.PerkDefs.LegendSiphon],
-		[gt.Const.Perks.PerkDefs.LegendMiasma]
-	]
-};
-
 gt.Const.Perks.VampireMagicTree <- {
 	ID = "VampireMagicTree",
 	Name = "Vampire",
@@ -156,47 +122,6 @@ gt.Const.Perks.VampireMagicTree <- {
 		[gt.Const.Perks.PerkDefs.LegendSlaughter],
 		[gt.Const.Perks.PerkDefs.LegendGruesomeFeast],
 		[gt.Const.Perks.PerkDefs.LegendDarkflight]
-	]
-};
-
-gt.Const.Perks.ZombieMagicTree <- {
-	ID = "ZombieMagicTree",
-	Name = "Zombie",
-	Descriptions = [
-		"weidergangers"
-	],
-	Tree = [
-		[
-		gt.Const.Perks.PerkDefs.LegendSpawnZombieLow,
-		],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendExtendendAura],
-		[gt.Const.Perks.PerkDefs.LegendSpawnZombieMed,],
-		[gt.Const.Perks.PerkDefs.LegendReclamation],
-		[gt.Const.Perks.PerkDefs.LegendViolentDecomposition,],
-		[
-		gt.Const.Perks.PerkDefs.LegendSpawnZombieHigh,
-		]
-	]
-};
-
-gt.Const.Perks.SkeletonMagicTree <- {
-	ID = "SkeletonMagicTree",
-	Name = "Skeleton",
-	Descriptions = [
-		"ancient undead"
-	],
-	Tree = [
-		[gt.Const.Perks.PerkDefs.LegendSpawnSkeletonLow],
-		[],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendSpawnSkeletonMed],
-		[gt.Const.Perks.PerkDefs.LegendConservation,],
-		[
-		gt.Const.Perks.PerkDefs.LegendChanneledPower,
-		gt.Const.Perks.PerkDefs.LegendPossession
-		],
-		[gt.Const.Perks.PerkDefs.LegendSpawnSkeletonHigh]
 	]
 };
 
@@ -237,53 +162,6 @@ gt.Const.Perks.CaptainMagicTree <- {
 	]
 };
 
-gt.Const.Perks.IllusionistMagicTree <- {
-	ID = "IllusionistMagicTree",
-	Name = "Illusion",
-	Descriptions = [
-		"illusion"
-	],
-	Tree = [
-		[gt.Const.Perks.PerkDefs.LegendPush],
-		[gt.Const.Perks.PerkDefs.LegendDaze],
-		[gt.Const.Perks.PerkDefs.LegendEntice],
-		[gt.Const.Perks.PerkDefs.LegendHorrify],
-		[gt.Const.Perks.PerkDefs.LegendTerrifyingVisage],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendStunned]
-	]
-};
-
-gt.Const.Perks.DivinationMagicTree <- {
-	ID = "DivinationMagicTree",
-	Name = "Divination",
-	Descriptions = [
-		"divination"
-	],
-	Tree = [
-		[gt.Const.Perks.PerkDefs.LegendPush],
-		[gt.Const.Perks.PerkDefs.LegendScry],
-		[gt.Const.Perks.PerkDefs.LegendEntice]
-	]
-};
-
-gt.Const.Perks.ConjurationMagicTree <- {
-	ID = "ConjurationMagicTree",
-	Name = "Conjuration",
-	Descriptions = [
-		"conjuration"
-	],
-	Tree = [
-		[gt.Const.Perks.PerkDefs.LegendSummonCat],
-		[gt.Const.Perks.PerkDefs.LegendSummonHound],
-		[gt.Const.Perks.PerkDefs.LegendSummonFalcon],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendSummonWolf],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendSummonBear]
-	]
-};
-
 gt.Const.Perks.DruidMagicTree <- {
 	ID = "DruidMagicTree",
 	Name = "Druidic Arts",
@@ -298,41 +176,6 @@ gt.Const.Perks.DruidMagicTree <- {
 		[gt.Const.Perks.PerkDefs.LegendSummonStorm],
 		[gt.Const.Perks.PerkDefs.LegendDrumsOfLife],
 		[gt.Const.Perks.PerkDefs.LegendInsects]
-	]
-};
-
-gt.Const.Perks.DruidTransformTree <- {
-	ID = "DruidTransformTree",
-	Name = "Druidic transformation",
-	Descriptions = [
-		"druidic transformation"
-	],
-	Tree = [
-		[],
-		[],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendWolfform],
-		[gt.Const.Perks.PerkDefs.LegendBearform],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendTrueForm]
-	]
-};
-
-
-gt.Const.Perks.TransmutationMagicTree <- {
-	ID = "TransmutationMagicTree",
-	Name = "Transmutation",
-	Descriptions = [
-		"transmutation"
-	],
-	Tree = [
-		[],
-		[gt.Const.Perks.PerkDefs.LegendGatherer],
-		[],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendPotionBrewer],
-		[gt.Const.Perks.PerkDefs.LegendRoots],
-		[gt.Const.Perks.PerkDefs.LegendTeleport]
 	]
 };
 
@@ -353,23 +196,6 @@ gt.Const.Perks.AssassinMagicTree <- {
 	]
 };
 
-gt.Const.Perks.PremonitionMagicTree <- {
-	ID = "PremonitionMagicTree",
-	Name = "Premonition",
-	Descriptions = [
-		"premonition"
-	],
-	Tree = [
-		[],
-		[gt.Const.Perks.PerkDefs.LegendScryTrance],
-		[],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendReadOmensTrance],
-		[gt.Const.Perks.PerkDefs.LegendDistantVisions],
-		[]
-	]
-}
-
 gt.Const.Perks.PhilosophyMagicTree <- {
 	ID = "PhilosophyMagicTree",
 	Name = "Philosophy",
@@ -386,42 +212,6 @@ gt.Const.Perks.PhilosophyMagicTree <- {
 	]
 }
 
-gt.Const.Perks.AlchemyMagicTree <- {
-	ID = "AlchemyMagicTree"
-	Name = "Alchemy",
-	Descriptions = [
-		"alchemy"
-	],
-	Tree = [
-		[],
-		[],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendCitrinitas],
-		[
-		gt.Const.Perks.PerkDefs.LegendAlbedo,
-		gt.Const.Perks.PerkDefs.LegendNigredo
-		],
-		[]
-	]
-}
-
-gt.Const.Perks.TherianthropyTree <- {
-	ID = "TherianthropyMagicTree",
-	Name = "Therianthropy",
-	Descriptions = [
-		"therianthropy"
-	],
-	Tree = [
-		[gt.Const.Perks.PerkDefs.LegendTrueForm],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendSurpressUrges],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendControlInstincts],
-		[],
-		[gt.Const.Perks.PerkDefs.LegendMasterAnger]
-	]
-};
-
 gt.Const.Perks.MagicTrees <- {
 	Tree = [
 		gt.Const.Perks.ValaChantMagicTree,
@@ -430,22 +220,11 @@ gt.Const.Perks.MagicTrees <- {
 		//gt.Const.Perks.ValaRuneMagicTree,
 		// gt.Const.Perks.ValaSpiritMagicTree,
 		gt.Const.Perks.RangerHuntMagicTree,
-		gt.Const.Perks.BasicNecroMagicTree,
-		gt.Const.Perks.WarlockMagicTree,
 		gt.Const.Perks.VampireMagicTree,
-		gt.Const.Perks.ZombieMagicTree,
-		gt.Const.Perks.SkeletonMagicTree,
 		gt.Const.Perks.BerserkerMagicTree,
 		gt.Const.Perks.DruidMagicTree,
-		// gt.Const.Perks.DruidTransformTree,
 		gt.Const.Perks.CaptainMagicTree,
-		gt.Const.Perks.IllusionistMagicTree,
-		gt.Const.Perks.ConjurationMagicTree,
-		gt.Const.Perks.TransmutationMagicTree,
 		// gt.Const.Perks.AssassinMagicTree,
-		// gt.Const.Perks.PremonitionMagicTree,
-		// gt.Const.Perks.AlchemyMagicTree,
-		// gt.Const.Perks.TherianthropyMagicTree,
 		gt.Const.Perks.PhilosophyMagicTree
 
 	],
