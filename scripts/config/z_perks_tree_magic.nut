@@ -262,12 +262,8 @@ gt.Const.Perks.DivinationMagicTree <- {
 	],
 	Tree = [
 		[gt.Const.Perks.PerkDefs.LegendPush],
-		[gt.Const.Perks.PerkDefs.MageLegendMagicDaze],
 		[gt.Const.Perks.PerkDefs.LegendScry],
-		[gt.Const.Perks.PerkDefs.LegendEntice],
-		[gt.Const.Perks.PerkDefs.MageLegendMagicWebBolt],
-		[gt.Const.Perks.PerkDefs.MageLegendMagicPsybeam],
-		[gt.Const.Perks.PerkDefs.MageLegendMagicSleep]
+		[gt.Const.Perks.PerkDefs.LegendEntice]
 	]
 };
 
@@ -337,40 +333,6 @@ gt.Const.Perks.TransmutationMagicTree <- {
 		[gt.Const.Perks.PerkDefs.LegendPotionBrewer],
 		[gt.Const.Perks.PerkDefs.LegendRoots],
 		[gt.Const.Perks.PerkDefs.LegendTeleport]
-	]
-};
-
-gt.Const.Perks.EvocationMagicTree <- {
-	ID = "EvocationMagicTree",
-	Name = "Evocation",
-	Descriptions = [
-		"evocation"
-	],
-	Tree = [
-		[
-		gt.Const.Perks.PerkDefs.LegendMagicMissile
-		],
-		[
-		//gt.Const.Perks.PerkDefs.MageLegendMagicBurningHands
-		],
-		[
-		//gt.Const.Perks.PerkDefs.MageLegendMagicHailstone
-		],
-		[
-		gt.Const.Perks.PerkDefs.MageLegendMasteryMagicMissileFocus
-		],
-		[
-		gt.Const.Perks.PerkDefs.LegendChainLightning,
-		//gt.Const.Perks.PerkDefs.MageLegendMasteryBurningHands
-		],
-		[
-		//gt.Const.Perks.PerkDefs.MageLegendMagicPsybeam,
-		//gt.Const.Perks.PerkDefs.MageLegendMasteryHailstone
-		],
-		[
-		gt.Const.Perks.PerkDefs.MageLegendMasteryMagicMissileMastery,
-		gt.Const.Perks.PerkDefs.LegendFirefield
-		]
 	]
 };
 
@@ -480,7 +442,6 @@ gt.Const.Perks.MagicTrees <- {
 		gt.Const.Perks.IllusionistMagicTree,
 		gt.Const.Perks.ConjurationMagicTree,
 		gt.Const.Perks.TransmutationMagicTree,
-		gt.Const.Perks.EvocationMagicTree,
 		// gt.Const.Perks.AssassinMagicTree,
 		// gt.Const.Perks.PremonitionMagicTree,
 		// gt.Const.Perks.AlchemyMagicTree,

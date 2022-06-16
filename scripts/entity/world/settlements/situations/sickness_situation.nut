@@ -78,12 +78,6 @@ this.sickness_situation <- this.inherit("scripts/entity/world/settlements/situat
 			_draftList.push("legend_leech_peddler_background");
 			_draftList.push("legend_leech_peddler_background");
 		}
-
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-		_draftList.push("legend_diviner_background");
-		}
 	}
-
 });
 

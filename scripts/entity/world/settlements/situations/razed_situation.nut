@@ -77,27 +77,6 @@ this.razed_situation <- this.inherit("scripts/entity/world/settlements/situation
 			_draftList.push("legend_puppet_background");
 			_draftList.push("legend_puppet_background");
 		}
-
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			local r;
-			if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_berserker")
-			{
-				r = this.Math.rand(0, 9);
-				if (r == 1)
-				{
-				_draftList.push("legend_berserker_background");
-				}
-			}
-			else
-			{
-			r = this.Math.rand(0, 90);
-				if (r == 1)
-				{
-				_draftList.push("legend_berserker_background");
-				}
-			}
-		}
 	}
 
 });

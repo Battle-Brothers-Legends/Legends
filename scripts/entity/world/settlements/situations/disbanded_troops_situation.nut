@@ -106,14 +106,6 @@ this.disbanded_troops_situation <- this.inherit("scripts/entity/world/settlement
 			_draftList.push("legend_man_at_arms_background");
 			_draftList.push("legend_man_at_arms_background");
 		}
-
-
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-		_draftList.push("legend_noble_event_background");
-		_draftList.push("legend_noble_event_background");
-		_draftList.push("legend_crusader_background");
-		}
 	}
 
 });

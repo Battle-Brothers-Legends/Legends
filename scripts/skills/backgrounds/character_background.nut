@@ -619,7 +619,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		if (typeof _perk == "string")
 		{
 			id = _perk;
-			local basePerkDefObject = this.Const.Perks.findById(_perk);			
+			local basePerkDefObject = this.Const.Perks.findById(_perk);
 			perkDef = this.Const.Perks.PerkDefs[basePerkDefObject.Const];
 		}
 		else
@@ -627,7 +627,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			id = this.Const.Perks.PerkDefObjects[_perk].ID;
 			perkDef = _perk;
 		}
-		
+
 		if (!(id in this.m.PerkTreeMap))
 		{
 			return null;
@@ -699,7 +699,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		}
 
 		delete this.m.PerkTreeMap[perkDefObject.ID];
-		
+
 		return true;
 	}
 
@@ -729,7 +729,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 
 	function hasPerk( _perk )
 	{
-		return this.Const.Perks.PerkDefObjects[_perk].ID in this.m.PerkTreeMap;		
+		return this.Const.Perks.PerkDefObjects[_perk].ID in this.m.PerkTreeMap;
 	}
 
 	function buildDescription( _isFinal = false )
@@ -814,7 +814,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			"title",
 			this.getContainer().getActor().getTitle()
 		]);
-		
+
 		this.Const.LegendMod.extendVarsWithPronouns(vars, this.getContainer().getActor().getGender());
 
 		this.m.Description = this.buildTextFromTemplate(this.m.RawDescription, vars);
@@ -1104,10 +1104,6 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		{
 			mins = this.m.PerkTreeDynamicMinsBeast;
 		}
-		else if (this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			mins = this.m.PerkTreeDynamicMinsMagic;
-		}
 
 		return mins;
 	}
@@ -1148,7 +1144,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 				0
 			]
 		};
-		
+
 		if (this.m.PerkTree != null)
 		{
 			return a;
@@ -1169,7 +1165,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			{
 				this.m.CustomPerkTree = this.Const.Perks.DefaultCustomPerkTree;
 			}
-			
+
 		}
 
 		local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
@@ -1180,7 +1176,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		//already have added its perks so we should be ok. This will fail though loading an old save
 		//and we've added new perks to a scenario...
 
-		// THE COMMMENT ABOVE IS PROBABLY WRONG. Scenario doesn't seem to be null here on deserialize. But some weird 
+		// THE COMMMENT ABOVE IS PROBABLY WRONG. Scenario doesn't seem to be null here on deserialize. But some weird
 		// shenanigans are still happening, so I will test some more. -- Midas
 		local origin = this.World.Assets.getOrigin();
 		if (origin != null)
@@ -1530,7 +1526,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			actor.m.Level = this.m.Level;
 			actor.m.XP = this.Const.LevelXP[this.m.Level - 1];
 		}
-		
+
 	}
 
 	function onBuildDescription()

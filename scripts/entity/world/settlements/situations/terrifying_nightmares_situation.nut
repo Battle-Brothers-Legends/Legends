@@ -28,7 +28,7 @@ this.terrifying_nightmares_situation <- this.inherit("scripts/entity/world/settl
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
 			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.05);
-		} 
+		}
 	}
 
 
@@ -58,20 +58,6 @@ this.terrifying_nightmares_situation <- this.inherit("scripts/entity/world/settl
 			_draftList.push("legend_nightwatch_background");
 			_draftList.push("legend_man_at_arms_background");
 		}
-
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_warlock")
-			{
-				r = this.Math.rand(0, 9);
-				if (r == 1)
-				{
-				_list.push("legend_vampire_background");
-				}
-			}
-
-		}
-
 	}
 
 });

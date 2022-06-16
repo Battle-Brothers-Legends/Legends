@@ -83,16 +83,6 @@ this.witch_burnings_situation <- this.inherit("scripts/entity/world/settlements/
 			_draftList.push("legend_nun_background");
 
 		}
-
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			_draftList.push("legend_witch_background");
-			_draftList.push("legend_spiritualist_background");
-			_draftList.push("legend_diviner_background");
-			_draftList.push("legend_entrancer_background");
-		}
-
 	}
-
 });
 

@@ -59,7 +59,7 @@ this.legend_witch_commander_background <- this.inherit("scripts/skills/backgroun
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = null;
 		this.m.Bodies = this.Const.Bodies.AllFemale;
-		
+
 		this.m.BackgroundType = this.Const.BackgroundType.Female | this.Const.BackgroundType.Untalented | this.Const.BackgroundType.Educated;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Dreaded;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Good;
@@ -69,8 +69,8 @@ this.legend_witch_commander_background <- this.inherit("scripts/skills/backgroun
 		this.m.Modifiers.Healing = this.Const.LegendMod.ResourceModifiers.Healing[2];
 		this.m.Modifiers.Injury = this.Const.LegendMod.ResourceModifiers.Injury[2];
 		this.m.Modifiers.MedConsumption = this.Const.LegendMod.ResourceModifiers.MedConsumption[3];
-	
-	
+
+
 			this.m.CustomPerkTree = [
 				[
 					this.Const.Perks.PerkDefs.FastAdaption,
@@ -144,7 +144,7 @@ this.legend_witch_commander_background <- this.inherit("scripts/skills/backgroun
 				[],
 				[]
 			];
-		
+
 	}
 
 	//Default feMale
@@ -229,13 +229,6 @@ this.legend_witch_commander_background <- this.inherit("scripts/skills/backgroun
 		//this.m.Container.add(this.new("scripts/skills/perks/perk_legend_roster_1"));
 		//this.m.Container.add(this.new("scripts/skills/perks/perk_legend_teacher"));
 		//this.m.Container.add(this.new("scripts/skills/perks/perk_student"));
-
-		//if (this.LegendsMod.Configs().LegendMagicEnabled())
-		//{
-		//
-		//	this.m.Container.add(this.new("scripts/skills/perks/perk_legend_magic_missile"));
-		//}
-
 	}
 
 	function onAddEquipment()

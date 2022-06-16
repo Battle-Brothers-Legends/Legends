@@ -48,71 +48,41 @@ this.ceremonial_season_situation <- this.inherit("scripts/entity/world/settlemen
 		_draftList.push("monk_background");
 		_draftList.push("cultist_background");
 		_draftList.push("flagellant_background");
-	if (_gender)
-		{
-		_draftList.push("legend_nun_background");
-		_draftList.push("legend_nun_background");
-	}
-	if  ( this.World.Assets.getOrigin().getID() == "scenario.cultists")
-	{
-		_draftList.push("legend_husk_background");
-		_draftList.push("legend_husk_background");
-		_draftList.push("legend_lurker_background");
-		_draftList.push("legend_lurker_background");
-		_draftList.push("legend_lurker_background");
-		_draftList.push("legend_magister_background");
-	}
-	if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_crusader")
-	{
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-		_draftList.push("legend_pilgrim_background");
-	}
-
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			local r;
-			if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_seer")
+		if (_gender)
 			{
-			r = this.Math.rand(0, 5);
-				if (r == 1)
-				{
-				_draftList.push("legend_spiritualist_background");
-				_draftList.push("legend_druid_background");
-				}
-			}
-			else if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_sisterhood")
-			{
-				_draftList.push("legend_spiritualist_background");
-				_draftList.push("legend_druid_background");
-
-			}
-			else
-			{
-			r = this.Math.rand(0, 9);
-				if (r == 1)
-				{
-				_draftList.push("legend_spiritualist_background");
-				_draftList.push("legend_druid_background");
-				}
-			}
+			_draftList.push("legend_nun_background");
+			_draftList.push("legend_nun_background");
 		}
-
+		if  ( this.World.Assets.getOrigin().getID() == "scenario.cultists")
+		{
+			_draftList.push("legend_husk_background");
+			_draftList.push("legend_husk_background");
+			_draftList.push("legend_lurker_background");
+			_draftList.push("legend_lurker_background");
+			_draftList.push("legend_lurker_background");
+			_draftList.push("legend_magister_background");
+		}
+		if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_crusader")
+		{
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+			_draftList.push("legend_pilgrim_background");
+		}
 	}
 
 });

@@ -45,34 +45,6 @@ this.sand_storm_situation <- this.inherit("scripts/entity/world/settlements/situ
 	function onUpdateDraftList( _draftList, _gender = null)
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			local r;
-			if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_seer")
-			{
-			r = this.Math.rand(0, 50);
-				if (r == 1)
-				{
-				_draftList.push("legend_diviner_background");
-				}
-			}
-			else if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_sisterhood")
-			{
-				r = this.Math.rand(0, 9);
-				if (r == 1)
-				{
-				_draftList.push("legend_diviner_background");
-				}
-			}
-			else
-			{
-			r = this.Math.rand(0, 90);
-				if (r == 1)
-				{
-				_draftList.push("legend_diviner_background");
-				}
-			}
-		}
 	}
 
 });

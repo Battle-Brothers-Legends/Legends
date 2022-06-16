@@ -216,12 +216,6 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 			this.m.Skills.MovementCompleted(_tile);
 		}
 
-		o.isArmedWithMagicStaff <- function()
-		{
-			local item = this.getMainhandItem();
-			return item != null && item.isWeaponType(this.Const.Items.WeaponType.MagicStaff);
-		}
-
 		o.equipItem <- function( _item)
 		{
 			return this.getItems().equip(_item);
@@ -361,13 +355,6 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 			}
 
 			perks -= nonRefundable.len();
-
-			// Witch gets
-			if (this.getBackground().getID() == "background.legend_witch" && this.LegendsMod.Configs().LegendMagicEnabled())
-			{
-				this.getSkills().add(this.new("scripts/skills/perks/perk_legend_magic_missile"));
-				perks = perks - 1;
-			}
 
 			this.m.PerkPoints = perks;
 

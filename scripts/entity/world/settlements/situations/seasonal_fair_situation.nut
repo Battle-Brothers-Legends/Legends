@@ -81,36 +81,6 @@ this.seasonal_fair_situation <- this.inherit("scripts/entity/world/settlements/s
 			_draftList.push("legend_leech_peddler_background");
 			_draftList.push("legend_leech_peddler_background");
 		}
-
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			local r;
-			if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_seer")
-			{
-				_draftList.push("legend_entrancer_background");
-			}
-			else if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_sisterhood")
-			{
-
-				_draftList.push("legend_entrancer_background");
-
-			}
-			else if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_troupe")
-			{
-
-				_draftList.push("legend_illusionist_background");
-
-			}
-			else
-			{
-			r = this.Math.rand(0, 9);
-				if (r == 1)
-				{
-				_draftList.push("legend_entrancer_background");
-				}
-			}
-		}
-
 	}
 
 });

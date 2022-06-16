@@ -36,35 +36,6 @@ this.herbalists_grove_location <- this.inherit("scripts/entity/world/attached_lo
 		{
 			_list.push("legend_nun_background");
 		}
-
-		if(this.LegendsMod.Configs().LegendMagicEnabled())
-		{
-			local r;
-			if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_seer")
-			{
-			r = this.Math.rand(0, 50);
-				if (r == 1)
-				{
-				_list.push("legend_druid_background");
-				}
-			}
-			else if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_druid")
-			{
-				r = this.Math.rand(0, 9);
-				if (r == 1)
-				{
-				_list.push("legend_druid_background");
-				}
-			}
-			else
-			{
-			r = this.Math.rand(0, 90);
-				if (r == 1)
-				{
-				_list.push("legend_druid_background");
-				}
-			}
-		}
 	}
 
 	function onUpdateShopList( _id, _list )

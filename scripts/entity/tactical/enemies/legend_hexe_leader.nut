@@ -197,10 +197,6 @@ this.legend_hexe_leader <- this.inherit("scripts/entity/tactical/actor", {
 				}
 
 				local chance = 10;
-				if (this.LegendsMod.Configs().LegendMagicEnabled())
-				{
-					chance = 100;
-				}
 
 				if (this.Math.rand(1, 100) <= chance)
 				{
@@ -300,7 +296,6 @@ this.legend_hexe_leader <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/actives/hex_skill"));
 		this.m.Skills.add(this.new("scripts/skills/actives/legend_wither"));
 		this.m.Skills.add(this.new("scripts/skills/actives/sleep_skill"));
-		this.m.Skills.add(this.new("scripts/skills/actives/legend_magic_missile"));
 		this.m.Skills.add(this.new("scripts/skills/actives/legend_teleport"));
 		this.m.Skills.add(this.new("scripts/skills/actives/fake_drink_night_vision_skill"));
 

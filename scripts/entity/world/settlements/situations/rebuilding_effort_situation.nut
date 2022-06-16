@@ -143,29 +143,6 @@ this.rebuilding_effort_situation <- this.inherit("scripts/entity/world/settlemen
 			{
 				_draftList.push("female_daytaler_background");
 			}
-
-
-			if(this.LegendsMod.Configs().LegendMagicEnabled())
-			{
-				local r;
-				if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_seer")
-				{
-				r = this.Math.rand(0, 50);
-					if (r == 1)
-					{
-					_draftList.push("legend_transmuter_background");
-					}
-				}
-				else
-				{
-				r = this.Math.rand(0, 90);
-					if (r == 1)
-					{
-					_draftList.push("legend_transmuter_background");
-					}
-				}
-			}
-
 		}
 
 		_draftList.push("legend_blacksmith_background");

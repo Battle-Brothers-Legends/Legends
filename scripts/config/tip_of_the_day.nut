@@ -28,7 +28,6 @@ gt.Const.TipOfTheDay <- [
 	"Female professions have more fatigue but less health than their male counterparts",
 	"Your stash and resource size is determined by the people you hire",
 	"Apprentices, blacksmiths and ironmongers can help repair your equipment quickly",
-	"Magic missile damage is based on your initiative, but the accuracy is based on ranged attack.",
 	"You don\'t have to be a hero, you\'re running a business.",
 	"Valas are mystic women capable of inscribing powerful runes on your gear.",
 	"A missed ranged attack can hit nearby characters, especially if they are in the direct line of fire.",
