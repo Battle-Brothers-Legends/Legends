@@ -776,4 +776,13 @@
 	<sprite id="bust_miniboss_undead" offsetY="35" ic="FF4F647A" width="140" height="248" img="entity\misc\bust_miniboss_undead.png" left="-48" right="50" top="-67" bottom="-25" />
 	<sprite id="bust_miniboss_assassin" offsetY="35" ic="FF4F647A" width="140" height="248" img="entity\misc\bust_miniboss_assassin.png" left="-48" right="50" top="-67" bottom="-25" />
 	
+	  <sprite id="were_body_black" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\details\were_body_black.png" left="-42" right="40" top="-49" bottom="9" />
+	  <sprite id="were_body_blonde" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\details\were_body_blonde.png" left="-42" right="40" top="-49" bottom="9" />
+	  <sprite id="were_body_brown" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\details\were_body_brown.png" left="-42" right="40" top="-49" bottom="9" />
+	  <sprite id="were_body_white" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\details\were_body_white.png" left="-42" right="40" top="-49" bottom="9" />
+	  <sprite id="were_head_black" offsetY="35" ic="FF5C7BA9" width="104" height="142" img="entity\details\were_head_black.png" left="-21" right="29" top="-20" bottom="48" />
+	  <sprite id="were_head_blonde" offsetY="35" ic="FF5C7BA9" width="104" height="142" img="entity\details\were_head_blonde.png" left="-21" right="29" top="-20" bottom="48" />
+	  <sprite id="were_head_brown" offsetY="35" ic="FF5C7BA9" width="104" height="142" img="entity\details\were_head_brown.png" left="-21" right="29" top="-20" bottom="48" />
+	  <sprite id="were_head_white" offsetY="35" ic="FF5C7BA9" width="104" height="142" img="entity\details\were_head_white.png" left="-21" right="29" top="-20" bottom="48" />
+
 </brush>
