@@ -161,6 +161,25 @@ gt.Const.Tactical.Actor.Lindwurm <- {
 		200
 	]
 };
+gt.Const.Tactical.Actor.LegendManticore <- {
+	XP = 800,
+	ActionPoints = 9,
+	Hitpoints = 1100,
+	Bravery = 180,
+	Stamina = 400,
+	MeleeSkill = 75,
+	RangedSkill = 0,
+	MeleeDefense = 10,
+	RangedDefense = -10,
+	Initiative = 80,
+	FatigueEffectMult = 1.0,
+	MoraleEffectMult = 1.0,
+	FatigueRecoveryRate = 30,
+	Armor = [
+		400,
+		200
+	]
+};
 gt.Const.Tactical.Actor.Unhold <- {
 	XP = 400,
 	ActionPoints = 9,
