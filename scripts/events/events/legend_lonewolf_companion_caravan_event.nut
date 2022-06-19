@@ -241,11 +241,11 @@ this.legend_lonewolf_companion_caravan_event <- this.inherit("scripts/events/eve
 		]);
 		_vars.push([
 			"Bro2",
-			this.m.Bro1.getNameOnly()
+			this.m.Bro2.getNameOnly()
 		]);
 		_vars.push([
 			"Bro3",
-			this.m.Bro1.getNameOnly()
+			this.m.Bro3.getNameOnly()
 		]);
 	}
 
