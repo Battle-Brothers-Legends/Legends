@@ -37,7 +37,7 @@ this.legend_lonewolf_companion_berserker_event <- this.inherit("scripts/events/e
 		});
 		this.m.Screens.push({ //continue talk
 			ID = "B",
-			Text = "[img]gfx/ui/events/event_76.png[/img]{You wind your way through the sea of tents and huts to find a pile of corpses in the middle of what appears to be an area. The edges are clearly marked with large stones in an oval that is nearly twenty paces from the furthest edges. Two-dozen bodies burn on the the pyre in the middle of the area, some melted away while others have been added more recently.\n\n You follow the screaming to find a lone fighter — a barely dressed and heavily bleeding mountain of a northman who is in the process of ripping a necrosavant\'s head in two by parting its upper and lower jaw away with their bare hands like a scribe would part a large tome with a stiff spine. You cannot tell if the screaming is from the berserker or the bloodsucker which is now clawing for freedom to no avail.\n A crack is heard and the vampire falls to the ground with its lower jaw loling free. It hits the snow the pale skin turns to ash like a book soaked in heavy rain. Two more of it\'s kind emerge from a longhouse, as you draw your weapon with a hurried breath they both disappear back into the storm.\n\n Of the two of you, the berserker is the first to speak. %SPEECH_ON%My name is %recruit%, and what you see around me is the last of my people...%SPEECH_OFF% You cast a gaze around, anticipaing more will emerge from the huts. But no survivors present themselves aside from the remains on the still-burning pyre. %SPEECH_ON%I am hungry for revenge, outlander. And I think you are too.%SPEECH_OFF%}",
+			Text = "[img]gfx/ui/events/event_76.png[/img]{You wind your way through the sea of tents and huts to find a pile of corpses in the middle of what appears to be an area. The edges are clearly marked with large stones in an oval that is nearly twenty paces from the furthest edges. Two-dozen bodies burn on the the pyre in the middle of the area, some melted away while others have been added more recently.\n\n You follow the screaming to find a lone fighter — a barely dressed and heavily bleeding mountain of a northman who is in the process of ripping a necrosavant\'s head in two by parting its upper and lower jaw away with their bare hands like a scribe would part a large tome with a stiff spine. You cannot tell if the screaming is from the berserker or the bloodsucker which is now clawing for freedom to no avail.\n A crack is heard and the vampire falls to the ground with its lower jaw loling free. It hits the snow the pale skin turns to ash like a book soaked in heavy rain. Two more of it\'s kind emerge from a longhouse, as you draw your weapon with a hurried breath they both disappear back into the storm.\n\n Of the two of you, the berserker is the first to speak. %SPEECH_ON%My name is %dude%, and what you see around me is the last of my people...%SPEECH_OFF% You cast a gaze around, anticipaing more will emerge from the huts. But no survivors present themselves aside from the remains on the still-burning pyre. %SPEECH_ON%I am hungry for revenge, outlander. And I think you are too.%SPEECH_OFF%}",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -64,7 +64,7 @@ this.legend_lonewolf_companion_berserker_event <- this.inherit("scripts/events/e
 		});
 		this.m.Screens.push({ //continue talk accept
 			ID = "C",
-			Text = "[img]gfx/ui/events/event_76.png[/img]{%recruit% smiles.\n %SPEECH_ON%I know who you are — what you are...and your purpose. Few would\'ve come to find me unless they wanted a fight or had something to prove.%SPEECH_OFF%}",
+			Text = "[img]gfx/ui/events/event_76.png[/img]{%dude% smiles.\n %SPEECH_ON%I know who you are — what you are...and your purpose. Few would\'ve come to find me unless they wanted a fight or had something to prove.%SPEECH_OFF%}",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -94,7 +94,7 @@ this.legend_lonewolf_companion_berserker_event <- this.inherit("scripts/events/e
 		});
 		this.m.Screens.push({ //continue talk refuse
 			ID = "D",
-			Text = "[img]gfx/ui/events/event_76.png[/img]{%recruit% says nothing, but picks up a blunted hatchet and walks into the storm to persue the two that got away.",
+			Text = "[img]gfx/ui/events/event_76.png[/img]{%dude% says nothing, but picks up a blunted hatchet and walks into the storm to persue the two that got away.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -162,7 +162,7 @@ this.legend_lonewolf_companion_berserker_event <- this.inherit("scripts/events/e
 	function onPrepareVariables( _vars )
 	{
 		_vars.push([
-			"recruit",
+			"dude",
 			this.m.Dude.getName()
 		]);
 	}
