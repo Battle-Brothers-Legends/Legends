@@ -1,6 +1,7 @@
 this.alp_captured_in_hole_event <- this.inherit("scripts/events/event", {
 	m = {
-		Beastslayer = null
+		Beastslayer = null,
+		Guildmaster = null
 	},
 	function create()
 	{
@@ -106,7 +107,13 @@ this.alp_captured_in_hole_event <- this.inherit("scripts/events/event", {
 						{
 							return "F";
 						}
-
+					});
+					this.Options.push({
+						Text = "Let the Guildmaster speak.",
+						function getResult( _event )
+						{
+							return "guildmaster";
+						}
 					});
 				}
 			}
@@ -229,6 +236,51 @@ this.alp_captured_in_hole_event <- this.inherit("scripts/events/event", {
 			}
 
 		});
+		this.m.Screens.push({ //—
+			ID = "guildmaster",
+			Text = "[img]gfx/ui/events/event_122.png[/img]{%guildmaster% gently appraoches the man and his bodyguards like a stranger would appraoch a feral dog. %guildmaster% puts their arm around the peddler and leads him out of earshot of their hired help. The guards barely blink at this as their employer is led away under the wing of the old master.\n\n Several minutes pass as the master and peddler calmly talk back and forth. Occasionally the peddler rubs their forehead as if being told he\'d go backrupt. %guildmaster% produces a book from a small pack and finds a page — almost as if by magic, and begins pointing to the illustrations within.\n The peddler begins to steadily turn a pale shade of white as their eyes move quickly across the page. Now even the hired help are interested as to what is going on but before they can react, %guildmaster% takes a pike out of the closest guard\'s hands and thrusts it into the pit — followed by an agonising wail.\n\n The peddler quickly gets between the master and the guards and whispers in hushed tones. No doubt with some embelishment. The guards look from you, to him — then back to you and finally at the guild master. The merchant nods in your direction with a concerned smile as the group depart.\n %guildmaster% returns with a trophy and smiles in your direction. %SPEECH_ON%What did you tell them?%SPEECH_OFF% %guildmaster% shrugs and keeps you in the corner of their gaze as they watch the peddler and their thugs leave. %SPEECH_ON%I told \'im that the young alp would steal his genitals%SPEECH_OFF% You feel something tingle in your body. %SPEECH_ON%No — only witchlings do that. Best be going before they figure it out, he even paid me to kill it. The daft man.%SPEECH_OFF%}",
+			Image = "",
+			List = [],
+			Characters = [],
+			Options = [
+				{
+					Text = "Best all of you check yourselves before we get going...",
+					function getResult( _event )
+					{
+						return 0;
+					}
+
+				}
+			],
+
+			function start( _event )
+			{
+				this.Characters.push(_event.m.Guildmaster.getImagePath());
+				this.World.Assets.addMoney(350);
+				this.List.push({
+					id = 10,
+					icon = "ui/icons/asset_money.png",
+					text = "You gain [color=" + this.Const.UI.Color.PositiveEventValue + "]350[/color] Crowns"
+				});
+				local item = this.new("scripts/items/misc/parched_skin_item");
+				local item = this.new("scripts/items/weapons/pike");
+				this.World.Assets.getStash().add(item);
+				this.List.push({
+					id = 10,
+					icon = "ui/items/" + item.getIcon(),
+					text = "You gain " + item.getName()
+				});
+				_event.m.Guildmaster.improveMood(1.0, "Dealt with an Alp");
+				_event.m.Guildmaster.getBaseProperties().Bravery += 5;
+				_event.m.Guildmaster.getSkills().update();
+				this.List.push({
+					id = 16,
+					icon = "ui/icons/bravery.png",
+					text = _event.m.Guildmaster.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+3[/color] Resolve"
+				});
+			}
+
+		});
 	}
 
 	function onUpdateScore()
@@ -257,6 +309,7 @@ this.alp_captured_in_hole_event <- this.inherit("scripts/events/event", {
 
 		local brothers = this.World.getPlayerRoster().getAll();
 		local candidates_beastslayer = [];
+		local candidates_guildmaster = [];
 
 		foreach( bro in brothers )
 		{
@@ -264,11 +317,20 @@ this.alp_captured_in_hole_event <- this.inherit("scripts/events/event", {
 			{
 				candidates_beastslayer.push(bro);
 			}
+			else if (bro.getBackground().getID() == "background.legend_guildmaster")
+			{
+				candidates_guildmaster.push(bro);
+			}
 		}
 
 		if (candidates_beastslayer.len() != 0)
 		{
 			this.m.Beastslayer = candidates_beastslayer[this.Math.rand(0, candidates_beastslayer.len() - 1)];
+		}
+
+		if (candidates_guildmaster.len() != 0)
+		{
+			this.m.Guildmaster = candidates_guildmaster[this.Math.rand(0, candidates_guildmaster.len() - 1)];
 		}
 
 		this.m.Score = 5;
@@ -284,11 +346,16 @@ this.alp_captured_in_hole_event <- this.inherit("scripts/events/event", {
 			"beastslayer",
 			this.m.Beastslayer ? this.m.Beastslayer.getNameOnly() : ""
 		]);
+		_vars.push([
+			"guildmaster",
+			this.m.Guildmaster ? this.m.Guildmaster.getNameOnly() : ""
+		]);
 	}
 
 	function onClear()
 	{
 		this.m.Beastslayer = null;
+		this.m.Guildmaster = null;
 	}
 
 });
