@@ -1,6 +1,7 @@
 this.collector_wants_trophy_event <- this.inherit("scripts/events/event", {
 	m = {
 		Peddler = null,
+		Merchant = null,
 		Reward = 0,
 		Item = null,
 		Town = null
@@ -15,11 +16,15 @@ this.collector_wants_trophy_event <- this.inherit("scripts/events/event", {
 			Text = "[img]gfx/ui/events/event_01.png[/img]{While browsing the town\'s markets, a man in silk approaches. He\'s wearing a grin with more glitter than chomp, and each of his fingers are adorned to glint. | As you take a look at the local market\'s wares, a strange man approaches. He has baubles of strange liquids hanging from his hip and there\'s a strange wood taking the place of most of his teeth. | It\'s not a true trip to the markets without some strange fella accosting you. This time it\'s a man with a large face, his mouth a bear trap of jagged teeth, and his cheeks set high as though they were meant to be shelves. Features aside, he swings his weight around like someone of import and wealth.}%SPEECH_ON%{Ah sellsword, I see you have some interesting trophies with ya. How about I take that %trophy% for, say, %reward% crowns? | That\'s an interesting trophy you got there, the %trophy%. I\'ll give you %reward% crowns for it, hand over fist, easy money! | Hmm, I see you are of the adventuring sort. You wouldn\'t come by that %trophy% without some guile in ya. Well I got some gold in me, and I\'ll give you %reward% of it for that trinket.}%SPEECH_OFF%You consider the man\'s offer.",
 			Image = "",
 			List = [],
-			Options = [
+			Options = [ 
 				{
 					Text = "Deal.",
 					function getResult( _event )
 					{
+						if (_event.m.Merchant != null)
+						{
+							return "Merchant";
+						}
 						if (_event.m.Peddler != null)
 						{
 							return "Peddler";
@@ -47,6 +52,10 @@ this.collector_wants_trophy_event <- this.inherit("scripts/events/event", {
 					Text = "No deal.",
 					function getResult( _event )
 					{
+						if (_event.m.Merchant != null)
+						{
+							return "Merchant";
+						}
 						if (_event.m.Peddler != null)
 						{
 							return "Peddler";
@@ -104,6 +113,49 @@ this.collector_wants_trophy_event <- this.inherit("scripts/events/event", {
 			{
 				this.Characters.push(_event.m.Peddler.getImagePath());
 				_event.m.Reward = this.Math.floor(_event.m.Reward * 1.33);
+			}
+
+		});
+		this.m.Screens.push({
+			ID = "Merchant",
+			Text = "[img]gfx/ui/events/event_01.png[/img]{You see your chance and step forward, the buyer looks a little concerned as if they just wandered into a tavern filled with angry barbarians. You playfully lean on the stall and lock eyes with him. You gracefully smile while maintaining eye contact. %SPEECH_ON%This isn\'t just any trophy — this came from a great beast with jaws bigger than a horse and a tail as long as a man!%SPEECH_OFF%The merchant recoils slightly, trying to picture the beast in his mind while eye the trophy in your hands. %SPEECH_ON%This beast was mighty — legendary even! You\'ll be the talk of the market when you have it safely away in your store...%SPEECH_OFF%The man purses his lips and contemplates this for a moment, before gingerly counting out additional coin from an unassuming bag. %SPEECH_ON%I\'ll give you %reward% for it. No more.%SPEECH_OFF%}",
+			Image = "",
+			List = [],
+			Characters = [],
+			Options = [
+				{
+					Text = "Deal.",
+					function getResult( _event )
+					{
+						this.World.Assets.addMoney(_event.m.Reward);
+						local stash = this.World.Assets.getStash().getItems();
+
+						foreach( i, item in stash )
+						{
+							if (item != null && item.getID() == _event.m.Item.getID())
+							{
+								stash[i] = null;
+								break;
+							}
+						}
+
+						return 0;
+					}
+
+				},
+				{
+					Text = "No deal.",
+					function getResult( _event )
+					{
+						return 0;
+					}
+
+				}
+			],
+			function start( _event )
+			{
+				this.Characters.push(_event.m.Merchant.getImagePath());
+				_event.m.Reward = this.Math.floor(_event.m.Reward * 1.66);
 			}
 
 		});
@@ -169,11 +221,20 @@ this.collector_wants_trophy_event <- this.inherit("scripts/events/event", {
 			{
 				candidates_peddler.push(bro);
 			}
+			if (bro.getBackground().getID() == "background.legend_peddler_commander_background")
+			{
+				candidates_peddler.push(bro);
+			}
 		}
 
 		if (candidates_peddler.len() != 0)
 		{
 			this.m.Peddler = candidates_peddler[this.Math.rand(0, candidates_peddler.len() - 1)];
+		}
+
+		if (candidates_merchant.len() != 0)
+		{
+			this.m.Merchant = candidates_merchant[this.Math.rand(0, candidates_merchant.len() - 1)];
 		}
 
 		this.m.Town = town;
@@ -189,6 +250,10 @@ this.collector_wants_trophy_event <- this.inherit("scripts/events/event", {
 		_vars.push([
 			"peddler",
 			this.m.Peddler != null ? this.m.Peddler.getName() : ""
+		]);
+		_vars.push([
+			"merchant",
+			this.m.Merchant != null ? this.m.Merchant.getName() : ""
 		]);
 		_vars.push([
 			"reward",
@@ -207,6 +272,7 @@ this.collector_wants_trophy_event <- this.inherit("scripts/events/event", {
 	function onClear()
 	{
 		this.m.Peddler = null;
+		this.m.Merchant = null;
 		this.m.Reward = 0;
 		this.m.Item = null;
 		this.m.Town = null;
