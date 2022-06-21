@@ -67,11 +67,14 @@ this.throw_net <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate( _properties )
 	{
-		this.m.FatigueCostMult = (_properties.IsSpecializedInNets) ? this.Const.Combat.WeaponSpecFatigueMult : 1.0;
+		if (_properties.IsSpecializedInNets)
+		{
+			this.m.FatigueCostMult = this.Const.Combat.WeaponSpecFatigueMult;
+			this.m.ActionPointCost = 3;
+		}
 		if (_properties.IsSpecializedInNetCasting)
 		{
 			this.m.MaxRange = 5;
-			this.m.ActionPointCost = 3;
 		}
 	}
 
@@ -171,4 +174,3 @@ this.throw_net <- this.inherit("scripts/skills/skill", {
 	}
 
 });
-
