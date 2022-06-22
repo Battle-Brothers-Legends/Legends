@@ -166,7 +166,7 @@ this.bandit_leader <- this.inherit("scripts/entity/tactical/human", {
 				[1, "red_bandit_leader_outfit_00"]
 			]
 
-			foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) ) 
+			foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) )
 			{
 				this.m.Items.equip(item)
 			}
@@ -233,22 +233,12 @@ this.bandit_leader <- this.inherit("scripts/entity/tactical/human", {
 
 		if (r == 1)
 		{
-			//Use this one if u want only melee weapons
-			this.m.Items.equip(this.new("scripts/items/" + this.Const.Items.NamedMeleeWeapons[this.Math.rand(0, this.Const.Items.NamedMeleeWeapons.len() - 1)]));
-
-			//Use this to allocate ammo on guy
-			/*
-			local itemName = this.Const.Items.NamedWeapons[this.Math.rand(0, this.Const.Items.NamedWeapons.len() - 1)];
-			if (itemName == "weapons/named/named_crossbow")
-			{
-				this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_bolts"));
-			}
-			else if (itemName == "weapons/named/named_warbow")
-			{
-				this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
-			}
-			this.m.Items.equip(this.new("scripts/items/" + itemName));
-			*/
+			local namedWeaponArray = clone ::Const.Items.NamedMeleeWeapons;		// Temporary solution to prevent these minibosses from spawning with bad or incombatible weapons
+			::MSU.Array.remove(namedWeaponArray, "weapons/named/named_dagger");
+			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_parrying_dagger");
+			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_shovel");
+			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_sickle");
+			this.m.Items.equip(this.new("scripts/items/" + ::MSU.Array.rand(namedWeaponArray)));
 		}
 		else if (r == 2)
 		{

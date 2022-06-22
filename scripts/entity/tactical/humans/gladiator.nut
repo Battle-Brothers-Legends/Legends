@@ -127,7 +127,7 @@ this.gladiator <- this.inherit("scripts/entity/tactical/human", {
 		{
 			armor.setUpgrade(this.new("scripts/items/" +
 				(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
-			))	
+			))
 		}
 
 		this.m.Items.equip(armor);
@@ -160,7 +160,12 @@ this.gladiator <- this.inherit("scripts/entity/tactical/human", {
 			}
 			else
 			{
-				this.m.Items.equip(this.new("scripts/items/" + this.Const.Items.NamedMeleeWeapons[this.Math.rand(0, this.Const.Items.NamedMeleeWeapons.len() - 1)]));
+				local namedWeaponArray = clone ::Const.Items.NamedMeleeWeapons;		// Temporary solution to prevent these minibosses from spawning with bad or incombatible weapons
+				::MSU.Array.remove(namedWeaponArray, "weapons/named/named_dagger");
+				::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_parrying_dagger");
+				::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_shovel");
+				::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_sickle");
+				this.m.Items.equip(this.new("scripts/items/" + ::MSU.Array.rand(namedWeaponArray)));
 			}
 		}
 		else if (r == 2)
