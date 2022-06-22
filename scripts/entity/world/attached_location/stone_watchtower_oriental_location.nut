@@ -72,6 +72,14 @@ this.stone_watchtower_oriental_location <- this.inherit("scripts/entity/world/at
 		_list.push("nomad_background");
 		_list.push("nomad_background");
 		_list.push("nomad_background");
+		if (this.Math.rand(0, 6) == 1)
+		{
+			_list.push("legend_conscript_background");
+		}
+		if (this.Math.rand(0, 6) == 1)
+		{
+			_list.push("legend_conscript_ranged_background");
+		}
 	}
 
 	function onUpdateShopList( _id, _list )

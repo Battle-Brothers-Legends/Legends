@@ -127,6 +127,14 @@ this.militia_trainingcamp_oriental_location <- this.inherit("scripts/entity/worl
 		_list.push("nomad_background");
 		_list.push("legend_dervish_background");
 		_list.push("legend_dervish_background");
+		if (this.Math.rand(0, 4) == 1)
+		{
+			_list.push("legend_conscript_background");
+		}
+		if (this.Math.rand(0, 4) == 1)
+		{
+			_list.push("legend_conscript_ranged_background");
+		}
 	}
 
 	function onUpdateShopList( _id, _list )
