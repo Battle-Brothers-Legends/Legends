@@ -103,28 +103,9 @@ this.throw_net <- this.inherit("scripts/skills/skill", {
 
 	function onUse( _user, _targetTile )
 	{
-		local target = _targetTile.getEntity();
 		local targetEntity = _targetTile.getEntity();
-		local r = this.Math.rand(1, 100);
 
-		if (_user.getSkills().hasSkill("perk.legend_net_casting"))
-		{
-			r = r * 0.5;
-		}
-
-		
-
-		if (_user.getSkills().hasSkill("perk.legend_net_repair"))
-		{
-			r = r * 0.75;
-		}
-
-		if (r > this.getHitchance(_targetTile.getEntity()))
-		{
-			target.onMissed(this.getContainer().getActor(), this);
-			return false;
-		}
-		else if (!targetEntity.getCurrentProperties().IsImmuneToRoot)
+		if (!targetEntity.getCurrentProperties().IsImmuneToRoot)
 		{
 			if (this.m.SoundOnHit.len() != 0)
 			{
