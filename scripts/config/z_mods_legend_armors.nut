@@ -108,13 +108,13 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 		],
 		Chain = [ //66.25 if [2,""] removed : 44 with : 80 with commented things
 			// [2, ""],
-			[1, "chain/legend_armor_mail_shirt"], //50
+			//[1, "chain/legend_armor_mail_shirt"], //50
 			// [1, "chain/legend_armor_mail_shirt_simple"], //25
 			[1, "chain/legend_armor_reinforced_mail"], //110
 			[1, "chain/legend_armor_reinforced_mail_shirt"] //80
 		],
 		Plate = [ //157 avg
-			[1, "plate/legend_armor_plate_chest"], //125
+			//[1, "plate/legend_armor_plate_chest"], //125
 			[0, "plate/legend_armor_plate_chest_rotten"],
 			[1, "plate/legend_armor_plate_cuirass"], //150
 			[1, "plate/legend_armor_plate_full"], //160
