@@ -138,7 +138,6 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 		if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Female))
 		{
 			bro.improveMood(1.0, "Joined the righteous cause of the Sisterhood");
-			bro.getSkills().add(this.new("scripts/skills/perks/perk_hold_out"));
 			bro.improveMood(0.5, "Learned a new skill");
 		}
 	}
@@ -345,6 +344,11 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 				_list.push("legend_nun_background");
 			}
 		}
+	}
+
+	function onBuildPerkTree( _background )
+	{
+		this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.HoldOut, 0, _background.isBackgroundType(this.Const.BackgroundType.Female));
 	}
 
 });
