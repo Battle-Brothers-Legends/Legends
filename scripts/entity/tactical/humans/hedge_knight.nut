@@ -67,23 +67,14 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 
 	function assignRandomEquipment()
 	{
-		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Mainhand))
 		{
-			local weapons = [
-				"weapons/fighting_axe",
-				"weapons/noble_sword",
-				"weapons/arming_sword"
-			];
-
 			if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Offhand))
 			{
-				weapons.extend([
+				local weapons = [
 					"weapons/greatsword",
 					"weapons/greataxe",
-					"weapons/warbrand",
-					"weapons/two_handed_hammer",
-					"weapons/legend_estoc"
-				]);
+					"weapons/two_handed_hammer"
+				];
 			}
 
 			if (this.Const.DLC.Unhold && this.m.Items.hasEmptySlot(this.Const.ItemSlot.Offhand))
@@ -104,22 +95,11 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}
 
-		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Offhand))
-		{
-			local shields = [
-				"shields/heater_shield",
-				"shields/kite_shield"
-			];
-			this.m.Items.equip(this.new("scripts/items/" + shields[this.Math.rand(0, shields.len() - 1)]));
-		}
-
-
 		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Body) && this.m.Items.hasEmptySlot(this.Const.ItemSlot.Head))
 		{
 			local armor = [
 				[1, "coat_of_plates"],
 				[1, "coat_of_scales"],
-				[1, "reinforced_mail_hauberk"],
 				[1, "heavy_lamellar_armor"]
 			]
 
@@ -133,9 +113,9 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 				[5, "legend_helm_snub"],
 				[5, "legend_helm_short"],
 				[5, "legend_helm_curved"],
-				[2, "wallace_sallet"],
-				[2, "deep_sallet"],
-				[2, "italo_norman_helm"],
+				//[2, "wallace_sallet"],
+				//[2, "deep_sallet"],
+				//[2, "italo_norman_helm"],
 				[2, "legend_enclave_vanilla_great_helm_01"],
 				[2, "legend_enclave_vanilla_armet_01"],
 				[2, "legend_enclave_vanilla_armet_02"],
@@ -144,7 +124,7 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 				[2, "legend_enclave_vanilla_great_bascinet_03"],
 				[2, "legend_enclave_vanilla_kettle_sallet_01"],
 				[2, "legend_enclave_vanilla_kettle_sallet_02"],
-				[2, "legend_enclave_vanilla_kettle_sallet_03"]
+				//[2, "legend_enclave_vanilla_kettle_sallet_03"]
 			]
 
 			local outfits = [
@@ -163,7 +143,7 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 			local armor = [
 				[1, "coat_of_plates"],
 				[1, "coat_of_scales"],
-				[1, "reinforced_mail_hauberk"],
+				//[1, "reinforced_mail_hauberk"],
 				[1, "heavy_lamellar_armor"],
 				[1, "brown_hedgeknight_armor"]
 			];
@@ -186,9 +166,9 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 				[5, "legend_helm_snub"],
 				[5, "legend_helm_short"],
 				[5, "legend_helm_curved"],
-				[2, "wallace_sallet"],
-				[2, "deep_sallet"],
-				[2, "italo_norman_helm"],
+				//[2, "wallace_sallet"],
+				//[2, "deep_sallet"],
+				//[2, "italo_norman_helm"],
 				[2, "legend_enclave_vanilla_great_helm_01"],
 				[2, "legend_enclave_vanilla_armet_01"],
 				[2, "legend_enclave_vanilla_armet_02"],
@@ -197,8 +177,8 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 				[2, "legend_enclave_vanilla_great_bascinet_03"],
 				[2, "legend_enclave_vanilla_kettle_sallet_01"],
 				[2, "legend_enclave_vanilla_kettle_sallet_02"],
-				[2, "legend_enclave_vanilla_kettle_sallet_03"],
-				[2, "brown_hedgeknight_helmet"]
+				//[2, "legend_enclave_vanilla_kettle_sallet_03"],
+				//[2, "brown_hedgeknight_helmet"]
 			];
 			this.m.Items.equip(this.Const.World.Common.pickHelmet(
 				helmet
@@ -215,15 +195,15 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 
 		this.getSprite("miniboss").setBrush("bust_miniboss");
 		local weapons = [
-			"weapons/named/named_axe",
-			"weapons/named/named_cleaver",
+			//"weapons/named/named_axe",
+			//"weapons/named/named_cleaver",
 			"weapons/named/named_greataxe",
 			"weapons/named/named_greatsword",
-			"weapons/named/named_mace",
-			"weapons/named/named_sword",
-			"weapons/named/named_longsword",
+			//"weapons/named/named_mace",
+			//"weapons/named/named_sword",
+			//"weapons/named/named_longsword",
 			"weapons/named/named_two_handed_hammer",
-			"weapons/named/named_warbrand"
+			//"weapons/named/named_warbrand"
 		];
 
 		if (this.Const.DLC.Unhold)
@@ -241,27 +221,27 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 			]);
 		}
 
-		local shields = clone this.Const.Items.NamedShields;
-		shields.extend([
-			"shields/named/named_bandit_kite_shield",
-			"shields/named/named_bandit_heater_shield"
-		]);
+		// local shields = clone this.Const.Items.NamedShields;
+		// shields.extend([
+		// 	"shields/named/named_bandit_kite_shield",
+		// 	"shields/named/named_bandit_heater_shield"
+		// ]);
 		this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
-		//we just dont give these guys famed items? dno, just uncomment this if we decide to do so
-		// this.m.Items.equip(this.Const.World.Common.pickArmor([
-		// 	[1, "named/brown_coat_of_plates_armor"],
-		// 	[1, "named/golden_scale_armor"],
-		// 	[1, "named/green_coat_of_plates_armor"]
-		// ]));
+		we just dont give these guys famed items? dno, just uncomment this if we decide to do so
+		this.m.Items.equip(this.Const.World.Common.pickArmor([
+			[1, "named/brown_coat_of_plates_armor"],
+			[1, "named/golden_scale_armor"],
+			[1, "named/green_coat_of_plates_armor"]
+		]));
 
 		this.m.Items.equip(this.Const.World.Common.pickHelmet([
-			[3, "named/bascinet_named"],
-			[3, "named/kettle_helm_named"],
-			[3, "named/deep_sallet_named"],
-			[3, "named/barbute_named"],
-			[3, "named/italo_norman_helm_named"],
-			[3, "named/wallace_sallet_named"],
-			[3, "named/named_helm_with_lion_pelt"]
+			//[3, "named/bascinet_named"],
+			//[3, "named/kettle_helm_named"],
+			//[3, "named/deep_sallet_named"],
+			//[3, "named/barbute_named"],
+			//[3, "named/italo_norman_helm_named"],
+			//[3, "named/wallace_sallet_named"],
+			//[3, "named/named_helm_with_lion_pelt"]
 		]));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
 		return true;
