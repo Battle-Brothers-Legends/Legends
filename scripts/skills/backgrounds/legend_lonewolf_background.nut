@@ -272,17 +272,17 @@ this.legend_lonewolf_background <- this.inherit("scripts/skills/backgrounds/char
 		// }
 
 		items.equip(this.Const.World.Common.pickArmor([
-			[1, "mail_hauberk"],
-			[1, "basic_mail_shirt"],
+			//[1, "mail_hauberk"],
+			//[1, "basic_mail_shirt"],
 			[1, "scale_armor"],
 			[1, "reinforced_mail_hauberk"],
-			[1, "worn_mail_shirt"]
+			//[1, "worn_mail_shirt"]
 		]));
 
 		local helm = [
-			[1, "nasal_helmet"],
+			//[1, "nasal_helmet"],
 			[1, "nasal_helmet_with_mail"],
-			[1, "mail_coif"],
+			//[1, "mail_coif"],
 			[1, "bascinet_with_mail"],
 			[1, "closed_flat_top_helmet"]
 		];
