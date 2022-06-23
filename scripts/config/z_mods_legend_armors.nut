@@ -840,19 +840,19 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 		]
 	}]
 },{
-	ID = "mail_hauberk",
+	ID = "mail_hauberk", // 120-180
 	Script = "",
 	Sets = [{
 		Cloth = [
-			[1, "cloth/legend_gambeson"],
-			[1, "cloth/legend_padded_surcoat"],
-			[1, "cloth/legend_tunic"],
+			[1, "cloth/legend_gambeson"], //65
+			[1, "cloth/legend_padded_surcoat"], //55
+			//[1, "cloth/legend_tunic"], //20
 		],
 		Chain = [
 			[1, ""],
-			[1, "chain/legend_armor_hauberk"],
-			[1, "chain/legend_armor_hauberk_full"],
-			[1, "chain/legend_armor_hauberk_sleevless"],
+			[1, "chain/legend_armor_hauberk"], //95
+			[1, "chain/legend_armor_hauberk_full"], //115
+			[1, "chain/legend_armor_hauberk_sleevless"], //65
 		],
 		Plate = [
 		],
