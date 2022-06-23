@@ -103,6 +103,7 @@ this.whipped_effect <- this.inherit("scripts/skills/skill", {
 	{
 		_properties.MeleeSkill += 12 + this.m.Level;
 		_properties.RangedSkill += 14 + this.m.Level;
+		_properties.Bravery -= (5 + this.m.Level);
 		_properties.MeleeDefense += 5 + this.m.Level;
 		_properties.RangedDefense += 5 + this.m.Level;
 		_properties.Initiative += 9 + this.m.Level;
