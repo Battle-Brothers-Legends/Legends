@@ -145,7 +145,7 @@ gt.Const.Perks.BarterClassTree <- {
 		],
 		[
 		gt.Const.Perks.PerkDefs.LegendBribe
-		//gt.Const.Perks.PerkDefs.LegendBarterGreed
+		gt.Const.Perks.PerkDefs.LegendBarterGreed
 		]
 	]
 };
