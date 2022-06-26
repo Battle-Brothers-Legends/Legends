@@ -2006,6 +2006,141 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 		Attachments =[
 		]
 	}]
+},{
+	ID = "lonewolf_longsword_armour",
+	Script = "scripts/items/armor/lonewolf_longsword_armour",
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"],
+			[1, "cloth/legend_gambeson_plain"],
+		],
+		Chain = [
+			[1, "chain/legend_armor_mail_shirt"],
+			[1, "chain/legend_armor_mail_shirt_simple"],
+		],
+		Plate = [
+			[1, "plate/legend_armor_leather_lamellar"],
+		],
+		Cloak = [
+		],
+		Tabard = [
+			[2, "tabard/legend_noble_vest"],
+		],
+		Attachments =[
+			[5, "armor_upgrades/legend_leather_neckguard_upgrade"],
+		]
+	}]
+},{
+	ID = "lonewolf_hammershield_armour", 
+	Script = "scripts/items/armor/lonewolf_hammershield_armour",
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"],
+			[1, "cloth/legend_gambeson_plain"],
+		],
+		Chain = [
+			[1, "chain/legend_armor_reinforced_mail"],
+		],
+		Plate = [
+		],
+		Cloak = [
+		],
+		Tabard = [
+			[1, "tabard/legend_southern_shoulder_cloth"],
+		],
+		Attachments =[
+		]
+	}]
+},{
+	ID = "lonewolf_axebuckler_armour",
+	Script = "scripts/items/armor/lonewolf_axebuckler_armour",
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"],
+			[1, "cloth/legend_gambeson_plain"],
+		],
+		Chain = [
+			[1, "chain/legend_armor_mail_shirt_simple"],
+		],
+		Plate = [
+			[1, "plate/legend_armor_leather_lamellar_reinforced"],
+		],
+		Cloak = [
+		],
+		Tabard = [
+		],
+		Attachments =[
+			[1, "armor_upgrades/legend_direwolf_pelt_upgrade"],
+		]
+	}]
+},{
+	ID = "lonewolf_crossbowsword_armour",
+	Script = "scripts/items/armor/lonewolf_crossbowsword_armour",
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"],
+			[1, "cloth/legend_robes"],
+			[1, "cloth/legend_tunic"],
+		],
+		Chain = [
+			[1, "chain/legend_armor_mail_shirt_simple"],
+		],
+		Plate = [
+		],
+		Cloak = [
+			[1, "cloak/legend_shoulder_cloth"],
+		],
+		Tabard = [
+			[1, "tabard/legend_southern_shoulder_cloth"],
+		],
+		Attachments =[
+		]
+	}]
+
+},{
+	ID = "lonewolf_bowdagger_armour",
+	Script = "scripts/items/armor/lonewolf_bowdagger_armour",
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_tunic_noble"],
+		],
+		Chain = [
+			[1, "chain/legend_armor_mail_shirt_simple"],
+		],
+		Plate = [
+		],
+		Cloak = [
+			[1, "cloak/legend_armor_cloak_crusader"],
+		],
+		Tabard = [
+		],
+		Attachments =[
+		]
+	}]
+
+},{
+	ID = "lonewolf_polearm_armour",
+	Script = "scripts/items/armor/lonewolf_polearm_armour",
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"],
+		],
+		Chain = [
+			[1, "chain/legend_armor_mail_shirt_simple"],
+		],
+		Plate = [
+			[1, "plate/legend_armor_plate_chest"],
+		],
+		Cloak = [
+			[1, "cloak/legend_southern_scarf"],
+		],
+		Tabard = [
+			[1, "tabard/legend_tattered_tabard"],
+		],
+		Attachments =[
+		]
+	}]
+
 }]);
 
 gt.Const.LegendMod.Armors <- {};
