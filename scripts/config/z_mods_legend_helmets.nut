@@ -2286,7 +2286,119 @@ gt.Const.LegendMod.HelmObjs.extend([
 			Vanity = [
 			]
 		}]
+	},
+	{
+		ID = "lonewolf_longsword_helmet",
+		Script = "scripts/items/armor/lonewolf_longsword_helmet",
+		Sets = [{
+			Hoods = [
+			[1, "hood/legend_helmet_padded_cap"], //40
+			],
+			Helms = [
+			[1, "helm/legend_helmet_enclave_kettle"] //150,
+			],
+			Tops = [
+			],
+			Vanity = [
+			[1, "vanity/legend_helmet_plait"],
+			]
+		}]
+	},
+	{
+		ID = "lonewolf_hammershield_helmet", 
+		Script = "scripts/items/armor/lonewolf_hammershield_helmet",
+		Sets = [{
+			Hoods = [
+			[1, "hood/legend_helmet_padded_cap"], //40
+			],
+			Helms = [
+			[1, "helm/legend_helmet_barbute"], //130
+			],
+			Tops = [
+			[1, "top/legend_helmet_eyemask"], //20
+			[1, "top/legend_helmet_faceplate_snub_nose"], //20
+			],
+			Vanity = [
+			]
+		}]
+	},
+	{
+		ID = "lonewolf_axebuckler_helmet",
+		Script = "scripts/items/armor/lonewolf_axebuckler_helmet",
+		Sets = [{
+			Hoods = [
+			[1, "hood/legend_helmet_leather_hood"], //45
+			],
+			Helms = [
+			[1, "helm/legend_helmet_barbute"], //130
+			],
+			Tops = [
+			[1, "top/legend_helmet_faceplate_flat"], //30
+			[1, "top/legend_helmet_faceplate_snub_nose"], //20
+			[1, "top/legend_helmet_faceplate_snub_slit"], //40
+			],
+			Vanity = [
+			]
+		}]
+	},
+	{
+		ID = "lonewolf_crossbowsword_helmet",
+		Script = "scripts/items/armor/lonewolf_crossbowsword_helmet",
+		Sets = [{
+			Hoods = [
+			[1, "hood/legend_helmet_enclave_bevor"], //95
+			],
+			Helms = [
+			],
+			Tops = [
+			[1, "top/legend_helmet_hood_cloth_round"], 
+			[1, "top/legend_helmet_hood_cloth_wide"], 
+			[1, "top/legend_helmet_hood_cloth_square"], 
+			[1, "top/legend_helmet_cloth_long_hood"], 
+			],
+			Vanity = [
+			]
+		}]
+	},
+	{
+		ID = "lonewolf_bowdagger_helmet",
+		Script = "scripts/items/armor/lonewolf_bowdagger_helmet",
+		Sets = [{
+			Hoods = [
+			[1, "hood/legend_helmet_leather_hood"], //45
+			[1, "hood/legend_helmet_padded_hood"], //50
+			],
+			Helms = [
+			],
+			Tops = [
+			[1, "top/legend_helmet_hood_cloth_round"], 
+			[1, "top/legend_helmet_hood_cloth_wide"], 
+			[1, "top/legend_helmet_hood_cloth_square"], 
+			[1, "top/legend_helmet_cloth_long_hood"], 
+			],
+			Vanity = [
+			]
+		}]
+	},
+	{
+		ID = "lonewolf_polearm_helmet",
+		Script = "scripts/items/armor/lonewolf_polearm_helmet",
+		Sets = [{
+			Hoods = [
+			[1, "hood/legend_helmet_chain_hood_full"] //90
+			],
+			Helms = [
+			[1, "helm/legend_helmet_basinet"], //130
+			],
+			Tops = [
+			[1, "top/legend_helmet_facemask"], //40
+			[1, "top/legend_helmet_faceplate_snub_slit"], //40
+			],
+			Vanity = [
+			]
+		}]
 	}
+
 ])
 
 gt.Const.LegendMod.Helmets <- {};
