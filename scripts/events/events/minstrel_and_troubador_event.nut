@@ -103,7 +103,7 @@ this.minstrel_and_troubador_event <- this.inherit("scripts/events/event", {
 		}
 
 		this.m.Minstrel = candidates_minstrel[this.Math.rand(0, candidates_minstrel.len() - 1)];
-		this.m.Troubadour = candidates_troubador[this.Math.rand(0, candidates_troubador.len() - 1)];
+		this.m.Troubador = candidates_troubador[this.Math.rand(0, candidates_troubador.len() - 1)];
 		this.m.Score = (candidates_minstrel.len() + candidates_troubador.len())  * 10 ;
 	}
 
