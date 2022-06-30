@@ -869,7 +869,7 @@ gt.Const.World.Spawn.LegendSkinGhouls <-
 	MovementSpeedMult = 1.0,
 	VisibilityMult = 1.0,
 	VisionMult = 1.0,
-	Body = "figure_ghoul_01",
+	Body = "figure_skin_ghoul_01", //also has 02 model - not in use but could be for harder groups.
 	MaxR = 1000,
 	Troops = [
 		{
