@@ -10,7 +10,7 @@ this.minstrel_and_juggler_event <- this.inherit("scripts/events/event", {
 		this.m.Cooldown = 50.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_26.png[/img] Around the fire and among the drinks, %minstrel% the minstrel boasts to %juggler%.%SPEECH_ON%Oh ye tumbling fool, ye twirling baffoon! You claim to be so accurate to throw a knife betwixt the hairs on a poor sods head! You could never hit me! I, I have much experience dodging thrown objects, from rotten fruit to womens underwear, i've dodged it all in my time on stage. You could never hit me!%SPEECH_OFF% In one swift motion %minstrel% dodges as %juggler%\'s hands are quick to throw a knife. Another follows, and then another, before long the camp is strewn with thrown objects as they throw and dodge",
+			Text = "[img]gfx/ui/events/event_26.png[/img]Around the fire and among the drinks, %minstrel% the minstrel boasts to %juggler%.%SPEECH_ON%Oh ye tumbling fool, ye twirling baffoon! You claim to be so accurate to throw a knife betwixt the hairs on a poor sods head! You could never hit me! I, I have much experience dodging thrown objects, from rotten fruit to womens underwear, i've dodged it all in my time on stage. You could never hit me!%SPEECH_OFF% In one swift motion %minstrel% dodges as %juggler%\'s hands are quick to throw a knife. Another follows, and then another, before long the camp is strewn with thrown objects as they throw and dodge.",
 			Image = "",
 			List = [],
 			Characters = [],
