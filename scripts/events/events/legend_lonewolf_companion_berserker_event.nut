@@ -82,14 +82,7 @@ this.legend_lonewolf_companion_berserker_event <- this.inherit("scripts/events/e
 			],
 			function start( _event )
 			{
-				local roster = this.World.getTemporaryRoster();
-				_event.m.Dude = roster.create("scripts/entity/tactical/player");
-				_event.m.Dude.setStartValuesEx([
-					"legend_berserker_background"
-				]);
 				this.Characters.push(_event.m.Dude.getImagePath());
-				_event.m.Dude.getSprite("miniboss").setBrush("bust_miniboss");
-				_event.m.Dude.addHeavyInjury();
 			}
 		});
 		this.m.Screens.push({ //continue talk refuse
@@ -161,6 +154,16 @@ this.legend_lonewolf_companion_berserker_event <- this.inherit("scripts/events/e
 
 	function onPrepareVariables( _vars )
 	{
+		if(this.m.Dude == null)
+		{
+			local roster = this.World.getTemporaryRoster();
+			this.m.Dude = roster.create("scripts/entity/tactical/player");
+			this.m.Dude.setStartValuesEx([
+				"legend_berserker_background"
+			]);
+			this.m.Dude.getSprite("miniboss").setBrush("bust_miniboss");
+			this.m.Dude.addHeavyInjury();
+		}
 		_vars.push([
 			"dude",
 			this.m.Dude.getName()
