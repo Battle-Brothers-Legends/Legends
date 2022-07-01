@@ -26,7 +26,7 @@ this.legend_blacksmith_crafts_crusadersword <- this.inherit("scripts/events/even
 					Text = "We don\'t have time for this.", //D or skip
 					function getResult( _event )
 					{
-						return 0;
+						return "D";
 					}
 
 				}
@@ -102,7 +102,7 @@ this.legend_blacksmith_crafts_crusadersword <- this.inherit("scripts/events/even
 		});
 		this.m.Screens.push({ //Fail
 			ID = "C",
-			Text = "[img]gfx/ui/events/event_05.png[/img]%Blacksmith% begins strong, but gradually loses control of the shape and form of the blade over time. %Blacksmith% squints and attempts to start again. But at this point the blade is already lost. You tell them to finish it as best as they can.\n\n With a tounge stuck out and a pensive look, %Blacksmith% eventually defaults back to their own ways and makes an impressibly average looking blade, allbeit functional and sturdy.",
+			Text = "[img]gfx/ui/events/event_05.png[/img]%Blacksmith% begins strong, but gradually loses control of the shape and form of the blade over time. %Blacksmith% squints and attempts to start again. But at this point the blade is already lost. You tell them to finish it as best as they can.\n\n With a tounge stuck out and a pensive look, %Blacksmith% eventually defaults back to their old ways and makes an impressively average looking blade, allbeit functional and sturdy.",
 			Image = "",
 			List = [],
 			Characters = [],
