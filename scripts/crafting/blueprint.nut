@@ -51,7 +51,7 @@ this.blueprint <- {
 		return this.Math.ceil(this.m.Cost * this.World.Assets.m.TaxidermistPriceMult);
 	}
 
-	function getCostForCraft () 
+	function getCostForCraft ()
 	{
 		return getCost() * this.m.CraftMultiplier;
 	}
@@ -157,6 +157,56 @@ this.blueprint <- {
 		return false;
 	}
 
+	function isPartlyCraftable()
+	{
+		local itemsMap = this.World.Assets.getStash().getNumItemsMap(true);
+
+		foreach( c in this.m.PreviewSkills )
+		{
+			local ids = [];
+
+			foreach( s in c.Instances )
+			{
+				ids.push(s.getID());
+			}
+
+			if (!this.requirementsMet(ids))
+			{
+				return false;
+			}
+		}
+
+		foreach( c in this.m.PreviewComponents )
+		{
+			if ("LegendsArmor" in c)
+			{
+				if (c.LegendsArmor && ::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+				{
+					continue;
+				}
+
+				if (!c.LegendsArmor && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+				{
+					continue;
+				}
+			}
+
+			local num = 0;
+
+			if (c.Instance.getID() in itemsMap)
+			{
+				num = itemsMap[c.Instance.getID()];
+			}
+
+			if (num >= c.Num)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	function isCraftable()
 	{
 		local itemsMap = this.World.Assets.getStash().getNumItemsMap(true);
@@ -214,15 +264,13 @@ this.blueprint <- {
 			return false;
 		}
 
-		if (::Legends.Mod.ModSettings.getSetting("CraftingUnlocked").getValue())
-		{
-			return true;
-		}
-
 		if (this.m.TimesCrafted >= 1)
 		{
 			return true;
 		}
+
+		if (::Legends.Mod.ModSettings.getSetting("ShowBlueprintsWhen").getValue() == "Always") return true;
+		if (::Legends.Mod.ModSettings.getSetting("ShowBlueprintsWhen").getValue() == "One Ingredient Available") return this.isPartlyCraftable();
 
 		return this.isCraftable();
 	}
