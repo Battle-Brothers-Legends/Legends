@@ -34,7 +34,11 @@ this.lindwurm_scales_upgrade_blueprint <- this.inherit("scripts/crafting/bluepri
 		{
 			_stash.add(this.new("scripts/items/armor_upgrades/lindwurm_scales_upgrade"));
 		}
+	}
 
+	function isValid()	// Deactives this vanilla recipe as it was replaced by a legends recipe
+	{
+		return false;
 	}
 
 });

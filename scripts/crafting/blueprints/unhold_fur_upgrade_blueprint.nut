@@ -36,5 +36,10 @@ this.unhold_fur_upgrade_blueprint <- this.inherit("scripts/crafting/blueprint", 
 
 	}
 
+	function isValid()	// Deactives this vanilla recipe as it was replaced by a legends recipe
+	{
+		return false;
+	}
+
 });
 

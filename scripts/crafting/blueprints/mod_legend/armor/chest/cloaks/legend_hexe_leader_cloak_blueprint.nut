@@ -47,8 +47,12 @@ this.legend_hexe_leader_cloak_blueprint <- this.inherit("scripts/crafting/bluepr
 		{
 			_stash.add(this.new("scripts/items/armor_upgrades/legend_hexe_leader_cloak_upgrade"));
 		}
+	}
 
-
+	// Todo: delete this recipe. Currently it is just deactivated so that it can be tested
+	function isValid()	// Deactives this recipe as it was replaced by another legends recipe.
+	{
+		return false;
 	}
 
 });

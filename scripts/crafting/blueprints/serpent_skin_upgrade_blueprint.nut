@@ -37,7 +37,11 @@ this.serpent_skin_upgrade_blueprint <- this.inherit("scripts/crafting/blueprint"
 		{
 			_stash.add(this.new("scripts/items/armor_upgrades/serpent_skin_upgrade"));
 		}
+	}
 
+	function isValid()	// Deactives this vanilla recipe as it was replaced by a legends recipe
+	{
+		return false;
 	}
 
 });
