@@ -8,13 +8,14 @@
 ::mods_queue(null, "mod_msu(>=1.0.3), vanilla(>=1.5.0-11), dlc_lindwurm, dlc_unhold, dlc_wildmen, dlc_desert, dlc_paladins", function()
 {
 	::Legends.Mod <- ::MSU.Class.Mod(::Legends.ID, ::Legends.Version, ::Legends.Name);
-	
+
 	::mods_registerJS("legends_assets.js");
 	::LegendsMod <- this.new("scripts/mods/legends_mod")
 
 	::Const.LegendMod.addSettings();
 	::Const.LegendMod.hookMSU();
 	::Const.LegendMod.addLegendItemTypes();
+	::Const.LegendMod.addStaticFunctions();
 
 	this.Const.LegendMod.hookActor();
 	this.Const.LegendMod.hookAISkills();
@@ -32,7 +33,7 @@
 	this.Const.LegendMod.hookTacticalEntityManager();
 	this.Const.LegendMod.hookTacticalState();
 	this.Const.LegendMod.hookWorldmapGenerator();
-	
+
 	::Const.LegendMod.registerUI();
 
 	this.Const.LegendMod.loadBuyback();
