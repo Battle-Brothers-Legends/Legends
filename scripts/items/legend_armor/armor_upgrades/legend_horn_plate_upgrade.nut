@@ -18,38 +18,12 @@ this.legend_horn_plate_upgrade <- this.inherit("scripts/items/legend_armor/legen
 		this.m.SpriteDamagedBack = "upgrade_22_back";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_22_back_dead";
-		this.m.Value = 1200;
-	}
 
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 7,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Reduces any melee damage to the body by [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color]"
-		});
-		return result;
+		this.m.Value = 4000;
+		this.m.Condition = 40;
+		this.m.ConditionMax = 40;
+		this.m.StaminaModifier = -6;
+		this.m.DirectDamageModifier = -35.0;
 	}
-
-	function onArmorTooltip( _result )
-	{
-		_result.push({
-			id = 7,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Reduces any melee damage to the body by [color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color]"
-		});
-	}
-
-	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
-	{
-		if (_hitInfo.BodyPart == this.Const.BodyPart.Body)
-		{
-			_properties.DamageReceivedMeleeMult *= 0.9;
-		}
-	}
-
 });
 

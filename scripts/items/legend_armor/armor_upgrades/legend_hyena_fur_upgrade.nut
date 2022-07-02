@@ -18,40 +18,12 @@ this.legend_hyena_fur_upgrade <- this.inherit("scripts/items/legend_armor/legend
 		this.m.SpriteDamagedBack = "upgrade_26_back";
 		this.m.SpriteCorpseFront = "upgrade_26_front_dead";
 		this.m.SpriteCorpseBack = "upgrade_26_back_dead";
+
 		this.m.Value = 600;
-
-		this.m.Condition = 15;
-		this.m.ConditionMax = 15;
-		this.m.ConditionModifier = 15;
+		this.m.Condition = 10;
+		this.m.ConditionMax = 10;
 		this.m.StaminaModifier = 0;
+		this.m.InitiativeModifier = 15;
 	}
-
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 15,
-			type = "text",
-			icon = "ui/icons/initiative.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+15[/color] Initiative"
-		});
-		return result;
-	}
-
-	function onArmorTooltip( _result )
-	{
-		_result.push({
-			id = 15,
-			type = "text",
-			icon = "ui/icons/initiative.png",
-			text = "[color=" + this.Const.UI.Color.PositiveValue + "]+15[/color] Initiative"
-		});
-	}
-
-	function onUpdateProperties( _properties )
-	{
-		_properties.Initiative += 15;
-	}
-
 });
 

@@ -1,7 +1,5 @@
 this.legend_light_padding_replacement_upgrade <- this.inherit("scripts/items/legend_armor/legend_armor_upgrade", {
-	m = {
-		PreviousValue = 0
-	},
+	m = {},
 	function create()
 	{
 		this.legend_armor_upgrade.create();
@@ -20,36 +18,12 @@ this.legend_light_padding_replacement_upgrade <- this.inherit("scripts/items/leg
 		this.m.SpriteDamagedBack = "upgrade_05_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_05_back_dead";
-		this.m.Value = 5000;
-	}
 
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 14,
-			type = "text",
-			icon = "ui/icons/fatigue.png",
-			text = "Reduces an armor\'s penalty to Maximum Fatigue by [color=" + this.Const.UI.Color.NegativeValue + "]20%[/color]"
-		});
-		return result;
-	}
-
-	function onArmorTooltip( _result )
-	{
-	}
-
-	function onEquip()
-	{
-		this.m.StaminaModifier = -this.Math.floor(this.m.Armor.getStaminaModifier() * 0.2);
-		this.legend_armor_upgrade.onEquip();
-	}
-
-	function onUnequip()
-	{
+		this.m.Value = 2000;
+		this.m.Condition = 10;
+		this.m.ConditionMax = 10;
 		this.m.StaminaModifier = 0;
-		this.legend_armor_upgrade.onUnequip();
+		this.m.FatiguePenaltyMultiplier = -40.0;
 	}
-
 });
 

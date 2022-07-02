@@ -18,17 +18,11 @@ this.legend_light_gladiator_upgrade <- this.inherit("scripts/items/legend_armor/
 		this.m.SpriteDamagedBack = null;
 		this.m.SpriteCorpseFront = "upgrade_24_front_dead";
 		this.m.SpriteCorpseBack = null;
-		this.m.Value = 200;
-		this.m.ConditionModifier = 45;
+
+		this.m.Value = 400;
 		this.m.Condition = 45;
 		this.m.ConditionMax = 45;
 		this.m.StaminaModifier = -2;
 	}
-
-
-	function onArmorTooltip( _result )
-	{
-	}
-
 });
 

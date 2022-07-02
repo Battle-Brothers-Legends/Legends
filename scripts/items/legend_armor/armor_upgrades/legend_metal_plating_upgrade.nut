@@ -18,17 +18,13 @@ this.legend_metal_plating_upgrade <- this.inherit("scripts/items/legend_armor/le
 		this.m.SpriteDamagedBack = "upgrade_12_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_12_back_dead";
-		this.m.Value = 135;
-		this.m.Condition = 15;
-		this.m.ConditionMax = 15;
-		this.m.ConditionModifier = 15;
-		this.m.StaminaModifier = -1;
+
+		this.m.Value = 800;
+		this.m.Condition = 10;
+		this.m.ConditionMax = 10;
+		this.m.StaminaModifier = 0;
+		this.m.DamageReceivedArmorMult = -15.0;
+		this.m.FatiguePenaltyMultiplier = 25.0;
 	}
-
-
-	function onArmorTooltip( _result )
-	{
-	}
-
 });
 

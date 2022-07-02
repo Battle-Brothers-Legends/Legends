@@ -18,38 +18,12 @@ this.legend_additional_padding_upgrade <- this.inherit("scripts/items/legend_arm
 		this.m.SpriteDamagedBack = "upgrade_03_back";
 		this.m.SpriteCorpseFront = "upgrade_03_front_dead";
 		this.m.SpriteCorpseBack = "upgrade_03_back_dead";
-		this.m.Value = 700;
-	}
 
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 15,
-			type = "text",
-			icon = "ui/icons/direct_damage.png",
-			text = "Reduces damage ignoring armor by [color=" + this.Const.UI.Color.NegativeValue + "]33%[/color]"
-		});
-		return result;
+		this.m.Value = 1200;
+		this.m.Condition = 1;
+		this.m.ConditionMax = 1;
+		this.m.StaminaModifier = -2;
+		this.m.DirectDamageModifier = -35.0;
 	}
-
-	function onArmorTooltip( _result )
-	{
-		_result.push({
-			id = 15,
-			type = "text",
-			icon = "ui/icons/direct_damage.png",
-			text = "Only take [color=" + this.Const.UI.Color.NegativeValue + "]66%[/color] of any damage that ignores armor"
-		});
-	}
-
-	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
-	{
-		if (_hitInfo.BodyPart == this.Const.BodyPart.Body && _attacker != null && _attacker.getID() != this.getArmor().getContainer().getActor().getID())
-		{
-			_properties.DamageReceivedDirectMult *= 0.66;
-		}
-	}
-
 });
 

@@ -18,17 +18,12 @@ this.legend_joint_cover_upgrade <- this.inherit("scripts/items/legend_armor/lege
 		this.m.SpriteDamagedBack = "upgrade_10_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_10_back_dead";
-		this.m.Value = 450;
+
+		this.m.Value = 750;
 		this.m.Condition = 30;
 		this.m.ConditionMax = 30;
-		this.m.ConditionModifier = 30;
-		this.m.StaminaModifier = -4;
+		this.m.StaminaModifier = -6;
+		this.m.DirectDamageModifier = -30.0;
 	}
-
-
-	function onArmorTooltip( _result )
-	{
-	}
-
 });
 

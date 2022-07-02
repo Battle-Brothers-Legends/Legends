@@ -18,7 +18,9 @@ this.legend_bone_platings_upgrade <- this.inherit("scripts/items/legend_armor/le
 		this.m.SpriteDamagedBack = "upgrade_06_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_06_back_dead";
+
 		this.m.Value = 850;
+		this.m.StaminaModifier = -2;
 	}
 
 	function getTooltip()

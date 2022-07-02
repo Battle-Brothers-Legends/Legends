@@ -18,17 +18,11 @@ this.legend_leather_shoulderguards_upgrade <- this.inherit("scripts/items/legend
 		this.m.SpriteDamagedBack = "upgrade_08_back_damaged";
 		this.m.SpriteCorpseFront = null;
 		this.m.SpriteCorpseBack = "upgrade_08_back_dead";
-		this.m.Value = 50;
-		this.m.Condition = 5;
-		this.m.ConditionMax = 5;
-		this.m.ConditionModifier = 5;
-		this.m.StaminaModifier = 0;
+
+		this.m.Value = 250;
+		this.m.Condition = 30;
+		this.m.ConditionMax = 30;
+		this.m.StaminaModifier = -2;
 	}
-
-
-	function onArmorTooltip( _result )
-	{
-	}
-
 });
 

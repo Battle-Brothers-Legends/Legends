@@ -10,11 +10,12 @@ this.legend_heraldic_plates_upgrade <- this.inherit("scripts/items/legend_armor/
 		this.m.ArmorDescription = "Large protective plates have been fixed at the shoulders of this armor.";
 		this.m.Variant = this.Math.rand(14, 18);
 		this.updateVariant();
-		this.m.Value = 200;
-		this.m.Condition = 40;
-		this.m.ConditionMax = 40;
-		this.m.ConditionModifier = 40;
-		this.m.StaminaModifier = -5;
+
+		this.m.Value = 1800;
+		this.m.Condition = 60;
+		this.m.ConditionMax = 60;
+		this.m.StaminaModifier = -10;
+		this.m.ResolveModifier = 10;
 	}
 
 	function updateVariant()
@@ -37,11 +38,5 @@ this.legend_heraldic_plates_upgrade <- this.inherit("scripts/items/legend_armor/
 		this.m.SpriteCorpseFront = "upgrade_" + variant + "_front_dead";
 		this.m.SpriteCorpseBack = "upgrade_" + variant + "_back_dead";
 	}
-
-
-	function onArmorTooltip( _result )
-	{
-	}
-
 });
 

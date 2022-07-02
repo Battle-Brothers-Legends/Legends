@@ -18,40 +18,12 @@ this.legend_direwolf_pelt_upgrade <- this.inherit("scripts/items/legend_armor/le
 		this.m.SpriteDamagedBack = "upgrade_01_back";
 		this.m.SpriteCorpseFront = "upgrade_01_front_dead";
 		this.m.SpriteCorpseBack = "upgrade_01_back_dead";
+
 		this.m.Value = 600;
 		this.m.Condition = 10;
 		this.m.ConditionMax = 10;
-		this.m.ConditionModifier = 10;
 		this.m.StaminaModifier = 0;
+		this.m.ThreatModifier = 5;
 	}
-
-	function getTooltip()
-	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		result.push({
-			id = 15,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Reduces the Resolve of any opponent engaged in melee by [color=" + this.Const.UI.Color.NegativeValue + "]-5[/color]"
-		});
-		return result;
-	}
-
-	function onArmorTooltip( _result )
-	{
-		_result.push({
-			id = 15,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Reduces the Resolve of any opponent engaged in melee by [color=" + this.Const.UI.Color.NegativeValue + "]-5[/color]"
-		});
-	}
-
-	function onUpdateProperties( _properties )
-	{
-		this.legend_armor_upgrade.onUpdateProperties(_properties);
-		_properties.Threat += 5;
-	}
-
 });
 
