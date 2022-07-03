@@ -390,7 +390,7 @@ this.drunkard_loses_stuff_event <- this.inherit("scripts/events/event", {
 				continue;
 			}
 
-			if (item.isItemType(this.Const.Items.ItemType.Legendary) || item.isIndestructible())
+			if (item.isNamed() || item.isIndestructible()) //rap I love you but i do not like how sadistic you can be.
 			{
 				continue;
 			}
