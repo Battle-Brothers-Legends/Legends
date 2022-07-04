@@ -28,7 +28,7 @@ this.legend_horse_rouncey <- this.inherit("scripts/skills/backgrounds/legend_hor
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Steadfast,
 				this.Const.Perks.PerkDefs.Recover,
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.LegendHorseLongeing
 			],
 			[

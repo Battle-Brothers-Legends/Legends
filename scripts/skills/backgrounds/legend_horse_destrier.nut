@@ -35,7 +35,7 @@ this.legend_horse_destrier <- this.inherit("scripts/skills/backgrounds/legend_ho
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Steadfast,
 				this.Const.Perks.PerkDefs.Recover,
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.LegendHorseLongeing
 			],
 			[

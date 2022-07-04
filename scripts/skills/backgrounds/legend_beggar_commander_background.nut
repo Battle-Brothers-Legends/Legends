@@ -48,7 +48,7 @@ this.legend_beggar_commander_background <- this.inherit("scripts/skills/backgrou
 		this.m.Modifiers.Barter = this.Const.LegendMod.ResourceModifiers.Barter[3];
 		this.m.CustomPerkTree = [
 			[
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.BagsAndBelts

@@ -79,7 +79,7 @@ this.legend_female_beggar_commander_background <- this.inherit("scripts/skills/b
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[0];
 		this.m.CustomPerkTree = [
 			[
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.BagsAndBelts

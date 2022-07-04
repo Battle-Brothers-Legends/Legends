@@ -13,7 +13,7 @@ local VanillaTree = [
 		gt.Const.Perks.PerkDefs.BagsAndBelts,
 		gt.Const.Perks.PerkDefs.NineLives,
 		gt.Const.Perks.PerkDefs.Pathfinder,
-		gt.Const.Perks.PerkDefs.Adrenalin,
+		gt.Const.Perks.PerkDefs.Adrenaline,
 		gt.Const.Perks.PerkDefs.Recover,
 		gt.Const.Perks.PerkDefs.Student
 	],
@@ -368,7 +368,7 @@ gt.Const.Perks.GetDynamicPerkTree <- function (_mins, _map)
 		for (local i = 0; i < L.len(); i = ++i)
 		{
 			while (nextIndex < 7 && _totals[nextIndex] >= 13 ) { //assume we start index 6, last row
-				nextIndex++; //attatch to row 7, actually tier 8 of perk tree 
+				nextIndex++; //attatch to row 7, actually tier 8 of perk tree
 				if (nextIndex > 6) { //adds new index to our tree for this
 					foundIndexToSlot = false //if this is ever false than our starting row and everything past it is overflowed, so we go back one
 				}

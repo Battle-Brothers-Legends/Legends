@@ -67,7 +67,7 @@ this.legend_assassin_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[1];
 		this.m.CustomPerkTree = [
 			[
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.FastAdaption,
 				this.Const.Perks.PerkDefs.BagsAndBelts,

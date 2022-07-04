@@ -550,7 +550,7 @@ gt.Const.Perks.FastTree <- {
 	Tree = [
 		[
 			gt.Const.Perks.PerkDefs.FastAdaption,
-			gt.Const.Perks.PerkDefs.Adrenalin
+			gt.Const.Perks.PerkDefs.Adrenaline
 		],
 		[
 			gt.Const.Perks.PerkDefs.Anticipation
@@ -801,7 +801,7 @@ gt.Const.Perks.FitTree <- {
 		],
 		[],
 		[
-			
+
 		],
 		[],
 		[],

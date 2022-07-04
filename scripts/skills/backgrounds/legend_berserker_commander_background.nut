@@ -93,7 +93,7 @@ this.legend_berserker_commander_background <- this.inherit("scripts/skills/backg
 				this.Const.Perks.PerkDefs.CripplingStrikes,
 				this.Const.Perks.PerkDefs.LegendUnarmedTraining,
 				this.Const.Perks.PerkDefs.Colossus,
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Pathfinder,
 				this.Const.Perks.PerkDefs.Steadfast,

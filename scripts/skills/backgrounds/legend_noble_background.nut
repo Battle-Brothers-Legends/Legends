@@ -49,7 +49,7 @@ this.legend_noble_background <- this.inherit("scripts/skills/backgrounds/charact
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[1];
 		this.m.CustomPerkTree = [
 			[
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.Backstabber,
 				this.Const.Perks.PerkDefs.CripplingStrikes,
 				this.Const.Perks.PerkDefs.Pathfinder,

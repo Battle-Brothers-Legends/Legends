@@ -72,7 +72,7 @@ this.legend_noble_commander_background <- this.inherit("scripts/skills/backgroun
 		this.m.CustomPerkTree = [
 			[
 				this.Const.Perks.PerkDefs.LegendCheerOn,
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.Backstabber,
 				this.Const.Perks.PerkDefs.CripplingStrikes,
 				this.Const.Perks.PerkDefs.Pathfinder,

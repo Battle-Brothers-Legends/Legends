@@ -54,7 +54,7 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 				this.Const.Perks.PerkDefs.BagsAndBelts,
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Pathfinder,
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.Student
 			],

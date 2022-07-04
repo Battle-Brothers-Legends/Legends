@@ -70,7 +70,7 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.LegendSpecialistKnifeSkill,
 				this.Const.Perks.PerkDefs.Pathfinder,
 				this.Const.Perks.PerkDefs.CripplingStrikes,
-				this.Const.Perks.PerkDefs.Adrenalin,
+				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.LegendUnarmedTraining,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.FastAdaption,

@@ -75,7 +75,7 @@ this.legend_crusader_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.BagsAndBelts,
 				this.Const.Perks.PerkDefs.LegendComposure,
 				this.Const.Perks.PerkDefs.LegendBackToBasics,
-				this.Const.Perks.PerkDefs.Adrenalin
+				this.Const.Perks.PerkDefs.Adrenaline
 			],
 			[
 				this.Const.Perks.PerkDefs.CoupDeGrace,
