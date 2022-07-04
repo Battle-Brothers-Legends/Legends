@@ -229,7 +229,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 
 	function onHiredByScenario( bro )
 	{
-		if (bro.getBackground().getID() == "background.graverobber" || bro.getBackground().getID() == "background.gravedigger" || bro.getBackground().getID() == "background.cultist")
+		if (bro.getBackground().getID() == "background.graverobber" || bro.getBackground().getID() == "background.gravedigger" || bro.getBackground().getID() == "background.cultist" || bro.getBackground().getID() == "background.converted_cultist")
 		{
 			bro.improveMood(1.5, "These people really understand me!");
 			bro.getSprite("socket").setBrush("bust_base_undead");
