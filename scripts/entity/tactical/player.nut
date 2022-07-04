@@ -1096,6 +1096,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 
 			if (this.m.CurrentProperties.SurvivesAsUndead && !this.getFlags().has("PlayerZombie")) //deathly spectre for Cabal
 			{
+				this.m.MoraleState = this.Const.MoraleState.Ignore;
 				this.getFlags().add("PlayerZombie");
 				this.getFlags().add("undead");
 				this.getFlags().add("zombie_minion");
