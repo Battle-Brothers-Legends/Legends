@@ -1,11 +1,11 @@
-this.adopt_warbear_event <- this.inherit("scripts/events/event", {
+this.legends_adopt_warbear_event <- this.inherit("scripts/events/event", {
 	m = {
 		Bro = null,
 		BearTamer = null
 	},
 	function create()
 	{
-		this.m.ID = "event.adopt_warbear";
+		this.m.ID = "event.legends.adopt_warbear";
 		this.m.Title = "Deep in the forest...";
 		this.m.Cooldown = 50.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
@@ -181,9 +181,9 @@ this.adopt_warbear_event <- this.inherit("scripts/events/event", {
 				bearBros++
 			}
 		}
-		
+
 		this.m.Bro = brothers[this.Math.rand(0, brothers.len() - 1)];
-		
+
 		if (candidates.len() > 0)
 		{
 			this.m.BearTamer = candidates[this.Math.rand(0, candidates.len() - 1)];

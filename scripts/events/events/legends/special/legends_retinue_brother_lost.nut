@@ -1,8 +1,8 @@
-this.retinue_brother_lost <- this.inherit("scripts/events/event", {
+this.legends_retinue_brother_lost <- this.inherit("scripts/events/event", {
 	m = {},
 	function create()
 	{
-		this.m.ID = "event.retinue_brother_lost";
+		this.m.ID = "event.legends.retinue_brother_lost";
 		this.m.Title = "At camp...";
 		this.m.IsSpecial = true;
 		this.m.Screens.push({

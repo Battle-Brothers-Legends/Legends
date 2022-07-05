@@ -72,7 +72,7 @@ this.event_manager <- {
 			this.addSpecialEvent("event.manhunters_origin_capture_prisoner");
 		}
 
-		this.addSpecialEvent("event.retinue_brother_lost");
+		this.addSpecialEvent("event.legends.retinue_brother_lost");
 		this.addSpecialEvent("event.helped_caravan");
 		this.m.LastEventTime = this.Time.getVirtualTimeF();
 	}

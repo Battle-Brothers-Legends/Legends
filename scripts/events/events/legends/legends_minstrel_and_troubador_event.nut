@@ -1,11 +1,11 @@
-this.minstrel_and_troubador_event <- this.inherit("scripts/events/event", {
+this.legends_minstrel_and_troubador_event <- this.inherit("scripts/events/event", {
 	m = {
 		Minstrel = null,
 		Troubador = null
 	},
 	function create()
 	{
-		this.m.ID = "event.minstrel_and_troubador";
+		this.m.ID = "event.legends.minstrel_and_troubador";
 		this.m.Title = "During camp...";
 		this.m.Cooldown = 35.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
@@ -36,7 +36,7 @@ this.minstrel_and_troubador_event <- this.inherit("scripts/events/event", {
 					{
 						continue;
 					}
-					
+
 					if (bro.getID() == _event.m.Troubador.getID())
 					{
 						continue;
@@ -84,7 +84,7 @@ this.minstrel_and_troubador_event <- this.inherit("scripts/events/event", {
 			{
 				candidates_minstrel.push(bro);
 			}
-			
+
 			if (bro.getBackground().getID() == "background.female_minstrel")
 			{
 				candidates_troubador.push(bro);
