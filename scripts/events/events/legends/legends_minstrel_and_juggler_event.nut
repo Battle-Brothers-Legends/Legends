@@ -1,11 +1,11 @@
-this.minstrel_and_juggler_event <- this.inherit("scripts/events/event", {
+this.legends_minstrel_and_juggler_event <- this.inherit("scripts/events/event", {
 	m = {
 		Minstrel = null,
 		Juggler = null
 	},
 	function create()
 	{
-		this.m.ID = "event.minstrel_and_juggler";
+		this.m.ID = "event.legends.minstrel_and_juggler";
 		this.m.Title = "During camp...";
 		this.m.Cooldown = 50.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
@@ -84,7 +84,7 @@ this.minstrel_and_juggler_event <- this.inherit("scripts/events/event", {
 							id = 17,
 							icon = "ui/icons/ranged_skill.png",
 							text = bro.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Ranged Defense"
-							});	
+							});
 						}
 						if (r == 2)
 						{
@@ -95,10 +95,10 @@ this.minstrel_and_juggler_event <- this.inherit("scripts/events/event", {
 							text = bro.getName() + " suffers " + injury.getNameOnly()
 							});
 						}
-					}				
-				
+					}
+
 				}
-				
+
 
 			}
 

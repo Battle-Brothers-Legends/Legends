@@ -1,4 +1,4 @@
-this.fletcher_crafts_masterwork_event <- this.inherit("scripts/events/event", {
+this.legends_fletcher_crafts_masterwork_event <- this.inherit("scripts/events/event", {
 	m = {
 		Bowyer = null,
 		OtherGuy1 = null,
@@ -6,7 +6,7 @@ this.fletcher_crafts_masterwork_event <- this.inherit("scripts/events/event", {
 	},
 	function create()
 	{
-		this.m.ID = "event.fletcher_crafts_masterwork";
+		this.m.ID = "event.legends.fletcher_crafts_masterwork";
 		this.m.Title = "During camp...";
 		this.m.Cooldown = 999999.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
