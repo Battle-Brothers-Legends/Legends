@@ -230,7 +230,7 @@ this.fletcher_crafts_masterwork_event <- this.inherit("scripts/events/event", {
 
 		foreach( bro in brothers )
 		{
-			if (bro.getLevel() >= 6 && bro.getBackground().getID() == "background.female_bowyer")
+			if (bro.getLevel() >= 6 && bro.getBackground().getID() == "background.bowyer" || bro.getBackground().getID() == "background.female_bowyer")
 			{
 				candidates.push(bro);
 			}
