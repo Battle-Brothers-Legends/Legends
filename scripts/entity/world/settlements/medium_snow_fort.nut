@@ -65,8 +65,7 @@ this.medium_snow_fort <- this.inherit("scripts/entity/world/settlement", {
 			"retired_soldier_background"
 		];
 		this.m.StablesList = [
-			"legend_donkey_background",
-			"legend_horse_rouncey"
+			"legend_donkey_background"
 		];
 		this.m.UIDescription = "This stone keep shelters a garrison from the snow";
 		this.m.Description = "This stone-built keep offers protection both from the cold and any invaders.";

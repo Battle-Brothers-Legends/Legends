@@ -2093,26 +2093,6 @@ gt.Const.Strings.PerkName <- {
 	LegendInfectiousRage = "InfectiousRage",
 
 
-	//HORSES - skills for horses, currently unused and/or missing files
-	LegendHorseCharge = "Mounted Charge",
-	LegendHorsePirouette = "Pirouette",
-	LegendHorseBitting = "Bitting",
-	LegendHorseDesensitization = "Desensitization",
-	LegendHorseHippology = "Hippology",
-	LegendHorseImpulsion = "Impulsion",
-	LegendHorseLeadChange = "Lead Change",
-	LegendHorseLegControl = "Leg Control",
-	LegendHorseLiberty = "Liberty",
-	LegendHorseLongeing = "Longeing",
-	LegendHorseParthianShot = "Parthian Shot",
-	LegendHorsePiaffe = "Piaffe",
-	LegendHorseTempiChange = "Tempi Change",
-	LegendHorseMovement = "Horse Movement",
-	LegendHorseCollection = "Collection",
-	LegendHorseFlyingChange = "Flying Change",
-	LegendHorsePassage = "Passage",
-
-
 	//AI SKILLS - skills used by AI specfically
 	Bruiser = "Bruiser", //increases armour penetration by 10%, is an AI skill
 	BatteringRam = "Battering Ram", //gives orcs stun immunity, similar to composure skill
@@ -2441,22 +2421,6 @@ gt.Const.Strings.PerkDescription <- {
 	LegendAssassinate = "Becoming invisible is impressive, but it is what you do with this power that really counts.  Striking from the shadows allows you to bypass enemy defenses and strike for their undefended weak points. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] maximum and minimum damage while hidden. Grants an additional [color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] damage to Assassin backgrounds while hidden.",
 	LegendMealPreperation = "A good company chef can make a meal from whatever can be scrounged up, and have it in your belly before camp breaks. Unlocks a chance to get better food rewards when this character hunts in camp. The chance and rewards increase as you level up. Includes porridge, pies and puddings.",
 	LegendAlcoholBrewing = "Any camp worth its salt will have an alcohol still fashioned out of whatever can be pulled together. Unlocks a chance to get alcohol as a reward when this character hunts in camp. The rewards increase as you level up. Includes beer, wine and mead. Also allows alcohol crafting in the crafting tent.",
-	LegendHorseCharge = "Use the great weight and speed of the horse to charge forward. Move up to four spaces and attack an enemy.",
-	LegendHorsePirouette = "Learning to turn quickly allows quick changes in direction required to escape enemies.",
-	LegendHorseBitting = "Getting a horse accustomed to the feel of a bit and a bridle, makes it easier to control the movements. This increases defenses in battle by 25% of the rider\'s melee defense.",
-	LegendHorseDesensitization = "Using loud noises and sudden movements, the horse is trained to not react to the sounds of battle until the rider tells it to. This increases melee attack in battle by 25% of the rider\'s melee attack ",
-	LegendHorseHippology = "Knowledge of horse physiology allows for better diet, exercise and care. Increases hitpoints by 25%",
-	LegendHorseImpulsion = "Effective leverage of equestrian physiology relaxes the spinal column and allows the hindquarters to engage effectively. Increases Initiative by 25%",
-	LegendHorseLeadChange = "A horse\'s lead leg can tire, by training a horse to swap legs it is possible to prevent the horse from tiring. Movement costs 25% less fatigue.",
-	LegendHorseLegControl = "it is not possible to hold the reins while firing a bow. Horse and rider must learn to communicate through the rider\'s legs. Increases ranged attack in battle by 25%",
-	LegendHorseLiberty = "Though extensive roundpenning training, the horse gains trust in the movements of the rider. This increases resolve in battle by 25% of the rider\'s resolve  ",
-	LegendHorseLongeing = "Time spent working on a long rope helps build trust between horse and rider. Increases resolve by 25%",
-	LegendHorseParthianShot = "shooting from a moving horse is not easy, extensive practice is required to reliably achieve such a feat. Increases ranged attack by 25%",
-	LegendHorsePiaffe = "Keeping a horse moving can retain their focus and prepare them for an oncoming battle. Increases melee attack in battle by 25% ",
-	LegendHorseTempiChange = "the most challenging form of lead change, a tempi change requires shifting back and forth between lead legs. This form of training can allow the horse to change lead leg according to the situation, useful when under fire. Increases ranged defense by 25%",
-	LegendHorseCollection = "By training the horse\'s posture, advanced movements become easier to perform and less draining. Increases fatigue by 25%",
-	LegendHorseFlyingChange = "Changing lead legs at high speeds is an advanced move that can allow horses to cover much larger distances. Gain 1 action point.",
-	LegendHorsePassage = "Training the legs to raise higher and push harder can prepare horses for rough or muddy terrain. Decreases movement costs on rough terrain.",
 	LegendDrumsOfLife = "Learn powerful rhythms that drive your allies on. Unlocks the Drums of Life skill that restores [color=" + this.Const.UI.Color.PositiveValue + "]+4[/color] health to every ally within eight tiles. Can only be used with hands empty, or with a Drum or Lute equipped.",
 	LegendLacerate = "Lust for blood courses through your veins, each stroke rips and tears with a ferocity unmatched. Cause minor but long lasting bleeding on any target you deal direct health damage to with any weapon. This effect stacks.",
 	LegendPeaceful = "Not all folks are built for war, some find contentment in contemplation or practicing a trade. This character gains [color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] resolve [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] experience gain, in exchange for [color=" + this.Const.UI.Color.PositiveValue + "]-20[/color] melee skill and ranged skill. Becomes content with being in reserve, and consumes half rations while there. When in combat this character gives [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] resolve and [color=" + this.Const.UI.Color.PositiveValue + "]+1%[/color] XP gain to allies.",
@@ -2469,7 +2433,6 @@ gt.Const.Strings.PerkDescription <- {
 	LegendNetCasting = "Learning the ways of the cast takes practice, holding the net in the right position and twisting at the hips allows you to cover a greater distance with each cast. Increases the throwing range of nets and reinforced nets by 2.",
 	LegendPacifist = "Fighting is a brutal thuggish pastime, most folk prefer a life without frequent bouts of extreme violence.  This character does not count towards your party strength when determining game difficulty. They will gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] resolve. They become content with being in reserve, and will grow unhappy if they are in more than half of the battles your company takes.",
 	LegendMagicMissile = "Release a controlled forceful bolt, leaping towards a foe. Damage based on current initiative, accuracy based on ranged attack skill.",
-	LegendHorseMovement = "Move like a horse, quickly across flat terrain, but slowly through bogs and mountains.",
 	LegendCampCook = "There is a fine art to cooking, skills and ingredients that are not obvious but unlock a world of flavor or preserve food for longer. Unlocks food crafting in the crafting tent. Allows the creation of porridge, puddings, pies, meat curing, fruit drying and ration making.",
 	LegendPackleader = "Dogs can instinctively identify a pack leader, knowledge of their habits allows you to become the leader of their pack. Unlocks the ability to store additional dog items in your bags and use them in battle.",
 	LegendDogWhisperer = "You have a way with dogs, the bond you form with them imbues each dog with more confidence and strength, knowing that you are there gives them strength. Grants each dog you unleash the perks Colossus, Fortified Mind and Underdog.",

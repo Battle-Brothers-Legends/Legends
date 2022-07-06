@@ -85,9 +85,7 @@ this.large_tundra_fort <- this.inherit("scripts/entity/world/settlement", {
 			"legend_noble_2h"
 		];
 		this.m.StablesList = [
-			"legend_donkey_background",
-			"legend_horse_rouncey",
-			"legend_horse_destrier"
+			"legend_donkey_background"
 		];
 		this.m.UIDescription = "A large citadel towering high over the surrounding tundra";
 		this.m.Description = "A large citadel towering high over the surrounding tundra and securing the large and open region. Many come here to resupply, make repairs and rest until venturing on.";

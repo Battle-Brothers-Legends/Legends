@@ -103,10 +103,7 @@ this.large_coast_fort <- this.inherit("scripts/entity/world/settlement", {
 			"legend_blacksmith_background",
 			"legend_noble_ranged"
 		];
-		this.m.StablesList = [
-			"legend_horse_destrier",
-			"legend_horse_courser"
-		];
+		this.m.StablesList = [];
 		this.m.UIDescription = "This massive citadel guards a warport and the surrounding trade routes";
 		this.m.Description = "This massive citadel guards a warport and the surrounding trade routes. It is a seat of power for nobility and home to a large garrison.";
 		this.m.UIBackgroundCenter = "ui/settlements/stronghold_03";

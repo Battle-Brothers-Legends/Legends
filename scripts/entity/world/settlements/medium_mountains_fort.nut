@@ -83,8 +83,7 @@ this.medium_mountains_fort <- this.inherit("scripts/entity/world/settlement", {
 			"sellsword_background"
 		];
 		this.m.StablesList = [
-			"legend_donkey_background",
-			"legend_horse_rouncey"
+			"legend_donkey_background"
 		];
 		this.m.UIDescription = "A stone keep that is towering high over the surrounding mountains";
 		this.m.Description = "A stone keep that is towering high over the surrounding mountains. Lookouts on the towers can see approaching troops from miles away.";

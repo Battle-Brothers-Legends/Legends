@@ -6,7 +6,7 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 		o.m.BloodSaturation = 1.5;
 		o.m.DeathBloodAmount = 1.5;
 		o.m.BloodPoolScale = 1.25;
-		o.m.RiderID <- "";
+		o.m.RiderID <- "";				// removing this causes savegame corruption as its serialized
 
 		o.onRender <- function ()
 		{
@@ -1020,25 +1020,6 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 			}
 
 			return armor.removeUpgrade( _item );
-		}
-
-		o.setRiderID <- function ( _id)
-		{
-			if (_id == null)
-			{
-				_id = ""
-			}
-			this.m.RiderID = _id;
-		}
-
-		o.getRiderID <- function()
-		{
-			return this.m.RiderID
-		}
-
-		o.getRider <- function()
-		{
-			return null;
 		}
 
 		// o.getCompanyID <- function()

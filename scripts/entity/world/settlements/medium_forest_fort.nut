@@ -58,8 +58,7 @@ this.medium_forest_fort <- this.inherit("scripts/entity/world/settlement", {
 			"squire_background"
 		];
 		this.m.StablesList = [
-			"legend_donkey_background",
-			"legend_horse_rouncey"
+			"legend_donkey_background"
 		];
 
 		if (this.Const.DLC.Unhold)

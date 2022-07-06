@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 this.legend_horse_destrier <- this.inherit("scripts/skills/backgrounds/legend_horse", {
 	m = {},
 	function create()
@@ -156,3 +157,5 @@ this.legend_horse_destrier <- this.inherit("scripts/skills/backgrounds/legend_ho
 	}
 
 });
+=======
+>>>>>>> 92348d558 (refactor: remove all horse-related code from legends)

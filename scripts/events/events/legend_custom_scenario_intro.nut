@@ -104,8 +104,6 @@ this.legend_custom_scenario_intro <- this.inherit("scripts/events/event", {
 		local scriptFiles = this.IO.enumerateFiles("scripts/skills/backgrounds/");
 		local blist = {
 			character_background = null,
-			legend_horse = null,
-			legend_horserider = null
 		}
 		//Build Hero selection ...
 		local screen = {
@@ -231,7 +229,6 @@ this.legend_custom_scenario_intro <- this.inherit("scripts/events/event", {
 		local scriptFiles = this.IO.enumerateFiles("scripts/skills/traits/");
 		local blist = {
 			character_trait = null,
-			legend_horse_trait = null,
 			legend_frenemies = null,
 			legend_alignment = null,
 			intensive_training_trait = null,

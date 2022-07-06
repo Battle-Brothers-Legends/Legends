@@ -2171,9 +2171,3 @@ CharacterScreenDatasource.prototype.notifyBackendToggleUpgradeVisible = function
 		}
 	});
 };
-
-
-CharacterScreenDatasource.prototype.notifyBackendAssignRider = function (_rider, _horse, _callback)
-{
-	SQ.call(this.mSQHandle, 'onAssignRider', [ _rider, _horse ], _callback);
-};

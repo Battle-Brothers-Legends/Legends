@@ -233,15 +233,7 @@ this.legends_farming_village <- this.inherit("scripts/entity/world/settlements/l
 		this.m.StablesLists = [[
 			"legend_donkey_background",
 			"legend_donkey_background",
-		],[
-			"legend_donkey_background",
-			"legend_donkey_background",
-			"legend_horse_rouncey"
-		],[
-			"legend_donkey_background",
-			"legend_donkey_background",
-			"legend_horse_rouncey"
-		]];
+		],[],[]];
 		this.m.Rumors = this.Const.Strings.RumorsFarmingSettlement;
 	}
 

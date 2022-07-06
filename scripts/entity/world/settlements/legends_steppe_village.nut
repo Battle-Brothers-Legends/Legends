@@ -209,10 +209,7 @@ this.legends_steppe_village <- this.inherit("scripts/entity/world/settlements/le
 			"female_disowned_noble_background",
 		]];
 		this.m.StablesLists = [[
-			"legend_donkey_background",
-			"legend_horse_rouncey",
-			"legend_horse_destrier",
-			"legend_horse_courser"
+			"legend_donkey_background"
 		],[],[]];
 
 		if (this.Const.DLC.Unhold)

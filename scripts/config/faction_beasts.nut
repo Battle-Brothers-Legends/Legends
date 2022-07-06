@@ -624,24 +624,5 @@ gt.Const.Tactical.Actor.LegendBear <- {
 		50
 	]
 };
-gt.Const.Tactical.Actor.LegendHorse <- {
-	XP = 100,
-	ActionPoints = 9,
-	Hitpoints = 200,
-	Bravery = 40,
-	Stamina = 150,
-	MeleeSkill = 45,
-	RangedSkill = 0,
-	MeleeDefense = 0,
-	RangedDefense = 0,
-	Initiative = 100,
-	FatigueEffectMult = 1.0,
-	MoraleEffectMult = 1.0,
-	FatigueRecoveryRate = 20,
-	Armor = [
-		0,
-		0
-	]
-};
 
 

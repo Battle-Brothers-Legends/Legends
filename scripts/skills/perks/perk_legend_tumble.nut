@@ -7,7 +7,6 @@ this.perk_legend_tumble <- this.inherit("scripts/skills/skill", {
 			"actives.legend_unarmed_lunge",
 			"actives.legend_tumble",
 			"actives.legend_leap",
-			"actives.legend_horse_pirouette"
 		]
 	},
 	function create()
@@ -39,7 +38,7 @@ this.perk_legend_tumble <- this.inherit("scripts/skills/skill", {
 				else
 				{
 					skill.m.ActionPointCost -= 1;
-				}		
+				}
 			}
 		}
 	}

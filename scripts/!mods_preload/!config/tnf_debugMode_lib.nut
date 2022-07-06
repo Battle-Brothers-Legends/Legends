@@ -238,7 +238,6 @@ gt.tnf_debug.actors <- {
     "SatoManhunterVeteran",
     "BanditVermes",
     "BanditRabblePoacher",
-    "BanditOutrider",
     "BanditWarlord",
     "BanditVeteran",
   ],
@@ -1054,12 +1053,6 @@ gt.tnf_debug.itemStats <- {
       mdf       = 15,
       rdf       = 25,
       fat       = -16
-    },
-    rider_on_horse = {
-      condition = 32,
-      mdf       = 20,
-      rdf       = 15,
-      fat       = -14
     },
     undead_heater_shield = {
       condition = 32,

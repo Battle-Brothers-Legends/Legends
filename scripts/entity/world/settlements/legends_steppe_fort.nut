@@ -253,17 +253,8 @@ this.legends_steppe_fort <- this.inherit("scripts/entity/world/settlements/legen
 			"hedge_knight_background"
 		]];
 		this.m.StablesLists = [[
-			"legend_donkey_background",
-			"legend_horse_rouncey"
-		],[
-			"legend_horse_rouncey",
-			"legend_horse_destrier"
-		],[
-			"legend_horse_destrier",
-			"legend_horse_courser",
-			"legend_horse_destrier",
-			"legend_horse_courser"
-		]];
+			"legend_donkey_background"
+		],[],[]];
 
 		this.m.Rumors = this.Const.Strings.RumorsSteppeSettlement;
 	}

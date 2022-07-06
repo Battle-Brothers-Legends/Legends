@@ -114,10 +114,7 @@ this.large_forest_fort <- this.inherit("scripts/entity/world/settlement", {
 			"legend_blacksmith_background"
 		];
 		this.m.StablesList = [
-			"legend_donkey_background",
-			"legend_horse_rouncey",
-			"legend_horse_destrier",
-			"legend_horse_courser"
+			"legend_donkey_background"
 		];
 		if (this.Const.DLC.Unhold)
 		{

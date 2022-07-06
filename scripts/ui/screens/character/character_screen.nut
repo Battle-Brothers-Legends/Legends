@@ -457,7 +457,7 @@ this.character_screen <- {
 			result.brothersMaxInCombat = this.World.Assets.getBrothersMaxInCombat();
 			result.brothersMax = this.World.Assets.getBrothersMax();
 		}
-		
+
 		return result;
 	}
 
@@ -2550,7 +2550,7 @@ this.character_screen <- {
 			foreach (idx, value in _item.getUpgrades())
 			{
 				if (value != 1) continue
-				toRemove.push(idx)	
+				toRemove.push(idx)
 			}
 			if (this.Stash.getNumberOfEmptySlots() < toRemove.len()){
 				return {
@@ -2562,7 +2562,7 @@ this.character_screen <- {
 			{
 				local upgrade = _item.getUpgrade(idx)
 				if (upgrade.isDestroyedOnRemove()) continue
-				this.Stash.add(_item.removeUpgrade(idx))	
+				this.Stash.add(_item.removeUpgrade(idx))
 			}
 		}
 		return this.UIDataHelper.convertStashAndEntityToUIData(_entity, null, false, this.m.InventoryFilter);
@@ -2602,42 +2602,5 @@ this.character_screen <- {
 		this.World.Assets.changeFormationName(name);
 		return this.World.Assets.getFormationName();
 	}
-
-	function onAssignRider( _data )
-	{
-		local riderID = _data[0];
-		local horseID = _data[1];
-
-		local rider = this.Tactical.getEntityByID(_data[0]);
-		local horse = this.Tactical.getEntityByID(_data[1]);
-
-		if (rider == null && horse == null)
-		{
-			return this.onQueryBrothersList();
-		}
-
-		//assign a bro to a horse
-		if (horse != null && rider != null)
-		{
-			horse.setRiderID(_data[0]);
-			rider.setRiderID(_data[0]);
-			return this.onQueryBrothersList();
-		}
-
-		//Removing bro from horse
-		if (horse != null)
-		{
-			horse.setRiderID("");
-		}
-
-		//Removing horse from bro
-		if (rider != null)
-		{
-			rider.setRiderID("");
-		}
-
-		return this.onQueryBrothersList()
-	}
-
 };
 

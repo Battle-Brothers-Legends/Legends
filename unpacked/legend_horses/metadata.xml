@@ -60,7 +60,7 @@
 	<sprite id="horse_body_hair_tan_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\horse_body_hair_tan_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="horse_body_hair_white" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\bodies\horse_body_hair_white.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_body_hair_white_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\horse_body_hair_white_dead.png" left="-65" right="66" top="-57" bottom="53" />
- 
+
 	<sprite id="horse_body_pattern_01" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\bodies\horse_body_pattern_01.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_body_pattern_01_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\horse_body_pattern_01_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="horse_body_pattern_02" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\bodies\horse_body_pattern_02.png" left="-40" right="40" top="-48" bottom="48" />
@@ -69,15 +69,15 @@
 	<sprite id="horse_body_pattern_03_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\horse_body_pattern_03_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="horse_body_pattern_04" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\bodies\horse_body_pattern_04.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_body_pattern_04_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\horse_body_pattern_04_dead.png" left="-65" right="66" top="-57" bottom="53" />
- 
+
 	<sprite id="bust_head_100" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\bust_head_100.png" left="-6" right="44" top="-34" bottom="47" />
 	<sprite id="bust_head_100_injured" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\bust_head_100_injured.png" left="-6" right="44" top="-34" bottom="47" />
 	<sprite id="bust_head_100_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\bust_head_100_dead.png" left="-45" right="15" top="-56" bottom="0" />
 	<sprite id="bust_head_101" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\bust_head_101.png" left="-6" right="44" top="-34" bottom="47" />
 	<sprite id="bust_head_101_injured" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\bust_head_100_injured.png" left="-6" right="44" top="-34" bottom="47" />
 	<sprite id="bust_head_101_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\bust_head_101_dead.png" left="-45" right="15" top="-56" bottom="0" />
- 
- 
+
+
 	<sprite id="bust_head_102" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\bust_head_102.png" left="-6" right="44" top="-34" bottom="47" />
 	<sprite id="bust_head_102_injured" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\bust_head_100_injured.png" left="-6" right="44" top="-34" bottom="47" />
 	<sprite id="bust_head_102_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\bust_head_102_dead.png" left="-45" right="15" top="-56" bottom="0" />
@@ -96,10 +96,10 @@
 	<sprite id="bust_head_107" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\bust_head_107.png" left="-6" right="44" top="-34" bottom="47" />
 	<sprite id="bust_head_107_injured" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\bust_head_100_injured.png" left="-6" right="44" top="-34" bottom="47" />
 	<sprite id="bust_head_107_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\bust_head_107_dead.png" left="-45" right="15" top="-56" bottom="0" />
- 
 
- 
- 
+
+
+
 	<sprite id="horse_hair_black" offsetY="35" ic="FF365A74" width="104" height="142" img="entity\heads\horse_hair_black.png" left="-23" right="31" top="-11" bottom="51" />
 	<sprite id="bust_hair_black_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\horse_hair_black_dead.png" left="-45" right="15" top="-56" bottom="0" />
 	<sprite id="horse_hair_brown" offsetY="35" ic="FF365A74" width="104" height="142" img="entity\heads\horse_hair_brown.png" left="-23" right="31" top="-11" bottom="51" />
@@ -153,7 +153,7 @@
 	<sprite id="horse_armor_hood_yellow_red" offsetY="35" ic="FF365A74" width="104" height="142" img="entity\helmets\horse_armor_hood_yellow_red.png" left="-23" right="31" top="-11" bottom="51" />
 	<sprite id="horse_armor_hood_yellow_red_damaged" offsetY="35" ic="FF365A74" width="104" height="142" img="entity\helmets\horse_armor_hood_yellow_red_damaged.png" left="-23" right="31" top="-11" bottom="51" />
 	<sprite id="horse_armor_hood_yellow_red_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\helmets\horse_armor_hood_yellow_red_dead.png" left="-45" right="15" top="-56" bottom="0" />
- 
+
 	<sprite id="horse_armor_hood_leather" offsetY="35" ic="FF365A74" width="104" height="142" img="entity\helmets\horse_armor_hood_leather.png" left="-23" right="31" top="-11" bottom="51" />
 	<sprite id="horse_armor_hood_leather_damaged" offsetY="35" ic="FF365A74" width="104" height="142" img="entity\helmets\horse_armor_hood_leather_damaged.png" left="-23" right="31" top="-11" bottom="51" />
 	<sprite id="horse_armor_hood_leather_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\helmets\horse_armor_hood_leather_dead.png" left="-45" right="15" top="-56" bottom="0" />
@@ -219,8 +219,8 @@
 	<sprite id="horse_caparison_yellow_red" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\armor\horse_caparison_yellow_red.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_caparison_yellow_red_damaged" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\armor\horse_caparison_yellow_red_damaged.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_caparison_yellow_red_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\armor\horse_caparison_yellow_red_dead.png" left="-65" right="66" top="-57" bottom="53" />
- 
- 
+
+
 	<sprite id="horse_armor_heavy" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\armor\horse_armor_heavy.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_armor_heavy_damaged" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\armor\horse_armor_heavy_damaged.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_armor_heavy_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\armor\horse_armor_heavy_dead.png" left="-65" right="66" top="-57" bottom="53" />
@@ -233,6 +233,6 @@
 	<sprite id="horse_armor_gold" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\armor\horse_armor_gold.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_armor_gold_damaged" offsetY="35" ic="FF4D719A" width="142" height="142" img="entity\armor\horse_armor_gold_damaged.png" left="-40" right="40" top="-48" bottom="48" />
 	<sprite id="horse_armor_gold_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\armor\horse_armor_gold_dead.png" left="-65" right="66" top="-57" bottom="53" />
- 
+
 
 </brush>

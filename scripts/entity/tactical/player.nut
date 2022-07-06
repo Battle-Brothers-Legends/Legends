@@ -1406,7 +1406,6 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/effects/battle_standard_effect"));
 		this.m.Skills.add(this.new("scripts/skills/actives/break_ally_free_skill"));
 		this.m.Skills.add(this.new("scripts/skills/effects/realm_of_nightmares_effect"));
-		this.m.Skills.add(this.new("scripts/skills/special/legend_horserider_skill"));
 		this.m.Skills.add(this.new("scripts/skills/effects/legend_veteran_levels_effect"));
 
 		if (this.Const.DLC.Unhold)
@@ -2010,11 +2009,11 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Talents.resize(this.Const.Attributes.COUNT, 0);
 		this.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - 1);
 	}
-	
+
 	function pickTraits( _backgrounds, _maxTraits )
 	{
 		if(_maxTraits <= 0) {return;}
-		
+
 		local available_traits = [];
 		foreach(trait in this.Const.CharacterTraits)
 		{
@@ -2124,7 +2123,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			}
 
 			pickTraits( traits, maxTraits );
-			
+
 			for( local i = 1; i < traits.len(); i = ++i )
 			{
 				this.m.Skills.add(traits[i]);

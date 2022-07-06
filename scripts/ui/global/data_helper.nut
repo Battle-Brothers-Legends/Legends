@@ -389,7 +389,6 @@ this.data_helper <- {
 		}
 		_target.inReserves <- _entity.isInReserves()
 		_target.stabled <- _entity.isStabled()
-		_target.riderID <- _entity.getRiderID()
 	}
 
 	function addStatsToUIData( _entity, _target )
@@ -452,8 +451,8 @@ this.data_helper <- {
 				break;
 			}
 		}
-		
-		
+
+
 		_target.regularDamage <- damageMin;
 		_target.regularDamageMax <- damageMax;
 		_target.regularDamageLabel <- damageMin + " - " + damageMax;
@@ -880,7 +879,7 @@ this.data_helper <- {
 		result.price <- 0;
 
 		result.upgrades <- _item.getUpgrades();
-		
+
 		if (_owner != null)
 		{
 			switch(_owner)

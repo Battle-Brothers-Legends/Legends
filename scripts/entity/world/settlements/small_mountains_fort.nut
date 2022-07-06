@@ -65,8 +65,7 @@ this.small_mountains_fort <- this.inherit("scripts/entity/world/settlement", {
 			"retired_soldier_background"
 		];
 		this.m.StablesList = [
-			"legend_donkey_background",
-			"legend_horse_rouncey"
+			"legend_donkey_background"
 		];
 		this.m.UIDescription = "A small fortification built in the mountains";
 		this.m.Description = "A small fortification has been built in this mountainous region to act as a base of operations and control the surrounding lands.";

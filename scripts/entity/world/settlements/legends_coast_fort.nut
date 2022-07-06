@@ -261,18 +261,8 @@ this.legends_coast_fort <- this.inherit("scripts/entity/world/settlements/legend
 			"female_adventurous_noble_background",
 		]];
 		this.m.StablesLists = [[
-			"legend_donkey_background",
-			"legend_horse_rouncey"
-		],
-		[
-			"legend_donkey_background",
-			"legend_horse_rouncey",
-			"legend_horse_destrier"
-		],
-		[
-			"legend_horse_destrier",
-			"legend_horse_courser"
-		]];
+			"legend_donkey_background"
+		],[],[]];
 
 		this.m.Rumors = this.Const.Strings.RumorsFishingSettlement;
 

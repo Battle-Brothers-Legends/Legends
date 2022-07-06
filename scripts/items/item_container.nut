@@ -472,21 +472,6 @@ this.item_container <- {
 			return false;
 		}
 
-		if (!this.getActor().getFlags().has("IsHorseRider"))
-		{
-			if  (  (_item.getItemType() == this.Const.Items.ItemType.HorseArmor && !this.getActor().getFlags().has("IsHorse"))
-				|| (_item.getItemType() != this.Const.Items.ItemType.HorseArmor && this.getActor().getFlags().has("IsHorse")))
-			{
-				return false;
-			}
-
-			if  (  (_item.getItemType() == this.Const.Items.ItemType.HorseHelmet && !this.getActor().getFlags().has("IsHorse"))
-				|| (_item.getItemType() != this.Const.Items.ItemType.HorseHelmet && this.getActor().getFlags().has("IsHorse")))
-			{
-				return false;
-			}
-		}
-
 		local vacancy = -1;
 
 		for( local i = 0; i < this.m.Items[_item.getSlotType()].len(); i = ++i )
@@ -905,7 +890,7 @@ this.item_container <- {
 				this.doOnFunctionSlot(_function, _argsArray, slot);
 			}
 		}
-		
+
 		this.m.IsUpdating = false;
 	}
 

@@ -1,6 +1,6 @@
 this.getroottable().Const.LegendMod.hookAISkills <- function()
 {
-	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_default", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_default", function(o)
 	{
 		o.m.PossibleSkills.extend([
 			"actives.cat_bite",
@@ -15,7 +15,6 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 			"actives.legend_ranged_flail",
 			"actives.legend_halberd_impale",
 			"actives.legend_voulge_cleave",
-			"actives.legend_horse_kick",
 			"actives.legend_donkey_kick",
 			"actives.legend_bear_bite",
 			"actives.legend_bear_claws",
@@ -29,7 +28,7 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_bow", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_bow", function(o)
 	{
 		o.m.PossibleSkills.extend([
 			"actives.legend_catapult_boulder",
@@ -38,7 +37,7 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_adrenaline", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_adrenaline", function(o)
 	{
 		o.m.PossibleSkills.extend([
 			"actives.adrenaline",
@@ -46,17 +45,17 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_crush_armor", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_crush_armor", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_halberd_smite");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_decapitate", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_decapitate", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_voulge_decapitate");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_lash", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_lash", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_ranged_lash");
 	});
@@ -66,12 +65,12 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		o.m.PossibleSkills.push("actives.legend_chain_thresh");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_swallow_whole", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_swallow_whole", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_skin_ghoul_swallow_whole");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_terror", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_terror", function(o)
 	{
 		o.m.PossibleSkills.extend([
 			"actives.legend_banshee_scream",
@@ -79,7 +78,7 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_boost_stamina", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_boost_stamina", function(o)
 	{
 		o.m.PossibleSkills.extend([
 			"actives.legend_drums_of_life",
@@ -89,36 +88,35 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_buff_howl", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_buff_howl", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_white_wolf_howl");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_charge", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_charge", function(o)
 	{
 		o.m.PossibleSkills.extend([
 			"actives.charge",
-			"actives.unstoppable_charge",
-			"actives.legend_horse_charge"
+			"actives.unstoppable_charge"
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_charm", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_charm", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_intensely_charm");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_corruption", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_corruption", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_demon_shadows");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_darkflight", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_darkflight", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_teleport");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_defend_knock_back", function ( o ) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_defend_knock_back", function ( o )
 	{
 		o.m.PossibleSkills.extend([
 			"actives.legend_kick",
@@ -128,7 +126,7 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_defend_riposte", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_defend_riposte", function(o)
 	{
 		o.m.PossibleSkills.extend([
 			"actives.legend_staff_riposte",
@@ -136,15 +134,14 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_disengage", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_disengage", function(o)
 	{
 		o.m.PossibleSkills.extend([
-			"actives.footwork",
-			"actives.legend_horse_pirouette"
+			"actives.footwork"
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_engage_ranged", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_engage_ranged", function(o)
 	{
 		o.m.PossibleSkills.extend([
 			"actives.legend_magic_missile",
@@ -154,22 +151,22 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		]);
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_line_breaker", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_line_breaker", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_boar_charge");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_move_tail", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_move_tail", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_stollwurm_move_tail");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_move_tentacle", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_move_tentacle", function(o)
 	{
 		o.m.PossibleSkills.push("actives.legend_stollwurm_move");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_puncture", function(o) 
+	::mods_hookExactClass("ai/tactical/behaviors/ai_attack_puncture", function(o)
 	{
 		o.m.PossibleSkills.push("actives.puncture_parry_dagger");
 
@@ -228,15 +225,15 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 			}
 
 			local getBestTarget = getBestTarget(_entity, _skill, _targets);
-			
+
 			while( resume getBestTarget == null)
 			{
 				yield null;
 			}
-			
+
 			return getBestTarget;
 		};
 	});
-		
+
 	delete this.Const.LegendMod.hookAISkills;
 }

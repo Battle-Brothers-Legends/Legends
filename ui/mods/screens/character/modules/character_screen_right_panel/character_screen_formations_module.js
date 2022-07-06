@@ -372,9 +372,6 @@ CharacterScreenFormationsModule.prototype.createStableSlots = function (_parentD
 
 		drag.removeClass('is-dragged');
 		// do the swapping
-		self.mDataSource.notifyBackendAssignRider(drag.data("ID"), horse.data('child').data('ID'), function (_data) {
-			self.onBrothersListLoaded(null, _data);
-		})
 		return true
 	};
 
@@ -555,24 +552,8 @@ CharacterScreenFormationsModule.prototype.onBrothersListLoaded = function (_data
 			var slotNum = this.mNumActive + 9 * Math.floor(this.mNumActive / 9);
 			this.addBrotherSlotDIV(this.mSlots[slotNum], brother, this.mNumActive, false);
 
-			if (brother[CharacterScreenIdentifier.Entity.Character.Key].riderID !== '') {
-				stableMap[brother[CharacterScreenIdentifier.Entity.Character.Key].riderID] = slotNum;
-			}
 			continue
 		}
-
-		if (brother[CharacterScreenIdentifier.Entity.Character.Key].riderID !== '') {
-			toAdd.push(i);
-		}
-	}
-
-	for (var i = 0; i < toAdd.length; ++i) {
-		var riderID = _brothers[toAdd[i]][CharacterScreenIdentifier.Entity.Character.Key].riderID
-		var slotNum = stableMap[riderID]
-		if (slotNum === undefined) {
-			continue
-		}
-		this.addBrotherSlotDIV(this.mSlots[slotNum + 9], _brothers[toAdd[i]], this.mNumActive, true);
 	}
 
 };

@@ -912,14 +912,6 @@ gt.Const.World.Spawn.Troops <- {
 		NameList = this.Const.Strings.BanditLeaderNames,
 		TitleList = null
 	},
-	BanditOutrider = {
-		ID = this.Const.EntityType.BanditOutrider,
-		Variant = 0,
-		Strength = 40,
-		Cost = 45,
-		Row = 0,
-		Script = "scripts/entity/tactical/enemies/legend_bandit_outrider"
-	},
 	NomadCutthroat = {
 		ID = this.Const.EntityType.NomadCutthroat,
 		Variant = 0,
@@ -1400,14 +1392,6 @@ gt.Const.World.Spawn.Troops <- {
 		Variant = 0,
 		Strength = 60,
 		Cost = 60,
-		Row = 2,
-		Script = "scripts/entity/tactical/enemies/legend_catapult"
-	},
-	LegendHorse = {
-		ID = this.Const.EntityType.LegendHorse,
-		Variant = 0,
-		Strength = 20,
-		Cost = 20,
 		Row = 2,
 		Script = "scripts/entity/tactical/enemies/legend_catapult"
 	},

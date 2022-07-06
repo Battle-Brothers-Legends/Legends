@@ -11,7 +11,6 @@ gfx/legend_helmets.png
 gfx/legend_helmets_0.png
 gfx/legend_helmets_1.png
 gfx/legend_helmets_2.png
-gfx/legend_horses.png
 gfx/legend_objects.png
 gfx/terrain.png
 gfx/entity_0.png

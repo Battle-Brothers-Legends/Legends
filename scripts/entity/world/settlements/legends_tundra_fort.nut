@@ -193,15 +193,11 @@ this.legends_tundra_fort <- this.inherit("scripts/entity/world/settlements/legen
 		]];
 
 		this.m.StablesLists = [[
-			"legend_donkey_background",
-			"legend_horse_rouncey"
+			"legend_donkey_background"
 		],[
-			"legend_donkey_background",
-			"legend_horse_rouncey"
+			"legend_donkey_background"
 		],[
-			"legend_donkey_background",
-			"legend_horse_rouncey",
-			"legend_horse_destrier"
+			"legend_donkey_background"
 		]];
 
 		this.m.Rumors = this.Const.Strings.RumorsTundraSettlement;

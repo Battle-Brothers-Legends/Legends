@@ -56,7 +56,6 @@ declare -a BRUSHES=(
 "legend_weapons"
 "legend_world"
 "legends_ui"
-"legend_horses"
 "terrain"
 "legend_objects"
 "legend_helmets"

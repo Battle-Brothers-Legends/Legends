@@ -5,7 +5,7 @@ this.stables_building <- this.inherit("scripts/entity/world/settlements/building
 		this.building.create();
 		this.m.ID = "building.stables";
 		this.m.Name = "Stables";
-		this.m.Description = "Stables for horses";
+		this.m.Description = "Stables for all kinds of utility animals";
 		this.m.UIImage = "ui/settlements/building_14";
 		this.m.UIImageNight = "ui/settlements/building_14_night";
 		this.m.Tooltip = "world-town-screen.main-dialog-module.Stables";
@@ -189,7 +189,6 @@ this.stables_building <- this.inherit("scripts/entity/world/settlements/building
 
 	function onUpdateStablesList( _list )
 	{
-		_list.push("legend_horse_rouncey");
 		_list.push("legend_donkey_background")
 	}
 

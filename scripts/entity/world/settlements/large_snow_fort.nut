@@ -78,10 +78,7 @@ this.large_snow_fort <- this.inherit("scripts/entity/world/settlement", {
 			"legend_shieldmaiden_background"
 		];
 		this.m.StablesList = [
-			"legend_donkey_background",
-			"legend_horse_rouncey",
-			"legend_horse_destrier",
-			"legend_horse_courser"
+			"legend_donkey_background"
 		];
 		if (this.Const.DLC.Unhold)
 		{

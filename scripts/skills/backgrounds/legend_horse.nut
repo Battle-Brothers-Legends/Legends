@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 this.legend_horse <- this.inherit("scripts/skills/backgrounds/character_background", {
 	m = {
 		Variant = 0
@@ -233,3 +234,5 @@ this.legend_horse <- this.inherit("scripts/skills/backgrounds/character_backgrou
 
 	}
 });
+=======
+>>>>>>> 92348d558 (refactor: remove all horse-related code from legends)

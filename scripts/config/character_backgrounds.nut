@@ -406,9 +406,4 @@ gt.Const.CharacterBackgroundsRandom <- [
 	"slave_southern_background",
 	"assassin_southern_background"
 ];
-gt.Const.HorseBackgrounds <- [
-	"legend_horse_destrier",
-	"legend_horse_rouncey",
-	"legend_horse_courser"
-];
 

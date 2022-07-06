@@ -119,12 +119,7 @@ this.large_steppe_fort <- this.inherit("scripts/entity/world/settlement", {
 			"legend_ironmonger_background",
 			"legend_noble_2h"
 		];
-		this.m.StablesList = [
-			"legend_horse_destrier",
-			"legend_horse_courser",
-			"legend_horse_destrier",
-			"legend_horse_courser"
-		];
+		this.m.StablesList = [];
 
 		if (this.Const.DLC.Desert)
 		{

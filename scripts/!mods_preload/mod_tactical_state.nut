@@ -1,6 +1,6 @@
 this.getroottable().Const.LegendMod.hookTacticalState <- function()
 {
-	::mods_hookExactClass("states/tactical_state", function(o) 
+	::mods_hookExactClass("states/tactical_state", function(o)
 	{
 		o.onBattleEnded = function()
 		{
@@ -133,7 +133,7 @@ this.getroottable().Const.LegendMod.hookTacticalState <- function()
 								bro.worsenMood(this.Const.MoodChange.BattleRetreat, "Retreated from battle");
 							}
 						}
-						else if (bro.getMoodState() > this.Const.MoodState.Concerned && !bro.getCurrentProperties().IsContentWithBeingInReserve && (!bro.getFlags().has("TemporaryRider") || !bro.getFlags().has("IsHorse")))
+						else if (bro.getMoodState() > this.Const.MoodState.Concerned && !bro.getCurrentProperties().IsContentWithBeingInReserve)
 						{
 							++bro.getLifetimeStats().BattlesWithoutMe;
 

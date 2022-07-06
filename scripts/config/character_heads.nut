@@ -339,17 +339,6 @@ gt.Const.Faces.Donkey <- [
 	"bust_head_donkey_01"
 ];
 
-gt.Const.Faces.Horse <- [
-	"bust_head_100",
-	"bust_head_101",
-	"bust_head_102",
-	"bust_head_103",
-	"bust_head_104",
-	"bust_head_105",
-	"bust_head_106",
-	"bust_head_107"
-];
-
 gt.Const.Faces.OldFemale <- [
 	"bust_head_female_08",
 	"bust_head_female_11",
@@ -769,17 +758,6 @@ gt.Const.Hair.Necromancer <- [
 	"18"
 ];
 
-gt.Const.Hair.Horse <- [
-	"horse_hair_black",
-	"horse_hair_brown",
-	"horse_hair_chestnut",
-	"horse_hair_grey",
-	"horse_hair_honey",
-	"horse_hair_ruddy",
-	"horse_hair_tan",
-	"horse_hair_white"
-];
-
 gt.Const.Beards.Barber <- [
 	"",
 	"01",
@@ -983,33 +961,6 @@ gt.Const.Tattoos.All <- [
 	"tattoo_08"
 ];
 
-gt.Const.Hair.HorseBody <- [
-	"horse_body_hair_black",
-	"horse_body_hair_brown",
-	"horse_body_hair_chestnut",
-	"horse_body_hair_grey",
-	"horse_body_hair_honey",
-	"horse_body_hair_ruddy",
-	"horse_body_hair_tan",
-	"horse_body_hair_white"
-];
-
-gt.Const.Tattoos.HorseBody <- [
-	"horse_body_pattern_01",
-	"horse_body_pattern_02",
-	"horse_body_pattern_03",
-	"horse_body_pattern_04"
-];
-
-gt.Const.Tattoos.HorseFace <- [
-	"horse_pattern_ears",
-	"horse_pattern_eyes",
-	"horse_pattern_face",
-	"horse_pattern_forehead",
-	"horse_pattern_line",
-	"horse_pattern_snout"
-];
-
 gt.Const.Tattoos.Wildman <- [];
 gt.Const.Tattoos.Cultist <- [];
 gt.Const.Bodies.AllHuman <- [
@@ -1148,20 +1099,6 @@ gt.Const.Bodies.BarberNorthernMale <- [
 	"bust_naked_body_01",
 	"bust_naked_body_02"
 ]
-
-
-
-
-gt.Const.Bodies.Horses <- [
-	"bust_naked_body_100",
-	"bust_naked_body_101",
-	"bust_naked_body_102",
-	"bust_naked_body_103",
-	"bust_naked_body_104",
-	"bust_naked_body_105",
-	"bust_naked_body_106",
-	"bust_naked_body_107"
-];
 
 gt.Const.Bodies.Donkeys <- [
 	"bust_naked_body_05"
