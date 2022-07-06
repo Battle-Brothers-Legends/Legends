@@ -79,8 +79,8 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 
 		//Starting stash
 		this.World.Assets.m.Money = this.World.Assets.m.Money / 1;
-		this.World.Assets.getStash().add(this.new("scripts/items/supplies/legend_human_parts"));
-		this.World.Assets.getStash().add(this.new("scripts/items/supplies/legend_human_parts"));
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/strange_meat_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/strange_meat_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/black_marsh_stew_item"));
 	}
 
