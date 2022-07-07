@@ -1,6 +1,6 @@
 this.legend_armor_tabard <- this.inherit("scripts/items/legend_armor/legend_armor_upgrade", {
 	m = {
-		Bravery = 1
+		Bravery = 1 // [Legacy] This should not be used anymore in the future. Instead use this.m.ResolveModifier
 	},
 	function create()
 	{
@@ -45,24 +45,9 @@ this.legend_armor_tabard <- this.inherit("scripts/items/legend_armor/legend_armo
 		this.m.OverlayIconLarge = "legend_armor/tabard/inventory_tabard_" + variant + ".png";
 	}
 
-	function getTooltip()
+	function getResolveModifier()	// Temporary solution to grant backwards compatibility
 	{
-		local result = this.legend_armor_upgrade.getTooltip();
-		this.onArmorTooltip(result)
-		return result;
-	}
-
-	function onArmorTooltip( _result )
-	{
-		if (this.m.Bravery > 0)
-		{
-			_result.push({
-				id = 15,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "Increase the Resolve of the wearer by [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.Bravery + "[/color]"
-			});
-		}
+		return this.m.Bravery;
 	}
 
 	function onPaintSpecificColor( _color )
@@ -71,12 +56,6 @@ this.legend_armor_tabard <- this.inherit("scripts/items/legend_armor/legend_armo
 
 		local app = this.m.Armor.getContainer().getAppearance();
 		this.updateAppearance(app);
-
-	}
-
-	function onUpdateProperties( _properties )
-	{
-		_properties.Bravery += this.m.Bravery;
 	}
 
 	function onSerialize( _out )

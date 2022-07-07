@@ -43,14 +43,14 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 			{
 				return false;
 			}
-		}		
-		
+		}
+
 		return this.m.IsBought;
 	}
 
 	function getIcon()
 	{
-		if (this.isArmorNamed()) 
+		if (this.isArmorNamed())
 		{
 			return "layers/named_icon_glow.png"
 		}
@@ -62,7 +62,7 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 	{
 		local L = [];
 
-		if (this.isArmorNamed()) 
+		if (this.isArmorNamed())
 		{
 			L.push(this.m.Icon);
 		}
@@ -98,7 +98,7 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 	{
 		local L = [];
 
-		if (this.isArmorNamed()) 
+		if (this.isArmorNamed())
 		{
 			L.push(this.m.IconLarge);
 		}
@@ -432,8 +432,8 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 		this.m.Upgrades[_upgrade.getType()] = _upgrade;
 		_upgrade.setArmor(this);
 		_upgrade.setVisible(true);
-		
-		if (this.m.Container != null) 
+
+		if (this.m.Container != null)
 		{
 			_upgrade.onEquip();
 			this.getContainer().getActor().getSkills().update();
@@ -446,7 +446,7 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 		}
 		if (oldItem != null && !oldItem.isDestroyedOnRemove())
 		{
-			result.item = oldItem 
+			result.item = oldItem
 		}
 
 		this.updateAppearance();
@@ -587,6 +587,12 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 
 		if (this.isRuned())
 		{
+			_result.push({	// An empty line is put in to improve formatting
+				id = 20,
+				type = "text",
+				icon = "",
+				text = " "
+			});
 			result.push({
 				id = 20,
 				type = "text",
@@ -791,7 +797,7 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 		this.item.onUnequip();
 	}
 
-	
+
 
 	function onDamageReceived( _damage, _fatalityType, _attacker )
 	{
@@ -865,7 +871,7 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 	{
 		if (_t == this.Const.Items.ItemType.Named || _t == this.Const.Items.ItemType.Legendary)
 		{
-			if ((this.m.ItemType & _t) != 0) 
+			if ((this.m.ItemType & _t) != 0)
 			{
 				return true
 			}

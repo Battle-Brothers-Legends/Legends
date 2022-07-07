@@ -9,15 +9,27 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 		SpriteCorpseFront = null,
 		SpriteCorpseBack = null,
 		ArmorDescription = "",
-		Armor = null,
-		ConditionModifier = 0,
-		StaminaModifier = 0,
+		Armor = null,		// Base-Armor that this piece is currently attached to
 		Type = -1,
 		ImpactSound = this.Const.Sound.ArmorLeatherImpact,
 		InventorySound = this.Const.Sound.ArmorLeatherImpact,
 		IsDestroyedOnRemove = false,
 		Variants = [],
-		Visible = true
+		Visible = true,
+
+		// Basic stats on armor items
+		Condition = 1.0,
+		ConditionMax = 1.0,
+		ConditionModifier = 0,	// [Legacy] - This does not do anything. It should be removed on the next major version jump
+		StaminaModifier = 0,	// Stamina Cost. A negative value is bad and the default for items.
+
+		// Common effects across all upgrades handled by this base class
+		DirectDamageModifier = 0.0,	// %-Value. Modifies the HP damage taken from attacks hitting body armor
+		InitiativeModifier = 0,		// Modifies Initiative of wearer
+		ThreatModifier = 0,		// Modifies Threat of wearer (The inverse of this is subtracted from Resolve of adjacent enemies)
+		ResolveModifier = 0,		// Modifies Resolve of wearer
+		DamageReceivedArmorMult = 0.0,		// Multiplier to the damage received by the currently worn body armor
+		FatiguePenaltyMultiplier = 0.0		// The Fatigue cost of the currently equipped body armor is increased or reduced by this value as a fraction
 	},
 	function create()
 	{
@@ -98,6 +110,45 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 		return this.m.StaminaModifier;
 	}
 
+	function getDirectDamageModifier()
+	{
+		if (this.m.DirectDamageModifier >= 0) return this.m.DirectDamageModifier;
+		if (this.m.Armor == null || this.m.Armor.getContainer() == null || !this.m.Armor.isEquipped()) return this.m.DirectDamageModifier;
+		local percentageRemainingArmor = this.Math.floor(this.m.Armor.getArmor() * 100.0 / this.m.Armor.getArmorMax());
+		return -1 * this.Math.min(percentageRemainingArmor, this.Math.abs(this.m.DirectDamageModifier));
+	}
+
+	function getInitiativeModifier()
+	{
+		return this.m.InitiativeModifier;
+	}
+
+	function getThreatModifier()
+	{
+		return this.m.ThreatModifier;
+	}
+
+	function getResolveModifier()
+	{
+		return this.m.ResolveModifier;
+	}
+
+	function getDamageReceivedArmorMult()
+	{
+		return this.m.DamageReceivedArmorMult;
+	}
+
+	function getFatiguePenaltyMultiplier()
+	{
+		return this.m.FatiguePenaltyMultiplier;
+	}
+
+	function getCurrentFatigueModifier()	// a positive value is good and is added to the available stamina of the character
+	{
+		if (this.m.Armor == null || this.m.Armor.getContainer() == null) return 0.0;
+		return -1 * this.Math.floor(this.Math.abs(this.m.Armor.getStaminaModifier()) / 100.0 * getFatiguePenaltyMultiplier());
+	}
+
 	function getIconOverlay()
 	{
 
@@ -163,6 +214,28 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 			type = "text",
 			text = this.getValueString()
 		});
+		result.push({
+			id = 4,
+			type = "progressbar",
+			icon = "ui/icons/armor_body.png",
+			value = this.getCondition(),
+			valueMax = this.getConditionMax(),
+			text = "" + this.getCondition() + " / " + this.getConditionMax() + "",
+			style = "armor-body-slim"
+		});
+
+		if (this.getStaminaModifier() != 0)
+		{
+			result.push({
+				id = 5,
+				type = "text",
+				icon = "ui/icons/fatigue.png",
+				text = "Maximum Fatigue " + ::Legends.S.getSign(this.getStaminaModifier()) + ::Legends.S.colorize(this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
+			});
+		}
+
+		// Other common stats found on Attachements:
+		this.applyEffectTooltips(result);
 
 		if (this.getOverlayIconLarge() != null)
 		{
@@ -182,57 +255,39 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 			});
 		}
 
+		// Interaction Tooltips
 		result.push({
-			id = 65,
+			id = 70,
 			type = "hint",
 			icon = "ui/icons/mouse_right_button.png",
 			text = "Right-click or left-click and drag onto the armor of the currently selected character to attach."
 		});
 		result.push({
-			id = 66,
+			id = 71,
 			type = "hint",
 			icon = "ui/icons/mouse_left_button_shift.png",
 			text = "Hold Shift and drag onto an armor in the stash to attach."
 		});
-		result.push({
-			id = 4,
-			type = "progressbar",
-			icon = "ui/icons/armor_body.png",
-			value = this.getCondition(),
-			valueMax = this.getConditionMax(),
-			text = "" + this.getCondition() + " / " + this.getConditionMax() + "",
-			style = "armor-body-slim"
-		});
 
-		if (this.getStaminaModifier() < 0)
-		{
-			result.push({
-				id = 5,
-				type = "text",
-				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue [color=" + this.Const.UI.Color.NegativeValue + "]" + this.getStaminaModifier() + "[/color]"
-			});
-		} else if (this.getStaminaModifier() > 0){
-			result.push({
-				id = 5,
-				type = "text",
-				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue [color=" + this.Const.UI.Color.PositiveValue + "] +" + this.getStaminaModifier() + "[/color]"
-			});
-		}
 
 		return result;
 	}
 
 	function getArmorTooltip( _result )
 	{
-		this.onArmorTooltip(_result);
-		_result.push({
-			id = 15,
+		_result.push({	// An empty line is put in to improve formatting
+			id = 10,
 			type = "text",
-			icon = "ui/icons/plus.png",
-			text = this.getDescription()
+			icon = "",
+			text = " "
+		})
+		_result.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/armor_body.png",	// ui/icons/armor_body.png
+			text = "[u]" + this.getName() + "[/u]"
 		});
+		this.onArmorTooltip(_result);
 	}
 
 	function playInventorySound( _eventType )
@@ -417,6 +472,20 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 		return success;
 	}
 
+	function onUpdateProperties(_properties)
+	{
+		if (this.getInitiativeModifier() != 0) _properties.Initiative += this.getInitiativeModifier();
+		if (this.getThreatModifier() != 0) _properties.Threat += this.getThreatModifier();
+		if (this.getResolveModifier() != 0) _properties.Bravery += this.getResolveModifier();
+		if (this.getFatiguePenaltyMultiplier() != 0) _properties.Stamina += this.getCurrentFatigueModifier();	// We are adding to the Stamina of the wearer
+	}
+
+	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
+	{
+		if (this.getDirectDamageModifier() != 0) _properties.DamageReceivedDirectMult *= 1.0 + (this.getDirectDamageModifier() / 100.0);
+		if (this.getDamageReceivedArmorMult() != 0) _properties.DamageReceivedArmorMult *= 1.0 + (this.getDamageReceivedArmorMult() / 100.0);
+	}
+
 	function onDamageReceived( _damage, _fatalityType, _attacker )
 	{
 		if (_damage >= this.m.Condition)
@@ -432,6 +501,80 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 
 	function onArmorTooltip( _result )
 	{
+		this.applyEffectTooltips(_result);
+	}
+
+	function applyEffectTooltips( _tooltipList )
+	{
+		if (this.getInitiativeModifier() != 0)
+		{
+			_tooltipList.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/initiative.png",
+				text = ::Legends.S.colorize("" + ::Legends.S.getSign(this.getInitiativeModifier()) + this.Math.abs(this.getInitiativeModifier()), this.getInitiativeModifier()) + " Initiative"
+			});
+		}
+
+		if (this.getThreatModifier() != 0)
+		{
+			local invertedThreat = -1 * this.getThreatModifier();	// For this tooltip we want to show the actual effect on the enemy
+			_tooltipList.push({
+				id = 11,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = ::MSU.String.capitalizeFirst(::Legends.S.getChangingWord(invertedThreat)) + " the Resolve of any opponent engaged in melee by " +
+					 ::Legends.S.colorize("" + ::Legends.S.getSign(invertedThreat) + this.Math.abs(invertedThreat), invertedThreat)
+			});
+		}
+		if (this.getResolveModifier() != 0)
+		{
+			_tooltipList.push({
+				id = 12,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = ::Legends.S.colorize("" + ::Legends.S.getSign(this.getResolveModifier()) + this.Math.abs(this.getResolveModifier()), this.getResolveModifier()) + " Resolve"
+			});
+		}
+		if (this.getDirectDamageModifier() != 0)
+		{
+			_tooltipList.push({
+				id = 15,
+				type = "text",
+				icon = "ui/icons/direct_damage.png",
+				text = ::MSU.String.capitalizeFirst(::Legends.S.getChangingWord(this.getDirectDamageModifier())) + " damage ignoring armor by " +
+					::Legends.S.colorize("" + ::Legends.S.getSign(this.getDirectDamageModifier()) + this.Math.abs(this.getDirectDamageModifier()) + "%", this.getDirectDamageModifier())
+			});
+		}
+		if (this.getDamageReceivedArmorMult() != 0)
+		{
+			_tooltipList.push({
+				id = 16,
+				type = "text",
+				icon = "ui/icons/armor_body.png",
+				text = "Body Armor damage taken is " + ::Legends.S.getChangingWord(getDamageReceivedArmorMult()) + "d by " +
+				::Legends.S.colorize("" + ::Legends.S.getSign(this.getDamageReceivedArmorMult()) + this.Math.abs(this.getDamageReceivedArmorMult()) + "%", this.getDamageReceivedArmorMult())
+			});
+		}
+		if (this.getFatiguePenaltyMultiplier() != 0)
+		{
+			_tooltipList.push({
+				id = 17,
+				type = "text",
+				icon = "ui/icons/fatigue.png",
+				text = "Fatigue penalty of wearing body armor is " + ::Legends.S.getChangingWord(getFatiguePenaltyMultiplier()) + "d by " +
+				::Legends.S.colorize("" + ::Legends.S.getSign(this.getFatiguePenaltyMultiplier()) + this.Math.abs(this.getFatiguePenaltyMultiplier()) + "%", this.getFatiguePenaltyMultiplier())
+			});
+		}
+		if (this.getCurrentFatigueModifier() != 0)
+		{
+			_tooltipList.push({
+				id = 17,
+				type = "text",
+				icon = "ui/icons/fatigue.png",
+				text = "Maximum Fatigue " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getCurrentFatigueModifier()) + this.Math.abs(this.getCurrentFatigueModifier()), this.getCurrentFatigueModifier())
+			});
+		}
 	}
 
 	function onSerialize( _out )
