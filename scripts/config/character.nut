@@ -164,6 +164,7 @@ gt.Const.ShakeCharacterLayers <- [
 		"armor_layer_chain",
 		"armor_layer_plate",
 		"armor_layer_tabbard",
+		"armor_layer_cloak_front",
 		"armor_layer_cloak",
 		"armor_upgrade_back",
 		"armor_upgrade_front"
@@ -194,6 +195,7 @@ gt.Const.ShakeCharacterLayers <- [
 		"armor_layer_chain",
 		"armor_layer_plate",
 		"armor_layer_tabbard",
+		"armor_layer_cloak_front",
 		"armor_layer_cloak",
 		"armor_upgrade_back",
 		"armor_upgrade_front"

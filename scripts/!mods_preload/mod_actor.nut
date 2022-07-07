@@ -754,12 +754,26 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 				}
 			}
 
+			if (this.hasSprite("armor_layer_cloak_front"))
+			{
+				if (_appearance.ArmorLayerCloakFront.len() != 0)
+				{
+					local armor = this.getSprite("armor_layer_cloak_front");
+					armor.setBrush(_appearance.ArmorLayerCloakFront);
+					armor.Visible = true;
+				}
+				else
+				{
+					this.getSprite("armor_layer_cloak_front").Visible = false;
+				}
+			}
+
 			if (this.hasSprite("armor_layer_cloak"))
 			{
-				if (_appearance.ArmorLayerCloak.len() != 0)
+				if (_appearance.ArmorLayerCloakBack.len() != 0)
 				{
 					local armor = this.getSprite("armor_layer_cloak");
-					armor.setBrush(_appearance.ArmorLayerCloak);
+					armor.setBrush(_appearance.ArmorLayerCloakBack);
 					armor.Visible = true;
 				}
 				else

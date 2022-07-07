@@ -22,7 +22,8 @@ this.item_container <- {
 			ArmorLayerChain = "",
 			ArmorLayerPlate= "",
 			ArmorLayerTabbard= "",
-			ArmorLayerCloak= "",
+			ArmorLayerCloakFront = "",
+			ArmorLayerCloakBack = "",
 			ArmorUpgradeFront = "",
 			ArmorUpgradeBack = "",
 			Accessory = "",
@@ -31,7 +32,8 @@ this.item_container <- {
 			CorpseArmorLayerChain = "",
 			CorpseArmorLayerPlate= "",
 			CorpseArmorLayerTabbard= ""
-			CorpseArmorLayerCloak= "",
+			CorpseArmorLayerCloakFront = "",
+			CorpseArmorLayerCloakBack = "",
 			CorpseArmorUpgradeFront = "",
 			CorpseArmorUpgradeBack = "",
 			HelmetColor = this.createColor("#ffffff"),
@@ -905,7 +907,7 @@ this.item_container <- {
 				this.doOnFunctionSlot(_function, _argsArray, slot);
 			}
 		}
-		
+
 		this.m.IsUpdating = false;
 	}
 

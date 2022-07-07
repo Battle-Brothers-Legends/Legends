@@ -428,8 +428,10 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 			break;
 
 		case this.Const.Items.ArmorUpgrades.Cloak:
-			_app.ArmorLayerCloak = backSprite;
-			_app.CorpseArmorLayerCloak = this.m.SpriteCorpseBack != null ? this.m.SpriteCorpseBack : "";
+			_app.ArmorLayerCloakFront = frontSprite;
+			_app.ArmorLayerCloakBack = backSprite;
+			_app.CorpseArmorLayerCloakFront = this.m.SpriteCorpseFront != null ? this.m.SpriteCorpseFront : "";
+			_app.CorpseArmorLayerCloakBack = this.m.SpriteCorpseBack != null ? this.m.SpriteCorpseBack : "";
 			break;
 
 		case this.Const.Items.ArmorUpgrades.Attachment:

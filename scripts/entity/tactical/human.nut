@@ -504,6 +504,7 @@ this.human <- this.inherit("scripts/entity/tactical/actor", {
 		this.getSprite("armor_layer_chain").setHorizontalFlipping(flip);
 		this.getSprite("armor_layer_plate").setHorizontalFlipping(flip);
 		this.getSprite("armor_layer_tabbard").setHorizontalFlipping(flip);
+		this.getSprite("armor_layer_cloak_front").setHorizontalFlipping(flip);
 		this.getSprite("armor_layer_cloak").setHorizontalFlipping(flip);
 		this.getSprite("surcoat").setHorizontalFlipping(flip);
 		this.getSprite("armor_upgrade_back").setHorizontalFlipping(flip);
@@ -585,6 +586,7 @@ this.human <- this.inherit("scripts/entity/tactical/actor", {
 		this.addSprite("armor_layer_tabbard");
 		this.addSprite("surcoat");
 		this.addSprite("armor_layer_cloak");
+		this.addSprite("armor_layer_cloak_front");	// Usually this should be below the helmets. But most Layer-5-Upgrades only consist of a back-piece which would make a two-piece cloak look very weird.
 		this.addSprite("armor_upgrade_back");
 		local bandage2 = this.addSprite("bandage_2");
 		bandage2.Visible = false;
