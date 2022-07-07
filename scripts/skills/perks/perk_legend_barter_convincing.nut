@@ -1,6 +1,6 @@
 this.perk_legend_barter_convincing <- this.inherit("scripts/skills/skill", {
 	m = {
-		Amount = 0.05
+		Amount = 0.01
 	},
 	function create()
 	{
@@ -18,6 +18,24 @@ this.perk_legend_barter_convincing <- this.inherit("scripts/skills/skill", {
 	function getModifier()
 	{
 		return this.m.Amount;
+	}
+
+	function onAdded()
+	{
+		if (this.World.State.getPlayer() == null)
+		{
+			return;
+		}
+		this.World.State.getPlayer().calculateBarterMult();
+	}
+
+	function onRemoved()
+	{
+		if (this.World.State.getPlayer() == null)
+		{
+			return;
+		}
+		this.World.State.getPlayer().calculateBarterMult();
 	}
 
 	function onNewDay()
