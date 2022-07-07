@@ -1419,6 +1419,15 @@ local perkDefObjects = [
 		Const = "LegendBribe"
 	},
 	{
+		ID = "perk.legends.off_book_deal",
+		Script = "scripts/skills/perks/legends/off_book_deal",
+		Name = this.Const.Strings.PerkName.LegendsOffBookDeal,
+		Tooltip = this.Const.Strings.PerkDescription.LegendsOffBookDeal,
+		Icon = "ui/perks/coins_circle.png",
+		IconDisabled = "ui/perks/coins_circle_bw.png",
+		Const = "LegendsOffBookDeal"
+	},
+	{
 		ID = "perk.legend_specialist_butcher_damage",
 		Script = "scripts/skills/perks/perk_legend_specialist_butcher_damage",
 		Name = this.Const.Strings.PerkName.LegendSpecialistButcherDamage,

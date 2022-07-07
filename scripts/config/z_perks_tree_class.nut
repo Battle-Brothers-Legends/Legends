@@ -140,12 +140,12 @@ gt.Const.Perks.BarterClassTree <- {
 		[],
 		[gt.Const.Perks.PerkDefs.LegendBarterTrustworthy], 
 		[
-		gt.Const.Perks.PerkDefs.LegendDangerPay, 
-		gt.Const.Perks.PerkDefs.LegendPaymaster 
+			gt.Const.Perks.PerkDefs.LegendDangerPay, 
+			gt.Const.Perks.PerkDefs.LegendPaymaster 
 		],
 		[
-		gt.Const.Perks.PerkDefs.LegendBribe
-		gt.Const.Perks.PerkDefs.LegendBarterGreed
+			gt.Const.Perks.PerkDefs.LegendsOffBookDeal
+			gt.Const.Perks.PerkDefs.LegendBarterGreed
 		]
 	]
 };

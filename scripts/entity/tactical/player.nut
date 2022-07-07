@@ -2619,6 +2619,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		local skills = [
 			"perk.legend_barter_trustworthy",
 			"perk.legend_barter_convincing",
+			"perk.legends.off_book_deal",
 			"trait.seductive"
 		];
 
