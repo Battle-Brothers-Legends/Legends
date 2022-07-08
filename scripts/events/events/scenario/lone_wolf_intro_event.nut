@@ -29,14 +29,14 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({ //Pick a weapon, any weapon
 			ID = "B",
-			Text = "[img]gfx/ui/events/event_62.png[/img]{It occurs to you that before you embark on this journey of self discovery, you should probably arm yourself a little better - a lance is pointless without a horse. Your armour is old - but it\'ll do for now.\n\n Visiting the local weaponsmith you spot an array of killing instruments, each carefully dressed and arranged like a breadmaker\'s stall. You only have enough crowns for one set, so you better choose wisely.}",
+			Text = "[img]gfx/ui/events/event_62.png[/img]{It occurs to you that before you embark on this journey of self discovery, you should probably arm yourself a little better - a lance is pointless without a horse. Your armour is old and you can trade it in for a fair price in exchange for a new set\n\n Visiting the local weaponsmith you spot an array of killing instruments, each carefully dressed and arranged like a breadmaker\'s stall. You only have enough crowns for one set, so you better choose wisely.}",
 			Image = "",
 			Banner = "",
 			List = [],
 			Characters = [],
 			Options = [ //maximum 6 options
 				{
-					Text = "A longsword has never failed me.",
+					Text = "A longsword and medium armour has never failed me.",
 					function getResult( _event )
 					{
 						return "C"; //2h sword
@@ -44,7 +44,7 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "A strong hammer and sturdy shield can weather anything.",
+					Text = "A strong hammer, a sturdy shield and medium armour can weather anything.",
 					function getResult( _event )
 					{
 						return "D"; //1h hammer + heater shield
@@ -52,7 +52,7 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "An axe and buckler is a good balance and will be the best choice.",
+					Text = "An axe and buckler with ligth armour is a good balance and will be the best choice.",
 					function getResult( _event )
 					{
 						return "E"; //Axe and buckler
@@ -60,7 +60,7 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "I always was a good shot - I'll take the crossbow and a nice cutting weapon.",
+					Text = "I always was a good shot - I'll take the crossbow and a nice cutting weapon with some light armour.",
 					function getResult( _event )
 					{
 						return "F"; //Crossbow + 1h sword
@@ -68,14 +68,14 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "I\'m a little rusty, but a bow and dagger is the proper choice.",
+					Text = "I\'m a little rusty, but a bow and dagger with some nice cloth armour is the proper choice.",
 					function getResult( _event )
 					{
 						return "G"; //Bow + dagger
 					}
 				},
 				{
-					Text = "I\'ll stick to what I know - a pike is almost a jousting lance, right?",
+					Text = "I\'ll stick to what I know - a pike is almost a jousting lance, right? I\'ll get the heavy armour too.",
 					function getResult( _event )
 					{
 						return "H"; //Polearm
@@ -106,12 +106,31 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/weapons/legend_longsword");
-				this.World.Assets.getStash().add(item);
+				itemweapon.equip(this.new("scripts/items/weapons/legend_longsword"));
+				// local item = this.new("scripts/items/weapons/legend_longsword");
+				items.equip(this.Const.World.Common.pickHelmet([
+					[
+						1,
+						"lonewolf_longsword_helmet"
+					]
+				]));
+				items.equip(this.Const.World.Common.pickArmor([
+					[
+						1,
+						"lonewolf_longsword_armour"
+					]
+				]));
+				// local armourhead = getItemAtSlot(this.Const.ItemSlot.Head));
+				// armourhead.equip(this.new("scripts/items/armor/lonewolf_longsword_helmet"));
+				// local armourhead = this.new("scripts/items/armor/lonewolf_longsword_helmet");
+				// local armourbody = this.new("scripts/items/armor/lonewolf_longsword_armour");
+				// armourhead.equip(armourhead.getItemAtSlot(this.Const.ItemSlot.Head));
+				// armourbody.equip(armourbody.getItemAtSlot(this.Const.ItemSlot.Body));
+				// this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemweapon.getIcon(),
+					text = "You gain " + itemweapon.getName()
 				});
 			}
 
@@ -134,19 +153,29 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/weapons/military_pick");
-				this.World.Assets.getStash().add(item);
+				itemweapon.equip(this.new("scripts/items/weapons/military_pick"));
+				itemshield.equip(this.new("scripts/items/shields/heater_shield"));
+				items.equip(this.Const.World.Common.pickHelmet([
+					[
+						1,
+						"lonewolf_hammershield_helmet"
+					]
+				]));
+				items.equip(this.Const.World.Common.pickArmor([
+					[
+						1,
+						"lonewolf_hammershield_armour"
+					]
+				]));
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemweapon.getIcon(),
+					text = "You gain " + itemweapon.getName()
 				});
-				local item = this.new("scripts/items/shields/heater_shield");
-				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemshield.getIcon(),
+					text = "You gain " + itemshield.getName()
 				});
 			}
 
@@ -169,19 +198,29 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/weapons/fighting_axe");
-				this.World.Assets.getStash().add(item);
+				itemweapon.equip(this.new("scripts/items/weapons/fighting_axe"));
+				itemshield.equip(this.new("scripts/items/shields/buckler_shield"));
+				items.equip(this.Const.World.Common.pickHelmet([
+					[
+						1,
+						"lonewolf_axebuckler_helmet"
+					]
+				]));
+				items.equip(this.Const.World.Common.pickArmor([
+					[
+						1,
+						"lonewolf_axebuckler_armour"
+					]
+				]));
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemweapon.getIcon(),
+					text = "You gain " + itemweapon.getName()
 				});
-				local item = this.new("scripts/items/shields/buckler_shield");
-				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemshield.getIcon(),
+					text = "You gain " + itemshield.getName()
 				});
 			}
 
@@ -204,26 +243,35 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/weapons/crossbow");
-				this.World.Assets.getStash().add(item);
+				itemweapon.equip(this.new("scripts/items/weapons/crossbow"));
+				itemquiver.equip(this.new("scripts/items/ammo/quiver_of_bolts"));
+				itembackup.addToBag(this.new("scripts/items/weapons/arming_sword"));
+				items.equip(this.Const.World.Common.pickHelmet([
+					[
+						1,
+						"lonewolf_crossbowsword_helmet"
+					]
+				]));
+				items.equip(this.Const.World.Common.pickArmor([
+					[
+						1,
+						"lonewolf_crossbowsword_armour"
+					]
+				]));
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemweapon.getIcon(),
+					text = "You gain " + itemweapon.getName()
 				});
-				local item = this.new("scripts/items/ammo/quiver_of_bolts");
-				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemquiver.getIcon(),
+					text = "You gain " + itemquiver.getName()
 				});
-				local item = this.new("scripts/items/weapons/arming_sword");
-				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itembackup.getIcon(),
+					text = "You gain " + itembackup.getName()
 				});
 			}
 
@@ -246,26 +294,35 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/weapons/hunting_bow");
-				this.World.Assets.getStash().add(item);
+				itemweapon.equip(this.new("scripts/items/weapons/hunting_bow"));
+				itemquiver.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
+				itembackup.addToBag(this.new("scripts/items/weapons/rondel_dagger"));
+				items.equip(this.Const.World.Common.pickHelmet([
+					[
+						1,
+						"lonewolf_bowdagger_helmet"
+					]
+				]));
+				items.equip(this.Const.World.Common.pickArmor([
+					[
+						1,
+						"lonewolf_bowdagger_armour"
+					]
+				]));
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemweapon.getIcon(),
+					text = "You gain " + itemweapon.getName()
 				});
-				local item = this.new("scripts/items/ammo/quiver_of_arrows");
-				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemquiver.getIcon(),
+					text = "You gain " + itemquiver.getName()
 				});
-				local item = this.new("scripts/items/weapons/rondel_dagger");
-				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itembackup.getIcon(),
+					text = "You gain " + itembackup.getName()
 				});
 			}
 
@@ -288,12 +345,25 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/weapons/pike");
-				this.World.Assets.getStash().add(item);
+
+				itemweapon.equip(this.new("scripts/items/weapons/pike"));
+				items.equip(this.Const.World.Common.pickHelmet([
+					[
+						1,
+						"lonewolf_polearm_helmet"
+					]
+				]));
+				items.equip(this.Const.World.Common.pickArmor([
+					[
+						1,
+						"lonewolf_polearm_armour"
+					]
+				]));
+
 				this.List.push({
 					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
+					icon = "ui/items/" + itemweapon.getIcon(),
+					text = "You gain " + itemweapon.getName()
 				});
 			}
 

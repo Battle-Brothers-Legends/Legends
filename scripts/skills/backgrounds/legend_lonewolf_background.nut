@@ -240,59 +240,59 @@ this.legend_lonewolf_background <- this.inherit("scripts/skills/backgrounds/char
 
 	function onAddEquipment() //chooses a weapon through starting event
 	{
-		local items = this.getContainer().getActor().getItems();
-		local helm = this.getContainer().getActor().getItems();
-		// local r;
+		// local items = this.getContainer().getActor().getItems();
+		// local helm = this.getContainer().getActor().getItems();
+		// // local r;
 
-		// r = this.Math.rand(0, 5);
+		// // r = this.Math.rand(0, 5);
 
-		// if (r == 0)
-		// {
-		// 	items.equip(this.new("scripts/items/weapons/legend_longsword"));
-		// }
-		// else if (r == 1)
-		// {
-		// 	items.equip(this.new("scripts/items/weapons/longsword"));
-		// }
-		// else if (r == 2)
-		// {
-		// 	items.equip(this.new("scripts/items/weapons/legend_infantry_axe"));
-		// }
-		// else if (r == 3)
-		// {
-		// 	items.equip(this.new("scripts/items/weapons/pike"));
-		// }
-		// else if (r == 4)
-		// {
-		// 	items.equip(this.new("scripts/items/weapons/warbrand"));
-		// }
-		// else if (r == 5)
-		// {
-		// 	items.equip(this.new("scripts/items/weapons/goedendag"));
-		// }
+		// // if (r == 0)
+		// // {
+		// // 	items.equip(this.new("scripts/items/weapons/legend_longsword"));
+		// // }
+		// // else if (r == 1)
+		// // {
+		// // 	items.equip(this.new("scripts/items/weapons/longsword"));
+		// // }
+		// // else if (r == 2)
+		// // {
+		// // 	items.equip(this.new("scripts/items/weapons/legend_infantry_axe"));
+		// // }
+		// // else if (r == 3)
+		// // {
+		// // 	items.equip(this.new("scripts/items/weapons/pike"));
+		// // }
+		// // else if (r == 4)
+		// // {
+		// // 	items.equip(this.new("scripts/items/weapons/warbrand"));
+		// // }
+		// // else if (r == 5)
+		// // {
+		// // 	items.equip(this.new("scripts/items/weapons/goedendag"));
+		// // }
 
-		items.equip(this.Const.World.Common.pickArmor([
-			[1, "mail_hauberk"],
-			[1, "basic_mail_shirt"],
-			[1, "scale_armor"],
-			[1, "reinforced_mail_hauberk"],
-			[1, "worn_mail_shirt"]
-		]));
+		// items.equip(this.Const.World.Common.pickArmor([
+		// 	// [1, "mail_hauberk"],
+		// 	// [1, "basic_mail_shirt"],
+		// 	// [1, "scale_armor"],
+		// 	// [1, "reinforced_mail_hauberk"],
+		// 	[1, ""]
+		// ]));
 
-		local helm = [
-			[1, "nasal_helmet"],
-			[1, "nasal_helmet_with_mail"],
-			[1, "mail_coif"],
-			[1, "bascinet_with_mail"],
-			[1, "closed_flat_top_helmet"]
-		];
+		// local helm = [
+		// 	// [1, "nasal_helmet"],
+		// 	// [1, "nasal_helmet_with_mail"],
+		// 	// [1, "mail_coif"],
+		// 	// [1, "bascinet_with_mail"],
+		// 	[1, ""]
+		// ];
 
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			helm.push([1, "theamson_barbute_helmet"])
-		}
+		// // if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+		// // {
+		// // 	helm.push([1, "theamson_barbute_helmet"])
+		// // }
 
-		items.equip(this.Const.World.Common.pickHelmet(helm));
+		// // items.equip(this.Const.World.Common.pickHelmet(helm));
 	}
 });
 
