@@ -34,7 +34,7 @@ this.legend_old_man_sells <- this.inherit("scripts/events/event", {
 					Text = "Not interested in trinkets.", //skip (E)
 					function getResult( _event )
 					{
-						return 0;
+						return "E";
 					}
 
 				}
