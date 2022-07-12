@@ -68,7 +68,7 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 
 		foreach (u in this.m.Upgrades)
 		{
-			if (u != null && u.isNamed()) 
+			if (u != null && u.isNamed())
 			{
 				return true
 			}
@@ -85,14 +85,14 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 			{
 				return false;
 			}
-		}		
-		
+		}
+
 		return this.m.IsBought;
 	}
 
 	function getIcon()
 	{
-		if (this.isArmorNamed()) 
+		if (this.isArmorNamed())
 		{
 			return "layers/named_icon_glow.png"
 		}
@@ -178,7 +178,7 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 		{
 			if (upgrade != null && (i != this.Const.Items.HelmetUpgrades.ExtraVanity || _all))
 			{
-				value += upgrade[_function](); 
+				value += upgrade[_function]();
 			}
 		}
 
@@ -486,7 +486,7 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 		this.m.Upgrades[slot] = _upgrade;
 		_upgrade.setArmor(this);
 		_upgrade.setVisible(true);
-		if (this.m.Container != null) 
+		if (this.m.Container != null)
 		{
 			if (slot != this.Const.Items.HelmetUpgrades.ExtraVanity) _upgrade.onEquip();
 			this.getContainer().getActor().getSkills().update();
@@ -498,7 +498,7 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 		}
 		if (oldItem != null && !oldItem.isDestroyedOnRemove())
 		{
-			result.item = oldItem 
+			result.item = oldItem
 		}
 
 		this.updateAppearance();
@@ -636,29 +636,26 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 			});
 		}
 
-		this.doOnFunction("getArmorTooltip", [result], true);
+		if (this.getVision() != 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/vision.png",
+				text = "Combined Vision: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getVision()) + this.Math.abs(this.getVision()), this.getVision())
+			});
+		}
 
-		if (this.getVision() < 0)
-		{
-			result.push({
-				id = 6,
-				type = "text",
-				icon = "ui/icons/vision.png",
-				text = "Vision [color=" + this.Const.UI.Color.NegativeValue + "]" + this.getVision() + "[/color]"
-			});
-		}
-		else if (this.getVision() > 0)
-		{
-			result.push({
-				id = 6,
-				type = "text",
-				icon = "ui/icons/vision.png",
-				text = "Vision [color=" + this.Const.UI.Color.PositiveValue + "]" + this.getVision() + "[/color]"
-			});
-		}
+		this.doOnFunction("getArmorTooltip", [result], true);
 
 		if (this.isRuned())
 		{
+			_result.push({	// An empty line is put in to improve formatting
+				id = 20,
+				type = "text",
+				icon = "",
+				text = " "
+			});
 			result.push({
 				id = 20,
 				type = "text",
@@ -917,7 +914,7 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 	{
 		if (_t == this.Const.Items.ItemType.Named || _t == this.Const.Items.ItemType.Legendary)
 		{
-			if ((this.m.ItemType & _t) != 0) 
+			if ((this.m.ItemType & _t) != 0)
 			{
 				return true
 			}

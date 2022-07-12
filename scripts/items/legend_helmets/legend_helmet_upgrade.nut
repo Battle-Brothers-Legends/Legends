@@ -235,22 +235,13 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.Vision < 0)
+		if (this.getVision() != 0)
 		{
 			result.push({
 				id = 6,
 				type = "text",
 				icon = "ui/icons/vision.png",
-				text = "Vision [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.Vision + "[/color]"
-			});
-		}
-		else if (this.m.Vision > 0)
-		{
-			result.push({
-				id = 6,
-				type = "text",
-				icon = "ui/icons/vision.png",
-				text = "Vision [color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.Vision + "[/color]"
+				text = "Vision " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getVision()) + this.Math.abs(this.getVision()), this.getVision())
 			});
 		}
 
@@ -259,13 +250,29 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 
 	function getArmorTooltip( _result )
 	{
-		this.onArmorTooltip(_result);
-		_result.push({
-			id = 15,
+		_result.push({	// An empty line is put in to improve formatting
+			id = 10,
 			type = "text",
-			icon = "ui/icons/plus.png",
-			text = this.getDescription()
+			icon = "",
+			text = " "
+		})
+		_result.push({
+			id = 10,
+			type = "text",
+			icon = "ui/icons/armor_body.png",	// ui/icons/armor_body.png
+			text = "[u]" + this.getName() + "[/u]"
 		});
+
+		if (this.getVision() != 0)
+		{
+			_result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/vision.png",
+				text = "Vision " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getVision()) + this.Math.abs(this.getVision()), this.getVision())
+			});
+		}
+		this.onArmorTooltip(_result);
 	}
 
 	function playInventorySound( _eventType )
