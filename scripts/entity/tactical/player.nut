@@ -2011,11 +2011,11 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Talents.resize(this.Const.Attributes.COUNT, 0);
 		this.fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - 1);
 	}
-	
+
 	function pickTraits( _backgrounds, _maxTraits )
 	{
 		if(_maxTraits <= 0) {return;}
-		
+
 		local available_traits = [];
 		foreach(trait in this.Const.CharacterTraits)
 		{
@@ -2125,7 +2125,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			}
 
 			pickTraits( traits, maxTraits );
-			
+
 			for( local i = 1; i < traits.len(); i = ++i )
 			{
 				this.m.Skills.add(traits[i]);
@@ -2619,7 +2619,6 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		local skills = [
 			"perk.legend_barter_trustworthy",
 			"perk.legend_barter_convincing",
-			"perk.legend_barter_greed",
 			"trait.seductive"
 		];
 
