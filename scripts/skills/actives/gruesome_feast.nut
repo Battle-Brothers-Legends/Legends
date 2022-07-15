@@ -130,6 +130,7 @@ this.gruesome_feast <- this.inherit("scripts/skills/skill", {
 
 		foreach( s in skills )
 		{
+			if(s.isType(this.Const.SkillType.PermanentInjury)) continue;	// Prevents the Legends-Nacho-Mask from healing permanent Injuries. Nachos never receive permanent injuries anyways
 			s.removeSelf();
 		}
 	}
