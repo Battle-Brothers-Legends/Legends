@@ -1,7 +1,5 @@
 this.legend_lw_relationship_effect <- this.inherit("scripts/skills/skill", {
-	m = {
-		Level = 0
-	},
+	m = {},
 	function create()
 	{
 		this.m.ID = "effects.legend_lw_relationship";
@@ -32,39 +30,27 @@ this.legend_lw_relationship_effect <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (1 * this.m.Level) + "[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Melee Skill per ally adjacent"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (1 * this.m.Level) + "[/color] Ranged Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] Ranged Skill per ally adjacent"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (1 * this.m.Level) + "[/color] Melee Defense"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Melee Defense per ally adjacent"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (1 * this.m.Level) + "[/color] Ranged Defense"
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/initiative.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + (1 * this.m.Level) + "[/color] Initiative"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Ranged Defense per ally adjacent"
 			}
-
 		];
-	}
-
-	function setLevel( _l )
-	{
-		this.m.Level = _l;
 	}
 
 	function onUpdate( _properties )
@@ -95,16 +81,16 @@ this.legend_lw_relationship_effect <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onAfterUpdate( _properties )
+	function onUpdate( _properties )
 	{
 		if (isSupported)
 		{
 			this.m.IsHidden = false;
-			_properties.MeleeSkill += 1 * this.m.Level;
-			_properties.RangedSkill += 1 * this.m.Level;
-			_properties.MeleeDefense += 1 * this.m.Level;
-			_properties.RangedDefense += 1 * this.m.Level;
-			_properties.Initiative += 2 * this.m.Level;
+			_properties.MeleeSkill += 2;
+			_properties.RangedSkill += 3;
+			_properties.MeleeDefense += 2;
+			_properties.RangedDefense += 2;
+			// _properties.Initiative += 2;
 		}
 		else
 		{
