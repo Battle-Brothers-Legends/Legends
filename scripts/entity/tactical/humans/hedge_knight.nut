@@ -67,30 +67,16 @@ this.hedge_knight <- this.inherit("scripts/entity/tactical/human", {
 
 	function assignRandomEquipment()
 	{
+		if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Offhand))
 		{
-			if (this.m.Items.hasEmptySlot(this.Const.ItemSlot.Offhand))
-			{
-				local weapons = [
-					"weapons/greatsword",
-					"weapons/greataxe",
-					"weapons/two_handed_hammer"
-				];
-			}
-
-			if (this.Const.DLC.Unhold && this.m.Items.hasEmptySlot(this.Const.ItemSlot.Offhand))
-			{
-				weapons.extend([
-					"weapons/two_handed_flanged_mace",
-					"weapons/two_handed_flail"
-				]);
-			}
-
-			if (this.Const.DLC.Wildmen && this.m.Items.hasEmptySlot(this.Const.ItemSlot.Offhand))
-			{
-				weapons.extend([
-					"weapons/bardiche"
-				]);
-			}
+			local weapons = [
+				"weapons/greatsword",
+				"weapons/greataxe",
+				"weapons/two_handed_hammer",
+				"weapons/two_handed_flanged_mace",	// Moved all weapons into one array because Legends requires all DLCs anyways
+				"weapons/two_handed_flail",
+				"weapons/bardiche"
+			];
 
 			this.m.Items.equip(this.new("scripts/items/" + weapons[this.Math.rand(0, weapons.len() - 1)]));
 		}

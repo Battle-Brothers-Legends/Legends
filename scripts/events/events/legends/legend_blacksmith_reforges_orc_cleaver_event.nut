@@ -142,6 +142,7 @@ this.legend_blacksmith_reforges_orc_cleaver_event <- this.inherit("scripts/event
 		// 	return;
 		// }
 
+		local brothers = this.World.getPlayerRoster().getAll();
 		local candidates = [];
 
 		foreach( bro in brothers )
