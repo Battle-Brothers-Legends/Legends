@@ -27,7 +27,7 @@ this.legend_lw_relationship_trait <- this.inherit("scripts/skills/traits/charact
 			{
 				id = 10,
 				type = "text",
-				icon = "ui/icons/mone.png",
+				icon = "ui/icons/money.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]Costs no upkeep[/color]"
 			},
 			{

@@ -70,7 +70,7 @@ this.training_building <- this.inherit("scripts/entity/world/camp/camp_building"
 		desc = desc + "There\'s always a slight chance someone can be injured.";
 		desc = desc + "\n\n";
 		desc = desc + "Training grounds can be upgraded by purchasing an upgrade set in local markets. Upgraded grounds reduce the ";
-		desc = desc + "risk of accidents from a minimum of 5% to 1% and also give the chance of a permanant skill increase.";
+		desc = desc + "risk of accidents from a minimum of 5% to 1% and also give the chance of a permanent skill increase.";
 		return desc;
 	}
 
