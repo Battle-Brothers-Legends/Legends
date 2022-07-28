@@ -149,6 +149,11 @@ this.event <- {
 			this.m.ActiveScreen.Banner = [];
 		}
 
+		if(("start" in this.m.ActiveScreen) == false) 	// Prevents errors when Events forget the start() function
+		{
+			this.m.ActiveScreen.start <- function(_start) {};
+		}
+
 		this.m.ActiveScreen.start(this);
 		this.m.ActiveScreen.Text = this.buildText(this.m.ActiveScreen.Text);
 
