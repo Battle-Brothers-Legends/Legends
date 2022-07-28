@@ -144,7 +144,7 @@ gt.Const.Perks.BarterClassTree <- {
 			gt.Const.Perks.PerkDefs.LegendPaymaster 
 		],
 		[
-			gt.Const.Perks.PerkDefs.LegendsOffBookDeal
+			gt.Const.Perks.PerkDefs.LegendOffBookDeal
 			gt.Const.Perks.PerkDefs.LegendBarterGreed
 		]
 	]

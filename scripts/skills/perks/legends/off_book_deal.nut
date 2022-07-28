@@ -6,8 +6,8 @@ this.off_book_deal <- this.inherit("scripts/skills/skill", {
 	function create()
 	{
 		this.m.ID = "perk.legends.off_book_deal";
-		this.m.Name = this.Const.Strings.PerkName.LegendsOffBookDeal;
-		this.m.Description = this.Const.Strings.PerkDescription.LegendsOffBookDeal;
+		this.m.Name = this.Const.Strings.PerkName.LegendOffBookDeal;
+		this.m.Description = this.Const.Strings.PerkDescription.LegendOffBookDeal;
 		this.m.Icon = "ui/perks/coins_circle.png";
 		this.m.IconDisabled = "ui/perks/coins_circle_bw.png"
 		this.m.Type = this.Const.SkillType.Perk;
