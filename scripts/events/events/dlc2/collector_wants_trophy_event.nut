@@ -232,6 +232,7 @@ this.collector_wants_trophy_event <- this.inherit("scripts/events/event", {
 			this.m.Peddler = candidates_peddler[this.Math.rand(0, candidates_peddler.len() - 1)];
 		}
 
+		local candidates_merchant = [];		// Quick Fix so that this event doesn't throw errors anymore, This line needs to be removed if someone wants to actually implement/fix this addition
 		if (candidates_merchant.len() != 0)
 		{
 			this.m.Merchant = candidates_merchant[this.Math.rand(0, candidates_merchant.len() - 1)];
