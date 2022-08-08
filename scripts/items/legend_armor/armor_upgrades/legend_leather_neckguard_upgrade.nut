@@ -22,7 +22,7 @@ this.legend_leather_neckguard_upgrade <- this.inherit("scripts/items/legend_armo
 		this.m.Value = 250;
 		this.m.Condition = 10;
 		this.m.ConditionMax = 10;
-		this.m.StaminaModifier = 2;
+		this.m.StaminaModifier = -2;
 		this.m.DirectDamageModifier = -20.0;
 	}
 });
