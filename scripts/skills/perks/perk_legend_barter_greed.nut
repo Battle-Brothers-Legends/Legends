@@ -1,5 +1,13 @@
 this.perk_legend_barter_greed <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		SoftCap = 25000,			// Bonus gained from Crowns above this value is penalized
+		SoftCapPenalty = 0.05,		// Multiplier for Bonus gained from Crowns above SoftCap
+
+		// Every 10000 Crowns
+		OffensiveMult = 18.0,		
+		DefensiveMult = 2.0,
+		ResolveMult = 16.0
+	},
 	function create()
 	{
 		this.m.ID = "perk.legend_barter_greed";
@@ -13,7 +21,7 @@ this.perk_legend_barter_greed <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
-	function getDescription() // —
+	function getDescription()
 	{
 		return "This character is keen to guard the horde of gold the company has accumulated — and intends to protect it with their life.";
 	}
@@ -35,56 +43,58 @@ this.perk_legend_barter_greed <- this.inherit("scripts/skills/skill", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getOffensiveBonus() + "[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.calculateBonus(this.m.OffensiveMult) + "[/color] Melee Skill"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getOffensiveBonus() + "[/color] Ranged Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.calculateBonus(this.m.OffensiveMult) + "[/color] Ranged Skill"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getDefensiveBonus() + "[/color] Melee Defense"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.calculateBonus(this.m.DefensiveMult) + "[/color] Melee Defense"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getDefensiveBonus() + "[/color] Ranged Defense"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.calculateBonus(this.m.DefensiveMult) + "[/color] Ranged Defense"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/bravery.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getResolveBonus() + "[/color] Resolve"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.calculateBonus(this.m.ResolveMult) + "[/color] Resolve"
 			}
 		];
 	}
 	function onUpdate( _properties ) //used 10k coin as a baseline
 	{
-		_properties.MeleeSkill += this.getOffensiveBonus();
-		_properties.RangedSkill += this.getOffensiveBonus();
-		_properties.MeleeDefense += this.getDefensiveBonus();
-		_properties.RangedDefense += this.getDefensiveBonus();
-		_properties.Bravery += this.getResolveBonus();
+		_properties.MeleeSkill += this.calculateBonus(this.m.OffensiveMult);
+		_properties.RangedSkill += this.calculateBonus(this.m.OffensiveMult);
+		_properties.MeleeDefense += this.calculateBonus(this.m.DefensiveMult);
+		_properties.RangedDefense += this.calculateBonus(this.m.DefensiveMult);
+		_properties.Bravery += this.calculateBonus(this.m.ResolveMult);
 	}
 
-	function getOffensiveBonus() //+14 @ 10K
+	function calculateBonus(_multiplier) //+14 @ 10K
 	{
-		return this.Math.floor(0.01 * this.World.Assets.getMoney() / 7);
+		return this.calculateSoftCappedBonus(_multiplier, this.World.Assets.getMoney());
 	}
 
-	function getDefensiveBonus() //+7 @ 10K
+	function calculateSoftCappedBonus(_multiplier, _crowns)
 	{
-		return this.Math.floor(0.005 * this.World.Assets.getMoney() / 5);;
+		local unCappedBonus = this.calculateGenericBonus(_multiplier, ::Math.min(_crowns, this.m.SoftCap));
+		local cappedBonus = this.calculateGenericBonus(_multiplier, _crowns - this.m.SoftCap);
+		return unCappedBonus + ::Math.floor(cappedBonus * this.m.SoftCapPenalty);
 	}
 
-	function getResolveBonus() //+16 @ 10k
+	function calculateGenericBonus(_multiplier, _crowns)
 	{
-		return this.Math.floor(0.008 * this.World.Assets.getMoney() / 5);
+		return ::Math.max(::Math.floor(_crowns / 10000.0 * _multiplier), 0);
 	}
 
 	function onAdded()
