@@ -258,6 +258,11 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 		this.m.RdefAdded = _in.readU16();
 		this.m.BonusXP = _in.readF32();
 		this.m.TraitGained = _in.readString();
+
+		if(this.isMaxReached())
+		{
+			this.m.Icon = "ui/traits/IntensiveTrainingCompleted.png";
+		}
 	}
 
 });
