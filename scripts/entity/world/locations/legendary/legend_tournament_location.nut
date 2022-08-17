@@ -25,6 +25,13 @@ this.legend_tournament_location <- this.inherit("scripts/entity/world/location",
 		this.location.onSpawned();
 	}
 
+	function onDiscovered()
+	{
+		this.location.onDiscovered();
+		this.World.Flags.increment("LegendaryLocationsDiscovered", 1);
+	}
+
+
 	function onInit()
 	{
 		this.location.onInit();
