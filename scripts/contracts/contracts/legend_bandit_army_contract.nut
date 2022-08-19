@@ -75,7 +75,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Location1 = this.WeakTableRef(this.getNearestLocationTo(this.m.Home, settlements, true));
 		this.m.Location2 = this.WeakTableRef(this.getNearestLocationTo(this.m.Location1, settlements, true));
 		local banditcamp = this.World.FactionManager.getFactionOfType(this.Const.FactionType.Bandits).getNearestSettlement(this.m.Home.getTile());
-		local banditcamp = this.m.Flags.set("isContractLocation", true); //prevents additional patrols (banditroamers+ambushers) being generated and diluting garrison strength
+		banditcamp.getFlags().set("isContractLocation", true); //prevents additional patrols (banditroamers+ambushers) being generated and diluting garrison strength
 		this.m.Destination = this.WeakTableRef(banditcamp);
 		this.m.Flags.set("DestinationName", banditcamp.getName());
 			//due to multipliers, ive just reduced the payment pool from 1200 to 500 for now as an easy fix.
