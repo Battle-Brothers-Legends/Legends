@@ -5,10 +5,10 @@ this.legend_puppet_master_background <- this.inherit("scripts/skills/backgrounds
 		this.character_background.create();
 		this.m.ID = "background.legend_puppet_master";
 		this.m.Name = "Puppet Master";
-		this.m.Icon = "ui/backgrounds/background_necromancer.png"; 
+		this.m.Icon = "ui/backgrounds/background_necromancer.png"; //—
 		this.m.BackgroundDescription = "Puppet masters are warlocks in training. While they do not understand the raising or preservation of the dead, they do excel at controlling them.";
-		this.m.GoodEnding = "%name% continued to look for a cure to their ailments after you left the company. A few years later they would wander into the woods and meet a witch who was more than happy to help at the cost of some protection. %name% and the witch lived out most of their lives away from prying eyes, surrounded by ever shifting rings of undead patrolling the perimeter.";
-		this.m.BadEnding = "Seeing their affliction as a permanent problem that wouldn\'t go away, %name% split from the company shortly after your departure. They took a different approach and looked for cures closer to the grave, allowing a puppet of their own correction to bite them. Upon taking their own life shortly after, %name% did not rise as coherent as they intended - instead as a spectator to their own body's actions. They remained trapped and decaying until a mercenary company cut them down outside of a nameless hamlet.";
+		this.m.GoodEnding = "%name% continued to practice their control over immortal objects for some time after mastering the basics from their time with the company. Given time they slowly strayed further and further from mortal company and surrounded themselves with marionettes of their own making — it didn\'t take long for them to muster a court of silent friends and comrades that agreed with their every word and whim. %name% had found a place where they could belong, even if the road to get here was paved with darker intentions.";
+		this.m.BadEnding = "%name% gradually detached from reality as their powers grew, forming their own as the world around them fell apart. Living or dead — it no longer mattered to him. %name% left quietly one night with a small group of his puppets, only to realise that when you are cold and alone, a brutal overseer has few friends when he needs them most.";
 		this.m.HiringCost = 1200000000000;
 		this.m.DailyCost = 0;
 		this.m.Excluded = [
