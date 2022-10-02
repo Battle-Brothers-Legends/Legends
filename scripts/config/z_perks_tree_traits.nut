@@ -265,7 +265,7 @@ gt.Const.Perks.DeviousTree <- {
 		"comes across as insincere",
 		"is slyly sneaky",
 		"responds evasively",
-		"is shrewdly desceitful"
+		"is shrewdly deceitful"
 	],
 	Attributes = {
 		Hitpoints = [

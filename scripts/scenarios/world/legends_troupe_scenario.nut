@@ -4,7 +4,7 @@ this.legends_troupe_scenario <- this.inherit("scripts/scenarios/world/starting_s
 	{
 		this.m.ID = "scenario.legends_troupe";
 		this.m.Name = "The Troupe";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_26.png[/img][/p]The life of an artist is not an easy one, misunderstood and under appreciated. Perhaps performers will have more luck together, find and audience, travel the world, or at least stop having things thrown at you. \n\n[color=#bcad8c]Acrobatics:[/color] Anyone you hire gains the Leap ability \n[color=#bcad8c]Exposure:[/color] You will encounter more performers, and they will be cheaper to hire.\n[color=#bcad8c]Busking:[/color] You gain 10 crowns each day for each member of the troupe. Tavern rumors and drinks are cheaper.";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_26.png[/img][/p]The life of an artist is not an easy one, misunderstood and under appreciated. Perhaps performers will have more luck together, find an audience, travel the world, or at least stop having things thrown at you. \n\n[color=#bcad8c]Acrobatics:[/color] Anyone you hire gains the Leap ability \n[color=#bcad8c]Exposure:[/color] You will encounter more performers, and they will be cheaper to hire.\n[color=#bcad8c]Busking:[/color] You gain 10 crowns each day for each member of the troupe. Tavern rumors and drinks are cheaper.";
 		this.m.Difficulty = 2;
 		this.m.Order = 290;
 		this.m.IsFixedLook = true;
@@ -50,7 +50,7 @@ this.legends_troupe_scenario <- this.inherit("scripts/scenarios/world/starting_s
 		bros[1].setPlaceInFormation(12);
 		bros[1].getSkills().add(this.new("scripts/skills/perks/perk_legend_leap"));
 		bros[1].getSkills().add(this.new("scripts/skills/perks/perk_legend_drums_of_life"));
-		
+
 		bros[1].m.PerkPointsSpent += 1;
 		local items = bros[1].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
