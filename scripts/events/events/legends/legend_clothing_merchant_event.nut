@@ -39,7 +39,7 @@ this.legend_clothing_merchant_event <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({
 			ID = "B",
-			Text = "[img]gfx/ui/events/event_60.png[/img]{She grins.%SPEECH_ON%Well, you really have nothing to lose. In the back here I have a fine selection of items that I can give you for a very low price, all you have to do is pay up one-hundred-and-twety-five crowns and I will pull a random item from a box without looking — whatever the result, you will always get something! %SPEECH_OFF%She scratches her chin, quite pleased with her performance thus far. Down below her the more sickly donkey hacks and coughs as if it were turning inside out.%SPEECH_ON%Don\'t mind him. He is almost as old as I am now. I found him grazing in a battlefield of all places.%SPEECH_OFF%She shoots the mule a piercing stare, which quickly cows the animal into silence.%SPEECH_ON%So, what will it be?%SPEECH_OFF%}",
+			Text = "[img]gfx/ui/events/event_60.png[/img]{She grins.%SPEECH_ON%Well, you really have nothing to lose. In the back here I have a fine selection of items that I can give you for a very low price, all you have to do is pay up one-hundred-and-twenty-five crowns and I will pull a random item from a box without looking — whatever the result, you will always get something! %SPEECH_OFF%She scratches her chin, quite pleased with her performance thus far. Down below her the more sickly donkey hacks and coughs as if it were turning inside out.%SPEECH_ON%Don\'t mind him. He is almost as old as I am now. I found him grazing in a battlefield of all places.%SPEECH_OFF%She shoots the mule a piercing stare, which quickly cows the animal into silence.%SPEECH_ON%So, what will it be?%SPEECH_OFF%}",
 			Image = "",
 			List = [],
 			Characters = [],

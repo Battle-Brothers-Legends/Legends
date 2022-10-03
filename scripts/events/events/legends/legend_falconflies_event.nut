@@ -41,7 +41,7 @@ this.legend_falconflies_event <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({ //pt.2
 			ID = "B",
-			Text = "%townImage%%falconhandler% sets down the cage on a nearby bench, much to the curiosity of the onlookers.%falconhandler% sets down the rest of their gear and begins to unbolt the cage, much to the delight of the prisoner inside who is now trying to help lift the bolt with its beak.%falconhandler% pinches the bolt between their fingers and turns back to you. %SPEECH_ON%Look, if I pull this door open, she might not be comin\' back. I ain\'t learnt to fly yet so unless you can we\'d be missin\' a bird. %SPEECH_OFF%The bird jostles in agreement. Or protest. You don\'t speak bird.",
+			Text = "%townImage%%falconhandler% sets down the cage on a nearby bench, much to the curiosity of the onlookers.%falconhandler% sets down the rest of their gear and begins to unbolt the cage, much to the delight of the prisoner inside who is now trying to help lift the bolt with its beak. %falconhandler% pinches the bolt between their fingers and turns back to you. %SPEECH_ON%Look, if I pull this door open, she might not be comin\' back. I ain\'t learnt to fly yet so unless you can we\'d be missin\' a bird. %SPEECH_OFF%The bird jostles in agreement. Or protest. You don\'t speak bird.",
 			Image = "",
 			List = [],
 			Characters = [],

@@ -32,7 +32,7 @@ this.legend_youngblood_background <- this.inherit("scripts/skills/backgrounds/ch
 			"the Learner",
 			"Alp Slayer",
 			"Hagbane",
-			"the Fang Collecter",
+			"the Fang Collector",
 			"the Student",
 			"the Young",
 			"the Kid",
