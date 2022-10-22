@@ -10,16 +10,11 @@
 	local map = ::Legends.Mod.ModSettings.addPage("Map Options");
 
 	//Setting, Default, Min, Max, ?, Name, Description
-	addNCSetting(map, ::MSU.Class.RangeSetting("LandRatio", 50, 45, 70, 1, "Land Mass Ratio", "Minimum land to water ratio for an acceptable map. Default is 50. Going either extremes on this slider can result in map never getting generated."));
-	::Legends.Mod.ModSettings.getSetting("LandRatio").lock("Locked for stability.")
-	addNCSetting(map, ::MSU.Class.RangeSetting("Water", 38, 28, 48, 1, "Water", "Impacts how much of the map is water. Small value results in patchy water around the corners of the map. Larger numbers can create a single large island given a low enough land mass ratio."));
-	::Legends.Mod.ModSettings.getSetting("Water").lock("Locked for stability.")
-	addNCSetting(map, ::MSU.Class.RangeSetting("Snowline", 85, 75, 95, 1, "Snowline", "Determines where the snowline is generated. Default is 90. This value is inverted. A value of 10 would mean the top 90% of the map is snow."));
-	::Legends.Mod.ModSettings.getSetting("Snowline").lock("Locked for stability.")
-	addNCSetting(map, ::MSU.Class.RangeSetting("Settlements", 19, 19, 27, 1, "Settlements", "Maximum number of settlements. Depending on map size, this will try to add the number of settlements on the slider. It will keep the same ratio of settlement types as default Battle Brothers maps. Minimum distance between settlements is 12 tiles. Vanilla default is 19."));
-	::Legends.Mod.ModSettings.getSetting("Settlements").lock("Locked for stability.")
-	addNCSetting(map, ::MSU.Class.RangeSetting("Factions", 3, 1, 6, 1, "Factions", "Maximum number of Factions to try and generate. Depending on map size, this may not add all the factions on the slider."));
-	::Legends.Mod.ModSettings.getSetting("Factions").lock("Locked for stability.")
+	addNCSetting(map, ::MSU.Class.RangeSetting("Locked", 50, 50, 50, 1, "Land Mass Ratio", "Minimum land to water ratio for an acceptable map. Default is 50. Going either extremes on this slider can result in map never getting generated.")); //Land Ratio
+	addNCSetting(map, ::MSU.Class.RangeSetting("Locked", 38, 38, 38, 1, "Water", "Impacts how much of the map is water. Small value results in patchy water around the corners of the map. Larger numbers can create a single large island given a low enough land mass ratio.")); //Water
+	addNCSetting(map, ::MSU.Class.RangeSetting("Locked", 85, 85, 85, 1, "Snowline", "Determines where the snowline is generated. Default is 90. This value is inverted. A value of 10 would mean the top 90% of the map is snow.")); //Snowline
+	addNCSetting(map, ::MSU.Class.RangeSetting("Locked", 19, 19, 19, 1, "Settlements", "Maximum number of settlements. Depending on map size, this will try to add the number of settlements on the slider. It will keep the same ratio of settlement types as default Battle Brothers maps. Minimum distance between settlements is 12 tiles. Vanilla default is 19.")); //Settlements
+	addNCSetting(map, ::MSU.Class.RangeSetting("Locked", 3, 3, 3, 1, "Factions", "Maximum number of Factions to try and generate. Depending on map size, this may not add all the factions on the slider.")); //Factions
 
 	addNCSetting(map, ::MSU.Class.SettingsDivider("MapDivider1"));
 
@@ -40,8 +35,6 @@
 	addNCSetting(config, ::MSU.Class.BooleanSetting("WorldEconomy", true, "World Economy", "If enabled, Settlements will actively trade items and resources and can grow or decline in value \n\n  Details: The value of a settlement is now a dynamic value that grows and declines with caravan arrivals and departures, contracts fullfilled or failed, good or bad settlement events. \n\n The value of the settlement determines how valuable the caravans it creates are, as well as the strength of local militia. \n\n Very prosperous settlements will continue to grow and potentialy add new locations."));
 
 	addNCSetting(config, ::MSU.Class.SettingsDivider("ConfigDivider2"));
-	addNCSetting(config, ::MSU.Class.BooleanSetting("UnlayeredArmor", false, "Unlayered Armor[LEGACY]", "[color=" + this.Const.UI.Color.NegativeValue + "]LEGACY OPTION, NOT RECOMMENDED.[/color]\n\nIn Legends, armor is arranged in layers, hundreds of pieces combine into millions of visual combinations. \n\n Detail: Armor is made up of a base cloth layer, chain, plate, tabard, cloak, attachment and finally a rune layer.\n\nHelmet is made up of a base hood layer, helmet layer, top layer, vanity layer and finally a rune layer.\n\nEach layer can be upgraded individually, allowing flexible armor builds and aesthetics\n\nIf this option is checked, layered armor is disabled."));
-	::Legends.Mod.ModSettings.getSetting("Factions").lock("Locked for stability.")
 
 	local combat = ::Legends.Mod.ModSettings.addPage("Combat");
 	combat.addElement(::MSU.Class.BooleanSetting("EnhancedTooltips", false, "Enhanced Enemy Tooltips", "Enemy tooltips in tactical battles will show more information, like perks and statuses"));
