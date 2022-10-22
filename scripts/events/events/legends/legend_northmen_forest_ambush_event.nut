@@ -364,6 +364,11 @@ this.legend_northmen_forest_ambush_event <- this.inherit("scripts/events/event",
 			return;
 		}
 
+		if (this.World.getTime().Days < 40)
+		{
+			return;
+		}
+
 		local currentTile = this.World.State.getPlayer().getTile();
 
 		if (currentTile.Type != this.Const.World.TerrainType.Forest && currentTile.Type != this.Const.World.TerrainType.SnowyForest && currentTile.Type != this.Const.World.TerrainType.LeaveForest && currentTile.Type != this.Const.World.TerrainType.AutumnForest)
