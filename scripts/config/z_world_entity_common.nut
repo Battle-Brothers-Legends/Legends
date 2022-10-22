@@ -259,7 +259,7 @@ gt.Const.World.Common.addUnitsToCombat = function( _into, _partyList, _resources
 
 					if ("NameList" in unit)
 					{
-						unit.Name = this.generateName(unit.Type.NameList) + (unit.Type.TitleList != null ? " " + unit.Type.TitleList[this.Math.rand(0, unit.Type.TitleList.len() - 1)] : "");
+						unit.Name = this.generateName(unit.NameList) + (unit.TitleList != null ? " " + unit.TitleList[this.Math.rand(0, unit.TitleList.len() - 1)] : "");
 					}
 				}
 			}
@@ -768,7 +768,7 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 		 {
 			 helmet.setUpgrade(van)
 		 }
-		
+
 		if ("Vanity2" in set)
 		{
 			local van2 = this.Const.World.Common.pickLegendHelmet(set.Vanity2);
@@ -826,7 +826,7 @@ gt.Const.World.Common.pickArmor <- function (_armors)
 
 	if (::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
 	{
-		if (armorID == "seedmaster_noble_armor" || armorID == "citreneking_noble_armor" ) {armorID = "mail_hauberk"};	
+		if (armorID == "seedmaster_noble_armor" || armorID == "citreneking_noble_armor" ) {armorID = "mail_hauberk"};
 		local item = this.new("scripts/items/armor/" + armorID);
 		if (item == null) return null;
 		if (faction != null && "setFaction" in item)
@@ -986,7 +986,7 @@ gt.Const.World.Common.pickArmorUpgrade <- function (_armors)
 */
 
 //Operating assuming that if we have chance not -1 we sent in an armor and helmet array that aren't null
-gt.Const.World.Common.pickOutfit <- function ( _outfitArr, _armorArr = null, _helmetArr = null, _chance = 0) 
+gt.Const.World.Common.pickOutfit <- function ( _outfitArr, _armorArr = null, _helmetArr = null, _chance = 0)
 {
 	if (_chance != 0)
 	{
@@ -1323,7 +1323,7 @@ gt.Const.World.Common.pickPerks <- function (_perks, _power)
 // 	[1, "perk_steel_brow", 3],
 // 	// [1, "perk_battle_forged", 2],
 // 	[1, "perk_lookout", 1],
-// 	[1, ["perk_battle_forged", "perk_nimble"], 3] 
+// 	[1, ["perk_battle_forged", "perk_nimble"], 3]
 // ]
 
 // local perksPicked = this.Const.World.Common.pickPerks(testArray, 5)
