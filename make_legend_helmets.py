@@ -917,11 +917,11 @@ layers = [
  "title" :  "Chain Attachment", \
  "desc" :  "A piece of mail used for hanging over the mouth and nose." \
 },
-{"name" : "faceplate_flat"                     , "layer" : "top", "min" : 1, "max" : 6, "value" : 300, "con" : 35, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "false",  \
+{"name" : "faceplate_flat"                     , "layer" : "top", "min" : 1, "max" : 6, "value" : 300, "con" : 35, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Flat Faceplate", \
  "desc" :  "Flat Faceplate." \
 },
-{"name" : "faceplate_curved"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 300, "con" : 35, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "false",  \
+{"name" : "faceplate_curved"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 300, "con" : 35, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Curved Faceplate", \
  "desc" :  "Curved Faceplate." \
 },
@@ -945,11 +945,11 @@ layers = [
  "title" :  "Snub Nose Faceplate", \
  "desc" :  "A round nosed faceplate." \
 },
-{"name" : "faceplate_snub_slit"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 500, "con" : 45, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "false",  \
+{"name" : "faceplate_snub_slit"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 500, "con" : 45, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Slitted Snub Faceplate", \
  "desc" :  "Slitted Snub Faceplate." \
 },
-{"name" : "faceplate_sharp"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 300, "con" : 35, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "false",  \
+{"name" : "faceplate_sharp"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 300, "con" : 35, "stam" : -2, "vis" : -1, "hair" : "false", "beard" : "true",  \
  "title" :  "Sharp Faceplate", \
  "desc" :  "Sharp Faceplate." \
 },
@@ -999,7 +999,7 @@ layers = [
 },
 # {"name" : "southern_faceplate"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 450, "con" : 50, "stam" : -3, "vis" : -2, "hair" : "false", "beard" : "true",  \
 #  "title" :  "Southern Faceplate", \
-#  "desc" :  "A faceplate in the southern style" \ 
+#  "desc" :  "A faceplate in the southern style" \
 # },
 {"name" : "southern_faceplate_bearded"                     , "layer" : "top", "min" : 1, "max" : 2, "value" : 700, "con" : 60, "stam" : -5, "vis" : -2, "hair" : "false", "beard" : "true",  \
  "title" :  "Southern Bearded Faceplate", \
@@ -1031,7 +1031,7 @@ layers = [
  "title" :  "Gold Faceplate", \
  "desc" :  "A gilded faceplate of excellent quality." \
 },
-{"name" : "faceplate_full_gold"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 1000, "con" : 65, "stam" : -4, "vis" : -2, "hair" : "false", "beard" : "false", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 3, "rminStam" : 4, "rminCond" : 65, "rmaxCond" : 90, "names" : Names,  \
+{"name" : "faceplate_full_gold"                     , "layer" : "top", "min" : 1, "max" : 1, "value" : 1000, "con" : 65, "stam" : -4, "vis" : -2, "hair" : "false", "beard" : "true", "named" : True, "rmaxViz" : 1, "rminViz" : 2, "rmaxStam" : 3, "rminStam" : 4, "rminCond" : 65, "rmaxCond" : 90, "names" : Names,  \
  "title" :  "Golden Full Faceplate", \
  "desc" :  "Golden Full Faceplate." \
 },
