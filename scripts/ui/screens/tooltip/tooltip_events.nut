@@ -3255,7 +3255,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Characters gain experience as they or their allies slay enemies in battles. If a character has accumulated sufficient experience, they\'ll level up and be able to increase attributes and pick a perk that grants a unique bonus.\n\nBeyond the 11th character level, main characters gain a perk every two levels, and supporting characters gain a perk every five levels."
+					text = "Characters gain experience as they or their allies slay enemies in battles. If a character has accumulated sufficient experience, they\'ll level up and be able to increase attributes and pick a perk that grants a unique bonus.\n\nBeyond the 11th character level, main characters gain a perk every two levels, and supporting characters gain a perk every four levels."
 				}
 			];
 
@@ -3269,7 +3269,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "The character\'s level measures experience in battle. Characters rise in levels as they gain experience and are able to increase their attributes and gain perks that make them better at the mercenary profession.\n\nBeyond the 11th character level, main characters gain a perk every two levels, and supporting characters gain a perk every five levels."
+					text = "The character\'s level measures experience in battle. Characters rise in levels as they gain experience and are able to increase their attributes and gain perks that make them better at the mercenary profession.\n\nBeyond the 11th character level, main characters gain a perk every two levels, and supporting characters gain a perk every four levels."
 				}
 			];
 
