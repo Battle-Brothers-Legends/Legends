@@ -4,7 +4,7 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 	{
 		this.m.ID = "scenario.cultists";
 		this.m.Name = "Davkul Cultists";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_140.png[/img][/p][p]Davkul awaits. You lead a small flock devoted to the elder god, and it is time to spread the word. Find more followers, acquire riches, and please Davkul with sacrifices.\n\n[color=#bcad8c]Cultists:[/color] Start with a group of five cultists. Encounter fanatical special cultists in towns.\n[color=#bcad8c]Sacrifices:[/color] Davkul will occasionally demand sacrifices from you, but also bestow boons upon those loyal to him. Davkul will not sacrifice his chosen elite. Cultists cost 25% less to buy and maintain.\n[color=#c90000]Let the Blood Flow:[/color] All cultists gain whip skills and favour fighting nobles and caravans.[/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_140.png[/img][/p][p]Davkul awaits. You lead a small flock devoted to the elder god, and it is time to spread the word. Find more followers, acquire riches, and please Davkul with sacrifices.\n\n[color=#bcad8c]Cultists:[/color] Start with a group of five cultists. Encounter fanatical special cultists in towns.\n[color=#bcad8c]Sacrifices:[/color] Davkul will occasionally demand sacrifices from you, but also bestow boons upon those loyal to him. Davkul will not sacrifice his chosen elite. Cultists cost 25% less to buy and maintain.\n[color=#c90000]Let the Blood Flow:[/color] All cultists gain true believer and bonus melee skill.[/p]";
 		this.m.Difficulty = 2;
 		this.m.Order = 90;
 		this.m.IsFixedLook = true;
@@ -198,34 +198,32 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 	function onUpdateDraftList( _list, _gender = null )
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() <= 5)
+		
+		local r;
+		r = this.Math.rand(0, 3);
+		if (r == 0)
 		{
-			local r;
-			r = this.Math.rand(0, 9);
-			if (r == 0)
-			{
-				_list.push("cultist_background");
-			}
+			_list.push("cultist_background");
+		}
 
-			r = this.Math.rand(0, 10);
-			if (r == 0)
-			{
-				_list.push("legend_lurker_background");
-			}
+		r = this.Math.rand(0, 4);
+		if (r == 0)
+		{
+			_list.push("legend_lurker_background");
+		}
 
-			r = this.Math.rand(0, 13);
-			if (r == 0)
-			{
-				_list.push("legend_husk_background");
-			}
+		r = this.Math.rand(0, 6);
+		if (r == 0)
+		{
+			_list.push("legend_husk_background");
+		}
 
-			r = this.Math.rand(0, 17);
-			if (r == 0)
-			{
-				_list.push("legend_magister_background");
-			}
-		}	
-	}
+		r = this.Math.rand(0, 8);
+		if (r == 0)
+		{
+			_list.push("legend_magister_background");
+		}
+	}	
 
 	function isCultist( _background )
 	{
@@ -258,7 +256,7 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 		{															//Can't really recruit converted cultists but its here anyway for posterity
 			if (bro.getBackground().getID() == "background.cultist" || bro.getBackground().getID() == "background.converted_cultist" || bro.getBackground().getID() == "background.legend_lurker" || bro.getBackground().getID() == "background.legend_darksoul" || bro.getBackground().getID() == "background.legend_magister")
 			{				
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.0) //1.0 = default
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
 				bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
 				bro.getBaseProperties().MeleeSkill += 10;
 				bro.getSkills().removeByID("trait.superstitious"); //If cultist, this ID will be removed as True believer is not removing them on hire
@@ -279,7 +277,7 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 
 	function onGetBackgroundTooltip( _background, _tooltip )
 	{
-		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.cultist_lurker" || _background.getID() == "background.cultist_darksoul" || _background.getID() == "background.cultist_magister")
+		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.legend_lurker" || _background.getID() == "background.legend_darksoul" || _background.getID() == "background.legend_magister")
 		{
 			_tooltip.pop();
 			_tooltip.push({
@@ -296,7 +294,6 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 		if (this.isCultist(_background))
 		{
 			this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.LegendTrueBeliever);
-		//	this.getBaseProperties().MeleeSkill += 10;
 		}
 	}
 });
