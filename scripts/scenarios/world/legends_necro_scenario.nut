@@ -29,7 +29,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			local bro;
 			bro = roster.create("scripts/entity/tactical/player");
  			bro.getSprite("socket").setBrush("bust_base_undead"); //base bust for starters
- 			// bro.getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
+ 			bro.getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 
 			while (names.find(bro.getNameOnly()) != null)
@@ -233,7 +233,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		{
 			bro.improveMood(1.5, "These people really understand me!");
 			bro.getSprite("socket").setBrush("bust_base_undead");
-			// bro.getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
+			bro.getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 		}
 		else if (bro.getBackground().getID() == "background.legend_puppet")
 		{
@@ -272,23 +272,37 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		}
 	}
 
-	//new test start --
-
-	function isCultist( _background )
+	function onGetBackgroundTooltip( _background, _tooltip )
 	{
-		return _background.isBackgroundType(this.Const.BackgroundType.ConvertedCultist | this.Const.BackgroundType.Cultist);
-	}
-	//new end
-
-	function onBuildPerkTree( _background ) //give trait to cultist converts
-	{
-		if (this.isCultist(_background))
+		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.gravedigger" || _background.getID() == "background.graverobber")
 		{
-			// this.addScenarioPerk(_background, this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
-			// this.getSkills().add(_background, this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
-			this.getBaseProperties().MeleeSkill += 10;
+			_tooltip.pop();
+			_tooltip.push({
+				id = 16,
+				type = "text",
+				icon = "ui/icons/melee_skill.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Skill from being in a necromancer\'s employ"
+			});
 		}
 	}
+
+	//new test start --
+
+	// function isCultist( _background )
+	// {
+	// 	return _background.isBackgroundType(this.Const.BackgroundType.ConvertedCultist | this.Const.BackgroundType.Cultist);
+	// }
+	//new end
+
+	// function onBuildPerkTree( _background ) //give trait to cultist converts
+	// {
+	// 	if (this.isCultist(_background))
+	// 	{
+	// 		// this.addScenarioPerk(_background, this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
+	// 		// this.getSkills().add(_background, this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
+	// 		this.getBaseProperties().MeleeSkill += 10;
+	// 	}
+	// }
 
 });
 

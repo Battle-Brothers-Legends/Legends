@@ -1091,10 +1091,8 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			local skill = this.new("scripts/skills/" + potential[this.Math.rand(0, potential.len() - 1)].Script);
 			this.m.Skills.add(skill);
 
-			//if (this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying = true && !this.getFlags().has("PlayerZombie")) //deathly spectre for Cabal // not working breaks
-			if (this.m.CurrentProperties.SurvivesAsUndead && !this.getFlags().has("PlayerZombie")) // reverting to old Legends version works
-                        //if (this.World.Assets.getOrigin().getID() == "scenario.legends_necro" && this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying = true && !this.getFlags().has("PlayerZombie")) // not working breaks
-                         // if (this.World.Assets.getOrigin().getID() == "scenario.legends_necro" && this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying == true && !this.getFlags().has("PlayerZombie")) // works prevents crash but don't think it's applying any survive as undead looks or traits in cabal scenario
+			if (this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying == true && !this.getFlags().has("PlayerZombie")) //deathly spectre for Cabal
+			// if (this.m.CurrentProperties.SurvivesAsUndead && !this.getFlags().has("PlayerZombie")) // revert to old Legends version here if above does not work
 			{
 				this.m.MoraleState = this.Const.MoraleState.Ignore;
 				this.getFlags().add("PlayerZombie");
@@ -1106,20 +1104,20 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 				this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
 			}
 
-			// if (this.World.Assets.getOrigin().getID() == "scenario.legends_necro" ) //deathly spectre for Cabal
-			// {
-			// 	if(this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying = true && !this.getFlags().has("PlayerZombie"))
-			// 	{
-			// 		this.m.MoraleState = this.Const.MoraleState.Ignore;
-			// 		this.getFlags().add("PlayerZombie");
-			// 		this.getFlags().add("undead");
-			// 		this.getFlags().add("zombie_minion");
-			// 		local skill = this.new("scripts/skills/traits/legend_rotten_flesh_trait");
-			// 		this.m.Skills.add(skill);
-			// 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
-			// 		this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
-			// 	}
-			// }
+			if (this.World.Assets.getOrigin().getID() == "scenario.legends_necro" ) //deathly spectre for Cabal
+			{
+				if(this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying = true && !this.getFlags().has("PlayerZombie"))
+				{
+					this.m.MoraleState = this.Const.MoraleState.Ignore;
+					this.getFlags().add("PlayerZombie");
+					this.getFlags().add("undead");
+					this.getFlags().add("zombie_minion");
+					local skill = this.new("scripts/skills/traits/legend_rotten_flesh_trait");
+					this.m.Skills.add(skill);
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
+				}
+			}
 
 			this.Tactical.getSurvivorRoster().add(this);
 			this.m.IsDying = false;
