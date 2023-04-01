@@ -212,7 +212,7 @@ this.kennel_building <- this.inherit("scripts/entity/world/settlements/buildings
 				S = "accessory/wardog_item"
 			},
 			{
-				R = 0,
+				R = 15,
 				P = 1.0,
 				S = "accessory/wolf_item"
 			},
