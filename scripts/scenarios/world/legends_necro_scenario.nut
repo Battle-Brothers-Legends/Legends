@@ -29,7 +29,6 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			local bro;
 			bro = roster.create("scripts/entity/tactical/player");
  			bro.getSprite("socket").setBrush("bust_base_undead"); //base bust for starters
- 			bro.getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 
 			while (names.find(bro.getNameOnly()) != null)
@@ -50,6 +49,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[0].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[0].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 		bros[0].getSkills().add(this.new("scripts/skills/perks/perk_bags_and_belts"));
+ 		bros[0].getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 
 		bros[1].setStartValuesEx([
 			"legend_warlock_summoner_background" //sickly but good def. summons.
@@ -60,6 +60,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[1].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[1].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 		bros[1].getSkills().add(this.new("scripts/skills/perks/perk_nine_lives"));
+ 		bros[1].getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 
 		bros[2].setStartValuesEx([
 			"legend_puppet_master_background" //strong but slow tank
@@ -69,6 +70,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[2].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[2].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 		bros[2].getSkills().add(this.new("scripts/skills/perks/perk_legend_possession"));
+ 		bros[2].getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 
 		bros[3].setStartValuesEx([
 			"legend_puppet_background" //poor fucking infantry (tm)
