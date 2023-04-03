@@ -87,6 +87,7 @@ this.legend_bounty_hunter_background <- this.inherit("scripts/skills/backgrounds
 		this.m.PerkTreeDynamic = { 
 			Weapon = [
 				this.Const.Perks.MaceTree,
+				this.Const.Perks.DaggerTree,
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.AxeTree,
 				this.Const.Perks.CleaverTree,
