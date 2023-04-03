@@ -15,7 +15,7 @@ this.cultist_leather_hood <- this.inherit("scripts/items/helmets/helmet", {
 		this.updateVariant();
 		this.m.ImpactSound = this.Const.Sound.ArmorLeatherImpact;
 		this.m.InventorySound = this.Const.Sound.ClothEquip;
-		this.m.Value = 140;
+		this.m.Value = 60; // Grenik valued down from old 140
 		this.m.Condition = 60;
 		this.m.ConditionMax = 60;
 		this.m.StaminaModifier = -3;
