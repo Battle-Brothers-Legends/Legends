@@ -217,7 +217,7 @@ this.cultist_origin_sacrifice_event <- this.inherit("scripts/events/event", {
 		local candidates = [];
 		foreach (bro in brothers)
 		{
-		  if (bro.getSkills().hasSkill("background.cultist_magister") || bro.getSkills().hasSkill("background.cultist_darksoul"))
+		  if (bro.getSkills().hasSkill("background.legend_husk") || bro.getSkills().hasSkill("background.legend_magister")) //Will not sacrifice any backgrounds using these IDs
 		  {
 			continue;
 		  }
