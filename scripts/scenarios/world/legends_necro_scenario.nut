@@ -288,23 +288,18 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		}
 	}
 
-	//new test start --
-
 	// function isCultist( _background )
 	// {
 	// 	return _background.isBackgroundType(this.Const.BackgroundType.ConvertedCultist | this.Const.BackgroundType.Cultist);
 	// }
 	//new end
 
-	// function onBuildPerkTree( _background ) //give trait to cultist converts
-	// {
-	// 	if (this.isCultist(_background))
-	// 	{
-	// 		// this.addScenarioPerk(_background, this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
-	// 		// this.getSkills().add(_background, this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
-	// 		this.getBaseProperties().MeleeSkill += 10;
-	// 	}
-	// }
-
+	function onBuildPerkTree( _background )
+	{
+		if (_background.getID() == "background.gravedigger" || _background.getID() == "background.graverobber")
+		{
+			this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.LegendResurrectionist);
+		}
+	}
 });
 
