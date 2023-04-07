@@ -342,23 +342,37 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 
-
 		local r;
 		r = this.Math.rand(0, 9);
 		if (r == 0)
 		{
 			_list.push("legend_noble_2h");
 		}
+
 		r = this.Math.rand(0, 9);
 		if (r == 0)
 		{
 			_list.push("legend_noble_shield");
 		}
+
 		r = this.Math.rand(0, 9);
 		if (r == 0)
 		{
 			_list.push("legend_noble_ranged");
 		}
+
+		r = this.Math.rand(0, 13);
+		if (r == 0)
+		{
+			_list.push("adventurous_noble_background");
+		}
+
+		r = this.Math.rand(0, 13);
+		if (r == 0)
+		{
+			_list.push("female_adventurous_noble_background");
+		}
+
 		r = this.Math.rand(0, 19);
 		if (r == 0)
 		{

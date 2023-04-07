@@ -188,6 +188,7 @@ this.legends_rangers_scenario <- this.inherit("scripts/scenarios/world/starting_
 	function onUpdateDraftList( _list, _gender = null )
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
+		
 		local r;
 		r = this.Math.rand(0, 1);
 
@@ -229,19 +230,11 @@ this.legends_rangers_scenario <- this.inherit("scripts/scenarios/world/starting_
 		}
 
 		local r;
-		r = this.Math.rand(0, 999);
+		r = this.Math.rand(0, 274);
 
 		if (r == 0)
 		{
 			_list.push("legend_ranger_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 999);
-
-		if (r == 0)
-		{
-			_list.push("legend_druid_background");
 		}
 	}
 

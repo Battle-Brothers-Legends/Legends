@@ -246,20 +246,16 @@ this.trader_scenario <- this.inherit("scripts/scenarios/world/starting_scenario"
 	function onUpdateDraftList( _list, _gender = null )
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() < 10)
-		{
-			return;
-		}
 
 		local r;
-		r = this.Math.rand(0, 4);
+		r = this.Math.rand(0, 2);
 
 		if (r == 0)
 		{
 			_list.push("peddler_background");
 		}
 
-		r = this.Math.rand(0, 2);
+		r = this.Math.rand(0, 1);
 
 		if (r == 0)
 		{

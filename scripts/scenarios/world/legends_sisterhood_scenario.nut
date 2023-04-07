@@ -185,165 +185,89 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 	function onUpdateDraftList( _list, _gender = null )
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() >= 10)
+		local r;
+		r = this.Math.rand(0, 9);
+
+		if (r == 0)
 		{
-			local r;
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("legend_shieldmaiden_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("female_disowned_noble_background");
-			}
-
-			r = this.Math.rand(0, 3);
-
-			if (r == 0)
-			{
-				_list.push("female_daytaler_background");
-			}
-
-			r = this.Math.rand(0, 5);
-
-			if (r == 0)
-			{
-				_list.push("female_beggar_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("female_bowyer_background");
-			}
-
-			r = this.Math.rand(0, 6);
-
-			if (r == 0)
-			{
-				_list.push("female_butcher_background");
-			}
-
-			r = this.Math.rand(0, 4);
-
-			if (r == 0)
-			{
-				_list.push("female_farmhand_background");
-			}
-
-			r = this.Math.rand(0, 7);
-
-			if (r == 0)
-			{
-				_list.push("female_miller_background");
-			}
-
-			r = this.Math.rand(0, 2);
-
-			if (r == 0)
-			{
-				_list.push("female_servant_background");
-			}
-
-			r = this.Math.rand(0, 6);
-
-			if (r == 0)
-			{
-				_list.push("female_tailor_background");
-			}
-
-			r = this.Math.rand(0, 8);
-
-			if (r == 0)
-			{
-				_list.push("female_thief_background");
-			}
-
-			r = this.Math.rand(0, 8);
-
-			if (r == 0)
-			{
-				_list.push("legend_nun_background");
-			}
+			_list.push("legend_shieldmaiden_background");
 		}
-		else
+
+		r = this.Math.rand(0, 9);
+
+		if (r == 0)
 		{
-			local r;
-			r = this.Math.rand(0, 6);
+			_list.push("female_disowned_noble_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_daytaler_background");
-			}
+		r = this.Math.rand(0, 3);
 
-			r = this.Math.rand(0, 10);
+		if (r == 0)
+		{
+			_list.push("female_daytaler_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_beggar_background");
-			}
+		r = this.Math.rand(0, 5);
 
-			r = this.Math.rand(0, 18);
+		if (r == 0)
+		{
+			_list.push("female_beggar_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_bowyer_background");
-			}
+		r = this.Math.rand(0, 9);
 
-			r = this.Math.rand(0, 12);
+		if (r == 0)
+		{
+			_list.push("female_bowyer_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_butcher_background");
-			}
+		r = this.Math.rand(0, 6);
 
-			r = this.Math.rand(0, 8);
+		if (r == 0)
+		{
+			_list.push("female_butcher_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_farmhand_background");
-			}
+		r = this.Math.rand(0, 4);
 
-			r = this.Math.rand(0, 14);
+		if (r == 0)
+		{
+			_list.push("female_farmhand_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_miller_background");
-			}
+		r = this.Math.rand(0, 7);
 
-			r = this.Math.rand(0, 8);
+		if (r == 0)
+		{
+			_list.push("female_miller_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_servant_background");
-			}
+		r = this.Math.rand(0, 2);
 
-			r = this.Math.rand(0, 12);
+		if (r == 0)
+		{
+			_list.push("female_servant_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_tailor_background");
-			}
+		r = this.Math.rand(0, 6);
 
-			r = this.Math.rand(0, 16);
+		if (r == 0)
+		{
+			_list.push("female_tailor_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("female_thief_background");
-			}
+		r = this.Math.rand(0, 8);
 
-			r = this.Math.rand(0, 16);
+		if (r == 0)
+		{
+			_list.push("female_thief_background");
+		}
 
-			if (r == 0)
-			{
-				_list.push("legend_nun_background");
-			}
+		r = this.Math.rand(0, 8);
+
+		if (r == 0)
+		{
+			_list.push("legend_nun_background");
 		}
 	}
 

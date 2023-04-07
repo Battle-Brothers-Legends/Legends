@@ -284,24 +284,48 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 	function onUpdateDraftList( _list, _gender = null)
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() < 5)
+		
+		local r;
+		r = this.Math.rand(0, 1);
+		
+		if (r == 0)
 		{
-			local r;
-			if (::Math.rand(0, 2) == 0) _list.push("flagellant_background")
-			if (::Math.rand(0, 4) == 0) _list.push("monk_background")
-			if (::Math.rand(0, 6) == 0 && _gender) _list.push("legend_nun_background")
-			if (::Math.rand(0, 6) == 0 && _gender) _list.push("legend_youngblood_background")
-			if (::Math.rand(0, 8) == 0) _list.push("witchhunter_background")
-			if (::Math.rand(0, 49) == 0) _list.push("legend_crusader_background")
+			_list.push("flagellant_background");
 		}
-		if (_list.len() >= 5)
+
+		r = this.Math.rand(0, 3);
+		
+		if (r == 0)
 		{
-			local r;
-			if (::Math.rand(0, 2) == 0) _list.push("flagellant_background")
-			if (::Math.rand(0, 3) == 0) _list.push("monk_background")
-			if (::Math.rand(0, 4) == 0 && _gender) _list.push("legend_nun_background")
-			if (::Math.rand(0, 5) == 0) _list.push("witchhunter_background")
-			if (::Math.rand(0, 19) == 0) _list.push("legend_crusader_background")
+			_list.push("monk_background");
+		}
+
+		r = this.Math.rand(0, 3);
+		
+		if (r == 0 && _gender)
+		{
+			_list.push("legend_nun_background");
+		}
+
+		r = this.Math.rand(0, 5);
+		
+		if (r == 0)
+		{
+			_list.push("witchhunter_background");
+		}
+
+		r = this.Math.rand(0, 29);
+		
+		if (r == 0)
+		{
+			_list.push("legend_youngblood_background");
+		}
+
+		r = this.Math.rand(0, 49);
+		
+		if (r == 0)
+		{
+			_list.push("legend_crusader_background");
 		}
 	}
 

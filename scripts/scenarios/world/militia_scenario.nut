@@ -258,7 +258,7 @@ this.militia_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		}
 
 		local r;
-		r = this.Math.rand(0, 8);
+		r = this.Math.rand(0, 5);
 
 		if (r == 0)
 		{
@@ -266,7 +266,7 @@ this.militia_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		}
 
 		local r;
-		r = this.Math.rand(0, 10);
+		r = this.Math.rand(0, 7);
 
 		if (r == 0)
 		{

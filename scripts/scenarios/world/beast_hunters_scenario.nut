@@ -257,11 +257,7 @@ this.beast_hunters_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	function onUpdateDraftList( _list, _gender = null )
 	{
 		if (_gender == null) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() < 10)
-		{
-			return;
-		}
-
+		
 		local r;
 		r = this.Math.rand(0, 1);
 
@@ -269,7 +265,7 @@ this.beast_hunters_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		{
 			_list.push("beast_hunter_background");
 		}
-		r = this.Math.rand(0, 35);
+		r = this.Math.rand(0, 11);
 		if (r == 0)
 		{
 			_list.push("legend_guildmaster_background");

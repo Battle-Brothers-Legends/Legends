@@ -187,73 +187,48 @@ this.legends_crusader_scenario <- this.inherit("scripts/scenarios/world/starting
 	function onUpdateDraftList( _list, _gender = null)
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() < 5)
+		
+		local r;
+		r = this.Math.rand(0, 2);
+		
+		if (r == 0)
 		{
-			local r;
-			r = this.Math.rand(0, 2);
-			if (r == 0)
-			{
 			_list.push("flagellant_background");
-			}
-			r = this.Math.rand(0, 4);
-			if (r == 0)
-			{
-			_list.push("legend_pilgrim_background");
-			}
-			r = this.Math.rand(0, 4);
-			if (r == 0)
-			{
-			_list.push("monk_background");
-			}
-			r = this.Math.rand(0, 6);
-			if (r == 0 && _gender)
-			{
-			_list.push("legend_nun_background");
-			}
-			r = this.Math.rand(0, 9);
-			if (r == 0)
-			{
-				_list.push("witchhunter_background");
-			}
-			r = this.Math.rand(0, 49);
-			if (r == 0)
-			{
-				_list.push("legend_crusader_background");
-			}
 		}
-		if (_list.len() >= 5)
+
+		r = this.Math.rand(0, 4);
+		
+		if (r == 0)
 		{
-			local r;
-			r = this.Math.rand(0, 5);
-			if (r == 0)
-			{
-				_list.push("flagellant_background");
-			}
-			r = this.Math.rand(0, 5);
-			if (r == 0)
-			{
-				_list.push("legend_pilgrim_background");
-			}
-			r = this.Math.rand(0, 6);
-			if (r == 0)
-			{
-				_list.push("monk_background");
-			}
-			r = this.Math.rand(0, 4);
-			if (r == 0)
-			{
-				_list.push("legend_nun_background");
-			}
-			r = this.Math.rand(0, 5);
-			if (r == 0)
-			{
-				_list.push("witchhunter_background");
-			}
-			r = this.Math.rand(0, 19);
-			if (r == 0)
-			{
-				_list.push("legend_crusader_background");
-			}
+			_list.push("legend_pilgrim_background");
+		}
+
+		r = this.Math.rand(0, 4);
+		
+		if (r == 0)
+		{
+			_list.push("monk_background");
+		}
+
+		r = this.Math.rand(0, 6);
+		
+		if (r == 0 && _gender)
+		{
+			_list.push("legend_nun_background");
+		}
+
+		r = this.Math.rand(0, 9);
+		
+		if (r == 0)
+		{
+			_list.push("witchhunter_background");
+		}
+
+		r = this.Math.rand(0, 49);
+		
+		if (r == 0)
+		{
+			_list.push("legend_crusader_background");
 		}
 	}
 
