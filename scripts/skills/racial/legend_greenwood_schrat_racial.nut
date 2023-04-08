@@ -78,7 +78,7 @@ this.legend_greenwood_schrat_racial <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onDamageReceived( _damage, _fatalityType, _attacker, _damageHitpoints, _damageArmor )
+	function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
 	{
 		local actor = this.getContainer().getActor();
 
@@ -101,19 +101,6 @@ this.legend_greenwood_schrat_racial <- this.inherit("scripts/skills/skill", {
 						candidates.push(nextTile);
 					}
 				}
-
-			this.armor.onDamageReceived(_damage, _fatalityType, _attacker);
-
-			if (_attacker != null && _attacker.isAlive() && _attacker.getHitpoints() > 0 && _attacker.getID() != this.getContainer().getActor().getID() && _attacker.getTile().getDistanceTo(this.getContainer().getActor().getTile()) == 1 && !_attacker.getCurrentProperties().IsImmuneToDamageReflection)
-			{
-				local hitInfo = clone this.Const.Tactical.HitInfo;
-				hitInfo.DamageRegular = this.Math.maxf(1.0, _damage * 0.15); //15% damage returned
-				hitInfo.DamageArmor = this.Math.maxf(1.0, _damage * 0.15); //15%
-				hitInfo.DamageDirect = 0.0;
-				hitInfo.BodyPart = this.Const.BodyPart.Body;
-				hitInfo.BodyDamageMult = 1.0;
-				hitInfo.FatalityChanceMult = 0.0;
-				_attacker.onDamageReceived(_attacker, null, hitInfo);
 			}
 
 			if (candidates.len() != 0)
@@ -125,7 +112,4 @@ this.legend_greenwood_schrat_racial <- this.inherit("scripts/skills/skill", {
 			}
 		}
 	}
-}
-
 });
-
