@@ -53,14 +53,14 @@ this.legend_staff_knock_out <- this.inherit("scripts/skills/skill", {
 		ret.push({
 			id = 6,
 			type = "text",
-			icon = "ui/icons/special.png",	
+			icon = "ui/icons/special.png",
 			text = "Inflicts [color=" + this.Const.UI.Color.DamageValue + "]" + this.Const.Combat.FatigueReceivedPerHit * 2 + "[/color] extra fatigue"
 		});
 
 		if (this.getContainer().getActor().getCurrentProperties().IsSpecializedInStaves)
 		{
 			ret.push({
-				id = 7, 
+				id = 7,
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] chance to daze on a hit"
@@ -98,14 +98,14 @@ this.legend_staff_knock_out <- this.inherit("scripts/skills/skill", {
 		{
 			local target = _targetTile.getEntity();
 
-			if ((_user.getCurrentProperties().IsSpecializedInStaves || this.Math.rand(1, 100) <= this.m.StunChance) && !target.getCurrentProperties().IsImmuneToStun && !target.getSkills().hasSkill("effects.dazed"))
+			if ((_user.getCurrentProperties().IsSpecializedInStaves || this.Math.rand(1, 100) <= this.m.StunChance) && !target.getCurrentProperties().IsImmuneToStun && !target.getCurrentProperties().IsImmuneToDaze)
 			{
 				target.getSkills().add(this.new("scripts/skills/effects/dazed_effect"));
 
 				if (_user.getCurrentProperties().IsSpecializedInStaffStun)
 				{
 					target.getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
-					target.getSkills().add(this.new("scripts/skills/effects/staggered_effect")); 
+					target.getSkills().add(this.new("scripts/skills/effects/staggered_effect"));
 				}
 
 				if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
