@@ -80,7 +80,7 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyGhoul,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyDirewolf,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySpider,
-				this.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan
 			],
 			[
 				this.Const.Perks.PerkDefs.SpecMace,
@@ -107,7 +107,7 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyOrk,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyGoblin,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyMercenary,
-				this.Const.Perks.PerkDefs.LegendFavouredEnemyBandit,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyBandit
 			],
 			[
 				this.Const.Perks.PerkDefs.HeadHunter,
@@ -121,7 +121,7 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyBarbarian,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyArcher,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster,
-				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemySoutherner
 			],
 			[
 				this.Const.Perks.PerkDefs.Fearsome,
@@ -140,20 +140,25 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 		];
 	}
 
-	//Default Male
-	function setGender(_gender = -1)
+	function setGender( _gender = -1 )
 	{
 		local r = _gender;
+
 		if (_gender == -1)
 		{
 			r = this.Math.rand(0, 9);
+
 			if (::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled")
 			{
 				r = this.Math.rand(0, 1);
 			}
 		}
 
-		if (_gender != 1) return;
+		if (_gender != 1)
+		{
+			return;
+		}
+
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;
 		this.m.Hairs = this.Const.Hair.UntidyMale;
 		this.m.HairColors = this.Const.HairColors.All;
@@ -167,16 +172,14 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 
 	function getTooltip()
 	{
-		local ret = this.character_background.getTooltip()
-		ret.push(
-			{
-				id = 12,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "Can evolve by defeating strong enemies."
-			}
-		)
-		return ret
+		local ret = this.character_background.getTooltip();
+		ret.push({
+			id = 12,
+			type = "text",
+			icon = "ui/icons/special.png",
+			text = "Can evolve by defeating strong enemies."
+		});
+		return ret;
 	}
 
 	function onBuildDescription()
@@ -239,18 +242,21 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 			return;
 		}
 
-		actor.getBaseProperties().Hitpoints += (actor.getBaseProperties().Hitpoints < _targetEntity.getBaseProperties().Hitpoints ? 1 : 0);
-		actor.getBaseProperties().Bravery += (actor.getBaseProperties().Bravery < _targetEntity.getBaseProperties().Bravery ? 1 : 0);
-		actor.getBaseProperties().Stamina += (actor.getBaseProperties().Stamina < _targetEntity.getBaseProperties().Stamina ? 1 : 0);
-		actor.getBaseProperties().MeleeSkill += (actor.getBaseProperties().MeleeSkill < _targetEntity.getBaseProperties().MeleeSkill ? 1 : 0);
-		actor.getBaseProperties().RangedSkill += (actor.getBaseProperties().RangedSkill < _targetEntity.getBaseProperties().RangedSkill ? 1 : 0);
-		actor.getBaseProperties().MeleeDefense += (actor.getBaseProperties().MeleeDefense < _targetEntity.getBaseProperties().MeleeDefense ? 1 : 0);
-		actor.getBaseProperties().RangedDefense += (actor.getBaseProperties().RangedDefense < _targetEntity.getBaseProperties().RangedDefense ? 1 : 0);
-		actor.getBaseProperties().Initiative += (actor.getBaseProperties().Initiative < _targetEntity.getBaseProperties().Initiative ? 1 : 0);
-
-		local target_skills = _targetEntity.getSkills().getSkillsByFunction(@(skill) skill.isType(::Const.SkillType.Perk));
+		actor.getBaseProperties().Hitpoints += actor.getBaseProperties().Hitpoints < _targetEntity.getBaseProperties().Hitpoints ? 1 : 0;
+		actor.getBaseProperties().Bravery += actor.getBaseProperties().Bravery < _targetEntity.getBaseProperties().Bravery ? 1 : 0;
+		actor.getBaseProperties().Stamina += actor.getBaseProperties().Stamina < _targetEntity.getBaseProperties().Stamina ? 1 : 0;
+		actor.getBaseProperties().MeleeSkill += actor.getBaseProperties().MeleeSkill < _targetEntity.getBaseProperties().MeleeSkill ? 1 : 0;
+		actor.getBaseProperties().RangedSkill += actor.getBaseProperties().RangedSkill < _targetEntity.getBaseProperties().RangedSkill ? 1 : 0;
+		actor.getBaseProperties().MeleeDefense += actor.getBaseProperties().MeleeDefense < _targetEntity.getBaseProperties().MeleeDefense ? 1 : 0;
+		actor.getBaseProperties().RangedDefense += actor.getBaseProperties().RangedDefense < _targetEntity.getBaseProperties().RangedDefense ? 1 : 0;
+		actor.getBaseProperties().Initiative += actor.getBaseProperties().Initiative < _targetEntity.getBaseProperties().Initiative ? 1 : 0;
+		local target_skills = _targetEntity.getSkills().getSkillsByFunction(function ( skill )
+		{
+			return skill.isType(::Const.SkillType.Perk);
+		});
 		local allperks = [];
-		for( local i = 0; i != target_skills.len(); i = ++i )
+
+		for( local i = 0; i != target_skills.len(); i = i )
 		{
 			local perk = target_skills[i];
 
@@ -258,26 +264,35 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 			{
 				allperks.push(perk);
 			}
+
+			i = ++i;
 		}
+
 		if (allperks.len() == 0)
 		{
 			return;
 		}
+
 		local perk = allperks[this.Math.rand(0, allperks.len() - 1)];
 		local name = "";
+
 		foreach( i, v in this.getroottable().Const.Perks.PerkDefObjects )
 		{
 			if (perk.getID() == v.ID)
 			{
 				name = v.Script;
 				this.Tactical.EventLog.log("The framed beggar learned " + perk.getName() + " from his enemy!");
+				if (name == "")
+				{
+					return;
+				}
+				actor.getBackground().addPerk(i,1);
+				actor.getSkills().add(this.new(name));
 				break;
 			}
 		}
-		if (name == "")
-		{
-			return;
-		}
-		actor.getSkills().add(this.new(name));
+
 	}
+
 });
+
