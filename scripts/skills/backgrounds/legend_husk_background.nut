@@ -207,13 +207,9 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 
 	function onAddEquipment()
 	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.MeleeSkill] = 1;
-		this.getContainer().getActor().fillTalentValues(1, true);
 		local items = this.getContainer().getActor().getItems();
 		local r;
-		r = this.Math.rand(0, 8);
+		r = this.Math.rand(0, 4);
 
 		if (r == 0)
 		{
@@ -232,17 +228,6 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 			items.equip(this.new("scripts/items/weapons/woodcutters_axe"));
 		}
 		else if (r == 4)
-		{
-			if (this.Const.DLC.Wildmen)
-			{
-				items.equip(this.new("scripts/items/weapons/battle_whip"));
-			}
-			else if (!this.Const.DLC.Wildmen)
-			{
-				items.equip(this.new("scripts/items/weapons/legend_cat_o_nine_tails"));
-			}
-		}
-		else if (r >= 5)
 		{
 		 items.equip(this.new("scripts/items/weapons/legend_infantry_axe"));
 		}
