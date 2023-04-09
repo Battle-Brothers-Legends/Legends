@@ -254,7 +254,7 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 
 		foreach( i, bro in bros )
 		{															//Can't really recruit converted cultists but its here anyway for posterity
-			if (bro.getBackground().getID() == "background.cultist" || bro.getBackground().getID() == "background.converted_cultist" || bro.getBackground().getID() == "background.legend_lurker" || bro.getBackground().getID() == "background.legend_darksoul" || bro.getBackground().getID() == "background.legend_magister")
+			if (bro.getBackground().getID() == "background.cultist" || bro.getBackground().getID() == "background.converted_cultist" || bro.getBackground().getID() == "background.legend_lurker" || bro.getBackground().getID() == "background.legend_husk" || bro.getBackground().getID() == "background.legend_magister")
 			{				
 				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
 				bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
@@ -277,7 +277,7 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 
 	function onGetBackgroundTooltip( _background, _tooltip )
 	{
-		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.legend_lurker" || _background.getID() == "background.legend_darksoul" || _background.getID() == "background.legend_magister")
+		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.legend_lurker" || _background.getID() == "background.legend_husk" || _background.getID() == "background.legend_magister")
 		{
 			_tooltip.pop();
 			_tooltip.push({
@@ -285,6 +285,17 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Skill from being a cultist in a cultist mercenary company"
+			});
+		}
+		
+		if (_background.getID() == "background.legend_husk" || _background.getID() == "background.legend_magister")
+		{
+			_tooltip.pop();
+			_tooltip.push({
+				id = 16,
+				type = "text",
+				icon = "ui/icons/melee_skill.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Skill from being a cultist in a cultist mercenary company and will never be offered up to be sacrificed"
 			});
 		}
 	}

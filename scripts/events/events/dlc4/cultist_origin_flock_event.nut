@@ -31,6 +31,7 @@ this.cultist_origin_flock_event <- this.inherit("scripts/events/event", {
 			{
 				local roster = this.World.getTemporaryRoster();
 				_event.m.Dude = roster.create("scripts/entity/tactical/player");
+				_event.m.Dude.getBaseProperties().MeleeSkill += 10;
 				_event.m.Dude.setStartValuesEx([
 					"cultist_background",
 					"cultist_background",

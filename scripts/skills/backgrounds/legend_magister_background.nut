@@ -112,16 +112,6 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 
 	function getTooltip()
 	{
-		local ret = this.character_background.getTooltip()
-		ret.push(
-			{
-				id = 13,
-				type = "text",
-				icon = "ui/icons/campfire.png",
-				text = "Davkul sees this one as too important to sacrifice, and therefore will never ask you to do so."
-			}
-		)
-		return ret
 	}
 
 	function onBuildDescription()

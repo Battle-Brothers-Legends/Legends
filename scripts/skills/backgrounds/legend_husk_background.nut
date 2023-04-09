@@ -121,16 +121,6 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 
 	function getTooltip()
 	{
-		local ret = this.character_background.getTooltip()
-		ret.push(
-			{
-				id = 13,
-				type = "text",
-				icon = "ui/icons/campfire.png",
-				text = "Davkul sees this one as spent goods without any value and will never ask you to sacrifice them."
-			}
-		)
-		return ret
 	}
 
 	function onBuildDescription()
@@ -142,8 +132,8 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 	{
 		local c = {
 			Hitpoints = [
-				5,
-				9
+				10,
+				14
 			],
 			Bravery = [
 				-5,
@@ -155,7 +145,7 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 			],
 			MeleeSkill = [
 				5,
-				5
+				10
 			],
 			RangedSkill = [
 				-10,
