@@ -224,7 +224,7 @@ this.rookie_gets_hurt_event <- this.inherit("scripts/events/event", {
 		}
 
 		this.m.Rookie = candidates[this.Math.rand(0, candidates.len() - 1)];
-		this.m.Score = candidates.len() * 75;
+		this.m.Score = 500; // Updated to Vanilla 1.5.0.14 change from old this.m.Score = candidates.len() * 75; Abyss 4/12/23
 	}
 
 	function onPrepare()
