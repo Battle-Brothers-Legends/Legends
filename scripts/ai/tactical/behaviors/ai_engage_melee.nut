@@ -1122,7 +1122,7 @@ this.ai_engage_melee <- this.inherit("scripts/ai/tactical/behavior", {
 
 							if (this.hasNegativeTileEffect(intermediateTile, _entity))
 							{
-								destinationScore = destinationScore - this.Const.AI.Behavior.EngageBadTerrainPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult;
+								destinationScore = destinationScore - this.Const.AI.Behavior.EngageBadTerrainEffectPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult; // Updated to correct EngageBadTerrainEffectPenalty from old EngageBadTerrainPenalty here to reflect the Vanilla change since 1.5.0.13, Abyss 4/12/23
 							}
 						}
 					}
