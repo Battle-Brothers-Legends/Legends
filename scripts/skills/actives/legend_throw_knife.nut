@@ -11,7 +11,7 @@ this.legend_throw_knife <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.legend_throw_knife";
 		this.m.Name = "Throw Knife";
-		this.m.Description = "Throw a knife at an enemy. Costs " + this.m.AmmoPerUse + " ammo per use and has a [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] chance to hit the head as well as a high chance to baffle your target.\nCannot be used while engaged in melee.";
+		this.m.Description = "Throw a knife at an enemy. Costs " + this.m.AmmoPerUse + " ammo per use and has a [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] chance to hit the head as well as a high chance to Daze your target.\nCannot be used while engaged in melee.";
 		this.m.Icon = "skills/active_87.png"; //To do
 		this.m.IconDisabled = "skills/active_87_sw.png"; //to do
 		this.m.Overlay = "active_87"; //to do
@@ -59,13 +59,13 @@ this.legend_throw_knife <- this.inherit("scripts/skills/skill", {
 			id = 5,
 			type = "text",
 			icon = "ui/tooltips/warning.png",
-			text = "You can use [color=" + this.Const.UI.Color.PositiveValue + "]3[/color] time per battle and will consume two ammo assets for each use"
+			text = "You can use [color=" + this.Const.UI.Color.PositiveValue + "]3[/color] times per battle and will consume [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] ammo from your stash for each use"
 		}); 
 		ret.push({
 			id = 7,
 			type = "text",
 			icon = "ui/icons/asset_ammo.png",
-			text = "You have [color=" + this.Const.UI.Color.PositiveValue +"]" + this.getAmmo() + "[/color] ammo."
+			text = "You have [color=" + this.Const.UI.Color.PositiveValue +"]" + this.getAmmo() + "[/color] ammo"
 		});
 
 		if (this.Tactical.isActive() && this.getContainer().getActor().getTile().hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions()))
@@ -109,14 +109,14 @@ this.legend_throw_knife <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local mainhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand); 
+		local mainhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand); //Baiscally we need to disarm the player first...
 		_properties.DamageRegularMin *= 0.0;
 		_properties.DamageRegularMax *= 0.0;
 		_properties.DamageArmorMult = 0.0;
 
-		local actor = this.getContainer().getActor(); 
-		_properties.DamageRegularMin += 10;
-		_properties.DamageRegularMax += 20;
+		local actor = this.getContainer().getActor();  //...then reapply it again with our own stats to it does not draw from mainhand damage - Luft
+		_properties.DamageRegularMin += 15;
+		_properties.DamageRegularMax += 25;
 		_properties.DamageArmorMult = 0.1;
 
 		if (this.m.Container.hasSkill("effects.disarmed"))
