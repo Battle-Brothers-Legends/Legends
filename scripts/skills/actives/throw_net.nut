@@ -47,7 +47,7 @@ this.throw_net <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local ret = this.getDefaultTooltip();
+		local ret = this.getDefaultUtilityTooltip();
 		ret.extend([
 			{
 				id = 6,
@@ -72,6 +72,7 @@ this.throw_net <- this.inherit("scripts/skills/skill", {
 			this.m.FatigueCostMult = this.Const.Combat.WeaponSpecFatigueMult;
 			this.m.ActionPointCost = 3;
 		}
+
 		if (_properties.IsSpecializedInNetCasting)
 		{
 			this.m.MaxRange = 5;
@@ -174,3 +175,4 @@ this.throw_net <- this.inherit("scripts/skills/skill", {
 	}
 
 });
+
