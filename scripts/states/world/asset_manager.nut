@@ -394,6 +394,16 @@ this.asset_manager <- {
 
 	function addBusinessReputation( _f )
 	{
+		if (_f < 0) {
+			if (this.m.BusinessReputation < 250)
+			{
+				_f = 0;
+			}
+			if (this.m.BusinessReputation >= 250 && this.m.BusinessReputation < 500)
+			{
+				_f *= 0.5;
+			}
+		}
 		this.m.BusinessReputation += this.Math.ceil(_f * this.m.BusinessReputationRate);
 		this.m.BusinessReputationMax = this.Math.max(this.m.BusinessReputation, this.m.BusinessReputationMax);
 
