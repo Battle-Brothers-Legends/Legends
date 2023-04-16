@@ -29,7 +29,7 @@ this.legend_hexen_leader_cloak <- this.inherit("scripts/items/legend_armor/legen
 
 	function getTooltip()
 	{
-		local result = this.armor_upgrade.getTooltip();
+		local result = this.legend_armor_cloak.getTooltip();
 		result.push({
 			id = 7,
 			type = "text",
@@ -51,7 +51,7 @@ this.legend_hexen_leader_cloak <- this.inherit("scripts/items/legend_armor/legen
 
 	function onUpdateProperties( _properties )
 	{
-		this.armor_upgrade.onUpdateProperties(_properties);
+		this.legend_armor_cloak.onUpdateProperties(_properties);
 		_properties.MoraleCheckBravery[1] += 40;
 		_properties.BraveryMult *= 1.10;
 	}
