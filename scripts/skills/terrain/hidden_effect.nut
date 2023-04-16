@@ -44,24 +44,24 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 			]);
 
 			if (actor.getSkills().hasSkill("background.legend_assassin") || actor.getSkills().hasSkill("background.assassin") || actor.getSkills().hasSkill("background.assassin_southern"))
-			{
-					{
-						id = 13,
-						type = "text",
-						icon = "ui/icons/regular_damage.png",
-						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] Maximum Damage from being an assassin"
-					}
-			}
+			ret.extend([			
+				{
+					id = 13,
+					type = "text",
+					icon = "ui/icons/regular_damage.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] Maximum Damage from being an assassin"
+				}
+			]);
 
 			if (actor.getSkills().hasSkill("background.legend_commander_assassin"))
-			{
-					{
-						id = 13,
-						type = "text",
-						icon = "ui/icons/regular_damage.png",
-						text = "[color=" + this.Const.UI.Color.PositiveValue + "]+75%[/color] Maximum Damage from being an experienced assassin"
-					}
-			}
+			ret.extend([			
+				{
+					id = 13,
+					type = "text",
+					icon = "ui/icons/regular_damage.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+75%[/color] Maximum Damage from being an experienced assassin"
+				}
+			]);
 		}
 
 		ret.push({
