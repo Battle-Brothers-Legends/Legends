@@ -93,7 +93,7 @@ this.privateering_contract <- this.inherit("scripts/contracts/contract", {
 					"Travel to the lands of %feudfamily%",
 					"Raid and burn down places",
 					"Destroy any caravans or patrols",
-					"Return after 5 days"
+					"Return after 7 days"
 				];
 
 				if (this.Math.rand(1, 100) <= this.Const.Contracts.Settings.IntroChance)
@@ -264,7 +264,7 @@ this.privateering_contract <- this.inherit("scripts/contracts/contract", {
 			{
 				if (this.Flags.get("LastUpdateDay") != this.World.getTime().Days)
 				{
-					if (this.World.getTime().Days - this.Flags.get("StartDay") >= 5)
+					if (this.World.getTime().Days - this.Flags.get("StartDay") >= 7)
 					{
 						this.Contract.setScreen("TimeIsUp");
 						this.World.Contracts.showActiveContract();
@@ -492,7 +492,7 @@ this.privateering_contract <- this.inherit("scripts/contracts/contract", {
 			ShowDifficulty = true,
 			Options = [
 				{
-					Text = "{Heading out for five whole days will cost you. | That\'s something the %companyname% can take care of. | Payment?}",
+					Text = "{Heading out for seven whole days will cost you. | That\'s something the %companyname% can take care of. | Payment?}",
 					function getResult()
 					{
 						return "Negotiation";
@@ -728,9 +728,9 @@ this.privateering_contract <- this.inherit("scripts/contracts/contract", {
 		]);
 		_vars.push([
 			"maxdays",
-			"five days"
+			"seven days"
 		]);
-		local days = 5 - (this.World.getTime().Days - this.m.Flags.get("StartDay"));
+		local days = 7 - (this.World.getTime().Days - this.m.Flags.get("StartDay"));
 		_vars.push([
 			"days",
 			days > 1 ? "" + days + " days" : "1 day"
