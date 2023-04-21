@@ -4,7 +4,7 @@ this.legend_armor_piercing_bolts <- this.inherit("scripts/items/ammo/ammo", {
 	{
 		this.m.ID = "ammo.bolts";
 		this.m.Name = "Armor Piercing Bolts";
-		this.m.Description = "A large quiver of bolts with thin piercing tips, designed for piercing armor, but doing less damage to flesh. Is automatically refilled after each battle if you have enough global ammunition. Grants +20% armor piercing damage, but -15% damage, while wielding a crossbow.";
+		this.m.Description = "A large quiver of bolts with thin piercing tips, designed for piercing armor, but doing less damage to flesh. Is automatically refilled after each battle if you have enough global ammunition. Grants +20% (multiplicative) armor piercing damage, but -10% damage, while wielding a crossbow.";
 		this.m.Icon = "ammo/quiver_02_dark.png";
 		this.m.IconEmpty = "ammo/quiver_02_empty.png";
 		this.m.SlotType = this.Const.ItemSlot.Ammo;
@@ -81,28 +81,29 @@ this.legend_armor_piercing_bolts <- this.inherit("scripts/items/ammo/ammo", {
 		return result;
 	}
 
-function onUpdateProperties( _properties )
+	function onUpdateProperties( _properties )
 	{
 		this.ammo.onUpdateProperties(_properties);
 		local actor = this.getContainer().getActor();
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+
 		if (item == null)
 		{
 			return;
 		}
-		
-		switch (item.getID())
-		{
-			case "weapon.light_crossbow":
-			case "weapon.goblin_crossbow":
-			case "weapon.crossbow":
-			case "weapon.heavy_crossbow":
-			case "weapon.named_crossbow":	
-				_properties.DamageDirectMult *= 1.2;
-				_properties.RangedDamageMult *= 0.85;
-					break;
-		}
 
+		switch(item.getID())
+		{
+		case "weapon.light_crossbow":
+		case "weapon.goblin_crossbow":
+		case "weapon.crossbow":
+		case "weapon.heavy_crossbow":
+		case "weapon.named_crossbow":
+			_properties.DamageDirectMult *= 1.2;
+			_properties.RangedDamageMult *= 0.90;
+			break;
+		}
 	}
+
 });
 

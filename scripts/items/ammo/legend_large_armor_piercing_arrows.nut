@@ -4,7 +4,7 @@ this.legend_large_armor_piercing_arrows <- this.inherit("scripts/items/ammo/ammo
 	{
 		this.m.ID = "ammo.arrows";
 		this.m.Name = "Large Quiver of Armor Piercing Arrows";
-		this.m.Description = "A large quiver of arrows with piercing tips, designed for punching through thick armor. Is automatically refilled after each battle if you have enough ammunition. Grants +10% armor piercing and -10% damage while wielding a bow.";
+		this.m.Description = "A large quiver of arrows with piercing tips, designed for punching through thick armor. Is automatically refilled after each battle if you have enough ammunition. Grants +30% (multiplicative) armor piercing and -10% damage while wielding a bow.";
 		this.m.Icon = "ammo/quiver_03_dark.png";
 		this.m.IconEmpty = "ammo/quiver_03_empty.png";
 		this.m.SlotType = this.Const.ItemSlot.Ammo;
@@ -109,7 +109,7 @@ this.legend_large_armor_piercing_arrows <- this.inherit("scripts/items/ammo/ammo
 			case "weapon.goblin_bow":
 			case "weapon.goblin_heavy_bow":
 			case "weapon.named_goblin_heavy_bow":	
-				_properties.DamageDirectMult *= 1.1;
+				_properties.DamageDirectMult *= 1.3;
 				_properties.RangedDamageMult *= 0.9;
 					break;
 		}
