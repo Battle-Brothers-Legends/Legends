@@ -646,10 +646,10 @@ gt.Const.LegendMod.GetFavoriteEnemyStats <- function ( _actor, _types )
 		{
 			kills += mKills;
 			local troop = this.Const.World.Spawn.TroopsMap[t];
-			str += (mKills * troop.Strength);
+			str += (mKills * 1.0 / this.Const.LegendMod.GetFavoriteEnemyValue(troop));
 		}
 	}
-	local hitChance = this.Math.floor(this.Math.pow(0.3 * str, 0.5));
+	local hitChance = 5 + (str >= 20 ? 20 : this.Math.floor(str)); // base bonus of 5 and cap total at 25
 	local hitMult = 1.0 + ((hitChance * 1.0) / 100.0);
 	return {
 		Kills = kills,

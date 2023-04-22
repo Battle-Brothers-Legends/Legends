@@ -3,7 +3,7 @@ this.legend_hunting_rock_unholds_contract <- this.inherit("scripts/contracts/con
 		Target = null,
 		Dude = null,
 		IsPlayerAttacking = true,
-		MinStrength = 300,
+		MinStrength = 10, // player needs to earn 10% of bonus (not including base 5% bonus) for this contract to be valid
 		Perk = "perk.legend_favoured_enemy_unhold",
 		ValidTypes = this.Const.LegendMod.FavoriteUnhold
 	},

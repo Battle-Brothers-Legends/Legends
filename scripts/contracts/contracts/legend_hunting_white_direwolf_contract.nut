@@ -3,7 +3,7 @@ this.legend_hunting_white_direwolf_contract <- this.inherit("scripts/contracts/c
 		Target = null,
 		Dude = null,
 		IsPlayerAttacking = true,
-		MinStrength = 200,
+		MinStrength = 10, // player needs to earn 10% of bonus (not including base 5% bonus) for this contract to be valid
 		Perk = "perk.legend_favoured_enemy_direwolf",
 		ValidTypes = this.Const.LegendMod.FavoriteDirewolf
 	},
