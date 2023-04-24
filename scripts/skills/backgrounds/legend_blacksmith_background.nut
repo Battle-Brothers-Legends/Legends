@@ -32,7 +32,7 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = this.Const.Beards.All;
 		this.m.Bodies = this.Const.Bodies.Muscular;
-		this.m.BackgroundType = this.Const.BackgroundType.Crusader | this.Const.BackgroundType.Noble | this.Const.BackgroundType.Lowborn;
+		this.m.BackgroundType = this.Const.BackgroundType.Crusader | this.Const.BackgroundType.Noble;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Merciless;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Saintly;
 		this.m.Modifiers.ArmorParts = this.Const.LegendMod.ResourceModifiers.ArmorParts[3];
@@ -65,20 +65,6 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 		}
 	}
 
-	// function getTooltip()
-	// {
-	// 	local ret = this.character_background.getTooltip()
-	// 	ret.push(
-	// 		{
-	// 			id = 13,
-	// 			type = "text",
-	// 			icon = "ui/icons/special.png",
-	// 			text = "Has the knowledge to construct powerful items"
-	// 		}
-	// 	)
-	// 	return ret
-	// }
-
 	function setGender(_gender = -1)
 	{
 		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
@@ -109,7 +95,7 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 		local c = {
 			Hitpoints = [
 				5,
-				5
+				9
 			],
 			Bravery = [
 				0,
@@ -120,16 +106,16 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 				20
 			],
 			MeleeSkill = [
-				3,
-				7
+				5,
+				8
 			],
 			RangedSkill = [
 				-10,
 				-10
 			],
 			MeleeDefense = [
-				-5,
-				0
+				0,
+				3
 			],
 			RangedDefense = [
 				-5,
