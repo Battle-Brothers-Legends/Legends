@@ -73,6 +73,7 @@ var CharacterScreenPaperdollModule = function (_parent, _dataSource) {
 
 	// backpack - slot containers
 	this.mBackpackSlots = null;
+	this.mIsUpgradeButtonsLocked = false;
 
 	this.registerDatasourceListener();
 };
@@ -1227,11 +1228,13 @@ CharacterScreenPaperdollModule.prototype.updateSlotLocks = function (
 		case CharacterScreenDatasourceIdentifier.InventoryMode.BattlePreparation: {
 			this.showSlotLock(this.mMiddleEquipmentSlots.Head, false);
 			this.showSlotLock(this.mMiddleEquipmentSlots.Body, false);
+			this.mIsUpgradeButtonsLocked = false;
 		}
 		break;
 	case CharacterScreenDatasourceIdentifier.InventoryMode.Ground: {
 		this.showSlotLock(this.mMiddleEquipmentSlots.Head, true);
 		this.showSlotLock(this.mMiddleEquipmentSlots.Body, true);
+		this.mIsUpgradeButtonsLocked = true;
 	}
 	break;
 	}
@@ -1412,46 +1415,46 @@ CharacterScreenPaperdollModule.prototype.assignEquipment = function (
 
 CharacterScreenPaperdollModule.prototype.resetLayerButtons = function(_buttonArray)
 {
-		_buttonArray.forEach(function (btn, index) {
-				var text = index + 1;
-				var slotType = btn.data('slotType');
-				btn.removeClass('armor_button_invisible');
-				btn.enableButton(false);
-				if ((slotType == CharacterScreenIdentifier.ItemSlot.Head && index === 4) || (slotType == CharacterScreenIdentifier.ItemSlot.Body && index === 5))
-				{
-						text = "R";
-				}
-				btn.changeButtonText(text);
-		})
+	_buttonArray.forEach(function (btn, index) {
+		var text = index + 1;
+		var slotType = btn.data('slotType');
+		btn.removeClass('armor_button_invisible');
+		btn.enableButton(false);
+		if ((slotType == CharacterScreenIdentifier.ItemSlot.Head && index === 4) || (slotType == CharacterScreenIdentifier.ItemSlot.Body && index === 5))
+		{
+				text = "R";
+		}
+		btn.changeButtonText(text);
+	})
 }
 
 CharacterScreenPaperdollModule.prototype.setupLayerButtons = function(_buttonArray, _brotherId, _upgradeArray)
 {
-		var self = this;
-		_buttonArray.forEach(function (btn, index) {
-				var enabled = false;
-				if (_upgradeArray !== undefined && _upgradeArray !== '' && _upgradeArray.length > 0)
-				{
-					btn.show();
-					enabled = _upgradeArray[index] > 0 && !self.mDataSource.isTacticalMode()
+	var self = this;
+	_buttonArray.forEach(function (btn, index) {
+		var enabled = false;
+		if (_upgradeArray !== undefined && _upgradeArray !== '' && _upgradeArray.length > 0)
+		{
+			btn.show();
+			enabled = _upgradeArray[index] > 0 && !self.mIsUpgradeButtonsLocked;
 
-					if( _upgradeArray[index] == 2)
-					{
-						btn.addClass('armor_button_invisible')
-					}
-					else if (_upgradeArray[index] == -1) // blocked
-					{
-						btn.changeButtonText("X")
-					}
-				}
-				btn.enableButton(enabled);
-				btn.bindTooltip({
-						contentType: 'ui-item',
-						entityId: _brotherId,
-						itemId: index,
-						itemOwner: btn.data('itemOwner')
-				});
+			if( _upgradeArray[index] == 2)
+			{
+				btn.addClass('armor_button_invisible')
+			}
+			else if (_upgradeArray[index] == -1) // blocked
+			{
+				btn.changeButtonText("X")
+			}
+		}
+		btn.enableButton(enabled);
+		btn.bindTooltip({
+			contentType: 'ui-item',
+			entityId: _brotherId,
+			itemId: index,
+			itemOwner: btn.data('itemOwner')
 		});
+	});
 }
 
 
