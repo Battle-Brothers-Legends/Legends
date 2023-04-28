@@ -230,7 +230,7 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 				id = 5,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue " + ::Legends.S.getSign(this.getStaminaModifier()) + ::Legends.S.colorize(this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
+				text = "Maximum Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
 			});
 		}
 

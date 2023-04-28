@@ -218,20 +218,13 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 			style = "armor-head-slim"
 		});
 
-		if (this.getStaminaModifier() < 0)
+		if (this.getStaminaModifier() != 0)
 		{
 			result.push({
 				id = 5,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue [color=" + this.Const.UI.Color.NegativeValue + "]" + this.getStaminaModifier() + "[/color]"
-			});
-		} else if (this.getStaminaModifier() > 0){
-			result.push({
-				id = 5,
-				type = "text",
-				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue [color=" + this.Const.UI.Color.PositiveValue + "] +" + this.getStaminaModifier() + "[/color]"
+				text = "Maximum Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
 			});
 		}
 
