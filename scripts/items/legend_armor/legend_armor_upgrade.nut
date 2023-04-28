@@ -234,6 +234,16 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 			});
 		}
 
+		if ( this.getStaminaModifier() < 0 && ::Legends.Mod.ModSettings.getSetting("ShowArmorPerFatigueValue").getValue() ) 
+		{
+			result.push({
+				id = 5,
+				type = "text",
+				icon = "",
+				text = format("(%.1f Armor per 1 Fatigue)", this.getConditionMax() / (1.0 * this.Math.abs(this.getStaminaModifier())))
+			});
+		}
+
 		// Other common stats found on Attachements:
 		this.applyEffectTooltips(result);
 

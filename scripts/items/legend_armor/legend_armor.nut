@@ -583,6 +583,16 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 			});
 		}
 
+		if (this.getStaminaModifier() < 0 && ::Legends.Mod.ModSettings.getSetting("ShowArmorPerFatigueValue").getValue() )
+		{
+			result.push({
+				id = 5,
+				type = "text",
+				icon = "",
+				text = format("(%.1f Armor per 1 Fatigue)", this.getArmorMax() / (1.0 * this.Math.abs(this.getStaminaModifier())))
+			});
+		}
+
 		this.doOnFunction("getArmorTooltip", [result]);
 
 		if (this.isRuned())
