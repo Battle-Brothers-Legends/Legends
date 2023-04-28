@@ -593,6 +593,38 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 			});
 		}
 
+		local upgradeNum = this.m.Upgrades.filter(@(idx, val) val != null).len();
+		if ( upgradeNum > 0 && ::Legends.Mod.ModSettings.getSetting("ShowExpandedArmorLayerTooltip").getValue() ) 
+		{
+			result.push({	// An empty line is put in to improve formatting
+				id = 10,
+				type = "text",
+				icon = "",
+				text = " "
+			})
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/armor_body.png",
+				text = "[u]" + this.getName() + "[/u]"
+			});
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/armor_body.png",
+				text = "Armor: " + this.m.ConditionMax
+			});
+			if ( this.m.StaminaModifier != 0 ) 
+			{
+				result.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.m.StaminaModifier) + this.Math.abs(this.m.StaminaModifier), this.m.StaminaModifier)
+				});
+			}
+		}
+
 		this.doOnFunction("getArmorTooltip", [result]);
 
 		if (this.isRuned())
@@ -611,7 +643,6 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 			});
 		}
 
-		local upgradeNum = this.m.Upgrades.filter(@(idx, val) val != null).len();
 		if (upgradeNum > 0){
 			result.push({
 				id = 65,

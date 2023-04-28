@@ -251,7 +251,7 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 		return result;
 	}
 
-	function getArmorTooltip( _result )
+	function getArmorTooltip( _result, _isExtraVanity )
 	{
 		_result.push({	// An empty line is put in to improve formatting
 			id = 10,
@@ -262,9 +262,38 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 		_result.push({
 			id = 10,
 			type = "text",
-			icon = "ui/icons/armor_body.png",	// ui/icons/armor_body.png
+			icon = "ui/icons/armor_head.png",	// ui/icons/armor_body.png
 			text = "[u]" + this.getName() + "[/u]"
 		});
+
+		if ( ::Legends.Mod.ModSettings.getSetting("ShowExpandedArmorLayerTooltip").getValue() ) 
+		{
+			if ( _isExtraVanity ) 
+			{
+				_result.push({
+					id = 10,
+					type = "text",
+					icon = "",
+					text = "(Cosmetic only)"
+				});
+			} else {
+				_result.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/armor_head.png",
+					text = "Armor: " + this.getConditionMax()
+				});
+				if ( this.getStaminaModifier() != 0 ) 
+				{
+					_result.push({
+						id = 10,
+						type = "text",
+						icon = "ui/icons/fatigue.png",
+						text = "Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
+					});
+				}
+			}
+		}
 
 		if (this.getVision() != 0)
 		{

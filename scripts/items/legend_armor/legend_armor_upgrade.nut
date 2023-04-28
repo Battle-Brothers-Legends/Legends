@@ -297,6 +297,24 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 			icon = "ui/icons/armor_body.png",	// ui/icons/armor_body.png
 			text = "[u]" + this.getName() + "[/u]"
 		});
+		if ( ::Legends.Mod.ModSettings.getSetting("ShowExpandedArmorLayerTooltip").getValue() ) 
+		{
+			_result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/armor_body.png",
+				text = "Armor: " + this.getConditionMax()
+			});
+			if ( this.getStaminaModifier() != 0 ) {
+				_result.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
+				});
+			}
+
+		}
 		this.onArmorTooltip(_result);
 	}
 
