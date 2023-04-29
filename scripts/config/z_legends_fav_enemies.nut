@@ -437,7 +437,7 @@ gt.Const.LegendMod.GetFavoriteEnemyValue <- function ( _type ) //Number = how ma
 	case "this.Const.EntityType.CaravanHand":
 		return 10;
 
-	case "this.Const.EntityType.CaravanGaurd":
+	case "this.Const.EntityType.CaravanGuard":
 		return 8;
 
 	case "this.Const.EntityType.Wardog":
