@@ -59,14 +59,33 @@ this.fear_nobles_trait <- this.inherit("scripts/skills/traits/character_trait", 
 	{
 		if (!this.getContainer().getActor().isPlacedOnMap())
 		{
+			// If not in battle, then this should be a trait and not a status effect
+			this.m.Type = ::Const.SkillType.Trait;
 			return;
 		}
 
-		if (this.Tactical.Entities.getInstancesNum(this.World.FactionManager.getFactionOfType(this.Const.FactionType.NobleHouse).getID()) != 0)
+		local fightingNobles = false;
+		local enemies = this.Tactical.Entities.getAllHostilesAsArray();
+
+		foreach( enemy in enemies )
+		{
+			if (this.Const.EntityType.getDefaultFaction(enemy.getType()) == this.Const.FactionType.NobleHouse)
+			{
+				fightingNobles = true;
+				break;
+			}
+		}
+
+		if (fightingNobles)
 		{
 			_properties.Bravery -= 10;
 			_properties.MeleeSkillMult *= 0.95;
 			_properties.RangedSkillMult *= 0.95;
+			// Make this a status effect so it will be visible for the battle
+			this.m.Type = ::Const.SkillType.StatusEffect;
+		} else {
+			// Make this a trait so it will not be visible for the battle
+			this.m.Type = ::Const.SkillType.Trait;
 		}
 	}
 

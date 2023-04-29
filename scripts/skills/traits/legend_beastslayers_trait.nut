@@ -49,14 +49,33 @@ this.legend_beastslayers_trait <- this.inherit("scripts/skills/traits/character_
 	{
 		if (!this.getContainer().getActor().isPlacedOnMap())
 		{
+			// If not in battle, then this should be a trait and not a status effect
+			this.m.Type = ::Const.SkillType.Trait;
 			return;
 		}
 
-		if (this.Tactical.Entities.getInstancesNum(this.World.FactionManager.getFactionOfType(this.Const.FactionType.Beasts).getID()) != 0)
+		local fightingBeasts = false;
+		local enemies = this.Tactical.Entities.getAllHostilesAsArray();
+
+		foreach( enemy in enemies )
+		{
+			if (this.Const.EntityType.getDefaultFaction(enemy.getType()) == this.Const.FactionType.Beasts || enemy.getType() == this.Const.EntityType.BarbarianUnhold || enemy.getType() == this.Const.EntityType.BarbarianUnholdFrost)
+			{
+				fightingBeasts = true;
+				break;
+			}
+		}
+
+		if (fightingBeasts)
 		{
 			_properties.Bravery += 5;
 			_properties.MeleeDamageMult *= 1.1;
 			_properties.RangedDamageMult *= 1.1;
+			// Make this a status effect so it will be visible for the battle
+			this.m.Type = ::Const.SkillType.StatusEffect;
+		} else {
+			// Make this a trait so it will not be visible for the battle
+			this.m.Type = ::Const.SkillType.Trait;
 		}
 	}
 
