@@ -102,6 +102,7 @@ gt.Const.LegendMod.FavoriteUnhold <- [
 gt.Const.LegendMod.FavoriteVampire <- [
 	this.Const.EntityType.Vampire,
 	this.Const.EntityType.Ghost,
+	this.Const.EntityType.LegendDemonHound,
 	this.Const.EntityType.LegendVampireLord,
 	this.Const.EntityType.LegendBanshee,
 	this.Const.EntityType.LegendMummyLight,
@@ -349,6 +350,9 @@ gt.Const.LegendMod.GetFavoriteEnemyValue <- function ( _type ) //Number = how ma
 
 	case "this.Const.EntityType.SkeletonLight":
 		return 10;
+
+	case "this.Const.EntityType.LegendDemonHound":
+		return 8;
 
 	case "this.Const.EntityType.Ghost":
 		return 8;
