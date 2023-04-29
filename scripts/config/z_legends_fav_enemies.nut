@@ -262,13 +262,16 @@ gt.Const.LegendMod.GetFavoriteEnemyValue <- function ( _type ) //Number = how ma
 		return 1;
 
 	case "this.Const.EntityType.LegendGreenwoodSchratSmall":
-		return 0.4;
+		return 2.5;
 
 	case "this.Const.EntityType.SandGolem":
 		return 8;
 
 	case "this.Const.EntityType.Schrat":
 		return 1;
+
+	case "this.Const.EntityType.SchratSmall":
+		return 5;
 
 	case "this.Const.EntityType.LegendRockUnhold":
 		return 0.5;
@@ -610,6 +613,9 @@ gt.Const.LegendMod.GetFavoriteEnemyValue <- function ( _type ) //Number = how ma
 
 	case "this.Const.EntityType.SkeletonPhylactery":
 		return 1;
+
+	case "this.Const.EntityType.SkeletonBoss":
+		return 0.25;
 
 	case "this.Const.EntityType.ZombieTreasureHunter":
 		return 5;
