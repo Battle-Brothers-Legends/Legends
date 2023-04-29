@@ -573,14 +573,56 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 			style = "armor-body-slim"
 		});
 
-		if (this.getStaminaModifier() < 0)
+		if (this.getStaminaModifier() != 0)
 		{
 			result.push({
 				id = 5,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue [color=" + this.Const.UI.Color.NegativeValue + "]" + this.getStaminaModifier() + "[/color]"
+				text = "Maximum Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
 			});
+		}
+
+		if (this.getStaminaModifier() < 0 && ::Legends.Mod.ModSettings.getSetting("ShowArmorPerFatigueValue").getValue() )
+		{
+			result.push({
+				id = 5,
+				type = "text",
+				icon = "",
+				text = format("(%.1f Armor per 1 Fatigue)", this.getArmorMax() / (1.0 * this.Math.abs(this.getStaminaModifier())))
+			});
+		}
+
+		local upgradeNum = this.m.Upgrades.filter(@(idx, val) val != null).len();
+		if ( upgradeNum > 0 && ::Legends.Mod.ModSettings.getSetting("ShowExpandedArmorLayerTooltip").getValue() ) 
+		{
+			result.push({	// An empty line is put in to improve formatting
+				id = 10,
+				type = "text",
+				icon = "",
+				text = " "
+			})
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/armor_body.png",
+				text = "[u]" + this.getName() + "[/u]"
+			});
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/armor_body.png",
+				text = "Armor: " + this.m.ConditionMax
+			});
+			if ( this.m.StaminaModifier != 0 ) 
+			{
+				result.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.m.StaminaModifier) + this.Math.abs(this.m.StaminaModifier), this.m.StaminaModifier)
+				});
+			}
 		}
 
 		this.doOnFunction("getArmorTooltip", [result]);
@@ -601,7 +643,6 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 			});
 		}
 
-		local upgradeNum = this.m.Upgrades.filter(@(idx, val) val != null).len();
 		if (upgradeNum > 0){
 			result.push({
 				id = 65,
