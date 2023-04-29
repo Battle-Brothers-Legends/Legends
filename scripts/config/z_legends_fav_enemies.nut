@@ -395,13 +395,13 @@ gt.Const.LegendMod.GetFavoriteEnemyValue <- function ( _type ) //Number = how ma
 	case "this.Const.EntityType.OrcBerserker":
 		return 5;
 
-	case "this.Const.EntityType.OrcElite":
+	case "this.Const.EntityType.LegendOrcElite":
 		return 4;
 
 	case "this.Const.EntityType.OrcWarlord":
 		return 1;
 
-	case "this.Const.EntityType.OrcBehemoth":
+	case "this.Const.EntityType.LegendOrcBehemoth":
 		return 2;
 
 	case "this.Const.EntityType.OrcWarrior":
