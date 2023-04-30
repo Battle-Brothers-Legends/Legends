@@ -1091,27 +1091,16 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			local skill = this.new("scripts/skills/" + potential[this.Math.rand(0, potential.len() - 1)].Script);
 			this.m.Skills.add(skill);
 
-			if (this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying == true && !this.getFlags().has("PlayerZombie")) //deathly spectre for Cabal
-			// if (this.m.CurrentProperties.SurvivesAsUndead && !this.getFlags().has("PlayerZombie")) // revert to old Legends version here if above does not work
+			if (this.World.Assets.getOrigin().getID() == "scenario.legends_necro") //deathly spectre for Cabal
 			{
-				this.m.MoraleState = this.Const.MoraleState.Ignore;
-				this.getFlags().add("PlayerZombie");
-				this.getFlags().add("undead");
-				this.getFlags().add("zombie_minion");
-				local skill = this.new("scripts/skills/traits/legend_rotten_flesh_trait");
-				this.m.Skills.add(skill);
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
-			}
-
-			if (this.World.Assets.getOrigin().getID() == "scenario.legends_necro" ) //deathly spectre for Cabal
-			{
-				if(this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying = true && !this.getFlags().has("PlayerZombie"))
+				// if (this.m.CurrentProperties.SurvivesAsUndead && !this.getFlags().has("PlayerZombie")) //original that we know works but has conflicts - Luft
+				// if (this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying == true && !this.getFlags().has("PlayerZombie")) //attempt to add 'isdying' into the formula to stop the durgeon retinue from basically not working at all and bros still becoming zombies. But I think isdying is casuing a recursive loop because the bro is 'dying' but then being put back into the roster by the zombie mechanic. - Luft
+				if (this.m.CurrentProperties.SurvivesAsUndead && !this.World.Assets.m.IsSurvivalGuaranteed && !this.getFlags().has("PlayerZombie")) //Lastest attempt. we have ignored 'issurvivalgarenteed' which is what the surgeon retinue uses to bring bros back from the dead. THis isn't ideal but it will stop recursive errors from flagging up. Using this if the player has the surgeon retinue, deathly spectre will never proc because every bro will be saved and still living instead of undead. Once we confirm this works across other use cases we can update the tooltips as needed. - Luft 30/4/23
 				{
 					this.m.MoraleState = this.Const.MoraleState.Ignore;
 					this.getFlags().add("PlayerZombie");
-					this.getFlags().add("undead");
-					this.getFlags().add("zombie_minion");
+					this.getFlags().add("undead"); 
+					this.getFlags().add("zombie_minion"); 
 					local skill = this.new("scripts/skills/traits/legend_rotten_flesh_trait");
 					this.m.Skills.add(skill);
 					this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
