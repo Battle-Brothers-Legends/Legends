@@ -44,7 +44,7 @@ this.legend_ijirok_armor <- this.inherit("scripts/items/legend_armor/legend_armo
 			id = 7,
 			type = "text",
 			icon = "ui/icons/armor_damage.png",
-			text = "Receive [color=" + this.Const.UI.Color.NegitiveValue + "]50%[/color] more damage from burning attacks"
+			text = "Receive [color=" + this.Const.UI.Color.NegativeValue + "]50%[/color] more damage from burning attacks"
 		});
 		return result;
 	}
