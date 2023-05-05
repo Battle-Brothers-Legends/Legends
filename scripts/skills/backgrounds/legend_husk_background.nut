@@ -10,7 +10,7 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 		this.m.GoodEnding = "The cultist, %name%, left the company with a band of cloaked converts. You know not what became of the fanatic, but every so often they appear in your dreams. Often standing alone in a great void and there is always someone, or something, lingering in the black beyond. Every night, this image gets a little more clear, and each night you find yourself staying up later and later just to avoid dreaming at all.";
 		this.m.BadEnding = "You heard that %name%, the cultist, left the company at some juncture and went out to spread the faith. There\'s no telling what became of the fanatic, but there was a recent inquisition against unholy faiths and hundreds of \'folk in dark cloaks with even darker intentions\' were burned at the stake across the realm.";
 		this.m.HiringCost = 150;
-		this.m.DailyCost = 24;
+		this.m.DailyCost = 20;
 		this.m.Excluded = [
 			"trait.teamplayer",
 			"trait.fear_undead",
@@ -73,11 +73,12 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 			Weapon = [
 				this.Const.Perks.CleaverTree,
 				this.Const.Perks.FlailTree,
-				this.Const.Perks.MaceTree,
+				this.Const.Perks.MaceTree,			
 				this.Const.Perks.AxeTree
 			],
 			Defense = [
-				this.Const.Perks.MediumArmorTree
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.HeavyArmorTree			
 			],
 			Traits = [
 				this.Const.Perks.MartyrTree,
@@ -121,6 +122,16 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 
 	function getTooltip()
 	{
+		local ret = this.character_background.getTooltip()
+		ret.push(
+			{
+				id = 12,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Will never be sacrificed to Davkul"
+			}
+		)
+		return ret
 	}
 
 	function onBuildDescription()
@@ -144,8 +155,8 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 				8
 			],
 			MeleeSkill = [
-				5,
-				10
+				8,
+				12
 			],
 			RangedSkill = [
 				-10,

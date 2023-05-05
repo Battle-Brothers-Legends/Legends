@@ -150,8 +150,8 @@ this.sellsword_background <- this.inherit("scripts/skills/backgrounds/character_
 				5
 			],
 			Stamina = [
-				0,
-				0
+				6,
+				12
 			],
 			MeleeSkill = [
 				13,

@@ -88,8 +88,8 @@ this.brawler_background <- this.inherit("scripts/skills/backgrounds/character_ba
 	{
 		local c = {
 			Hitpoints = [
-				5,
-				10
+				10,
+				15
 			],
 			Bravery = [
 				7,

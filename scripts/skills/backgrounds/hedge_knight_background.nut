@@ -186,8 +186,8 @@ this.hedge_knight_background <- this.inherit("scripts/skills/backgrounds/charact
 				0
 			],
 			MeleeDefense = [
-				6,
-				5
+				9,
+				12
 			],
 			RangedDefense = [
 				0,

@@ -10,7 +10,7 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.GoodEnding = "The cultist, %name%, left the company with a band of cloaked converts. You know not what became of the fanatic, but every so often they appear in your dreams. Often standing alone in a great void and there is always someone, or something, lingering in the black beyond. Every night, this image gets a little more clear, and each night you find yourself staying up later and later just to avoid dreaming at all.";
 		this.m.BadEnding = "You heard that %name%, the cultist, left the company at some juncture and went out to spread the faith. There\'s no telling what became of the fanatic, but there was a recent inquisition against unholy faiths and hundreds of \'folk in dark cloaks with even darker intentions\' were burned at the stake across the realm.";
 		this.m.HiringCost = 250;
-		this.m.DailyCost = 32;
+		this.m.DailyCost = 25;
 		this.m.Excluded = [
 			"trait.teamplayer",
 			"trait.fear_undead",
@@ -66,7 +66,8 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.CleaverTree,
-				this.Const.Perks.FlailTree,				
+				this.Const.Perks.FlailTree,	
+				this.Const.Perks.SlingTree,			
 				this.Const.Perks.StaffTree
 			],
 			Defense = [
@@ -77,14 +78,15 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 				this.Const.Perks.IntelligentTree,
 				this.Const.Perks.InspirationalTree
 			],
-			Enemy = [],
+			Enemy = [
+				this.Const.Perks.CaravanTree,
+				this.Const.Perks.NoblesTree
+			],
 			Class = [
 				this.Const.Perks.NinetailsClassTree,
 				this.Const.Perks.HealerClassTree
 			],
-			Magic = [
-				this.Const.Perks.PremonitionMagicTree
-			]
+			Magic = []
 		}
 	}
 
@@ -112,6 +114,16 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 
 	function getTooltip()
 	{
+		local ret = this.character_background.getTooltip()
+		ret.push(
+			{
+				id = 12,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Will never be sacrificed to Davkul"
+			}
+		)
+		return ret
 	}
 
 	function onBuildDescription()
@@ -198,10 +210,6 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 
 	function onAddEquipment()
 	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.Bravery] = 1;
-		this.getContainer().getActor().fillTalentValues(1, true);
 		local items = this.getContainer().getActor().getItems();
 		local r;
 		r = this.Math.rand(0, 8);

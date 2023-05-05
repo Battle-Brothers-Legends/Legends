@@ -167,8 +167,8 @@ this.legend_guildmaster_background <- this.inherit("scripts/skills/backgrounds/c
 				2
 			],
 			MeleeSkill = [
-				7,
-				7
+				10,
+				14
 			],
 			RangedSkill = [
 				13,

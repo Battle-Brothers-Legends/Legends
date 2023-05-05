@@ -41,7 +41,7 @@ this.legend_shieldmaiden_background <- this.inherit("scripts/skills/backgrounds/
 		this.m.Modifiers.Repair = this.Const.LegendMod.ResourceModifiers.Repair[2];
 		this.m.Modifiers.Salvage = this.Const.LegendMod.ResourceModifiers.Salvage[1];
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[2];
-		this.m.PerkTreeDynamicMins.Defense = 3;
+		// this.m.PerkTreeDynamicMins.Defense = 3;
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.SpearTree,
@@ -98,8 +98,8 @@ this.legend_shieldmaiden_background <- this.inherit("scripts/skills/backgrounds/
 				10
 			],
 			MeleeDefense = [
-				5,
-				8
+				8,
+				12
 			],
 			RangedDefense = [
 				4,

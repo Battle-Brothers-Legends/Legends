@@ -30,7 +30,7 @@ this.legend_qiyan_background <- this.inherit("scripts/skills/backgrounds/charact
 			this.Const.Attributes.Hitpoints,
 			this.Const.Attributes.Fatigue
 		];
-		this.m.IsGuaranteed = ["seductive_trait"]
+		// this.m.IsGuaranteed = ["seductive_trait"]
 		this.m.Bodies = this.Const.Bodies.SouthernFemale;
 		this.m.Faces = this.Const.Faces.SouthernFemale;
 		this.m.Hairs = this.Const.Hair.SouthernFemale;
@@ -79,19 +79,19 @@ this.legend_qiyan_background <- this.inherit("scripts/skills/backgrounds/charact
 				10
 			],
 			Stamina = [
-				-3,
-				5
+				5,
+				8
 			],
 			MeleeSkill = [
-				-3,
-				7
+				5,
+				10
 			],
 			RangedSkill = [
 				-5,
 				5
 			],
 			MeleeDefense = [
-				-10,
+				-5,
 				10
 			],
 			RangedDefense = [
