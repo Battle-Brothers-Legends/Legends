@@ -29,9 +29,6 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 		this.m.Excluded = [
 			"trait.survivor",
 			"trait.iron_jaw",
-			"trait.tough",
-			"trait.strong",
-			"trait.spartan",
 			"trait.gluttonous",
 			"trait.lucky",
 			"trait.loyal",
@@ -42,11 +39,9 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 			"trait.drunkard",
 			"trait.determined",
 			"trait.greedy",
-			"trait.athletic",
 			"trait.hate_beasts",
 			"trait.hate_undead",
 			"trait.hate_greenskins",
-			"trait.hate_nobles",
 			"trait.aggressive",
 			"trait.ambitious",
 			"trait.slack"
@@ -90,10 +85,12 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 			Weapon = [
 				this.Const.Perks.CleaverTree,
 				this.Const.Perks.FlailTree,
+				this.Const.Perks.SpearTree,
 				this.Const.Perks.SlingTree
 			],
 			Defense = [
-				this.Const.Perks.LightArmorTree
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.ShieldTree
 			],
 			Traits = [
 				this.Const.Perks.FitTree,
@@ -184,16 +181,16 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 	{
 		local c = {
 			Hitpoints = [
-				-10,
-				-10
+				5,
+				16
 			],
 			Bravery = [
 				-5,
 				0
 			],
 			Stamina = [
-				0,
-				0
+				6,
+				12
 			],
 			MeleeSkill = [
 				0,
