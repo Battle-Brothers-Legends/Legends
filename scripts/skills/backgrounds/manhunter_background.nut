@@ -10,7 +10,7 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.GoodEnding = "%name% the manhunter stuck with the %companyname% for a long while after you left it. You haven\'t gotten much word other than %name%\'s found far more income in the world of sellswords than that of hunting down the indebted.";
 		this.m.BadEnding = "Upset with how time in the company of the %companyname% has gone, %name% the manhunter deserted and returned south. It\'s hard to say what became of the slaver, but the business of tracking and hunting human prey carries endless dangers. The only news you haveis ancillary to the vocation: that of numerous indebted uprisings with many manhunters being buried alive or fed to a variety of desert-borne creatures.";
 		this.m.HiringCost = 120;
-		this.m.DailyCost = 10;
+		this.m.DailyCost = 14;
 		this.m.Excluded = [
 			"trait.bleeder",
 			"trait.bright",
@@ -42,6 +42,7 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 			"the Swine",
 			"the Slaver"
 		];
+		this.m.Level = this.Math.rand(2, 4);
 		this.m.Faces = this.Const.Faces.SouthernMale;
 		this.m.Hairs = this.Const.Hair.SouthernMale;
 		this.m.HairColors = this.Const.HairColors.Southern;
@@ -58,6 +59,9 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 			Weapon = [
 				this.Const.Perks.MaceTree,
 				this.Const.Perks.PolearmTree,
+				this.Const.Perks.CleaverTree,
+				this.Const.Perks.SwordTree,
+				this.Const.Perks.BowTree,
 				this.Const.Perks.ThrowingTree
 			],
 			Defense = [
@@ -70,9 +74,14 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 				this.Const.Perks.FastTree
 			],
 			Enemy = [
-				this.Const.Perks.NomadsTree
+				this.Const.Perks.NomadsTree,
+				this.Const.Perks.SouthernersTree,
+				this.Const.Perks.BanditTree,
+				this.Const.Perks.BarbarianTree
 			],
-			Class = [],
+			Class = [
+				this.Const.Perks.BeastClassTree
+			],
 			Magic = []
 		}
 	}
@@ -92,9 +101,6 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.addBackgroundType(this.Const.BackgroundType.Female);
 	}
 
-
-
-
 	function onBuildDescription()
 	{
 		return "{The large population of slaves, prisoners, criminals, and indebted servants in the south has produced an economy of sellers, buyers, and, given the flighty nature of the product, hunters. | Southern city states must have enormous reserves of labor to fuel their desert-borne economies. While many are born into working tirelessly for Viziers, some must be coerced into a life of servitude. | The deserts so sparse in natural resources, it is often an ample supply of captured criminals and indebted souls which bolsters the southern economy. And the business of hunting down these eventual servants is a prosperous one. | Southern Viziers are so fearful of rebellions that an entire market of Manhunters has emerged to nip them in the bud.} {%name% entered manhunting with a vengeful attitude: their entire family was massacred in a slave uprising. | %name% was once an ordinary caravan guard but turned to manhunting nomads who kept trying to ambush their convoys. Finding more profit in the human trade, %name%\'s stuck with it ever since. | %name% is a manhunter with a good nose for tracking criminals, deserters, prisoners of war, and more. You sometimes wonder if %name%\'s got a keen sense of smell for fearful sweat. | Once a big game hunter, %name% grew fond of chasing the greatest game of all: man. %name% is an expert tracker with a nose for sniffing out desperation.} {For %name%, the opportunity of working for a mercenary band simply brings in more consistent work than waiting around for some pressed criminal to get antsy about his chains. | %name% is a rugged, shady individual and it is quite possibly just as flighty as those being hunted. | Hunters like %name% carry traits and skills that would be useful in a mercenary band, but to some their past may be an ever present slight. Not all manhunters are seen in good light. | Capturing humans for the purpose of labor is frowned upon by many and catching those seeking their freedom equally so. Manhunters like %name% certainly have useful skills, but may rub some the wrong way. | To no surprise, many see slavers like %name% as opportunistic slugs. If %name% can make it with the company, it may take time to change the minds of some about the past.}";
@@ -104,36 +110,36 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 	{
 		local c = {
 			Hitpoints = [
-				2,
-				3
+				3,
+				6
 			],
 			Bravery = [
 				7,
-				5
+				9
 			],
 			Stamina = [
 				3,
 				5
 			],
 			MeleeSkill = [
-				5,
-				5
+				6,
+				8
 			],
 			RangedSkill = [
-				0,
-				0
+				3,
+				8
 			],
 			MeleeDefense = [
-				2,
-				2
+				5,
+				10
 			],
 			RangedDefense = [
 				-1,
 				-1
 			],
 			Initiative = [
-				3,
-				5
+				5,
+				12
 			]
 		};
 		return c;
@@ -151,11 +157,11 @@ this.manhunter_background <- this.inherit("scripts/skills/backgrounds/character_
 		}
 		else if (r == 1)
 		{
-			items.equip(this.new("scripts/items/weapons/wooden_stick"));
+			items.equip(this.new("scripts/items/weapons/bludgeon"));
 		}
 		else if (r == 2)
 		{
-			items.equip(this.new("scripts/items/weapons/bludgeon"));
+			items.equip(this.new("scripts/items/weapons/oriental/light_southern_mace"));
 		}
 		else if (r == 3)
 		{
