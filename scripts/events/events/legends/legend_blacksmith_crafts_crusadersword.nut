@@ -18,7 +18,7 @@ this.legend_blacksmith_crafts_crusadersword <- this.inherit("scripts/events/even
 					Text = "You can have 2000 crowns, I\'ll tell you what to do — just swing.",
 					function getResult( _event )
 					{
-						return this.Math.rand(1, 100) <= 60 ? "B" : "C"; //B = succeed || C = fail
+						return "B";
 					}
 
 				},
@@ -87,7 +87,7 @@ this.legend_blacksmith_crafts_crusadersword <- this.inherit("scripts/events/even
 					icon = "ui/items/" + item.getIcon(),
 					text = "You gain " + item.getName()
 				});
-				_event.m.Blacksmith.improveMood(2.0, "Created a legendary sword");
+				_event.m.Blacksmith.improveMood(2.5, "Created a legendary sword");
 
 				if (_event.m.Blacksmith.getMoodState() >= this.Const.MoodState.Neutral)
 				{
@@ -100,69 +100,69 @@ this.legend_blacksmith_crafts_crusadersword <- this.inherit("scripts/events/even
 			}
 
 		});
-		this.m.Screens.push({ //Fail
-			ID = "C",
-			Text = "[img]gfx/ui/events/event_05.png[/img]%Blacksmith% begins strong, but gradually loses control of the shape and form of the blade over time. %Blacksmith% squints and attempts to start again. But at this point the blade is already lost. You tell them to finish it as best as they can.\n\n With a tounge stuck out and a pensive look, %Blacksmith% eventually defaults back to their old ways and makes an impressively average looking blade, allbeit functional and sturdy.",
-			Image = "",
-			List = [],
-			Characters = [],
-			Options = [
-				{
-					Text = "Well, you almost had it.",
-					function getResult( _event )
-					{
-						return 0;
-					}
+		// this.m.Screens.push({ //Fail
+		// 	ID = "C",
+		// 	Text = "[img]gfx/ui/events/event_05.png[/img]%Blacksmith% begins strong, but gradually loses control of the shape and form of the blade over time. %Blacksmith% squints and attempts to start again. But at this point the blade is already lost. You tell them to finish it as best as they can.\n\n With a tounge stuck out and a pensive look, %Blacksmith% eventually defaults back to their old ways and makes an impressively average looking blade, allbeit functional and sturdy.",
+		// 	Image = "",
+		// 	List = [],
+		// 	Characters = [],
+		// 	Options = [
+		// 		{
+		// 			Text = "Well, you almost had it.",
+		// 			function getResult( _event )
+		// 			{
+		// 				return 0;
+		// 			}
 
-				}
-			],
-			function start( _event )
-			{
-				this.Characters.push(_event.m.Blacksmith.getImagePath());
-				this.World.Assets.addMoney(-2000);
-				this.List.push({
-					id = 10,
-					icon = "ui/icons/asset_money.png",
-					text = "You spend [color=" + this.Const.UI.Color.NegativeEventValue + "]2000[/color] Crowns"
-				});
-				local stash = this.World.Assets.getStash().getItems();
+		// 		}
+		// 	],
+		// 	function start( _event )
+		// 	{
+		// 		this.Characters.push(_event.m.Blacksmith.getImagePath());
+		// 		this.World.Assets.addMoney(-2000);
+		// 		this.List.push({
+		// 			id = 10,
+		// 			icon = "ui/icons/asset_money.png",
+		// 			text = "You spend [color=" + this.Const.UI.Color.NegativeEventValue + "]2000[/color] Crowns"
+		// 		});
+		// 		local stash = this.World.Assets.getStash().getItems();
 
-				local numIngots = ::Math.rand(1, 2);
-				foreach (i, item in stash)
-				{
-					if (item != null && item.getID() == "misc.iron_ingots")
-					{
-						stash[i] = null;
-						this.List.push({
-							id = 10,
-							icon = "ui/items/" + item.getIcon(),
-							text = "You lose " + item.getName()
-						});
-						if (--numIngots == 0) break;
-					}
-				}
+		// 		local numIngots = ::Math.rand(1, 2);
+		// 		foreach (i, item in stash)
+		// 		{
+		// 			if (item != null && item.getID() == "misc.iron_ingots")
+		// 			{
+		// 				stash[i] = null;
+		// 				this.List.push({
+		// 					id = 10,
+		// 					icon = "ui/items/" + item.getIcon(),
+		// 					text = "You lose " + item.getName()
+		// 				});
+		// 				if (--numIngots == 0) break;
+		// 			}
+		// 		}
 
-				local item = this.new("scripts/items/weapons/legend_longsword"); //lmao get fucked
-				item.m.Name = _event.m.Blacksmith.getNameOnly() + "\'s " + item.m.Name;
-				this.World.Assets.getStash().add(item);
-				this.List.push({
-					id = 10,
-					icon = "ui/items/" + item.getIcon(),
-					text = "You gain " + item.getName()
-				});
-				_event.m.Blacksmith.worsenMood(1.5, "Didn\'t quite get the sword right...");
+		// 		local item = this.new("scripts/items/weapons/legend_longsword"); //lmao get fucked
+		// 		item.m.Name = _event.m.Blacksmith.getNameOnly() + "\'s " + item.m.Name;
+		// 		this.World.Assets.getStash().add(item);
+		// 		this.List.push({
+		// 			id = 10,
+		// 			icon = "ui/items/" + item.getIcon(),
+		// 			text = "You gain " + item.getName()
+		// 		});
+		// 		_event.m.Blacksmith.worsenMood(1.5, "Didn\'t quite get the sword right...");
 
-				if (_event.m.Blacksmith.getMoodState() < this.Const.MoodState.Neutral)
-				{
-					this.List.push({
-						id = 10,
-						icon = this.Const.MoodStateIcon[_event.m.Blacksmith.getMoodState()],
-						text = _event.m.Blacksmith.getName() + this.Const.MoodStateEvent[_event.m.Blacksmith.getMoodState()]
-					});
-				}
-			}
+		// 		if (_event.m.Blacksmith.getMoodState() < this.Const.MoodState.Neutral)
+		// 		{
+		// 			this.List.push({
+		// 				id = 10,
+		// 				icon = this.Const.MoodStateIcon[_event.m.Blacksmith.getMoodState()],
+		// 				text = _event.m.Blacksmith.getName() + this.Const.MoodStateEvent[_event.m.Blacksmith.getMoodState()]
+		// 			});
+		// 		}
+		// 	}
 
-		});
+		// });
 		this.m.Screens.push({ //skip
 			ID = "D",
 			Text = "[img]gfx/ui/events/event_05.png[/img]You tell the Blacksmith that that sword is better off lost. They begin to object, but eventually fall silent.",
@@ -204,12 +204,7 @@ this.legend_blacksmith_crafts_crusadersword <- this.inherit("scripts/events/even
 			return;
 		}
 
-		if (this.World.Assets.getMoney() < 3500)
-		{
-			return;
-		}
-
-		if (!this.World.getTime().IsDaytime)
+		if (this.World.Assets.getMoney() < 2500)
 		{
 			return;
 		}
