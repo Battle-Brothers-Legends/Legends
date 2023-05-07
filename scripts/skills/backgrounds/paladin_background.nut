@@ -9,8 +9,8 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 		this.m.BackgroundDescription = "Oathtakers are brave warriors sworn to uphold a strict code, and are no strangers to combat.";
 		this.m.GoodEnding = "%name% the Oathtaker stayed with the %companyname%, wielding Young Anselm\'s skull to proselytize knightly virtues unto the world. Most see him as something of an annoyance, but there is also some charm in a man who believes fully in matters of honor and pride and doing good. Last you heard, he singlehandedly saved a lord\'s princess from a gang of alley thieves. In celebration, he was wed to the damsel, though rumors abound that she is unhappy in bed, proclaiming that the Oathtaker insists on Young Anselm\'s skull watching from the corner. Whatever\'s going on, you\'re happy that the man is still doing his thing to the fullest.";
 		this.m.BadEnding = "Once an Oathtaker to the bone, %name% grew disenchanted with his fellow believers and one night had a dream that they were, in fact, the true heretics. He slew every Oathtaker in reach and then fled out, eventually joining the Oathbringers of all people. Last that was heard of him, he reclaimed Young Anselm\'s skull and smashed it with a hammer. Enraged, his new Oathbringer brothers promptly slew him down. %name%\'s corpse was found stabbed over a hundred times, ashy skull fragments powdering a bloodied, madly grinning face.";
-		this.m.HiringCost = 150;
-		this.m.DailyCost = 22;
+		this.m.HiringCost = 350;
+		this.m.DailyCost = 34;
 		this.m.Titles = [
 			"the Crusader",
 			"the Zealot",
@@ -52,7 +52,7 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 		];
 		this.m.ExcludedTalents = [
 			this.Const.Attributes.Hitpoints,
-			this.Const.Attributes.RangedSkill
+			this.Const.Attributes.Initiative
 		];
 		this.m.Bodies = this.Const.Bodies.Muscular;
 		this.m.Faces = this.Const.Faces.AllMale;
@@ -96,21 +96,21 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.GreatSwordTree,
-				this.Const.Perks.PolearmTree,
 				this.Const.Perks.AxeTree,
+				this.Const.Perks.PolearmTree,
 				this.Const.Perks.MaceTree,
 				this.Const.Perks.FlailTree,
 				this.Const.Perks.HammerTree,
 				this.Const.Perks.CrossbowTree
 			],
 			Defense = [
-				this.Const.Perks.HeavyArmorTree
+				this.Const.Perks.HeavyArmorTree,
+				this.Const.Perks.ShieldTree
 			],
 			Traits = [
 				this.Const.Perks.TrainedTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.LargeTree,
-				this.Const.Perks.IndestructibleTree,
 				this.Const.Perks.MartyrTree,
 				this.Const.Perks.FitTree
 			],
@@ -218,16 +218,16 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 				5
 			],
 			MeleeSkill = [
-				13,
-				10
+				5,
+				9
 			],
 			RangedSkill = [
-				-2,
-				-3
+				3,
+				6
 			],
 			MeleeDefense = [
-				4,
-				5
+				5,
+				7
 			],
 			RangedDefense = [
 				-10,
@@ -254,8 +254,8 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 				"weapons/winged_mace",
 				"weapons/military_pick",
 				"weapons/warhammer",
-				"weapons/billhook",
 				"weapons/longaxe",
+				"weapons/billhook",
 				"weapons/greataxe",
 				"weapons/greatsword"
 			];
