@@ -41,7 +41,7 @@ this.sureshot_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-5[/color] Ranged Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10[/color] Ranged Defense"
 			}
 		];
 	}
@@ -49,7 +49,7 @@ this.sureshot_trait <- this.inherit("scripts/skills/traits/character_trait", {
 	function onUpdate( _properties )
 	{
 		_properties.RangedDamageMult *= 1.1;
-		_properties.RangedDefense -= 5;
+		_properties.RangedDefense -= 10;
 	}
 
 });
