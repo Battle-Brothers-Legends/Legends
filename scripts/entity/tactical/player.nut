@@ -9,7 +9,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		LastDrinkTime = 0,
 		PlaceInFormation = 255,
 		Background = null,
-		HiringCost = 0,
+		HiringCost = 0, //Serialised using Float 32 on 7/5/23 by Luft
 		HireTime = 0.0,
 		IsTryoutDone = false,
 		IsGuest = false,
@@ -2895,6 +2895,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		_out.writeU8(this.m.PerkPoints);
 		_out.writeU8(this.m.PerkPointsSpent);
 		_out.writeU8(this.m.LevelUps);
+		_out.writeF32(this.m.HiringCost);
 		_out.writeF32(this.m.Mood);
 		_out.writeU8(this.m.MoodChanges.len());
 
@@ -2962,6 +2963,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		this.m.PerkPoints = _in.readU8();
 		this.m.PerkPointsSpent = _in.readU8();
 		this.m.LevelUps = _in.readU8();
+		this.m.HiringCost = _in.readF32();
 		this.m.Mood = _in.readF32();
 		local numMoodChanges = _in.readU8();
 		this.m.MoodChanges.resize(numMoodChanges, 0);
@@ -3007,7 +3009,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		if (ret.len() != 0)
 		{
 			this.m.Background = ret[0];
-			this.m.Background.adjustHiringCostBasedOnEquipment();
+			//this.m.Background.adjustHiringCostBasedOnEquipment(); //turned off as this was causing issues with the serialisation of hire cost - Luft + James 7/5/23
 			this.m.Background.buildDescription(true);
 
 			if (this.m.Background.isBackgroundType(this.Const.BackgroundType.Female))
