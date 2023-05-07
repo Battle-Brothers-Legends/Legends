@@ -81,21 +81,6 @@ this.legend_ironmonger_background <- this.inherit("scripts/skills/backgrounds/ch
 
 	}
 
-	function getTooltip()
-	{
-		local ret = this.character_background.getTooltip()
-		ret.push(
-			{
-				id = 13,
-				type = "text",
-				icon = "ui/icons/xp_received.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] faster equipment repair and [color=" + this.Const.UI.Color.PositiveValue + "]-10%[/color] tool usage"
-			}
-		)
-		return ret
-	}
-
-
 	function onBuildDescription()
 	{
 		if (this.isBackgroundType(this.Const.BackgroundType.Female))
