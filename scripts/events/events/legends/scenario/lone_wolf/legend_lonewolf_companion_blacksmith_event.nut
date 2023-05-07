@@ -40,9 +40,9 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 
 				}
 			],
-			function start( _event )
-			{
-			}
+			// function start( _event )
+			// {
+			// }
 		});
 		this.m.Screens.push({ //items
 			ID = "B",

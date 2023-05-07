@@ -40,9 +40,9 @@ this.legend_lonewolf_companion_caravan_event <- this.inherit("scripts/events/eve
 
 				}
 			],
-			function start( _event )
-			{
-			}
+			// function start( _event )
+			// {
+			// }
 		});
 		this.m.Screens.push({ //B = loot items
 			ID = "B",

@@ -3024,7 +3024,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Pause the active character\'s turn and move them to the end of the queue. Waiting this turn will also have you act later (as though you only had" + (this.Const.Combat.InitiativeAfterWaitMult * 100).tointeger() + "% of your initiative) next turn."
+					text = "Pause the active character\'s turn and move them to the end of the queue. Waiting this turn will also have you act later (as though you only had" + (this.Const.Combat.InitiativeAfterWaitMult * 100).tointeger() + " % of your initiative) next turn."
 				}
 			];
 
