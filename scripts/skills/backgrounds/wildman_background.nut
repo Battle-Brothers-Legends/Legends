@@ -148,8 +148,8 @@ this.wildman_background <- this.inherit("scripts/skills/backgrounds/character_ba
 				23
 			],
 			MeleeSkill = [
-				6,
-				0
+				7,
+				10
 			],
 			RangedSkill = [
 				-5,
@@ -164,8 +164,8 @@ this.wildman_background <- this.inherit("scripts/skills/backgrounds/character_ba
 				-5
 			],
 			Initiative = [
-				-5,
-				-5
+				5,
+				12
 			]
 		};
 		return c;
