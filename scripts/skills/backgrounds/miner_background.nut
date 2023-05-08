@@ -110,7 +110,7 @@ this.miner_background <- this.inherit("scripts/skills/backgrounds/character_back
 			],
 			MeleeSkill = [
 				5,
-				0
+				10
 			],
 			RangedSkill = [
 				0,
