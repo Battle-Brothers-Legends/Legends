@@ -26,7 +26,7 @@ this.militia_background <- this.inherit("scripts/skills/backgrounds/character_ba
 		this.m.HairColors = this.Const.HairColors.Young;
 		this.m.Beards = this.Const.Beards.All;
 		this.m.Bodies = this.Const.Bodies.Skinny;
-		this.m.Level = this.Math.rand(1, 2);
+		this.m.Level = this.Math.rand(1, 3);
 		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Lowborn;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.NeutralMax;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Saintly;
@@ -35,6 +35,7 @@ this.militia_background <- this.inherit("scripts/skills/backgrounds/character_ba
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.SpearTree,
+				this.Const.Perks.SlingTree,				
 				this.Const.Perks.ThrowingTree
 			],
 			Defense = [
@@ -51,7 +52,9 @@ this.militia_background <- this.inherit("scripts/skills/backgrounds/character_ba
 				this.Const.Perks.BanditTree,
 				this.Const.Perks.BarbarianTree
 			],
-			Class = [this.Const.Perks.MilitiaClassTree],
+			Class = [
+				this.Const.Perks.MilitiaClassTree
+			],
 			Magic = []
 		}
 	}
