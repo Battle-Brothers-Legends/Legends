@@ -126,8 +126,8 @@ this.ratcatcher_background <- this.inherit("scripts/skills/backgrounds/character
 				0
 			],
 			RangedSkill = [
-				0,
-				0
+				4,
+				8
 			],
 			MeleeDefense = [
 				0,
