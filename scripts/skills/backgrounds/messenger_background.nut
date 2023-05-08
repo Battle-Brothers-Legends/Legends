@@ -124,8 +124,8 @@ this.messenger_background <- this.inherit("scripts/skills/backgrounds/character_
 				3
 			],
 			Initiative = [
-				0,
-				0
+				8,
+				10
 			]
 		};
 		return c;
