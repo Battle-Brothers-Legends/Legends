@@ -63,6 +63,11 @@ this.seasonal_fair_situation <- this.inherit("scripts/entity/world/settlements/s
 		_draftList.push("minstrel_background");
 		_draftList.push("minstrel_background");
 		_draftList.push("minstrel_background");
+		_draftList.push("legend_master_archer_background");
+		_draftList.push("legend_master_archer_background");
+		_draftList.push("legend_master_archer_background");
+		_draftList.push("legend_master_archer_background");
+		
 		if (_gender)
 		{
 		_draftList.push("female_minstrel_background");

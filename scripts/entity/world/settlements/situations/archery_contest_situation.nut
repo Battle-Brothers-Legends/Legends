@@ -79,6 +79,8 @@ this.archery_contest_situation <- this.inherit("scripts/entity/world/settlements
 		}
 
 		_draftList.push("legend_master_archer_background");
+		_draftList.push("legend_master_archer_background");
+		_draftList.push("legend_master_archer_background");
 
 		if (this.Const.DLC.Unhold)
 		{
