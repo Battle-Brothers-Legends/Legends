@@ -308,9 +308,8 @@ this.legend_northmen_forest_ambush_event <- this.inherit("scripts/events/event",
 						local properties = this.World.State.getLocalCombatProperties(this.World.State.getPlayer().getPos());
 						properties.CombatID = "Event";
 						properties.Music = this.Const.Music.BarbarianTracks;
-						properties.PlayerDeploymentType = this.Flags.get("IsEncircled") ? this.Const.Tactical.DeploymentType.Circle : this.Const.Tactical.DeploymentType.Edge;
+						properties.PlayerDeploymentType = this.Const.Tactical.DeploymentType.Circle;
 						properties.EnemyDeploymentType = this.Const.Tactical.DeploymentType.Center;
-						properties.LocationTemplate.Fortification = this.Const.Tactical.FortificationType.None;
 						properties.IsAutoAssigningBases = false;
 						properties.Entities = [];
 						this.Const.World.Common.addUnitsToCombat(properties.Entities, this.Const.World.Spawn.Barbarians, this.Math.rand(60, 70) * _event.getReputationToDifficultyLightMult(), this.Const.Faction.Enemy);
