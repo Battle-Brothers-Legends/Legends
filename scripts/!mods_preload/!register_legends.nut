@@ -1,6 +1,6 @@
 ::Legends <- {
 	ID = "mod_legends",
-	Version = "16.3.1",
+	Version = "16.3.2",
 	Name = "Legends Mod",
 	BuildName = "Smoke & Faith"
 };
