@@ -48,7 +48,7 @@ this.killer_on_the_run_background <- this.inherit("scripts/skills/backgrounds/ch
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Dreaded;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Notorious;
 		this.m.Bodies = this.Const.Bodies.Skinny;
-		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Outlaw;
+		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Lowborn | this.Const.BackgroundType.Outlaw;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Dreaded;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Notorious;
 		this.m.Modifiers.Hunting = this.Const.LegendMod.ResourceModifiers.Hunting[1];
@@ -72,9 +72,11 @@ this.killer_on_the_run_background <- this.inherit("scripts/skills/backgrounds/ch
 			Enemy = [
 				this.Const.Perks.NoblesTree,
 				this.Const.Perks.MercenaryTree
-				],
+			],
 			Class = [],
-			Magic = []
+			Magic = [
+				this.Const.Perks.AssassinMagicTree
+			]
 		}
 	}
 
@@ -112,7 +114,7 @@ this.killer_on_the_run_background <- this.inherit("scripts/skills/backgrounds/ch
 				id = 11,
 				type = "text",
 				icon = "ui/icons/chance_to_hit_head.png",
-				text = "Higher Chance To Hit Head"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] Chance To Hit Head"
 			}
 		)
 		return ret
@@ -146,20 +148,20 @@ this.killer_on_the_run_background <- this.inherit("scripts/skills/backgrounds/ch
 				0
 			],
 			MeleeSkill = [
-				4,
-				0
-			],
-			RangedSkill = [
-				2,
+				6,
 				3
 			],
+			RangedSkill = [
+				3,
+				5
+			],
 			MeleeDefense = [
-				0,
-				0
+				1,
+				3
 			],
 			RangedDefense = [
 				0,
-				0
+				-3
 			],
 			Initiative = [
 				0,
