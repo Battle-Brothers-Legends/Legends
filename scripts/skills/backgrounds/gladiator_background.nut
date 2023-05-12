@@ -219,8 +219,8 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 				8
 			],
 			Initiative = [
-				10,
-				20
+				3,
+				8
 			]
 		};
 		return c;
