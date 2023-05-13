@@ -1087,10 +1087,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 	function rebuildPerkTree( _tree )
 	{
 		this.m.CustomPerkTree = _tree
-		if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
-		{
-			this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.m.PerkTreeDynamic);
-		}
+		this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.m.PerkTreeDynamic);
 		local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
 		this.m.PerkTree = pT.Tree;
 		this.m.PerkTreeMap = pT.Map;
@@ -1156,20 +1153,11 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 
 		if (this.m.CustomPerkTree == null)
 		{
-			if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
-			{
-
 				local mins = this.getPerkTreeDynamicMins();
 
 				local result  = this.Const.Perks.GetDynamicPerkTree(mins, this.m.PerkTreeDynamic);
 				this.m.CustomPerkTree = result.Tree
 				a = result.Attributes;
-			}
-			else
-			{
-				this.m.CustomPerkTree = this.Const.Perks.DefaultCustomPerkTree;
-			}
-			
 		}
 
 		local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
