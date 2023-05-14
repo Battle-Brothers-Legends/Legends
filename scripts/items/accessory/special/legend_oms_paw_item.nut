@@ -10,7 +10,7 @@ this.legend_oms_paw_item <- this.inherit("scripts/items/accessory/accessory", {
 		this.m.IsDroppedAsLoot = true;
 		//this.m.ShowOnCharacter = true;
 		this.m.IconLarge = "";
-		this.m.Icon = "inventory/werehand.png";
+		this.m.Icon = "misc/inventory_werehand.png";
 		//this.m.Sprite = "nachzehrer_trophy";
 		this.m.Value = 2345;
 	}
