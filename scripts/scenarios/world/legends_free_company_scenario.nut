@@ -4,7 +4,7 @@ this.legends_free_company_scenario <- this.inherit("scripts/scenarios/world/star
 	{
 		this.m.ID = "scenario.legends_free_company";
 		this.m.Name = "The Free Company";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_65.png[/img][/p][p]No desperate circumstances or fates to be rewritten. Take control of a successful mercenary company on the brink of becoming famous. \n[color=#bcad8c]Professional Army:[/color] Start with a roster of 5 experienced fighters in a well rounded company.\n[color=#bcad8c]Almost famous:[/color] Start with a larger roster size and professional renown.\n[color=#bcad8c]Soldiers of fortune:[/color] Can recruit everyone except unique backgrounds from other origins. No affect on trade, recruiting or upkeep.\n[color=#bcad8c]Recommended for newer players fresh from vanilla or who want a jump start.[/color][/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_65.png[/img][/p][p]No desperate circumstances or fates to be rewritten. Take control of a successful mercenary company on the brink of becoming famous. \n[color=#bcad8c]Professional Army:[/color] Start with a roster of 5 experienced fighters in a well rounded company.\n[color=#bcad8c]Almost famous:[/color] Start with a larger roster size and professional renown.\n[color=#bcad8c]Soldiers of fortune:[/color] Can recruit everyone except unique backgrounds from other origins. No effect on trade, recruiting or upkeep.\n[color=#bcad8c]Recommended for newer players fresh from vanilla or who want a jump start.[/color][/p]";
 		this.m.Difficulty = 1;
 		this.m.Order = 3;
 		// this.m.IsFixedLook = true;
