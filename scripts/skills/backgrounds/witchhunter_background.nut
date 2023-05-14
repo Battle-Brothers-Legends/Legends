@@ -184,8 +184,8 @@ this.witchhunter_background <- this.inherit("scripts/skills/backgrounds/characte
 				6
 			],
 			MeleeSkill = [
-				2,
-				5
+				1,
+				4
 			],
 			RangedSkill = [
 				15,
@@ -196,8 +196,8 @@ this.witchhunter_background <- this.inherit("scripts/skills/backgrounds/characte
 				0
 			],
 			RangedDefense = [
-				0,
-				0
+				2,
+				3
 			],
 			Initiative = [
 				0,

@@ -141,8 +141,8 @@ this.beast_hunter_background <- this.inherit("scripts/skills/backgrounds/charact
 	{
 		local c = {
 			Hitpoints = [
-				0,
-				3
+				3,
+				5
 			],
 			Bravery = [
 				13,
@@ -161,8 +161,8 @@ this.beast_hunter_background <- this.inherit("scripts/skills/backgrounds/charact
 				7
 			],
 			MeleeDefense = [
-				0,
-				0
+				1,
+				4
 			],
 			RangedDefense = [
 				0,
