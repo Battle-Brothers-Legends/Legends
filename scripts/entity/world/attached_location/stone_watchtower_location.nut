@@ -193,21 +193,16 @@ this.stone_watchtower_location <- this.inherit("scripts/entity/world/attached_lo
 				P = 1.0,
 				S = "ammo/quiver_of_bolts"
 			});
-
-			if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				_list.push({
-					R = 45,
-					P = 1.0,
-					S = "legend_armor/tabard/legend_common_tabard"
-				});
-				_list.push({
-					R = 30,
-					P = 1.0,
-					S = "legend_helmets/vanity/legend_helmet_faction_helmet"
-				});
-				
-			}
+			_list.push({
+				R = 45,
+				P = 1.0,
+				S = "legend_armor/tabard/legend_common_tabard"
+			});
+			_list.push({
+				R = 30,
+				P = 1.0,
+				S = "legend_helmets/vanity/legend_helmet_faction_helmet"
+			});
 
 			if (this.Const.DLC.Unhold)
 			{

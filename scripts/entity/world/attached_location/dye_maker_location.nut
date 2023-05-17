@@ -72,39 +72,36 @@ this.dye_maker_location <- this.inherit("scripts/entity/world/attached_location"
 				P = 1.0,
 				S = "helmets/legend_noble_hood"
 			});
-			if (this.Const.DLC.Unhold && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				_list.push({
-					R = 30,
-					P = 1.0,
-					S = "misc/paint_set_item"
-				});
-				_list.push({
-					R = 50,
-					P = 1.0,
-					S = "misc/paint_black_item"
-				});
-				_list.push({
-					R = 50,
-					P = 1.0,
-					S = "misc/paint_red_item"
-				});
-				_list.push({
-					R = 50,
-					P = 1.0,
-					S = "misc/paint_orange_red_item"
-				});
-				_list.push({
-					R = 50,
-					P = 1.0,
-					S = "misc/paint_white_blue_item"
-				});
-				_list.push({
-					R = 50,
-					P = 1.0,
-					S = "misc/paint_white_green_yellow_item"
-				});
-			}
+			_list.push({
+				R = 30,
+				P = 1.0,
+				S = "misc/paint_set_item"
+			});
+			_list.push({
+				R = 50,
+				P = 1.0,
+				S = "misc/paint_black_item"
+			});
+			_list.push({
+				R = 50,
+				P = 1.0,
+				S = "misc/paint_red_item"
+			});
+			_list.push({
+				R = 50,
+				P = 1.0,
+				S = "misc/paint_orange_red_item"
+			});
+			_list.push({
+				R = 50,
+				P = 1.0,
+				S = "misc/paint_white_blue_item"
+			});
+			_list.push({
+				R = 50,
+				P = 1.0,
+				S = "misc/paint_white_green_yellow_item"
+			});
 		}
 		else if (_id == "building.specialized_trader")
 		{
