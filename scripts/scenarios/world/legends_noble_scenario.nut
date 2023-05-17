@@ -237,23 +237,20 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		brothers[1].getItems().getItemAtSlot(this.Const.ItemSlot.Offhand).setFaction(banner)
 		brothers[3].getItems().getItemAtSlot(this.Const.ItemSlot.Offhand).setFaction(banner)
 
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+		foreach( bro in brothers )
 		{
-			foreach( bro in brothers )
-			{
-				local items = bro.getItems();
-				local armor = items.getItemAtSlot(this.Const.ItemSlot.Body)
-				local tabards = [
-						[0, ""],
-						[1, "tabard/legend_noble_tabard"]
-					]
-					local tabard = this.Const.World.Common.pickLegendArmor(tabards)
-					if (tabard != null && armor != null)
-					{
-						tabard.setVariant(banner)
-						armor.setUpgrade(tabard)
-					}
-			}
+			local items = bro.getItems();
+			local armor = items.getItemAtSlot(this.Const.ItemSlot.Body)
+			local tabards = [
+					[0, ""],
+					[1, "tabard/legend_noble_tabard"]
+				]
+				local tabard = this.Const.World.Common.pickLegendArmor(tabards)
+				if (tabard != null && armor != null)
+				{
+					tabard.setVariant(banner)
+					armor.setUpgrade(tabard)
+				}
 		}
 
 		//noble start actually doesnt go thru the generalized place for this and i'm too lazy to change it to do so because then i'd have to redo aarmor equips because there's no banner stuff etc

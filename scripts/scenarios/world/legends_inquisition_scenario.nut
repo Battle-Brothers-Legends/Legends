@@ -137,24 +137,23 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 			}
 			items.equip(armor);
 		}
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+
+		foreach( bro in bros )
 		{
-			foreach( bro in bros )
-			{
-				local items = bro.getItems();
-				local armor = items.getItemAtSlot(this.Const.ItemSlot.Body)
-				local tabards = [
-						[0, ""],
-						[1, "tabard/legend_noble_tabard"]
-					]
-					local tabard = this.Const.World.Common.pickLegendArmor(tabards)
-					if (tabard != null && armor != null)
-					{
-						tabard.setVariant(102)
-						armor.setUpgrade(tabard)
-					}
-			}
+			local items = bro.getItems();
+			local armor = items.getItemAtSlot(this.Const.ItemSlot.Body)
+			local tabards = [
+					[0, ""],
+					[1, "tabard/legend_noble_tabard"]
+				]
+				local tabard = this.Const.World.Common.pickLegendArmor(tabards)
+				if (tabard != null && armor != null)
+				{
+					tabard.setVariant(102)
+					armor.setUpgrade(tabard)
+				}
 		}
+
 
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/bread_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/wine_item"));

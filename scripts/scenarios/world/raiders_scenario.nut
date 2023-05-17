@@ -50,19 +50,10 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		local warhound = this.new("scripts/items/accessory/warhound_item");
 		warhound.m.Name = "Fenrir the Warhound";
 		items.equip(warhound);
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
-			local plate = this.new("scripts/items/legend_armor/plate/legend_reinforced_animal_hide_armor");
-			armor.setUpgrade(plate);
-			items.equip(armor);
-		}
-		else
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/reinforced_animal_hide_armor"));
-		}
-
+		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
+		local plate = this.new("scripts/items/legend_armor/plate/legend_reinforced_animal_hide_armor");
+		armor.setUpgrade(plate);
+		items.equip(armor);
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
 				1,
@@ -88,18 +79,10 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		local items = bros[1].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
-			local plate = this.new("scripts/items/legend_armor/plate/legend_scrap_metal_armor");
-			armor.setUpgrade(plate);
-			items.equip(armor);
-		}
-		else
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/scrap_metal_armor"));
-		}
+		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
+		local plate = this.new("scripts/items/legend_armor/plate/legend_scrap_metal_armor");
+		armor.setUpgrade(plate);
+		items.equip(armor)
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
@@ -126,19 +109,10 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		local items = bros[2].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth_patched");
-			local plate = this.new("scripts/items/legend_armor/plate/legend_hide_and_bone_armor");
-			armor.setUpgrade(plate);
-			items.equip(armor);
-		}
-		else
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/hide_and_bone_armor"));
-		}
-
+		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth_patched");
+		local plate = this.new("scripts/items/legend_armor/plate/legend_hide_and_bone_armor");
+		armor.setUpgrade(plate);
+		items.equip(armor);
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
 				1,
