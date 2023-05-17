@@ -286,15 +286,11 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 
 		if (r == 1)
 		{
-			a.setUpgrade(this.new("scripts/items/" +
-				(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
-			))
+			a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_light_gladiator_upgrade"));
 		}
 		else if (r == 2)
 		{
-			a.setUpgrade(this.new("scripts/items/" +
-				(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade" : "armor_upgrades/heavy_gladiator_upgrade")
-			))
+			a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade"));
 		}
 		items.equip(a);
 
