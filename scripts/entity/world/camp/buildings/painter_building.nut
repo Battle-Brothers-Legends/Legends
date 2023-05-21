@@ -89,19 +89,7 @@ this.painter_building <- this.inherit("scripts/entity/world/camp/camp_building",
 
 	function isHidden()
 	{
-		if (::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			return true;
-		}
-
-		// if (::Legends.Mod.ModSettings.getSetting("SkipCamp").getValue()) 
-		// {
-		// 	return false;
-		// }
-
-		// return !this.World.Flags.get("HasLegendCampPainter");
-
-		//this is causing the tent not to appear if you skip the camp tutorial in options. We could add the tent to the tutorial but this is a faster and cleaner fix for now. - Luft 12/11/22
+		return false;
 	}
 
 	function onClicked( _campScreen )

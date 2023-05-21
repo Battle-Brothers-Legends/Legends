@@ -18,10 +18,7 @@ this.have_armor_upgrades_ambition <- this.inherit("scripts/ambitions/ambition", 
 		{
 			return;
 		}
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			return;
-		}
+		return;
 		if (this.World.getTime().Days <= 20)
 		{
 			return;

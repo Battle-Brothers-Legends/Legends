@@ -2308,14 +2308,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		{
 			if (loc.isActive())
 			{
-				if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					loc.onUpdateShopList(_id, _list);
-				}
-				else
-				{
-					loc.onUpdateShopList(_id, _list);
-				}
+				loc.onUpdateShopList(_id, _list);
 			}
 		}
 	}
