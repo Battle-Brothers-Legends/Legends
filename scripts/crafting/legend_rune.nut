@@ -132,7 +132,7 @@ this.legend_rune <- this.inherit("scripts/crafting/blueprint", {
 
 	function onEnchant( _stash, _bonus )
 	{
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() && ( this.m.Rune == 11 || this.m.Rune == 12 || this.m.Rune == 13 || this.m.Rune == 21 || this.m.Rune == 22 || this.m.Rune == 23))
+		if (this.m.Rune == 11 || this.m.Rune == 12 || this.m.Rune == 13 || this.m.Rune == 21 || this.m.Rune == 22 || this.m.Rune == 23)
 		{
 			local rune;
 			switch (this.m.Rune)
@@ -166,17 +166,6 @@ this.legend_rune <- this.inherit("scripts/crafting/blueprint", {
 			rune.setRuneVariant(0);
 			//rune.updateRuneSigilToken();
 			_stash.add(rune);
-
-		}
-		else
-		{
-			local rune =  this.new("scripts/items/rune_sigils/legend_vala_inscription_token");
-			rune.setRuneVariant(this.m.Rune);
-			rune.setRuneBonus(_bonus);
-			rune.updateRuneSigilToken();
-			_stash.add(rune);
-		}
-
 	}
 
 });

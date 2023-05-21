@@ -5,12 +5,8 @@ this.legend_warlock_cloak_blueprint <- this.inherit("scripts/crafting/blueprint"
 		this.blueprint.create();
 		this.m.ID = "blueprint.legend_warlock_cloak";
 		this.m.Type = this.Const.Items.ItemType.Armor;
-		this.m.PreviewCraftable = this.new("scripts/items/armor/named/legend_named_warlock_cloak");
+		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/legendary/legend_armor_named_warlock_cloak");
 
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			this.m.PreviewCraftable = this.new("scripts/items/legend_armor/legendary/legend_armor_named_warlock_cloak");
-		}
 
 		this.m.Cost = 2000;
 		local ingredients = [
@@ -52,16 +48,7 @@ this.legend_warlock_cloak_blueprint <- this.inherit("scripts/crafting/blueprint"
 	function onCraft( _stash )
 	{
 		local item;
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			item = this.new("scripts/items/legend_armor/legendary/legend_armor_named_warlock_cloak");
-		}
-		else
-		{
-			item = this.new("scripts/items/armor/named/legend_named_warlock_cloak");
-		}
-
+		item = this.new("scripts/items/legend_armor/legendary/legend_armor_named_warlock_cloak");
 		item.m.Name = "";
 		_stash.add(item);
 	}

@@ -26,7 +26,7 @@ this.legend_white_wolf_helmet_layered_blueprint <- this.inherit("scripts/craftin
 
 	function isQualified()
 	{
-		return !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() && this.blueprint.isQualified();
+		return this.blueprint.isQualified();
 	}
 
 	function onCraft( _stash )

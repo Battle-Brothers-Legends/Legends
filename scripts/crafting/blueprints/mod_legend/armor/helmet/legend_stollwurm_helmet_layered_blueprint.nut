@@ -26,7 +26,7 @@ this.legend_stollwurm_helmet_layered_blueprint <- this.inherit("scripts/crafting
 
 	function isQualified()
 	{
-		return !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() && this.blueprint.isQualified();
+		return this.blueprint.isQualified();
 	}
 
 	function onCraft( _stash )
