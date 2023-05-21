@@ -137,15 +137,7 @@ this.lucky_finds_something_event <- this.inherit("scripts/events/event", {
 		}
 		else if (r == 12)
 		{
-			if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				item = this.new("scripts/items/legend_armor/armor_upgrades/legend_joint_cover_upgrade");
-			}
-			else
-			{
-				item = this.new("scripts/items/armor_upgrades/joint_cover_upgrade");
-			}
-
+			item = this.new("scripts/items/legend_armor/armor_upgrades/legend_joint_cover_upgrade");
 		}
 		else if (r == 13)
 		{
@@ -171,14 +163,7 @@ this.lucky_finds_something_event <- this.inherit("scripts/events/event", {
 		}
 		else if (r == 18)
 		{
-			if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				item = this.new("scripts/items/legend_armor/armor_upgrades/legend_mail_patch_upgrade");
-			}
-			else
-			{
-				item = this.new("scripts/items/armor_upgrades/mail_patch_upgrade");
-			}
+			item = this.new("scripts/items/legend_armor/armor_upgrades/legend_mail_patch_upgrade");
 		}
 		else if (r == 19)
 		{
