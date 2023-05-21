@@ -268,13 +268,6 @@ this.crafting_building <- this.inherit("scripts/entity/world/camp/camp_building"
 			
 			foreach(c in r.Blueprint.m.PreviewComponents)
 			{
-				if ("LegendsArmor" in c)
-				{
-					if (c.LegendsArmor && ::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue()) continue;
-
-					if (!c.LegendsArmor && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue()) continue;
-				}
-
 				if (c.Instance.getID() in itemsMap && c.Num <= itemsMap[c.Instance.getID()] )
 				{
 					currentCosts[c.Instance.getID()] <- c.Num;
