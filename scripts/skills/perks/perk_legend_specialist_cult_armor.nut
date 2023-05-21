@@ -59,13 +59,13 @@ this.perk_legend_specialist_cult_armor <- this.inherit("scripts/skills/skill", {
 		local cultItems = [];
 		if (item != null)
 		{
-			if (item.isItemType(this.Const.Items.ItemType.Cultist)) cultItems.push(item);
-			if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() && ::MSU.isKindOf(item, "legend_armor"))
+			if (item.isItemType(this.Const.Items.ItemType.Cultist)) {
+				cultItems.push(item);
+			}
+
+			foreach (upgrade in item.m.Upgrades)
 			{
-				foreach (upgrade in item.m.Upgrades)
-				{
-					if (upgrade != null && upgrade.isItemType(this.Const.Items.ItemType.Cultist)) cultItems.push(upgrade);
-				}
+				if (upgrade != null && upgrade.isItemType(this.Const.Items.ItemType.Cultist)) cultItems.push(upgrade);
 			}
 		}
 
