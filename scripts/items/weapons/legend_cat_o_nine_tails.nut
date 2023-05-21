@@ -20,8 +20,8 @@ this.legend_cat_o_nine_tails <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.RangeMax = 1;
 		this.m.RangeIdeal = 1;
 		this.m.Value = 20;
-		this.m.Condition = 30;
-		this.m.ConditionMax = 30;
+		this.m.Condition = 35;
+		this.m.ConditionMax = 35;
 		this.m.StaminaModifier = -1;
 		this.m.RegularDamage = 10;
 		this.m.RegularDamageMax = 15;

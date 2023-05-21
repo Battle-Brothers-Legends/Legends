@@ -28,8 +28,8 @@ this.legend_flogging <- this.inherit("scripts/skills/skill", {
 		this.m.IsIgnoredAsAOO = true;
 		this.m.IsUsingHitchance = false;
 
-		this.m.ActionPointCost = 6;
-		this.m.FatigueCost = 20;
+		this.m.ActionPointCost = 1;
+		this.m.FatigueCost = 5;
 		this.m.MinRange = 1;
 		this.m.MaxRange = 1;
 	}
