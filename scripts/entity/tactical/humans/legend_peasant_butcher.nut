@@ -89,14 +89,9 @@ this.legend_peasant_butcher <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_butcher_damage"));
 		this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			this.m.Items.equip(this.Const.World.Common.pickHelmet([
-				[1, "legend_champion_butcher_helmet"]
-			]))
-		}
-
+		this.m.Items.equip(this.Const.World.Common.pickHelmet([
+			[1, "legend_champion_butcher_helmet"]
+		]))
 	}
 
 });

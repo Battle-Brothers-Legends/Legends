@@ -174,10 +174,7 @@ this.sato_manhunter_veteran <- this.inherit("scripts/entity/tactical/human", {
 					[1, "conic_helmet_with_faceguard"],
 					[1, "barbute_helmet"],
 				]);
-				if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					helmets.push([1, "theamson_barbute_helmet"])
-				}
+				helmets.push([1, "theamson_barbute_helmet"])
 			}
 			
 

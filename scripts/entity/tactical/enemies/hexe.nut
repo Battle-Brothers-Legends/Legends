@@ -210,53 +210,43 @@ this.hexe <- this.inherit("scripts/entity/tactical/actor", {
 
 				if (this.Math.rand(1, 100) <= chance)
 				{
-					if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+					local rune;
+					local selected = this.Math.rand(11,13);
+					switch(selected)
 					{
-						local rune;
-						local selected = this.Math.rand(11,13);
-						switch(selected)
-						{
-							case 11:
-								rune = this.new("scripts/items/legend_helmets/runes/legend_rune_clarity");
-								break;
+						case 11:
+							rune = this.new("scripts/items/legend_helmets/runes/legend_rune_clarity");
+							break;
 
-							case 12:
-								rune = this.new("scripts/items/legend_helmets/runes/legend_rune_bravery");
-								break;
+						case 12:
+							rune = this.new("scripts/items/legend_helmets/runes/legend_rune_bravery");
+							break;
 
-							case 13:
-								rune = this.new("scripts/items/legend_helmets/runes/legend_rune_luck");
-								break;
-						}
-						rune.setRuneVariant(selected);
-						rune.setRuneBonus(true);
-						// rune.setRuneVariant(0);
-						rune.drop(_tile);
-
-
-						// @Enduriel did the following, but it doesn't have a declaration for the `selected` variable
-						// Hence reverting back to mercury's implementation for now (above).
-
-						// local options = this.new("scripts/mods/script_container");
-						// options.extend([
-						// 	"scripts/items/legend_helmets/runes/legend_rune_clarity",
-						// 	"scripts/items/legend_helmets/runes/legend_rune_bravery",
-						// 	"scripts/items/legend_helmets/runes/legend_rune_luck"
-						// ]);
-						// local rune = this.new(options.roll());
-						// rune.setRuneVariant(selected);
-						// rune.setRuneBonus(true);
-						// // rune.setRuneVariant(0);
-						// rune.drop(_tile);
+						case 13:
+							rune = this.new("scripts/items/legend_helmets/runes/legend_rune_luck");
+							break;
 					}
-					else
-					{
-						local token = this.new("scripts/items/rune_sigils/legend_vala_inscription_token");
-						token.setRuneVariant(this.Math.rand(11, 13));
-						token.setRuneBonus(true);
-						token.updateRuneSigilToken();
-						token.drop(_tile);
-					}
+					rune.setRuneVariant(selected);
+					rune.setRuneBonus(true);
+					// rune.setRuneVariant(0);
+					rune.drop(_tile);
+
+
+					// @Enduriel did the following, but it doesn't have a declaration for the `selected` variable
+					// Hence reverting back to mercury's implementation for now (above).
+
+					// local options = this.new("scripts/mods/script_container");
+					// options.extend([
+					// 	"scripts/items/legend_helmets/runes/legend_rune_clarity",
+					// 	"scripts/items/legend_helmets/runes/legend_rune_bravery",
+					// 	"scripts/items/legend_helmets/runes/legend_rune_luck"
+					// ]);
+					// local rune = this.new(options.roll());
+					// rune.setRuneVariant(selected);
+					// rune.setRuneBonus(true);
+					// // rune.setRuneVariant(0);
+					// rune.drop(_tile);
+
 				}
 			}
 		}

@@ -173,11 +173,8 @@ this.nomad_leader <- this.inherit("scripts/entity/tactical/human", {
 				[8, "oriental/nomad_reinforced_helmet"]
 			];
 
-			if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				helmet.push([4, "oriental/kamy_southern_helmet"])
-				helmet.push([4, "southern_knight_helmet"])
-			}
+			helmet.push([4, "oriental/kamy_southern_helmet"])
+			helmet.push([4, "southern_knight_helmet"])
 
 			this.m.Items.equip(this.Const.World.Common.pickHelmet(helmet));
 		}

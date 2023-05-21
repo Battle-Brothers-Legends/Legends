@@ -119,15 +119,11 @@ this.gladiator <- this.inherit("scripts/entity/tactical/human", {
 
 		if (this.Math.rand(1,3) <= 2)
 		{
-			armor.setUpgrade(this.new("scripts/items/" +
-				(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade" : "armor_upgrades/heavy_gladiator_upgrade")
-			))
+			armor.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade"));
 		}
 		else
 		{
-			armor.setUpgrade(this.new("scripts/items/" +
-				(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
-			))
+			armor.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_light_gladiator_upgrade"));
 		}
 
 		this.m.Items.equip(armor);
