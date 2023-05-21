@@ -380,55 +380,27 @@ this.armorsmith_building <- this.inherit("scripts/entity/world/settlements/build
 			S = "helmets/rondel_helm"
 		});
 
-		if (::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+		foreach( i in this.Const.Items.LegendNamedArmorLayers )
 		{
-			list.push({
-				R = 80,
-				P = 1.0,
-				S = "helmets/legend_enclave_vanilla_great_bascinet_03"
-			});
-			list.push({
-				R = 80,
-				P = 1.0,
-				S = "helmets/legend_enclave_vanilla_armet_02"
-			});
-			list.push({
-				R = 80,
-				P = 1.0,
-				S = "helmets/legend_enclave_vanilla_kettle_sallet_02"
-			});
-			list.push({
-				R = 80,
-				P = 1.0,
-				S = "helmets/legend_enclave_vanilla_kettle_sallet_03"
-			});
-
+			if (this.Math.rand(1, 100) <= 33)
+			{
+				list.push({
+					R = 99,
+					P = 2.0,
+					S = i
+				});
+			}
 		}
 
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+		foreach( i in this.Const.Items.LegendNamedHelmetLayers )
 		{
-			foreach( i in this.Const.Items.LegendNamedArmorLayers )
+			if (this.Math.rand(1, 100) <= 33)
 			{
-				if (this.Math.rand(1, 100) <= 33)
-				{
-					list.push({
-						R = 99,
-						P = 2.0,
-						S = i
-					});
-				}
-			}
-
-			foreach( i in this.Const.Items.LegendNamedHelmetLayers )
-			{
-				if (this.Math.rand(1, 100) <= 33)
-				{
-					list.push({
-						R = 99,
-						P = 2.0,
-						S = i
-					});
-				}
+				list.push({
+					R = 99,
+					P = 2.0,
+					S = i
+				});
 			}
 		}
 
@@ -494,127 +466,46 @@ this.armorsmith_building <- this.inherit("scripts/entity/world/settlements/build
 				S = "helmets/barbute_helmet"
 			});
 
-			if (::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				list.push({
-					R = 60,
-					P = 1.0,
-					S = "misc/paint_set_item"
-				});
-				list.push({
-					R = 75,
-					P = 1.0,
-					S = "misc/paint_remover_item"
-				});
-				list.push({
-					R = 75,
-					P = 1.0,
-					S = "misc/paint_black_item"
-				});
-				list.push({
-					R = 75,
-					P = 1.0,
-					S = "misc/paint_red_item"
-				});
-				list.push({
-					R = 75,
-					P = 1.0,
-					S = "misc/paint_orange_red_item"
-				});
-				list.push({
-					R = 75,
-					P = 1.0,
-					S = "misc/paint_white_blue_item"
-				});
-				list.push({
-					R = 75,
-					P = 1.0,
-					S = "misc/paint_white_green_yellow_item"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "armor_upgrades/metal_plating_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "armor_upgrades/metal_pauldrons_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "armor_upgrades/mail_patch_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "armor_upgrades/leather_shoulderguards_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "armor_upgrades/leather_neckguard_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "armor_upgrades/joint_cover_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "armor_upgrades/heraldic_plates_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "armor_upgrades/double_mail_upgrade"
-				});
-			}
-			else
-			{
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "legend_armor/armor_upgrades/legend_metal_plating_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "legend_armor/armor_upgrades/legend_metal_pauldrons_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "legend_armor/armor_upgrades/legend_mail_patch_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "legend_armor/armor_upgrades/legend_leather_shoulderguards_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "legend_armor/armor_upgrades/legend_leather_neckguard_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "legend_armor/armor_upgrades/legend_joint_cover_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "legend_armor/armor_upgrades/legend_heraldic_plates_upgrade"
-				});
-				list.push({
-					R = 85,
-					P = 1.25,
-					S = "legend_armor/armor_upgrades/legend_double_mail_upgrade"
-				});
-			}
+			list.push({
+				R = 85,
+				P = 1.25,
+				S = "legend_armor/armor_upgrades/legend_metal_plating_upgrade"
+			});
+			list.push({
+				R = 85,
+				P = 1.25,
+				S = "legend_armor/armor_upgrades/legend_metal_pauldrons_upgrade"
+			});
+			list.push({
+				R = 85,
+				P = 1.25,
+				S = "legend_armor/armor_upgrades/legend_mail_patch_upgrade"
+			});
+			list.push({
+				R = 85,
+				P = 1.25,
+				S = "legend_armor/armor_upgrades/legend_leather_shoulderguards_upgrade"
+			});
+			list.push({
+				R = 85,
+				P = 1.25,
+				S = "legend_armor/armor_upgrades/legend_leather_neckguard_upgrade"
+			});
+			list.push({
+				R = 85,
+				P = 1.25,
+				S = "legend_armor/armor_upgrades/legend_joint_cover_upgrade"
+			});
+			list.push({
+				R = 85,
+				P = 1.25,
+				S = "legend_armor/armor_upgrades/legend_heraldic_plates_upgrade"
+			});
+			list.push({
+				R = 85,
+				P = 1.25,
+				S = "legend_armor/armor_upgrades/legend_double_mail_upgrade"
+			});
 		}
 
 		if (this.Const.DLC.Wildmen && this.m.Settlement.getTile().SquareCoords.Y > this.World.getMapSize().Y * 0.7)
