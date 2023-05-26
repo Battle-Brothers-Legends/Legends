@@ -1,6 +1,6 @@
 this.hidden_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		TurnsLeft = 1
+		ToRemove = false
 	}, // CD turns added
 	function create()
 	{
@@ -67,7 +67,7 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 		ret.push({
 			id = 13,
 			type = "text",
-			text = "Will last for " + this.m.TurnsLeft + " more end of rounds"
+			text = "Will be revealed at the end of the round" + this.m.ToRemove
 		})
 
 		return ret;
@@ -78,29 +78,31 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 	{
 		if (_tile.hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions()))
 		{
+			::logInfo("ZOC condition met onMovementCompleted");
 			this.getContainer().getActor().setHidden(false);
-			this.removeSelf();
+			this.m.ToRemove = true;
 			return;
 		}
-
+		// commented: AI can X-ray hidden bros uncommented: No AI X-ray
 		this.getContainer().getActor().setHidden(true);
 	}
 
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		this.getContainer().getActor().setHidden(false);
-		this.removeSelf();
+		this.m.ToRemove = true;
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
 		this.getContainer().getActor().setHidden(false);
-		this.removeSelf();
+		this.m.ToRemove = true;
 	}
 
 	function onAdded()
 	{
 		local actor = this.getContainer().getActor();
+//		actor.setHidden(true);
 		if (actor.getTile().IsVisibleForPlayer)
 		{
 			if (this.Const.Tactical.HideParticles.len() != 0)
@@ -145,7 +147,6 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local actor = this.getContainer().getActor();
-		local actor = this.getContainer().getActor();
         if (actor.getSkills().hasSkill("perk.legend_assassinate"))
         {
             _properties.DamageRegularMin *= 1.2;
@@ -169,15 +170,21 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 		// end --
 	}
     // added missing turn end graphics control --
-	function onTurnEnd()
+	function onRoundEnd()
 	{
-		if (--this.m.TurnsLeft <= 0)
+		::logInfo("End of Round");
+		if (this.m.ToRemove)
 		{
 			this.getContainer().getActor().setHidden(false);
 			this.removeSelf();
 		}
 	}
 	//end --
+
+	function onCombatFinished(){
+			this.removeSelf();
+			this.m.setHidden(true);
+	}
 });
 
 

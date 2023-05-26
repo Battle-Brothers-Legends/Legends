@@ -2521,11 +2521,14 @@ this.actor <- this.inherit("scripts/entity/tactical/entity", {
 		{
 			this.m.Skills.removeByID(this.Const.Tactical.TerrainEffectID[_tile.Type]);
 		}
-
-		if (_tile.IsHidingEntity)
-		{
-			this.m.Skills.removeByID(this.Const.Movement.HiddenStatusEffectID);
-		}
+		// commented out to fix hidden issue for bros because this removes hidden when stepping out of
+		// the brush which is not cool lol
+		// if (_tile.IsHidingEntity)
+		// {
+		// 	::logInfo("BEFORE: IsHidingEntity removing it onMovementStart HiddenStatus: " + this.isHidden())
+		// 	this.m.Skills.removeByID(this.Const.Movement.HiddenStatusEffectID);
+		// 	::logInfo("AFTER: IsHidingEntity removing it onMovementStart HiddenStatus: " + this.isHidden())
+		// }
 
 		if (_numTiles > 1)
 		{
