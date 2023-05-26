@@ -46,7 +46,6 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.HammerTree,
-				this.Const.Perks.HammerClassTree,
 				this.Const.Perks.PolearmTree,
 				this.Const.Perks.ThrowingTree
 			],
@@ -60,7 +59,10 @@ this.legend_blacksmith_background <- this.inherit("scripts/skills/backgrounds/ch
 				this.Const.Perks.FitTree
 			],
 			Enemy = [],
-			Class = [this.Const.Perks.RepairClassTree],
+			Class = [
+				this.Const.Perks.HammerClassTree,
+				this.Const.Perks.RepairClassTree
+			],
 			Magic = []
 		}
 	}

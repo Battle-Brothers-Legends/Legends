@@ -72,7 +72,7 @@ this.raider_background <- this.inherit("scripts/skills/backgrounds/character_bac
 			],
 			Enemy = [
 				this.Const.Perks.CaravanTree,
-				this.Const.Perks.MercenaryTree,
+				this.Const.Perks.MercenaryTree
 			],
 			Class = [],
 			Magic = []

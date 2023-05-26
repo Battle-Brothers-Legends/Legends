@@ -60,7 +60,7 @@ this.tailor_background <- this.inherit("scripts/skills/backgrounds/character_bac
 				this.Const.Perks.ThrowingTree
 			],
 			Defense = [
-				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.LightArmorTree
 			],
 			Traits = [
 				this.Const.Perks.CalmTree,
