@@ -166,6 +166,6 @@ this.legend_rune <- this.inherit("scripts/crafting/blueprint", {
 			rune.setRuneVariant(0);
 			//rune.updateRuneSigilToken();
 			_stash.add(rune);
+		}
 	}
-
 });
