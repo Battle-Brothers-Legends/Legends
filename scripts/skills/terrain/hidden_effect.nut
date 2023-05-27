@@ -78,7 +78,6 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 	{
 		if (_tile.hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions()))
 		{
-			::logInfo("ZOC condition met onMovementCompleted");
 			this.getContainer().getActor().setHidden(false);
 			this.m.ToRemove = true;
 			return;
@@ -172,7 +171,6 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
     // added missing turn end graphics control --
 	function onRoundEnd()
 	{
-		::logInfo("End of Round");
 		if (this.m.ToRemove)
 		{
 			this.getContainer().getActor().setHidden(false);
