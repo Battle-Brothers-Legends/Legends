@@ -15,7 +15,7 @@ this.legend_drum <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;
 		this.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		this.m.IsDoubleGrippable = true;
+		this.m.IsDoubleGrippable = false;
 		this.m.AddGenericSkill = true;
 		this.m.ShowQuiver = false;
 		this.m.ShowArmamentIcon = true;
@@ -44,4 +44,3 @@ this.legend_drum <- this.inherit("scripts/items/weapons/weapon", {
 	}
 
 });
-
