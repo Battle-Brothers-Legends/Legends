@@ -12,7 +12,7 @@ this.legend_estoc <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.WeaponType = this.Const.Items.WeaponType.Sword;
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.OneHanded;
+		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;
 		this.m.AddGenericSkill = true;
 		this.m.ShowQuiver = false;
 		this.m.ShowArmamentIcon = true;
@@ -28,18 +28,6 @@ this.legend_estoc <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ChanceToHitHead = 5;
 	}
 
-	function getTooltip()
-	{
-		local result = this.weapon.getTooltip();
-		result.push({
-			id = 6,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Due to its size, this weapon can only be used with both hands free."
-		});
-		return result;
-	}
-
 	function updateVariant()
 	{
 		this.m.IconLarge = "weapons/melee/legend_estoc_0" + this.m.Variant + ".png";
@@ -47,12 +35,11 @@ this.legend_estoc <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ArmamentIcon = "icon_legend_estoc_0" + this.m.Variant;
 	}
 
-	function onEquip() //2 handed sword type but uses 1 handed skills. A little confusing may change all later - Luft 15/1/23
+	function onEquip()
 	{
 		this.weapon.onEquip();
-		this.addSkill(this.new("scripts/skills/actives/slash"));
-		this.addSkill(this.new("scripts/skills/actives/lunge_skill"));
-		this.addSkill(this.new("scripts/skills/actives/riposte"));
+		this.addSkill(this.new("scripts/skills/actives/legend_great_slash"));
+		this.addSkill(this.new("scripts/skills/actives/legend_greatlunge_skill"));
 	}
 
 	function onUpdateProperties( _properties )
