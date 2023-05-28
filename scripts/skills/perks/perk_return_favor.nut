@@ -21,5 +21,10 @@ this.perk_return_favor <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
+	function onRemoved()
+	{
+		this.m.Container.removeByID("actives.return_favor");
+	}
+
 });
 
