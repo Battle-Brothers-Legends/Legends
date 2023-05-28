@@ -59,22 +59,21 @@ this.rest_building <- this.inherit("scripts/entity/world/camp/camp_building", {
 	{
 		local roster = this.World.getPlayerRoster().getAll();
 
-		if (this.m.Camp.getCampTimeHours() < 4)
+		if (this.m.Camp.getCampTimeHours() < 8)
 		{
 			return;
 		}
 
 		local mood = 0.5;
-		if (this.m.Camp.getCampTimeHours() >= 8)
+		if (this.m.Camp.getCampTimeHours() >= 12)
 		{
 			mood = 1.0;
 		}
 
-		if (this.m.Camp.getCampTimeHours() >= 12)
+		if (this.m.Camp.getCampTimeHours() >= 16)
 		{
 			mood = 1.5;
 		}
-
 
 		foreach( b in roster )
 		{
