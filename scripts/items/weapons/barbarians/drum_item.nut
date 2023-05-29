@@ -23,13 +23,13 @@ this.drum_item <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.RangeMax = 1;
 		this.m.RangeIdeal = 1;
 		this.m.Value = 300;
-		this.m.Condition = 100;
-		this.m.ConditionMax = 100;
-		this.m.StaminaModifier = 0;
+		this.m.Condition = 45;
+		this.m.ConditionMax = 45;
+		this.m.StaminaModifier = -10;
 		this.m.RegularDamage = 15;
 		this.m.RegularDamageMax = 20;
-		this.m.ArmorDamageMult = 0.0;
-		this.m.DirectDamageMult = 0.0;
+		this.m.ArmorDamageMult = 0.7;
+		this.m.DirectDamageMult = 0.4;
 	}
 
 	function onEquip()
@@ -45,6 +45,4 @@ this.drum_item <- this.inherit("scripts/items/weapons/weapon", {
 		this.weapon.onUpdateProperties(_properties);
 	}
 
-
 });
-

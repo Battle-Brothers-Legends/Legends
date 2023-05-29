@@ -21,13 +21,14 @@ this.legend_drum <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ShowArmamentIcon = true;
 		this.m.ArmamentIcon = "icon_drum";
 		this.m.Value = 100;
-		this.m.Condition = 60.0;
-		this.m.ConditionMax = 60.0;
+		this.m.Condition = 20.0;
+		this.m.ConditionMax = 20.0;
 		this.m.StaminaModifier = -4;
 		this.m.RegularDamage = 5;
 		this.m.RegularDamageMax = 10;
-		this.m.ArmorDamageMult = 0.2;
-		this.m.DirectDamageMult = 0.5;
+		this.m.ArmorDamageMult = 0.5;
+		this.m.DirectDamageMult = 0.4;
+		this.m.DirectDamageAdd = -0.2;	
 	}
 
 	function onEquip()
