@@ -279,16 +279,14 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 		Cloth = [
 			[1, "cloth/legend_gambeson"],
 			[1, "cloth/legend_padded_surcoat"],
-			// [1, "cloth/legend_robes"],
-			// [1, "cloth/legend_tunic"],
 		],
 		Chain = [
-			[1, "chain/legend_armor_basic_mail"],
-			[1, "chain/legend_armor_mail_shirt"],
-			[1, "chain/legend_armor_mail_shirt_simple"],
-			[1, "chain/legend_armor_reinforced_mail"],
-			[1, "chain/legend_armor_reinforced_mail_shirt"],
-			[1, "chain/legend_armor_short_mail"],
+			[1, "chain/legend_armor_basic_mail"], //85
+			[1, "chain/legend_armor_mail_shirt"], //130
+			[1, "chain/legend_armor_reinforced_mail"], //110
+			[1, "chain/legend_armor_reinforced_mail_shirt"], //80
+			[1, "chain/legend_armor_hauberk"], //95
+			[1, "chain/legend_armor_short_mail"], //60
 		],
 		Plate = [
 			[1, "plate/legend_armor_leather_riveted_light"],
@@ -407,8 +405,8 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 			[1, "chain/legend_armor_mail_shirt_simple"],
 		],
 		Plate = [
-			[1, "plate/legend_armor_leather_lamellar"],
-			[1, "plate/legend_armor_leather_lamellar_reinforced"],
+			[1, "plate/legend_armor_leather_lamellar"], //50
+			[1, "plate/legend_armor_leather_lamellar_reinforced"], //55
 		],
 		Cloak = [
 		],
@@ -2131,6 +2129,146 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 			[1, "tabard/legend_tattered_tabard"],
 		],
 		Attachments =[
+		]
+	}]
+},{
+	ID = "bandit_armor_light",
+	Script = "scripts/items/armor/bandit_armor_light", //~90-130
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"], //55
+			[1, "cloth/legend_gambeson_plain"], //65
+		],
+		Chain = [
+			[1, "chain/legend_armor_mail_shirt_simple"], //25
+			[1, "chain/legend_armor_rusty_mail_shirt"], // 20
+			[1, "chain/legend_armor_mail_shirt"], //50
+			[1, "chain/legend_armor_reinforced_mail_shirt"], //80
+			[1, "chain/legend_armor_short_mail"], //60
+		],
+		Plate = [
+			[1, "plate/legend_armor_leather_padded"], // 40
+			[2, ""], //0			
+		],
+		Cloak = [
+		],
+		Tabard = [
+			[1, "tabard/legend_tattered_tabard"], //5
+			[2, ""], //0
+		],
+		Attachments =[
+		]
+	}]
+},{
+	ID = "bandit_armor_medium",
+	Script = "scripts/items/armor/bandit_armor_medium", //~140-165
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"], //55
+			[1, "cloth/legend_gambeson_plain"], // 65
+		],
+		Chain = [
+			[1, "chain/legend_armor_mail_shirt"], // 50
+			[1, "chain/legend_armor_reinforced_mail"], //110
+			[1, "chain/legend_armor_reinforced_mail_shirt"] //80
+			[1, "chain/legend_armor_short_mail"], //60
+			[1, "chain/legend_armor_basic_mail"], //85
+			[1, "chain/legend_armor_hauberk"], //95
+			[1, "chain/legend_armor_reinforced_rotten_mail_shirt"], // 45
+		],
+		Plate = [
+			[2, "plate/legend_armor_scale_coat_rotten"], //60
+			[2, "plate/legend_armor_leather_lamellar"], //50
+			[2, "plate/legend_armor_leather_padded"], // 40
+			[2, "plate/legend_armor_leather_lamellar_reinforced"], //55
+			[1, "plate/legend_armor_scale_shirt"], //85
+			[2, ""] //0
+			[2, "plate/legend_armor_leather_lamellar_reinforced"] //55
+		],
+		Cloak = [
+			[1, "cloak/legend_armor_cloak_common"] //10
+			[1, ""], //0			
+		],
+		Tabard = [
+			[1, "tabard/legend_tattered_tabard"], //5
+			[1, ""], //0
+		],
+		Attachments =[
+			[15, ""],
+			[5, "armor_upgrades/legend_leather_neckguard_upgrade"],
+			[5, "armor_upgrades/legend_mail_patch_upgrade"],
+		]
+	}]
+},{
+	ID = "bandit_armor_heavy",
+	Script = "scripts/items/armor/bandit_armor_heavy", //~230-315
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"], //55
+			[1, "cloth/legend_gambeson_plain"], // 65
+		],
+		Chain = [
+			[2, "chain/legend_armor_hauberk"], //95
+			[2, "chain/legend_armor_basic_mail"], //85
+			[1, "chain/legend_armor_reinforced_mail"], //110
+			[1, "chain/legend_armor_hauberk_full"], //115
+		],
+		Plate = [
+			[2, "plate/legend_armor_plate_chest"], //125
+			[1, "plate/legend_armor_plate_cuirass"], //150
+			[2, "plate/legend_armor_scale"], //100
+			[2, "plate/legend_armor_scale_coat_rotten"], //60
+			[1, "plate/legend_armor_scale_coat"], //120
+			[2, "plate/legend_armor_leather_lamellar_harness_heavy"], //130
+			[1, "plate/legend_armor_leather_lamellar_harness_reinforced"], //150
+		],
+		Cloak = [
+			[1, "cloak/legend_armor_cloak_common"] //10
+			[1, ""], //0
+		],
+		Tabard = [
+			[1, "tabard/legend_tattered_tabard"], //5
+			[1, ""], //0
+		],
+		Attachments =[
+			[5, "armor_upgrades/legend_mail_patch_upgrade"],
+			[15, ""],
+		]
+	}]
+},{
+	ID = "bandit_armor_ultraheavy",
+	Script = "scripts/items/armor/bandit_armor_ultraheavy", //~255-375
+	Sets = [{
+		Cloth = [
+			[1, "cloth/legend_padded_surcoat"], //55
+			[1, "cloth/legend_gambeson_wolf"], // 70
+		],
+		Chain = [
+			[1, "chain/legend_armor_reinforced_mail"], //110
+			[1, "chain/legend_armor_hauberk"], //95
+			[1, "chain/legend_armor_reinforced_mail_shirt"] //80
+			[1, "chain/legend_armor_hauberk_full"], //115
+		],
+		Plate = [
+			[1, "plate/legend_armor_plate_cuirass"], //150
+			[1, "plate/legend_armor_plate_full"], //160
+			[1, "plate/legend_armor_leather_lamellar_heavy"], //165
+			[1, "plate/legend_armor_plate_milanese"], //170
+			[1, "plate/legend_armor_plate_krastenbrust"], //170
+			[1, "plate/legend_armor_plate_triangle"] //170
+			[1, "plate/legend_armor_leather_lamellar_harness_reinforced"], //150
+			[1, "plate/legend_armor_leather_lamellar_heavy"], //165
+		],
+		Cloak = [
+			[1, "cloak/legend_armor_cloak_common"] //10
+			[1, ""], //0
+		],
+		Tabard = [
+		],
+		Attachments =[
+			[15, ""],
+			[5, "armor_upgrades/legend_mail_patch_upgrade"],
+			[2, "armor_upgrades/legend_metal_pauldrons_upgrade"],
 		]
 	}]
 
