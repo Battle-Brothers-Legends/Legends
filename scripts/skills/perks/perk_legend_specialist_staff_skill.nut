@@ -17,14 +17,22 @@ this.perk_legend_specialist_staff_skill <- this.inherit("scripts/skills/skill", 
 	{
 		local actor = this.getContainer().getActor();
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+
 		if (item != null)
 		{
-			if (item.isWeaponType(this.Const.Items.WeaponType.Staff, true) || item.isWeaponType(this.Const.Items.WeaponType.Staff | this.Const.Items.WeaponType.MagicStaff, true))
+			if (item.isWeaponType(this.Const.Items.WeaponType.Staff))
 			{
 				_properties.MeleeDefense += 16;
 				_properties.RangedDefense += 16;
+				
+				if (item.isWeaponType(this.Const.Items.WeaponType.Sword) || item.isWeaponType(this.Const.Items.WeaponType.Sling) || item.isWeaponType(this.Const.Items.WeaponType.Musical))
+				{
+					_properties.MeleeDefense -= 8;
+					_properties.RangedDefense -= 8;
+				}
+				
 			}
-			else if (item.isWeaponType(this.Const.Items.WeaponType.Staff | this.Const.Items.WeaponType.Musical))
+			else if (item.isWeaponType(this.Const.Items.WeaponType.Musical))
 			{
 				_properties.MeleeDefense += 8;
 				_properties.RangedDefense += 8;
