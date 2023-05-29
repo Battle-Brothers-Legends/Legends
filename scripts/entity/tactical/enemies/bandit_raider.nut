@@ -360,12 +360,9 @@ this.bandit_raider <- this.inherit("scripts/entity/tactical/human", {
 
 
 		local armor = [
-			[1, "ragged_surcoat"],
-			[1, "padded_leather"],
-			[1, "worn_mail_shirt"],
-			[1, "patched_mail_shirt"],
-			[1, "worn_mail_shirt"],
-			[1, "patched_mail_shirt"]
+			[1, "bandit_armor_medium"],
+			[2, "bandit_armor_light"],
+			[2, "leather_lamellar"]
 		]
 
 		local helmet = [

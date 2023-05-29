@@ -177,9 +177,8 @@ this.bandit_leader <- this.inherit("scripts/entity/tactical/human", {
 		{
 			local armor = [
 				[1, "reinforced_mail_hauberk"],
-				[1, "worn_mail_shirt"],
-				[1, "patched_mail_shirt"]
-				// [1, "mail_shirt"]
+				[2, "heavy_lamellar_armor"],
+				[2, "bandit_armor_heavy"]
 			];
 
 			if (this.Const.DLC.Unhold)
