@@ -2346,6 +2346,24 @@ local perkDefObjects = [
 		Const = "LegendGrapple"
 	},
 	{
+		ID = "perk.legend_ambidextrous",
+		Script = "scripts/skills/perks/perk_legend_ambidextrous",
+		Name = this.Const.Strings.PerkName.LegendAmbidextrous,
+		Tooltip = this.Const.Strings.PerkDescription.LegendAmbidextrous,
+		Icon = "ui/perks/perk_41.png", // Just borrowed duelist, change later w/ Olve's art
+		IconDisabled = "ui/perks/perk_41_sw.png",
+		Const = "LegendAmbidextrous"
+	},
+	{
+		ID = "perk.legend_tackle",
+		Script = "scripts/skills/perks/perk_legend_tackle",
+		Name = this.Const.Strings.PerkName.LegendTackle,
+		Tooltip = this.Const.Strings.PerkDescription.LegendTackle,
+		Icon = "ui/perks/perk_41.png", // Just borrowed duelist, change later w/ Olve's art
+		IconDisabled = "ui/perks/perk_41_sw.png",
+		Const = "LegendTackle"
+	},
+	{
 		ID = "perk.legend_field_treats",
 		Script = "scripts/skills/perks/perk_legend_field_treats",
 		Name = this.Const.Strings.PerkName.LegendFieldTreats,
