@@ -8,7 +8,7 @@ this.perk_legend_lurker <- this.inherit("scripts/skills/skill", {
 		this.m.Name = this.Const.Strings.PerkName.LegendLurker;
 		this.m.Description = this.Const.Strings.PerkDescription.LegendLurker;
 		this.m.Icon = "ui/perks/lurker.png";
-		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
+		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;

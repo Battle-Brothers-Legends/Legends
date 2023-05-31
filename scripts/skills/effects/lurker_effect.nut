@@ -50,7 +50,9 @@ this.lurker_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		this.skill.onUpdate(_properties);
+
 		local actor = this.getContainer().getActor();
+
 		if (!this.getContainer().getActor().isPlacedOnMap())
 		{
 			this.m.IsHidden = true;
@@ -59,7 +61,7 @@ this.lurker_effect <- this.inherit("scripts/skills/skill", {
 
 		local myTile = actor.getTile();
 		local allies = this.Tactical.Entities.getInstancesOfFaction(actor.getFaction());
-		local entites = this.Const.Tactical.CombatInfo.Entities
+		local entites = this.Tactical.Entities.getAllHostilesAsArray();
 		local isAlone = true;
 
 		foreach( ally in allies )
@@ -68,7 +70,6 @@ this.lurker_effect <- this.inherit("scripts/skills/skill", {
 			{
 				continue;
 			}
-
 			if (ally.getTile().getDistanceTo(myTile) <= 2)
 			{
 				isAlone = false;
@@ -83,7 +84,6 @@ this.lurker_effect <- this.inherit("scripts/skills/skill", {
             {
                 continue;
             }
-
 			if (unit.getTile().getDistanceTo(myTile) <= 2)
 			{
 				isAlone = false;
