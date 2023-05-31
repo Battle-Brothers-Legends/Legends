@@ -12,7 +12,7 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.hand_to_hand";
 		this.m.Name = "Hand-to-Hand Attack";
-		this.m.Description = "Let them fly! Use your limbs to inflict damage on your enemy. Damage depends on training.";
+		this.m.Description = "Let them fly! Use your limbs to inflict damage on your enemy.";
 		this.m.KilledString = "Pummeled to death";
 		this.m.Icon = "skills/active_08.png";
 		this.m.IconDisabled = "skills/active_08_sw.png";
@@ -28,8 +28,7 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 			"sounds/combat/hand_hit_03.wav"
 		];
 		this.m.Type = this.Const.SkillType.Active;
-		this.m.Order = this.Const.SkillOrder.First;
-		this.m.IsSerialized = false;
+		this.m.Order = this.Const.SkillOrder.OffensiveTargeted+3;
 		this.m.IsActive = true;
 		this.m.IsTargeted = true;
 		this.m.IsStacking = false;
@@ -39,7 +38,7 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 		this.m.InjuriesOnHead = this.Const.Injury.BluntHead;
 		this.m.DirectDamageMult = 0.1;
 		this.m.ActionPointCost = 4;
-		this.m.FatigueCost = 10;
+		this.m.FatigueCost = 5;
 		this.m.MinRange = 1;
 		this.m.MaxRange = 1;
 	}
@@ -48,38 +47,60 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 	{
 		local ret = this.getDefaultTooltip();
 		local actor = this.getContainer().getActor();
-
-		if (actor.getOffhandItem() != null)
-		{
-			ret.push({
-				id = 6,
-				type = "text",
-				icon = "ui/icons/regular_damage.png",
-				text = "Damage halved due to holding something in your off hand"
-			});
+		local fatigueMultiplier = 1;
+		if (this.getContainer().getActor().getCurrentProperties().IsSpecializedInFists) { 
+			fatigueMultiplier = 2;
 		}
+		ret.push({
+			id = 6,
+			type = "text",
+			icon = "ui/icons/special.png",
+			text = "Inflicts [color=" + this.Const.UI.Color.DamageValue + "]" + this.Const.Combat.FatigueReceivedPerHit * fatigueMultiplier + "[/color] extra fatigue on hit"
+		});
 
-		if (this.m.Backgrounds.find(actor.getBackground()) != null)
+		foreach( bg in this.m.Backgrounds )
 		{
-			ret.push({
+			if (actor.getSkills().hasSkill(bg))
+			{
+				ret.push({
 				id = 7,
 				type = "text",
 				icon = "ui/icons/regular_damage.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+25%[/color] Damage (from background)"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+25%[/color] damage from background"
 			});
+				break;
+			}
 		}
 
 		return ret;
 	}
 
-	function isUsable()
+
+	function isUsable() // If ambidextrous & offhand free, or mainhand free, or disarmed
 	{
-		return (this.m.Container.getActor().getMainhandItem() == null || this.getContainer().hasSkill("effects.disarmed")) && this.skill.isUsable();
+		local items = this.getContainer().getActor().getItems();
+		local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
+		local main = items.getItemAtSlot(this.Const.ItemSlot.Mainhand);
+		
+		if (this.m.Container.hasSkill("perk.legend_ambidextrous") && off == null && !items.hasBlockedSlot(this.Const.ItemSlot.Offhand) && this.skill.isUsable)
+		{
+			return true;
+		}
+
+		return (main == null || this.getContainer().hasSkill("effects.disarmed")) && this.skill.isUsable();
 	}
 
 	function isHidden()
 	{
-		return this.m.Container.getActor().getMainhandItem() != null && !this.getContainer().hasSkill("effects.disarmed") || this.skill.isHidden() || this.m.Container.getActor().isStabled();
+		local items = this.getContainer().getActor().getItems();
+		local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
+		local main = items.getItemAtSlot(this.Const.ItemSlot.Mainhand);
+		if (this.m.Container.hasSkill("perk.legend_ambidextrous") && off == null && !items.hasBlockedSlot(this.Const.ItemSlot.Offhand)) // if ambidextrous && offhand free, then NOT hidden
+		{
+			return false;
+		}
+
+		return (main != null && !this.getContainer().hasSkill("effects.disarmed")) || this.skill.isHidden() || this.m.Container.getActor().isStabled();
 	}
 
 	function onAfterUpdate( _properties )
@@ -87,7 +108,21 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 		if ("IsSpecializedInFists" in _properties)
 		{
 			this.m.FatigueCostMult = _properties.IsSpecializedInFists ? this.Const.Combat.WeaponSpecFatigueMult : 1.0;
-			this.m.ActionPointCost = _properties.IsSpecializedInFists ? 3 : 4;
+			if (this.m.Container.hasSkill("perk.legend_ambidextrous")) //ambidextrous & specialzed
+			{
+				this.m.ActionPointCost = 3
+			}
+		}
+		if (this.m.Container.hasSkill("perk.legend_ambidextrous")) 
+		{
+			// If ambidextrous & you have a mainhand use that as your AOO.
+			if (this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand) != null)
+			{
+				this.m.IsIgnoredAsAOO = true;
+			}
+			else {
+				this.m.IsIgnoredAsAOO = false;
+			}
 		}
 	}
 
@@ -99,23 +134,21 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 		}
 
 		local actor = this.getContainer().getActor();
-
-		_properties.DamageRegularMin += 5;
-		_properties.DamageRegularMax += 10;
+		_properties.DamageRegularMin = 5;
+		_properties.DamageRegularMax = 10;
 		_properties.DamageArmorMult = 0.5;
+		_properties.FatigueDealtPerHitMult += 1.0; // Increase fatigue damage from 5 to 10
 
-		//Untested fix, theoretically should fix being disarmed and getting extra weapon damage
-		if (this.m.Container.hasSkill("effects.disarmed"))
+		if (this.m.Container.hasSkill("perk.legend_ambidextrous"))
 		{
-			local mhand = actor.getMainhandItem();
-			if (mhand != null)
+			if (actor.getMainhandItem() != null)
 			{
-				_properties.DamageRegularMin -= mhand.m.RegularDamage;
-				_properties.DamageRegularMax -= mhand.m.RegularDamageMax;
+				_properties.MeleeDamageMult/=1.25; // Attempt to undo double grip damage bonus for just this skill. Might not work for missing hand.
 			}
 		}
 
-		foreach (bg in this.m.Backgrounds)
+		// Damage bonus for certain bgs
+		foreach( bg in this.m.Backgrounds )
 		{
 			if (actor.getSkills().hasSkill(bg))
 			{
@@ -124,9 +157,9 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 			}
 		}
 
-		if ("IsSpecializedInFists" in _properties && _properties.IsSpecializedInFists)
+		if (("IsSpecializedInFists" in _properties) && _properties.IsSpecializedInFists)
 		{
-			_properties.DamageDirectMult *= 1.15;
+			_properties.FatigueDealtPerHitMult += 1.0; // If you have mastery, increase from 10 to 15 fat damage.
 		}
 	}
 

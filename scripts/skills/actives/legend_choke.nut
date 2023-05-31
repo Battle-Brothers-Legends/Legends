@@ -1,12 +1,18 @@
 this.legend_choke <- this.inherit("scripts/skills/skill", {
 	m = {
-		Backgrounds = []
+		Backgrounds = [
+			"background.legend_commander_druid",
+			"background.legend_druid",
+			"background.brawler",
+			"background.legend_commander_berserker",
+			"background.legend_berserker"
+		]
 	},
 	function create()
 	{
 		this.m.ID = "actives.legend_choke";
 		this.m.Name = "Choke";
-		this.m.Description = "A well-placed attack at the opponent\'s neck. Ignores all armor but is harder to hit with and can not land critical hits for additional damage, nor inflict additional damage with double grip.";
+		this.m.Description = "A well-placed attack at the opponent\'s neck. Ignores all armor but is harder to hit with. Hit chance is based on target's fatigue. Damage is based on the difference in fatigue.";
 		this.m.KilledString = "Choked";
 		this.m.Icon = "skills/active_27.png";
 		this.m.IconDisabled = "skills/active_27_sw.png";
@@ -22,7 +28,7 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 			"sounds/combat/puncture_hit_03.wav"
 		];
 		this.m.Type = this.Const.SkillType.Active;
-		this.m.Order = this.Const.SkillOrder.First + 1;
+		this.m.Order = this.Const.SkillOrder.OffensiveTargeted+3;
 		this.m.IsSerialized = false;
 		this.m.IsActive = true;
 		this.m.IsTargeted = true;
@@ -30,12 +36,12 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 		this.m.IsAttack = true;
 		this.m.IsIgnoredAsAOO = true;
 		this.m.IsWeaponSkill = true;
-		this.m.InjuriesOnBody = this.Const.Injury.PiercingBody;
-		this.m.InjuriesOnHead = this.Const.Injury.PiercingHead;
-		this.m.HitChanceBonus = -50;
+		this.m.InjuriesOnBody = this.Const.Injury.BluntBody;
+		this.m.InjuriesOnHead = this.Const.Injury.BluntHead;
+		//this.m.HitChanceBonus = -50;
 		this.m.DirectDamageMult = 1.0;
-		this.m.ActionPointCost = 5;
-		this.m.FatigueCost = 40;
+		this.m.ActionPointCost = 4;
+		this.m.FatigueCost = 20;
 		this.m.MinRange = 1;
 		this.m.MaxRange = 1;
 		this.m.Backgrounds = [
@@ -49,38 +55,93 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local ret = this.getDefaultTooltip();
 		local actor = this.getContainer().getActor();
-		if (actor.getOffhandItem() != null)
+		local damage_min = 10; // Manual workaround because we're doing the math manually. Based on decapitate code
+		local damage_max = 15;
+		local has_unarmed_background = false;
+		
+		damage_min = this.Math.floor(damage_min*actor.getCurrentProperties().DamageTotalMult*actor.getCurrentProperties().MeleeDamageMult*actor.getCurrentProperties().DamageRegularMult);
+		damage_max = this.Math.floor(damage_max*actor.getCurrentProperties().DamageTotalMult*2*actor.getCurrentProperties().MeleeDamageMult*actor.getCurrentProperties().DamageRegularMult);
+		
+		foreach( bg in this.m.Backgrounds ) // actually slightly wrong due to rounding errors. In practice underestimates damage by like 1-2 of max
 		{
-			ret.push({
+			if (actor.getSkills().hasSkill(bg)) // Hopefully there is a better way
+			{
+				damage_min = this.Math.floor(damage_min*1.25);
+				damage_max = this.Math.floor(damage_max*1.25);
+				has_unarmed_background = true;
+				break;
+			}
+		}
+
+		local ret = [
+			{
+				id = 1,
+				type = "title",
+				text = this.getName()
+			},
+			{
+				id = 2,
+				type = "description",
+				text = this.getDescription()
+			},
+			{
+				id = 3,
+				type = "text",
+				text = this.getCostString()
+			}
+		];
+		ret.push({
+			id = 4,
+			type = "text",
+			icon = "ui/icons/regular_damage.png",
+			text = "Inflicts [color=" + this.Const.UI.Color.DamageValue + "]" + damage_min + "[/color] - [color=" + this.Const.UI.Color.DamageValue + "]" + damage_max + "[/color] damage depending on the difference in fatigue between you and the target"
+		});
+
+
+		foreach( bg in this.m.Backgrounds )
+		{
+			if (actor.getSkills().hasSkill(bg))
+			{
+				ret.push({
 				id = 5,
 				type = "text",
 				icon = "ui/icons/regular_damage.png",
-				text = "Damage halved due to holding something in your off hand"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+25%[/color] damage from background"
 			});
+				break;
+			}
 		}
 
-		if (actor.getMainhandItem() != null)
+		if (this.m.Container.getActor().getCurrentProperties().IsSpecializedInFists)
 		{
 			ret.push({
-				id = 5,
+				id = 6,
 				type = "text",
 				icon = "ui/icons/regular_damage.png",
-				text = "Damage halved due to holding something in your main hand"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] damage to choked or grappled enemies due to unarmed mastery"
 			});
+
 		}
 
-		if (this.m.Backgrounds.find(actor.getBackground()) != null)
-		{
-			ret.push({
+		ret.push({
 				id = 7,
 				type = "text",
-				icon = "ui/icons/regular_damage.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+25%[/color] Damage (from background)"
+				icon = "ui/icons/special.png",
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] chance to hit the head"
 			});
-		}
-
+		ret.push({
+				id = 8,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Completely ignores armor"
+			});
+		ret.push({
+				id = 9,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Adds the choked effect which reduces enemy fatigue recovery to 0"
+			});
 		return ret;
 	}
 
@@ -88,14 +149,14 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 	{
 		local mainhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 		local offhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
-		return ((offhand == null || mainhand == null) || this.getContainer().hasSkill("effects.disarmed")) && this.skill.isUsable();
+		return ((offhand == null && mainhand == null) || this.getContainer().hasSkill("effects.disarmed")) && this.skill.isUsable();
 	}
 
 	function isHidden()
 	{
 		local mainhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 		local offhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
-		return mainhand != null && offhand != null && !this.getContainer().hasSkill("effects.disarmed") || this.skill.isHidden() || this.m.Container.getActor().isStabled();
+		return mainhand != null || offhand != null && !this.getContainer().hasSkill("effects.disarmed") || this.skill.isHidden() || this.m.Container.getActor().isStabled();
 	}
 
 	function getHitChance( _targetEntity )
@@ -104,45 +165,44 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 		{
 			return 0;
 		}
-
 		local mod = 0;
 
 		if (_targetEntity.getSkills().hasSkill("effects.legend_dazed"))
 		{
-			mod += 10;
+			mod = mod + 10;
 		}
 
 		if (_targetEntity.getSkills().hasSkill("effects.legend_parried"))
 		{
-			mod += 10;
+			mod = mod + 10;
 		}
 
 		if (_targetEntity.getSkills().hasSkill("effects.legend_grappled"))
 		{
-			mod += 50;
+			mod = mod + 50;
 		}
 
 		if (_targetEntity.getSkills().hasSkill("effects.stunned"))
 		{
-			mod += 25;
+			mod = mod + 25;
 		}
 
 		if (_targetEntity.getSkills().hasSkill("effects.sleeping"))
 		{
-			mod += 50;
+			mod = mod + 50;
 		}
 
 		if (_targetEntity.getSkills().hasSkill("effects.net"))
 		{
-			mod += 25;
+			mod = mod + 25;
 		}
 
 		if (_targetEntity.getMoraleState() == this.Const.MoraleState.Fleeing)
 		{
-			mod += 50;
+			mod = mod + 50;
 		}
 
-		local chance = (1.0 - _targetEntity.getFatiguePct()) * 50;
+		local chance = (1.0 - _targetEntity.getFatiguePct()) * 50; 
 		return mod - this.Math.round(chance);
 	}
 
@@ -151,13 +211,18 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 		if (_properties.IsSpecializedInFists)
 		{
 			this.m.FatigueCostMult = this.Const.Combat.WeaponSpecFatigueMult;
-			this.m.ActionPointCost = 4;
 		}
 	}
 
 	function onUse( _user, _targetTile )
 	{
-		return this.attackEntity(_user, _targetTile.getEntity());
+		local success = this.attackEntity(_user, _targetTile.getEntity());
+		if (success && _targetTile.IsOccupiedByActor)
+		{
+			local target = _targetTile.getEntity();
+			target.getSkills().add(this.new("scripts/skills/effects/legend_choked_effect"));
+		}
+		return success;
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
@@ -167,22 +232,35 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local chance = this.getHitChance(_targetEntity);
+		local chance = this.getHitChance(_targetEntity); // Calculates the hitchance bonus from other status effects
 		local actor = this.getContainer().getActor();
 
-		local average = (actor.getInitiative() + actor.getHitpoints()) / 4;
+		_properties.DamageRegularMin = 10 // If you change these values, change them in the tooltip above too.
+		_properties.DamageRegularMax = 15
+		_properties.IsIgnoringArmorOnAttack = true;
+		_properties.DamageArmorMult *= 0.0;
+		_properties.MeleeSkill += chance;
 
-		if (actor.getOffhandItem() != null || actor.getMainhandItem() != null)
+
+		foreach( bg in this.m.Backgrounds )
 		{
-			average *= 0.5;
+			if (actor.getSkills().hasSkill(bg))
+			{
+				_properties.DamageTotalMult *= 1.25;
+				break;
+			}
 		}
 
-		_properties.DamageRegularMin += average - 10;
-		_properties.DamageRegularMax += average + 10;
-		_properties.IsIgnoringArmorOnAttack = true;
-		_properties.MeleeSkill += chance;
-		_properties.HitChanceMult[this.Const.BodyPart.Head] = 0.0;
-		_properties.HitChanceMult[this.Const.BodyPart.Body] = 1.0;
+		// Based on decapitate
+		if (_targetEntity != null && actor.getFatiguePct() < _targetEntity.getFatiguePct()) {
+			_properties.DamageRegularMult += 1.0 - (_targetEntity.getFatiguePct() - actor.getFatiguePct());
+		}
+
+		if (_targetEntity != null && _targetEntity.getSkills().hasSkill("effects.legend_grappled") || _targetEntity.getSkills().hasSkill("effects.legend_choked"))
+		{
+			_properties.DamageRegularMult *= 1.5
+		}
+		_properties.HitChance[this.Const.BodyPart.Head] += 90.0; // copied what was used in lash for flails.
 	}
 
 });

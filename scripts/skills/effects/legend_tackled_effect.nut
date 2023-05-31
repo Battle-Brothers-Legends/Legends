@@ -1,12 +1,12 @@
-this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
+this.legend_tackled_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		TurnsLeft = 2
+		TurnsLeft = 3
 	},
 	function create()
 	{
-		this.m.ID = "effects.legend_grappled";
-		this.m.Name = "Grappled";
-		this.m.Icon = "ui/perks/grapple_circle.png";
+		this.m.ID = "effects.legend_tackled"; // not sure if I should have it be tackled to match the tackle action that causes it or knocked over to match the effect name
+		this.m.Name = "Knocked Over";
+		this.m.Icon = "ui/perks/grapple_circle.png"; // Placeholder.
 		this.m.IconMini = "mini_daze56_circle";
 		this.m.Overlay = "status_daze56_circle";
 		this.m.Type = this.Const.SkillType.StatusEffect;
@@ -17,7 +17,7 @@ this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "This character was grappled to the ground and was exhausted in the clinch, they will catch their breath in [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
+		return "This character was tackled and knocked over. They will get back on their feet in [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
 	}
 
 	function getTooltip()
@@ -37,16 +37,19 @@ this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				// Changed from fatigue to MD. Surprisingly the original didn't mention MD even though it had a whopping 50% MD debuff.
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-12[/color] melee defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-50%[/color] melee defense"
 			},
 			{
 				id = 12,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				// Changed from fatigue to init
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-30%[/color] Initiative"
-				//text = "[color=" + this.Const.UI.Color.NegativeValue + "]-50%[/color] Maximum Fatigue"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-70%[/color] Initiative"
+			}
+			{
+				id = 12,
+				type = "text",
+				icon = "ui/icons/fatigue.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]+25%[/color] damage taken"
 			}
 		];
 	}
@@ -77,13 +80,9 @@ this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local actor = this.getContainer().getActor();
-		// Very different in design document. Flat MD debuff and 30% initiative debuff.
-		_properties.MeleeDefense -=12;
-		_properties.Initiative *=0.7;
-
-		// _properties.StaminaMult *= 0.5;
-		// _properties.MeleeDefense *= 0.5;
-		// _properties.FatigueRecoveryRate -= 20;
+		_properties.MeleeDefense *=0.5;
+		_properties.Initiative *=0.3;
+		_properties.DamageReceivedTotalMult *= 1.25;
 
 		if (!actor.hasSprite("status_stunned") && !this.getContainer().hasSkill("effects.stunned"))
 		{

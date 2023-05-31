@@ -1,17 +1,13 @@
 this.legend_grapple <- this.inherit("scripts/skills/skill", {
 	m = {
-		StunChance = 50
+		DisarmChance = 50
 	},
-	function setStunChance( _c )
-	{
-		this.m.StunChance = _c;
-	}
 
 	function create()
 	{
 		this.m.ID = "actives.legend_grapple";
 		this.m.Name = "Grapple";
-		this.m.Description = "Grab hold and restrain a target, heavily fatiguing them. Grappled targets can not keep up their Shieldwall, Spearwall or similar defensive skills. One hand must be free to use.";
+		this.m.Description = "Grab hold and restrain a target, reducing their melee defense by 12 and initiative by 30% for 2 turns. A particularly lucky or skilled maneuver may disarm the opponent. One hand must be free to use.";
 		this.m.Icon = "skills/grapple_square.png";
 		this.m.IconDisabled = "skills/grapple_square_bw.png";
 		this.m.Overlay = "active_32";
@@ -26,7 +22,7 @@ this.legend_grapple <- this.inherit("scripts/skills/skill", {
 			"sounds/combat/hand_hit_03.wav"
 		];
 		this.m.Type = this.Const.SkillType.Active;
-		this.m.Order = this.Const.SkillOrder.OffensiveTargeted + 5;
+		this.m.Order = this.Const.SkillOrder.OffensiveTargeted+5;
 		this.m.IsSerialized = false;
 		this.m.IsActive = true;
 		this.m.IsTargeted = true;
@@ -37,130 +33,102 @@ this.legend_grapple <- this.inherit("scripts/skills/skill", {
 		this.m.InjuriesOnBody = this.Const.Injury.BluntBody;
 		this.m.InjuriesOnHead = this.Const.Injury.BluntHead;
 		this.m.DirectDamageMult = 0.4;
-		this.m.ActionPointCost = 4;
-		this.m.FatigueCost = 10;
+		this.m.ActionPointCost = 5; // Increased from 4. Can only be used once per turn
+		this.m.FatigueCost = 20; // Increased from 10
 		this.m.MinRange = 1;
 		this.m.MaxRange = 1;
 		this.m.ChanceDecapitate = 0;
 		this.m.ChanceDisembowel = 0;
 	}
 
-	function getStunChance()
-	{
-		local ret = {
-			StunChance = 50,
-			HasOffhand = false,
-			HasMainhand = false,
-			HasTraining = false
-		};
-		ret.StunChance = this.m.StunChance;
-		local mainhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
-		local offhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
-
-		if (mainhand != null)
-		{
-			ret.StunChance -= 25;
-			ret.HasMainhand = true;
-		}
-
-		if (offhand != null)
-		{
-			ret.StunChance -= 25;
-			ret.HasOffhand = true;
-		}
-
-		if (this.m.Container.getActor().getCurrentProperties().IsSpecializedInFists)
-		{
-			ret.StunChance += 50;
-			ret.HasTraining = true;
-		}
-
-		return ret;
-	}
 
 	function getTooltip()
 	{
-		local chance = this.getStunChance();
-		local ret = this.skill.getDefaultTooltip();
-		ret.push({
-			id = 6,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Inflicts [color=" + this.Const.UI.Color.DamageValue + "]" + this.Const.Combat.FatigueReceivedPerHit * 8 + "[/color] fatigue on an enemy"
-		});
-		ret.push({
-			id = 7,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Has a " + chance.StunChance + "% chance to stun"
-		});
+		local p = this.getContainer().getActor().getCurrentProperties();
+		local ret = [
+			{
+				id = 1,
+				type = "title",
+				text = this.getName()
+			},
+			{
+				id = 2,
+				type = "description",
+				text = this.getDescription()
+			},
+			{
+				id = 3,
+				type = "text",
+				text = this.getCostString()
+			}
+		];
 
-		if (chance.HasTraining)
+		ret.push({
+				id = 5,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] chance to grapple on a hit"
+			});
+		if (this.m.Container.getActor().getCurrentProperties().IsSpecializedInFists)
 		{
+			ret.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] chance to disarm on a hit due to unarmed mastery"
+			});
 			ret.push({
 				id = 7,
 				type = "text",
-				icon = "ui/icons/special.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] chance to grapple on a hit due to unarmed mastery"
+				icon = "ui/icons/hitchance.png",
+				text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] chance to hit due to unarmed mastery"
 			});
-		}
 
-		if (chance.HasMainhand || chance.HasOffhand)
-		{
+		}
+		else {
 			ret.push({
-				id = 7,
+				id = 6,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] chance to grapple on a hit due to holding stuff in a hand"
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] chance to disarm"
 			});
 		}
-
 		return ret;
 	}
 
 	function onAfterUpdate( _properties )
 	{
 		this.m.FatigueCostMult = _properties.IsSpecializedInFists ? this.Const.Combat.WeaponSpecFatigueMult : 1.0;
-		this.m.ActionPointCost = _properties.IsSpecializedInFists ? 3 : 4;
 	}
 
 	function onUse( _user, _targetTile )
 	{
-		this.spawnAttackEffect(_targetTile, this.Const.Tactical.AttackEffectBash);
-		local success = this.attackEntity(_user, _targetTile.getEntity());
-
-		if (!_user.isAlive() || _user.isDying())
+		local target = _targetTile.getEntity();
+		if (this.m.SoundOnUse.len() != 0)
 		{
-			return success;
+			this.Sound.play(this.m.SoundOnUse[this.Math.rand(0, this.m.SoundOnUse.len() - 1)], this.Const.Sound.Volume.Skill, _user.getPos());
 		}
 
-		if (success && _targetTile.IsOccupiedByActor)
+		if (this.Math.rand(1, 100) > this.getHitchance(_targetTile.getEntity()))
 		{
-			local target = _targetTile.getEntity();
-
-			if (target.getCurrentProperties().IsImmuneToKnockBackAndGrab)
+			target.onMissed(this.getContainer().getActor(), this);
+			return false;
+		}
+		if (_targetTile.IsOccupiedByActor)
+		{
+			// Now always grapples
+			target.getSkills().add(this.new("scripts/skills/effects/legend_grappled_effect"));
+			if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
 			{
-				return success;
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " has grappled " + this.Const.UI.getColorizedEntityName(target) + " for two turns");
 			}
-
-			if (target.getSkills().hasSkill("effects.legend_grappled"))
+			if ((this.Math.rand(1, 100) > this.m.DisarmChance || _user.getCurrentProperties().IsSpecializedInFists) && !target.getCurrentProperties().IsImmuneToDisarm)
 			{
-				return success;
-			}
-
-			local mods = this.getStunChance();
-			if (_user.getCurrentProperties().IsSpecializedInFists || this.Math.rand(1, 100) <= mods.StunChance)
-			{
-				target.getSkills().add(this.new("scripts/skills/effects/legend_grappled_effect"));
-
-				if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
-				{
-					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " has grappled " + this.Const.UI.getColorizedEntityName(target) + " for two turns");
-				}
+				target.getSkills().add(this.new("scripts/skills/effects/disarmed_effect"));
 			}
 		}
 
-		return success;
+		return true;
 	}
 
 	function isUsable()
@@ -174,15 +142,18 @@ this.legend_grapple <- this.inherit("scripts/skills/skill", {
 	{
 		local mainhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 		local offhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
-		return mainhand != null && offhand != null && !this.getContainer().hasSkill("effects.disarmed") || this.skill.isHidden() || this.m.Container.getActor().isStabled();
+		return mainhand != null && offhand != null && !this.getContainer().hasSkill("effects.disarmed") || this.getContainer().getActor().getItems().hasBlockedSlot(this.Const.ItemSlot.Offhand) || this.skill.isHidden() || this.m.Container.getActor().isStabled();
 	}
 
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (_skill == this)
 		{
-			_properties.DamageTotalMult *= 0.2;
-			_properties.FatigueDealtPerHitMult += 8.0;
+			_properties.DamageTotalMult = 0;
+			if (_properties.IsSpecializedInFists)
+			{
+				_properties.MeleeSkill += 10;
+			}
 		}
 	}
 
