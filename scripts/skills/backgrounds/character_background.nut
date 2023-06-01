@@ -392,7 +392,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			{
 				id = 3,
 				type = "description",
-				text =	"\n" + this.getBackgroundTypes() + "\n"
+				text =	this.getBackgroundTypes() + "\n"
 			},
 			{
 				id = 5,
