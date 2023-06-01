@@ -408,6 +408,27 @@ gt.Const.MoodStateIcon <- [
 	"skills/status_effect_48.png",
 	"skills/status_effect_49.png"
 ];
+
+gt.Const.BackgroundTypeName <- [
+	"None",
+	"Crusader",
+	"Combat",
+	"ConvertedCultist",
+	"Druid",
+	"Educated",
+	"Female",
+	"Noble",
+	"Lowborn",
+	"OffendedByViolence",
+	"Outlaw",
+	"Performing",
+	"Scenario",
+	"Ranger",
+	"Stabled",
+	"Untalented",
+	"Cultist"
+];
+
 gt.Const.BackgroundType <- {
 	None = 0,
 	Crusader = 1,

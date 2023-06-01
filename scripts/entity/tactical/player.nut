@@ -676,6 +676,12 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 				type = "hint",
 				text = this.getBackground().getBackgroundDescription(false)
 			});
+
+			tooltip.push({
+				id = 10,
+				type = "description",
+				text = this.m.Background.getBackgroundTypes()
+			});
 		}
 
 		local injuries = this.getSkills().query(this.Const.SkillType.Injury | this.Const.SkillType.SemiInjury);

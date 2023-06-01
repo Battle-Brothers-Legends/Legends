@@ -1611,6 +1611,23 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 		return c;
 	}
 
+	function getBackgroundTypes(){
+
+		local BackgroundType = "";
+
+		foreach (i, name in ::Const.BackgroundTypeName)
+		{
+		    if (this.isBackgroundType(::Const.BackgroundType[name]))
+		    {
+		        BackgroundType += name + ", ";
+		    }
+		}
+
+		if (BackgroundType.len() == 0) return "";
+
+		return "Background Type(s): " + BackgroundType.slice(0, BackgroundType.len() - 2);
+	}
+
 	//0 = Male, 1 = Female, -1 = Either
 	function setGender(_gender)
 	{
