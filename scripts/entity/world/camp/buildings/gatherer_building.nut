@@ -256,7 +256,11 @@ this.gatherer_building <- this.inherit("scripts/entity/world/camp/camp_building"
 					loot.extend([
 						"scripts/items/misc/miracle_drug_item",
 						"scripts/items/accessory/spider_poison_item",
-						"scripts/items/misc/potion_of_oblivion_item",
+					]);
+				}
+				if (levels.Brewer >= 35 && levels.Apothecary >= 45)
+				{
+					loot.extend([
 						"scripts/items/misc/potion_of_knowledge_item"
 					]);
 				}

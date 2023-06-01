@@ -62,7 +62,7 @@ gt.Const.TipOfTheDay <- [
 	"Wiederganger\'s bite can infect the target, and being killed by it can even cause it to be risen to fight on their side",
 	"You can instantly repair items for coins at armorsmiths",
 	"Herbalists can gather medicine, poisons and mushrooms when assigned to gather in camp",
-	"Those with the \'Potion Brewer\' perk can craft potions while gathering, including potions of oblivion.",
+	"Those with the \'Potion Brewer\' perk can craft potions while gathering, including potions of knowledge.",
 	"Bakers and servants can craft rotten food into fresh pies and puddings",
 	"You can equip food and eat it in battle to restore health",
 	"It is said there are wise women in the north who can commune with spirits and carve rune stones",
