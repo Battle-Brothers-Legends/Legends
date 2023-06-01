@@ -680,7 +680,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			tooltip.push({
 				id = 10,
 				type = "description",
-				text = this.m.Background.getBackgroundTypes()
+				text = this.m.Background.getBackgroundTypes() + "\n"
 			});
 		}
 
