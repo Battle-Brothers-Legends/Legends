@@ -177,12 +177,6 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 			this.removeSelf();
 		}
 	}
-	//end --
-
-	function onCombatFinished(){
-			this.removeSelf();
-			this.m.setHidden(true);
-	}
 });
 
 
