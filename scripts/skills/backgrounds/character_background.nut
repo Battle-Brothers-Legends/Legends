@@ -417,7 +417,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			}
 		];
 		if (this.getContainer() != null) ret.extend(this.getAttributesTooltip())
-		return ret
+		return ret;
 	}
 
 	function getAttributesTooltip()
