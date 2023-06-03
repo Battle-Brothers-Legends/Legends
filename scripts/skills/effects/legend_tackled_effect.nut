@@ -7,7 +7,7 @@ this.legend_tackled_effect <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "effects.legend_tackled"; // not sure if I should have it be tackled to match the tackle action that causes it or knocked over to match the effect name
 		this.m.Name = "Knocked Over";
 		this.m.Icon = "ui/perks/tackle_circle.png";
-		this.m.IconMini = "mini_daze56_circle";
+		this.m.IconMini = "mini_tackle";
 		this.m.Overlay = "status_daze56_circle";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;

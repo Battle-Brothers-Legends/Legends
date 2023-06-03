@@ -21,6 +21,10 @@
 	<sprite id="teleport" ic="FF23165B" img="skills\teleport.png" />
 	<sprite id="mini_steel_brow" offsetY="35" ic="FF344955" img="skills\mini\mini_steel_brow.png" />
 	<sprite id="mark_target" ic="FF23165B" img="skills\MarkTarget.png" />
+	<sprite id="mini_choke" offsetY="35" ic="FF344955" img="skills\mini\mini_choke.png" />
+	<sprite id="mini_grapple" offsetY="35" ic="FF344955" img="skills\mini\mini_grapple.png" />
+	<sprite id="mini_tackle" offsetY="35" ic="FF344955" img="skills\mini\mini_tackle.png" />
+
 	<sprite id="piercing_bolt" ic="FF23165B" img="skills\PiercingBolt.png" />
 	<sprite id="guided_steps_square" ic="FF23165B" img="skills\guided_steps_square.png" />
 	<sprite id="mini_guided_steps_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_guided_steps_circle.png" />

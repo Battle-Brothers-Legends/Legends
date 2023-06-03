@@ -7,7 +7,7 @@ this.legend_choked_effect <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "effects.legend_choked";
 		this.m.Name = "Choked";
 		this.m.Icon = "ui/perks/choke_circle.png";
-		this.m.IconMini = "mini_daze56_circle";
+		this.m.IconMini = "mini_choke";
 		this.m.Overlay = "status_daze56_circle";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;

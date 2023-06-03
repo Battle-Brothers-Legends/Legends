@@ -7,7 +7,7 @@ this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "effects.legend_grappled";
 		this.m.Name = "Grappled";
 		this.m.Icon = "ui/perks/grapple_circle.png";
-		this.m.IconMini = "mini_daze56_circle";
+		this.m.IconMini = "mini_grapple";
 		this.m.Overlay = "status_daze56_circle";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
