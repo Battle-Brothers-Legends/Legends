@@ -99,16 +99,17 @@ this.legend_large_armor_piercing_arrows <- this.inherit("scripts/items/ammo/ammo
 			return;
 		}
 		
-		switch (item.getID())
+		switch(item.getID()) //this ideally needs to be refactored - it does work but we can just call the item.type instead of listing all these out.
 		{
 			case "weapon.wonky_bow":
 			case "weapon.war_bow":
+			case "weapon.named_warbow":
 			case "weapon.hunting_bow":
 			case "weapon.masterwork_bow":
-			case "weapon.short_bow":	
+			case "weapon.short_bow":
 			case "weapon.goblin_bow":
 			case "weapon.goblin_heavy_bow":
-			case "weapon.named_goblin_heavy_bow":	
+			case "weapon.named_goblin_heavy_bow":
 				_properties.DamageDirectMult *= 1.3;
 				_properties.RangedDamageMult *= 0.9;
 					break;
