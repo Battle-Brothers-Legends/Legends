@@ -14,8 +14,8 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Choke";
 		this.m.Description = "A well-placed attack at the opponent\'s neck. Ignores all armor but is harder to hit with. Hit chance is based on target's fatigue. Damage is based on the difference in fatigue.";
 		this.m.KilledString = "Choked";
-		this.m.Icon = "skills/active_27.png";
-		this.m.IconDisabled = "skills/active_27_sw.png";
+		this.m.Icon = "skills/choke_square.png";
+		this.m.IconDisabled = "skills/choke_square_bw.png";
 		this.m.Overlay = "active_27";
 		this.m.SoundOnUse = [
 			"sounds/combat/puncture_01.wav",

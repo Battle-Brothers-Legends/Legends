@@ -2323,8 +2323,8 @@ local perkDefObjects = [
 		Script = "scripts/skills/perks/perk_mastery_fist",
 		Name = this.Const.Strings.PerkName.LegendSpecFists,
 		Tooltip = this.Const.Strings.PerkDescription.LegendSpecFists,
-		Icon = "ui/perks/fist_circle.png",
-		IconDisabled = "ui/perks/fist_circle_bw.png",
+		Icon = "ui/perks/unarmed_mastery_circle.png",
+		IconDisabled = "ui/perks/unarmed_mastery_circle_bw.png",
 		Const = "LegendSpecFists"
 	},
 	{
@@ -2350,8 +2350,8 @@ local perkDefObjects = [
 		Script = "scripts/skills/perks/perk_legend_ambidextrous",
 		Name = this.Const.Strings.PerkName.LegendAmbidextrous,
 		Tooltip = this.Const.Strings.PerkDescription.LegendAmbidextrous,
-		Icon = "ui/perks/perk_41.png", // Just borrowed duelist, change later w/ Olve's art
-		IconDisabled = "ui/perks/perk_41_sw.png",
+		Icon = "ui/perks/ambidexterity_circle.png", // Just borrowed duelist, change later w/ Olve's art
+		IconDisabled = "ui/perks/ambidexterity_circle.png",
 		Const = "LegendAmbidextrous"
 	},
 	{
@@ -2359,8 +2359,8 @@ local perkDefObjects = [
 		Script = "scripts/skills/perks/perk_legend_tackle",
 		Name = this.Const.Strings.PerkName.LegendTackle,
 		Tooltip = this.Const.Strings.PerkDescription.LegendTackle,
-		Icon = "ui/perks/perk_41.png", // Just borrowed duelist, change later w/ Olve's art
-		IconDisabled = "ui/perks/perk_41_sw.png",
+		Icon = "ui/perks/tackle_circle.png", // Just borrowed duelist, change later w/ Olve's art
+		IconDisabled = "ui/perks/tackle_circle_bw.png",
 		Const = "LegendTackle"
 	},
 	{

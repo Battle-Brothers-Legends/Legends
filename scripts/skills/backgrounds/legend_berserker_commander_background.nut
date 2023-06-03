@@ -91,8 +91,8 @@ this.legend_berserker_commander_background <- this.inherit("scripts/skills/backg
 		this.m.CustomPerkTree = [
 			[
 				this.Const.Perks.PerkDefs.CripplingStrikes,
-				this.Const.Perks.PerkDefs.LegendUnarmedTraining,
 				this.Const.Perks.PerkDefs.Colossus,
+				this.Const.Perks.PerkDefs.LegendKick,
 				this.Const.Perks.PerkDefs.Adrenaline,
 				this.Const.Perks.PerkDefs.NineLives,
 				this.Const.Perks.PerkDefs.Pathfinder,
@@ -104,9 +104,9 @@ this.legend_berserker_commander_background <- this.inherit("scripts/skills/backg
 				this.Const.Perks.PerkDefs.LegendAlert
 			],
 			[
-				this.Const.Perks.PerkDefs.LegendKick,
 				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.CoupDeGrace,
+				this.Const.Perks.PerkDefs.LegendChoke,
 				this.Const.Perks.PerkDefs.LegendSmackdown,
 				this.Const.Perks.PerkDefs.LegendOnslaught,
 				this.Const.Perks.PerkDefs.Dodge,
@@ -148,11 +148,11 @@ this.legend_berserker_commander_background <- this.inherit("scripts/skills/backg
 				this.Const.Perks.PerkDefs.DoubleStrike,
 				this.Const.Perks.PerkDefs.LoneWolf,
 				this.Const.Perks.PerkDefs.Footwork,
-				this.Const.Perks.PerkDefs.LegendChoke,
 				this.Const.Perks.PerkDefs.Slaughterer,
 				this.Const.Perks.PerkDefs.Vengeance,
 				this.Const.Perks.PerkDefs.LegendBattleheart,
 				this.Const.Perks.PerkDefs.SunderingStrikes,
+				this.Const.Perks.PerkDefs.LegendAmbidextrous,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyOrk,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyGoblin,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyUnhold,
@@ -160,11 +160,10 @@ this.legend_berserker_commander_background <- this.inherit("scripts/skills/backg
 			],
 			[
 				this.Const.Perks.PerkDefs.Berserk,
+				this.Const.Perks.PerkDefs.LegendTackle,
 				this.Const.Perks.PerkDefs.LegendLacerate,
 				this.Const.Perks.PerkDefs.LastStand,
-				this.Const.Perks.PerkDefs.LegendChoke,
 				this.Const.Perks.PerkDefs.LegendMuscularity,
-				this.Const.Perks.PerkDefs.LegendUnarmedLunge,
 				this.Const.Perks.PerkDefs.Nimble,
 				this.Const.Perks.PerkDefs.LastStand,
 				this.Const.Perks.PerkDefs.Rebound,

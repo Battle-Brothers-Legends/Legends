@@ -5,8 +5,8 @@ this.legend_tackle <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "actives.legend_tackle";
 		this.m.Name = "Tackle";
 		this.m.Description = "Tackle an enemy to the ground. On a hit, decrease their melee defence by 50%, their initiative by 70%, and increases the damage they take by 25%. The success of a tackle is based on how fatigued your target is.";
-		this.m.Icon = "skills/grapple_square.png"; // Placeholder
-		this.m.IconDisabled = "skills/grapple_square_bw.png";
+		this.m.Icon = "skills/tackle_square.png";
+		this.m.IconDisabled = "skills/tackle_square_bw.png";
 		this.m.Overlay = "active_32";
 		this.m.SoundOnUse = [
 			"sounds/combat/hand_01.wav",

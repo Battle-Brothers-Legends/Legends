@@ -1,12 +1,12 @@
 this.perk_legend_tackle <- this.inherit("scripts/skills/skill", {
 	m = {},
-	function create() // used kick as template
+	function create()
 	{
 		this.m.ID = "perk.legend_tackle";
 		this.m.Name = this.Const.Strings.PerkName.LegendTackle;
 		this.m.Description = this.Const.Strings.PerkDescription.LegendTackle;
-		this.m.Icon = "ui/perks/kick_circle.png";
-		this.m.IconDisabled = "ui/perks/kick_circle_bw.png";
+		this.m.Icon = "ui/perks/tackle_circle.png";
+		this.m.IconDisabled = "ui/perks/tackle_circle_bw.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
