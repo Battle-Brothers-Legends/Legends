@@ -27,7 +27,6 @@ this.legends_berserker_scenario <- this.inherit("scripts/scenarios/world/startin
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 			i = ++i;
 		}
-
 		local bros = roster.getAll();
 		bros[0].setStartValuesEx([
 			"legend_berserker_commander_background"
@@ -198,42 +197,14 @@ this.legends_berserker_scenario <- this.inherit("scripts/scenarios/world/startin
 
 	function onUpdateDraftList( _list, _gender = null )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() <= 5)
-		{
+	}
 
-			local r;
-			r = this.Math.rand(0, 1);
-
-			if (r == 0)
-			{
-				_list.push("wildwoman_background");
-			}
-
-			local r;
-			r = this.Math.rand(0, 1);
-
-			if (r == 0)
-			{
-				_list.push("wildman_background");
-			}
-
-			local r;
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("barbarian_background");
-			}
-		}
-
-		local r;
-		r = this.Math.rand(0, 119);
-
-		if (r == 0)
-		{
-			_list.push("legend_berserker_background");
-		}
+	function onUpdateHiringRoster( _roster )
+	{
+		this.addBroToRoster(_roster, "wildwoman_background", 8)
+		this.addBroToRoster(_roster, "wildman_background", 8)
+		this.addBroToRoster(_roster, "barbarian_background", 10)
+		this.addBroToRoster(_roster, "legend_berserker_background", 15)
 	}
 
 	function onGenerateBro(bro)

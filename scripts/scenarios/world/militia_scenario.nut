@@ -249,29 +249,6 @@ this.militia_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 
 	function onUpdateDraftList( _list, _gender = null ) //unique backgrounds
 	{
-		local r;
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			_list.push("legend_leech_peddler_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 5);
-
-		if (r == 0)
-		{
-			_list.push("legend_nightwatch_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 7);
-
-		if (r == 0)
-		{
-			_list.push("legend_man_at_arms_background");
-		}
 	}
 
 	function onHiredByScenario( bro )
@@ -285,6 +262,9 @@ this.militia_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 	{
 		local garbage = [];
 		local bros = _roster.getAll();
+		this.addBroToRoster(_roster, "legend_leech_peddler_background", 3);
+		this.addBroToRoster(_roster, "legend_nightwatch_background", 5);
+		this.addBroToRoster(_roster, "legend_man_at_arms_background", 7);
 
 		foreach( i, bro in bros )
 		{

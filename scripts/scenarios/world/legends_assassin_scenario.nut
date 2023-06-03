@@ -126,54 +126,21 @@ this.legends_assassin_scenario <- this.inherit("scripts/scenarios/world/starting
 
 	function onUpdateDraftList( _list, _gender = null)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		local r;
-		r = this.Math.rand(0, 40);
+	}
 
-		if (r == 0)
+	function onUpdateHiringRoster( _roster )
+	{
+		local _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
+		this.addBroToRoster(_roster, "assassin_background", 11);
+		this.addBroToRoster(_roster, "assassin_southern_background", 11);
+		this.addBroToRoster(_roster, "legend_bounty_hunter_background", 11); // Increased this since it is seemingly much stronger than standard assassins.
+		this.addBroToRoster(_roster, "thief_background", 7);
+		if (_gender)
 		{
-			_list.push("assassin_background");
+			this.addBroToRoster(_roster, "female_thief_background", 7);
 		}
+		this.addBroToRoster(_roster, "killer_on_the_run_background", 7);
 
-		local r;
-		r = this.Math.rand(0, 30);
-
-		if (r == 0)
-		{
-			_list.push("assassin_southern_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 25); 
-
-		if (r == 0)
-		{
-			_list.push("legend_bounty_hunter_background"); //unique to this origin
-		}
-
-		local r;
-		r = this.Math.rand(0, 9);
-
-		if (r == 0)
-		{
-			_list.push("thief_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 9);
-
-		if (r == 0 && _gender)
-		{
-			_list.push("female_thief_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 12);
-
-		if (r == 0)
-		{
-			_list.push("killer_on_the_run_background");
-		}
 	}
 
 	function onGenerateBro(bro)
