@@ -29,10 +29,18 @@ this.besieged_situation <- this.inherit("scripts/entity/world/settlements/situat
 	{
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.50);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.25);
 		}
 		_settlement.resetShop();
 		_settlement.resetRoster(false);
+	}
+
+	function onResolved( _settlement )
+	{
+		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
+		{
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.4);
+		}
 	}
 
 	function onUpdate( _modifiers )

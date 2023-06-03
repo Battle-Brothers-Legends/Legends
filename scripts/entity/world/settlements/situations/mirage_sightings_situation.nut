@@ -28,10 +28,18 @@ this.mirage_sightings_situation <- this.inherit("scripts/entity/world/settlement
 	{
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.015);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.025);
 		}
 		_settlement.removeSituationByID("situation.safe_roads");
 		_settlement.resetShop();
+	}
+
+	function onResolved( _settlement )
+	{
+		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
+		{
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.125);
+		}
 	}
 
 	function onUpdate( _modifiers )

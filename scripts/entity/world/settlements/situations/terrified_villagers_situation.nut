@@ -26,7 +26,7 @@ this.terrified_villagers_situation <- this.inherit("scripts/entity/world/settlem
 	{
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.05);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.125);
 		}
 	}
 

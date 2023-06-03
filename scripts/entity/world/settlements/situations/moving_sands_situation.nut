@@ -30,10 +30,18 @@ this.moving_sands_situation <- this.inherit("scripts/entity/world/settlements/si
 
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.05);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.025);
 		}
 	}
 
+	function onResolved( _settlement )
+	{
+		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
+		{
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.125);
+		}
+	}
+	
 	function onUpdate( _modifiers )
 	{
 		_modifiers.SellPriceMult *= 1.1;

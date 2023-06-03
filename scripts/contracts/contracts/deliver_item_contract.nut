@@ -778,6 +778,7 @@ this.deliver_item_contract <- this.inherit("scripts/contracts/contract", {
 					icon = "ui/icons/asset_money.png",
 					text = "You gain [color=" + this.Const.UI.Color.PositiveEventValue + "]" + this.Contract.m.Payment.getOnCompletion() + "[/color] Crowns"
 				});
+				this.Contract.m.Home.setResources(this.Contract.m.Home.getResources() + this.Contract.m.Home.getResources() * 0.05); // Gain 5% settlement wealth for this contract
 			}
 
 		});
@@ -836,6 +837,7 @@ this.deliver_item_contract <- this.inherit("scripts/contracts/contract", {
 					icon = "ui/icons/asset_money.png",
 					text = "You gain [color=" + this.Const.UI.Color.PositiveEventValue + "]" + this.Contract.m.Payment.getOnCompletion() + "[/color] Crowns and [color=" + this.Const.UI.Color.PositiveEventValue + "]" + xpGained + "[/color] Experience"
 				});
+				this.Contract.m.Home.setResources(this.Contract.m.Home.getResources() + this.Contract.m.Home.getResources() * 0.05); // Gain 5% settlement wealth for this contract
 			}
 
 		});
