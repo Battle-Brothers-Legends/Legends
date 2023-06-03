@@ -24,7 +24,19 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local ret = this.getDefaultTooltip();
+		local ret = [
+			{
+				id = 1,
+				type = "title",
+				text = this.getName()
+			},
+			{
+				id = 2,
+				type = "description",
+				text = this.getDescription()
+			}
+		];
+
 		local actor = this.getContainer().getActor();
 		if (actor.getSkills().hasSkill("perk.legend_assassinate"))
 		{
@@ -33,42 +45,50 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 					id = 11,
 					type = "text",
 					icon = "ui/icons/regular_damage.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] Minimum Damage from the Assassinate perk"
-				},
-				{
-					id = 12,
-					type = "text",
-					icon = "ui/icons/regular_damage.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] Maximum Damage from the Assassinate perk"
-				}
-			]);
-
-			if (actor.getSkills().hasSkill("background.legend_assassin") || actor.getSkills().hasSkill("background.assassin") || actor.getSkills().hasSkill("background.assassin_southern"))
-			ret.extend([			
-				{
-					id = 13,
-					type = "text",
-					icon = "ui/icons/regular_damage.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] Maximum Damage from being an assassin"
-				}
-			]);
-
-			if (actor.getSkills().hasSkill("background.legend_commander_assassin"))
-			ret.extend([			
-				{
-					id = 13,
-					type = "text",
-					icon = "ui/icons/regular_damage.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+75%[/color] Maximum Damage from being an experienced assassin"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] Minimum and Maximum Damage from the Assassinate perk"
 				}
 			]);
 		}
 
-		ret.push({
-			id = 13,
-			type = "text",
-			text = "Will be revealed at the end of the round" + this.m.ToRemove
-		})
+		if (actor.getSkills().hasSkill("background.legend_assassin") || actor.getSkills().hasSkill("background.assassin") || actor.getSkills().hasSkill("background.assassin_southern"))
+		ret.extend([
+			{
+				id = 13,
+				type = "text",
+				icon = "ui/icons/regular_damage.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color] Maximum Damage from being an assassin"
+			}
+		]);
+
+		if (actor.getSkills().hasSkill("background.legend_commander_assassin"))
+		ret.extend([
+			{
+				id = 13,
+				type = "text",
+				icon = "ui/icons/regular_damage.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+75%[/color] Maximum Damage from being an experienced assassin"
+			}
+		]);
+
+		if(this.m.ToRemove){
+			ret.extend([
+				{
+					id = 15,
+					type = "text",
+					text = "Will be revealed at the end of the round"
+				}
+			]);
+		}
+
+		else{
+			ret.extend([
+				{
+					id = 15,
+					type = "text",
+					text = "Will remain hidden"
+				}
+			]);
+		}
 
 		return ret;
 	}
