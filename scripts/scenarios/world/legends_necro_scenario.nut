@@ -282,7 +282,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	{
 		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.gravedigger" || _background.getID() == "background.graverobber")
 		{
-			_tooltip.pop();
+			//_tooltip.pop();
 			_tooltip.push({
 				id = 16,
 				type = "text",

@@ -271,9 +271,9 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 	}
 	function onGetBackgroundTooltip( _background, _tooltip )
 	{
-		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.legend_lurker" || _background.getID() == "background.legend_husk" || _background.getID() == "background.legend_magister")
+		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.legend_lurker") // Removed husk and magister from this if
 		{
-			_tooltip.pop();
+			//_tooltip.pop();
 			_tooltip.push({
 				id = 16,
 				type = "text",
@@ -284,7 +284,7 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 		
 		if (_background.getID() == "background.legend_husk" || _background.getID() == "background.legend_magister")
 		{
-			_tooltip.pop();
+			//_tooltip.pop();
 			_tooltip.push({
 				id = 16,
 				type = "text",
