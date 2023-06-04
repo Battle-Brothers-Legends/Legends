@@ -2351,7 +2351,7 @@ local perkDefObjects = [
 		Name = this.Const.Strings.PerkName.LegendAmbidextrous,
 		Tooltip = this.Const.Strings.PerkDescription.LegendAmbidextrous,
 		Icon = "ui/perks/ambidexterity_circle.png", // Just borrowed duelist, change later w/ Olve's art
-		IconDisabled = "ui/perks/ambidexterity_circle.png",
+		IconDisabled = "ui/perks/ambidexterity_circle_bw.png",
 		Const = "LegendAmbidextrous"
 	},
 	{
