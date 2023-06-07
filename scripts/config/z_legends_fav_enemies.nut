@@ -243,384 +243,384 @@ gt.Const.LegendMod.GetFavoriteEnemyValue <- function ( _type ) //Number = how ma
 {
 	switch(_type) //Basically, use anything that is NOT a prime number.
 	{
-	case "this.Const.EntityType.Lindwurm":
+	case this.Const.EntityType.Lindwurm :
 		return 1;
 
-	case "this.Const.EntityType.Serpent":
+	case this.Const.EntityType.Serpent :
 		return 4;
 
-	case "this.Const.EntityType.LegendStollwurm":
+	case this.Const.EntityType.LegendStollwurm :
 		return 0.4;
 
-	case "this.Const.EntityType.Alp":
+	case this.Const.EntityType.Alp :
 		return 4;
 
-	case "this.Const.EntityType.LegendDemonAlp":
+	case this.Const.EntityType.LegendDemonAlp :
 		return 1;
 
-	case "this.Const.EntityType.LegendGreenwoodSchrat":
+	case this.Const.EntityType.LegendGreenwoodSchrat :
 		return 1;
 
-	case "this.Const.EntityType.LegendGreenwoodSchratSmall":
+	case this.Const.EntityType.LegendGreenwoodSchratSmall :
 		return 2.5;
 
-	case "this.Const.EntityType.SandGolem":
+	case this.Const.EntityType.SandGolem :
 		return 8;
 
-	case "this.Const.EntityType.Schrat":
+	case this.Const.EntityType.Schrat :
 		return 1;
 
-	case "this.Const.EntityType.SchratSmall":
+	case this.Const.EntityType.SchratSmall :
 		return 5;
 
-	case "this.Const.EntityType.LegendRockUnhold":
+	case this.Const.EntityType.LegendRockUnhold :
 		return 0.5;
 
-	case "this.Const.EntityType.Unhold":
+	case this.Const.EntityType.Unhold :
 		return 2;
 
-	case "this.Const.EntityType.UnholdBog":
+	case this.Const.EntityType.UnholdBog :
 		return 2;
 
-	case "this.Const.EntityType.UnholdFrost":
+	case this.Const.EntityType.UnholdFrost :
 		return 2;
 
-	case "this.Const.EntityType.Hexe":
+	case this.Const.EntityType.Hexe :
 		return 2;
 
-	case "this.Const.EntityType.LegendHexeLeader":
+	case this.Const.EntityType.LegendHexeLeader :
 		return 0.5;
 
-	case "this.Const.EntityType.Spider":
+	case this.Const.EntityType.Spider :
 		return 8;
 
-	// case "this.Const.EntityType.SpiderBodyguard":
+	// case this.Const.EntityType.SpiderBodyguard :
 	// 	return 8;
 
-	case "this.Const.EntityType.SpiderEggs":
+	case this.Const.EntityType.SpiderEggs :
 		return 2;
 
-	case "this.Const.EntityType.LegendRedbackSpider":
+	case this.Const.EntityType.LegendRedbackSpider :
 		return 1;
 
-	case "this.Const.EntityType.Ghoul":
+	case this.Const.EntityType.Ghoul :
 		return 6;
 
-	case "this.Const.EntityType.LegendSkinGhoul":
+	case this.Const.EntityType.LegendSkinGhoul :
 		return 2;
 
-	case "this.Const.EntityType.Hyena":
+	case this.Const.EntityType.Hyena :
 		return 5;
 
-	case "this.Const.EntityType.Direwolf":
+	case this.Const.EntityType.Direwolf :
 		return 5;
 
-	case "this.Const.EntityType.LegendWhiteDirewolf":
+	case this.Const.EntityType.LegendWhiteDirewolf :
 		return 0.5;
 
-	case "this.Const.EntityType.Vampire":
+	case this.Const.EntityType.Vampire :
 		return 4;
 
-	case "this.Const.EntityType.LegendVampireLord":
+	case this.Const.EntityType.LegendVampireLord :
 		return 2;
 
-	case "this.Const.EntityType.LegendMummyLight":
+	case this.Const.EntityType.LegendMummyLight :
 		return 4;
 
-	case "this.Const.EntityType.LegendMummyMedium":
+	case this.Const.EntityType.LegendMummyMedium :
 		return 2;
 
-	case "this.Const.EntityType.LegendMummyHeavy":
+	case this.Const.EntityType.LegendMummyHeavy :
 		return 1;
 
-	case "this.Const.EntityType.LegendMummyQueen":
+	case this.Const.EntityType.LegendMummyQueen :
 		return 0.5;
 
-	case "this.Const.EntityType.LegendMummyPriest":
+	case this.Const.EntityType.LegendMummyPriest :
 		return 0.8;
 
-	case "this.Const.EntityType.SkeletonGladiator":
+	case this.Const.EntityType.SkeletonGladiator :
 		return 2;
 
-	case "this.Const.EntityType.SkeletonPriest":
+	case this.Const.EntityType.SkeletonPriest :
 		return 2;
 
-	case "this.Const.EntityType.SkeletonHeavy":
+	case this.Const.EntityType.SkeletonHeavy :
 		return 2;
 
-	case "this.Const.EntityType.SkeletonMedium":
+	case this.Const.EntityType.SkeletonMedium :
 		return 5;
 
-	case "this.Const.EntityType.SkeletonLight":
+	case this.Const.EntityType.SkeletonLight :
 		return 10;
 
-	case "this.Const.EntityType.LegendDemonHound":
+	case this.Const.EntityType.LegendDemonHound :
 		return 8;
 
-	case "this.Const.EntityType.Ghost":
+	case this.Const.EntityType.Ghost :
 		return 8;
 
-	case "this.Const.EntityType.LegendBanshee":
+	case this.Const.EntityType.LegendBanshee :
 		return 4;
 
-	case "this.Const.EntityType.ZombieBoss":
+	case this.Const.EntityType.ZombieBoss :
 		return 1;
 
-	case "this.Const.EntityType.ZombieBetrayer":
+	case this.Const.EntityType.ZombieBetrayer :
 		return 5;
 
-	case "this.Const.EntityType.ZombieKnight":
+	case this.Const.EntityType.ZombieKnight :
 		return 5;
 
-	case "this.Const.EntityType.ZombieYeoman":
+	case this.Const.EntityType.ZombieYeoman :
 		return 10;
 
-	case "this.Const.EntityType.Zombie":
+	case this.Const.EntityType.Zombie :
 		return 20;
 
-	case "this.Const.EntityType.Necromancer":
+	case this.Const.EntityType.Necromancer :
 		return 4;
 
-	case "this.Const.EntityType.GoblinWolfrider":
+	case this.Const.EntityType.GoblinWolfrider :
 		return 5;
 
-	case "this.Const.EntityType.GoblinShaman":
+	case this.Const.EntityType.GoblinShaman :
 		return 4;
 
-	case "this.Const.EntityType.GoblinLeader":
+	case this.Const.EntityType.GoblinLeader :
 		return 4;
 
-	case "this.Const.EntityType.GoblinFighter":
+	case this.Const.EntityType.GoblinFighter :
 		return 8;
 
-	case "this.Const.EntityType.GoblinAmbusher":
+	case this.Const.EntityType.GoblinAmbusher :
 		return 8;
 
-	case "this.Const.EntityType.OrcYoung":
+	case this.Const.EntityType.OrcYoung :
 		return 6;
 
-	case "this.Const.EntityType.OrcBerserker":
+	case this.Const.EntityType.OrcBerserker :
 		return 5;
 
-	case "this.Const.EntityType.LegendOrcElite":
+	case this.Const.EntityType.LegendOrcElite :
 		return 4;
 
-	case "this.Const.EntityType.OrcWarlord":
+	case this.Const.EntityType.OrcWarlord :
 		return 1;
 
-	case "this.Const.EntityType.LegendOrcBehemoth":
+	case this.Const.EntityType.LegendOrcBehemoth :
 		return 2;
 
-	case "this.Const.EntityType.OrcWarrior":
+	case this.Const.EntityType.OrcWarrior :
 		return 5;
 
-	case "this.Const.EntityType.Militia":
+	case this.Const.EntityType.Militia :
 		return 20;
 
-	case "this.Const.EntityType.MilitiaRanged":
+	case this.Const.EntityType.MilitiaRanged :
 		return 20;
 
-	case "this.Const.EntityType.MilitiaCaptain":
+	case this.Const.EntityType.MilitiaCaptain :
 		return 4;
 
-	case "this.Const.EntityType.MilitiaVeteran":
+	case this.Const.EntityType.MilitiaVeteran :
 		return 5;
 
-	case "this.Const.EntityType.BountyHunter":
+	case this.Const.EntityType.BountyHunter :
 		return 4;
 
-	case "this.Const.EntityType.LegendPeasantButcher":
-	case "this.Const.EntityType.LegendPeasantBlacksmith":
-	case "this.Const.EntityType.LegendPeasantMonk":
-	case "this.Const.EntityType.LegendPeasantFarmhand":
-	case "this.Const.EntityType.LegendPeasantMinstrel":
-	case "this.Const.EntityType.LegendPeasantPoacher":
-	case "this.Const.EntityType.LegendPeasantMiner":
-	case "this.Const.EntityType.LegendPeasantSquire":
-	case "this.Const.EntityType.LegendPeasantWitchHunter":
-	case "this.Const.EntityType.Peasant":
+	case this.Const.EntityType.LegendPeasantButcher :
+	case this.Const.EntityType.LegendPeasantBlacksmith :
+	case this.Const.EntityType.LegendPeasantMonk :
+	case this.Const.EntityType.LegendPeasantFarmhand :
+	case this.Const.EntityType.LegendPeasantMinstrel :
+	case this.Const.EntityType.LegendPeasantPoacher :
+	case this.Const.EntityType.LegendPeasantMiner :
+	case this.Const.EntityType.LegendPeasantSquire :
+	case this.Const.EntityType.LegendPeasantWitchHunter :
+	case this.Const.EntityType.Peasant :
 		return 25; //Just using this for now, they are all pretty much the same in strength aside from the witchunter and squire anyway.
 
-	case "this.Const.EntityType.CaravanHand":
+	case this.Const.EntityType.CaravanHand :
 		return 10;
 
-	case "this.Const.EntityType.CaravanGuard":
+	case this.Const.EntityType.CaravanGuard :
 		return 8;
 
-	case "this.Const.EntityType.Wardog":
-	case "this.Const.EntityType.ArmoredWardog":
+	case this.Const.EntityType.Wardog :
+	case this.Const.EntityType.ArmoredWardog :
 		return 16;
 
-	case "this.Const.EntityType.Mercenary":
-	case "this.Const.EntityType.MercenaryRanged":
+	case this.Const.EntityType.Mercenary :
+	case this.Const.EntityType.MercenaryRanged :
 		return 2;
 
-	case "this.Const.EntityType.HedgeKnight":
+	case this.Const.EntityType.HedgeKnight :
 		return 4;
 
-	case "this.Const.EntityType.MasterArcher":
+	case this.Const.EntityType.MasterArcher :
 		return 2;
 
-	case "this.Const.EntityType.Footman":
+	case this.Const.EntityType.Footman :
 		return 8;
 
-	case "this.Const.EntityType.Greatsword":
+	case this.Const.EntityType.Greatsword :
 		return 4;
 
-	case "this.Const.EntityType.Swordmaster":
+	case this.Const.EntityType.Swordmaster :
 		return 2;
 
-	case "this.Const.EntityType.Billman":
+	case this.Const.EntityType.Billman :
 		return 8;
 
-	case "this.Const.EntityType.Arbalester":
+	case this.Const.EntityType.Arbalester :
 		return 4;
 
-	case "this.Const.EntityType.StandardBearer":
+	case this.Const.EntityType.StandardBearer :
 		return 2;
 
-	case "this.Const.EntityType.Sergeant":
+	case this.Const.EntityType.Sergeant :
 		return 8;
 
-	case "this.Const.EntityType.Knight":
+	case this.Const.EntityType.Knight :
 		return 1;
 
-	case "this.Const.EntityType.LegendSlinger":
+	case this.Const.EntityType.LegendSlinger :
 		return 8;
 
-	case "this.Const.EntityType.LegendHalberdier":
+	case this.Const.EntityType.LegendHalberdier :
 		return 4;
 
-	case "this.Const.EntityType.LegendFencer":
+	case this.Const.EntityType.LegendFencer :
 		return 4;
 
-	case "this.Const.EntityType.BanditRabble":
-	case "this.Const.EntityType.BanditRabblePoacher":
+	case this.Const.EntityType.BanditRabble :
+	case this.Const.EntityType.BanditRabblePoacher :
 		return 40;
 
-	case "this.Const.EntityType.BanditThug":
+	case this.Const.EntityType.BanditThug :
 		return 16;
 
-	case "this.Const.EntityType.BanditPoacher":
+	case this.Const.EntityType.BanditPoacher :
 		return 16;
 
-	case "this.Const.EntityType.BanditMarksman":
+	case this.Const.EntityType.BanditMarksman :
 		return 8;
 
-	case "this.Const.EntityType.BanditRaider":
+	case this.Const.EntityType.BanditRaider :
 		return 8;
 
-	case "this.Const.EntityType.BanditVeteran":
+	case this.Const.EntityType.BanditVeteran :
 		return 5;
 
-	case "this.Const.EntityType.BanditLeader":
+	case this.Const.EntityType.BanditLeader :
 		return 4;
 
-	case "this.Const.EntityType.BanditWarlord":
+	case this.Const.EntityType.BanditWarlord :
 		return 1;
 
-	case "this.Const.EntityType.Warhound":
+	case this.Const.EntityType.Warhound :
 		return 16;
 
-	case "this.Const.EntityType.BarbarianThrall":
+	case this.Const.EntityType.BarbarianThrall :
 		return 10;
 
-	case "this.Const.EntityType.BarbarianMarauder":
+	case this.Const.EntityType.BarbarianMarauder :
 		return 8;
 
-	case "this.Const.EntityType.BarbarianChampion": //Barbarian King
+	case this.Const.EntityType.BarbarianChampion : //Barbarian King
 		return 1;
 
-	case "this.Const.EntityType.BarbarianChosen":
+	case this.Const.EntityType.BarbarianChosen :
 		return 4;
 
-	case "this.Const.EntityType.BarbarianDrummer":
+	case this.Const.EntityType.BarbarianDrummer :
 		return 4;
 
-	case "this.Const.EntityType.BarbarianUnhold":
+	case this.Const.EntityType.BarbarianUnhold :
 		return 2;
 
-	case "this.Const.EntityType.BarbarianUnholdFrost":
+	case this.Const.EntityType.BarbarianUnholdFrost :
 		return 2;
 
-	case "this.Const.EntityType.BarbarianBeastmaster":
+	case this.Const.EntityType.BarbarianBeastmaster :
 		return 4;
 
-	case "this.Const.EntityType.BarbarianMadman":
+	case this.Const.EntityType.BarbarianMadman :
 		return 1;
 
-	case "this.Const.EntityType.Conscript":
+	case this.Const.EntityType.Conscript :
 		return 8;
 
-	case "this.Const.EntityType.Gunner":
+	case this.Const.EntityType.Gunner :
 		return 4;
 
-	case "this.Const.EntityType.Officer":
+	case this.Const.EntityType.Officer :
 		return 2;
 
-	case "this.Const.EntityType.Engineer":
+	case this.Const.EntityType.Engineer :
 		return 1;
 
-	case "this.Const.EntityType.Assassin":
+	case this.Const.EntityType.Assassin :
 		return 2;
 
-	case "this.Const.EntityType.Slave":
+	case this.Const.EntityType.Slave :
 		return 25;
 
-	case "this.Const.EntityType.Gladiator":
+	case this.Const.EntityType.Gladiator :
 		return 2;
 
-	case "this.Const.EntityType.NomadCutthroat":
+	case this.Const.EntityType.NomadCutthroat :
 		return 16;
 
-	case "this.Const.EntityType.NomadOutlaw":
+	case this.Const.EntityType.NomadOutlaw :
 		return 8;
 
-	case "this.Const.EntityType.NomadSlinger":
+	case this.Const.EntityType.NomadSlinger :
 		return 10;
 
-	case "this.Const.EntityType.NomadArcher":
+	case this.Const.EntityType.NomadArcher :
 		return 8;
 
-	case "this.Const.EntityType.NomadLeader":
+	case this.Const.EntityType.NomadLeader :
 		return 4;
 
-	case "this.Const.EntityType.DesertStalker":
+	case this.Const.EntityType.DesertStalker :
 		return 2;
 
-	case "this.Const.EntityType.Executioner":
+	case this.Const.EntityType.Executioner :
 		return 2;
 
-	case "this.Const.EntityType.DesertDevil":
+	case this.Const.EntityType.DesertDevil :
 		return 2;
 
-	case "this.Const.EntityType.PeasantSouthern":
+	case this.Const.EntityType.PeasantSouthern :
 		return 25;
 
-	case "this.Const.EntityType.SatoManhunter":
-	case "this.Const.EntityType.SatoManhunterRanged": //only for escaped slaves origin. Makes sense they are higher %
+	case this.Const.EntityType.SatoManhunter :
+	case this.Const.EntityType.SatoManhunterRanged : //only for escaped slaves origin. Makes sense they are higher %
 		return 4;
 
-	case "this.Const.EntityType.SatoManhunterVeteran":
-	case "this.Const.EntityType.SatoManhunterVeteranRanged": //only for escaped slaves origin. Makes sense they are higher %
+	case this.Const.EntityType.SatoManhunterVeteran :
+	case this.Const.EntityType.SatoManhunterVeteranRanged : //only for escaped slaves origin. Makes sense they are higher %
 		return 2;
 
-	case "this.Const.EntityType.SkeletonLich":
+	case this.Const.EntityType.SkeletonLich :
 		return 1;
 
-	case "this.Const.EntityType.SkeletonLichMirrorImage":
+	case this.Const.EntityType.SkeletonLichMirrorImage :
 		return 0.5;
 
-	case "this.Const.EntityType.SkeletonPhylactery":
+	case this.Const.EntityType.SkeletonPhylactery :
 		return 1;
 
-	case "this.Const.EntityType.SkeletonBoss":
+	case this.Const.EntityType.SkeletonBoss :
 		return 0.25;
 
-	case "this.Const.EntityType.ZombieTreasureHunter":
+	case this.Const.EntityType.ZombieTreasureHunter :
 		return 5;
 
-	case "this.Const.EntityType.FlyingSkull":
+	case this.Const.EntityType.FlyingSkull :
 		return 25;
 
 	default:
@@ -655,8 +655,7 @@ gt.Const.LegendMod.GetFavoriteEnemyStats <- function ( _actor, _types )
 		if (mKills && mKills > 0)
 		{
 			kills += mKills;
-			local troop = this.Const.World.Spawn.TroopsMap[t];
-			str += (mKills * 1.0 / this.Const.LegendMod.GetFavoriteEnemyValue(troop));
+			str += (mKills * 1.0 / this.Const.LegendMod.GetFavoriteEnemyValue(t));
 		}
 	}
 	local hitChance = 5 + (str >= 20 ? 20 : this.Math.floor(str)); // base bonus of 5 and cap total at 25

@@ -439,6 +439,10 @@ gt.Const.EntityType <- {
 	FreeCompanyLeaderLow = 164,
 
 	Oathbringer = 165,
+
+	SatoManhunterRanged = 166,
+	SatoManhunterVeteranRanged = 167,
+
 	/**
 	 * This is used during deserialization of older saves to convert IDs of enemy types to the Legends versions. 
 	 * Not sure if it's still necessary but we can leave it for now.
