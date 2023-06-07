@@ -2133,7 +2133,7 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 	}]
 },{
 	ID = "bandit_armor_light",
-	Script = "scripts/items/armor/bandit_armor_light", //~90-130
+	Script = "", //~90-130
 	Sets = [{
 		Cloth = [
 			[1, "cloth/legend_padded_surcoat"], //55
@@ -2161,7 +2161,7 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 	}]
 },{
 	ID = "bandit_armor_medium",
-	Script = "scripts/items/armor/bandit_armor_medium", //~140-165
+	Script = "", //~140-165
 	Sets = [{
 		Cloth = [
 			[1, "cloth/legend_padded_surcoat"], //55
@@ -2201,7 +2201,7 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 	}]
 },{
 	ID = "bandit_armor_heavy",
-	Script = "scripts/items/armor/bandit_armor_heavy", //~230-315
+	Script = "", //~230-315
 	Sets = [{
 		Cloth = [
 			[1, "cloth/legend_padded_surcoat"], //55
@@ -2237,7 +2237,7 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 	}]
 },{
 	ID = "bandit_armor_ultraheavy",
-	Script = "scripts/items/armor/bandit_armor_ultraheavy", //~255-375
+	Script = "", //~255-375
 	Sets = [{
 		Cloth = [
 			[1, "cloth/legend_padded_surcoat"], //55
