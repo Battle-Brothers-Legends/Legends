@@ -144,7 +144,7 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 				id = 9,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Adds the choked effect which reduces enemy fatigue recovery to 0"
+				text = "Adds the choked effect which reduces enemy fatigue recovery by [color=" + this.Const.UI.Color.NegativeValue + "]15[/color]"
 			});
 		return ret;
 	}
@@ -161,6 +161,24 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 		local mainhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
 		local offhand = this.m.Container.getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Offhand);
 		return mainhand != null || offhand != null && !this.getContainer().hasSkill("effects.disarmed") || this.skill.isHidden() || this.m.Container.getActor().isStabled();
+	}
+
+	function onGetHitFactors( _skill, _targetTile, _tooltip )
+	{
+		if (_skill == this)
+		{
+			local target = _targetTile.getEntity();
+			local actor = this.getContainer().getActor();
+			if (target != null)
+			{
+				local bonus = this.Math.max(0, this.Math.floor((target.getFatiguePct() - actor.getFatiguePct())*100));
+				this.logInfo(bonus);
+				_tooltip.push({
+				icon = "ui/tooltips/positive.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + bonus + "%[/color] damage due to the difference in fatigue"
+			});
+			}
+		}
 	}
 
 	function getHitChance( _targetEntity )

@@ -36,7 +36,7 @@ this.legend_choked_effect <- this.inherit("scripts/skills/skill", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-100%[/color] Fatigue recovered per turn"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-15[/color] Fatigue recovered per turn"
 			}
 		];
 	}
@@ -67,13 +67,18 @@ this.legend_choked_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local actor = this.getContainer().getActor();
-		_properties.FatigueRecoveryRateMult *= 0;
 		if (!actor.hasSprite("status_stunned") && !this.getContainer().hasSkill("effects.stunned"))
 		{
 			actor.getSprite("status_stunned").setBrush("bust_dazed");
 			actor.getSprite("status_stunned").Visible = true;
 			actor.setDirty(true);
 		}
+	}
+
+	function onTurnStart()
+	{
+		local actor = this.getContainer().getActor();
+		actor.setFatigue(actor.m.Fatigue + 15);
 	}
 
 	function onTurnEnd()
