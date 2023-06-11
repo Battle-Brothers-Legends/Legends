@@ -111,7 +111,6 @@ this.starting_scenario <- {
 
 	function onInit()
 	{
-		this.logInfo("bruh");
 		this.m.StaticRelationsToFaction.resize(this.Const.FactionType.len());
 		if (this.World.State.getPlayer() != null)
 		{
@@ -246,7 +245,6 @@ this.starting_scenario <- {
 	function addBroToRoster(_roster, background, chance)
 	{
 		local multiplier = 1;
-		this.logInfo(_roster.getAll().len());
 		if (_roster.getAll().len() < 8)
 		{
 			multiplier = 2; // Short little change to make these spawns less common in tiny villages
