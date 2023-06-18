@@ -1123,6 +1123,15 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 			this.m.RiderID = _in.readString();
 		}
 
+		local old_onMovementStart = o.onMovementStart;
+		o.onMovementStart = function(_tile, _numTiles)
+		{
+			local oldID = ::Const.Movement.HiddenStatusEffectID;
+			::Const.Movement.HiddenStatusEffectID = "effects.lol_nothing"; //necro encouraged this
+			old_onMovementStart(_tile, _numTiles);
+			::Const.Movement.HiddenStatusEffectID = oldID;
+		}
+
 		// local onResurrected = o.onResurrected;
 		// o.onResurrected = function ( _info )
 		// {

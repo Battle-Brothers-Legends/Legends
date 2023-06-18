@@ -13,7 +13,7 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsActive = false;
 		this.m.IsHidden = false;
 		this.m.IsSerialized = false;
-		this.m.IsRemovedAfterBattle = true; // the old legend_hidden_effect has this line but was missing, required? 
+//		this.m.IsRemovedAfterBattle = true; // the old legend_hidden_effect has this line but was missing, required?
 	}
 
 	function getDescription()
@@ -150,13 +150,15 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 		//actor.setDirty(true);
 		//foreach (i in actor.getItems().getAllItems())
 		//	i.updateAppearance();
-		if (actor.getTile().IsVisibleForPlayer)
-		{
-			if (this.Const.Tactical.HideParticles.len() != 0)
+		if (!::Tactical.State.isBattleEnded() && actor.isPlacedOnMap()){
+			if (actor.getTile().IsVisibleForPlayer)
 			{
-				for( local i = 0; i < this.Const.Tactical.HideParticles.len(); i = ++i )
+				if (this.Const.Tactical.HideParticles.len() != 0)
 				{
-					this.Tactical.spawnParticleEffect(false, this.Const.Tactical.HideParticles[i].Brushes, actor.getTile(), this.Const.Tactical.HideParticles[i].Delay, this.Const.Tactical.HideParticles[i].Quantity, this.Const.Tactical.HideParticles[i].LifeTimeQuantity, this.Const.Tactical.HideParticles[i].SpawnRate, this.Const.Tactical.HideParticles[i].Stages);
+					for( local i = 0; i < this.Const.Tactical.HideParticles.len(); i = ++i )
+					{
+						this.Tactical.spawnParticleEffect(false, this.Const.Tactical.HideParticles[i].Brushes, actor.getTile(), this.Const.Tactical.HideParticles[i].Delay, this.Const.Tactical.HideParticles[i].Quantity, this.Const.Tactical.HideParticles[i].LifeTimeQuantity, this.Const.Tactical.HideParticles[i].SpawnRate, this.Const.Tactical.HideParticles[i].Stages);
+					}
 				}
 			}
 		}
@@ -196,6 +198,12 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 			this.getContainer().getActor().setHidden(false);
 			this.removeSelf();
 		}
+	}
+
+	function onCombatFinished()
+	{
+		this.removeSelf();
+		this.m.IsHidden = true;
 	}
 });
 
