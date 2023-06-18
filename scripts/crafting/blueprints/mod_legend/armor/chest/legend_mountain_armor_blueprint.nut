@@ -31,11 +31,6 @@ this.legend_mountain_armor_blueprint <- this.inherit("scripts/crafting/blueprint
 			Num = 1,
 			LegendsArmor = true
 		});
-		ingredients.push({
-			Script = "scripts/items/armor/coat_of_plates",
-			Num = 1,
-			LegendsArmor = false
-		});
 		this.init(ingredients);
 	}
 

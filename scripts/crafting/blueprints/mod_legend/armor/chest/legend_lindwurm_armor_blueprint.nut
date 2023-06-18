@@ -28,11 +28,6 @@ this.legend_lindwurm_armor_blueprint <- this.inherit("scripts/crafting/blueprint
 			Num = 1,
 			LegendsArmor = true
 		})
-		ingredients.push({
-			Script = "scripts/items/armor/coat_of_scales",
-			Num = 1,
-			LegendsArmor = false
-		})
 		this.init(ingredients);
 	}
 

@@ -23,11 +23,6 @@ this.legend_skin_armor_blueprint <- this.inherit("scripts/crafting/blueprint", {
 			Num = 1,
 			LegendsArmor = true
 		})
-		ingredients.push({
-			Script = "scripts/items/armor/mail_hauberk",
-			Num = 1,
-			LegendsArmor = false
-		})
 
 	    this.init(ingredients); // uncommented this line to fix it showing up in taxidermist with no ingredients needed. Abyss 3/17/23
 		// local skills = [

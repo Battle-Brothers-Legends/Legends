@@ -167,5 +167,13 @@ this.legend_rune <- this.inherit("scripts/crafting/blueprint", {
 			//rune.updateRuneSigilToken();
 			_stash.add(rune);
 		}
+		else
+		{
+			local rune =  this.new("scripts/items/rune_sigils/legend_vala_inscription_token");
+			rune.setRuneVariant(this.m.Rune);
+			rune.setRuneBonus(_bonus);
+			rune.updateRuneSigilToken();
+			_stash.add(rune);
+		}
 	}
 });

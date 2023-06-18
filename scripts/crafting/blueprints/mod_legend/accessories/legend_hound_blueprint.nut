@@ -10,11 +10,7 @@ this.legend_hound_blueprint <- this.inherit("scripts/crafting/blueprint", {
 		local ingredients = [
 			{
 				Script = "scripts/items/accessory/warhound_item",
-				Num = 1
-			},
-			{
-				Script = "scripts/items/accessory/warhound_item",
-				Num = 1
+				Num = 2
 			},
 			{
 				Script = "scripts/items/supplies/legend_fresh_meat_item",

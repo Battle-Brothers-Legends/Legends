@@ -38,6 +38,10 @@ this.blueprint <- {
 
 	function getIcon()
 	{
+		if (this.m.PreviewCraftable.getIcon() == "layers/named_icon_glow.png")
+		{
+			return this.m.PreviewCraftable.m.Icon;
+		}
 		return this.m.PreviewCraftable.getIcon();
 	}
 
