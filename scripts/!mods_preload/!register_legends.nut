@@ -1,6 +1,6 @@
 ::Legends <- {
 	ID = "mod_legends",
-	Version = "16.4.2",
+	Version = "16.4.3",
 	Name = "Legends Mod",
 	BuildName = "Blood & Brawling"
 };
