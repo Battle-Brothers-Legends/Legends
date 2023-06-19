@@ -175,31 +175,10 @@ this.legend_white_direwolf <- this.inherit("scripts/entity/tactical/actor", {
 	
 					local loot = this.new("scripts/items/misc/legend_white_wolf_pelt_item");
 					loot.drop(_tile);
-					local loot = this.new("scripts/items/loot/sabertooth_item");
-					loot.drop(_tile);
-					local loot = this.new("scripts/items/loot/valuable_furs_item");
-					loot.drop(_tile);
-					local loot = this.new("scripts/items/supplies/strange_meat_item");
-					loot.drop(_tile);
-					if (this.Math.rand(1, 100) <= 33)
-					{
-					local loot = this.new("scripts/items/loot/sabertooth_item");
-					loot.drop(_tile);
-					}	
-					if (this.Math.rand(1, 100) <= 33)
-					{
-					local loot = this.new("scripts/items/loot/valuable_furs_item");
-					loot.drop(_tile);
-					}						
-					if (this.Math.rand(1, 100) <= 33)
-					{
-					local loot = this.new("scripts/items/supplies/strange_meat_item");
-					loot.drop(_tile);
-					}
 
-					if (this.Math.rand(1, 100) <= 20)
+					if (this.Math.rand(1, 100) <= 33)
 					{
-						local loot = this.new("scripts/items/misc/legend_white_wolf_pelt_item");
+						local loot = this.new("scripts/items/supplies/strange_meat_item");
 						loot.drop(_tile);
 					}
 				}

@@ -6,7 +6,7 @@ this.insecure_trait <- this.inherit("scripts/skills/traits/character_trait", {
 		this.m.ID = "trait.insecure";
 		this.m.Name = "Insecure";
 		this.m.Icon = "ui/traits/trait_icon_03.png";
-		this.m.Description = "I can\'t do it! This character cowers, dodges and could use a bit more self confidence.";
+		this.m.Description = "I can\'t do it! This character could use a bit more self confidence.";
 		this.m.Excluded = [
 			"trait.fearless",
 			"trait.brave",
@@ -43,26 +43,8 @@ this.insecure_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				type = "text",
 				icon = "ui/icons/morale.png",
 				text = "Will never be of confident morale"
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Melee Defense"
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Ranged Defense"
 			}
 		];
-	}
-
-	function onUpdate( _properties )
-	{
-		_properties.MeleeDefenseMult *= 1.05;
-		_properties.RangedDefenseMult *= 1.05;
 	}
 
 });

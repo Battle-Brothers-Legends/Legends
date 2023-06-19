@@ -49,7 +49,7 @@ this.addict_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				id = 12,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Melee Skill"
 			});
 			ret.push({
 				id = 13,
@@ -121,7 +121,7 @@ this.addict_trait <- this.inherit("scripts/skills/traits/character_trait", {
 		if (isAffected)
 		{
 			_properties.BraveryMult *= 0.9;
-			_properties.MeleeSkillMult *= 1.1;
+			_properties.MeleeSkillMult *= 0.9;
 			_properties.RangedSkillMult *= 0.9;
 			_properties.MeleeDefenseMult *= 0.9;
 			_properties.RangedDefenseMult *= 0.9;

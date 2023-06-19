@@ -163,12 +163,7 @@ gt.Const.Tactical.TileBlendPriority <- {
 	Desert7 = 36,
 	Desert3 = 37,
 	Desert4 = 38,
-	Swampgreen1 = 39,
-	Swampgreen2 = 40,
-	Swampgreen3 = 41,
-	Swampgreen4 = 42,
-	Swampgreen5 = 43,
-	COUNT = 44
+	COUNT = 39
 };
 gt.Const.Tactical.TerrainType <- {
 	Impassable = 0,

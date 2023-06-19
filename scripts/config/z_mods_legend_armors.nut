@@ -1347,63 +1347,7 @@ gt.Const.LegendMod.ArmorObjs.extend([{
 		Tabard = [
 		],
 		Attachments =[
-			[5, ""],
-			[5, "armor_upgrades/legend_leather_neckguard_upgrade"],
-			[5, "armor_upgrades/legend_mail_patch_upgrade"],
-			[2, "armor_upgrades/legend_joint_cover_upgrade"]
-		]
-	}]
-},{
-	ID = "legend_noble_guard_armour",
-	Script = "",
-	Sets = [{
-		Cloth = [
-			[1, "cloth/legend_tunic_noble"],
-		],
-		Chain = [
-			[1, "chain/legend_armor_reinforced_mail"],
-		],
-		Plate = [
-			[1, "chain/legend_armor_plate_krastenbrust"],
-			[1, "chain/legend_armor_plate_full"],
-		],
-		Cloak = [
-			[3, ""],
-			[1, "chain/legend_armor_cloak_heavy"],
-		],
-		Tabard = [
-		[2, "tabard/legend_armor_noble_tabard"],
-		],
-		Attachments =[
-		]
-	}]
-
-},{
-	ID = "man_at_arms_noble_armor", 
-	Script = "",
-	Sets = [{
-		Cloth = [
-			[1, "cloth/legend_gambeson_named"]
-		],
-		Chain = [
-			[1, "chain/legend_armor_hauberk"],
-			[1, "chain/legend_armor_hauberk_full"]
-			
-		],
-		Plate = [
-			[1, "plate/legend_armor_plate_milanese"],
-			[1, "plate/legend_armor_plate_triangle"],
-			[1, "plate/legend_armor_plate_full_greaves"],
-		],
-		Cloak = [
-		[2, ""],
-		[2, "cloak/legend_armor_cloak_noble"],
-		],
-		Tabard = [
-		[2, "tabard/legend_armor_noble_tabard"],
-		],
-		Attachments =[
-			[5, ""],
+			[15, ""],
 			[5, "armor_upgrades/legend_leather_neckguard_upgrade"],
 			[5, "armor_upgrades/legend_mail_patch_upgrade"],
 			[2, "armor_upgrades/legend_joint_cover_upgrade"]

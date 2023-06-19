@@ -1,7 +1,6 @@
 this.childrens_crusade_event <- this.inherit("scripts/events/event", {
 	m = {
 		Monk = null,
-		Doubter = null,
 		Traveller = null
 	},
 	function create()
@@ -33,18 +32,6 @@ this.childrens_crusade_event <- this.inherit("scripts/events/event", {
 						function getResult( _event )
 						{
 							return "Monk";
-						}
-
-					});
-				}
-			
-				if (_event.m.Doubter != null)
-				{
-					this.Options.push({
-						Text = "%doubter%, you\'ve travelled up there. Say something.",
-						function getResult( _event )
-						{
-							return "Doubter";
 						}
 
 					});
@@ -156,84 +143,6 @@ this.childrens_crusade_event <- this.inherit("scripts/events/event", {
 					if (bro.getID() != _event.m.Monk.getID() && this.Math.rand(1, 100) <= 25)
 					{
 						bro.improveMood(0.5, "Glad that " + _event.m.Monk.getName() + " saved children from certain doom");
-
-						if (bro.getMoodState() >= this.Const.MoodState.Neutral)
-						{
-							this.List.push({
-								id = 10,
-								icon = this.Const.MoodStateIcon[bro.getMoodState()],
-								text = bro.getName() + this.Const.MoodStateEvent[bro.getMoodState()]
-							});
-						}
-					}
-				}
-			}
-
-		});
-		this.m.Screens.push({
-			ID = "Doubter",
-			Text = "[img]gfx/ui/events/legend_doubter_kids.png[/img]Looking grizzled and sad %doubter% approaches the kids, gets on a knee down at their level and speaks directly. He encourages them to march on, saying that the heartless fires of war needed their bodies as kindling. He speaks of the inevitability of death, the gruesome horrors of violence, the certainty of injury, a lifetimes of disability for the victors, and the endless entropy which tears at the bodies and souls of fragile humans.  The children stare mouths agape in horror, one cries and another runs. Their crusade is over.",
-			Image = "",
-			List = [],
-			Characters = [],
-			Options = [
-				{
-					Text = "Always the life of the party.",
-					function getResult( _event )
-					{
-						return 0;
-					}
-
-				}
-			],
-			function start( _event )
-			{
-				this.Characters.push(_event.m.Doubter.getImagePath());
-				this.World.Assets.addMoralReputation(1);
-				local resolve = this.Math.rand(1, 2);
-				_event.m.Doubter.getBaseProperties().Bravery += resolve;
-				_event.m.Doubter.getSkills().update();
-				this.List.push({
-					id = 16,
-					icon = "ui/icons/bravery.png",
-					text = _event.mDoubter.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + resolve + "[/color] Resolve"
-				});
-				_event.m.Doubter.improveMood(1.0, "Saved some children from certain doom");
-
-				if (_event.m.Doubter.getMoodState() >= this.Const.MoodState.Neutral)
-				{
-					this.List.push({
-						id = 10,
-						icon = this.Const.MoodStateIcon[_event.m.Doubter.getMoodState()],
-						text = _event.m.Doubter.getName() + this.Const.MoodStateEvent[_event.m.Traveller.getMoodState()]
-					});
-				}
-				this.List.push({
-						id = 10,
-						icon = "ui/icons/asset_moral_reputation.png",
-						text = "The company\'s moral reputation increases"
-					});
-
-				local brothers = this.World.getPlayerRoster().getAll();
-
-				foreach( bro in brothers )
-				{
-					if (bro.getID() != _event.m.Doubter.getID() && this.Math.rand(1, 100) <= 25)
-					{
-						bro.worsenMood(1.0, "Remembers what " + _event.m.Doubter.getName() + " said about certain doom");
-
-						if (bro.getMoodState() <= this.Const.MoodState.Neutral)
-						{
-							this.List.push({
-								id = 10,
-								icon = this.Const.MoodStateIcon[bro.getMoodState()],
-								text = bro.getName() + this.Const.MoodStateEvent[bro.getMoodState()]
-							});
-						}
-					}
-					if (bro.getID() != _event.m.Doubter.getID() && this.Math.rand(1, 100) <= 25)
-					{
-						bro.improveMood(0.5, "Glad that " + _event.m.Doubter.getName() + " saved children from certain doom");
 
 						if (bro.getMoodState() >= this.Const.MoodState.Neutral)
 						{
@@ -410,7 +319,6 @@ this.childrens_crusade_event <- this.inherit("scripts/events/event", {
 
 		local brothers = this.World.getPlayerRoster().getAll();
 		local candidates_monk = [];
-		local candidates_doubter = [];
 		local candidates_traveller = [];
 
 		foreach( bro in brothers )
@@ -423,10 +331,6 @@ this.childrens_crusade_event <- this.inherit("scripts/events/event", {
 			{
 				candidates_traveller.push(bro);
 			}
-			else if (bro.getSkills().hasSkill("trait.double_tongued"))
-			{
-				candidates_doubter.push(bro);
-			}
 		}
 
 		if (candidates_monk.len() != 0)
@@ -438,12 +342,7 @@ this.childrens_crusade_event <- this.inherit("scripts/events/event", {
 		{
 			this.m.Traveller = candidates_traveller[this.Math.rand(0, candidates_traveller.len() - 1)];
 		}
-		
-		if (candidates_doubter.len() != 0)
-		{
-			this.m.Doubter = candidates_doubter[this.Math.rand(0, candidates_doubter.len() - 1)];
-		}
-		
+
 		this.m.Score = 5;
 	}
 
@@ -457,18 +356,12 @@ this.childrens_crusade_event <- this.inherit("scripts/events/event", {
 			"walker",
 			this.m.Traveller != null ? this.m.Traveller.getName() : ""
 		]);
-		_vars.push([
-			"doubter",
-			this.m.Doubter != null ? this.m.Doubter.getName() : ""
-		]);
-	}
 	}
 
 	function onClear()
 	{
 		this.m.Monk = null;
 		this.m.Traveller = null;
-		this.m.Doubter = null;
 	}
 
 });

@@ -12,7 +12,7 @@ this.legend_vala_inscription_token <- this.inherit("scripts/items/item", {
 		this.m.IsDroppedAsLoot = true;
 		this.m.IsAllowedInBag = false;
 		this.m.IsUsable = true;
-		this.m.Value = 100;
+		this.m.Value = 1200;
 	}
 
 	function getTooltip()

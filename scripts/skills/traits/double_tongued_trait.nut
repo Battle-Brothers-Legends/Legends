@@ -32,20 +32,8 @@ this.double_tongued_trait <- this.inherit("scripts/skills/traits/character_trait
 				id = 10,
 				type = "text",
 				icon = "ui/icons/morale.png",
-				text = "Has a [color=" + this.Const.UI.Color.NegativeValue + "]5%[/color] chance to start ranting about the inevitability of entropy and depress company morale at the start of a combat"
+				text = "Has a [color=" + this.Const.UI.Color.NegativeValue + "]10%[/color] chance to depress company morale at the start of a combat"
 			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/morale.png",
-				text = "Mercenaries who are Pessimistic, Superstitious, Paranoid, Traumatized, or have a Deathwish are strangely inspired by these dark speeches and gain [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Action Points"
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/morale.png",
-				text = "Considers death unavoidable, experiences no morale check when allies die"
-			}
 		];
 	}
 	
@@ -53,39 +41,28 @@ this.double_tongued_trait <- this.inherit("scripts/skills/traits/character_trait
 	{
 		this.skill.onCombatStarted();
 		
-		if (this.Math.rand(1, 20) <= 1)
+		if (this.Math.rand(1, 10) < 10)
 		{
-			local allies = this.Tactical.Entities.getInstancesOfFaction(this.getContainer().getActor().getFaction());
-			local ownID = this.getContainer().getActor().getID();
-
-			foreach( ally in allies )
-			{
-
-				if (ally.getID() == ownID)
-				{
-					continue;
-				}
-				if (ally.getSkills().hasSkill("trait.double_tongued") || ally.getSkills().hasSkill("trait.deathwish") || ally.getSkills().hasSkill("trait.superstitious") || ally.getSkills().hasSkill("trait.paranoid") || ally.getSkills().hasSkill("trait.pessimist") || ally.getSkills().hasSkill("injury.traumatized"))
-				{
-					ally.getSkills().add(this.new("scripts/skills/effects/legend_cheered_on_effect"));
-					
-					continue;
-				}		
-				
-				local ally_morale = ally.getMoraleState();
-				
-				if (ally_morale > this.Const.MoraleState.Fleeing)
-				{
-					ally.setMoraleState(ally_morale - 1);
-				}
-			}
+			return;
 		}
 		
+		local allies = this.Tactical.Entities.getInstancesOfFaction(this.getContainer().getActor().getFaction());
+		local ownID = this.getContainer().getActor().getID();
 
+		foreach( ally in allies )
+		{
+			if (ally.getID() == ownID)
+			{
+				continue;
+			}		
+			local ally_morale = ally.getMoraleState();
+			
+			if (ally_morale > this.Const.MoraleState.Fleeing)
+			{
+				ally.setMoraleState(ally_morale - 1);
+			}
+		}
 	}	
-	function onUpdate( _properties )
-	{
-		_properties.IsAffectedByDyingAllies = false;
-	}
+
 });
 

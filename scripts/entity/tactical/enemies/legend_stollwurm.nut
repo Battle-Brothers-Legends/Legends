@@ -160,75 +160,28 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 					{
 						local r = this.Math.rand(1, 100);
 						local loot;
-						loot = this.new("scripts/items/misc/legend_stollwurm_scales_item");
-						loot.drop(_tile);
+
 						if (r <= 35)
 						{
 							loot = this.new("scripts/items/misc/legend_stollwurm_blood_item");
-							loot.drop(_tile);
 						}
 						else if (r <= 70)
 						{
 							loot = this.new("scripts/items/misc/legend_stollwurm_scales_item");
-							loot.drop(_tile);
 						}
 						else
 						{
 							loot = this.new("scripts/items/misc/lindwurm_bones_item");
-							loot.drop(_tile);
 						}
-						local r = this.Math.rand(1, 100);
-						if (r <= 30)
-						{
-							loot = this.new("scripts/items/misc/legend_stollwurm_blood_item");
-							loot.drop(_tile);
-						}
-						local r = this.Math.rand(1, 100);
-						if (r <= 30)
-						{
-							loot = this.new("scripts/items/misc/lindwurm_bones_item");
-							loot.drop(_tile);
-						}						
-						
 
 						loot.drop(_tile);
 
-						local chance = 50;
+						local chance = 10;
 						if (this.LegendsMod.Configs().LegendMagicEnabled())
 						{
 							chance = 100;
 						}
-						if (this.LegendsMod.Configs().LegendArmorsEnabled())
-						{
-							local rune;
-							local variant = this.Math.rand(21, 23)
-							switch (variant)
-							{
-								case 21:
-								rune = this.new("scripts/items/legend_armor/runes/legend_rune_endurance");
-								break;
 
-								case 22:
-								rune = this.new("scripts/items/legend_armor/runes/legend_rune_safety");
-								break
-
-								case 23:
-								rune = this.new("scripts/items/legend_armor/runes/legend_rune_resilience");
-								break
-							}
-							rune.setRuneVariant(variant);
-							rune.setRuneBonus(true);
-							rune.setRuneVariant(0);
-							rune.drop(_tile);
-						}
-						else
-						{
-							local token = this.new("scripts/items/rune_sigils/legend_vala_inscription_token");
-							token.setRuneVariant(this.Math.rand(21, 23));
-							token.setRuneBonus(true);
-							token.updateRuneSigilToken();
-							token.drop(_tile);
-							}
 						if (this.Math.rand(1, 100) <= chance)
 						{
 							local rune;

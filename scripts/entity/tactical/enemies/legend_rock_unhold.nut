@@ -175,7 +175,7 @@ this.legend_rock_unhold <- this.inherit("scripts/entity/tactical/actor", {
 				local r = this.Math.rand(1, 100);
 				local loot;
 
-				if (r <= 30)
+				if (r <= 50)
 				{
 					loot = this.new("scripts/items/misc/legend_rock_unhold_bones_item");
 				}
@@ -185,21 +185,6 @@ this.legend_rock_unhold <- this.inherit("scripts/entity/tactical/actor", {
 				}
 
 				loot.drop(_tile);
-				if (r <= 50)
-				{
-					loot = this.new("scripts/items/misc/unhold_heart_item");
-					loot.drop(_tile);
-				}
-				if (r <= 50)
-				{
-					loot = this.new("scripts/items/misc/unhold_hide_item");
-					loot.drop(_tile);
-				}
-				if (r <= 50)
-				{
-					loot = this.new("scripts/items/misc/unhold_bones_item");
-					loot.drop(_tile);
-				}
 			}
 
 			if (this.Math.rand(1, 100) <= 33)

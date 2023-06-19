@@ -6,18 +6,17 @@ if (!("Strings" in gt.Const))
 }
 
 gt.Const.Strings.PayTavernRoundIntro <- [
-	"The company cheer your name as they drink.",
-	"The company drink to fallen comrades.",
-	"The company cheer the company name as they drink.",
-	"The company drink to love and lust.",
-	"The company cheer the good days to come",
-	"The company drink to the loyal wardogs.",
-	"Laughter and light-hearted stories fills the tavern as your company drink.",
-	"Hard mercenary life takes a rest as the company share stories of their past lives and enjoy themselves.",
-	"\'Huzzah to the commander!\', the company shout.",
-	"Your company boast with their accomplishments as they drink.",
+	"The men cheer your name as they drink.",
+	"The men drink to fallen comrades.",
+	"The men cheer the company name as they drink.",
+	"The men drink to women and their bosoms.",
+	"The men drink to the loyal wardogs.",
+	"Laughter and light-hearted stories fills the tavern as your men drink.",
+	"Hard mercenary life takes a rest as the men share stories of their past lives and enjoy themselves.",
+	"\'Huzzah to the commander!\', the men shout.",
+	"Your men boast with their accomplishments as they drink.",
 	"The strong drinks blur the horrors of combat for a while.",
-	"Your company cheer and toast to riches and a long life.",
+	"Your men cheer and toast to riches and a long life.",
 	"The beer makes the hardships of the day disappear."
 ];
 gt.Const.Strings.PayTavernRumorsIntro <- [
@@ -38,9 +37,9 @@ gt.Const.Strings.RumorsLocation <- [
 ];
 gt.Const.Strings.RumorsContract <- [
 	"I\'ve heard the council of %settlement% is looking to hire mercenaries %direction%  of here. Don\'t know what for.",
-	"A group of young lads left %direction% for %settlement% some days ago. They\'re looking to hire armed fighters over there, willing to pay real good. I just hope they make it back alive.",
+	"A group of young lads left %direction% for %settlement% some days ago. They\'re looking to hire armed men over there, willing to pay real good. I just hope they make it back alive.",
 	"If you lot is looking for work, I\'ve heard that they\'re hiring sellswords over at %settlement% to the %direction%.",
-	"You heard that they\'re looking to hire fighting folk at %settlement%? its %direction% from here",
+	"You heard that they\'re looking to hire fighting men at %settlement%? its %direction% from here",
 	"Some guy from %settlement% was here just the other day, wanted to hire strong lads for some problem they have over there. Don\'t think many went %direction% with him, though.",
 	"Mercenaries, eh? We got a few of those these days. Just some days ago a bunch that called themselves %randommercenarycompany% travelled through. On their way %direction%  to %settlement%, they said, good coin to be made there.",
 	"If it\'s work you\'re looking for, they\'re taking crowns in to the %direction% over at %settlement% to hire strong men.",
@@ -124,12 +123,12 @@ gt.Const.Strings.RumorsMilitary <- [
 	"I prefer fighting with my flail. Hard to defend against and it don\'t matter if they carry a shield, I\'ll just swing around it and make pulp of their head!",
 	"Damn nigh impossible to find a reliable shield \'round here, bloody things keep breaking in two. Been keeping a spare on me back now just incase. I should charge more for fighting men with axes, ha!",
 	"One day I\'ll be standard bearer of the company. It\'s only the bravest of us all and they\'ve been with the company for years and years, y\'know, but it\'s the greatest honor for a man with common blood. I\'ve seen even a knight once shake the hand of ours.",
-	"I\'ve trained militia before, and let me tell you, spears are the best weapons for when the soldiers don\'t know what they\'re doing yet. Cheap and easy to hit with. Put a few folk together for a spearwall and it\'s hard to even get close to them without a spear in your belly.",
-	"Ever fought goblins? Nastly little buggers, don\'t be fooled by their size. I\'d take large kite shields to protect the fighters from their arrows. And a pack of wardogs to run them down as they scatter, if you can afford it."
+	"I\'ve trained militia before, and let me tell you, spears are the best weapons for when the men don\'t know what they\'re doing yet. Cheap and easy to hit with. Put a few men together for a spearwall and it\'s hard to even get close to them without a spear in your belly.",
+	"Ever fought goblins? Nastly little buggers, don\'t be fooled by their size. I\'d take large kite shields to protect the men from their arrows. And a pack of wardogs to run them down as they scatter, if you can afford it."
 ];
 gt.Const.Strings.RumorsMiningSettlement <- [
 	"The other day my pickaxe broke while I was hammering away. Piece of it clipped my cheek. Not much and I\'d be missing an eye!",
-	"The mines are a real deathtrap, we\'re losing folk every week. Even venturing with you might be better for longevity, ha!",
+	"The mines are a real deathtrap, we\'re losing men every week. Even venturing with you might be better for longevity, ha!",
 	"Working the mines has its merits, too, you know. We never get wet from the rain, it\'s just the dust that kills you eventually.",
 	"Hit a rock with my pick once — before you laugh it started movin\' on its own, damn almost killed me!"
 	"In the other mine shaft, %randomname% found a nugget the size of me fist! The overseer got to him before he could hide it, though."
@@ -144,8 +143,8 @@ gt.Const.Strings.RumorsFarmingSettlement <- [
 ];
 gt.Const.Strings.RumorsFishingSettlement <- [
 	"The sea is a fickle mistress. One moment it is as calm as a mirror and the next you find yourself in a tempest fighting for your life.",
-	"Nobody knows what lives in the deep black waters, but you hear the old fishers talk about giant fish larger than any ship, tentacles that crush boats like they were nutshells, and evil, dead eyes under the surface.",
-	"Some of the old fishers will tell you that those lost at sea are cursed to walk the seabed, only to be released if they drag others down to take their place. Priest says it ain\'t true, but I don\'t know. What are the elders telling it for, then?",
+	"Nobody knows what lives in the deep black waters, but you hear the old fishermen talk about giant fish larger than any ship, tentacles that crush boats like they were nutshells, and evil, dead eyes under the surface.",
+	"Some of the old fishermen will tell you that those lost at sea are cursed to walk the seabed, only to be released if they drag others down to take their place. Priest says it ain\'t true, but I don\'t know. What are the elders telling it for, then?",
 	"The biggest fish of my catch I always place in front of %randomfemalename%\'s door to woo her. Some day I\'m going to reveal myself as her secret admirer and ask for her hand!"
 ];
 gt.Const.Strings.RumorsForestSettlement <- [
@@ -165,7 +164,7 @@ gt.Const.Strings.RumorsTundraSettlement <- [
 	"If you\'re up in the mountains and see one of the rocks move, just run, stranger. It ain\'t worth your life to gawk at.",
 	"The clans and families in these parts are still strong and define who we are. Those nancy southern folks will never understand how things work here in the north.",
 	"If you\'re looking to make a quick coin with some trades look around for furs. The ones from around here are the best far and wide.",
-	"You came to the right place if you\'re looking for able bodies to bolster your company. Us northern folk are strong, rugged and honest!"
+	"You came to the right place if you\'re looking for able men to bolster your company. Us northern folk are strong, rugged and honest!"
 ];
 gt.Const.Strings.RumorsSnowSettlement <- [
 	"The best remedy against biting winds and freezing cold can be found right here: Beer and mead!",
@@ -178,11 +177,11 @@ gt.Const.Strings.RumorsSnowSettlement <- [
 	"Four winters. Four winters since I saw a chance for quick coin and raided a roadside chapel. Put the iron to a holy man that tried to hold me back; now no amount of crowns can repay the debt that my spirit owes."
 ];
 gt.Const.Strings.RumorsSteppeSettlement <- [
-	"You folks must be sweating like pigs under all that armor. Maybe you should travel when the moon is out?",
+	"You men must be sweating like pigs under all that armor. Maybe you should travel when the moon is out?",
 	"Let me tell you, the southern wine is the best you can find in all the lands. But you better start bashing in some heads or whatever it is you do so you can afford the good stuff, because it doesn\'t come cheap.",
 	"A trader from the north got lost in the steppe the other week. He made it back but did not stop fantasizing about some lake he discovered surrounded by lush plants and strange animals.",
 	"Saw a differant kind of worm eat a caravan donkey today. Looked mean it did.",
-	"Tell your company to keep their mitts off of the innkeeper\'s daughter. The last lover boy who tried something had his nose cut right off.",
+	"Tell your men to keep their mitts off of the innkeeper\'s daughter. The last lover boy who tried something had his nose cut right off.",
 	"I\'m from up north originally, moved to %townname% just some years ago. Never could stand the cold; snow and wind, day in and out. So one day I just said to myself, %randomname%, I said, go where the sun warms the earth and you\'re not shivering every time you go out to collect fire wood. And so I did. Didn\'t regret it since."
 ];
 gt.Const.Strings.RumorsSwampSettlement <- [
@@ -280,13 +279,13 @@ gt.Const.Strings.RumorsItemsBarbarians <- [
 	],
 	[
 		"Hark! A tribe of uncultured barbarians has been seen %direction% of here with a shield called %item% in their dirty hands! Slay them and get it back!",
-		"A friend of a friend spotted some wildlings in the distance %direction% of here. He swears they carried a finely crafted shield. I call horseshit, as everbody knows they do not use shields like we do!",
+		"A friend of a friend spotted some wildmen in the distance %direction% of here. He swears they carried a finely crafted shield. I call horseshit, as everbody knows they do not use shields like we do!",
 		"Only a good defense allows for a strong offense they say. Rumors has it, a band of barbarians %distance% to the %direction% are in the possession of a famed shield...",
 		"I used to be trading with some of the not-so-wild barbarians %direction% of here. When I last visited them there was a magnificent shield hanging in one of their huts. They might still be hanging out there %terrain%."
 	],
 	[
 		"You look like you could use some better armor, my friend. If you are not scared of taking on fierce barbarians, there is a mighty fine armor to be claimed in one of their camps called %location%, %terrain% %direction% of here.",
-		"The famed %item% has been guarded in the armory for decades, but when the wildlings from the north came they took everything with them. They are said to be camping out somewhere %terrain% %distance% from here.",
+		"The famed %item% has been guarded in the armory for decades, but when the wild men from the north came they took everything with them. They are said to be camping out somewhere %terrain% %distance% from here.",
 		"I came here to pick up an heirloom from my late grandfather just to get to know it has been stolen by marauding barbarians. They are said to loiter somewhere %terrain% %direction% of here, but I fear I will never get it back.",
 		"Are you also here to look for %item% like all those other fools? It is said to lie somewhere %terrain% %direction%. Nothing but hogwash if you ask me..."
 	]

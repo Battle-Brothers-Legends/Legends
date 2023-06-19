@@ -153,11 +153,6 @@ this.main_menu_state <- this.inherit("scripts/states/state", {
 					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_line_battle_kobolds"));
 					break;
 
-				case 12:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_line_battle_nobles"));
-					break;
-
-
 				case 13:
 					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_wolfriders"));
 					break;
@@ -547,7 +542,7 @@ this.main_menu_state <- this.inherit("scripts/states/state", {
 			},
 			{
 				id = 9,
-				name = "Orc Battle(Legendary)",
+				name = "Line Battle (Legendary)",
 				description = "[p=c][img]gfx/ui/events/event_49.png[/img][/p]\n[p=c]ORC ORC ORC ORC ORC ORC. Difficult.[/p]"
 			},
 			{
@@ -582,13 +577,8 @@ this.main_menu_state <- this.inherit("scripts/states/state", {
 			},
 			{
 				id = 11,
-				name = "Kobold Swamp (Legendary)",
-				description = "[p=c][img]gfx/ui/events/event_09.png[/img][/p]\n[p=c]Try out against Kobolds in a swamp. Difficult.[/p]"
-			},
-			{
-				id = 12,
-				name = "Noble Camp (Legendary)",
-				description = "[p=c][img]gfx/ui/events/event_05.png[/img][/p]\n[p=c]Try out against the new noble troops. Very Difficult.[/p]"
+				name = "Line Battle (Kobolds)",
+				description = "[p=c][img]gfx/ui/events/event_48.png[/img][/p]\n[p=c]Featuring two battle lines pitted against each other in close combat from the start. Difficult.[/p]"
 			},
 			{
 				id = 13,

@@ -7,7 +7,7 @@ this.legend_field_triage <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.legend_field_triage";
 		this.m.Name = "Field Triage";
-		this.m.Description = "Heal a unit, costs 1 medicine for every 2 health. Heals up to 20 health per use";
+		this.m.Description = "Heal a unit, costs 1 medicine for every 2 health. Heals up to 40 health per use";
 		this.m.Icon = "skills/triage_square.png";
 		this.m.IconDisabled = "skills/triage_square_bw.png";
 		this.m.Overlay = "active_41";
@@ -100,7 +100,7 @@ this.legend_field_triage <- this.inherit("scripts/skills/skill", {
 	{
 		local meds = this.World.Assets.getMedicine();
 		local target = _targetTile.getEntity();
-		local maxHeal = 20;
+		local maxHeal = 40;
 		if (meds < 10)
 		{
 		maxHeal = meds * 2;

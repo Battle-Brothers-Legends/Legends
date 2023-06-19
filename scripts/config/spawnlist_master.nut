@@ -232,8 +232,8 @@ gt.Const.World.Spawn.Troops <- {
 	LegendOrcElite = {
 		ID = this.Const.EntityType.LegendOrcElite,
 		Variant = 1,
-		Strength = 80,
-		Cost = 80,
+		Strength = 60,
+		Cost = 60,
 		Row = 1,
 		NameList = this.Const.Strings.OrcWarlordNames,
 		TitleList = this.Const.Strings.GoblinTitles,
@@ -242,8 +242,8 @@ gt.Const.World.Spawn.Troops <- {
 	LegendOrcBehemoth = {
 		ID = this.Const.EntityType.LegendOrcBehemoth,
 		Variant = 1,
-		Strength = 70,
-		Cost = 70,
+		Strength = 80,
+		Cost = 80,
 		Row = 1,
 		NameList = this.Const.Strings.OrcWarlordNames,
 		TitleList = this.Const.Strings.GoblinTitles,
@@ -1374,24 +1374,24 @@ gt.Const.World.Spawn.Troops <- {
 	LegendHalberdier = {
 		ID = this.Const.EntityType.LegendHalberdier,
 		Variant = 0,
-		Strength = 60,
-		Cost = 60,
+		Strength = 35,
+		Cost = 35,
 		Row = 0,
 		Script = "scripts/entity/tactical/humans/legend_noble_halberdier"
 	},
 	LegendSlinger = {
 		ID = this.Const.EntityType.LegendSlinger,
 		Variant = 0,
-		Strength = 80,
-		Cost = 80,
+		Strength = 35,
+		Cost = 35,
 		Row = 0,
 		Script = "scripts/entity/tactical/humans/legend_noble_slinger"
 	},
 	LegendFencer = {
 		ID = this.Const.EntityType.LegendFencer,
 		Variant = 0,
-		Strength = 70,
-		Cost = 70,
+		Strength = 35,
+		Cost = 35,
 		Row = 0,
 		Script = "scripts/entity/tactical/humans/legend_noble_fencer"
 	},
@@ -1466,8 +1466,8 @@ gt.Const.World.Spawn.Troops <- {
 	KoboldFighter = {
 		ID = this.Const.EntityType.KoboldFighter,
 		Variant = 0,
-		Strength = 5,
-		Cost = 5,
+		Strength = 3,
+		Cost = 3,
 		Row = 0,
 		Script = "scripts/entity/tactical/enemies/kobold_fighter"
 	},
@@ -1674,22 +1674,6 @@ gt.Const.World.Spawn.Troops <- {
 		Cost = 20,
 		Row = 1,
 		Script = "scripts/entity/tactical/humans/free_company_leader_low"
-	},
-	LegendNobleGuard= {
-		ID = this.Const.EntityType.LegendNobleGuard,
-		Variant = 0,
-		Strength = 50,
-		Cost = 50,
-		Row = 1,
-		Script = "scripts/entity/tactical/humans/noble_footman_veteran"
-	},
-	LegendManAtArms = {
-		ID = this.Const.EntityType.LegendManAtArms,
-		Variant = 0,
-		Strength = 100,
-		Cost = 100,
-		Row = 1,
-		Script = "scripts/entity/tactical/humans/noble_man_at_arms"
 	},
 };
 

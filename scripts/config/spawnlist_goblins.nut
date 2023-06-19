@@ -21,6 +21,15 @@ gt.Const.World.Spawn.GoblinRoamers <-
 	MaxR = 480,
 	MinR = 50,
 	Troops = [
+		// {
+		// 	Weight = 1,
+		// 	Types = [
+		// 		{
+		// 			Type = this.Const.World.Spawn.Troops.KoboldFighter,
+		// 			Cost = 5
+		// 		}
+		// 	]
+		// },
 		{
 			Weight = 20,
 			Types = [
@@ -90,11 +99,6 @@ gt.Const.World.Spawn.GoblinScouts <-
 		{
 			Weight = 40,
 			Types = [
-				{
-
-					Type = this.Const.World.Spawn.Troops.KoboldFighter,
-					Cost = 10
-				},
 				{
 					Type = this.Const.World.Spawn.Troops.GoblinAmbusherLOW,
 					Cost = 20
@@ -327,15 +331,6 @@ gt.Const.World.Spawn.GoblinBoss <-
 					Cost = 35
 				}
 			]
-		},
-		 {
-		 	Weight = 1,
-			Types = [
-		 		{
-		 			Type = this.Const.World.Spawn.Troops.KoboldFighter,
-		 			Cost = 10
-		 		}
-		 	]
-		 }
+		}
 	]
 }

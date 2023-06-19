@@ -42,11 +42,6 @@ this.snow2 <- this.inherit("scripts/mapgen/tactical_template", {
 		t.setBrush(this.Const.Direction.NW, "transition_snow_02_NW");
 		t.setSocket("socket_snow");
 		this.Tactical.setTransitions("tile_snow_02", t);
-		this.Tactical.setTransitions("tile_legend_snow_09", t);
-		this.Tactical.setTransitions("tile_legend_snow_10", t);
-		this.Tactical.setTransitions("tile_legend_snow_11", t);
-		this.Tactical.setTransitions("tile_legend_snow_12", t);
-		this.Tactical.setTransitions("tile_legend_snow_13", t);
 	}
 
 	function onFirstPass( _rect, _objectSpawnChanceMult = 1.0 )
@@ -63,34 +58,7 @@ this.snow2 <- this.inherit("scripts/mapgen/tactical_template", {
 		tile.Subtype = this.Const.Tactical.TerrainSubtype.Snow;
 		tile.BlendPriority = this.Const.Tactical.TileBlendPriority.Snow2;
 		tile.IsBadTerrain = false;
-	
-		
-		 local random = this.Math.rand(1, 100);
-		if (random <= 20)
-		{
 		tile.setBrush("tile_snow_02");
-		}
-		else if (random >= 21 && random <=30)
-		{
-		tile.setBrush("tile_legend_snow_09");
-		}
-		else if (random >= 31 && random <=40)
-		{
-		tile.setBrush("tile_legend_snow_10");
-		}		
-		else if (random >= 41 && random <=60)
-		{
-		tile.setBrush("tile_legend_snow_11");
-		}
-		else if (random >= 61 && random <=80)
-		{
-		tile.setBrush("tile_legend_snow_12");
-		}
-		else 
-		{
-		tile.setBrush("tile_legend_snow_13");
-		}		
-		
 		local n = 0;
 
 		if (isSpawningObjects && this.Math.rand(0, 100) < this.m.ChanceToSpawnObject * _objectSpawnChanceMult)

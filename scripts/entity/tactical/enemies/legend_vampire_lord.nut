@@ -68,9 +68,11 @@ this.legend_vampire_lord <- this.inherit("scripts/entity/tactical/actor", {
 
 		this.getItems().dropAll(_tile, _killer, !flip);
 
+		if ((_killer == null || _killer.getFaction() == this.Const.Faction.Player || _killer.getFaction() == this.Const.Faction.PlayerAnimals) && this.Math.rand(0, 1) == 1)
+		{
 			local loot = this.new("scripts/items/misc/vampire_dust_item");
 			loot.drop(_tile);
-
+		}
 
 		if (this.LegendsMod.Configs().LegendMagicEnabled()) {
 			if (_killer == null || _killer.getFaction() == this.Const.Faction.Player || _killer.getFaction() == this.Const.Faction.PlayerAnimals)
@@ -81,7 +83,7 @@ this.legend_vampire_lord <- this.inherit("scripts/entity/tactical/actor", {
 				{
 					local r = this.Math.rand(1, 100);
 					local loot;
-					if (r <= 50)
+					if (r <= 10)
 					{
 						loot = this.new("scripts/items/misc/legend_ancient_scroll_item");
 						loot.drop(_tile);

@@ -46,12 +46,6 @@ this.deathwish_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				type = "text",
 				icon = "ui/icons/morale.png",
 				text = "Does not protect from effects that target morale directly, like Fearsome"
-			},
-			{
-				id = 17,
-				type = "text",
-				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Melee Defense"
 			}
 		];
 	}
@@ -59,7 +53,6 @@ this.deathwish_trait <- this.inherit("scripts/skills/traits/character_trait", {
 	function onUpdate( _properties )
 	{
 		_properties.IsAffectedByLosingHitpoints = false;
-		_properties.MeleeDefense -= 3;
 	}
 
 });

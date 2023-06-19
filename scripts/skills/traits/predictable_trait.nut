@@ -45,7 +45,7 @@ this.predictable_trait <- this.inherit("scripts/skills/traits/character_trait", 
 
 	function onUpdate( _properties )
 	{
-		_properties.HitChance[this.Const.BodyPart.Head] -= 10;
+		_properties.HitChance[this.Const.BodyPart.Head] -= 5;
 		_properties.Initiative -= 5;
 	}
 

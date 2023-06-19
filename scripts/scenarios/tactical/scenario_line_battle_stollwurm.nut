@@ -15,7 +15,7 @@ this.scenario_line_battle_stollwurm <- this.inherit("scripts/scenarios/tactical/
 
 	function initMap()
 	{
-		local testMap = this.MapGen.get("tactical.legend_cave");
+		local testMap = this.MapGen.get("tactical.mountain");
 		local minX = testMap.getMinX();
 		local minY = testMap.getMinY();
 		this.Tactical.resizeScene(minX, minY);

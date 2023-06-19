@@ -27,15 +27,7 @@ this.tile_swamp <- this.inherit("scripts/mapgen/map_template", {
 			"world_detail_swamp_12",
 			"world_detail_swamp_13",
 			"world_detail_swamp_14"
-		],
-		DetailsGreen = [
-			"world_detail_swamp_green_01",
-			"world_detail_swamp_green_02",
-			"world_detail_swamp_green_03",
-			"world_detail_swamp_green_04",
-			"world_detail_swamp_green_05",
-			"world_detail_swamp_green_06"
-		]	
+		]
 	},
 	function init()
 	{
@@ -56,24 +48,13 @@ this.tile_swamp <- this.inherit("scripts/mapgen/map_template", {
 		tile.Type = this.Const.World.TerrainType.Swamp;
 		tile.TacticalType = this.Const.World.TerrainTacticalType.Swamp;
 		tile.setBrush("world_swamp_0" + this.Math.rand(1, 4));
-	
 	}
 
 	function onSecondPass( _rect )
 	{
 		local tile = this.World.getTileSquare(_rect.X, _rect.Y);
 		local swamp = tile.getSurroundingTilesOfType(this.Const.World.TerrainType.Swamp);
-		
-		if (this.Math.rand(0, 100) < 90)
-		{
-			tile.spawnDetail(this.m.Details[this.Math.rand(0, this.m.Details.len() - 1)], this.Const.World.ZLevel.Object, this.Const.World.DetailType.Swamp | this.Const.World.DetailType.NotCompatibleWithRoad);
-		}
-		else
-		{
-			tile.spawnDetail(this.m.DetailsGreen[this.Math.rand(0, this.m.DetailsGreen.len() - 1)], this.Const.World.ZLevel.Object, this.Const.World.DetailType.Swamp | this.Const.World.DetailType.NotCompatibleWithRoad);
-			tile.TacticalType = this.Const.World.TerrainTacticalType.SwampGreen;
-		}
-
+		tile.spawnDetail(this.m.Details[this.Math.rand(0, this.m.Details.len() - 1)], this.Const.World.ZLevel.Object, this.Const.World.DetailType.Swamp | this.Const.World.DetailType.NotCompatibleWithRoad);
 
 		if (swamp >= 1)
 		{

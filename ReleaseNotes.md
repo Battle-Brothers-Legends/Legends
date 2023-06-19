@@ -1,6 +1,142 @@
 ### Legend Mod Release Notes
 
 
+## Build 16.2.0, Smoke & Faith
+
+* New Content
+- Adds a new enemy type: frenzied zombies, to zombie rosters. Dev note: this should spice up the encounters in undead parties, as opposed to 30 turns of two types of zombies.
+- Improved named helmet random stat rolls (increased min and max - they were often too close to normal helmets to justify their value)
+- Noble fencers can now spawn as champions. Dev note: Noble parties often lacked champions, this should fill that void and make them more rewarding to fight 
+- Adds a new effect to some champion enemies: Warmonger.
+  - Warmonger greatly increases defensive and offensive stats of their allies within a small radius. Killing the champion producing the effect removes it. Making the fight easier. Champion entities with this enabled effect are: Brigand leaders, Brigand warlords and Necromancers
+- Adds a new background image for man-at-arms background
+- Adds in a calculation to a ranged weapon tooltip if the entity has the close combat archer perk enabled (Thanks to WNTR Jimmy)
+
+* Assassin origin rework;
+- Adds a new world marker for assassin origin
+- Tiles covered in smoke now give the 'hidden' effect identical to how a bush would.
+- Adds a new background unique to this origin - the bounty hunter
+- Rewrites the intro event text and many of the aspects of the starting scenario of the origin, including the story, starting perks and supplies
+- Updates assassin and southern assassin skills and traits to be marginally more powerful (not specific to this origin)
+- Completely reworks assassin perktree with new skills (Thanks to WNTR Jimmy and Abysscrane for most of this)
+
+* Tweaks & Balance
+- Militia melee AI will be much more reserved in engagements and prefer not to engage initially, but will frequently chase down enemies and dogpile them if they think they have an advantage. Dev note: Militia were too aggressive and often fed enemy AI resolve bonuses as a result, this change should make them less of a liability.
+- Removes resilience runes from crafting
+Dev note: this is part of the steel brow rework that seeks to remove some blanket immunity for both players and AI - blank immunity to effects is not an engaging mechanic and often trivialised fights where the ai relied on stuns or grabs which made them very boring to fight
+- Adds wolves into kennels as a possible item to be bought
+- Fixes a balance issue where named bandit leaders could spawn with named whips
+- New training grounds that limits xp gain after level 11 to prevent afk xp farming. Bros after 11 can get a buff that gives more xp from their next battle. (thanks to Kvothe for this rework)
+- Gave estoc a one handed sword tag but it still requires both hands. Added tooltip explaining this for better clarity.
+- Favoured enemy: greater undead now gives a 5% bonus to resolve base against its associated enemies when active in addition to its old effect.
+- Favoured enemy: caravan perk now grants 10% more loot dropped per instance of the perk (but only when fighting caravans). Dev note: enemies in this category were often easy enough to kill. This change sweetens the pot and allows raiding playstyles to gain an advantage.
+- Hexe cloak remade. Now gives +10% resolve and +40 resistance against mental attacks.
+- Trader origin now has an increased chance to find hedge knights in town rosters
+- Ijirok armour now grants 25% damage resistance to ranged and throwing attacks when worn. Increases damage taken from fire attacks by 50% (for both pieces).
+- Ijirok no longer has nimble, unless you are playing on Legendary combat difficulty. Dev note: Feedback was loud and clear on the Ijirok testing we did on a previous build recently - the fight was too hard and the rewards were too slim. The armour set has now been improved and the fight made slightly easier to balance the two parts out.
+
+- Blacksmith changes:
+  - Removes requirement of blacksmith from various crafted items
+  - Blacksmith upkeep reduced from 50 crowns to 23
+  - Blacksmith given marginally more base melee skill
+
+- Greed perk rework:
+        OffensiveMultiplier = from 18.0 -> 4.0 per 10K
+        DefensiveMultiplier = from 2.0 -> 5.0 per 10K
+        ResolveMultiplier = from 16.0 -> 3.0 per 10K
+        Softcap is at 50K crowns, which grants half the bonus to every stat increment per 10K crowns beyond this point.
+        Greed tooltip updated to reflect the above.
+  Dev note: Greed had very heavy scaling and could be easily exploited, this new formula still rewards bros with this perk and encourages them to accumulate wealth without making those bros pass the usability of professional fighters.
+
+- Tweaked the parrying dagger (named and normal) values to be more consistent. Item description made more clear. Dev note: Some named parry daggers could roll better than shields, which wasn't fair on shield users.
+- Tweaked the crusader origin starting event to be less cluttered
+- Upped the durability of the greenwood schrat's shield from 64 to 128 (NOT the player shield)
+- Enemies with greenwood schrat racial types (hexe coven leaders + Greenwoods) now take +50% damage from fire based attacks (compared to none from before, as normal schrats take +33%) and also return 15% of the melee damage received to the attacker.
+- Fixes the cabal deathly spectre trait from reading struck down bros as dead bros and turning them into zombies
+- Allows converted cultists to gain deathly spectre when converted
+- Gives an additional +10 melee skill to cultists, graverobbers and gravediggers when recruited by the Cabal.
+- Fixed an issue where zombie action points were displayed as '-3/6' on some occasions - they will now display correctly as 6/6 or lower
+Dev note: Issues with potential recruits being too weak and there not being any buildable focus are frequent points of feedback of the Cabal origin. Cultists gaining additional stats should allow a better focus to be had for lategame company building. The main cabal issues have now been fixed and should be more well rounded off. Some issues still remain but this origin will get new specific events and content at a later date.
+- Cultist recruits from the cultist origin now gain +10 melee skill by default when hired or converted
+- Cultist Magister now has a much higher chance to spawn in the cultist origin
+- Starting cultists in the cultist origin now have +10 Melee skill at the start
+- All cultists should now have a chance to spawn as female as intended (thanks to Rainor)
+- Recruitment rules will now properly apply to cultists in this origin (thanks to Rainor)
+
+- Random party tweaks;
+  - Removes magic origins from random party
+  - Adds in missing southern backgrounds to random party
+Dev note: Magic backgrounds were not functioning as intended and now shouldn't spawn in random party starts, they were a large source of bug reports that will be mostly fixed when magic is reintroduced later on. You can now get both the southern backgrounds legends and vanilla adds in via this start now as well. Don't worry it is still possible to spawn with a donkey.
+
+- Composure & Stalwart perks removed from all player backgrounds, Steel brow reworked to provide immunity to stuns and turn them into dazes instead. Dev note: flat immunity was very game-y and broke some fights quite substantially in terms of balance  (see: orks). Instead we wanted to draw focus back on some perks that were often not picked due to them underperforming and make them more powerful.
+
+* QoL Changes
+- The amount of brothers listed on the roster tooltip is now limited to 12 (Thanks to Darxo)
+- Zombies summoned by the player now have poison immunity
+- All favoured enemy perks have been reformatted to be more clear. Dev note: all of these perks were very messy and due for housekeeping. Hopefully these are more digestible to read - some players were put off by the number of words in these skills.
+- All favoured enemy perk titles have been changed to singular as opposed to plural - before they were an mix of tenses
+- Favoured enemy: Vampires renamed to 'Favoured enemy: Greater Undead' to reflect that this group also contains ghosts, embalmed and banshees in addition to necrosavants
+- Favoured enemy: bandits renamed to 'Favoured enemy: Brigand'
+- Favoured enemy: caravans renamed to 'Favoured enemy: Peasantry' to reflect that it impacts both caravans and peasants
+- Corrects old information present in the training tent tooltip saying that it gave players an xp boost after training
+- Typo fixes for a few items and events
+- Adds in missing info to trader event explaining that the origin has an avatar and how hiring mechanics work
+- Slightly shortens the guild master background text
+- Changes retinue reminder event to have a minimum cooldown of 33 days (compared to vanilla 0). Event now talks about retinue as equipment rather than people
+- Man-mangler weapon now has its weapon skills in the correct order (overhead -> great slash -> split shield) compared to (great slash -> overhead -> split shield)
+- Terrain Modifier that are equal to 0% are no longer listed on the roster tooltip (Darxo)
+
+- Lone wolf origin;
+  - Fixed a bug where donkeys in stables could be bought for 0 crowns
+  - Lone wolf now spawns with additional ranged talent stars so they may make use of ranged weapons more.
+  - Melee champion event decreased from 55 days cooldown to 22 days cooldown
+  - Ranged champion event decreased from 45 days to 20 days cooldown
+  - Berserker event decreased from 144 days to 66 days
+  - Blacksmith event decreased from 115 days to 45 days.
+  Dev note: A quick fix for feedback regarding lone wolf recruits coming in too slow. I did intend more events to be made on release but making and troubleshooting them takes a considerable amount of time. More events will come and when they do these events will be adjusted again
+
+* General Fixes
+- Removes unarmed perktree from all backgrounds that have it. There is a slim chance backgrounds can still roll with it but in this manner we can ensure we do not break submods until this is reworked.
+- Fixes the 'old man sells' event (Thanks to Kvothe for providing this fix)
+- Removes traits that true believer should be removing on cultist origin when cultists are hired or started with
+- Potentially fixes an issue where hyenas would spawn in frozen regions
+- Fixes an issue where the adventuring party crusader could spawn with two stacks of the 'undead killer' trait
+- Fixed an issue where a high level file was overwriting the xp modifiers of player zombies and skeletons. This has been disabled so they may be more easily managed by submodders via events, traits, etc. rather than editing a core file.
+- Fixed an issue where Hexe coven leaders were not using the correct AI package to use the 'sleep' skill - hanging the game on their turn.
+- Fixes the northmen forest ambush event (Thanks to Kvothe for providing this fix)
+- Fixes an issue where ancient scrolls were only giving one perk as a reward instead of the whole tree as intended (Thanks to James Luong)
+- Fixes an issue where the noble found during the noble origin could have two instances of the 'noble killer' trait
+- Fixed an issue where spider bodyguards & spider eggs were not counting towards favoured enemy perks
+- Fixed a few rounding issues caused by prime numbers in favoured enemy perk container which was causing bonuses to be calculated incorrectly over larger bodycounts
+- Fixes an issue where embalmed were not being added to the favoured enemy: vampires perk
+- Inserts halberdiers, fencers and slingers into the Favoured enemy: noble perk
+- Inserts Warlords and Veterans into the favoured enemy bandit perk
+- Fixes an issue where the painting tent would not appear if the user did not skip the tent tutorial in pregame options (Note: the painting tent will still not appear if you disable layered armours)
+- Adventuring party origin now stipulates that champion spawnrates are increased
+- Removes the player being able to gain skeleton corpses with the resurrectionist perk
+- 'Motivated' now has a tooltip when active
+- Beards and accessories are now always drawn below the helmet layers (Darxo)
+- Fixes the well tended bonus saying that the affected brother is content in reserve twice
+- It is now possible to CTRL+A in a brothers name/title input field while they are at max length (Darxo)
+- Man-mangler orc weapon now has great slash instead of slash as intended
+- Fixes a bug where bros marked as being 'in reserve' were pulled into fights when the player was defending (Thanks to Exterminant for this fix)
+- Vala's Warden can no longer be charmed
+- Fixes an issue where runaway_harem_event would softlock the user and make them unable to progress
+- Fixes regent in absentia event not generating the background correctly and makes disowned lady applicable to be converted
+- Fixes cultist tattoos from magister, husk and lurker not appearing (Thanks Rainor)
+- Sisterhood origin's Vala will no longer spawn with a roster upgrade used by the old system, now starts with shield inscription perk instead
+- Legends orc weapons will no longer have a duplicate tooltip about fatigue cost on the item
+- Fixes an issue where the healing tent could not be opened if a wound healed before it was treated (Darxo)
+- Fixes a bug where wage multiplier for all origins was not being applied when a user reloaded a save (Thanks Magda)
+- Fixes the invisible brother bug when hiring new brothers while the fighting line is at capacity (Darxo)
+- The setting 'Autorepair Layer' will no longer set layer as 'ToBeRepaired' which have full durability (Darxo)
+
+- Of Flesh and Faith patches;
+  - Regent in abstentia now has a dynamic perktree of nobles, which will stop errors when they join. They also now start at levels 1-3 as other nobles do.
+  - Oathtakers now have a dynamic perktree which is a slight mix between the crusader and hedge knight trees. They also have slightly more stamina than in vanilla to compensate for heavier legends armours.
+  - Oathtakers  & Anatomists origins now have the starting bros get a perk point every 2 levels after 11 as opposed to the legends 4.
+  - Anatomist backgrounds now have a dynamic perktree similar to that of historian and surgeon backgrounds.
+  - Lindwurm slayer is now slightly higher in daily cost and has a perk tree that is a hybrid of hedge knight and beastslayers. Greatly improved stats. Now has beastslayer terrain bonuses
 
 ## 16.1.5 - Soujourn v5
 Changes:
@@ -3104,6 +3240,7 @@ Fixes values on named gambeson.
 Catch and print errors with invalid blueprint.
 Fixes crash when apply poision effects a second time.
 
+<<<<<<< HEAD
 
 13.0.0. RC 3
 
@@ -3155,8 +3292,7 @@ Mail shirt fatigue from -6 to -7
 
   13.2.1 **Punching Vampires**
 
-
-
+<<<<<<< HEAD
 **Necrosavant Hunter**
 Necrosavant lords have 25% chance to be Ladies, when this happens they gain terrifying visage.
 New Weapon - Wooden stake, very cheap, 5 durability, does 10-15 damage, but against necrosavants it does 90-100 damage. Counts as a dagger
@@ -3576,7 +3712,7 @@ Ranger gains Incoming to provide ranged defense to allies
 Militia origin gives "hate nobles" trait to all recruits
 
 **Fixes**
-
+<<<<<<< HEAD
 Fixes zombie bit error on warlock start
 Fixes invisible necromancers that can't be killed (wuxiang)
 Fixes peasant squire not getting duelist (mwah)
@@ -5437,7 +5573,8 @@ Fixes male names on southern females
 Fixes tumble perk from being selected
 Fixes unable to enter town
 Fixes cheer on perk
-
+<<<<<<< HEAD
+<<<<<<< HEAD
 Rabble no longer have mismatched body and face ethnicities
 
 **Download**

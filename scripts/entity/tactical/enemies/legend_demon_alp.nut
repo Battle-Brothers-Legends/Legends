@@ -217,19 +217,16 @@ this.legend_demon_alp <- this.inherit("scripts/entity/tactical/actor", {
 					{
 						loot = this.new("scripts/items/misc/legend_demon_alp_skin_item");
 					}
-					else
+					else if (r <= 80)
 					{
 						loot = this.new("scripts/items/misc/legend_demon_third_eye_item");
 					}
-					loot.drop(_tile);
-					loot = this.new("scripts/items/misc/petrified_scream_item");
-					loot.drop(_tile);
-					local r = this.Math.rand(1, 100);
-					if (r <= 33)
+					else
 					{
-						loot = this.new("scripts/items/misc/legend_demon_alp_skin_item");
-						loot.drop(_tile);
+						loot = this.new("scripts/items/misc/petrified_scream_item");
 					}
+
+					loot.drop(_tile);
 					local token = this.new("scripts/items/rune_sigils/legend_vala_inscription_token");
 					token.setRuneVariant(6);
 					token.setRuneBonus(true);

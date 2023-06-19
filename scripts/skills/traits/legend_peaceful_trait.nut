@@ -5,7 +5,7 @@ this.legend_peaceful_trait <- this.inherit("scripts/skills/traits/character_trai
 		this.character_trait.create();
 		this.m.ID = "trait.legend_peaceful";
 		this.m.Name = "Peaceful";
-		this.m.Icon = "ui/traits/peaceful_trait.png";
+		this.m.Icon = "ui/traits/trait_icon_38.png";
 		this.m.Description = "This character is not fond of fighting, and will prefer to be in reserve.";
 		this.m.Titles = [
 			"the Peaceful",
@@ -38,23 +38,11 @@ this.legend_peaceful_trait <- this.inherit("scripts/skills/traits/character_trai
 				type = "description",
 				text = this.getDescription()
 			},
-			(
-				id = 12,
-				type = "text",
-				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]-5[/color] Melee and Ranged Skill"
-			},
-			(
-				id = 12,
-				type = "text",
-				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Melee and Ranged Defense"
-			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/bravery.png",
-				text = "Has  [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] resolve"
+				text = "Has [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] resolve, [color=" + this.Const.UI.Color.NegativeValue + "]-5[/color] melee skill and [color=" + this.Const.UI.Color.NegativeValue + "]-5[/color] ranged skill"
 			},
 			{
 				id = 16,
@@ -71,8 +59,6 @@ this.legend_peaceful_trait <- this.inherit("scripts/skills/traits/character_trai
 		_properties.Bravery += 10;
 		_properties.MeleeSkill += -5;
 		_properties.RangedSkill += -5;
-		_properties.MeleeDefenseMult *= 1.05;
-		_properties.RangedDefenseMult *= 1.05;
 	}
 
 });

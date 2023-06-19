@@ -40,8 +40,6 @@ this.kobold_fighter <- this.inherit("scripts/entity/tactical/kobold", {
 
 		this.m.Skills.add(this.new("scripts/skills/racial/goblin_ambusher_racial"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_pathfinder"));
-		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_backflip"));
-		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_hair_splitter"));
 		if ("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_ballistics"));
@@ -69,11 +67,10 @@ this.kobold_fighter <- this.inherit("scripts/entity/tactical/kobold", {
 		this.m.Items.addToBag(this.new("scripts/items/weapons/greenskins/goblin_notched_blade"));
 		this.m.Items.equip(this.new("scripts/items/weapons/greenskins/legend_blowgun"));
 		this.m.Items.equip(this.new("scripts/items/ammo/legend_darts"));
-		
+
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
 			this.m.Items.addToBag(this.new("scripts/items/accessory/poison_item"));
-			this.m.Items.addToBag(this.new("scripts/items/accessory/spider_poison_item"));
 		}
 		else
 		{

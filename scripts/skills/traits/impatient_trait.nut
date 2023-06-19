@@ -39,14 +39,7 @@ this.impatient_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Always acts first in the very first round of combat"
-			},
-			{
-				id = 12,
-				type = "text",
-				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-5%[/color] Melee Defense"
 			}
-			);
 		];
 	}
 
@@ -55,7 +48,6 @@ this.impatient_trait <- this.inherit("scripts/skills/traits/character_trait", {
 		if (this.getContainer().getActor().isPlacedOnMap() && this.Time.getRound() <= 1)
 		{
 			_properties.InitiativeForTurnOrderAdditional += 1000;
-			_properties.MeleeDefenseMult *= 0.95;
 		}
 	}
 

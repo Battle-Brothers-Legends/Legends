@@ -1,1 +1,1 @@
-./build_brushes.sh "c:\\Steam\\steamapps\\common\\Battle Brothers\\data" "Legends"
+./build_brushes.sh "c:\\Steam\\steamapps\\common\\Battle Brothers\\data" "Repo"

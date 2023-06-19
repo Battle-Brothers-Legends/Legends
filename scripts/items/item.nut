@@ -755,10 +755,6 @@ this.item <- {
 	function onUnequip()
 	{
 		this.clearSkills();
-		if (this.isRuned())
-		{
-			this.updateRuneSigilCurse();
-		}
 		if (this.m.Container != null && ("getSkills" in this.getContainer().getActor())) this.getContainer().getActor().getSkills().update();
 	}
 
@@ -779,113 +775,9 @@ this.item <- {
 			this.setToBeSalvaged(false, 0);
 		}
 	}
-	
-	function updateRuneSigilCurse()
-	{
-		local runeCount;
-		local skills = this.getContainer().getActor().getSkills();
-		local slots = [
-			["this.Const.ItemSlot.Offhand"],
-			["this.Const.ItemSlot.Mainhand"],
-			["this.Const.ItemSlot.Body"],
-			["this.Const.ItemSlot.Head"],
-		]
-		foreach(slot in slots){
-		 local itemSlot = this.getContainer().getActor().getItems().getItemAtSlot(slot[0]);
-			if(itemSlot != null)
-			{
-				if(itemSlot.isRuned())
-				{
-					runeCount++;
-				}
-			}
-		local itemsInBag = this.m.Actor.getItems().getAllItemsAtSlot(this.Const.ItemSlot.Bag);	
-		foreach(itemInBag in itemsInBag){
-			if(itemInBag != null)
-			{
-				if(itemInBag.isRuned())
-				{
-					runeCount++;
-				}
-			}
-		}
-			
-		switch (runeCount)
-		{
-			case 1:
-				skills.add(this.new("scripts/skills/traits/legend_haunted_01_trait"));
-				if(skills.hasSkill("trait.legend_haunted_02"))
-				{
-				skills.removeByID("trait.legend_haunted_02")
-				}
-				break;
-
-			case 2:
-				skills.add(this.new("scripts/skills/traits/legend_haunted_02_trait"));
-				if(skills.hasSkill("trait.legend_haunted_01"))
-				{
-				skills.removeByID("trait.legend_haunted_01")
-				}
-				if(skills.hasSkill("trait.legend_haunted_03"))
-				{
-				skills.removeByID("trait.legend_haunted_03")
-				}				
-				break;
-
-			case 3:
-				skills.add(this.new("scripts/skills/traits/legend_haunted_03_trait"));
-				if(skills.hasSkill("trait.legend_haunted_02"))
-				{
-				skills.removeByID("trait.legend_haunted_02")
-				}
-				if(skills.hasSkill("trait.legend_haunted_04"))
-				{
-				skills.removeByID("trait.legend_haunted_04")
-				}	
-				break;
-
-			case 4:
-				skills.add(this.new("scripts/skills/traits/legend_haunted_04_trait"));
-				if(skills.hasSkill("trait.legend_haunted_03"))
-				{
-				skills.removeByID("trait.legend_haunted_03")
-				}
-				if(skills.hasSkill("trait.legend_haunted_05"))
-				{
-				skills.removeByID("trait.legend_haunted_05")
-				}	
-				break;
-
-			case 5:
-				skills.add(this.new("scripts/skills/traits/legend_haunted_05_trait"));
-				if(skills.hasSkill("trait.legend_haunted_04"))
-				{
-				skills.removeByID("trait.legend_haunted_04")
-				}
-				if(skills.hasSkill("trait.legend_haunted_06"))
-				{
-				skills.removeByID("trait.legend_haunted_06")
-				}	
-				break;
-
-			case 6:
-				skills.add(this.new("scripts/skills/traits/legend_haunted_06_trait"));
-				if(skills.hasSkill("trait.legend_haunted_05"))
-				{
-				skills.removeByID("trait.legend_haunted_05")
-				}
-				break;
-
-			default:
-				break;
-			}
-			
-		}
-	}
 
 	function onEquipRuneSigil()
 	{
-		this.updateRuneSigilCurse();
 		switch (this.m.RuneVariant)
 		{
 			case 1:
@@ -1202,105 +1094,105 @@ this.item <- {
 		{
 			case 1:
 				this.m.Name = "Weapon Rune Sigil: Power";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon.";
 				this.m.Icon = "rune_sigils/rune_stone_1.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_1.png";
 				break;
 
 			case 2:
 				this.m.Name = "Weapon Rune Sigil: Accuracy";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon.";
 				this.m.Icon = "rune_sigils/rune_stone_1.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_1.png";
 				break;
 
 			case 3:
 				this.m.Name = "Weapon Rune Sigil: Feeding";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon.";
 				this.m.Icon = "rune_sigils/rune_stone_1.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_1.png";
 				break;
 
 			case 4:
 				this.m.Name = "Weapon Rune Sigil: Poison";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon.";
 				this.m.Icon = "rune_sigils/rune_stone_1.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_1.png";
 				break;
 
 			case 5:
 				this.m.Name = "Weapon Rune Sigil: Bleeding";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon.";
 				this.m.Icon = "rune_sigils/rune_stone_1.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_1.png";
 				break;
 
 			case 6:
 				this.m.Name = "Weapon Rune Sigil: Unbreaking";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s weapon.";
 				this.m.Icon = "rune_sigils/rune_stone_1.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_1.png";
 				break;
 
 			case 11:
 				this.m.Name = "Helmet Rune Sigil: Clarity";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s helmet. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s helmet.";
 				this.m.Icon = "rune_sigils/rune_stone_2.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_2.png";
 				break;
 
 			case 12:
 				this.m.Name = "Helmet Rune Sigil: Bravery";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s helmet. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s helmet.";
 				this.m.Icon = "rune_sigils/rune_stone_2.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_2.png";
 				break;
 
 			case 13:
 				this.m.Name = "Helmet Rune Sigil: Luck";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s helmet. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s helmet.";
 				this.m.Icon = "rune_sigils/rune_stone_2.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_2.png";
 				break;
 
 			case 21:
 				this.m.Name = "Armor Rune Sigil: Endurance";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s armor. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s armor.";
 				this.m.Icon = "rune_sigils/rune_stone_3.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_3.png";
 				break;
 
 			case 22:
 				this.m.Name = "Armor Rune Sigil: Safety";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s armor. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s armor.";
 				this.m.Icon = "rune_sigils/rune_stone_3.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_3.png";
 				break;
 
 			case 23:
 				this.m.Name = "Armor Rune Sigil: Resilience";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s armor. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s armor.";
 				this.m.Icon = "rune_sigils/rune_stone_3.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_3.png";
 				break;
 
 			case 31:
 				this.m.Name = "Shield Rune Sigil: Defense";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s shield. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s shield.";
 				this.m.Icon = "rune_sigils/rune_stone_4.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_4.png";
 				break;
 
 			case 32:
 				this.m.Name = "Shield Rune Sigil: Radiance";
-				this.m.Description = "An inscribed rock that can be attached to a character\'s shield. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that can be attached to a character\'s shield.";
 				this.m.Icon = "rune_sigils/rune_stone_4.png";
 				this.m.IconLarge = "rune_sigils/rune_stone_4.png";
 				break;
 
 			default:
 				this.m.Name = "Unknown Rune Sigil: Error";
-				this.m.Description = "An inscribed rock that cannot be attached to a character\'s equipment. Each rune you attach will gradually increase the wielder\'s superstition, gradually sending them mad.";
+				this.m.Description = "An inscribed rock that cannot be attached to a character\'s equipment.";
 				this.m.Icon = "rune_sigils/legend_vala_rune_sigil_blank.png";
 				this.m.IconLarge = "rune_sigils/legend_vala_rune_sigil_blank.png";
 				break;

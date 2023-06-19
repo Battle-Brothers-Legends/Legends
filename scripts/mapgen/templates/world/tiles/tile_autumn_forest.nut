@@ -32,41 +32,20 @@ this.tile_autumn_forest <- this.inherit("scripts/mapgen/map_template", {
 	function onSecondPass( _rect )
 	{
 		local tile = this.World.getTileSquare(_rect.X, _rect.Y);
-		local forest = tile.getSurroundingTilesOfType(this.Const.World.TerrainType.Forest);
-		local leaves = tile.getSurroundingTilesOfType(this.Const.World.TerrainType.LeaveForest);
-
-		if (forest > 1)
-		{
-			tile.spawnDetail("world_detail_green_autumn_0" + this.Math.rand(1, 6), this.Const.World.ZLevel.Object, 0);
-		}
-		else if (leaves > 1)
-		{
-			tile.spawnDetail("world_detail_autumn_leaves_0" + this.Math.rand(3, 5), this.Const.World.ZLevel.Object, 0);
-		}
-		else
-		{
-		local random = this.Math.rand(1, 13);
-		if (random <=9)
-		{
-		local d = tile.spawnDetail("world_detail_autumn_0" + this.Math.rand(1, 9), this.Const.World.ZLevel.Object, 0);
-		}
-		else
-		{
-		local d = tile.spawnDetail("world_detail_autumn_1" + this.Math.rand(0, 3), this.Const.World.ZLevel.Object, 0);
-		}
-		}
-		
+		local urban = tile.getSurroundingTilesOfType(this.Const.World.TerrainType.Urban);
+		local d = tile.spawnDetail("world_detail_autumn_0" + this.Math.rand(1, 6), this.Const.World.ZLevel.Object, 0);
 	}
 
 	function onRoadPass( _rect )
 	{
 		local tile = this.World.getTileSquare(_rect.X, _rect.Y);
-		local forest_autumn = tile.getSurroundingTilesOfType(this.Const.World.TerrainType.AutumnForest);
-		
+
 		if (tile.IsOccupied)
 		{
 			return;
 		}
+
+		local forest_autumn = tile.getSurroundingTilesOfType(this.Const.World.TerrainType.AutumnForest);
 
 		if (tile.HasRoad || forest_autumn <= 2)
 		{

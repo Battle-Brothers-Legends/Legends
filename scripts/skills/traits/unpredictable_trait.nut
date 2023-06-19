@@ -41,14 +41,14 @@ this.unpredictable_trait <- this.inherit("scripts/skills/traits/character_trait"
 				id = 13,
 				type = "text",
 				icon = "ui/icons/chance_to_hit_head.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] Chance To Hit Head"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Chance To Hit Head"
 			}
 		];
 	}
 
 	function onUpdate( _properties )
 	{
-		_properties.HitChance[this.Const.BodyPart.Head] += 10;
+		_properties.HitChance[this.Const.BodyPart.Head] += 5;
 		_properties.Initiative += 5;
 	}
 

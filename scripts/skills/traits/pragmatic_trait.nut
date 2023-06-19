@@ -16,7 +16,6 @@ this.pragmatic_trait <- this.inherit("scripts/skills/traits/character_trait", {
 			"trait.insecure",
 			"trait.superstitious",
 			"trait.cocky",
-			"trait.lucky",
 			"trait.fear_beasts",
 			"trait.fear_undead",
 			"trait.fear_greenskins",
@@ -54,14 +53,14 @@ this.pragmatic_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/chance_to_hit_head.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Chance To Hit Head"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-20%[/color] Chance To Hit Head"
 			}
 		];
 	}
 
 	function onUpdate( _properties )
 	{
-		_properties.HitChance[this.Const.BodyPart.Head] -= 10;
+		_properties.HitChance[this.Const.BodyPart.Head] -= 20;
 		_properties.MeleeSkillMult *= 1.05;
 		_properties.RangedSkillMult *= 1.05;
 	}

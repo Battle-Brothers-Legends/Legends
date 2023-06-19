@@ -53,59 +53,11 @@ this.tile_farmland <- this.inherit("scripts/mapgen/map_template", {
 		}
 		else if (highlands >= 3)
 		{
-			local r = this.Math.rand(1, 3);			
-			if (r = 1)
-			{
 			tile.setBrush("world_highlands_01");
-			}
-			if (r = 2)
-			{
-			tile.setBrush("world_highlands_02");
-			}
-			if (r = 3)
-			{
-			tile.setBrush("world_highlands_03");
-			}
 		}
 		else
 		{
-			local r = this.Math.rand(1, 10);
-			if (r <= 2)
-			{
 			tile.setBrush("world_plains_01");
-			}
-			else if (r = 3)
-			{
-			tile.setBrush("world_plains_02");
-			}
-			else if (r = 4)
-			{
-			tile.setBrush("world_plains_03");
-			}	
-			else if (r = 5)
-			{
-			tile.setBrush("world_plains_04");
-			}
-			else if (r = 6)
-			{
-			tile.setBrush("world_plains_05");
-			}	
-			else if (r = 7)
-			{
-			tile.setBrush("world_plains_06");
-			}
-			else if (r = 8)
-			{
-			tile.setBrush("world_plains_07");
-			}	
-			else if (r = 9)			
-			{
-			tile.setBrush("world_plains_08");
-			}	
-			else if (r = 10)			
-			{
-			tile.setBrush("world_plains_09");
-			}				
 		}
 
 		local flip = this.Math.rand(0, 1) == 1 ? true : false;

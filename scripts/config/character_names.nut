@@ -103,21 +103,6 @@ gt.Const.Strings.BarbarianNames <- [
 	"Vidar",
 	"Wyborn",
 	"Yngvar",
-	"Morkar",
-	"Kastner",
-	"Cormac",
-	"Mortkin",
-	"Styrbjorn",
-	"Urlf",
-	"Wulfrik",
-	"Alfkaell",
-	"Garmr",
-	"Scyla",
-	"Hargroth",
-	"Valnir",
-	"Valgar",
-	"Hakka",
-	"Engra",
 	"Yrar"
 	"Sigbaal"
 ];
@@ -135,14 +120,9 @@ gt.Const.Strings.BarbarianTitles <- [
 	"the Ravager",
 	"Skullcrusher",
 	"Bonebreaker",
-	"Deathsword",
 	"Slaughterborne",
 	"the Chosen",
 	"Battleborn",
-	"Steelfist",
-	"Daemonkin",
-	"The Bloody",
-	"Bloodaxe",
 	"Ironside",
 	"the Bloodied",
 	"the Beast",
@@ -843,11 +823,6 @@ gt.Const.Strings.KnightNames <- [
 	"Sir Mann",
 	"Sir Farrow",
 	"Sir Effingham",
-	"Sir Crane",
-	"Sir Darxo",
-	"Sir Rue",
-	"Sir Luke",
-	"Sir Rue",
 	"Sir Percy"
 
 ];
@@ -944,7 +919,6 @@ gt.Const.Strings.LadyNames <- [
 	"Lady Rachel",
 	"Lady Georgia",
 	"Lady May",
-	"Lady Magda",
 	"Lady Eva"
 ];
 
@@ -1721,10 +1695,6 @@ gt.Const.Strings.VampireLordNames <- [
 	"Ahi",
 	"Sut",
 	"Ameneman",
-	"Manfred",
-	"Konrad",
-	"Vlad",
-	"Krell",
 	"Smento",
 	"Mohar",
 	"Abdamelek"

@@ -55,12 +55,6 @@ this.craven_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "Is always content with being in reserve"
-			},
-			{
-				id = 10,
-				type = "text",
-				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] Ranged Defense"
 			}
 		];
 	}
@@ -69,7 +63,6 @@ this.craven_trait <- this.inherit("scripts/skills/traits/character_trait", {
 	{
 		_properties.Bravery += -10;
 		_properties.IsContentWithBeingInReserve = true;
-		_properties.RangedDefense += 5;
 	}
 
 });

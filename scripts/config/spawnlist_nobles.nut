@@ -50,7 +50,7 @@ gt.Const.World.Spawn.Noble <- {
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.Arbalester,
-					Cost = 25
+					Cost = 20
 				}
 			]
 		},
@@ -65,7 +65,7 @@ gt.Const.World.Spawn.Noble <- {
 		},
 		{
 			Weight = 3,
-			MinR = 0.5 * 270,
+			MinR = 0.25 * 555,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.Sergeant,
@@ -76,7 +76,7 @@ gt.Const.World.Spawn.Noble <- {
 		},
 		{
 			Weight = 3,
-			MinR = 0.5 * 360,
+			MinR = 0.4 * 555,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.Knight,
@@ -96,17 +96,7 @@ gt.Const.World.Spawn.Noble <- {
 		},
 		{
 			Weight = 3,
-			MinR = 0.5 * 180,
-			Types = [
-				{
-					Type = this.Const.World.Spawn.Troops.LegendNobleGuard,
-					Cost = 50
-				}
-			]
-		},
-		{
-			Weight = 2,
-			MinR = 0.5 * 270,
+			MinR = 0.5 * 555,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendHalberdier,
@@ -115,35 +105,25 @@ gt.Const.World.Spawn.Noble <- {
 			]
 		},
 		{
-			Weight = 2,
-			MinR = 0.5 * 270,
+			Weight = 3,
+			MinR = 0.5 * 555,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendFencer,
-					Cost = 70
+					Cost = 60
 				}
 			]
 		},
 		{
-			Weight = 1,
-			MinR = 0.5 * 360,
+			Weight = 4,
+			MinR = 0.5 * 555,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendSlinger,
-					Cost = 80
+					Cost = 60
 				}
 			]
 		},
-		{
-			Weight = 1,
-			MinR = 0.5 * 440,
-			Types = [
-				{
-					Type = this.Const.World.Spawn.Troops.LegendManAtArms,
-					Cost = 100
-				}
-			]
-		}
 	]
 }
 
@@ -216,7 +196,7 @@ gt.Const.World.Spawn.NobleCaravan <-
 		},
 		{
 			Weight = 1,
-			MinR = 0.5 * 365,
+			MinR = 0.6 * 300,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendHalberdier,
@@ -226,31 +206,21 @@ gt.Const.World.Spawn.NobleCaravan <-
 		},
 		{
 			Weight = 1,
-			MinR = 0.5 * 365,
+			MinR = 0.5 * 300,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendFencer,
-					Cost = 80
+					Cost = 60
 				}
 			]
 		},
 		{
 			Weight = 1,
-			MinR = 0.5 * 365,
+			MinR = 0.5 * 300,
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendSlinger,
-					Cost = 80
-				}
-			]
-		},
-		{
-			Weight = 1,
-			MinR = 0.5 * 500,
-			Types = [
-				{
-					Type = this.Const.World.Spawn.Troops.LegendManAtArms,
-					Cost = 100
+					Cost = 60
 				}
 			]
 		}
@@ -385,7 +355,7 @@ gt.Const.World.Spawn.MixedNobleCaravan <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendFencer,
-					Cost = 80
+					Cost = 60
 				}
 			]
 		},
@@ -395,17 +365,7 @@ gt.Const.World.Spawn.MixedNobleCaravan <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.LegendSlinger,
-					Cost = 80
-				}
-			]
-		},
-		{
-			Weight = 1,
-			MinR = 0.5 * 500,
-			Types = [
-				{
-					Type = this.Const.World.Spawn.Troops.LegendManAtArms,
-					Cost = 100
+					Cost = 60
 				}
 			]
 		}
