@@ -191,6 +191,12 @@ this.trader_scenario <- this.inherit("scripts/scenarios/world/starting_scenario"
 				garbage.push(bro);
 			}
 		}
+
+		this.addBroToRoster(_roster, "peddler_background", 2);
+		this.addBroToRoster(_roster, "caravan_hand_background", 3);
+		this.addBroToRoster(_roster, "sellsword_background", 7);
+		this.addBroToRoster(_roster, "hedge_knight_background", 7);
+
 		foreach( g in garbage )
 		{
 			_roster.remove(g);
@@ -246,39 +252,6 @@ this.trader_scenario <- this.inherit("scripts/scenarios/world/starting_scenario"
 			}
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
-		local r;
-		r = this.Math.rand(0, 2);
-
-		if (r == 0)
-		{
-			_list.push("peddler_background");
-		}
-
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			_list.push("caravan_hand_background");
-		}
-
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			_list.push("sellsword_background");
-		}
-
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			_list.push("hedge_knight_background");
-		}
-	}
 
 	function onBuildPerkTree( _background )
 	{

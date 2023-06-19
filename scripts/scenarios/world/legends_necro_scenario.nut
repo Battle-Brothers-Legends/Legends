@@ -200,34 +200,6 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		return necros != 0;
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
-		local r;
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			_list.push("graverobber_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			_list.push("gravedigger_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			_list.push("cultist_background");
-		}
-	}
 
 	function onHiredByScenario( bro )
 	{
@@ -251,7 +223,9 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	{
 		local garbage = [];
 		local bros = _roster.getAll();
-
+		this.addBroToRoster(_roster, "graverobber_background", 4);
+		this.addBroToRoster(_roster, "gravedigger_background", 4);
+		this.addBroToRoster(_roster, "cultist_background", 4);
 		foreach( i, bro in bros )
 		{
 			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Crusader)) //delete crusader/pious recruits

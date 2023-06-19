@@ -247,6 +247,13 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 	{
 		local garbage = [];
 		local bros = _roster.getAll();
+		this.addBroToRoster(_roster, "flagellant_background", 4);
+		this.addBroToRoster(_roster, "monk_background", 4);
+		this.addBroToRoster(_roster, "legend_nun_background", 4);
+		this.addBroToRoster(_roster, "witchhunter_background", 4);
+		this.addBroToRoster(_roster, "legend_youngblood_background", 4);
+		this.addBroToRoster(_roster, "legend_crusader_background", 8);
+
 
 		foreach( i, bro in bros )
 		{
@@ -281,54 +288,6 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 	function onBuildPerkTree( _background )
 	{
 		this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.LegendMindOverBody);
-	}
-
-	function onUpdateDraftList( _list, _gender = null)
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		
-		local r;
-		r = this.Math.rand(0, 1);
-		
-		if (r == 0)
-		{
-			_list.push("flagellant_background");
-		}
-
-		r = this.Math.rand(0, 3);
-		
-		if (r == 0)
-		{
-			_list.push("monk_background");
-		}
-
-		r = this.Math.rand(0, 3);
-		
-		if (r == 0 && _gender)
-		{
-			_list.push("legend_nun_background");
-		}
-
-		r = this.Math.rand(0, 5);
-		
-		if (r == 0)
-		{
-			_list.push("witchhunter_background");
-		}
-
-		r = this.Math.rand(0, 29);
-		
-		if (r == 0)
-		{
-			_list.push("legend_youngblood_background");
-		}
-
-		r = this.Math.rand(0, 49);
-		
-		if (r == 0)
-		{
-			_list.push("legend_crusader_background");
-		}
 	}
 
 });

@@ -121,15 +121,9 @@ this.mage_legends_mage_scenario <- this.inherit("scripts/scenarios/world/startin
 		return false;
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
+	function onUpdateHiringRoster( _roster )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() < 10)
-		{
-			return;
-		}
-
-		_list.push("apprentice_background");
+		this.addBroToRoster(_roster, "apprentice_background", 4);
 	}
 
 	function onHiredByScenario( bro )

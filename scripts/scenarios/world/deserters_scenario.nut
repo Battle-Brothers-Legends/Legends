@@ -232,72 +232,17 @@ this.deserters_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		}, null);
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
+	function onUpdateHiringRoster( _roster )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() >= 10)
-		{
-			local r;
-			r = this.Math.rand(0, 1);
-
-			if (r == 0)
-			{
-				_list.push("deserter_background");
-			}
-
-			r = this.Math.rand(0, 3);
-
-			if (r == 0)
-			{
-				_list.push("militia_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("disowned_noble_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0 && _gender)
-			{
-				_list.push("female_disowned_noble_background");
-			}
-		}
-		else
-		{
-			local r;
-			r = this.Math.rand(0, 1);
-
-			if (r == 0)
-			{
-				_list.push("deserter_background");
-			}
-
-			r = this.Math.rand(0, 3);
-
-			if (r == 0)
-			{
-				_list.push("retired_soldier_background");
-			}
-
-			r = this.Math.rand(0, 19);
-
-			if (r == 0)
-			{
-				_list.push("swordmaster_background");
-			}
-
-			r = this.Math.rand(0, 19);
-
-			if (r == 0)
-			{
-				_list.push("bastard_background");
-			}
-		}
+		this.addBroToRoster(_roster, "deserter_background", 3);
+		this.addBroToRoster(_roster, "militia_background", 6);
+		this.addBroToRoster(_roster, "disowned_noble_background", 6);
+		this.addBroToRoster(_roster, "female_disowned_noble_background", 6);
+		this.addBroToRoster(_roster, "retired_soldier_background", 6);
+		this.addBroToRoster(_roster, "swordmaster_background", 6);
+		this.addBroToRoster(_roster, "bastard_background", 6);
 	}
+
 
 	function onGenerateBro(bro)
 	{

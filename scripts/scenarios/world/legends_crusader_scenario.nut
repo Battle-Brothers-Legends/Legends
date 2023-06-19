@@ -146,6 +146,13 @@ this.legends_crusader_scenario <- this.inherit("scripts/scenarios/world/starting
 		local garbage = [];
 		local bros = _roster.getAll();
 
+		this.addBroToRoster(_roster, "flagellant_background", 4);
+		this.addBroToRoster(_roster, "monk_background", 4);
+		this.addBroToRoster(_roster, "legend_nun_background", 4);
+		this.addBroToRoster(_roster, "witchhunter_background", 5);
+		this.addBroToRoster(_roster, "legend_pilgrim_background", 4);
+		this.addBroToRoster(_roster, "legend_crusader_background", 8);
+
 		foreach( i, bro in bros )
 		{
 
@@ -188,53 +195,6 @@ this.legends_crusader_scenario <- this.inherit("scripts/scenarios/world/starting
 		this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.FortifiedMind, 2, _background.isBackgroundType(this.Const.BackgroundType.Crusader));
 	}
 
-	function onUpdateDraftList( _list, _gender = null)
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		
-		local r;
-		r = this.Math.rand(0, 2);
-		
-		if (r == 0)
-		{
-			_list.push("flagellant_background");
-		}
-
-		r = this.Math.rand(0, 4);
-		
-		if (r == 0)
-		{
-			_list.push("legend_pilgrim_background");
-		}
-
-		r = this.Math.rand(0, 4);
-		
-		if (r == 0)
-		{
-			_list.push("monk_background");
-		}
-
-		r = this.Math.rand(0, 6);
-		
-		if (r == 0 && _gender)
-		{
-			_list.push("legend_nun_background");
-		}
-
-		r = this.Math.rand(0, 9);
-		
-		if (r == 0)
-		{
-			_list.push("witchhunter_background");
-		}
-
-		r = this.Math.rand(0, 49);
-		
-		if (r == 0)
-		{
-			_list.push("legend_crusader_background");
-		}
-	}
 
 });
 

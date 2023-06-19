@@ -292,57 +292,13 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 			}
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
+
+	function onUpdateHiringRoster( _roster )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() >= 10)
-		{
-			local r;
-			r = this.Math.rand(0, 3);
-
-			if (r == 0)
-			{
-				_list.push("thief_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("barbarian_background");
-			}
-
-			r = this.Math.rand(0, 99);
-
-			if (r == 0)
-			{
-				_list.push("assassin_background");
-			}
-		}
-		else
-		{
-			local r;
-			r = this.Math.rand(0, 2);
-
-			if (r == 0)
-			{
-				_list.push("raider_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("barbarian_background");
-			}
-
-			r = this.Math.rand(0, 19);
-
-			if (r == 0)
-			{
-				_list.push("killer_on_the_run_background");
-			}
-		}
+		this.addBroToRoster(_roster, "thief_background", 4);
+		this.addBroToRoster(_roster, "barbarian_background", 5);
+		this.addBroToRoster(_roster, "assassin_background", 7);
+		this.addBroToRoster(_roster, "killer_on_the_run_background", 4);
 	}
 
 	function onGenerateBro(bro)

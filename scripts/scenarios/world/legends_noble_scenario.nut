@@ -307,6 +307,12 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	{
 		local garbage = [];
 		local bros = _roster.getAll();
+		this.addBroToRoster(_roster, "legend_noble_2h", 4);
+		this.addBroToRoster(_roster, "legend_noble_shield", 4);
+		this.addBroToRoster(_roster, "legend_noble_ranged", 4);
+		this.addBroToRoster(_roster, "adventurous_noble_background", 6);
+		this.addBroToRoster(_roster, "female_adventurous_noble_background", 6);
+		this.addBroToRoster(_roster, "legend_noble_background", 8);
 
 		foreach( i, bro in bros )
 		{
@@ -339,47 +345,6 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			}
 	}
 
-	function onUpdateDraftList( _list, _gender = null)
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
-		local r;
-		r = this.Math.rand(0, 9);
-		if (r == 0)
-		{
-			_list.push("legend_noble_2h");
-		}
-
-		r = this.Math.rand(0, 9);
-		if (r == 0)
-		{
-			_list.push("legend_noble_shield");
-		}
-
-		r = this.Math.rand(0, 9);
-		if (r == 0)
-		{
-			_list.push("legend_noble_ranged");
-		}
-
-		r = this.Math.rand(0, 13);
-		if (r == 0)
-		{
-			_list.push("adventurous_noble_background");
-		}
-
-		r = this.Math.rand(0, 13);
-		if (r == 0)
-		{
-			_list.push("female_adventurous_noble_background");
-		}
-
-		r = this.Math.rand(0, 19);
-		if (r == 0)
-		{
-			_list.push("legend_noble_background");
-		}
-	}
 
 	function onBuildPerkTree( _background )
 	{

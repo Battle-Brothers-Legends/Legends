@@ -185,58 +185,17 @@ this.legends_rangers_scenario <- this.inherit("scripts/scenarios/world/starting_
 		return rangers != 0;
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
+	function onUpdateHiringRoster( _roster )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		
-		local r;
-		r = this.Math.rand(0, 1);
+		this.addBroToRoster(_roster, "poacher_background", 6);
+		this.addBroToRoster(_roster, "wildwoman_background", 6);
+		this.addBroToRoster(_roster, "wildman_background", 6);
+		this.addBroToRoster(_roster, "hunter_background", 6);
+		this.addBroToRoster(_roster, "legend_herbalist_background", 8);
+		this.addBroToRoster(_roster, "legend_ranger_background", 9);
 
-		if (r == 0)
-		{
-			_list.push("poacher_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			_list.push("wildwoman_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 1);
-
-		if (r == 0)
-		{
-			_list.push("wildman_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 9);
-
-		if (r == 0)
-		{
-			_list.push("hunter_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 9);
-
-		if (r == 0)
-		{
-			_list.push("legend_herbalist_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 274);
-
-		if (r == 0)
-		{
-			_list.push("legend_ranger_background");
-		}
 	}
+
 
 	function onHiredByScenario( bro )
 	{
