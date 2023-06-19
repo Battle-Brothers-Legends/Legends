@@ -186,8 +186,8 @@ this.hedge_knight_background <- this.inherit("scripts/skills/backgrounds/charact
 				0
 			],
 			MeleeDefense = [
-				6,
-				5
+				9,
+				12
 			],
 			RangedDefense = [
 				0,
@@ -234,10 +234,9 @@ this.hedge_knight_background <- this.inherit("scripts/skills/backgrounds/charact
 			[1, "closed_flat_top_helmet"]
 		];
 
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			helm.push([1, "theamson_barbute_helmet"])
-		}
+
+		helm.push([1, "theamson_barbute_helmet"]);
+
 
 		items.equip(this.Const.World.Common.pickHelmet(helm));
 	}

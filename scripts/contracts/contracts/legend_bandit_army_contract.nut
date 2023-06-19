@@ -9,7 +9,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		Briber = null,
 		Reward = 0,
 		OriginalReward = 0,
-		MinStrength = 100,
+		MinStrength = 10, // player needs to earn 10% of bonus (not including base 5% bonus) for this contract to be valid
 		BribeMoney = 1000,
 		Perk = "perk.legend_favoured_enemy_bandit",
 		ValidTypes = this.Const.LegendMod.FavoriteBandit

@@ -132,8 +132,7 @@ this.legend_puppet_master_background <- this.inherit("scripts/skills/backgrounds
 					this.Const.Perks.PerkDefs.Taunt,
 					this.Const.Perks.PerkDefs.LegendViolentDecomposition,				
 					this.Const.Perks.PerkDefs.LegendSiphon,
-					this.Const.Perks.PerkDefs.BattleForged,
-					this.Const.Perks.PerkDefs.LegendHidden
+					this.Const.Perks.PerkDefs.BattleForged
 				],
 				[
 					this.Const.Perks.PerkDefs.Fearsome,

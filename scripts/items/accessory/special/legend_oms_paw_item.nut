@@ -10,7 +10,7 @@ this.legend_oms_paw_item <- this.inherit("scripts/items/accessory/accessory", {
 		this.m.IsDroppedAsLoot = true;
 		//this.m.ShowOnCharacter = true;
 		this.m.IconLarge = "";
-		this.m.Icon = "inventory/werehand.png";
+		this.m.Icon = "misc/inventory_werehand.png";
 		//this.m.Sprite = "nachzehrer_trophy";
 		this.m.Value = 2345;
 	}
@@ -64,7 +64,8 @@ this.legend_oms_paw_item <- this.inherit("scripts/items/accessory/accessory", {
 
 	function onUpdate( _properties )
 	{
-		_properties.FatigueRecoveryRate += 3;
+		_properties.FatigueRecoveryRate += 6;
+		_properties.MoraleEffectMult *= 1.50; //50% more effected by morale checks and mental attacks
 	}
 
 });

@@ -67,6 +67,58 @@ this.anatomist_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.Modifiers.Healing = this.Const.LegendMod.ResourceModifiers.Healing[2];
 		this.m.Modifiers.Injury = this.Const.LegendMod.ResourceModifiers.Injury[2];
 		this.m.Modifiers.MedConsumption = this.Const.LegendMod.ResourceModifiers.MedConsumption[1];
+
+		this.m.Modifiers.Terrain = [
+				0.0, // ?
+				0.0, //ocean
+				0.0, //plains
+				0.02, //swamp
+				0.03, //hills
+				0.05, //forest
+				0.05, //forest
+				0.05, //forest_leaves
+				0.05, //autumn_forest
+				0.01, //mountains
+				0.0, // ?
+				0.0, //farmland
+				0.0, // snow
+				0.0, // badlands
+				0.0, //highlands
+				0.0, //steppes
+				0.0, //ocean
+				0.0, //desert
+				0.0 //oasis
+			];
+
+		this.m.PerkTreeDynamic = {
+			Weapon = [
+				this.Const.Perks.CleaverTree,
+				this.Const.Perks.SpearTree,
+				this.Const.Perks.DaggerTree,
+				this.Const.Perks.CrossbowTree,
+				this.Const.Perks.SlingTree,
+				this.Const.Perks.StaffTree
+			],
+			Defense = [
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.LightArmorTree
+			],
+			Traits = [
+				this.Const.Perks.IntelligentTree,
+				this.Const.Perks.CalmTree,
+				this.Const.Perks.DeviousTree,
+				this.Const.Perks.OrganisedTree,
+				this.Const.Perks.FastTree,
+				this.Const.Perks.InspirationalTree
+			],
+			Enemy = [],
+			Class = [
+				this.Const.Perks.HealerClassTree
+			],
+			Magic = [
+				this.Const.Perks.PhilosophyMagicTree
+			]
+		}
 	}
 
 	//Default Male

@@ -29,9 +29,6 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 		this.m.Excluded = [
 			"trait.survivor",
 			"trait.iron_jaw",
-			"trait.tough",
-			"trait.strong",
-			"trait.spartan",
 			"trait.gluttonous",
 			"trait.lucky",
 			"trait.loyal",
@@ -42,11 +39,9 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 			"trait.drunkard",
 			"trait.determined",
 			"trait.greedy",
-			"trait.athletic",
 			"trait.hate_beasts",
 			"trait.hate_undead",
 			"trait.hate_greenskins",
-			"trait.hate_nobles",
 			"trait.aggressive",
 			"trait.ambitious",
 			"trait.slack"
@@ -90,10 +85,12 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 			Weapon = [
 				this.Const.Perks.CleaverTree,
 				this.Const.Perks.FlailTree,
+				this.Const.Perks.SpearTree,
 				this.Const.Perks.SlingTree
 			],
 			Defense = [
-				this.Const.Perks.LightArmorTree
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.ShieldTree
 			],
 			Traits = [
 				this.Const.Perks.FitTree,
@@ -102,7 +99,7 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 				this.Const.Perks.IndestructibleTree
 			],
 			Enemy = [this.Const.Perks.SouthernersTree],
-			Class = [this.Const.Perks.FistsClassTree],
+			Class = [this.Const.Perks.FistsClassTree], //this.Const.Perks.FistsClassTree
 			Magic = []
 		}
 	}
@@ -110,28 +107,6 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 	function getTooltip()
 	{
 		local ret = this.character_background.getTooltip()
-
-		if (("State" in this.World) && this.World.State != null && this.World.Assets.getOrigin().getID() == "scenario.manhunters")
-		{
-			ret.push({
-				id = 16,
-				type = "text",
-				icon = "ui/icons/xp_received.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] Experience Gain"
-			});
-			ret.push({
-				id = 17,
-				type = "text",
-				icon = "ui/icons/xp_received.png",
-				text = "Limited to character level 7"
-			});
-			ret.push({
-				id = 18,
-				type = "text",
-				icon = "ui/icons/days_wounded.png",
-				text = "Is permanently dead if struck down and will not survive with a permanent injury"
-			});
-		}
 
 		ret.push({
 			id = 19,
@@ -184,16 +159,16 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 	{
 		local c = {
 			Hitpoints = [
-				-10,
-				-10
+				5,
+				16
 			],
 			Bravery = [
 				-5,
 				0
 			],
 			Stamina = [
-				0,
-				0
+				6,
+				12
 			],
 			MeleeSkill = [
 				0,

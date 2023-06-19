@@ -10,7 +10,7 @@ this.legend_well_tended_effect <- this.inherit("scripts/skills/injury/injury", {
 		this.m.Type = this.m.Type | this.Const.SkillType.StatusEffect;
 		this.m.IsHealingMentioned = false;
 		this.m.IsTreatable = false;
-		this.m.IsContentWithReserve = true;
+		this.m.IsContentWithReserve = true; //tooltip will appear automatically
 		this.m.HealingTimeMin = 4;
 		this.m.HealingTimeMax = 7;
 	}
@@ -57,12 +57,6 @@ this.legend_well_tended_effect <- this.inherit("scripts/skills/injury/injury", {
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Ranged skill"
-			},
-			{
-				id = 13,
-				type = "text",
-				icon = "ui/icons/special.png",
-				text = "Is content with being in reserve"
 			}
 		];
 		this.addTooltipHint(ret);

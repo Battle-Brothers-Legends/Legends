@@ -60,7 +60,9 @@ this.brawler_background <- this.inherit("scripts/skills/backgrounds/character_ba
 				this.Const.Perks.IndestructibleTree
 			],
 			Enemy = [],
-			Class = [this.Const.Perks.FistsClassTree],
+			Class = [
+				this.Const.Perks.FistsClassTree
+			],
 			Magic = []
 		}
 	}
@@ -88,8 +90,8 @@ this.brawler_background <- this.inherit("scripts/skills/backgrounds/character_ba
 	{
 		local c = {
 			Hitpoints = [
-				5,
-				10
+				10,
+				15
 			],
 			Bravery = [
 				7,

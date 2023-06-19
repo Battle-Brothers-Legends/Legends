@@ -34,6 +34,20 @@ this.stunned_effect <- this.inherit("scripts/skills/skill", {
 
 	function onAdded()
 	{
+		// Legends Steel Brow Stun -> Daze logic here
+		local skill = this.getContainer().getSkillByID("effects.steel_brow");
+
+		if (skill != null)
+		{
+			if (this.getContainer().getActor().getTile().IsVisibleForPlayer)
+			{
+				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " resists the Stun with " + skill.getName() + " and is Dazed instead.");
+			}
+			this.removeSelf();
+			this.getContainer().add(this.new("scripts/skills/effects/dazed_effect"));
+			return;
+		}
+		// End of Legends Steel Brow logic
 		local statusResisted = this.getContainer().getActor().getCurrentProperties().IsResistantToAnyStatuses ? this.Math.rand(1, 100) <= 50 : false;
 		statusResisted = statusResisted || this.getContainer().getActor().getCurrentProperties().IsResistantToPhysicalStatuses ? this.Math.rand(1, 100) <= 33 : false;
 
@@ -60,13 +74,6 @@ this.stunned_effect <- this.inherit("scripts/skills/skill", {
 		else
 		{
 			this.m.IsGarbage = true;
-			/*
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.m.Container.getActor().getName()) + " became dazed instead of stunned, due to being stun immune.");
-
-			local forceDaze = this.new("scripts/skills/effects/dazed_effect");
-			forceDaze.m.IsForced = true;
-			this.m.Container.add(forceDaze);
-			*/
 		}
 	}
 

@@ -116,26 +116,23 @@ this.building <- {
 				local isUpgrade = false;
 				local script = i.S;
 
-				if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+				local index = script.find("helmets/");
+				if (index != null && script.find("legend_helmets") == null)
 				{
-					local index = script.find("helmets/");
-					if (index != null && script.find("legend_helmets") == null)
-					{
-						isHelm = true;
-						script = script.slice(index + "helmets/".len());
-					}
-					index = script.find("armor/");
-					if (index != null && script.find("legend_armor") == null)
-					{
-						isArmor = true;
-						script = script.slice(index + "armor/".len());
-					}
-					index = script.find("armor_upgrades/");
-					if (index != null && script.find("legend_armor") == null)
-					{
-						isUpgrade = true;
-						script = script.slice(index + "armor_upgrades/".len());
-					}
+					isHelm = true;
+					script = script.slice(index + "helmets/".len());
+				}
+				index = script.find("armor/");
+				if (index != null && script.find("legend_armor") == null)
+				{
+					isArmor = true;
+					script = script.slice(index + "armor/".len());
+				}
+				index = script.find("armor_upgrades/");
+				if (index != null && script.find("legend_armor") == null)
+				{
+					isUpgrade = true;
+					script = script.slice(index + "armor_upgrades/".len());
 				}
 
 				if (p >= r)

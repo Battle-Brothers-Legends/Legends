@@ -1,5 +1,6 @@
 this.runaway_harem_event <- this.inherit("scripts/events/event", {
 	m = {
+		Dude = null,
 		Citystate = null
 	},
 	function create()
@@ -132,8 +133,10 @@ this.runaway_harem_event <- this.inherit("scripts/events/event", {
 				_event.m.Dude.getItems().unequip(_event.m.Dude.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand));
 				_event.m.Dude.getItems().unequip(_event.m.Dude.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand));
 				_event.m.Dude.getItems().equip(this.new("scripts/items/weapons/oriental/qatal_dagger"));
-				_event.m.Dude.getTalents().talents[this.Const.Attributes.MeleeSkill] = 3;
-				_event.m.Dude.getTalents().talents[this.Const.Attributes.Bravery] = 3;
+				local talents = _event.m.Dude.getTalents();
+				talents.resize(this.Const.Attributes.COUNT, 0);	
+				talents[this.Const.Attributes.MeleeSkill] = 3;
+				talents[this.Const.Attributes.Bravery] = 3;
 				_event.m.Dude.getSkills().add(this.new("scripts/skills/perks/perk_coup_de_grace"));
 				_event.m.Dude.getSkills().add(this.new("scripts/skills/perks/perk_legend_favoured_enemy_southerner"));
 				_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/natural_trait"));
@@ -259,6 +262,7 @@ this.runaway_harem_event <- this.inherit("scripts/events/event", {
 
 	function onClear()
 	{
+		this.m.Dude = null;
 		this.m.Citystate = null;
 	}
 

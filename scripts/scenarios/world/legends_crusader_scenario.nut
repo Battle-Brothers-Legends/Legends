@@ -146,26 +146,15 @@ this.legends_crusader_scenario <- this.inherit("scripts/scenarios/world/starting
 		local garbage = [];
 		local bros = _roster.getAll();
 
+		this.addBroToRoster(_roster, "flagellant_background", 4);
+		this.addBroToRoster(_roster, "monk_background", 4);
+		this.addBroToRoster(_roster, "legend_nun_background", 4);
+		this.addBroToRoster(_roster, "witchhunter_background", 5);
+		this.addBroToRoster(_roster, "legend_pilgrim_background", 4);
+		this.addBroToRoster(_roster, "legend_crusader_background", 8);
+
 		foreach( i, bro in bros )
 		{
-			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Crusader))
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
-				bro.getSkills().update();
-			}
-			else if (bro.getBackground().getID() == "background.squire")
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.85) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 0.85; //1.0 = default
-				bro.getSkills().update();
-			}
-			else
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.25) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 1.25; //1.0 = default
-				bro.getSkills().update();
-			}
 
 			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
 			{
@@ -179,83 +168,33 @@ this.legends_crusader_scenario <- this.inherit("scripts/scenarios/world/starting
 		}
 	}
 
+	function onGenerateBro(bro)
+	{
+		if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Crusader))
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
+			bro.getSkills().update();
+		}
+		else if (bro.getBackground().getID() == "background.squire")
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.85) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 0.85; //1.0 = default
+			bro.getSkills().update();
+		}
+		else
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.25) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 1.25; //1.0 = default
+			bro.getSkills().update();
+		}
+	}
+
 	function onBuildPerkTree( _background )
 	{
 		this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.FortifiedMind, 2, _background.isBackgroundType(this.Const.BackgroundType.Crusader));
 	}
 
-	function onUpdateDraftList( _list, _gender = null)
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() < 5)
-		{
-			local r;
-			r = this.Math.rand(0, 2);
-			if (r == 0)
-			{
-			_list.push("flagellant_background");
-			}
-			r = this.Math.rand(0, 4);
-			if (r == 0)
-			{
-			_list.push("legend_pilgrim_background");
-			}
-			r = this.Math.rand(0, 4);
-			if (r == 0)
-			{
-			_list.push("monk_background");
-			}
-			r = this.Math.rand(0, 6);
-			if (r == 0 && _gender)
-			{
-			_list.push("legend_nun_background");
-			}
-			r = this.Math.rand(0, 9);
-			if (r == 0)
-			{
-				_list.push("witchhunter_background");
-			}
-			r = this.Math.rand(0, 49);
-			if (r == 0)
-			{
-				_list.push("legend_crusader_background");
-			}
-		}
-		if (_list.len() >= 5)
-		{
-			local r;
-			r = this.Math.rand(0, 5);
-			if (r == 0)
-			{
-				_list.push("flagellant_background");
-			}
-			r = this.Math.rand(0, 5);
-			if (r == 0)
-			{
-				_list.push("legend_pilgrim_background");
-			}
-			r = this.Math.rand(0, 6);
-			if (r == 0)
-			{
-				_list.push("monk_background");
-			}
-			r = this.Math.rand(0, 4);
-			if (r == 0)
-			{
-				_list.push("legend_nun_background");
-			}
-			r = this.Math.rand(0, 5);
-			if (r == 0)
-			{
-				_list.push("witchhunter_background");
-			}
-			r = this.Math.rand(0, 19);
-			if (r == 0)
-			{
-				_list.push("legend_crusader_background");
-			}
-		}
-	}
 
 });
 

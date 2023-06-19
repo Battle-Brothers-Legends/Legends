@@ -29,7 +29,7 @@ this.large_lumber_village <- this.inherit("scripts/entity/world/settlement", {
 			"Konigshain"
 		]);
 		this.m.DraftList = [
-			"legend_shieldmaiden_background"
+			"legend_shieldmaiden_background", // added missing (,) here. Abyss 5/15/23
 			"apprentice_background",
 			"beggar_background",
 			"female_bowyer_background",

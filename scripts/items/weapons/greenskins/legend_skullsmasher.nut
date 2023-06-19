@@ -30,17 +30,17 @@ this.legend_skullsmasher <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.FatigueOnSkillUse = 5;
 	}
 
-	function getTooltip()
-	{
-		local ret = this.weapon.getTooltip();
-		ret.push({
-			id = 18,
-			type = "text",
-			icon = "ui/icons/fatigue.png",
-			text = "Builds up additional [color=" + this.Const.UI.Color.NegativeValue + "]5[/color] Fatigue with every skill use"
-		});
-		return ret;
-	}
+	// function getTooltip()
+	// {
+	// 	local ret = this.weapon.getTooltip();
+	// 	ret.push({
+	// 		id = 18,
+	// 		type = "text",
+	// 		icon = "ui/icons/fatigue.png",
+	// 		text = "Builds up additional [color=" + this.Const.UI.Color.NegativeValue + "]5[/color] Fatigue with every skill use"
+	// 	});
+	// 	return ret;
+	// }
 
 	function onEquip()
 	{
@@ -51,9 +51,9 @@ this.legend_skullsmasher <- this.inherit("scripts/items/weapons/weapon", {
 		skillToAdd = this.new("scripts/skills/actives/crush_armor");
 		this.addSkill(skillToAdd);
 
-		skillToAdd = this.new("scripts/skills/actives/legend_harvest_rock");
-		skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
-		this.addSkill(skillToAdd);
+		// skillToAdd = this.new("scripts/skills/actives/legend_harvest_rock");
+		// skillToAdd.setFatigueCost(skillToAdd.getFatigueCostRaw() + 5);
+		// this.addSkill(skillToAdd);
 
 	}
 

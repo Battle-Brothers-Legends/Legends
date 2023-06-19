@@ -75,6 +75,13 @@ this.painter_building <- this.inherit("scripts/entity/world/camp/camp_building",
 		];
 	}
 
+	function getDescription()
+	{
+		local desc = "";
+		desc = desc + "Here you can spend your crowns to change the style of each piece of armour of each unit in your company ";
+		return desc;
+	}
+
 	function getLevel()
 	{
 		return "empty";
@@ -82,17 +89,7 @@ this.painter_building <- this.inherit("scripts/entity/world/camp/camp_building",
 
 	function isHidden()
 	{
-		if (::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			return true;
-		}
-
-		if (::Legends.Mod.ModSettings.getSetting("SkipCamp").getValue())
-		{
-			return false;
-		}
-
-		return !this.World.Flags.get("HasLegendCampPainter");
+		return false;
 	}
 
 	function onClicked( _campScreen )

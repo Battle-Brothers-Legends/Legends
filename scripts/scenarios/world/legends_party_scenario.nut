@@ -4,7 +4,7 @@ this.legends_party_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	{
 		this.m.ID = "scenario.legends_party";
 		this.m.Name = "Adventuring Party";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_134.png[/img][/p][p]After an unlikely meeting in a tavern, an unlikely group of strangers has formed an adventuring party. They have set out in search of both dragons and dungeons.\n\n[color=#bcad8c]A party of six overpowered adventurers, each with their own skills.[/color][/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_134.png[/img][/p][p]After an unlikely meeting in a tavern, an unlikely group of strangers has formed an adventuring party. They have set out in search of both dragons and dungeons.\n\n[color=#bcad8c]A party of six overpowered adventurers, each with their own skills and increased chances of encountering hostile champions[/color][/p]";
 		this.m.Difficulty = 1;
 		this.m.Order = 10;
 	}
@@ -59,7 +59,7 @@ this.legends_party_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[2].setPlaceInFormation(5);
 		bros[2].setVeteranPerks(2);
 		bros[2].getSkills().add(this.new("scripts/skills/traits/superstitious_trait"));
-		bros[2].getSkills().add(this.new("scripts/skills/traits/legend_undead_killer_trait"));
+		// bros[2].getSkills().add(this.new("scripts/skills/traits/legend_undead_killer_trait")); //Has this by default
 		bros[3].setStartValuesEx([
 			"legend_druid_background"
 		]);

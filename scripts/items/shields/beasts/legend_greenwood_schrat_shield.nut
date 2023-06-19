@@ -15,8 +15,8 @@ this.legend_greenwood_schrat_shield <- this.inherit("scripts/items/shields/shiel
 		this.m.MeleeDefense = 40;
 		this.m.RangedDefense = 40;
 		this.m.StaminaModifier = 0;
-		this.m.Condition = 64;
-		this.m.ConditionMax = 64;
+		this.m.Condition = 128;
+		this.m.ConditionMax = 128;
 	}
 
 	function updateVariant()

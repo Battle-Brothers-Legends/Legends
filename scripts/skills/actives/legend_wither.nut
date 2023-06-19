@@ -30,11 +30,6 @@ this.legend_wither <- this.inherit("scripts/skills/skill", {
 		this.m.MaxLevelDifference = 8;
 	}
 
-	function getDescription()
-	{
-		return "";
-	}
-
 	function getTooltip()
 	{
 		return this.skill.getDefaultUtilityTooltip();

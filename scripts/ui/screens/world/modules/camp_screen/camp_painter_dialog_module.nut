@@ -27,7 +27,7 @@ this.camp_painter_dialog_module <- this.inherit("scripts/ui/screens/ui_module", 
 			local bodyarmorbase = b.getItems().getItemAtSlot(this.Const.ItemSlot.Body);
 			local bodyarmor = null;
 			local bodyarmorfinal = {};
-			if (bodyarmorbase != null && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+			if (bodyarmorbase != null)
 			{
 				bodyarmor = {
 					Cloth = bodyarmorbase,
@@ -71,7 +71,7 @@ this.camp_painter_dialog_module <- this.inherit("scripts/ui/screens/ui_module", 
 			}
 			local helmet = null;
 			local helmetfinal = {};
-			if (helmetbase != null && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+			if (helmetbase != null)
 			{
 				helmet = {
 					Hood = helmetbase,
@@ -201,7 +201,7 @@ this.camp_painter_dialog_module <- this.inherit("scripts/ui/screens/ui_module", 
 			{
 				local bodyarmorbase = b.getItems().getItemAtSlot(this.Const.ItemSlot.Body);
 				local bodyarmor = null;
-				if (bodyarmorbase != null && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+				if (bodyarmorbase != null)
 				{
 					bodyarmor = {
 						Cloth = bodyarmorbase,
@@ -225,7 +225,7 @@ this.camp_painter_dialog_module <- this.inherit("scripts/ui/screens/ui_module", 
 				}
 				local helmetbase = b.getItems().getItemAtSlot(this.Const.ItemSlot.Head);
 				local helmet = null;
-				if (helmetbase != null && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+				if (helmetbase != null)
 				{
 					helmet = {
 						Hood = helmetbase,

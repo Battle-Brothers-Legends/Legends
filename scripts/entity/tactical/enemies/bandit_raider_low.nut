@@ -116,10 +116,11 @@ this.bandit_raider_low <- this.inherit("scripts/entity/tactical/enemies/bandit_r
 		}
 
 		local item = this.Const.World.Common.pickArmor([
+			[10, "bandit_armor_light"],
 			[20, "ragged_surcoat"],
 			[20, "padded_leather"],
-			[20, "worn_mail_shirt"],
-			[20, "leather_lamellar"],
+			[15, "worn_mail_shirt"],
+			[15, "leather_lamellar"],
 			[20, "patched_mail_shirt"]
 		])
 		this.m.Items.equip(item);

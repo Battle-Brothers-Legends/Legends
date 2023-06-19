@@ -48,7 +48,7 @@ this.female_daytaler_background <- this.inherit("scripts/skills/backgrounds/char
 				this.Const.Perks.CalmTree
 			],
 			Enemy = [],
-			Class = [this.Const.Perks.FistsClassTree],
+			Class = [], //this.Const.Perks.FistsClassTree
 			Magic = []
 		}
 	}

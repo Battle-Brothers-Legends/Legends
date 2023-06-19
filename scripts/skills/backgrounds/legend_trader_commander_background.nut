@@ -61,8 +61,8 @@ this.legend_trader_commander_background <- this.inherit("scripts/skills/backgrou
 				this.Const.Perks.PerkDefs.HoldOut,
 				this.Const.Perks.PerkDefs.QuickHands,
 				this.Const.Perks.PerkDefs.RallyTheTroops,
-				this.Const.Perks.PerkDefs.SteelBrow,
-				this.Const.Perks.PerkDefs.LegendComposure
+				this.Const.Perks.PerkDefs.SteelBrow
+				// this.Const.Perks.PerkDefs.LegendComposure
 
 			],
 			[

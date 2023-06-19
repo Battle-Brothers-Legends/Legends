@@ -38,6 +38,10 @@ this.blueprint <- {
 
 	function getIcon()
 	{
+		if (this.m.PreviewCraftable.getIcon() == "layers/named_icon_glow.png")
+		{
+			return this.m.PreviewCraftable.m.Icon;
+		}
 		return this.m.PreviewCraftable.getIcon();
 	}
 
@@ -178,19 +182,6 @@ this.blueprint <- {
 
 		foreach( c in this.m.PreviewComponents )
 		{
-			if ("LegendsArmor" in c)
-			{
-				if (c.LegendsArmor && ::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-
-				if (!c.LegendsArmor && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-			}
-
 			local num = 0;
 
 			if (c.Instance.getID() in itemsMap)
@@ -213,19 +204,6 @@ this.blueprint <- {
 
 		foreach( c in this.m.PreviewComponents )
 		{
-			if ("LegendsArmor" in c)
-			{
-				if (c.LegendsArmor && ::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-
-				if (!c.LegendsArmor && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-			}
-
 			local num = 0;
 
 			if (c.Instance.getID() in itemsMap)
@@ -373,19 +351,6 @@ this.blueprint <- {
 				continue;
 			}
 
-			if ("LegendsArmor" in c)
-			{
-				if (c.LegendsArmor && ::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-
-				if (!c.LegendsArmor && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-			}
-
 			if (c.Instance.getID() in itemsMap)
 			{
 				num = itemsMap[c.Instance.getID()];
@@ -417,19 +382,6 @@ this.blueprint <- {
 
 		foreach( c in this.m.PreviewComponents )
 		{
-			if ("LegendsArmor" in c)
-			{
-				if (c.LegendsArmor && ::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-
-				if (!c.LegendsArmor && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-			}
-
 			for( local j = 0; j < c.Num; j = j )
 			{
 				local item = stash.getItemByID(c.Instance.getID());
@@ -469,19 +421,6 @@ this.blueprint <- {
 
 		foreach( c in this.m.PreviewComponents )
 		{
-			if ("LegendsArmor" in c)
-			{
-				if (c.LegendsArmor && ::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-
-				if (!c.LegendsArmor && !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-				{
-					continue;
-				}
-			}
-
 			for( local j = 0; j < c.Num; j = j )
 			{
 				stash.removeByID(c.Instance.getID());

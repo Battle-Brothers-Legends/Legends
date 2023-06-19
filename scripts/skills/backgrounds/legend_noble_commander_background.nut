@@ -92,7 +92,7 @@ this.legend_noble_commander_background <- this.inherit("scripts/skills/backgroun
 				this.Const.Perks.PerkDefs.QuickHands,
 				this.Const.Perks.PerkDefs.Gifted,
 				this.Const.Perks.PerkDefs.Sprint,
-				this.Const.Perks.PerkDefs.LegendComposure,
+				// this.Const.Perks.PerkDefs.LegendComposure,
 				this.Const.Perks.PerkDefs.LegendOnslaught
 			],
 			[

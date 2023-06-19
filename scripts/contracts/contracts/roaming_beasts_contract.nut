@@ -56,7 +56,7 @@ this.roaming_beasts_contract <- this.inherit("scripts/contracts/contract", {
 			function end()
 			{
 				this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
-				local r = this.Math.rand(1, 100)
+				local r = this.Math.rand(1, 100);
 				if (r <= 5 && this.World.Assets.getBusinessReputation() > 500)
 				{
 					this.Flags.set("IsHumans", true);
@@ -67,116 +67,8 @@ this.roaming_beasts_contract <- this.inherit("scripts/contracts/contract", {
 				}
 				else
 				{
-					local village = this.Contract.getHome().get();
-					local twists = [];
-					local r;
-					r = 50;
-
-					if (this.isKindOf(village, "small_lumber_village") || this.isKindOf(village, "medium_lumber_village"))
-					{
-						r = r + 50;
-					}
-					else if (this.isKindOf(village, "small_tundra_village") || this.isKindOf(village, "medium_tundra_village"))
-					{
-						r = r + 50;
-					}
-					else if (this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
-					{
-						r = r + 50;
-					}
-					else if (this.isKindOf(village, "small_steppe_village") || this.isKindOf(village, "medium_steppe_village"))
-					{
-						r = r - 25;
-					}
-					else if (this.isKindOf(village, "small_swamp_village") || this.isKindOf(village, "medium_swamp_village"))
-					{
-						r = r - 25;
-					}
-
-					twists.push({
-						F = "IsDirewolves",
-						R = r
-					});
-					r = 50;
-
-					if (this.isKindOf(village, "small_steppe_village") || this.isKindOf(village, "medium_steppe_village"))
-					{
-						r = r + 50;
-					}
-					else if (this.isKindOf(village, "small_farming_village") || this.isKindOf(village, "medium_farming_village"))
-					{
-						r = r + 25;
-					}
-					else if (this.isKindOf(village, "small_tundra_village") || this.isKindOf(village, "medium_tundra_village"))
-					{
-						r = r - 25;
-					}
-					else if (this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
-					{
-						r = r - 50;
-					}
-					else if (this.isKindOf(village, "small_swamp_village") || this.isKindOf(village, "medium_swamp_village"))
-					{
-						r = r + 25;
-					}
-
-					twists.push({
-						F = "IsGhouls",
-						R = r
-					});
-
-					if (this.Const.DLC.Unhold)
-					{
-						r = 50;
-
-						if (this.isKindOf(village, "small_lumber_village") || this.isKindOf(village, "medium_lumber_village"))
-						{
-							r = r + 100;
-						}
-						else if (this.isKindOf(village, "small_tundra_village") || this.isKindOf(village, "medium_tundra_village"))
-						{
-							r = r - 25;
-						}
-						else if (this.isKindOf(village, "small_steppe_village") || this.isKindOf(village, "medium_steppe_village"))
-						{
-							r = r - 25;
-						}
-						else if (this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
-						{
-							r = r - 50;
-						}
-						else if (this.isKindOf(village, "small_swamp_village") || this.isKindOf(village, "medium_swamp_village"))
-						{
-							r = r + 25;
-						}
-
-						twists.push({
-							F = "IsSpiders",
-							R = r
-						});
-					}
-
-					local maxR = 0;
-
-					foreach( t in twists )
-					{
-						maxR = maxR + t.R;
-					}
-
-					local r = this.Math.rand(1, maxR);
-
-					foreach( t in twists )
-					{
-						if (r <= t.R)
-						{
-							this.Flags.set(t.F, true);
-							  // [346]  OP_JMP            0      5    0    0
-						}
-						else
-						{
-							r = r - t.R;
-						}
-					}
+					// Use our own settlement-based randomization system because the Vanilla approach was bugged and overly favoured Ghouls
+					this.Flags.set(::RoamingBeastsContractWeights.rollEnemyBySettlement(this.Contract.getHome().get()), true);
 				}
 
 				local playerTile = this.World.State.getPlayer().getTile();

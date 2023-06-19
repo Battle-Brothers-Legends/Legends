@@ -62,9 +62,7 @@ this.gladiators_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		a = this.Const.World.Common.pickArmor([
 				[1, "oriental/gladiator_harness"],
 		]);
-		a.setUpgrade(this.new("scripts/items/" +
-			(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
-		))
+		a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_light_gladiator_upgrade"));
 
 		bros[0].getItems().equip(a);
 		a = this.Const.World.Common.pickHelmet([
@@ -85,9 +83,7 @@ this.gladiators_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		a = this.Const.World.Common.pickArmor([
 				[1, "oriental/gladiator_harness"],
 		]);
-		a.setUpgrade(this.new("scripts/items/" +
-			(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade" : "armor_upgrades/heavy_gladiator_upgrade")
-		))
+		a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade"));
 		bros[1].getItems().equip(a);
 		a = this.Const.World.Common.pickHelmet([
 			[1, "oriental/gladiator_helmet", 15]
@@ -107,9 +103,7 @@ this.gladiators_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		a = this.Const.World.Common.pickArmor([
 				[1, "oriental/gladiator_harness"],
 		]);
-		a.setUpgrade(this.new("scripts/items/" +
-			(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
-		))
+		a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_light_gladiator_upgrade"));
 		bros[2].getItems().equip(a);
 		a = this.Const.World.Common.pickHelmet([
 			[1, "oriental/gladiator_helmet", 14]

@@ -4,7 +4,7 @@ this.legend_armor_piercing_arrows <- this.inherit("scripts/items/ammo/ammo", {
 	{
 		this.m.ID = "ammo.arrows";
 		this.m.Name = "Armor Piercing Arrows";
-		this.m.Description = "A quiver of arrows with piercing tips, designed for punching through thick armor. Is automatically refilled after each battle if you have enough ammunition. Grants +10% armor piercing and -10% damage while wielding a bow.";
+		this.m.Description = "A quiver of arrows with piercing tips, designed for punching through thick armor. Is automatically refilled after each battle if you have enough ammunition. Grants +30% (multiplicative) armor piercing and -10% damage while wielding a bow.";
 		this.m.Icon = "ammo/quiver_01_dark.png";
 		this.m.IconEmpty = "ammo/quiver_01_empty.png";
 		this.m.SlotType = this.Const.ItemSlot.Ammo;
@@ -86,26 +86,28 @@ this.legend_armor_piercing_arrows <- this.inherit("scripts/items/ammo/ammo", {
 		this.ammo.onUpdateProperties(_properties);
 		local actor = this.getContainer().getActor();
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
+
 		if (item == null)
 		{
 			return;
 		}
-		
-		switch (item.getID())
+
+		switch(item.getID()) //this ideally needs to be refactored - it does work but we can just call the item.type instead of listing all these out.
 		{
 			case "weapon.wonky_bow":
 			case "weapon.war_bow":
+			case "weapon.named_warbow":
 			case "weapon.hunting_bow":
 			case "weapon.masterwork_bow":
-			case "weapon.short_bow":	
+			case "weapon.short_bow":
 			case "weapon.goblin_bow":
 			case "weapon.goblin_heavy_bow":
-			case "weapon.named_goblin_heavy_bow":	
-				_properties.DamageDirectMult *= 1.1;
+			case "weapon.named_goblin_heavy_bow":
+				_properties.DamageDirectMult *= 1.3;
 				_properties.RangedDamageMult *= 0.9;
-					break;
+				break;
 		}
-
 	}
+
 });
 

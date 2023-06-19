@@ -714,21 +714,6 @@ gt.Const.World.Common.pickHelmet <- function (_helms)
 	}
 	// return this.new("scripts/items/helmets/" + helm);
 
-	if (::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-	{
-		if (helm == "")
-		{
-			return null;
-		}
-		if (helm == "named/legend_helm_stag_named" || helm == "named/legend_helm_swan_named") {helm = "named/legend_helm_full_named"};
-		local item = this.new("scripts/items/helmets/" + helm);
-		if (item == null) return null;
-		if (variant != null && "setVariant" in item)
-		{
-			item.setVariant(variant);
-		}
-		return item;
-	}
 
 	local layersObj = this.Const.LegendMod.Helmets[helm];
 	if (layersObj.Script != "")
@@ -824,21 +809,6 @@ gt.Const.World.Common.pickArmor <- function (_armors)
 		return null;
 	}
 
-	if (::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-	{
-		if (armorID == "seedmaster_noble_armor" || armorID == "citreneking_noble_armor" ) {armorID = "mail_hauberk"};
-		local item = this.new("scripts/items/armor/" + armorID);
-		if (item == null) return null;
-		if (faction != null && "setFaction" in item)
-		{
-			item.setFaction(faction);
-		}
-		else if (variant != null && "setVariant" in item)
-		{
-			item.setVariant(variant);
-		}
-		return item;
-	}
 
 	if (!(armorID in this.Const.LegendMod.Armors))
 	{
@@ -939,23 +909,6 @@ gt.Const.World.Common.pickArmorUpgrade <- function (_armors)
 		break;
 	}
 
-	if (::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-	{
-		if (armorID == "")
-		{
-			return null;
-		}
-		local item = this.new("scripts/items/armor_upgrades/" + armorID);
-		if (faction != null)
-		{
-			item.setFaction(faction);
-		}
-		else if (variant != null)
-		{
-			item.setVariant(variant);
-		}
-		return item;
-	}
 
 	if (!(armorID in this.Const.LegendMod.Armors))
 	{

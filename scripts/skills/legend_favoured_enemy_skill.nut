@@ -99,7 +99,7 @@ this.legend_favoured_enemy_skill <- this.inherit("scripts/skills/skill", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/damage_dealt.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.Math.floor((stats.HitMult - 1.0) * 100.0) + "%[/color] Max Damage due to being a favored enemy"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + stats.HitChance + "%[/color] Max Damage due to being a favored enemy"
 			}
 		];
 		if (this.m.BraveryMult > 1)
@@ -193,6 +193,21 @@ this.legend_favoured_enemy_skill <- this.inherit("scripts/skills/skill", {
 	function onAdded()
 	{
 		this.Const.LegendMod.FavEnemyPerkMap.addEnemies(this.m.ValidTypes, this.m.ID)
+	}
+
+	// Requires MSU; this will add tooltips to display bonuses when targeting an enemy
+	function onGetHitFactors( _skill, _targetTile, _tooltip )
+	{
+		if (this.validTarget( _targetTile.getEntity().getType())) {
+
+			local bonuses = this.getTotalKillStats();
+
+			_tooltip.push({
+				icon = "ui/tooltips/positive.png",
+				text = format("[color=%s]%s%%[/color] Favoured Enemy (also grants [color=%s]+%s%%[/color] max damage)",::Const.UI.Color.PositiveValue,bonuses.HitChance.tostring(),::Const.UI.Color.PositiveValue,bonuses.HitChance.tostring())
+			});
+
+		}
 	}
 	
 });

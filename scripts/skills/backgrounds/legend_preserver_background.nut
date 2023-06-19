@@ -136,8 +136,7 @@ this.legend_preserver_background <- this.inherit("scripts/skills/backgrounds/cha
 					this.Const.Perks.PerkDefs.LegendReclamation,
 					this.Const.Perks.PerkDefs.LegendHerbcraft,
 					this.Const.Perks.PerkDefs.LegendFavouredEnemyHexen,
-					this.Const.Perks.PerkDefs.Rebound,
-					this.Const.Perks.PerkDefs.LegendHidden
+					this.Const.Perks.PerkDefs.Rebound
 				],
 				[
 					this.Const.Perks.PerkDefs.Fearsome,

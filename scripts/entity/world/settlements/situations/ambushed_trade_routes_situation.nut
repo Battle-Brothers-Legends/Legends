@@ -29,10 +29,18 @@ this.ambushed_trade_routes_situation <- this.inherit("scripts/entity/world/settl
 		_settlement.removeSituationByID("situation.safe_roads");
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.05);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.025);
 		}
 		_settlement.resetShop();
 
+	}
+
+	function onResolved( _settlement )
+	{
+		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
+		{
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.125);
+		}
 	}
 
 	function onUpdate( _modifiers )

@@ -29,7 +29,7 @@ this.abducted_children_situation <- this.inherit("scripts/entity/world/settlemen
 		_settlement.resetRoster(true);
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.015);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.025);
 		}
 	}
 
@@ -37,7 +37,7 @@ this.abducted_children_situation <- this.inherit("scripts/entity/world/settlemen
 	{
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.03);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.125);
 		}
 	}
 

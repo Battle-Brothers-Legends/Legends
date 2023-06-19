@@ -1,11 +1,11 @@
 ::Legends <- {
 	ID = "mod_legends",
-	Version = "16.1.5",
+	Version = "16.4.2",
 	Name = "Legends Mod",
-	BuildName = "Sojourn v5"
+	BuildName = "Blood & Brawling"
 };
 ::mods_registerMod(::Legends.ID, ::Legends.Version, ::Legends.Name);
-::mods_queue(null, "mod_msu(>=1.0.3), vanilla(>=1.5.0-11), dlc_lindwurm, dlc_unhold, dlc_wildmen, dlc_desert, dlc_paladins", function()
+::mods_queue(null, "mod_msu(>=1.2.4), vanilla(>=1.5.0-14), dlc_lindwurm, dlc_unhold, dlc_wildmen, dlc_desert, dlc_paladins", function()
 {
 	::Legends.Mod <- ::MSU.Class.Mod(::Legends.ID, ::Legends.Version, ::Legends.Name);
 

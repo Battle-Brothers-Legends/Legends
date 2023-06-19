@@ -108,7 +108,7 @@ this.wildwoman_background <- this.inherit("scripts/skills/backgrounds/character_
 				this.Const.Perks.OrcTree,
 				this.Const.Perks.GoblinTree
 				],
-			Class = [this.Const.Perks.FistsClassTree],
+			Class = [this.Const.Perks.FistsClassTree], //this.Const.Perks.FistsClassTree
 			Magic = []
 		}
 	}
@@ -148,8 +148,8 @@ this.wildwoman_background <- this.inherit("scripts/skills/backgrounds/character_
 				28
 			],
 			MeleeSkill = [
-				6,
-				0
+				7,
+				10
 			],
 			RangedSkill = [
 				-5,
@@ -164,8 +164,8 @@ this.wildwoman_background <- this.inherit("scripts/skills/backgrounds/character_
 				-5
 			],
 			Initiative = [
-				-5,
-				-5
+				5,
+				12
 			]
 		};
 		return c;

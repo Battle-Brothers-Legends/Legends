@@ -39,7 +39,7 @@ this.legend_flaggelate_skill <- this.inherit("scripts/skills/skill", {
 		this.m.InjuriesOnBody = this.Const.Injury.CuttingBody;
 		this.m.InjuriesOnHead = this.Const.Injury.CuttingHead;
 		this.m.DirectDamageMult = 0.1;
-		this.m.ActionPointCost = 4;
+		this.m.ActionPointCost = 3;
 		this.m.FatigueCost = 15;
 		this.m.MinRange = 1;
 		this.m.MaxRange = 1;

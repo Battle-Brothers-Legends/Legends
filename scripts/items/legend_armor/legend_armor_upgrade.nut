@@ -230,7 +230,17 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 				id = 5,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue " + ::Legends.S.getSign(this.getStaminaModifier()) + ::Legends.S.colorize(this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
+				text = "Maximum Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
+			});
+		}
+
+		if ( this.getStaminaModifier() < 0 && ::Legends.Mod.ModSettings.getSetting("ShowArmorPerFatigueValue").getValue() ) 
+		{
+			result.push({
+				id = 5,
+				type = "text",
+				icon = "",
+				text = format("(%.1f Armor per 1 Fatigue)", this.getConditionMax() / (1.0 * this.Math.abs(this.getStaminaModifier())))
 			});
 		}
 
@@ -287,6 +297,24 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 			icon = "ui/icons/armor_body.png",	// ui/icons/armor_body.png
 			text = "[u]" + this.getName() + "[/u]"
 		});
+		if ( ::Legends.Mod.ModSettings.getSetting("ShowExpandedArmorLayerTooltip").getValue() ) 
+		{
+			_result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/armor_body.png",
+				text = "Armor: " + this.getConditionMax()
+			});
+			if ( this.getStaminaModifier() != 0 ) {
+				_result.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
+				});
+			}
+
+		}
 		this.onArmorTooltip(_result);
 	}
 
@@ -453,7 +481,7 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 	function onUnequip()
 	{
 		this.item.onUnequip();
-        if (::Legends.Mod.ModSettings.getSetting("AutoRepairLayer").getValue()) this.setToBeRepaired(true, 0);
+        if (::Legends.Mod.ModSettings.getSetting("AutoRepairLayer").getValue() && this.getCondition() != this.getConditionMax()) this.setToBeRepaired(true, 0);
 		this.setCurrentSlotType(this.Const.ItemSlot.None);
 	}
 

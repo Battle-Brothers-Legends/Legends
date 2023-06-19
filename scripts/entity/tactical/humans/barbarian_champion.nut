@@ -118,13 +118,9 @@ this.barbarian_champion <- this.inherit("scripts/entity/tactical/human", {
 				[34, "barbarians/heavy_iron_armor"],
 				[33, "barbarians/thick_plated_barbarian_armor"]
 		];
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			armor.push(
-				[5, "barbarians/reinforced_heavy_iron_armor"]
-			);
-		}
+		armor.push(
+			[5, "barbarians/reinforced_heavy_iron_armor"]
+		);
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor(armor));
 

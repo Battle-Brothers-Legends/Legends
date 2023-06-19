@@ -98,13 +98,9 @@ this.executioner <- this.inherit("scripts/entity/tactical/human", {
 				[3, "oriental/southern_helmet_with_coif"],
 				[3, "oriental/turban_helmet"]
 			];
-
-			if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				helm.push(
-					[1, "oriental/janissary_helmet"]
-				);
-			}
+			helm.push(
+				[1, "oriental/janissary_helmet"]
+			);
 
 			this.m.Items.equip(this.Const.World.Common.pickHelmet(helm));
 		}

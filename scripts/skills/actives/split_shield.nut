@@ -137,7 +137,7 @@ this.split_shield <- this.inherit("scripts/skills/skill", {
 			}
 			if (shield.getID() == "weapon.legend_parrying_dagger")
 			{
-				damage = damage * 0.10;
+				damage = damage * 0.20;
 			}
 			else if (shield.getID() == "shield.legend_named_parrying_dagger")
 			{

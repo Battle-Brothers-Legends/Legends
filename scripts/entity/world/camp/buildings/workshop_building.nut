@@ -416,7 +416,7 @@ this.workshop_building <- this.inherit("scripts/entity/world/camp/camp_building"
 				if (myItem.getRuneVariant() != 0)
 				{
 
-					if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() && (myItem.getRuneVariant() == 21 || myItem.getRuneVariant() == 22 || myItem.getRuneVariant() == 23 || myItem.getRuneVariant() == 11 || myItem.getRuneVariant() == 12 || myItem.getRuneVariant() == 13))
+					if (myItem.getRuneVariant() == 21 || myItem.getRuneVariant() == 22 || myItem.getRuneVariant() == 23 || myItem.getRuneVariant() == 11 || myItem.getRuneVariant() == 12 || myItem.getRuneVariant() == 13)
 					{
 						local rune;
 
@@ -451,15 +451,6 @@ this.workshop_building <- this.inherit("scripts/entity/world/camp/camp_building"
 						rune.setRuneBonus1(myItem.getRuneBonus1());
 						rune.setRuneBonus2(myItem.getRuneBonus2());
 						rune.setRuneVariant(0);
-						this.World.Assets.getStash().add(rune);
-					}
-					else
-					{
-						local rune = this.new("scripts/items/rune_sigils/legend_vala_inscription_token");
-						rune.setRuneVariant(myItem.getRuneVariant());
-						rune.setRuneBonus1(myItem.getRuneBonus1());
-						rune.setRuneBonus2(myItem.getRuneBonus2());
-						rune.updateRuneSigilToken();
 						this.World.Assets.getStash().add(rune);
 					}
 				}

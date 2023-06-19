@@ -589,9 +589,9 @@ NewCampaignMenuModule.prototype.createDIV = function (_parentDiv)
 		this.mScenarioListScrollContainer.append(row);
 		this.mScenariosRow = row;
 
-		var row = $('<div class="row3 text-font-medium font-color-description" />');
+		var row = $('<div class="row3" />');
 		rightColumn.append(row);
-		this.mScenariosDesc = row;
+		this.mScenariosDesc = row.createList(10, 'text-font-medium font-color-description').findListScrollContainer();
 
 		this.mScenariosDifficulty = row.createImage('', function (_image) { _image.removeClass('display-none').addClass('display-block'); }, null, 'display-none difficulty');
 		rightColumn.append(this.mScenariosDifficulty);

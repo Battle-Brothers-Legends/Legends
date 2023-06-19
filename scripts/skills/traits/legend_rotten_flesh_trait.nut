@@ -144,7 +144,7 @@ this.legend_rotten_flesh_trait <- this.inherit("scripts/skills/traits/character_
 		_properties.XPGainMult *= 0.75;
 		_properties.DailyWageMult *= 0;
 		_properties.DailyFood += 1;
-		_properties.ActionPoints -= 3;
+		_properties.ActionPoints = 6;
 	}
 
 	function onApplyAppearance()

@@ -9,10 +9,9 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 		this.m.BackgroundDescription = "Master Archers have spent years honing their craft, in hunting, in sport, in war. ";
 		this.m.GoodEnding = "While the %companyname% continued on with great success, %name% the hunter eventually saw fit to leave it all behind. They returned to the life of an archer, working for who ever paid the best. %name% rarely showed the grim reality of hunting humans, but you have to imagine they\'d just rather stop doing it. As far as you know, %name% is doing well these days. The archer purchased a bit of land and helps guide nobles on pricy hunting trips.";
 		this.m.BadEnding = "With the decline of the %companyname% readily obvious, %name% the master archer departed from the company and returned to archery contests. Unfortunately, a shoot off went awry while shooting apples off each other\'s heads. The master archer was the better shot, but being better does not help if you\'re dead.";
-		this.m.HiringCost = 1000;
-		this.m.DailyCost = 40;
+		this.m.HiringCost = 885;
+		this.m.DailyCost = 35;
 		this.m.Excluded = [
-			"trait.weasel",
 			"trait.fear_undead",
 			"trait.fear_beasts",
 			"trait.hate_beasts",
@@ -21,12 +20,14 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 			"trait.brute",
 			"trait.short_sighted",
 			"trait.fat",
+			"trait.fragile",
+			"trait.dumb",
 			"trait.clumsy",
 			"trait.gluttonous",
 			"trait.asthmatic",
 			"trait.craven",
-			"trait.dastard",
-			"trait.drunkard"
+			"trait.insecure",
+			"trait.dastard"
 		];
 		this.m.Titles = [
 			"Target Finder",
@@ -37,12 +38,18 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 			"One Shot",
 			"Eagle Eye"
 		];
+
+		this.m.ExcludedTalents = [
+			this.Const.Attributes.MeleeSkill,
+			this.Const.Attributes.MeleeDefense
+		];
+
 		this.m.Faces = this.Const.Faces.AllWhiteMale;
 		this.m.Hairs = this.Const.Hair.UntidyMale;
 		this.m.HairColors = this.Const.HairColors.Young;
 		this.m.Beards = this.Const.Beards.Untidy;
 
-		this.m.Level = this.Math.rand(1, 4);
+		this.m.Level = this.Math.rand(3, 6);
 		this.m.BackgroundType = this.Const.BackgroundType.Untalented | this.Const.BackgroundType.Combat | this.Const.BackgroundType.Ranger;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Cruel;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Chivalrous;
@@ -71,6 +78,7 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 				0.0, //desert
 				0.0 //oasis
 			];
+
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.BowTree,
@@ -90,11 +98,11 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 			],
 			Enemy = [],
 			Class = [],
-			Magic = [this.Const.Perks.RangerHuntMagicTree]
+			Magic = [
+				this.Const.Perks.RangerHuntMagicTree
+			]
 		}
 	}
-
-
 
 	function onBuildDescription()
 	{
@@ -117,24 +125,24 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 				5
 			],
 			MeleeSkill = [
-				0,
-				0
+				-5,
+				-5
 			],
 			RangedSkill = [
-				25,
-				22
+				23,
+				27
 			],
 			MeleeDefense = [
-				0,
-				0
+				-3,
+				-6
 			],
 			RangedDefense = [
-				5,
-				8
+				6,
+				10
 			],
 			Initiative = [
-				0,
-				5
+				8,
+				14
 			]
 		};
 		return c;
@@ -142,11 +150,6 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 
 	function onAddEquipment()
 	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.RangedSkill] = 3;
-		talents[this.Const.Attributes.Fatigue] = 3;
-		this.getContainer().getActor().fillTalentValues(2, true);
 		local items = this.getContainer().getActor().getItems();
 		local r;
 		items.equip(this.new("scripts/items/weapons/war_bow"));

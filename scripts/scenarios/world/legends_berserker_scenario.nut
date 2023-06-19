@@ -27,7 +27,6 @@ this.legends_berserker_scenario <- this.inherit("scripts/scenarios/world/startin
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 			i = ++i;
 		}
-
 		local bros = roster.getAll();
 		bros[0].setStartValuesEx([
 			"legend_berserker_commander_background"
@@ -198,52 +197,36 @@ this.legends_berserker_scenario <- this.inherit("scripts/scenarios/world/startin
 
 	function onUpdateDraftList( _list, _gender = null )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() <= 5)
-		{
-			local r;
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("barbarian_background");
-			}
-		}
-
-		local r;
-		r = this.Math.rand(0, 999);
-
-		if (r == 0)
-		{
-			_list.push("legend_berserker_background");
-		}
 	}
 
 	function onUpdateHiringRoster( _roster )
 	{
-		local garbage = [];
-		local bros = _roster.getAll();
+		this.addBroToRoster(_roster, "wildwoman_background", 8)
+		this.addBroToRoster(_roster, "wildman_background", 8)
+		this.addBroToRoster(_roster, "barbarian_background", 7)
+		this.addBroToRoster(_roster, "legend_berserker_background", 9)
+	}
 
-		foreach( i, bro in bros )
-		{
-			if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn) && !bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
+	function onGenerateBro(bro)
+	{
+		if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn) && !bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw) && !bro.getBackground().isBackgroundType(this.Const.BackgroundType.Combat)) // Added this check for backgrounds like retired soldier
 			{
 				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.25) //1.0 = default
 				bro.getBaseProperties().DailyWageMult *= 1.25; //1.0 = default
 				bro.getSkills().update();
 			}
-			else if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Combat) || bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.9) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 0.9; //1.0 = default
-				bro.getSkills().update();
-			}
+		else if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Combat) || bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.9) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 0.9; //1.0 = default
+			bro.getSkills().update();
 		}
 	}
 
+
 	function onHiredByScenario( bro )
 	{
-		if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn) && !bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
+		if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn) && !bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw) && !bro.getBackground().isBackgroundType(this.Const.BackgroundType.Combat))
 		{
 			bro.worsenMood(1.5, "Disturbed by your wild and erratic nature");
 		}

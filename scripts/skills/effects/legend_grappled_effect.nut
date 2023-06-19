@@ -1,13 +1,13 @@
 this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		TurnsLeft = 3
+		TurnsLeft = 2
 	},
 	function create()
 	{
 		this.m.ID = "effects.legend_grappled";
 		this.m.Name = "Grappled";
 		this.m.Icon = "ui/perks/grapple_circle.png";
-		this.m.IconMini = "mini_daze56_circle";
+		this.m.IconMini = "mini_grapple";
 		this.m.Overlay = "status_daze56_circle";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
@@ -37,13 +37,16 @@ this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-20[/color] Fatigue recovered per turn"
+				// Changed from fatigue to MD. Surprisingly the original didn't mention MD even though it had a whopping 50% MD debuff.
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-12[/color] melee defense"
 			},
 			{
 				id = 12,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-50%[/color] Maximum Fatigue"
+				// Changed from fatigue to init
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-30%[/color] Initiative"
+				//text = "[color=" + this.Const.UI.Color.NegativeValue + "]-50%[/color] Maximum Fatigue"
 			}
 		];
 	}
@@ -51,15 +54,6 @@ this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 	function onAdded()
 	{
 		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
-
-			this.m.Container.removeByID("effects.shieldwall");
-			this.m.Container.removeByID("effects.spearwall");
-			this.m.Container.removeByID("effects.riposte");
-			this.m.Container.removeByID("effects.return_favor");
-			this.m.Container.removeByID("effects.possessed_undead");
-			this.m.Container.removeByID("effects.legend_vala_currently_chanting");
-			this.m.Container.removeByID("effects.legend_vala_in_trance");
-
 	}
 
 	function onRefresh()
@@ -83,9 +77,13 @@ this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local actor = this.getContainer().getActor();
-		_properties.StaminaMult *= 0.5;
-		_properties.MeleeDefense *= 0.5;
-		_properties.FatigueRecoveryRate -= 20;
+		// Very different in design document. Flat MD debuff and 30% initiative debuff.
+		_properties.MeleeDefense -=12;
+		_properties.Initiative *=0.7;
+
+		// _properties.StaminaMult *= 0.5;
+		// _properties.MeleeDefense *= 0.5;
+		// _properties.FatigueRecoveryRate -= 20;
 
 		if (!actor.hasSprite("status_stunned") && !this.getContainer().hasSkill("effects.stunned"))
 		{
@@ -104,3 +102,4 @@ this.legend_grappled_effect <- this.inherit("scripts/skills/skill", {
 	}
 
 });
+

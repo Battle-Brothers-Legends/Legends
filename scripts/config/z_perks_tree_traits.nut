@@ -307,8 +307,8 @@ gt.Const.Perks.DeviousTree <- {
 		[ gt.Const.Perks.PerkDefs.LegendBlendIn ],
 		[],
 		[ gt.Const.Perks.PerkDefs.LegendEvasion ],
-		[ gt.Const.Perks.PerkDefs.LegendHidden ],
-		[ gt.Const.Perks.PerkDefs.LegendUntouchable ]
+		[],
+		[]
 	]
 };
 gt.Const.Perks.InspirationalTree <- {
@@ -737,14 +737,14 @@ gt.Const.Perks.SturdyTree <- {
 	Tree = [
 		[],
 		[
-			gt.Const.Perks.PerkDefs.LegendComposure
+			// gt.Const.Perks.PerkDefs.LegendComposure
 		],
 		[
 			gt.Const.Perks.PerkDefs.Steadfast
 		],
 		[],
 		[
-			gt.Const.Perks.PerkDefs.Stalwart
+			// gt.Const.Perks.PerkDefs.Stalwart
 		],
 		[],
 		[]

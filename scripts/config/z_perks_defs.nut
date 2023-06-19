@@ -2323,8 +2323,8 @@ local perkDefObjects = [
 		Script = "scripts/skills/perks/perk_mastery_fist",
 		Name = this.Const.Strings.PerkName.LegendSpecFists,
 		Tooltip = this.Const.Strings.PerkDescription.LegendSpecFists,
-		Icon = "ui/perks/fist_circle.png",
-		IconDisabled = "ui/perks/fist_circle_bw.png",
+		Icon = "ui/perks/unarmed_mastery_circle.png",
+		IconDisabled = "ui/perks/unarmed_mastery_circle_bw.png",
 		Const = "LegendSpecFists"
 	},
 	{
@@ -2344,6 +2344,24 @@ local perkDefObjects = [
 		Icon = "ui/perks/grapple_circle.png",
 		IconDisabled = "ui/perks/grapple_circle_bw.png",
 		Const = "LegendGrapple"
+	},
+	{
+		ID = "perk.legend_ambidextrous",
+		Script = "scripts/skills/perks/perk_legend_ambidextrous",
+		Name = this.Const.Strings.PerkName.LegendAmbidextrous,
+		Tooltip = this.Const.Strings.PerkDescription.LegendAmbidextrous,
+		Icon = "ui/perks/ambidexterity_circle.png", // Just borrowed duelist, change later w/ Olve's art
+		IconDisabled = "ui/perks/ambidexterity_circle_bw.png",
+		Const = "LegendAmbidextrous"
+	},
+	{
+		ID = "perk.legend_tackle",
+		Script = "scripts/skills/perks/perk_legend_tackle",
+		Name = this.Const.Strings.PerkName.LegendTackle,
+		Tooltip = this.Const.Strings.PerkDescription.LegendTackle,
+		Icon = "ui/perks/tackle_circle.png", // Just borrowed duelist, change later w/ Olve's art
+		IconDisabled = "ui/perks/tackle_circle_bw.png",
+		Const = "LegendTackle"
 	},
 	{
 		ID = "perk.legend_field_treats",
@@ -2560,6 +2578,51 @@ local perkDefObjects = [
 		Icon = "ui/perks/untouchable_circle.png",
 		IconDisabled = "ui/perks/untouchable_circle_bw.png",
 		Const = "LegendUntouchable"
+	},
+	{
+		ID = "perk.legend_knifeplay",
+		Script = "scripts/skills/perks/perk_legend_knifeplay",
+		Name = this.Const.Strings.PerkName.LegendKnifeplay,
+		Tooltip = this.Const.Strings.PerkDescription.LegendKnifeplay,
+		Icon = "ui/perks/knifeplay.png",
+		IconDisabled = "ui/perks/knifeplay_bw.png",
+		Const = "LegendKnifeplay"
+	},
+	{
+		ID = "perk.legend_opportunist",
+		Script = "scripts/skills/perks/perk_legend_opportunist",
+		Name = this.Const.Strings.PerkName.LegendOpportunist,
+		Tooltip = this.Const.Strings.PerkDescription.LegendOpportunist,
+		Icon = "ui/perks/opportunist.png",
+		IconDisabled = "ui/perks/opportunist_bw.png",
+		Const = "LegendOpportunist"
+	},
+	{
+		ID = "perk.legend_prepared",
+		Script = "scripts/skills/perks/perk_legend_prepared",
+		Name = this.Const.Strings.PerkName.LegendPrepared,
+		Tooltip = this.Const.Strings.PerkDescription.LegendPrepared,
+		Icon = "ui/perks/prepared.png",
+		IconDisabled = "ui/perks/prepared_bw.png",
+		Const = "LegendPrepared"
+	},
+	{
+		ID = "perk.legend_lurker",
+		Script = "scripts/skills/perks/perk_legend_lurker",
+		Name = this.Const.Strings.PerkName.LegendLurker,
+		Tooltip = this.Const.Strings.PerkDescription.LegendLurker,
+		Icon = "ui/perks/lurker.png",
+		IconDisabled = "ui/perks/lurker_bw.png",
+		Const = "LegendLurker"
+	},
+	{
+		ID = "perk.legend_night_raider",
+		Script = "scripts/skills/perks/perk_legend_night_raider",
+		Name = this.Const.Strings.PerkName.LegendNightRaider,
+		Tooltip = this.Const.Strings.PerkDescription.LegendNightRaider,
+		Icon = "ui/perks/night_raider.png",
+		IconDisabled = "ui/perks/night_raider_bw.png",
+		Const = "LegendNightRaider"
 	},
 	{
 		ID = "perk.legend_assassinate",

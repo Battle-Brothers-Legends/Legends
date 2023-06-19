@@ -32,33 +32,33 @@ this.legend_man_mangler <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.FatigueOnSkillUse = 5;
 	}
 
-	function getTooltip()
-	{
-		local ret = this.weapon.getTooltip();
-		ret.push({
-			id = 18,
-			type = "text",
-			icon = "ui/icons/fatigue.png",
-			text = "Builds up additional [color=" + this.Const.UI.Color.NegativeValue + "]5[/color] Fatigue with every skill use"
-		});
-		return ret;
-	}
+	// function getTooltip()
+	// {
+	// 	local ret = this.weapon.getTooltip();
+	// 	ret.push({
+	// 		id = 18,
+	// 		type = "text",
+	// 		icon = "ui/icons/fatigue.png",
+	// 		text = "Builds up additional [color=" + this.Const.UI.Color.NegativeValue + "]5[/color] Fatigue with every skill use"
+	// 	});
+	// 	return ret;
+	// }
 
 	function onEquip()
 	{
 		this.weapon.onEquip();
-		local slash = this.new("scripts/skills/actives/slash");
+		local overheadStrike = this.new("scripts/skills/actives/overhead_strike");
+		overheadStrike.m.DirectDamageMult = this.m.DirectDamageMult; //Sets Overhead Strike's Direct Damage Mult to Man Mangler's Direct Damage Mult
+		overheadStrike.setStunChance(this.m.StunChance);
+		this.addSkill(overheadStrike);
+
+		local slash = this.new("scripts/skills/actives/legend_great_slash");
 		slash.m.DirectDamageMult = this.m.DirectDamageMult; //Sets Slash's Direct Damage Mult to Man Mangler's Direct Damage Mult
 		this.addSkill(slash);
 
 		local splitShield = this.new("scripts/skills/actives/split_shield");
 		splitShield.setFatigueCost(splitShield.getFatigueCostRaw() + 10); // 10 because 2h weapons should get +5 on split shield (see 2h mace), and then +5 because of being orc weapon.
 		this.addSkill(splitShield);
-
-		local overheadStrike = this.new("scripts/skills/actives/overhead_strike");
-		overheadStrike.m.DirectDamageMult = this.m.DirectDamageMult; //Sets Overhead Strike's Direct Damage Mult to Man Mangler's Direct Damage Mult
-		overheadStrike.setStunChance(this.m.StunChance);
-		this.addSkill(overheadStrike);
 	}
 
 });

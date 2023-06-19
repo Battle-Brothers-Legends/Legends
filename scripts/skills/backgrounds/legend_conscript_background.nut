@@ -11,6 +11,7 @@ this.legend_conscript_background <- this.inherit("scripts/skills/backgrounds/cha
 		this.m.BadEnding = "You learned that %name% the nomad departed the company with the hope of finding new plains to roam. Apparently, he got the idea in his head that he would travel far to the north and land cozily with the barbarians there. To his credit, the barbarians and nomads share a similar lifestyle, culture, language, religion, laws, struggles, conflicts, and general appearances aside. The nomad was butchered almost instantly upon entrance to a barbarian encampment and his remains eaten in a warrior ritual.";
 		this.m.HiringCost = 300;
 		this.m.DailyCost = 35;
+		this.m.DailyCostMult = 1.0;
 		this.m.Excluded = [
 			"trait.hate_nobles",
 			"trait.huge",
@@ -88,6 +89,7 @@ this.legend_conscript_background <- this.inherit("scripts/skills/backgrounds/cha
 				this.Const.Perks.CrossbowTree,
 				this.Const.Perks.SpearTree,
 				this.Const.Perks.PolearmTree,
+				this.Const.Perks.CleaverTree,
 				this.Const.Perks.SlingTree
 			],
 			Defense = [
@@ -97,6 +99,7 @@ this.legend_conscript_background <- this.inherit("scripts/skills/backgrounds/cha
 			Traits = [
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.AgileTree,
+				this.Const.Perks.FitTree,			
 				this.Const.Perks.DeviousTree,
 				this.Const.Perks.TrainedTree
 			],

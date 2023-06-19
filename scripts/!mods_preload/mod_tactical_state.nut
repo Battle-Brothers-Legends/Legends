@@ -325,17 +325,17 @@ this.getroottable().Const.LegendMod.hookTacticalState <- function()
 						}
 					}
 
-					if (skeletonLoot && tile.Properties.has("Corpse"))
-					{
-						if (tile.Properties.get("Corpse").isHuman == 1 || tile.Properties.get("Corpse").isHuman == 3)
-						{
-							if (this.Math.rand(1, 100) <= zombieSalvage)
-							{
-								local zloot = this.new("scripts/items/spawns/skeleton_item");
-								loot.push(zloot);
-							}
-						}
-					}
+					// if (skeletonLoot && tile.Properties.has("Corpse")) //Removed until skeleton summoning is reworked into another origin - Luft 12/12/22
+					// {
+					// 	if (tile.Properties.get("Corpse").isHuman == 1 || tile.Properties.get("Corpse").isHuman == 3)
+					// 	{
+					// 		if (this.Math.rand(1, 100) <= zombieSalvage)
+					// 		{
+					// 			local zloot = this.new("scripts/items/spawns/skeleton_item");
+					// 			loot.push(zloot);
+					// 		}
+					// 	}
+					// }
 
 					if (this.Math.rand(1, 100) <= 8 && tile.Properties.has("Corpse") && tile.Properties.get("Corpse").isHuman == 1)
 					{

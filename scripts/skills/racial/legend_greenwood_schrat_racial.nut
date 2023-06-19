@@ -32,26 +32,37 @@ this.legend_greenwood_schrat_racial <- this.inherit("scripts/skills/skill", {
 
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
-		if (_hitInfo.DamageType == this.Const.Damage.DamageType.Piercing)
+		if (_skill == null)
 		{
-			if (_skill == null)
-			{
-				_properties.DamageReceivedRegularMult *= 0.25; 
-			}
-			else
-			{					
-				if (_skill.isRanged())
-				{				
-					local weapon = _skill.getItem();
-					if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.Weapon))
-					{
-						if (weapon.isWeaponType(this.Const.Items.WeaponType.Bow) || weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow))
+			return;
+		}
+
+		switch (_hitInfo.DamageType)
+		{
+			case this.Const.Damage.DamageType.Piercing:
+				if (_skill == null)
+				{
+					_properties.DamageReceivedRegularMult *= 0.25; 
+				}
+				else
+				{					
+					if (_skill.isRanged())
+					{				
+						local weapon = _skill.getItem();
+						if (weapon != null && weapon.isItemType(this.Const.Items.ItemType.Weapon))
 						{
-							_properties.DamageReceivedRegularMult *= 0.25;
-						}
-						else if (weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
-						{
-							_properties.DamageReceivedRegularMult *= 0.5;
+							if (weapon.isWeaponType(this.Const.Items.WeaponType.Bow) || weapon.isWeaponType(this.Const.Items.WeaponType.Crossbow))
+							{
+								_properties.DamageReceivedRegularMult *= 0.25;
+							}
+							else if (weapon.isWeaponType(this.Const.Items.WeaponType.Throwing))
+							{
+								_properties.DamageReceivedRegularMult *= 0.5;
+							}
+							else
+							{
+								_properties.DamageReceivedRegularMult *= 0.5;
+							}
 						}
 						else
 						{
@@ -59,7 +70,11 @@ this.legend_greenwood_schrat_racial <- this.inherit("scripts/skills/skill", {
 						}
 					}
 				}
-			}
+				break;
+
+			case this.Const.Damage.DamageType.Burning:
+				_properties.DamageReceivedRegularMult *= 1.50; //+50%
+				break;
 		}
 	}
 
@@ -97,6 +112,4 @@ this.legend_greenwood_schrat_racial <- this.inherit("scripts/skills/skill", {
 			}
 		}
 	}
-
 });
-

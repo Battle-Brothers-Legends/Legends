@@ -28,7 +28,7 @@ this.legend_lindwurm_armor <- this.inherit("scripts/items/legend_armor/legend_na
 
 	function getTooltip()
 	{
-		local result = this.armor.getTooltip();
+		local result = this.legend_armor.getTooltip(); // For some reason this was using the formula for unlayered armor
 		result.push({
 			id = 6,
 			type = "text",

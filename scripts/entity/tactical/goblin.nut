@@ -165,10 +165,8 @@ this.goblin <- this.inherit("scripts/entity/tactical/actor", {
 	{
 		this.actor.onFactionChanged();
 		local flip = this.isAlliedWithPlayer()
-		// if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		// {
 		// 	flip = !flip
-		// }
+		// Note from James: I removed the check for unlayered armor from this flip = !flip thing. I have no clue what it would do though.
 		this.getSprite("helmet").setHorizontalFlipping(flip);
 		this.getSprite("helmet_damage").setHorizontalFlipping(flip);
 	}

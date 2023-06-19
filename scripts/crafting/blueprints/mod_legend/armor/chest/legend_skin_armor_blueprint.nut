@@ -5,11 +5,7 @@ this.legend_skin_armor_blueprint <- this.inherit("scripts/crafting/blueprint", {
 		this.blueprint.create();
 		this.m.ID = "blueprint.legend_skin_armor";
 		this.m.Type = this.Const.Items.ItemType.Armor;
-		this.m.PreviewCraftable = this.new("scripts/items/armor/legendary/legend_skin_armor");
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			this.m.PreviewCraftable = this.new("scripts/items/legend_armor/legendary/legend_skin_armor");
-		}
+		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/legendary/legend_skin_armor");
 		this.m.Cost = 2500;
 		local ingredients = [
 			{
@@ -27,19 +23,14 @@ this.legend_skin_armor_blueprint <- this.inherit("scripts/crafting/blueprint", {
 			Num = 1,
 			LegendsArmor = true
 		})
-		ingredients.push({
-			Script = "scripts/items/armor/mail_hauberk",
-			Num = 1,
-			LegendsArmor = false
-		})
 
-		this.init(ingredients);
-		local skills = [
-			{
-				Scripts = ["scripts/skills/backgrounds/legend_blacksmith_background"]
-			}
-		]
-		this.initSkills(skills);
+	    this.init(ingredients); // uncommented this line to fix it showing up in taxidermist with no ingredients needed. Abyss 3/17/23
+		// local skills = [
+		// 	{
+		// 		Scripts = ["scripts/skills/backgrounds/legend_blacksmith_background"]
+		// 	}
+		// ]
+		//this.initSkills(skills);
 	}
 
 	function isQualified()

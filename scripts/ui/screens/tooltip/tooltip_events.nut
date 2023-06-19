@@ -1653,7 +1653,7 @@ this.tooltip_events <- {
 					type = "description",
 					text = "Show the roster of the fighting force of your mercenary company. Increase your Renown to increase the Roster Size!"
 				}
-			]; 
+			];
 
 
 			local data = this.World.Assets.getRosterDescription();
@@ -1687,7 +1687,7 @@ this.tooltip_events <- {
 				});
 				id = ++id;
 			}
-			
+
 			ret.push({
 				id = id,
 				type = "text",
@@ -1697,6 +1697,7 @@ this.tooltip_events <- {
 
 			foreach( bro in data.TerrainModifiers )
 			{
+				if (bro[1] == 0) continue;
 				ret.push({
 					id = id,
 					type = "text",
@@ -1710,8 +1711,10 @@ this.tooltip_events <- {
 				type = "hint",
 				text = "Company Strength: " + this.World.State.getPlayer().getStrength()
 			});
-			id = ++id;			
+			id = ++id;
 
+			local brothersLimit = 12;
+			local i = 0
 			foreach( bro in data.Brothers )
 			{
 				ret.push({
@@ -1721,6 +1724,16 @@ this.tooltip_events <- {
 					text = "L" + bro.Level + "  " + bro.Name + " (" + bro.Background + ")"
 				});
 				id = ++id;
+				i++;
+				if (i == brothersLimit) break;
+			}
+			if (data.Brothers.len() - brothersLimit > 0)
+			{
+				ret.push({
+					id = id,
+					type = "hint",
+					text = "... and " + (data.Brothers.len() - brothersLimit) + " others."
+				});
 			}
 
 			return ret;
@@ -3011,7 +3024,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Pause the active character\'s turn and move them to the end of the queue. Waiting this turn will also have you act later (as though you only had" + (this.Const.Combat.InitiativeAfterWaitMult * 100).tointeger() + "% of your initiative) next turn."
+					text = "Pause the active character\'s turn and move them to the end of the queue. Waiting this turn will also have you act later (as though you only had" + (this.Const.Combat.InitiativeAfterWaitMult * 100).tointeger() + " % of your initiative) next turn."
 				}
 			];
 
@@ -3242,7 +3255,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Characters gain experience as they or their allies slay enemies in battles. If a character has accumulated sufficient experience, they\'ll level up and be able to increase attributes and pick a perk that grants a unique bonus.\n\nBeyond the 11th character level, main characters gain a perk every two levels, and supporting characters gain a perk every five levels."
+					text = "Characters gain experience as they or their allies slay enemies in battles. If a character has accumulated sufficient experience, they\'ll level up and be able to increase attributes and pick a perk that grants a unique bonus.\n\nBeyond the 11th character level, main characters gain a perk every two levels, and supporting characters gain a perk every four levels."
 				}
 			];
 
@@ -3256,7 +3269,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "The character\'s level measures experience in battle. Characters rise in levels as they gain experience and are able to increase their attributes and gain perks that make them better at the mercenary profession.\n\nBeyond the 11th character level, main characters gain a perk every two levels, and supporting characters gain a perk every five levels."
+					text = "The character\'s level measures experience in battle. Characters rise in levels as they gain experience and are able to increase their attributes and gain perks that make them better at the mercenary profession.\n\nBeyond the 11th character level, main characters gain a perk every two levels, and supporting characters gain a perk every four levels."
 				}
 			];
 

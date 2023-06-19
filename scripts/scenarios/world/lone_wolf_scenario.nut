@@ -51,6 +51,7 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 		talents[this.Const.Attributes.MeleeDefense] = 2;
 		talents[this.Const.Attributes.Fatigue] = 3;
 		talents[this.Const.Attributes.MeleeSkill] = 3;
+		talents[this.Const.Attributes.RangedSkill] = 2;
 		bros[0].fillAttributeLevelUpValues(this.Const.XP.MaxLevelWithPerkpoints - 1);
 		//---
 		this.World.Assets.addBusinessReputation(this.m.StartingBusinessReputation);
@@ -157,6 +158,12 @@ this.lone_wolf_scenario <- this.inherit("scripts/scenarios/world/starting_scenar
 			{			
 				garbage.push(bro);
 			}
+	        else if (bro.getSkills().hasSkill("background.legend_donkey"))
+	        {
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.0) //1.0 = default
+				bro.getBaseProperties().DailyWageMult *= 1.0; //1.0 = default
+				bro.getSkills().update();
+	        }
 			else
 			{
 				this.setupBro(bro);

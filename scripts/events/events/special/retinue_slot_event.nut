@@ -6,9 +6,10 @@ this.retinue_slot_event <- this.inherit("scripts/events/event", {
 	{
 		this.m.ID = "event.retinue_slot";
 		this.m.Title = "Along the way...";
+		this.m.Cooldown = 33.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_26.png[/img]{The prestige and renown of the %companyname% is growing. Everywhere you go, people are looking to join - and not just sellswords, but followers who may be of other use! | With every battle your sellswords fight, the renown of the company grows. As this fame rises, more people, and not just sellswords, will be looking to join the %companyname%. Perhaps it is time the company takes on another follower? | Followers of the %companyname% need not just be fighters - it appears that with the company\'s growing renown and prestige there may be others willing to ride the coattails. Perhaps these tagalongs may be of great utility to the company, even if they are not contributing on the battlefield.}",
+			Text = "[img]gfx/ui/events/event_26.png[/img]{The prestige and renown of the %companyname% is growing. Everywhere you go, people are looking to join - and not just sellswords, but followers who may be of other use! | With every battle your sellswords fight, the renown of the company grows. As this fame rises, more people, and not just sellswords, will be looking to join the %companyname%. Perhaps it is time the company invests in some special equipment? | Followers of the %companyname% need tools to fill their roles, and said tools would prove helpful to the survival of those around them...}",
 			Banner = "",
 			List = [],
 			Characters = [],

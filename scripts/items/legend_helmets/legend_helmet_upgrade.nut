@@ -218,20 +218,23 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 			style = "armor-head-slim"
 		});
 
-		if (this.getStaminaModifier() < 0)
+		if (this.getStaminaModifier() != 0)
 		{
 			result.push({
 				id = 5,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue [color=" + this.Const.UI.Color.NegativeValue + "]" + this.getStaminaModifier() + "[/color]"
+				text = "Maximum Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
 			});
-		} else if (this.getStaminaModifier() > 0){
+		}
+
+		if ( this.getStaminaModifier() < 0 && ::Legends.Mod.ModSettings.getSetting("ShowArmorPerFatigueValue").getValue() ) 
+		{
 			result.push({
 				id = 5,
 				type = "text",
-				icon = "ui/icons/fatigue.png",
-				text = "Maximum Fatigue [color=" + this.Const.UI.Color.PositiveValue + "] +" + this.getStaminaModifier() + "[/color]"
+				icon = "",
+				text = format("(%.1f Armor per 1 Fatigue)", this.getConditionMax() / (1.0 * this.Math.abs(this.getStaminaModifier())))
 			});
 		}
 
@@ -248,7 +251,7 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 		return result;
 	}
 
-	function getArmorTooltip( _result )
+	function getArmorTooltip( _result, _isExtraVanity )
 	{
 		_result.push({	// An empty line is put in to improve formatting
 			id = 10,
@@ -259,9 +262,38 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 		_result.push({
 			id = 10,
 			type = "text",
-			icon = "ui/icons/armor_body.png",	// ui/icons/armor_body.png
+			icon = "ui/icons/armor_head.png",	// ui/icons/armor_body.png
 			text = "[u]" + this.getName() + "[/u]"
 		});
+
+		if ( ::Legends.Mod.ModSettings.getSetting("ShowExpandedArmorLayerTooltip").getValue() ) 
+		{
+			if ( _isExtraVanity ) 
+			{
+				_result.push({
+					id = 10,
+					type = "text",
+					icon = "",
+					text = "(Cosmetic only)"
+				});
+			} else {
+				_result.push({
+					id = 10,
+					type = "text",
+					icon = "ui/icons/armor_head.png",
+					text = "Armor: " + this.getConditionMax()
+				});
+				if ( this.getStaminaModifier() != 0 ) 
+				{
+					_result.push({
+						id = 10,
+						type = "text",
+						icon = "ui/icons/fatigue.png",
+						text = "Fatigue: " + ::Legends.S.colorize("" + ::Legends.S.getSign(this.getStaminaModifier()) + this.Math.abs(this.getStaminaModifier()), this.getStaminaModifier())
+					});
+				}
+			}
+		}
 
 		if (this.getVision() != 0)
 		{
@@ -449,7 +481,7 @@ this.legend_helmet_upgrade <- this.inherit("scripts/items/item", {
 	function onUnequip()
 	{
 		this.item.onUnequip();
-        if (::Legends.Mod.ModSettings.getSetting("AutoRepairLayer").getValue()) this.setToBeRepaired(true, 0);
+        if (::Legends.Mod.ModSettings.getSetting("AutoRepairLayer").getValue() && this.getCondition() != this.getConditionMax()) this.setToBeRepaired(true, 0);
 		this.setCurrentSlotType(this.Const.ItemSlot.None);
 	}
 

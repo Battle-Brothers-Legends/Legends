@@ -237,23 +237,20 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		brothers[1].getItems().getItemAtSlot(this.Const.ItemSlot.Offhand).setFaction(banner)
 		brothers[3].getItems().getItemAtSlot(this.Const.ItemSlot.Offhand).setFaction(banner)
 
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+		foreach( bro in brothers )
 		{
-			foreach( bro in brothers )
-			{
-				local items = bro.getItems();
-				local armor = items.getItemAtSlot(this.Const.ItemSlot.Body)
-				local tabards = [
-						[0, ""],
-						[1, "tabard/legend_noble_tabard"]
-					]
-					local tabard = this.Const.World.Common.pickLegendArmor(tabards)
-					if (tabard != null && armor != null)
-					{
-						tabard.setVariant(banner)
-						armor.setUpgrade(tabard)
-					}
-			}
+			local items = bro.getItems();
+			local armor = items.getItemAtSlot(this.Const.ItemSlot.Body)
+			local tabards = [
+					[0, ""],
+					[1, "tabard/legend_noble_tabard"]
+				]
+				local tabard = this.Const.World.Common.pickLegendArmor(tabards)
+				if (tabard != null && armor != null)
+				{
+					tabard.setVariant(banner)
+					armor.setUpgrade(tabard)
+				}
 		}
 
 		//noble start actually doesnt go thru the generalized place for this and i'm too lazy to change it to do so because then i'd have to redo aarmor equips because there's no banner stuff etc
@@ -299,7 +296,7 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		{
 			bro.improveMood(0.5, "Supports your cause as a usurper, will cost less to maintain.");
 		}
-		else if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn))
+		else if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn))
 		{
 			bro.worsenMood(0.5, "Resents you as nobility, will try to squeeze money from you.");
 		}
@@ -308,23 +305,17 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 
 	function onUpdateHiringRoster( _roster )
 	{
-			local garbage = [];
+		local garbage = [];
 		local bros = _roster.getAll();
+		this.addBroToRoster(_roster, "legend_noble_2h", 4);
+		this.addBroToRoster(_roster, "legend_noble_shield", 4);
+		this.addBroToRoster(_roster, "legend_noble_ranged", 4);
+		this.addBroToRoster(_roster, "adventurous_noble_background", 6);
+		this.addBroToRoster(_roster, "female_adventurous_noble_background", 6);
+		this.addBroToRoster(_roster, "legend_noble_background", 8);
 
 		foreach( i, bro in bros )
 		{
-			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Noble))
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
-				bro.getSkills().update();
-			}
-			else if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn))
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.5) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 1.5; //1.0 = default
-				bro.getSkills().update();
-			}
 			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
 			{
 				garbage.push(bro);
@@ -338,33 +329,22 @@ this.legends_noble_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		}
 	}
 
-	function onUpdateDraftList( _list, _gender = null)
+	function onGenerateBro(bro)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
-
-		local r;
-		r = this.Math.rand(0, 9);
-		if (r == 0)
-		{
-			_list.push("legend_noble_2h");
-		}
-		r = this.Math.rand(0, 9);
-		if (r == 0)
-		{
-			_list.push("legend_noble_shield");
-		}
-		r = this.Math.rand(0, 9);
-		if (r == 0)
-		{
-			_list.push("legend_noble_ranged");
-		}
-		r = this.Math.rand(0, 19);
-		if (r == 0)
-		{
-			_list.push("legend_noble_background");
-		}
+			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Noble))
+			{
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
+				bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
+				bro.getSkills().update();
+			}
+			else if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn))
+			{
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.5) //1.0 = default
+				bro.getBaseProperties().DailyWageMult *= 1.5; //1.0 = default
+				bro.getSkills().update();
+			}
 	}
+
 
 	function onBuildPerkTree( _background )
 	{

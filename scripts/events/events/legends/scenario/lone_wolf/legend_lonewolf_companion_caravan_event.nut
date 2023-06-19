@@ -40,9 +40,9 @@ this.legend_lonewolf_companion_caravan_event <- this.inherit("scripts/events/eve
 
 				}
 			],
-			function start( _event )
-			{
-			}
+			// function start( _event )
+			// {
+			// }
 		});
 		this.m.Screens.push({ //B = loot items
 			ID = "B",
@@ -141,7 +141,7 @@ this.legend_lonewolf_companion_caravan_event <- this.inherit("scripts/events/eve
 		});
 		this.m.Screens.push({ //tailor recruit
 			ID = "C",
-			Text = "[img]gfx/ui/events/event_86.png[/img]{You order to push through into the wildmen — but instead of the gradual, steady advance you had planned, %companyname% breaks into a running sprint, weapons held high in the air to make clear their intentions. Perhaps they didn\'t hear you, or perhaps they felt it best to match the aggression of their opponents. %randombro% buries their weapon in the back of a distracted wildman while another kicks a wildwoman towards you, who you skewer to the ground while the rest of the company join in. An errant club flies through the air and a cry of pain is heard as Wildmen swarm %randombro% while they are on the ground — beating and kicking them as the rest of the company attack the mob from behind.\n\n You turn just in time to avoid a rock to the back of the head. The wildman who missed their chance is hit so hard by you that, just for a moment, you question if you had hit anything at all — then you see the ruin of a man sprawled down at your feet.\n The rocks are coming faster now, like a hailstorm that is hammering every shield, helmet and inch of the ground around %companyname% is showered with projectiles.\n\n They fall.\n\n And fall.\n\n And fall.\n\n Then all at once — the onslaught stops. Most of the wildmen are gone, the more injured of the horde left for dead with gaping wounds across their naked bodies. You spy the carts and see everything has been taken from them, like an ocean tide the lunatics of nature came and swept away everything not heavy enough for two men or fewer to carry. %randombro% gets up, but has seen better days as they smile at you with bloody teeth.\n\n The merchant under the cart is as suprised as you are — and pleads to stay with you for a little while longer.}",
+			Text = "[img]gfx/ui/events/event_86.png[/img]{You order to push through into the wildmen — but instead of the gradual, steady advance you had planned, %companyname% breaks into a running sprint, weapons held high in the air to make clear their intentions. Perhaps they didn\'t hear you, or perhaps they felt it best to match the aggression of their opponents. %randombro% buries their weapon in the back of a distracted wildman while another kicks a wildwoman towards you, who you skewer to the ground while the rest of the company join in. An errant club flies through the air and a cry of pain is heard as Wildmen swarm %randombro% while they are on the ground — beating and kicking them as the rest of the company attack the mob from behind.\n\n You turn just in time to avoid a rock to the back of the head. The wildman who missed their chance is hit so hard by you that, just for a moment, you question if you had hit anything at all — then you see the ruin of a man sprawled down at your feet.\n The rocks are coming faster now, like a hailstorm that is hammering every shield, helmet and inch of the ground around %companyname% is showered with projectiles.\n\n They fall.\n\n And fall.\n\n And fall.\n\n Then all at once — the onslaught stops. Most of the wildmen are gone, the more injured of the horde left for dead with gaping wounds across their naked bodies. You spy the carts and see everything has been taken from them, like an ocean tide the lunatics of nature came and swept away everything not heavy enough for two men or fewer to carry. %randombro% gets up, but has seen better days as they smile at you with bloody teeth.\n\n The merchant under the cart is as surprised as you are — and pleads to stay with you for a little while longer.}",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -183,7 +183,7 @@ this.legend_lonewolf_companion_caravan_event <- this.inherit("scripts/events/eve
 				
 				_event.m.Dude.getItems().equip(this.new("scripts/items/weapons/legend_wooden_spear"));
 
-				_event.m.Dude.getBackground().m.RawDescription = "%name% has been hardened by an experience few of %their% ilk live through — a roadside ambush. While they they unlikely to survive, a little help from %companyname% changed that.";
+				_event.m.Dude.getBackground().m.RawDescription = "%name% has been hardened by an experience few of %their% ilk live through — a roadside ambush. While they are unlikely to survive, a little help from %companyname% changed that.";
 				_event.m.Dude.getBackground().buildDescription(true);
 				this.Characters.push(_event.m.Dude.getImagePath());
 

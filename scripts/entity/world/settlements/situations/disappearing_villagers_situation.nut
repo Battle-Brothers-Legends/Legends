@@ -28,7 +28,7 @@ this.disappearing_villagers_situation <- this.inherit("scripts/entity/world/sett
 	{
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.02);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.025);
 		}
 	}
 
@@ -36,7 +36,7 @@ this.disappearing_villagers_situation <- this.inherit("scripts/entity/world/sett
 	{
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.04);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.125);
 		}
 	}
 

@@ -33,6 +33,7 @@ this.anatomists_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		]);
 		bros[0].getBackground().m.RawDescription = "{Captain? Is it alright if I call you captain? Ah, of course it is. What? No, we were not calling you by another name. Yers is a smooth costard, good sir, and we would not be of such derring-do to refer to you as a sellsword who is as ordinary as any of our coetaneous clodpolls, or state that we were in some sense importuning commerce by conducting business with a man of your particular skills. No sir, we would not. We are not children of perdition, sir.}";
 		bros[0].setPlaceInFormation(3);
+		bros[0].setVeteranPerks(2);
 		bros[0].m.Talents = [];
 		local talents = bros[0].getTalents();
 		talents.resize(this.Const.Attributes.COUNT, 0);
@@ -51,6 +52,7 @@ this.anatomists_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		]);
 		bros[1].getBackground().m.RawDescription = "{Despite others\' hesitancies, I\'ve no qualms calling you a javel, sir. You are, after all, a javel. A scapegrace. Some sellsword or another, yes? I think only a man who trucks cowardice would avoid calling you what you are. That someone disrespects your intelligence, thinking you yourself know not yourself. Even I see that in you accepting who you are, you are quite a good specimen. I mean, sellsword.}";
 		bros[1].setPlaceInFormation(4);
+		bros[1].setVeteranPerks(2);
 		bros[1].m.Talents = [];
 		talents = bros[1].getTalents();
 		talents.resize(this.Const.Attributes.COUNT, 0);
@@ -70,6 +72,7 @@ this.anatomists_scenario <- this.inherit("scripts/scenarios/world/starting_scena
 		]);
 		bros[2].getBackground().m.RawDescription = "{Though our quotidian dialogues are no doubt drollery, beneath the banausic surface I must admit I feel a touch of serotinous savagery lurking within you, coming to the fore as if my words be fire. Even our most desultory talks has me on edge, the way you stare at me with such hateful eyes. Well, know this, bounty hunter, I am no casuist, I speak in earnest. You are too fine a specimen-I mean captain to be lofting some sapskull\'s brickbats at. Understand?}";
 		bros[2].setPlaceInFormation(5);
+		bros[2].setVeteranPerks(2);
 		bros[2].m.Talents = [];
 		talents = bros[2].getTalents();
 		talents.resize(this.Const.Attributes.COUNT, 0);

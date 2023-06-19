@@ -43,7 +43,7 @@ this.getroottable().Const.LegendMod.hookTacticalEntityManager <- function()
 
 			foreach (r in reserves)
 			{
-				if (_properties.IsPlayerInitiated && this.World.State.getBrothersInFrontline() != 0 || this.World.Assets.getBrothersMaxInCombat() <= frontline.len())
+				if (this.World.State.getBrothersInFrontline() != 0 || this.World.Assets.getBrothersMaxInCombat() <= frontline.len()) //Removed: _properties.IsPlayerInitiated && from this line, which should fix the issue where bro tagged as 'reserve' always get pulled into defensive battles
 				{
 					break;
 				}

@@ -109,6 +109,10 @@ this.alp_captured_in_hole_event <- this.inherit("scripts/events/event", {
 						}
 					});
 				}
+			}
+
+			function start( _event )
+			{
 				if (_event.m.Guildmaster != null)
 				{
 					this.Options.push({

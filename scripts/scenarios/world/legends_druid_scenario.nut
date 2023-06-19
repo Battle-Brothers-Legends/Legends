@@ -184,18 +184,6 @@ this.legends_druid_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		return false;
 	}
 
-	function onUpdateDraftList( _list, _gender = null)
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
-		local r;
-		r = this.Math.rand(0, 19);
-
-		if (r == 0)
-		{
-			_list.push("legend_druid_background");
-		}
-	}
 
 	function onHiredByScenario( bro )
 	{
@@ -205,16 +193,11 @@ this.legends_druid_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 
 	function onUpdateHiringRoster( _roster )
 	{
+		this.addBroToRoster(_roster, "legend_druid_background", 8);
 		local bros = _roster.getAll();
 		local garbage = [];
 		foreach( i, bro in bros )
 		{
-			if (bro.getBackground().getID() == "background.wildman" || bro.getBackground().getID() == "background.wildwoman" || bro.getBackground().getID() == "background.legend_herbalist"  || bro.getBackground().getID() == "background.legend_druid"  || bro.getBackground().getID() == "background.houndmaster"  || bro.getBackground().getID() == "background.legend_muladi"  || bro.getBackground().getID() == "background.legend_conjurer"  || bro.getBackground().getID() == "background.legend_enchanter" || bro.getBackground().getID() == "background.legend_runesmith"  || bro.getBackground().getID() == "background.legend_entrancer"  || bro.getBackground().getID() == "background.legend_donkey_background"  || bro.getBackground().getID() == "background.legend_spiritualist")
-			{
-				bro.getBaseProperties().DailyWage = this.Math.floor(bro.getBaseProperties().DailyWage * 0.8);
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.8);
-			}
-
 			local r;
 			r = this.Math.rand(0, 19);
 			if (r == 0)
@@ -234,7 +217,14 @@ this.legends_druid_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		}
 	}
 
-
+	function onGenerateBro(bro)
+	{
+		if (bro.getBackground().getID() == "background.wildman" || bro.getBackground().getID() == "background.wildwoman" || bro.getBackground().getID() == "background.legend_herbalist"  || bro.getBackground().getID() == "background.legend_druid"  || bro.getBackground().getID() == "background.houndmaster"  || bro.getBackground().getID() == "background.legend_muladi"  || bro.getBackground().getID() == "background.legend_conjurer"  || bro.getBackground().getID() == "background.legend_enchanter" || bro.getBackground().getID() == "background.legend_runesmith"  || bro.getBackground().getID() == "background.legend_entrancer"  || bro.getBackground().getID() == "background.legend_donkey_background"  || bro.getBackground().getID() == "background.legend_spiritualist")
+		{
+				bro.getBaseProperties().DailyWage = this.Math.floor(bro.getBaseProperties().DailyWage * 0.8);
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.8);
+		}
+	}
 
 });
 

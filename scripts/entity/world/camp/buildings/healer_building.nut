@@ -222,7 +222,8 @@ this.healer_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		{
 			for (local i = 0; i < this.m.Queue.len(); i = ++i)
 			{
-				if (this.m.Queue[i] == null || this.m.Queue[i].Injury.getQueue() == 0)
+				if (this.m.Queue[i] == null || this.m.Queue[i].Injury == null || this.m.Queue[i].Injury.getQueue() == 0) //Darxo's possible fix for injuries that heal automatically before they are tended in the tent
+				// if (this.m.Queue[i] == null || this.m.Queue[i].Injury.getQueue() == 0)
 				{
 					continue
 				}

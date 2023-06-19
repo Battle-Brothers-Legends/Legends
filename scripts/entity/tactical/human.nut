@@ -609,19 +609,20 @@ this.human <- this.inherit("scripts/entity/tactical/actor", {
 		this.addSprite("permanent_injury_2");
 		this.addSprite("permanent_injury_scarred");
 		this.addSprite("permanent_injury_burned");
-		local beard = this.addSprite("beard");
-		local hair = this.addSprite("hair");
+		this.addSprite("beard");
+		this.addSprite("hair");
 		this.addSprite("permanent_injury_4");
 		this.addSprite("permanent_injury_1");
+
+		this.addSprite("accessory");
+		this.addSprite("accessory_special");
+		this.addSprite("beard_top");
 
 		foreach (a in this.Const.CharacterSprites.Helmets)
 		{
 			this.addSprite(a)
 		}
 
-		this.addSprite("accessory");
-		this.addSprite("accessory_special");
-		local beard_top = this.addSprite("beard_top");
 		this.addSprite("armor_upgrade_front");
 		local bandage1 = this.addSprite("bandage_1");
 		bandage1.Visible = false;

@@ -442,42 +442,42 @@ this.sato_find_slave_after_battle_event <- this.inherit("scripts/events/event", 
 							_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/cultist_fanatic_trait"));
 						}
 
-						if (r == 8)
-						{
-							_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
-						}
+						// if (r == 8)
+						// {
+						// 	_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
+						// }
 
-						if (r == 9)
+						if (r == 8)
 						{
 							_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/paranoid_trait"));
 						}
 
-						if (r == 10)
+						if (r == 9)
 						{
 							_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/legend_undead_killer_trait"));
 						}
 
-						if (r == 11)
+						if (r == 10)
 						{
 							_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/fearless_trait"));
 						}
 
-						if (r == 12)
+						if (r == 11)
 						{
 							_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/deathwish_trait"));
 						}
 
-						if (r == 13)
+						if (r == 12)
 						{
 							_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/mad_trait"));
 						}
 
-						if (r == 14)
+						if (r == 13)
 						{
 							_event.m.Dude.getSkills().add(this.new("scripts/skills/perk/perk_legend_mastery_bandage"));
 						}
 
-						if (r == 15)
+						if (r == 14)
 						{
 							_event.m.Dude.getSkills().add(this.new("scripts/skills/perk/perk_legend_favoured_enemy_zombie"));
 						}

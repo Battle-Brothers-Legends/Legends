@@ -526,6 +526,15 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 
 				},
 				{
+					Text = "{This isn\'t what I had in mind. | I\'ll sit this one out. | I\'ll wait for the next fight.}",
+					function getResult()
+					{
+						this.Contract.getHome().getBuilding("building.arena").refreshCooldown();
+						this.World.State.getTownScreen().getMainDialogModule().reload();
+						return 0;
+					}
+				},
+				{
 					Text = "I\'ll have to think it over.",
 					function getResult()
 					{
@@ -766,8 +775,15 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 						this.World.Contracts.finishActiveContract(true);
 						return 0;
 					}
-
+				},
+				{
+					Text = "I\'ll have to think it over.",
+					function getResult()
+					{
+						return 0;
+					}
 				}
+
 			],
 			function start()
 			{
@@ -938,9 +954,7 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 						a = this.Const.World.Common.pickArmor([
 								[1, "oriental/gladiator_harness"],
 						]);
-						a.setUpgrade(this.new("scripts/items/" +
-							(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
-						))
+						a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_light_gladiator_upgrade"));
 
 						this.List.push({
 							id = 12,
@@ -953,9 +967,7 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 						a = this.Const.World.Common.pickArmor([
 								[1, "oriental/gladiator_harness"],
 						]);
-						a.setUpgrade(this.new("scripts/items/" +
-							(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade" : "armor_upgrades/heavy_gladiator_upgrade")
-						))
+						a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade"));
 						this.List.push({
 							id = 12,
 							icon = "ui/items/armor_upgrades/upgrade_25.png",
@@ -1170,7 +1182,7 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 	}
 
 	/*Adds the following vars:
-		bro1name = "Bro Name" 
+		bro1name = "Bro Name"
 		bro2name = "2nd Bro Name" (if bro exists)
 		bro3name = "" (if bro doesn't exist)
 	*/

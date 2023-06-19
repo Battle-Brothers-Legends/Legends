@@ -268,6 +268,7 @@ this.legend_vala_warden_script <- this.inherit("scripts/entity/tactical/actor", 
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
+		this.m.Skills.add(this.new("scripts/skills/traits/loyal_trait")); //Should prevent charm
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		// additional skills based on Vala's daily swap?

@@ -29,7 +29,8 @@ this.legend_noble_background <- this.inherit("scripts/skills/backgrounds/charact
 			"trait.double_tongued"
 		];
 		this.m.Faces = this.Const.Faces.AllWhiteMale;
-		this.m.IsGuaranteed = ["disloyal_trait", "legend_noble_killer_trait"];
+		// this.m.IsGuaranteed = ["disloyal_trait", "legend_noble_killer_trait"];
+		this.m.IsGuaranteed = ["disloyal_trait"];
 		this.m.Hairs = this.Const.Hair.TidyMale;
 		this.m.HairColors = this.Const.HairColors.Young;
 		this.m.Beards = this.Const.Beards.All;
@@ -68,8 +69,8 @@ this.legend_noble_background <- this.inherit("scripts/skills/backgrounds/charact
 				this.Const.Perks.PerkDefs.FortifiedMind,
 				this.Const.Perks.PerkDefs.Gifted,
 				this.Const.Perks.PerkDefs.Sprint,
-				this.Const.Perks.PerkDefs.LegendOnslaught,
-				this.Const.Perks.PerkDefs.LegendComposure
+				this.Const.Perks.PerkDefs.LegendOnslaught
+				// this.Const.Perks.PerkDefs.LegendComposure
 			],
 			[
 				this.Const.Perks.PerkDefs.Brawny,

@@ -8,8 +8,9 @@ this.legends_zombie_low <- this.inherit("scripts/entity/tactical/legend_zombie",
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_battle_forged"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
 		this.m.Skills.add(this.new("scripts/skills/actives/zombie_bite"));
-		this.m.Skills.add(this.new("scripts/skills/injury_permanent/legend_rotten_flesh"));
+		// this.m.Skills.add(this.new("scripts/skills/traits/legend_rotten_flesh_trait"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_poison_immunity"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
 			this.m.BaseProperties.Hitpoints *= 1.5;
@@ -55,7 +56,7 @@ this.legends_zombie_low <- this.inherit("scripts/entity/tactical/legend_zombie",
 		}
 
 			///---
-		local r = this.Math.rand(1, 3);
+		local r = this.Math.rand(1, 2);
 		
 		if (r == 1)
 		{
@@ -64,10 +65,6 @@ this.legends_zombie_low <- this.inherit("scripts/entity/tactical/legend_zombie",
 		else if (r == 2)
 		{
 			this.m.Items.equip(this.new("scripts/items/shields/wooden_shield_old"));
-		}
-		else if (r == 3)
-		{
-			this.m.Items.equip(this.new(""));
 		}
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([

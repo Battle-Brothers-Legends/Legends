@@ -5,13 +5,7 @@ this.legend_mountain_armor_blueprint <- this.inherit("scripts/crafting/blueprint
 		this.blueprint.create();
 		this.m.ID = "blueprint.legend_mountain_armor";
 		this.m.Type = this.Const.Items.ItemType.Armor;
-		this.m.PreviewCraftable = this.new("scripts/items/armor/legendary/legend_mountain_armor");
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			this.m.PreviewCraftable = this.new("scripts/items/legend_armor/legendary/legend_armor_mountain_named");
-		}
-
+		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/legendary/legend_armor_mountain_named");
 		this.m.Cost = 2500;
 		local ingredients = [
 			{
@@ -37,20 +31,7 @@ this.legend_mountain_armor_blueprint <- this.inherit("scripts/crafting/blueprint
 			Num = 1,
 			LegendsArmor = true
 		});
-		ingredients.push({
-			Script = "scripts/items/armor/coat_of_plates",
-			Num = 1,
-			LegendsArmor = false
-		});
 		this.init(ingredients);
-		local skills = [
-			{
-				Scripts = [
-					"scripts/skills/backgrounds/legend_blacksmith_background"
-				]
-			}
-		];
-		this.initSkills(skills);
 	}
 
 	function isQualified()
@@ -60,14 +41,7 @@ this.legend_mountain_armor_blueprint <- this.inherit("scripts/crafting/blueprint
 
 	function onCraft( _stash )
 	{
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			_stash.add(this.new("scripts/items/legend_armor/legendary/legend_armor_mountain_named"));
-		}
-		else
-		{
-			_stash.add(this.new("scripts/items/armor/legendary/legend_mountain_armor"));
-		}
+		_stash.add(this.new("scripts/items/legend_armor/legendary/legend_armor_mountain_named"));
 	}
 
 });

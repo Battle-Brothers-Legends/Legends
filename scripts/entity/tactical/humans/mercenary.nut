@@ -212,10 +212,7 @@ this.mercenary <- this.inherit("scripts/entity/tactical/human", {
 			[5, "barbute_helmet"]
 		];
 
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			helm.push([5, "theamson_barbute_helmet"])
-		}
+		helm.push([5, "theamson_barbute_helmet"])
 
 		local outfits = [
 			[1, "northern_mercenary_outfit_00"],

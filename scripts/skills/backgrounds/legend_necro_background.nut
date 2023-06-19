@@ -108,7 +108,6 @@ this.legend_necro_background <- this.inherit("scripts/skills/backgrounds/charact
 				this.Const.Perks.PerkDefs.LegendInsects,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyHexen,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyAlps,
-				this.Const.Perks.PerkDefs.LegendHidden,
 				this.Const.Perks.PerkDefs.LegendChanneledPower,
 				this.Const.Perks.PerkDefs.LegendPossession
 			],

@@ -408,6 +408,27 @@ gt.Const.MoodStateIcon <- [
 	"skills/status_effect_48.png",
 	"skills/status_effect_49.png"
 ];
+
+gt.Const.BackgroundTypeName <- [
+	"None",
+	"Crusader",
+	"Combat",
+	"ConvertedCultist",
+	"Druid",
+	"Educated",
+	"Female",
+	"Noble",
+	"Lowborn",
+	"OffendedByViolence",
+	"Outlaw",
+	"Performing",
+	"Scenario",
+	"Ranger",
+	"Stabled",
+	"Untalented",
+	"Cultist"
+];
+
 gt.Const.BackgroundType <- {
 	None = 0,
 	Crusader = 1,
@@ -1101,7 +1122,7 @@ gt.Const.CharacterProperties <- {
 
 
 	DailyWage = 0,
-	DailyWageMult = 1.0,
+	DailyWageMult = 1.0, //Is not serialised in vanilla. But I have serialised it today because Scenarios were not keeping their wage multiplier modifiers between save/load cycles - Luft 29/12/22
 	DailyFood = 2.0,
 	function getMeleeDefense()
 	{
@@ -1270,7 +1291,7 @@ gt.Const.CharacterProperties <- {
 		}
 	}
 
-	function onSerialize( _out )
+	function onSerialize( _out ) // U/I = integer | F = float | Number = byte size
 	{
 		_out.writeU8(this.ActionPoints);
 		_out.writeI16(this.Hitpoints);
@@ -1282,6 +1303,7 @@ gt.Const.CharacterProperties <- {
 		_out.writeI16(this.RangedDefense);
 		_out.writeI16(this.Initiative);
 		_out.writeI16(this.DailyWage);
+		_out.writeF32(this.DailyWageMult);
 		_out.writeF32(this.DailyFood);
 	}
 
@@ -1297,6 +1319,7 @@ gt.Const.CharacterProperties <- {
 		this.RangedDefense = _in.readI16();
 		this.Initiative = _in.readI16();
 		this.DailyWage = _in.readI16();
+		this.DailyWageMult = _in.readF32();
 		this.DailyFood = _in.readF32();
 	}
 

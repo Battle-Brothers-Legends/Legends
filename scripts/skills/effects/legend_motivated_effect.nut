@@ -23,6 +23,47 @@ this.legend_motivated_effect <- this.inherit("scripts/skills/skill", {
 		_properties.BraveryMult *= 1.15; //15%
 	}
 
+	function getTooltip()
+	{
+		local bonus = this.m.Difference;
+		return [
+			{
+				id = 1,
+				type = "title",
+				text = this.getName()
+			},
+			{
+				id = 2,
+				type = "description",
+				text = this.getDescription()
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/regular_damage.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] Melee Damage"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/melee_skill.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Melee Skill"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/ranged_skill.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Ranged Skill"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/bravery.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] Resolve"
+			}
+		];
+	}
+
 	function onTurnEnd()
 	{
 		if (--this.m.TurnsLeft <= 0)

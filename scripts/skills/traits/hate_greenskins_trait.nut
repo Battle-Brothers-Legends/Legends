@@ -58,6 +58,8 @@ this.hate_greenskins_trait <- this.inherit("scripts/skills/traits/character_trai
 	{
 		if (!this.getContainer().getActor().isPlacedOnMap())
 		{
+			// If not in battle, then this should be a trait and not a status effect
+			this.m.Type = ::Const.SkillType.Trait;
 			return;
 		}
 
@@ -78,6 +80,11 @@ this.hate_greenskins_trait <- this.inherit("scripts/skills/traits/character_trai
 			_properties.Bravery += 10;
 			_properties.MeleeSkillMult *= 1.05;
 			_properties.RangedSkillMult *= 1.05;
+			// Make this a status effect so it will be visible for the battle
+			this.m.Type = ::Const.SkillType.StatusEffect;
+		} else {
+			// Make this a trait so it will not be visible for the battle
+			this.m.Type = ::Const.SkillType.Trait;
 		}
 	}
 

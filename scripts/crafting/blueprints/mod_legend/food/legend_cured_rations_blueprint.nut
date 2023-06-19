@@ -4,7 +4,7 @@ this.legend_cured_rations_blueprint <- this.inherit("scripts/crafting/food_bluep
 	{
 		this.food_blueprint.create();
 		this.m.ID = "blueprint.legend_cured_rations";
-		this.m.PreviewCraftable = this.new("scripts/items/supplies/cured_rations_item");
+		this.m.PreviewCraftable = this.new("scripts/items/supplies/legend_cured_rations_item");
 		local ingredients = [
 			{
 				Script = "scripts/items/supplies/dried_fruits_item",
@@ -31,7 +31,7 @@ this.legend_cured_rations_blueprint <- this.inherit("scripts/crafting/food_bluep
 
 	function onCraft( _stash )
 	{
-		_stash.add(this.new("scripts/items/supplies/cured_rations_item"));
+		_stash.add(this.new("scripts/items/supplies/legend_cured_rations_item"));
 	}
 
 });

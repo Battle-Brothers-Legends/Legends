@@ -5,7 +5,7 @@ this.golden_chalice_item <- this.inherit("scripts/items/item", {
 		this.item.create();
 		this.m.ID = "misc.golden_chalice";
 		this.m.Name = "Golden Chalice";
-		this.m.Description = "A drinking cup made from massive gold. Should be worth a lot if you can find a buyer.";
+		this.m.Description = "A drinking cup made from glinting gold. Should be worth a lot if you can find a buyer.";
 		this.m.Icon = "loot/inventory_loot_03.png";
 		this.m.SlotType = this.Const.ItemSlot.None;
 		this.m.ItemType = this.Const.Items.ItemType.Misc | this.Const.Items.ItemType.Loot;

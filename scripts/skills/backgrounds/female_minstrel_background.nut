@@ -12,19 +12,25 @@ this.female_minstrel_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.HiringCost = 665;
 		this.m.DailyCost = 19;
 		this.m.Excluded = [
-			"trait.asthmatic",
-			"trait.fainthearted",
-			"trait.legend_diurnal",
-			"trait.night_blind",
+			"trait.huge",
+			"trait.iron_jaw",
+			"trait.athletic",
+			"trait.craven",
 			"trait.dumb",
-			"trait.pragmatic",
+			"trait.strong",
 			"trait.tough",
-			"trait.spartan",
+			"trait.dumb",
 			"trait.brute",
 			"trait.clubfooted",
 			"trait.dastard",
-			"trait.short_sighted",
-			"trait.bloodthirsty"
+			"trait.insecure",
+			"trait.bloodthirsty",
+			"trait.asthmatic",
+			"trait.fainthearted",
+			"trait.night_blind",
+			"trait.pragmatic",
+			"trait.spartan",
+			"trait.short_sighted"
 		];
 		this.m.Titles = [
 			"the Pantomime",
@@ -51,10 +57,11 @@ this.female_minstrel_background <- this.inherit("scripts/skills/backgrounds/char
 				this.Const.Perks.MaceTree,
 				this.Const.Perks.StaffTree,
 				this.Const.Perks.ThrowingTree,
+				this.Const.Perks.CrossbowTree,
 				this.Const.Perks.DaggerTree
 			],
 			Defense = [
-				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.LightArmorTree
 			],
 			Traits = [
 				this.Const.Perks.IntelligentTree,
@@ -62,15 +69,16 @@ this.female_minstrel_background <- this.inherit("scripts/skills/backgrounds/char
 				this.Const.Perks.CalmTree,
 				this.Const.Perks.FastTree
 			],
-			Enemy = [this.Const.Perks.NoblesTree],
+			Enemy = [
+				this.Const.Perks.NoblesTree
+			],
 			Class = [
-					this.Const.Perks.BardClassTree,
-					this.Const.Perks.JugglerClassTree],
+				this.Const.Perks.BardClassTree,
+				this.Const.Perks.JugglerClassTree
+			],
 			Magic = []
 		}
 	}
-
-
 
 	function onBuildDescription()
 	{
@@ -81,35 +89,35 @@ this.female_minstrel_background <- this.inherit("scripts/skills/backgrounds/char
 	{
 		local c = {
 			Hitpoints = [
-				-5,
-				-5
+				-3,
+				-3
 			],
 			Bravery = [
 				10,
-				10
+				15
 			],
 			Stamina = [
 				-3,
 				5
 			],
 			MeleeSkill = [
-				-3,
-				3
+				0,
+				0
 			],
 			RangedSkill = [
-				-3,
-				3
+				5,
+				10
 			],
 			MeleeDefense = [
-				-3,
+				0,
 				3
 			],
 			RangedDefense = [
 				3,
-				5
+				6
 			],
 			Initiative = [
-				3,
+				5,
 				5
 			]
 		};
@@ -119,23 +127,21 @@ this.female_minstrel_background <- this.inherit("scripts/skills/backgrounds/char
 	function onAddEquipment()
 	{
 		local items = this.getContainer().getActor().getItems();
-		local armor = this.Const.World.Common.pickArmor([
-			[1, "linen_tunic", this.Math.rand(3, 4)]
-		])
-		items.equip(armor);
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "linen_tunic", this.Math.rand(3,4)]
+		]))
+		local r;
 
-		local item = this.Const.World.Common.pickHelmet([
-				[1, "feathered_hat"],
-				[1, ""]
-		])
-		items.equip(item);
+		items.equip(this.Const.World.Common.pickHelmet([
+			[1, "feathered_hat"]
+		]));
 
-		local r = this.Math.rand(0, 4);
-		if (r == 1)
+		local r = this.Math.rand(0, 1);
+		if (r == 0)
 		{
 			items.equip(this.new("scripts/items/weapons/lute"));
 		}
-		if (r >= 2)
+		if (r == 1)
 		{
 			items.equip(this.new("scripts/items/weapons/legend_drum"));
 		}

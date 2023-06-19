@@ -127,7 +127,6 @@ this.legend_necro_commander_background <- this.inherit("scripts/skills/backgroun
 					this.Const.Perks.PerkDefs.LegendFavouredEnemyHexen,
 					this.Const.Perks.PerkDefs.LegendFavouredEnemyAlps,
 					this.Const.Perks.PerkDefs.LegendBrinkOfDeath,
-					this.Const.Perks.PerkDefs.LegendHidden,
 					this.Const.Perks.PerkDefs.LegendChanneledPower,
 					this.Const.Perks.PerkDefs.LegendPossession
 				],
@@ -213,7 +212,6 @@ this.legend_necro_commander_background <- this.inherit("scripts/skills/backgroun
 					this.Const.Perks.PerkDefs.LegendFavouredEnemyHexen,
 					this.Const.Perks.PerkDefs.LegendFavouredEnemyAlps,
 					this.Const.Perks.PerkDefs.LegendBrinkOfDeath,
-					this.Const.Perks.PerkDefs.LegendHidden,
 					this.Const.Perks.PerkDefs.LegendChanneledPower,
 					this.Const.Perks.PerkDefs.LegendPossession
 				],

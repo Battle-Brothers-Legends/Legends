@@ -81,44 +81,48 @@ this.legend_ancient_scroll_item <- this.inherit("scripts/items/item", {
 					//effect.m.Icon = "skills/experience_scroll_effect.png"; //todo icon
 					_actor.getSkills().add(effect);
 					break;
-				case 3: //Adds a group to the perk tree that they don't already have
-					local pT = _actor.getBackground().getPerkTree();
+				case 3:
+				local newTree = false;
+				local bigTree;
+				while (newTree == false) {
 					local r = this.Math.rand(1, 100);
-					local t;
 					if (r <= 10)
 					{
-						t = this.Const.Perks.MagicTrees;
+						bigTree = this.Const.Perks.MagicTrees;
 					}
 					else if (r <= 20)
 					{
-						t = this.Const.Perks.EnemyTrees;
+						bigTree = this.Const.Perks.EnemyTrees;
 					}
 					else if (r <= 30)
 					{
-						t = this.Const.Perks.DefenseTrees;
+						bigTree = this.Const.Perks.DefenseTrees;
 					}
 					else if (r <= 55)
 					{
-						t = this.Const.Perks.ClassTrees;
+						bigTree = this.Const.Perks.ClassTrees;
 					}
 					else if (r <= 75)
 					{
-						t = this.Const.Perks.TraitsTrees;
+						bigTree = this.Const.Perks.TraitsTrees;
 					}
 					else if (r <= 100)
 					{
-						t = this.Const.Perks.WeaponTrees;
+						bigTree = this.Const.Perks.WeaponTrees;
 					}
-
-					for (local i = 0; i < 100; i = ++i)
+					local subGroup = bigTree.getRandom([]).Tree;
+					foreach( index, arrAdd in subGroup)
 					{
-						if (!_actor.getBackground().addPerk(t.getRandomPerk()))
+						foreach( perkAdd in arrAdd )
 						{
-							continue;
+							if (_actor.getBackground().addPerk(perkAdd, index)) {
+								newTree = true;
+							}
 						}
-						break;
 					}
-					break;
+				}
+				break;
+
 				case 4: //adds a gifted level, copied from gifted perk so it's probably safe
 					_actor.m.LevelUps += 1;
 					_actor.fillAttributeLevelUpValues(1, true);

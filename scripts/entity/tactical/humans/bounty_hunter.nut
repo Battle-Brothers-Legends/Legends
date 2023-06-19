@@ -170,10 +170,7 @@ this.bounty_hunter <- this.inherit("scripts/entity/tactical/human", {
 				[1, "nordic_helmet_with_closed_mail"],
 				[1, "barbute_helmet"]
 			];
-			if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				helm.push([1, "theamson_barbute_helmet"])
-			}
+			helm.push([1, "theamson_barbute_helmet"])
 			local item = this.Const.World.Common.pickHelmet(helm)
 			
 			if (item != null)

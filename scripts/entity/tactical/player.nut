@@ -9,7 +9,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		LastDrinkTime = 0,
 		PlaceInFormation = 255,
 		Background = null,
-		HiringCost = 0,
+		HiringCost = 0, //Serialised using Float 32 on 7/5/23 by Luft
 		HireTime = 0.0,
 		IsTryoutDone = false,
 		IsGuest = false,
@@ -369,20 +369,17 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 	{
 		local ret = [];
 
-		if (!this.m.IsTryoutDone)
-		{
-			return ret;
-		}
+		if (!this.m.IsTryoutDone) return ret;
 
 		foreach( s in this.m.Skills.m.Skills )
 		{
-			if (s.getType() == this.Const.SkillType.Trait)
-			{
-				ret.push({
-					id = s.getID(),
-					icon = s.getIconColored()
-				});
-			}
+			if (s.getType() != ::Const.SkillType.Trait) continue;
+			if (s.isHidden()) continue;
+
+			ret.push({
+				id = s.getID(),
+				icon = s.getIconColored()
+			});
 		}
 
 		return ret;
@@ -678,6 +675,12 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 				id = 7,
 				type = "hint",
 				text = this.getBackground().getBackgroundDescription(false)
+			});
+
+			tooltip.push({
+				id = 10,
+				type = "description",
+				text = this.m.Background.getBackgroundTypes() + "\n"
 			});
 		}
 
@@ -1094,16 +1097,21 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			local skill = this.new("scripts/skills/" + potential[this.Math.rand(0, potential.len() - 1)].Script);
 			this.m.Skills.add(skill);
 
-			if (this.m.CurrentProperties.SurvivesAsUndead && !this.getFlags().has("PlayerZombie")) //deathly spectre for Cabal
+			if (this.World.Assets.getOrigin().getID() == "scenario.legends_necro") //deathly spectre for Cabal
 			{
-				this.m.MoraleState = this.Const.MoraleState.Ignore;
-				this.getFlags().add("PlayerZombie");
-				this.getFlags().add("undead");
-				this.getFlags().add("zombie_minion");
-				local skill = this.new("scripts/skills/traits/legend_rotten_flesh_trait");
-				this.m.Skills.add(skill);
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
-				this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
+				// if (this.m.CurrentProperties.SurvivesAsUndead && !this.getFlags().has("PlayerZombie")) //original that we know works but has conflicts - Luft
+				// if (this.m.CurrentProperties.SurvivesAsUndead && this.m.IsDying == true && !this.getFlags().has("PlayerZombie")) //attempt to add 'isdying' into the formula to stop the durgeon retinue from basically not working at all and bros still becoming zombies. But I think isdying is casuing a recursive loop because the bro is 'dying' but then being put back into the roster by the zombie mechanic. - Luft
+				if (this.m.CurrentProperties.SurvivesAsUndead && !this.World.Assets.m.IsSurvivalGuaranteed && !this.getFlags().has("PlayerZombie")) //Lastest attempt. we have ignored 'issurvivalgarenteed' which is what the surgeon retinue uses to bring bros back from the dead. THis isn't ideal but it will stop recursive errors from flagging up. Using this if the player has the surgeon retinue, deathly spectre will never proc because every bro will be saved and still living instead of undead. Once we confirm this works across other use cases we can update the tooltips as needed. - Luft 30/4/23
+				{
+					this.m.MoraleState = this.Const.MoraleState.Ignore;
+					this.getFlags().add("PlayerZombie");
+					this.getFlags().add("undead"); 
+					this.getFlags().add("zombie_minion"); 
+					local skill = this.new("scripts/skills/traits/legend_rotten_flesh_trait");
+					this.m.Skills.add(skill);
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_zombie_bite"));
+					this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
+				}
 			}
 
 			this.Tactical.getSurvivorRoster().add(this);
@@ -1583,10 +1591,15 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			_xp = _xp * this.Const.Combat.GlobalXPVeteranLevelMult;
 		}
 
-		if (this.getFlags().has("PlayerSkeleton"))
-		{
-			_xp = _xp * 0.33;
-		}
+		// if (this.getFlags().has("PlayerSkeleton")) //Disabled 27/1/23 - these are overiding the xp modifiers elsewhere including submods. therefore I have disabled them here so they may be changed in traits, events, etc. as all other stat varibles are for these types of units. - Luft
+		// {
+		// 	_xp = _xp * 0.33;
+		// }
+
+		// if (this.getFlags().has("PlayerZombie")) //Disabled 27/1/23 - these are overiding the xp modifiers elsewhere including submods. therefore I have disabled them here so they may be changed in traits, events, etc. as all other stat varibles are for these types of units. - Luft
+		// {
+		// 	_xp = _xp * 0.25;
+		// }
 
 		if (!isScenarioMode)
 		{
@@ -1606,10 +1619,6 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			}
 		}
 
-		if (this.getFlags().has("PlayerZombie"))
-		{
-			_xp = _xp * 0.25;
-		}
 	//	if (("State" in this.World) && this.World.State != null && this.World.getPlayerRoster().getSize() < 3)
 	//	{
 	//		_xp = _xp * (1.0 - (3 - this.World.getPlayerRoster().getSize()) * 0.15);
@@ -2900,6 +2909,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		_out.writeU8(this.m.PerkPoints);
 		_out.writeU8(this.m.PerkPointsSpent);
 		_out.writeU8(this.m.LevelUps);
+		_out.writeF32(this.m.HiringCost);
 		_out.writeF32(this.m.Mood);
 		_out.writeU8(this.m.MoodChanges.len());
 
@@ -2967,6 +2977,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		this.m.PerkPoints = _in.readU8();
 		this.m.PerkPointsSpent = _in.readU8();
 		this.m.LevelUps = _in.readU8();
+		this.m.HiringCost = _in.readF32();
 		this.m.Mood = _in.readF32();
 		local numMoodChanges = _in.readU8();
 		this.m.MoodChanges.resize(numMoodChanges, 0);
@@ -3012,7 +3023,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		if (ret.len() != 0)
 		{
 			this.m.Background = ret[0];
-			this.m.Background.adjustHiringCostBasedOnEquipment();
+			//this.m.Background.adjustHiringCostBasedOnEquipment(); //turned off as this was causing issues with the serialisation of hire cost - Luft + James 7/5/23
 			this.m.Background.buildDescription(true);
 
 			if (this.m.Background.isBackgroundType(this.Const.BackgroundType.Female))

@@ -37,6 +37,7 @@ this.legend_hexe_leader_agent <- this.inherit("scripts/ai/tactical/agent", {
 	function onAddBehaviors()
 	{
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_engage_ranged"));
+		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_attack_default"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_charm"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_hex"));
 		this.addBehavior(this.new("scripts/ai/tactical/behaviors/ai_wither"));

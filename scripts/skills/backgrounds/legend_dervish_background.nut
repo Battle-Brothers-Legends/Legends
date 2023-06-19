@@ -22,7 +22,7 @@ this.legend_dervish_background <- this.inherit("scripts/skills/backgrounds/chara
 			"trait.seductive"
 		];
 		this.m.ExcludedTalents = [];
-		this.m.IsGuaranteed = ["tough_trait"]
+		// this.m.IsGuaranteed = ["tough_trait"]
 		this.m.Bodies = this.Const.Bodies.SouthernMale;
 		this.m.Faces = this.Const.Faces.SouthernMale;
 		this.m.Hairs = this.Const.Hair.SouthernMale;
@@ -61,8 +61,8 @@ this.legend_dervish_background <- this.inherit("scripts/skills/backgrounds/chara
 	{
 		local c = {
 			Hitpoints = [
-				5,
-				15
+				15,
+				25
 			],
 			Bravery = [
 				5,

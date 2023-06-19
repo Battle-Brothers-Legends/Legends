@@ -390,7 +390,12 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 				text = this.getName()
 			},
 			{
-				id = 2,
+				id = 3,
+				type = "description",
+				text =	this.getBackgroundTypes() + "\n"
+			},
+			{
+				id = 5,
 				type = "description",
 				text = this.getBackgroundDescription(true)
 			}
@@ -412,7 +417,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			}
 		];
 		if (this.getContainer() != null) ret.extend(this.getAttributesTooltip())
-		return ret
+		return ret;
 	}
 
 	function getAttributesTooltip()
@@ -1087,10 +1092,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 	function rebuildPerkTree( _tree )
 	{
 		this.m.CustomPerkTree = _tree
-		if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
-		{
-			this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.m.PerkTreeDynamic);
-		}
+		this.m.CustomPerkTree = this.Const.Perks.MergeDynamicPerkTree(_tree, this.m.PerkTreeDynamic);
 		local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
 		this.m.PerkTree = pT.Tree;
 		this.m.PerkTreeMap = pT.Map;
@@ -1156,20 +1158,11 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 
 		if (this.m.CustomPerkTree == null)
 		{
-			if (::Legends.Mod.ModSettings.getSetting("PerkTrees").getValue())
-			{
-
 				local mins = this.getPerkTreeDynamicMins();
 
 				local result  = this.Const.Perks.GetDynamicPerkTree(mins, this.m.PerkTreeDynamic);
 				this.m.CustomPerkTree = result.Tree
 				a = result.Attributes;
-			}
-			else
-			{
-				this.m.CustomPerkTree = this.Const.Perks.DefaultCustomPerkTree;
-			}
-			
 		}
 
 		local pT = this.Const.Perks.BuildCustomPerkTree(this.m.CustomPerkTree);
@@ -1621,6 +1614,23 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			]
 		};
 		return c;
+	}
+
+	function getBackgroundTypes(){
+
+		local BackgroundType = "";
+
+		foreach (i, name in ::Const.BackgroundTypeName)
+		{
+		    if (this.isBackgroundType(::Const.BackgroundType[name]))
+		    {
+		        BackgroundType += name + ", ";
+		    }
+		}
+
+		if (BackgroundType.len() == 0) return "";
+
+		return "Background Type(s): " + BackgroundType.slice(0, BackgroundType.len() - 2);
 	}
 
 	//0 = Male, 1 = Female, -1 = Either

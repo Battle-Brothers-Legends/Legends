@@ -74,11 +74,17 @@ this.cultist_origin_vs_uneducated_event <- this.inherit("scripts/events/event", 
 				];
 
 				_event.m.Cultist.getBaseProperties().Bravery += 2;
+				_event.m.Uneducated.getBaseProperties().MeleeSkill += 10;
 				_event.m.Cultist.getSkills().update();
 				this.List.push({
 					id = 16,
 					icon = "ui/icons/bravery.png",
 					text = _event.m.Cultist.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+2[/color] Resolve"
+				});
+				this.List.push({
+					id = 16,
+					icon = "ui/icons/melee_skill.png",
+					text = _event.m.Uneducated.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+10[/color] Melee Skill"
 				});
 			}
 

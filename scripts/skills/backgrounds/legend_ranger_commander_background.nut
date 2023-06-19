@@ -165,7 +165,6 @@ this.legend_ranger_commander_background <- this.inherit("scripts/skills/backgrou
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyUnhold,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyLindwurm,
 				this.Const.Perks.PerkDefs.LegendBalance,
-				this.Const.Perks.PerkDefs.LegendHidden,
 				this.Const.Perks.PerkDefs.LegendFreedomOfMovement
 			],
 			[],

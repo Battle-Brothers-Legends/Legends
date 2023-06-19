@@ -28,7 +28,7 @@ this.greenskins_situation <- this.inherit("scripts/entity/world/settlements/situ
 	{
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.25);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * -0.025);
 		}
 		_settlement.resetShop();
 		_settlement.resetRoster(true);
@@ -38,7 +38,7 @@ this.greenskins_situation <- this.inherit("scripts/entity/world/settlements/situ
 	{
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.50);
+			_settlement.setResources(_settlement.getResources() + _settlement.getResources() * 0.125);
 		}
 	}
 

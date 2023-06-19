@@ -394,6 +394,16 @@ this.asset_manager <- {
 
 	function addBusinessReputation( _f )
 	{
+		if (_f < 0) {
+			if (this.m.BusinessReputation < 250)
+			{
+				_f = 0;
+			}
+			if (this.m.BusinessReputation >= 250 && this.m.BusinessReputation < 500)
+			{
+				_f *= 0.5;
+			}
+		}
 		this.m.BusinessReputation += this.Math.ceil(_f * this.m.BusinessReputationRate);
 		this.m.BusinessReputationMax = this.Math.max(this.m.BusinessReputation, this.m.BusinessReputationMax);
 
@@ -1701,11 +1711,6 @@ this.asset_manager <- {
 			if (b.getPlaceInFormation() != NOT_IN_FORMATION && formation[b.getPlaceInFormation()] == false && (!considerMaxBros || inCombat < this.m.BrothersMaxInCombat))
 			{
 				formation[b.getPlaceInFormation()] = true;
-
-				if (b.getPlaceInFormation() <= 26)
-				{
-					inCombat = ++inCombat;
-				}
 			}
 			else
 			{
@@ -1718,44 +1723,20 @@ this.asset_manager <- {
 		{
 			foreach( b in roster )
 			{
-				if (b.getPlaceInFormation() != NOT_IN_FORMATION)
-				{
-					continue;
-				}
+				if (b.getPlaceInFormation() != NOT_IN_FORMATION) continue;
 
 				local i = 0;
-
-				if (inCombat >= this.m.BrothersMaxInCombat)
-				{
-					i = 27;
-				}
-
 				while (i != formation.len())
 				{
 					if (formation[i] == false)
 					{
 						b.setPlaceInFormation(i);
 						formation[i] = true;
-
-						if (i <= 26)
-						{
-							inCombat = ++inCombat;
-						}
-
 						break;
 					}
 
-					i = ++i;
+					i++;
 				}
-			}
-		}
-
-		if (inCombat == 0)
-		{
-			foreach( b in roster )
-			{
-				b.setPlaceInFormation(3);
-				break;
 			}
 		}
 	}

@@ -22,7 +22,7 @@
 
 	var result = $('<input type="text" class="ui-control"/>');
 	var data = { minLength: _minLength || 0, maxLength: _maxLength || null, inputUpdatedCallback: null, acceptCallback: null, inputDenied: false };
-	
+
 	if (_inputid == 2)
 	{
 		result.css('background-image', 'url("coui://gfx/ui/skin/input_2_default.png")');
@@ -47,7 +47,7 @@
 		result.css('background-size', '45.0rem 2.8rem');
 		result.css('text-align', 'center');
 	}
-	
+
 /* 	result.attr('style', 'background-size: 9.8rem 4.3rem")');
 	result.attr('style', 'background-image: url("coui://gfx/ui/skin/button_02_hovered.png")'); */
 
@@ -102,7 +102,7 @@
 			result.css('background-image', 'url("coui://gfx/ui/skin/input_5_active.png")');
 		}
 	});
-	
+
 	result.on('mouseout.input', null, result, function (_event)
 	{
 		if (_inputid == 2)
@@ -122,7 +122,7 @@
 			result.css('background-image', 'url("coui://gfx/ui/skin/input_5_default.png")');
 		}
 	});
-	
+
 	result.on('click.input', null, result, function (_event)
 	{
 		if(_inputClickCallback !== undefined && jQuery.isFunction(_inputClickCallback))
@@ -130,7 +130,7 @@
 			_inputClickCallback($(this));
 		}
 	});
-	
+
 	result.on('focusout.input', null, result, function (_event)
 	{
 		if (_inputid == 2 || _inputid == 3 || _inputid == 4 || _inputid == 5)
@@ -141,7 +141,7 @@
 			}
 		}
 	});
-	
+
 	// input handler
 	result.on('keydown.input', null, result, function (_event)
 	{
@@ -157,17 +157,7 @@
 			return true;
 		}
 
-// 		if (code === KeyConstants.Return || code === KeyConstants.Enter)
-// 		{
-// 			_acceptCallback($(this));
-// 			return true;
-// 		}
-
 		// allow only special keys
-		/*
-		console.info(code);
-		console.info(String.fromCharCode(code));
-		*/
 		if (code < KeyConstants.Zero ||
 			code > KeyConstants.Z)
 		{
@@ -197,20 +187,25 @@
 				assumedTextLength -= 1;
 			}
 		}
+		else if (_event[KeyModiferConstants.CtrlKey] === true && (code === KeyConstants.A || code === KeyConstants.C))
+		{
+			// Do Nothing. Ctrl+A/C should never count as increasing the assumetTextLength
+		}
 		else
 		{
 			inputDenied = ((textLength+1) > data.maxLength);
 
-			if (inputDenied !== true)
+			if (inputDenied === false)
 			{
 				assumedTextLength += 1;
 			}
 		}
+
 		if (_event[KeyModiferConstants.CtrlKey] === true && code === KeyConstants.V && data.inputDenied === true)
 		{
 			inputDenied = true;
 		}
-		
+
 		if (inputDenied === true)
 		{
 			var wasAlreadyDenied = data.inputDenied;

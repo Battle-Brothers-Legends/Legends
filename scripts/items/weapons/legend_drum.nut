@@ -15,19 +15,20 @@ this.legend_drum <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;
 		this.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
-		this.m.IsDoubleGrippable = true;
+		this.m.IsDoubleGrippable = false;
 		this.m.AddGenericSkill = true;
 		this.m.ShowQuiver = false;
 		this.m.ShowArmamentIcon = true;
 		this.m.ArmamentIcon = "icon_drum";
 		this.m.Value = 100;
-		this.m.Condition = 60.0;
-		this.m.ConditionMax = 60.0;
+		this.m.Condition = 20.0;
+		this.m.ConditionMax = 20.0;
 		this.m.StaminaModifier = -4;
 		this.m.RegularDamage = 5;
 		this.m.RegularDamageMax = 10;
-		this.m.ArmorDamageMult = 0.2;
-		this.m.DirectDamageMult = 0.5;
+		this.m.ArmorDamageMult = 0.5;
+		this.m.DirectDamageMult = 0.4;
+		this.m.DirectDamageAdd = -0.2;	
 	}
 
 	function onEquip()
@@ -44,4 +45,3 @@ this.legend_drum <- this.inherit("scripts/items/weapons/weapon", {
 	}
 
 });
-

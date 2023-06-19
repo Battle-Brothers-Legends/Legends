@@ -23,9 +23,9 @@ this.legend_named_blacksmith_hammer <- this.inherit("scripts/items/weapons/named
 		this.m.StaminaModifier = -8;
 		this.m.RegularDamage = 20;
 		this.m.RegularDamageMax = 30;
-		this.m.ArmorDamageMult = 2.5;
+		this.m.ArmorDamageMult = 2.0; // using 2.5 + duelist allows user to not damage armour at all. But instead do all the dmg to hp instead.
 		this.m.DirectDamageMult = 0.5;
-		this.m.DirectDamageAdd = 0.2;
+		// this.m.DirectDamageAdd = 0.2;
 		this.randomizeValues();
 	}
 

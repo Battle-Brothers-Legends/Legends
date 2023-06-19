@@ -122,15 +122,9 @@ this.legends_seer_scenario <- this.inherit("scripts/scenarios/world/starting_sce
 		return false;
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
+	function onUpdateHiringRoster( _roster )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() < 10)
-		{
-			return;
-		}
-
-		_list.push("apprentice_background");
+		this.addBroToRoster(_roster, "apprentice_background", 4);
 	}
 
 	function onHiredByScenario( bro )
@@ -157,25 +151,20 @@ this.legends_seer_scenario <- this.inherit("scripts/scenarios/world/starting_sce
 		bro.improveMood(0.5, "Learned a new skill");
 	}
 
-	function onUpdateHiringRoster( _roster )
-	{
-		local garbage = [];
-		local bros = _roster.getAll();
 
-		foreach( i, bro in bros )
+	function onGenerateBro(bro)
+	{
+		if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Educated) || bro.getSkills().hasSkill("trait.bright"))
 		{
-			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Educated) || bro.getSkills().hasSkill("trait.bright"))
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.9) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 0.9; //1.0 = default
-				bro.getSkills().update();
-			}
-			else if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Educated) || bro.getSkills().hasSkill("trait.dumb"))
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.1) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 1.1; //1.0 = default
-				bro.getSkills().update();
-			}
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.9) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 0.9; //1.0 = default
+			bro.getSkills().update();
+		}
+		else if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Educated) || bro.getSkills().hasSkill("trait.dumb"))
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.1) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 1.1; //1.0 = default
+			bro.getSkills().update();
 		}
 	}
 

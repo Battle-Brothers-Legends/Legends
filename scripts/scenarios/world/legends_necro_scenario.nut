@@ -29,7 +29,6 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			local bro;
 			bro = roster.create("scripts/entity/tactical/player");
  			bro.getSprite("socket").setBrush("bust_base_undead"); //base bust for starters
- 			bro.getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 
 			while (names.find(bro.getNameOnly()) != null)
@@ -50,6 +49,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[0].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[0].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 		bros[0].getSkills().add(this.new("scripts/skills/perks/perk_bags_and_belts"));
+ 		bros[0].getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 
 		bros[1].setStartValuesEx([
 			"legend_warlock_summoner_background" //sickly but good def. summons.
@@ -60,6 +60,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[1].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[1].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 		bros[1].getSkills().add(this.new("scripts/skills/perks/perk_nine_lives"));
+ 		bros[1].getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 
 		bros[2].setStartValuesEx([
 			"legend_puppet_master_background" //strong but slow tank
@@ -69,6 +70,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		bros[2].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[2].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
 		bros[2].getSkills().add(this.new("scripts/skills/perks/perk_legend_possession"));
+ 		bros[2].getSkills().add(this.new("scripts/skills/traits/legend_deathly_spectre_trait"));
 
 		bros[3].setStartValuesEx([
 			"legend_puppet_background" //poor fucking infantry (tm)
@@ -198,34 +200,6 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		return necros != 0;
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
-		local r;
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			_list.push("graverobber_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 3);
-
-		if (r == 0)
-		{
-			_list.push("gravedigger_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 4);
-
-		if (r == 0)
-		{
-			_list.push("cultist_background");
-		}
-	}
 
 	function onHiredByScenario( bro )
 	{
@@ -249,21 +223,11 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	{
 		local garbage = [];
 		local bros = _roster.getAll();
-
+		this.addBroToRoster(_roster, "graverobber_background", 4);
+		this.addBroToRoster(_roster, "gravedigger_background", 4);
+		this.addBroToRoster(_roster, "cultist_background", 4);
 		foreach( i, bro in bros )
 		{
-			if (bro.getBackground().getID() == "background.graverobber" || bro.getBackground().getID() == "background.gravedigger" || bro.getBackground().getID() == "background.cultist")
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
-				bro.getSkills().update();
-			}
-			else
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.5) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 1.5; //1.0 = default
-				bro.getSkills().update();
-			}
 			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Crusader)) //delete crusader/pious recruits
 			{
 				garbage.push(bro);
@@ -271,5 +235,49 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		}
 	}
 
+	function onGenerateBro(bro)
+	{
+		if (bro.getBackground().getID() == "background.graverobber" || bro.getBackground().getID() == "background.gravedigger" || bro.getBackground().getID() == "background.cultist")
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
+			bro.getBaseProperties().MeleeSkill += 10;
+			bro.getSkills().update();
+		}
+		else
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.5) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 1.5; //1.0 = default
+			bro.getSkills().update();
+		}
+	}
+
+	function onGetBackgroundTooltip( _background, _tooltip )
+	{
+		if (_background.getID() == "background.cultist" || _background.getID() == "background.converted_cultist" || _background.getID() == "background.gravedigger" || _background.getID() == "background.graverobber")
+		{
+			//_tooltip.pop();
+			_tooltip.push({
+				id = 16,
+				type = "text",
+				icon = "ui/icons/melee_skill.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Melee Skill from being in a necromancer\'s employ"
+			});
+		}
+	}
+
+	// function isCultist( _background )
+	// {
+	// 	return _background.isBackgroundType(this.Const.BackgroundType.ConvertedCultist | this.Const.BackgroundType.Cultist);
+	// }
+	//new end
+
+	function onBuildPerkTree( _background )
+	{
+		if (_background.getID() == "background.gravedigger" || _background.getID() == "background.graverobber")
+		{
+			this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.LegendResurrectionist);
+		}
+	}
 });
 

@@ -4,16 +4,11 @@ this.legends_assassin_scenario <- this.inherit("scripts/scenarios/world/starting
 	{
 		this.m.ID = "scenario.legends_assassin";
 		this.m.Name = "Assassin";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_51.png[/img][/p][p] A quick, efficient and ruthless assassin. You strike from the shadows and collect the rewards. \n\n[color=#bcad8c]Dirty Deeds:[/color] You will grant the Backstabber perk to anyone who joins you in battle. \n[color=#bcad8c]Underworld:[/color] You have a small chance of finding other Assassins for hire.\n[color=#bcad8c]Avatar:[/color] Begin alone. If you die, it is game over.[/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_51.png[/img][/p][p] An assassin down on their luck with limitied supplies. \n\n[color=#bcad8c]Dirty Deeds:[/color] You will grant the Backstabber perk to anyone who joins you. \n[color=#bcad8c]Underworld:[/color] You have a small chance of finding other Assassins for hire. Outlaws are 50% cheaper to hire and maintain, all other backgrounds are the same cost.\n[color=#bcad8c]Avatar:[/color] Begin alone. If you die, it is game over.[/p]"; 
 		this.m.Difficulty = 2;
 		this.m.Order = 20;
 		this.m.IsFixedLook = true;
 		this.m.StartingRosterTier = this.Const.Roster.getTierForSize(3);
-	}
-
-	function isValid()
-	{
-		return this.Const.DLC.Wildmen;
 	}
 
 	function onSpawnAssets()
@@ -26,15 +21,21 @@ this.legends_assassin_scenario <- this.inherit("scripts/scenarios/world/starting
 			"legend_assassin_commander_background"
 		]);
 		bro.getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
-		this.addScenarioPerk(bro.getBackground(), this.Const.Perks.PerkDefs.Backstabber);
-		this.addScenarioPerk(bro.getBackground(), this.Const.Perks.PerkDefs.LegendHidden);		
+		this.addScenarioPerk(bro.getBackground(), this.Const.Perks.PerkDefs.Backstabber); 
+		this.addScenarioPerk(bro.getBackground(), this.Const.Perks.PerkDefs.LoneWolf);
 		bro.m.PerkPointsSpent += 2;
 		bro.setPlaceInFormation(4);
 		bro.setVeteranPerks(2);
-		bro.getFlags().set("IsPlayerCharacter", true);
-		bro.getSprite("miniboss").setBrush("bust_miniboss_lone_wolf");
-		this.World.Assets.m.Money = 1.5 * this.World.Assets.m.Money;
-		this.World.Assets.m.Ammo = this.World.Assets.m.Ammo;
+		bro.getFlags().set("IsPlayerCharacter", true); //Avatar
+ 		bro.getSprite("socket").setBrush("bust_base_assassin"); //custom base
+		bro.getSprite("miniboss").setBrush("bust_miniboss_assassin"); //custom bust for avatar only
+
+		this.World.Assets.getStash().add(this.new("scripts/items/loot/signet_ring_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/loot/jade_broche_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/accessory/cat_potion_item"));
+		this.World.Assets.m.Money = this.World.Assets.m.Money * 0.5;
+		this.World.Assets.m.Medicine = this.World.Assets.m.Medicine * 0.5;
+		this.World.Assets.m.Ammo = this.World.Assets.m.Ammo * 0.5;
 
 	}
 
@@ -125,99 +126,50 @@ this.legends_assassin_scenario <- this.inherit("scripts/scenarios/world/starting
 
 	function onUpdateDraftList( _list, _gender = null)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		local r;
-		r = this.Math.rand(0, 99);
-
-		if (r == 0)
-		{
-			_list.push("assassin_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 99);
-
-		if (r == 0)
-		{
-			_list.push("assassin_southern_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 9);
-
-		if (r == 0)
-		{
-			_list.push("thief_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 9);
-
-		if (r == 0 && _gender)
-		{
-			_list.push("female_thief_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 19);
-
-		if (r == 0)
-		{
-			_list.push("killer_on_the_run_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 19);
-
-		if (r == 0)
-		{
-			_list.push("graverobber_background");
-		}
-
-		local r;
-		r = this.Math.rand(0, 19);
-
-		if (r == 0)
-		{
-			_list.push("gambler_background");
-		}
 	}
 
 	function onUpdateHiringRoster( _roster )
 	{
-		local bros = _roster.getAll();
-
-		foreach( i, bro in bros )
+		local _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
+		this.addBroToRoster(_roster, "assassin_background", 11);
+		this.addBroToRoster(_roster, "assassin_southern_background", 11);
+		this.addBroToRoster(_roster, "legend_bounty_hunter_background", 11); // Increased this since it is seemingly much stronger than standard assassins.
+		this.addBroToRoster(_roster, "thief_background", 7);
+		if (_gender)
 		{
-			if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.5) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 1.5; //1.0 = default
-				bro.getSkills().update();
-			}
-			else
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.9) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 0.9; //1.0 = default
-				bro.getSkills().update();
-			}
+			this.addBroToRoster(_roster, "female_thief_background", 7);
+		}
+		this.addBroToRoster(_roster, "killer_on_the_run_background", 7);
+
+	}
+
+	function onGenerateBro(bro)
+	{
+		if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw)) // if bro is NOT an outlaw then....
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.0) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 1.0; //1.0 = default
+			bro.getSkills().update();
+		}
+		else
+		{
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.5) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 0.5; //1.0 = default
+			bro.getSkills().update();
 		}
 	}
 
 	function onHiredByScenario( bro )
 	{
-		if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Lowborn) && !bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
+		if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
 		{
 			bro.worsenMood(1.0, "Is uncomfortable with joining an assassin");
 		}
-		else if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Combat) && bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
+		else if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
 		{
 			bro.improveMood(1.0, "Is excited at becoming part of outlaw company");
+ 			bro.getSprite("socket").setBrush("bust_base_assassin"); //custom base
 		}
-		bro.improveMood(0.5, "Learned a new skill");
-		bro.getBackground().addPerk(this.Const.Perks.PerkDefs.LegendSpecialistKnifeSkill, 1);
-		bro.getBackground().addPerk(this.Const.Perks.PerkDefs.LegendSpecialistKnifeDamage, 3);
-
 	}
 
 	function onBuildPerkTree( _background )

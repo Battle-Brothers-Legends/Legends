@@ -65,7 +65,7 @@ this.legend_oms_fate_item <- this.inherit("scripts/items/accessory/accessory", {
 	function onUpdate( _properties )
 	{
 		_properties.SurviveWithInjuryChanceMult = 0.0;
-		_properties.RerollDefenseChance += 15;
+		_properties.RerollDefenseChance += 25;
 	}
 
 });

@@ -109,9 +109,7 @@ this.legend_berserker_background <- this.inherit("scripts/skills/backgrounds/cha
 				this.Const.Perks.OrcTree,
 				this.Const.Perks.GoblinTree
 			],
-			Class = [
-				this.Const.Perks.FistsClassTree
-				],
+			Class = [this.Const.Perks.FistsClassTree], //this.Const.Perks.FistsClassTree
 			Magic = [
 				this.Const.Perks.BerserkerMagicTree
 			]

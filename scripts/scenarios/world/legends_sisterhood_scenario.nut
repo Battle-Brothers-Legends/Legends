@@ -51,7 +51,8 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 			"legend_vala_commander_background"
 		], true, 1);
 		bros[4].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
-		bros[4].getSkills().add(this.new("scripts/skills/perks/perk_legend_roster_1"));
+		this.addScenarioPerk(bros[4].getBackground(), this.Const.Perks.PerkDefs.LegendValaInscribeShield);
+		bros[4].m.PerkPointsSpent += 1;
 		bros[4].getFlags().set("IsPlayerCharacter", true);
 		bros[4].setPlaceInFormation(13);
 		bros[4].setVeteranPerks(2);
@@ -147,6 +148,19 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 		local garbage = [];
 		local bros = _roster.getAll();
 
+		this.addBroToRoster(_roster, "legend_shieldmaiden_background", 6);
+		this.addBroToRoster(_roster, "female_disowned_noble_background", 6);
+		this.addBroToRoster(_roster, "female_daytaler_background", 6);
+		this.addBroToRoster(_roster, "female_beggar_background", 6);
+		this.addBroToRoster(_roster, "female_bowyer_background", 6);
+		this.addBroToRoster(_roster, "female_butcher_background", 6);
+		this.addBroToRoster(_roster, "female_farmhand_background", 6);
+		this.addBroToRoster(_roster, "female_miller_background", 6);
+		this.addBroToRoster(_roster, "female_servant_background", 6);
+		this.addBroToRoster(_roster, "female_tailor_background", 6);
+		this.addBroToRoster(_roster, "female_thief_background", 6);
+		this.addBroToRoster(_roster, "legend_nun_background", 6);
+
 		foreach( i, bro in bros )
 		{
 			if (bro.isStabled())
@@ -159,7 +173,6 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 				garbage.push(bro);
 			}
 		}
-
 		foreach( g in garbage )
 		{
 			_roster.remove(g);
@@ -181,170 +194,6 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 		return false;
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
-	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() >= 10)
-		{
-			local r;
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("legend_shieldmaiden_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("female_disowned_noble_background");
-			}
-
-			r = this.Math.rand(0, 3);
-
-			if (r == 0)
-			{
-				_list.push("female_daytaler_background");
-			}
-
-			r = this.Math.rand(0, 5);
-
-			if (r == 0)
-			{
-				_list.push("female_beggar_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("female_bowyer_background");
-			}
-
-			r = this.Math.rand(0, 6);
-
-			if (r == 0)
-			{
-				_list.push("female_butcher_background");
-			}
-
-			r = this.Math.rand(0, 4);
-
-			if (r == 0)
-			{
-				_list.push("female_farmhand_background");
-			}
-
-			r = this.Math.rand(0, 7);
-
-			if (r == 0)
-			{
-				_list.push("female_miller_background");
-			}
-
-			r = this.Math.rand(0, 2);
-
-			if (r == 0)
-			{
-				_list.push("female_servant_background");
-			}
-
-			r = this.Math.rand(0, 6);
-
-			if (r == 0)
-			{
-				_list.push("female_tailor_background");
-			}
-
-			r = this.Math.rand(0, 8);
-
-			if (r == 0)
-			{
-				_list.push("female_thief_background");
-			}
-
-			r = this.Math.rand(0, 8);
-
-			if (r == 0)
-			{
-				_list.push("legend_nun_background");
-			}
-		}
-		else
-		{
-			local r;
-			r = this.Math.rand(0, 6);
-
-			if (r == 0)
-			{
-				_list.push("female_daytaler_background");
-			}
-
-			r = this.Math.rand(0, 10);
-
-			if (r == 0)
-			{
-				_list.push("female_beggar_background");
-			}
-
-			r = this.Math.rand(0, 18);
-
-			if (r == 0)
-			{
-				_list.push("female_bowyer_background");
-			}
-
-			r = this.Math.rand(0, 12);
-
-			if (r == 0)
-			{
-				_list.push("female_butcher_background");
-			}
-
-			r = this.Math.rand(0, 8);
-
-			if (r == 0)
-			{
-				_list.push("female_farmhand_background");
-			}
-
-			r = this.Math.rand(0, 14);
-
-			if (r == 0)
-			{
-				_list.push("female_miller_background");
-			}
-
-			r = this.Math.rand(0, 8);
-
-			if (r == 0)
-			{
-				_list.push("female_servant_background");
-			}
-
-			r = this.Math.rand(0, 12);
-
-			if (r == 0)
-			{
-				_list.push("female_tailor_background");
-			}
-
-			r = this.Math.rand(0, 16);
-
-			if (r == 0)
-			{
-				_list.push("female_thief_background");
-			}
-
-			r = this.Math.rand(0, 16);
-
-			if (r == 0)
-			{
-				_list.push("legend_nun_background");
-			}
-		}
-	}
 
 	function onBuildPerkTree( _background )
 	{

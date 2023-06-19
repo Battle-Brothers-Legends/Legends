@@ -204,10 +204,7 @@ this.legend_orc_elite <- this.inherit("scripts/entity/tactical/actor", {
 	{
 		this.actor.onFactionChanged();
 		local flip = this.isAlliedWithPlayer()
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			flip = !flip
-		}
+		flip = !flip
 
 		foreach (a in this.Const.CharacterSprites.Helmets)
 		{

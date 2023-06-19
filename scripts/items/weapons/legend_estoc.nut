@@ -38,9 +38,8 @@ this.legend_estoc <- this.inherit("scripts/items/weapons/weapon", {
 	function onEquip()
 	{
 		this.weapon.onEquip();
-		this.addSkill(this.new("scripts/skills/actives/slash"));
-		this.addSkill(this.new("scripts/skills/actives/lunge_skill"));
-		this.addSkill(this.new("scripts/skills/actives/riposte"));
+		this.addSkill(this.new("scripts/skills/actives/legend_great_slash"));
+		this.addSkill(this.new("scripts/skills/actives/legend_greatlunge_skill"));
 	}
 
 	function onUpdateProperties( _properties )

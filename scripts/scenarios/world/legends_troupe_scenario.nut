@@ -164,22 +164,15 @@ this.legends_troupe_scenario <- this.inherit("scripts/scenarios/world/starting_s
 		bro.getSkills().add(this.new("scripts/skills/perks/perk_legend_leap"));
 	}
 
-	function onUpdateHiringRoster( _roster )
+
+	function onGenerateBro(bro)
 	{
-		local garbage = [];
-		local bros = _roster.getAll();
-
-		foreach( i, bro in bros )
+		if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Performing))
 		{
-			if (bro.getBackground().isBackgroundType(this.Const.BackgroundType.Performing))
-			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
-				bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
-				bro.getSkills().update();
-			}
-
+			bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75) //1.0 = default
+			bro.getBaseProperties().DailyWageMult *= 0.75; //1.0 = default
+			bro.getSkills().update();
 		}
-
 	}
 
 	function onBuildPerkTree( _background )
@@ -191,82 +184,17 @@ this.legends_troupe_scenario <- this.inherit("scripts/scenarios/world/starting_s
 		_background.m.CustomPerkTree[0].push(this.Const.Perks.PerkDefs.LegendLeap);
 	}
 
-	function onUpdateDraftList( _list, _gender = null)
+	function onUpdateHiringRoster( _roster )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() < 5)
-		{
-			local r;
-			r = this.Math.rand(0, 2);
-			if (r == 0)
-			{
-			_list.push("beggar_background");
-			}
-			r = this.Math.rand(0, 4);
-			if (r == 0)
-			{
-			_list.push("minstrel_background");
-			}
-			r = this.Math.rand(0, 6);
-			if (r == 0 && _gender)
-			{
-			_list.push("female_minstrel_background");
-			}
-			r = this.Math.rand(0, 8);
-			if (r == 0)
-			{
-				_list.push("juggler_background");
-			}
-		}
-		if (_list.len() >= 5)
-		{
-			local r;
-			r = this.Math.rand(0, 2);
-			if (r == 0)
-			{
-			_list.push("beggar_background");
-			}
-			r = this.Math.rand(0, 4);
-			if (r == 0)
-			{
-			_list.push("minstrel_background");
-			}
-			r = this.Math.rand(0, 6);
-			if (r == 0 && _gender)
-			{
-			_list.push("female_minstrel_background");
-			}
-			r = this.Math.rand(0, 8);
-			if (r == 0)
-			{
-				_list.push("juggler_background");
-			}
-			r = this.Math.rand(0, 20);
-			if (r == 0)
-			{
-			_list.push("eunuch_background");
-			}
-			r = this.Math.rand(0, 49);
-			if (r == 0)
-			{
-				_list.push("legend_illusionist_background");
-			}
-			r = this.Math.rand(0, 49);
-			if (r == 0)
-			{
-				_list.push("belly_dancer_background");
-			}
-			r = this.Math.rand(0, 49);
-			if (r == 0)
-			{
-				_list.push("gambler_background");
-			}
-			r = this.Math.rand(0, 49);
-			if (r == 0)
-			{
-				_list.push("legend_dervish_background");
-			}
-		}
+		this.addBroToRoster(_roster, "beggar_background", 8);
+		this.addBroToRoster(_roster, "minstrel_background", 8);
+		this.addBroToRoster(_roster, "female_minstrel_background", 8);
+		this.addBroToRoster(_roster, "juggler_background", 8);
+		this.addBroToRoster(_roster, "eunuch_background", 8);
+		this.addBroToRoster(_roster, "belly_dancer_background", 8);
+		this.addBroToRoster(_roster, "gambler_background", 8);
+		this.addBroToRoster(_roster, "legend_illusionist_background", 9);
+		this.addBroToRoster(_roster, "legend_dervish_background", 9);
 	}
 
 });

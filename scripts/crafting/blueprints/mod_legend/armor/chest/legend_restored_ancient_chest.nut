@@ -18,7 +18,7 @@ this.legend_restored_ancient_chest <- this.inherit("scripts/crafting/blueprint",
 
 	function isQualified()
 	{
-		return !::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() && this.blueprint.isQualified();
+		return this.blueprint.isQualified();
 	}
 
 	function onCraft( _stash )

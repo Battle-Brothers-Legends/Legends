@@ -493,40 +493,19 @@ this.location <- this.inherit("scripts/entity/world/world_entity", {
 							helmets.extend(this.m.NamedHelmetsList);
 							helmets.extend(this.m.NamedHelmetsList);
 						}
-
-						if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-						{
-							local weightName = this.Const.World.Common.convNameToList(helmets);
-							this.m.Loot.add(this.Const.World.Common.pickHelmet(weightName));
-						}
-						else
-						{
-							this.m.Loot.add(this.new("scripts/items/" + helmets[this.Math.rand(0, helmets.len() - 1)]));
-						}
+						local weightName = this.Const.World.Common.convNameToList(helmets);
+						this.m.Loot.add(this.Const.World.Common.pickHelmet(weightName));
 					}
 					else if (type <= 100)
 					{
 						local armor = clone this.Const.Items.NamedArmors;
-						if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-						{
-							// armor = clone this.Const.Items.LegendNamedArmorLayers;
-							// armor.extend(this.Const.Items.LegendNamedArmorLayers);
-						}
-
 						if (this.m.NamedArmorsList != null && this.m.NamedArmorsList.len() != 0)
 						{
 							armor.extend(this.m.NamedArmorsList);
 							armor.extend(this.m.NamedArmorsList);
 						}
-						if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-						{
-							local weightName = this.Const.World.Common.convNameToList(armor);
-							this.m.Loot.add(this.Const.World.Common.pickArmor(weightName));
-						}
-						else
-						{
-							this.m.Loot.add(this.new("scripts/items/" + armor[this.Math.rand(0, armor.len() - 1)]));
-						}
+						local weightName = this.Const.World.Common.convNameToList(armor);
+						this.m.Loot.add(this.Const.World.Common.pickArmor(weightName));
 					}
 				}
 				else

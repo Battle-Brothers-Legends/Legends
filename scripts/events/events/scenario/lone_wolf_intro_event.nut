@@ -52,7 +52,7 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "An axe and buckler with ligth armour is a good balance and will be the best choice.",
+					Text = "An axe and buckler with light armour is the best choice.",
 					function getResult( _event )
 					{
 						return "E"; //Axe and buckler
@@ -60,7 +60,7 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "I always was a good shot - I'll take the crossbow and a nice cutting weapon with some light armour.",
+					Text = "I always was a good shot - I'll take the crossbow, a sword and light armour.",
 					function getResult( _event )
 					{
 						return "F"; //Crossbow + 1h sword
@@ -75,7 +75,7 @@ this.lone_wolf_intro_event <- this.inherit("scripts/events/event", {
 					}
 				},
 				{
-					Text = "I\'ll stick to what I know - a pike is almost a jousting lance, right? I\'ll get the heavy armour too.",
+					Text = "I\'ll stick to what I know - a pike is almost a jousting lance, right?",
 					function getResult( _event )
 					{
 						return "H"; //Polearm

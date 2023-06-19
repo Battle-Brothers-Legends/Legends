@@ -48,13 +48,32 @@ this.legend_undead_killer_trait <- this.inherit("scripts/skills/traits/character
 	{
 		if (!this.getContainer().getActor().isPlacedOnMap())
 		{
+			// If not in battle, then this should be a trait and not a status effect
+			this.m.Type = ::Const.SkillType.Trait;
 			return;
 		}
 
-		if (this.Tactical.Entities.getInstancesNum(this.World.FactionManager.getFactionOfType(this.Const.FactionType.Zombies).getID()) != 0 || this.Tactical.Entities.getInstancesNum(this.World.FactionManager.getFactionOfType(this.Const.FactionType.Undead).getID()) != 0)
+		local fightingUndead = false;
+		local enemies = this.Tactical.Entities.getAllHostilesAsArray();
+
+		foreach( enemy in enemies )
+		{
+			if (this.Const.EntityType.getDefaultFaction(enemy.getType()) == this.Const.FactionType.Zombies || this.Const.EntityType.getDefaultFaction(enemy.getType()) == this.Const.FactionType.Undead)
+			{
+				fightingUndead = true;
+				break;
+			}
+		}
+
+		if (fightingUndead)
 		{
 			_properties.MeleeSkill += 10;
 			_properties.RangedSkill += 10;
+			// Make this a status effect so it will be visible for the battle
+			this.m.Type = ::Const.SkillType.StatusEffect;
+		} else {
+			// Make this a trait so it will not be visible for the battle
+			this.m.Type = ::Const.SkillType.Trait;
 		}
 	}
 

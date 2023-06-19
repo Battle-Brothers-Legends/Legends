@@ -9,11 +9,6 @@ this.legend_restored_ancient_helm <- this.inherit("scripts/crafting/blueprint", 
 		this.m.Cost = 500;
 		local ingredients = [
 			{
-				Script = "scripts/items/helmets/ancient/ancient_legionary_helmet",
-				Num = 3,
-				LegendsArmor = false
-			},
-			{
 				Script = "scripts/items/legend_helmets/helm/legend_helmet_ancient_dome_tailed",
 				Num = 1,
 				LegendsArmor = true

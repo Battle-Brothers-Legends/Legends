@@ -10,7 +10,7 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 		this.m.GoodEnding = "The cultist, %name%, left the company with a band of cloaked converts. You know not what became of the fanatic, but every so often they appear in your dreams. Often standing alone in a great void and there is always someone, or something, lingering in the black beyond. Every night, this image gets a little more clear, and each night you find yourself staying up later and later just to avoid dreaming at all.";
 		this.m.BadEnding = "You heard that %name%, the cultist, left the company at some juncture and went out to spread the faith. There\'s no telling what became of the fanatic, but there was a recent inquisition against unholy faiths and hundreds of \'folk in dark cloaks with even darker intentions\' were burned at the stake across the realm.";
 		this.m.HiringCost = 130;
-		this.m.DailyCost = 20;
+		this.m.DailyCost = 12;
 		this.m.Excluded = [
 			"trait.teamplayer",
 			"trait.fear_undead",
@@ -96,6 +96,7 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 				this.Const.Perks.CleaverTree,
 				this.Const.Perks.FlailTree,
 				this.Const.Perks.BowTree,
+				this.Const.Perks.ThrowingTree,
 				this.Const.Perks.CrossbowTree,
 				this.Const.Perks.SlingTree
 			],
@@ -112,6 +113,7 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 				this.Const.Perks.NoblesTree
 			],
 			Class = [
+				this.Const.Perks.BeastClassTree,
 				this.Const.Perks.NinetailsClassTree,
 				this.Const.Perks.ShortbowClassTree
 			],
@@ -122,15 +124,7 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		local r = _gender;
-		if (_gender == -1)
-		{
-			r = this.Math.rand(0, 9);
-			if (::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled")
-			{
-				r = this.Math.rand(0, 1);
-			}
-		}
+		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 
@@ -141,7 +135,6 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 		this.m.BeardChance = 0;
 		this.m.Bodies = this.Const.Bodies.AllFemale;
 		this.addBackgroundType(this.Const.BackgroundType.Female);
-
 	}
 
 	// Should overwrite the "character_backgrounds" isCultist() check
@@ -150,11 +143,9 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 		return true;
 	}
 
-
-
 	function onBuildDescription()
 	{
-		return "{%name% has always been a quiet sort, preferring to observe rather than act impulsively. | They gravitate to the darkest places possible and have no problem marching through difficult terrain. | Shot in the head by a bolt at close range, %name% was pulled from a shallow grave far in the southern sands by a healer, now they seek reprisal. | Clothed in rags, %name% is suprisingly at ease with their surroundings, ever watchful of potential predators...or prey. | %name% carries a myriad of makeshift arrows, some bone and others metal. However a few shafts and arrowheads seem more otherworldly than the others... | Looking at %name% you can\'t help but feel that you have met one another before. A familial bonds links the two of you togeather as if you have known each other a lifetime before.} They place a finger on their lips and your thoughts evaporate. \"Davkul awaits us all, chosen one\".";
+		return "{%name% has always been a quiet sort, preferring to observe rather than act impulsively. | They gravitate to the darkest places possible and have no problem marching through difficult terrain. | Shot in the head by a bolt at close range, %name% was pulled from a shallow grave far in the southern sands by a healer, now they seek reprisal. | Clothed in rags, %name% is suprisingly at ease with their surroundings, ever watchful of potential predators...or prey. | %name% carries a myriad of makeshift arrows, some bone and others metal. However a few shafts and arrowheads seem more otherworldly than the others... | Looking at %name% you can\'t help but feel that you have met one another before. A familial bond links the two of you together as if you have known each other a lifetime before.} They place a finger on their lips and your thoughts evaporate. \"Davkul awaits us all, chosen one\".";
 	}
 
 	function onChangeAttributes()
@@ -165,8 +156,8 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 				-5
 			],
 			Bravery = [
-				10,
-				20
+				5,
+				10
 			],
 			Stamina = [
 				4,
@@ -177,8 +168,8 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 				5
 			],
 			RangedSkill = [
-				10,
-				20
+				8,
+				14
 			],
 			MeleeDefense = [
 				-5,
@@ -213,7 +204,7 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 
 			if (this.Math.rand(1, 100) <= 50)
 			{
-				tattoo_head.setBrush("tattoo_head_01");
+				tattoo_head.setBrush("tattoo_01_head");
 				tattoo_head.Visible = true;
 			}
 		}
@@ -236,10 +227,6 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 
 	function onAddEquipment()
 	{
-		local talents = this.getContainer().getActor().getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.RangedSkill] = 2;
-		this.getContainer().getActor().fillTalentValues(1, true);
 		local items = this.getContainer().getActor().getItems();
 		local r;
 

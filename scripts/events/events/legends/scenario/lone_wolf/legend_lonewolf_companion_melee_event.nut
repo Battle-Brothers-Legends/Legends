@@ -6,7 +6,7 @@ this.legend_lonewolf_companion_melee_event <- this.inherit("scripts/events/event
 	{
 		this.m.ID = "event.legend_lonewolf_companion_melee";
 		this.m.Title = "Like minds and simple hearts";
-		this.m.Cooldown = 55.0 * this.World.getTime().SecondsPerDay; //—
+		this.m.Cooldown = 22.0 * this.World.getTime().SecondsPerDay; //—
 		this.m.Screens.push({
 			ID = "A",
 			Text = "[img]gfx/ui/events/event_36.png[/img]{A figure comes into sight, sitting on a low rock and carefully sharpening their weapon and patching any holes in their armour. Strangely enough, they speak first.%SPEECH_ON%I\'m %recruit%, and there's talk across the land of you runnin\' around looking to prove \'urself%SPEECH_OFF%Your hand steadily crawls towards your weapon but the stranger takes note of this.%SPEECH_ON%No — not like that. In fact, im interested in joining. The arenas in the south only have so many things to kill and the north can be...somewhat empty at times.%SPEECH_OFF%}",

@@ -4,7 +4,7 @@ this.legend_chain_hook <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.legend_chain_hook";
 		this.m.Name = "Hook";
-		this.m.Description = "A target up to 4 tiles away is hooked and pulled close if there is space. Anyone hit will be staggered and lose initiative. A target can not be pulled up a level of height, but may take damage if it is pulled down several levels of height at once. Shieldwall, Spearwall and Riposte will be canceled for a successfully hooked-in target. A rooted target can not be hooked.";
+		this.m.Description = "A target up to 3 tiles away is hooked and pulled close if there is space. Anyone hit will be staggered and lose initiative. A target can not be pulled up a level of height, but may take damage if it is pulled down several levels of height at once. Shieldwall, Spearwall and Riposte will be canceled for a successfully hooked-in target. A rooted target can not be hooked.";
 		this.m.Icon = "skills/active_31.png";
 		this.m.IconDisabled = "skills/active_31_sw.png";
 		this.m.Overlay = "active_31";

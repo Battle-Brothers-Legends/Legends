@@ -24,7 +24,13 @@ this.minstrel_background <- this.inherit("scripts/skills/backgrounds/character_b
 			"trait.clubfooted",
 			"trait.dastard",
 			"trait.insecure",
-			"trait.bloodthirsty"
+			"trait.bloodthirsty",
+			"trait.asthmatic",
+			"trait.fainthearted",
+			"trait.night_blind",
+			"trait.pragmatic",
+			"trait.spartan",
+			"trait.short_sighted"
 		];
 		this.m.Titles = [
 			"the Minstrel",
@@ -38,6 +44,7 @@ this.minstrel_background <- this.inherit("scripts/skills/backgrounds/character_b
 		];
 		this.m.Faces = this.Const.Faces.SmartMale;
 		this.m.Hairs = this.Const.Hair.TidyMale;
+		this.m.Bodies = this.Const.Bodies.Skinny;
 		this.m.HairColors = this.Const.HairColors.Young;
 		this.m.Beards = this.Const.Beards.Tidy;
 
@@ -50,7 +57,8 @@ this.minstrel_background <- this.inherit("scripts/skills/backgrounds/character_b
 				this.Const.Perks.MaceTree,
 				this.Const.Perks.StaffTree,
 				this.Const.Perks.ThrowingTree,
-				this.Const.Perks.CrossbowTree
+				this.Const.Perks.CrossbowTree,
+				this.Const.Perks.DaggerTree
 			],
 			Defense = [
 				this.Const.Perks.LightArmorTree
@@ -61,13 +69,16 @@ this.minstrel_background <- this.inherit("scripts/skills/backgrounds/character_b
 				this.Const.Perks.FitTree,
 				this.Const.Perks.InspirationalTree
 			],
-			Enemy = [],
-			Class = [this.Const.Perks.BardClassTree],
+			Enemy = [
+				this.Const.Perks.NoblesTree
+			],
+			Class = [
+				this.Const.Perks.BardClassTree,
+				this.Const.Perks.JugglerClassTree
+			],
 			Magic = []
 		}
-		this.m.Bodies = this.Const.Bodies.Skinny;
 	}
-
 
 
 	function onBuildDescription()
@@ -79,32 +90,32 @@ this.minstrel_background <- this.inherit("scripts/skills/backgrounds/character_b
 	{
 		local c = {
 			Hitpoints = [
-				-10,
-				-10
+				-5,
+				-5
 			],
 			Bravery = [
-				5,
+				10,
 				15
 			],
 			Stamina = [
-				-5,
-				-10
+				0,
+				6
 			],
 			MeleeSkill = [
-				0,
-				0
-			],
-			RangedSkill = [
 				5,
 				5
 			],
+			RangedSkill = [
+				0,
+				0
+			],
 			MeleeDefense = [
-				-10,
-				-5
+				3,
+				6
 			],
 			RangedDefense = [
-				5,
-				10
+				0,
+				3
 			],
 			Initiative = [
 				5,
@@ -126,13 +137,12 @@ this.minstrel_background <- this.inherit("scripts/skills/backgrounds/character_b
 			[1, "feathered_hat"]
 		]));
 
-
-		local r = this.Math.rand(0, 4);
-		if (r <= 2)
+		local r = this.Math.rand(0, 1);
+		if (r == 0)
 		{
 			items.equip(this.new("scripts/items/weapons/lute"));
 		}
-		if (r == 3)
+		if (r == 1)
 		{
 			items.equip(this.new("scripts/items/weapons/legend_drum"));
 		}

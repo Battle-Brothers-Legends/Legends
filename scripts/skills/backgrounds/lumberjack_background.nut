@@ -111,8 +111,8 @@ this.lumberjack_background <- this.inherit("scripts/skills/backgrounds/character
 				15
 			],
 			MeleeSkill = [
-				5,
-				0
+				6,
+				8
 			],
 			RangedSkill = [
 				0,

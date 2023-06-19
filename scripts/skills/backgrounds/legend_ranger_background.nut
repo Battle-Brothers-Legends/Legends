@@ -161,7 +161,6 @@ this.legend_ranger_background <- this.inherit("scripts/skills/backgrounds/charac
 				this.Const.Perks.PerkDefs.BattleFlow,
 				this.Const.Perks.PerkDefs.LegendEvasion,
 				this.Const.Perks.PerkDefs.LegendBalance,
-				this.Const.Perks.PerkDefs.LegendHidden,
 				this.Const.Perks.PerkDefs.LegendBigGameHunter,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyUnhold,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyLindwurm

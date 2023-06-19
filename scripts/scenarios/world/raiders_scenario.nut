@@ -34,6 +34,7 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		bros[0].getBackground().m.RawDescription = "A sturdy warrior, %name% has been through many campaigns of raiding and pillaging. Although a man of few words, the raider is an absolutely vicious specimen in battle. Even for a raider, what he does to defeated villagers irks many. It is likely he came with you to satiate his more sadistic lusts.";
 		bros[0].improveMood(1.0, "Had a successful raid");
 		bros[0].setPlaceInFormation(3);
+		bros[0].setVeteranPerks(2);
 		bros[0].m.PerkPoints = 2;
 		bros[0].m.LevelUps = 2;
 		bros[0].m.Level = 3;
@@ -49,19 +50,10 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		local warhound = this.new("scripts/items/accessory/warhound_item");
 		warhound.m.Name = "Fenrir the Warhound";
 		items.equip(warhound);
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
-			local plate = this.new("scripts/items/legend_armor/plate/legend_reinforced_animal_hide_armor");
-			armor.setUpgrade(plate);
-			items.equip(armor);
-		}
-		else
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/reinforced_animal_hide_armor"));
-		}
-
+		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
+		local plate = this.new("scripts/items/legend_armor/plate/legend_reinforced_animal_hide_armor");
+		armor.setUpgrade(plate);
+		items.equip(armor);
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
 				1,
@@ -74,6 +66,7 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		bros[1].getBackground().m.RawDescription = "%name% was a boy when taken from a southern village and raised amongst the barbarians of the wastes. While he learned the language and culture, he never fit in and was a constant victim of cruel jokes and games. You are not sure if he has followed you to return home or to get away from his northern \'family\'.";
 		bros[1].improveMood(1.0, "Had a successful raid");
 		bros[1].setPlaceInFormation(4);
+		bros[1].setVeteranPerks(2);
 		bros[1].m.PerkPoints = 2;
 		bros[1].m.LevelUps = 2;
 		bros[1].m.Level = 3;
@@ -86,18 +79,10 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		local items = bros[1].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
-			local plate = this.new("scripts/items/legend_armor/plate/legend_scrap_metal_armor");
-			armor.setUpgrade(plate);
-			items.equip(armor);
-		}
-		else
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/scrap_metal_armor"));
-		}
+		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
+		local plate = this.new("scripts/items/legend_armor/plate/legend_scrap_metal_armor");
+		armor.setUpgrade(plate);
+		items.equip(armor)
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
@@ -111,6 +96,7 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		bros[2].getBackground().m.RawDescription = "Barbarian raiders often take from lands foreign to them. Most see their raids as a matter of material and women, but occasionally they will enslave formidable boys with great potential. %name%, a northerner, was such a child and he was raised to be a raider himself. Half his life was with his primitive clan, and the other half with those who took him. This has made him as hardy and brutish a warrior as one can get.";
 		bros[2].improveMood(1.0, "Had a successful raid");
 		bros[2].setPlaceInFormation(5);
+		bros[2].setVeteranPerks(2);
 		bros[2].m.PerkPoints = 2;
 		bros[2].m.LevelUps = 2;
 		bros[2].m.Level = 3;
@@ -123,19 +109,10 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		local items = bros[2].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
-
-		if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-		{
-			local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth_patched");
-			local plate = this.new("scripts/items/legend_armor/plate/legend_hide_and_bone_armor");
-			armor.setUpgrade(plate);
-			items.equip(armor);
-		}
-		else
-		{
-			items.equip(this.new("scripts/items/armor/barbarians/hide_and_bone_armor"));
-		}
-
+		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth_patched");
+		local plate = this.new("scripts/items/legend_armor/plate/legend_hide_and_bone_armor");
+		armor.setUpgrade(plate);
+		items.equip(armor);
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
 				1,
@@ -148,6 +125,7 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		bros[3].getBackground().m.RawDescription = "The man who put you on the path, you believe %name% may serve some greater role to your attaining immense treasures. You have seen northern gimps and one-armed men who would best him in combat, but his knowledge and intelligence may be sharper blades in good time.";
 		bros[3].improveMood(2.0, "Thinks he managed to convince you to give up raiding and pillaging");
 		bros[3].setPlaceInFormation(13);
+		bros[3].setVeteranPerks(2);
 		bros[3].m.Talents = [];
 		local talents = bros[3].getTalents();
 		talents.resize(this.Const.Attributes.COUNT, 0);
@@ -302,66 +280,29 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		return this.Math.rand(1, 100) <= 15;
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
+	function onHiredByScenario( bro )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_list.len() >= 10)
-		{
-			local r;
-			r = this.Math.rand(0, 3);
-
-			if (r == 0)
+			if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
 			{
-				_list.push("thief_background");
+				bro.worsenMood(0.5, "Is uncomfortable with joining raiders");
 			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
+			else
 			{
-				_list.push("barbarian_background");
+				bro.improveMood(1.5, "Is excited at becoming a raider");
 			}
-
-			r = this.Math.rand(0, 99);
-
-			if (r == 0)
-			{
-				_list.push("assassin_background");
-			}
-		}
-		else
-		{
-			local r;
-			r = this.Math.rand(0, 2);
-
-			if (r == 0)
-			{
-				_list.push("raider_background");
-			}
-
-			r = this.Math.rand(0, 9);
-
-			if (r == 0)
-			{
-				_list.push("barbarian_background");
-			}
-
-			r = this.Math.rand(0, 19);
-
-			if (r == 0)
-			{
-				_list.push("killer_on_the_run_background");
-			}
-		}
 	}
+
 
 	function onUpdateHiringRoster( _roster )
 	{
-		local garbage = [];
-		local bros = _roster.getAll();
+		this.addBroToRoster(_roster, "thief_background", 4);
+		this.addBroToRoster(_roster, "barbarian_background", 5);
+		this.addBroToRoster(_roster, "assassin_background", 7);
+		this.addBroToRoster(_roster, "killer_on_the_run_background", 4);
+	}
 
-		foreach( i, bro in bros )
-		{
+	function onGenerateBro(bro)
+	{
 			if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
 			{
 				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.5)
@@ -403,7 +344,6 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 					bro.getSkills().add(this.new("scripts/skills/traits/brute_trait"));
 				}
 			}
-		}
 	}
 
 });

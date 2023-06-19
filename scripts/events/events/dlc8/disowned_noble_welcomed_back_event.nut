@@ -84,21 +84,27 @@ this.disowned_noble_welcomed_back_event <- this.inherit("scripts/events/event", 
 
 				}
 			],
-			function start( _event )
+			function start( _event ) //Uses King's guard format. Could use cultist onconvert function from character_background.nut but this would require a new savegame.
 			{
 				this.Characters.push(_event.m.Disowned.getImagePath());
 				local background = this.new("scripts/skills/backgrounds/regent_in_absentia_background");
+				background.m.IsNew = false;
+				local oldPerkTree = _event.m.Disowned.getBackground().m.CustomPerkTree;
 				_event.m.Disowned.getSkills().removeByID("background.disowned_noble");
 				_event.m.Disowned.getSkills().add(background);
-				_event.m.Disowned.m.Background = background;
 				background.buildDescription();
+				_event.m.Disowned.m.Background = background;
+				_event.m.Disowned.getBackground().rebuildPerkTree(oldPerkTree);
+				_event.m.Disowned.resetPerks();
+
 				this.List = [
 					{
 						id = 13,
-						icon = background.getIcon(),
+						icon = _event.m.Disowned.getBackground().getIcon(), 
 						text = _event.m.Disowned.getName() + " is now a Regent in Absentia"
 					}
 				];
+
 				local resolve_boost = this.Math.rand(10, 15);
 				local initiative_boost = this.Math.rand(6, 10);
 				local melee_defense_boost = this.Math.rand(2, 4);
@@ -203,6 +209,7 @@ this.disowned_noble_welcomed_back_event <- this.inherit("scripts/events/event", 
 					"arming_sword",
 					"warbrand"
 				];
+
 				item = this.new("scripts/items/armor/" + armor_list[this.Math.rand(0, armor_list.len() - 1)]);
 				stash.add(item);
 				this.List.push({
@@ -210,6 +217,7 @@ this.disowned_noble_welcomed_back_event <- this.inherit("scripts/events/event", 
 					icon = "ui/items/" + item.getIcon(),
 					text = "You gain " + this.Const.Strings.getArticle(item.getName()) + item.getName()
 				});
+
 				item = this.new("scripts/items/weapons/" + weapons_list[this.Math.rand(0, weapons_list.len() - 1)]);
 				stash.add(item);
 				this.List.push({
@@ -217,6 +225,8 @@ this.disowned_noble_welcomed_back_event <- this.inherit("scripts/events/event", 
 					icon = "ui/items/" + item.getIcon(),
 					text = "You gain " + this.Const.Strings.getArticle(item.getName()) + item.getName()
 				});
+
+
 				item = this.new("scripts/items/weapons/" + weapons_list[this.Math.rand(0, weapons_list.len() - 1)]);
 				stash.add(item);
 				this.List.push({
@@ -261,7 +271,8 @@ this.disowned_noble_welcomed_back_event <- this.inherit("scripts/events/event", 
 
 		foreach( bro in brothers )
 		{
-			if (bro.getBackground().getID() == "background.disowned_noble" && bro.getLevel() >= 6)
+			// if (bro.getBackground().getID() == "background.disowned_noble" && bro.getLevel() >= 6)
+			if (bro.getBackground().getID() == "background.disowned_noble" || bro.getBackground().getID() == "background.female_disowned_noble" && bro.getLevel() >= 6) //grater than lvl 6 on these backgrounds to trigger
 			{
 				disowned_candidates.push(bro);
 			}

@@ -1,16 +1,16 @@
 this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_trait", {
 	m = {
-	HitpointsAdded =0,
-	StaminaAdded = 0,
-	BraveAdded = 0,
-	IniAdded = 0,
-	MatkAdded = 0,
-	RatkAdded = 0,
-	MdefAdded = 0,
-	RdefAdded = 0,
-	TraitGained = "",
-	BonusXP = 0.0,
-	MaxSkillsCanBeAdded = 15
+		HitpointsAdded = 0,
+		StaminaAdded = 0,
+		BraveAdded = 0,
+		IniAdded = 0,
+		MatkAdded = 0,
+		RatkAdded = 0,
+		MdefAdded = 0,
+		RdefAdded = 0,
+		TraitGained = "",
+		BonusXP = 0.0,
+		MaxSkillsCanBeAdded = 15
 	},
 	function create()
 	{
@@ -19,10 +19,9 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 		this.m.Icon = "ui/traits/IntensiveTraining.png";
 		this.m.Description = "This character can increase their abilities if you upgrade your camp training facilities.";
 		this.m.Order = this.Const.SkillOrder.Background + 1;
-		this.m.Type = this.Const.SkillType.Background | this.Const.SkillType.Trait;
+		this.m.Type = this.Const.SkillType.Trait;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
-		this.m.IsHidden = false;
 		this.m.IsHidden = false;
 		this.m.IsSerialized = true;
 	}
@@ -217,18 +216,12 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 		}
 		return tooltip;
 	}
-	
+
 	function isHidden()
 	{
-		if (this.getStatsIncreased() == 0)
-		{
-		return true;
-		}
-		else
-		{
+		if (this.getStatsIncreased() == 0) return true;
 		return false;
-		}
-	}	
+	}
 
 	function onSerialize( _out )
 	{

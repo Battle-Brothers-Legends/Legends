@@ -10,7 +10,7 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.GoodEnding = "You thought that %name% the gladiator would return to the arenas as you thought he might. However, news from the south speaks of an uprising of indebted and gladiators alike. Unlike previous revolts, this one has viziers swinging from rooftops and slavers being lynched in the streets. The general upheaval is apparently about to sit the once-ringfighter as a legitimate powerbroker in the region.";
 		this.m.BadEnding = "The call of the crowd was too loud for the gladiator %name%. After your quick retirement from the unsuccessful %companyname%, the fighter returned to the southern kingdoms\' fighting arenas. Unfortunately, the wear and tear of his time with mercenaries slowed him a step and he was mortally slain by a half-starved slave wielding a pitchfork and a net.";
 		this.m.HiringCost = 200;
-		this.m.DailyCost = 35;
+		this.m.DailyCost = 38;
 		this.m.Excluded = [
 			"trait.superstitious",
 			"trait.fear_beasts",
@@ -19,6 +19,8 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 			"trait.fear_nobles",
 			"trait.weasel",
 			"trait.night_blind",
+			"trait.legend_fear_dark",
+			"trait.sureshot",
 			"trait.ailing",
 			"trait.asthmatic",
 			"trait.clubfooted",
@@ -55,7 +57,7 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 		
 		this.m.Names = this.Const.Strings.SouthernNames;
 		this.m.LastNames = this.Const.Strings.SouthernNamesLast;
-		this.m.Level = this.Math.rand(2, 4);
+		this.m.Level = this.Math.rand(2, 5);
 		this.m.BackgroundType = this.Const.BackgroundType.Combat;
 		this.m.Modifiers.Ammo = this.Const.LegendMod.ResourceModifiers.Ammo[0];
 		this.m.Modifiers.ArmorParts = this.Const.LegendMod.ResourceModifiers.ArmorParts[0];
@@ -90,7 +92,9 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 				this.Const.Perks.DaggerTree
 			],
 			Defense = [
-				this.Const.Perks.HeavyArmorTree
+				this.Const.Perks.HeavyArmorTree,
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.ShieldTree
 			],
 			Traits = [
 				this.Const.Perks.ViciousTree,
@@ -187,16 +191,16 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 	{
 		local c = {
 			Hitpoints = [
-				0,
-				0
+				3,
+				6
 			],
 			Bravery = [
 				5,
 				5
 			],
 			Stamina = [
-				0,
-				0
+				5,
+				8
 			],
 			MeleeSkill = [
 				13,
@@ -215,8 +219,8 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 				8
 			],
 			Initiative = [
-				0,
-				0
+				3,
+				8
 			]
 		};
 		return c;
@@ -282,15 +286,11 @@ this.gladiator_background <- this.inherit("scripts/skills/backgrounds/character_
 
 		if (r == 1)
 		{
-			a.setUpgrade(this.new("scripts/items/" +
-				(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_light_gladiator_upgrade" : "armor_upgrades/light_gladiator_upgrade")
-			))
+			a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_light_gladiator_upgrade"));
 		}
 		else if (r == 2)
 		{
-			a.setUpgrade(this.new("scripts/items/" +
-				(!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() ? "legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade" : "armor_upgrades/heavy_gladiator_upgrade")
-			))
+			a.setUpgrade(this.new("scripts/items/legend_armor/armor_upgrades/legend_heavy_gladiator_upgrade"));
 		}
 		items.equip(a);
 

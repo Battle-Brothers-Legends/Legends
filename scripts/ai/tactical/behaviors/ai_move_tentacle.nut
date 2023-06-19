@@ -246,12 +246,12 @@ this.ai_move_tentacle <- this.inherit("scripts/ai/tactical/behavior", {
 
 				if (!_entity.isHiddenToPlayer())
 				{
-					delay = delay + 800;
+					delay = delay + 2000; //Was 800, increased to 2000 in line with ai_move_tail as this lack of delay may be contributing to the game being frozen when these tentacles move - Luft 7/3/23
 				}
 
 				if (this.m.TargetTile.IsVisibleForPlayer)
 				{
-					delay = delay + 800;
+					delay = delay + 2000;
 				}
 
 				this.getAgent().declareEvaluationDelay(delay);

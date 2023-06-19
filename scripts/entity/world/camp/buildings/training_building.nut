@@ -65,12 +65,12 @@ this.training_building <- this.inherit("scripts/entity/world/camp/camp_building"
 	{
 		local desc = "";
 		desc = desc + "Whether a seasoned veteran or a green recruit, there\'s always something new to learn. ";
-		desc = desc + "Anyone assigned to train has a chance to get a 20% increase in xp on their next combat. ";
-		desc = desc + "Time and having highly skilled teachers in the grounds increases the chances of successfully learning something new. ";
+		desc = desc + "Anyone assigned to train will gain xp over time based on the total modifier of occupiers in this tent. ";
+		desc = desc + "Having highly skilled teachers in the grounds increases the chances of successfully learning something new, which will be tracked under \'Intensive Training\' progress under their traits. ";
 		desc = desc + "There\'s always a slight chance someone can be injured.";
 		desc = desc + "\n\n";
 		desc = desc + "Training grounds can be upgraded by purchasing an upgrade set in local markets. Upgraded grounds reduce the ";
-		desc = desc + "risk of accidents from a minimum of 5% to 1% and also give the chance of a permanent skill increase.";
+		desc = desc + "risk of accidents from a minimum of 5% to 1% and also give the chance of a permanent random skill increase.";
 		return desc;
 	}
 
@@ -474,9 +474,16 @@ this.training_building <- this.inherit("scripts/entity/world/camp/camp_building"
 
 			local r = this.Math.min(95, 100 * this.Math.pow(this.m.Camp.getCampTimeHours() / 12.0, 0.6 + 0.1 * bro.getLevel()));
 
-			if (this.Math.rand(1, 100) < r)
+			if ( this.Math.rand(1, 100) < r)
 			{
-				this.getTrained(bro);
+				if ( bro.getLevel() < 11 )
+				{
+					this.getTrained(bro);
+				}
+				else
+				{
+					this.getTrainedAfter11(bro);
+				}
 			}
 			else
 			{
@@ -513,6 +520,84 @@ this.training_building <- this.inherit("scripts/entity/world/camp/camp_building"
 				this.getInjury(bro);
 			}
 		}
+	}
+	function getTrainedAfter11( bro )
+	{
+		if (bro.getSkills().hasSkill("effects.trained"))
+		{
+			return;
+		}
+		local effect = this.new("scripts/skills/effects_world/new_trained_effect");
+		effect.m.Duration = 1;
+		effect.m.XPGainMult = 1.1;
+		effect.m.Icon = "skills/status_effect_75.png";
+		bro.getSkills().add(effect);
+		local mod = this.getModifiers();
+		local adjectives = [
+			bro.getName() + " learned how to get most of the next battle",
+			bro.getName() + " finds a stance that can improve his expirience in the next battle",
+			bro.getName() + " is ready to learn more in the next battle",
+		];
+		local text = "After practicing ";
+		local M = [
+			"Short Guard ",
+			"Upper Snake Guard ",
+			"Bastard Cross ",
+			"The Middle Iron Door ",
+			"thrusts ",
+			"trips ",
+			"grapples ",
+			"foot passing ",
+			"striking ",
+			"vambrace traps ",
+			"a pommel bash ",
+			"half sword ",
+			"The Thumb Scissor ",
+			"jabs ",
+			"hand to hand combat "
+		];
+
+		foreach( m in M )
+		{
+			local text1 = text + m;
+			local T = [
+				"for hours, ",
+				"all day, ",
+				"for several hours, ",
+				"until exhaustion, ",
+				"as long as possible, "
+			];
+
+			foreach( t in T )
+			{
+				local text2 = text1 + t + bro.getName() + " ";
+				local A = [
+					"feels ready for a fight",
+					"needs a real opponent",
+					"is prepared for battle",
+					"is keen to try it out",
+					"is ready for a scrap"
+				];
+
+				foreach( a in A )
+				{
+					local text3 = text2 + a;
+					adjectives.push(text3);
+				}
+			}
+		}
+
+		if (bro.getLevel() < 3)
+		{
+			adjectives.push(bro.getName() + " figures out what end of the weapon to hold");
+			adjectives.push(bro.getName() + " remembers that you can move your legs as well as your arms");
+		}
+
+		this.m.Results.push({
+			Icon = effect.getIcon(),
+			Text = adjectives[this.Math.rand(0, adjectives.len() - 1)] + " and gains a [color=" + this.Const.UI.Color.PositiveEventValue + "]10%[/color] xp increase for the next battle."
+		});
+		return true;
 	}
 
 	function onClicked( _campScreen )

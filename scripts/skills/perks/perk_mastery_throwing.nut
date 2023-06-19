@@ -25,7 +25,7 @@ this.perk_mastery_throwing <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (_skill.isRanged() && (_skill.getID() == "actives.throw_axe" || _skill.getID() == "actives.throw_balls" || _skill.getID() == "actives.throw_javelin" || _skill.getID() == "actives.throw_spear" || _skill.getID() == "actives.sling_stone"))
+		if (_skill.isRanged() && (_skill.getID() == "actives.throw_axe" || _skill.getID() == "actives.throw_balls" || _skill.getID() == "actives.throw_javelin" || _skill.getID() == "actives.throw_spear" || _skill.getID() == "actives.sling_stone" || _skill.getID() == "actives.legend_throw_knife"))
 		{
 			local d = this.getContainer().getActor().getTile().getDistanceTo(_targetEntity.getTile());
 

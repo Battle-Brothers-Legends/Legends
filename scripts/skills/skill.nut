@@ -2528,7 +2528,7 @@ this.skill <- {
 
 	function onDeserialize( _in )
 	{
-		this.m.IsNew = _in.readU8();
+		this.m.IsNew = _in.readBool();
 	}
 
 };

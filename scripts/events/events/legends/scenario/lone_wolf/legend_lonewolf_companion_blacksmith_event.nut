@@ -7,7 +7,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 	{
 		this.m.ID = "event.legend_lonewolf_companion_blacksmith";
 		this.m.Title = "Last stand";
-		this.m.Cooldown = 115.0 * this.World.getTime().SecondsPerDay; //—
+		this.m.Cooldown = 45.0 * this.World.getTime().SecondsPerDay; //—
 		this.m.Screens.push({
 			ID = "A",
 			Text = "[img]gfx/ui/events/event_30.png[/img]{As you wander a common sight comes into view — an isolated gathering of homes with no name is in the process of being raided. Figures of all shapes and sizes dart from home to home, taking anything that isn\'t nailed down or fighting back. In the distance, a stockier figure dressed in a blacksmith's apon is holding their ground, cutting bandits down left, right and centre.\n However, they show signs of beginning to slow down.}",
@@ -40,9 +40,9 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 
 				}
 			],
-			function start( _event )
-			{
-			}
+			// function start( _event )
+			// {
+			// }
 		});
 		this.m.Screens.push({ //items
 			ID = "B",
@@ -203,11 +203,6 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 			return;
 		}
 
-		if (this.World.getTime().Days < 50)
-		{
-			return;
-		}
-
 		local brothers = this.World.getPlayerRoster().getAll();
 
 		if (this.World.getPlayerRoster().getSize() >= this.World.Assets.getBrothersMax())
@@ -215,7 +210,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 			return;
 		}
 
-		if (brothers.len() > 7)
+		if (brothers.len() > 7) //Need more than 7 bros to trigger
 		{
 			return;
 		}

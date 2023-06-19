@@ -51,28 +51,14 @@ this.bandit_camp_location <- this.inherit("scripts/entity/world/location", {
 			treasure.extend(treasure);
 			treasure.extend(treasure);
 			treasure.extend(treasure);
-			if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
-			{
-				treasure.push("legend_armor/armor_upgrades/legend_metal_plating_upgrade");
-				treasure.push("legend_armor/armor_upgrades/legend_metal_pauldrons_upgrade");
-				treasure.push("legend_armor/armor_upgrades/legend_mail_patch_upgrade");
-				treasure.push("legend_armor/armor_upgrades/legend_leather_shoulderguards_upgrade");
-				treasure.push("legend_armor/armor_upgrades/legend_leather_neckguard_upgrade");
-				treasure.push("legend_armor/armor_upgrades/legend_joint_cover_upgrade");
-				treasure.push("legend_armor/armor_upgrades/legend_heraldic_plates_upgrade");
-				treasure.push("legend_armor/armor_upgrades/legend_double_mail_upgrade");
-			}
-			else
-			{
-				treasure.push("armor_upgrades/metal_plating_upgrade");
-				treasure.push("armor_upgrades/metal_pauldrons_upgrade");
-				treasure.push("armor_upgrades/mail_patch_upgrade");
-				treasure.push("armor_upgrades/leather_shoulderguards_upgrade");
-				treasure.push("armor_upgrades/leather_neckguard_upgrade");
-				treasure.push("armor_upgrades/joint_cover_upgrade");
-				treasure.push("armor_upgrades/heraldic_plates_upgrade");
-				treasure.push("armor_upgrades/double_mail_upgrade");
-			}
+			treasure.push("legend_armor/armor_upgrades/legend_metal_plating_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_metal_pauldrons_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_mail_patch_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_leather_shoulderguards_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_leather_neckguard_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_joint_cover_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_heraldic_plates_upgrade");
+			treasure.push("legend_armor/armor_upgrades/legend_double_mail_upgrade");
 		}
 
 		this.dropFood(this.Math.rand(2, 4), [
@@ -88,18 +74,6 @@ this.bandit_camp_location <- this.inherit("scripts/entity/world/location", {
 			"goat_cheese_item"
 		], _lootTable);
 		this.dropTreasure(this.Math.rand(1, 2), treasure, _lootTable);
-
-		if (this.Const.DLC.Unhold && ::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue() && this.Math.rand(1, 100) <= 10)
-		{
-			local treasure = [];
-			treasure.push("misc/paint_set_item");
-			treasure.push("misc/paint_black_item");
-			treasure.push("misc/paint_red_item");
-			treasure.push("misc/paint_orange_red_item");
-			treasure.push("misc/paint_white_blue_item");
-			treasure.push("misc/paint_white_green_yellow_item");
-			this.dropTreasure(1, treasure, _lootTable);
-		}
 	}
 
 	function onInit()

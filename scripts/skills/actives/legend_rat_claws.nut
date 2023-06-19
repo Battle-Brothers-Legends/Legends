@@ -59,7 +59,7 @@ this.legend_rat_claws <- this.inherit("scripts/skills/skill", {
 			{
 				id = 4,
 				type = "text",
-				icon = "/ui/icons/health.png",
+				icon = "ui/icons/health.png", // fix from /ui to ui/, Abyss 6/17/23
 				text = "Inflicts [color=" + this.Const.UI.Color.DamageValue + "]" + p.DamageRegularMin + "[/color] - [color=" + this.Const.UI.Color.DamageValue + "]" + p.DamageRegularMax + "[/color] damage"
 			}
 		];

@@ -30,6 +30,27 @@ this.daytaler_background <- this.inherit("scripts/skills/backgrounds/character_b
 		this.m.Modifiers.Repair = this.Const.LegendMod.ResourceModifiers.Repair[1];
 		this.m.Modifiers.Stash = this.Const.LegendMod.ResourceModifiers.Stash[2];
 		this.m.Modifiers.ToolConsumption = this.Const.LegendMod.ResourceModifiers.ToolConsumption[1];
+		this.m.Modifiers.Terrain = [
+				0.0, // ?
+				0.0, //ocean
+				0.00,//plains
+				0.0, //swamp
+				0.0, //hills
+				0.0, //forest
+				0.0, //forest
+				0.0, //forest_leaves
+				0.0, //autumn_forest
+				0.0, //mountains
+				0.0, // ?
+				0.025, //farmland
+				0.0, // snow
+				0.0, // badlands
+				0.0, //highlands
+				0.0, //stepps
+				0.0, //ocean
+				0.0, //desert
+				0.0 //oasis
+			];
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.HammerTree,
@@ -38,7 +59,8 @@ this.daytaler_background <- this.inherit("scripts/skills/backgrounds/character_b
 				this.Const.Perks.SlingTree
 			],
 			Defense = [
-				this.Const.Perks.MediumArmorTree
+				this.Const.Perks.MediumArmorTree,
+				this.Const.Perks.ShieldTree			
 			],
 			Traits = [
 				this.Const.Perks.FitTree,
@@ -61,20 +83,20 @@ this.daytaler_background <- this.inherit("scripts/skills/backgrounds/character_b
 	{
 		local c = {
 			Hitpoints = [
-				0,
-				0
+				4,
+				8
 			],
 			Bravery = [
-				0,
-				0
+				-2,
+				-3
 			],
 			Stamina = [
-				0,
-				3
+				10,
+				15
 			],
 			MeleeSkill = [
 				0,
-				0
+				2
 			],
 			RangedSkill = [
 				0,

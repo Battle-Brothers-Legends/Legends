@@ -28,6 +28,7 @@ this.assassin_southern_background <- this.inherit("scripts/skills/backgrounds/ch
 			"trait.insecure",
 			"trait.clubfooted",
 			"trait.short_sighted",
+			"trait.legend_fear_dark",
 			"trait.brute",
 			"trait.strong",
 			"trait.bloodthirsty",
@@ -59,6 +60,27 @@ this.assassin_southern_background <- this.inherit("scripts/skills/backgrounds/ch
 		this.m.LastNames = this.Const.Strings.SouthernNamesLast;
 		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Outlaw;
 		this.m.Modifiers.Scout = this.Const.LegendMod.ResourceModifiers.Scout[3];
+		this.m.Modifiers.Terrain = [
+			0.0, // ?
+			0.0, //ocean
+			0.0, //plains
+			0.0, //swamp
+			0.0, //hills
+			0.0, //forest
+			0.0, //forest
+			0.0, //forest_leaves
+			0.0, //autumn_forest
+			0.0, //mountains
+			0.0, // ?
+			0.0, //farmland
+			0.0, // snow
+			0.02, // badlands
+			0.0, //highlands
+			0.04, //stepps
+			0.0, //ocean
+			0.05, //desert
+			0.05 //oasis
+		];
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.SwordTree,

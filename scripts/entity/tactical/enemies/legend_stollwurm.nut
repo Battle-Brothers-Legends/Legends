@@ -231,38 +231,26 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 							}
 						if (this.Math.rand(1, 100) <= chance)
 						{
-							if (!::Legends.Mod.ModSettings.getSetting("UnlayeredArmor").getValue())
+							local rune;
+							local variant = this.Math.rand(21, 23)
+							switch (variant)
 							{
-								local rune;
-								local variant = this.Math.rand(21, 23)
-								switch (variant)
-								{
-									case 21:
-									rune = this.new("scripts/items/legend_armor/runes/legend_rune_endurance");
-									break;
+								case 21:
+								rune = this.new("scripts/items/legend_armor/runes/legend_rune_endurance");
+								break;
 
-									case 22:
-									rune = this.new("scripts/items/legend_armor/runes/legend_rune_safety");
-									break
+								case 22:
+								rune = this.new("scripts/items/legend_armor/runes/legend_rune_safety");
+								break
 
-									case 23:
-									rune = this.new("scripts/items/legend_armor/runes/legend_rune_resilience");
-									break
-								}
-								rune.setRuneVariant(variant);
-								rune.setRuneBonus(true);
-								rune.setRuneVariant(0);
-								rune.drop(_tile);
+								case 23:
+								rune = this.new("scripts/items/legend_armor/runes/legend_rune_resilience");
+								break
 							}
-							else
-							{
-								local token = this.new("scripts/items/rune_sigils/legend_vala_inscription_token");
-								token.setRuneVariant(this.Math.rand(21, 23));
-								token.setRuneBonus(true);
-								token.updateRuneSigilToken();
-								token.drop(_tile);
-							}
-
+							rune.setRuneVariant(variant);
+							rune.setRuneBonus(true);
+							rune.setRuneVariant(0);
+							rune.drop(_tile);
 						}
 					}
 					else

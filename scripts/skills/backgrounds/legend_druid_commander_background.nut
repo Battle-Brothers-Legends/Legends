@@ -119,7 +119,7 @@ this.legend_druid_commander_background <- this.inherit("scripts/skills/backgroun
 				this.Const.Perks.PerkDefs.CoupDeGrace,
 				this.Const.Perks.PerkDefs.Dodge,
 				this.Const.Perks.PerkDefs.HoldOut,
-				this.Const.Perks.PerkDefs.LegendComposure,
+				// this.Const.Perks.PerkDefs.LegendComposure,
 				this.Const.Perks.PerkDefs.QuickHands,
 				this.Const.Perks.PerkDefs.LegendSmackdown,
 				this.Const.Perks.PerkDefs.LegendOnslaught
@@ -183,7 +183,7 @@ this.legend_druid_commander_background <- this.inherit("scripts/skills/backgroun
 				this.Const.Perks.PerkDefs.Duelist,
 				this.Const.Perks.PerkDefs.KillingFrenzy,
 				this.Const.Perks.PerkDefs.BattleFlow,
-				this.Const.Perks.PerkDefs.Stalwart,
+				// this.Const.Perks.PerkDefs.Stalwart,
 				this.Const.Perks.PerkDefs.LegendFreedomOfMovement
 
 			]

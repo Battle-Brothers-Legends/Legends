@@ -11,7 +11,7 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 		this.m.GoodEnding = "After leaving %companyname%, %name% was never heard from again. %name%\'s calling card has been found near a few accidents, so you believe the assassin is doing well.";
 		this.m.BadEnding = "After leaving %companyname%, %name% was never heard from again. There are rumours that a rival assassin was hunting %name%, but no one has heard anything from either of them.";
 		this.m.Icon = "ui/backgrounds/background_53.png";
-		this.m.HiringCost = 10000;
+		this.m.HiringCost = 9999999;
 		this.m.DailyCost = 0;
 		this.m.Excluded = [
 			"trait.weasel",
@@ -23,6 +23,7 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 			"trait.ailing",
 			"trait.clubfooted",
 			"trait.fat",
+			"trait.legend_fear_dark",
 			"trait.tiny",
 			"trait.gluttonous",
 			"trait.pessimist",
@@ -44,7 +45,6 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 			"trait.disloyal",
 			"trait.loyal",
 			"trait.dumb",
-			"trait.pragmatic",
 			"trait.predictable"
 		];
 		this.m.Titles = [
@@ -67,23 +67,19 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[1];
 		this.m.CustomPerkTree = [
 			[
-				this.Const.Perks.PerkDefs.LegendSpecialistKnifeSkill,
 				this.Const.Perks.PerkDefs.Pathfinder,
 				this.Const.Perks.PerkDefs.CripplingStrikes,
 				this.Const.Perks.PerkDefs.Adrenaline,
-				this.Const.Perks.PerkDefs.LegendUnarmedTraining,
 				this.Const.Perks.PerkDefs.Recover,
 				this.Const.Perks.PerkDefs.FastAdaption,
-				this.Const.Perks.PerkDefs.BagsAndBelts,
 				this.Const.Perks.PerkDefs.LegendBackToBasics,
 				this.Const.Perks.PerkDefs.Colossus,
 				this.Const.Perks.PerkDefs.BagsAndBelts,
+				this.Const.Perks.PerkDefs.LegendKnifeplay,
 				this.Const.Perks.PerkDefs.LegendAlert
 			],
 			[
-				this.Const.Perks.PerkDefs.LegendBlendIn,
 				this.Const.Perks.PerkDefs.Backstabber,
-				this.Const.Perks.PerkDefs.LegendKick,
 				this.Const.Perks.PerkDefs.Sprint,
 				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.QuickHands,
@@ -91,13 +87,11 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.CoupDeGrace,
 				this.Const.Perks.PerkDefs.Bullseye,
 				this.Const.Perks.PerkDefs.HoldOut,
-				this.Const.Perks.PerkDefs.LegendComposure,
+				this.Const.Perks.PerkDefs.LegendOpportunist,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan
 			],
 			[
 				this.Const.Perks.PerkDefs.BoondockBlade,
-				this.Const.Perks.PerkDefs.LegendSpecialistKnifeDamage,
-				this.Const.Perks.PerkDefs.LegendGrapple,
 				this.Const.Perks.PerkDefs.LegendHairSplitter,
 				this.Const.Perks.PerkDefs.LegendEscapeArtist,
 				this.Const.Perks.PerkDefs.LegendTrueBeliever,
@@ -106,6 +100,7 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.Feint,
 				this.Const.Perks.PerkDefs.Debilitate,
 				this.Const.Perks.PerkDefs.Relentless,
+				this.Const.Perks.PerkDefs.LegendPrepared,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyBandit
 			],
 			[
@@ -115,15 +110,12 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.SpecBow,
 				this.Const.Perks.PerkDefs.SpecThrowing,
 				this.Const.Perks.PerkDefs.SpecCrossbow,
-				this.Const.Perks.PerkDefs.LegendSpecFists,
 				this.Const.Perks.PerkDefs.LegendSpecPoison,
 				this.Const.Perks.PerkDefs.LegendPoisonImmunity,
-				this.Const.Perks.PerkDefs.LegendHidden,
+				this.Const.Perks.PerkDefs.LegendLurker,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyMercenary
 			],
 			[
-				this.Const.Perks.PerkDefs.LegendGrapple,
-				this.Const.Perks.PerkDefs.LegendUnarmedLunge,
 				this.Const.Perks.PerkDefs.PushTheAdvantage,
 				this.Const.Perks.PerkDefs.DoubleStrike,
 				this.Const.Perks.PerkDefs.LegendEvasion,
@@ -135,7 +127,6 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyNoble
 			],
 			[
-				this.Const.Perks.PerkDefs.LegendChoke,
 				this.Const.Perks.PerkDefs.LegendLeap,
 				this.Const.Perks.PerkDefs.LegendWindReader,
 				this.Const.Perks.PerkDefs.Berserk,
@@ -144,11 +135,10 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.HeadHunter,
 				this.Const.Perks.PerkDefs.Nimble,
 				this.Const.Perks.PerkDefs.LegendPerfectFit,
+				this.Const.Perks.PerkDefs.LegendNightRaider,
 				this.Const.Perks.PerkDefs.LegendSecondWind
 			],
 			[
-				this.Const.Perks.PerkDefs.LegendAssassinate,
-				this.Const.Perks.PerkDefs.LegendUntouchable,
 				this.Const.Perks.PerkDefs.LegendTumble,
 				this.Const.Perks.PerkDefs.CloseCombatArcher,
 				this.Const.Perks.PerkDefs.KillingFrenzy,
@@ -157,6 +147,7 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.BattleFlow,
 				this.Const.Perks.PerkDefs.PerfectFocus,
 				this.Const.Perks.PerkDefs.LegendFreedomOfMovement,
+				this.Const.Perks.PerkDefs.LegendAssassinate,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySwordmaster
 			]
 		];
@@ -185,11 +176,23 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 		this.addBackgroundType(this.Const.BackgroundType.Female);
 	}
 
-
+	function getTooltip()
+	{
+		local ret = this.character_background.getTooltip()
+		ret.push(
+			{
+				id = 11,
+				type = "text",
+				icon = "ui/icons/chance_to_hit_head.png",
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] Chance To Hit Head"
+			}
+		)
+		return ret
+	}
 
 	function onBuildDescription()
 	{
-		return "{This is your commander, when they die the company ends. This character has no history, any attempt to force discussion on it will only result in silence or lies.  }";
+		return "{As far as everyone is is concerned, you have no history — any attempt to force discussion on it will only result in silence or lies.}";
 	}
 
 	function onChangeAttributes()
@@ -270,7 +273,8 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 	{
 		local talents = this.getContainer().getActor().getTalents();
 		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.MeleeSkill] = 3;
+		talents[this.Const.Attributes.MeleeSkill] = 2;
+		talents[this.Const.Attributes.RangedSkill] = 1;
 		talents[this.Const.Attributes.Initiative] = 3;
 		this.getContainer().getActor().fillTalentValues(2, true);
 		local items = this.getContainer().getActor().getItems();
@@ -279,11 +283,16 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 		stash.removeByID("supplies.ground_grains");
 		stash.add(this.new("scripts/items/supplies/rice_item"));
 		stash.add(this.new("scripts/items/supplies/dried_lamb_item"));
+		
 		local items = this.getContainer().getActor().getItems();
-		items.equip(this.new("scripts/items/weapons/knife"));
+		items.equip(this.new("scripts/items/weapons/dagger"));
+		items.addToBag(this.new("scripts/items/weapons/legend_slingshot"));
+		
 		items.equip(this.Const.World.Common.pickArmor([
-			[1, "thick_dark_tunic"]
+			[1, "thick_dark_tunic"],
+			[1, "ragged_dark_surcoat"]
 		]));
+
 		items.equip(this.Const.World.Common.pickHelmet([
 			[1, "hood"]
 		]));
@@ -299,6 +308,12 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 	{
 		this.character_background.onDeserialize(_in);
 		this.m.Tattoo = _in.readU8();
+	}
+
+	function onUpdate( _properties )
+	{
+		this.character_background.onUpdate(_properties);
+		_properties.HitChance[this.Const.BodyPart.Head] += 15; //normal buff is +10
 	}
 
 });

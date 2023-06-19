@@ -108,10 +108,10 @@ this.getroottable().Const.LegendMod.hookAISkills <- function()
 		o.m.PossibleSkills.push("actives.legend_intensely_charm");
 	});
 
-	::mods_hookExactClass("ai/tactical/behaviors/ai_corruption", function(o) 
-	{
-		o.m.PossibleSkills.push("actives.legend_demon_shadows");
-	});
+	// ::mods_hookExactClass("ai/tactical/behaviors/ai_corruption", function(o)
+	// {
+	// 	o.m.PossibleSkills.push("actives.legend_demon_shadows");
+	// });
 
 	::mods_hookExactClass("ai/tactical/behaviors/ai_darkflight", function(o) 
 	{

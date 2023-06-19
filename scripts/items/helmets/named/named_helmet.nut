@@ -87,7 +87,7 @@ this.named_helmet <- this.inherit("scripts/items/helmets/helmet", {
 	function randomizeValues()
 	{
 		this.m.StaminaModifier = this.Math.min(-4, this.m.StaminaModifier + this.Math.rand(1, 4));
-		this.m.Condition = this.Math.floor(this.m.Condition * this.Math.rand(110, 125) * 0.01) * 1.0;
+		this.m.Condition = this.Math.floor(this.m.Condition * this.Math.rand(120, 135) * 0.01) * 1.0; //was 110, 125 on 26/10/22 - Luft
 		this.m.ConditionMax = this.m.Condition;
 	}
 

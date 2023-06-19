@@ -23,7 +23,7 @@ this.perk_legend_specialist_sickle_skill <- this.inherit("scripts/skills/skill",
 				_properties.MeleeSkill += 12;
 				_properties.DamageDirectMult += 0.25;
 			}
-			else if (item.isItemType(this.Const.Items.WeaponType.Sword))
+			else if (item.isWeaponType(this.Const.Items.WeaponType.Sword))
 			{
 				_properties.MeleeSkill += 3;
 				_properties.DamageDirectMult += 0.08;
