@@ -50,7 +50,7 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 		this.m.Beards = this.Const.Beards.Untidy;
 
 		this.m.Level = this.Math.rand(3, 6);
-		this.m.BackgroundType = this.Const.BackgroundType.Untalented | this.Const.BackgroundType.Combat | this.Const.BackgroundType.Ranger;
+		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Ranger;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Cruel;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Chivalrous;
 		this.m.Modifiers.Ammo = this.Const.LegendMod.ResourceModifiers.Ammo[3];
@@ -153,7 +153,7 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 		local items = this.getContainer().getActor().getItems();
 		local r;
 		items.equip(this.new("scripts/items/weapons/war_bow"));
-		items.equip(this.new("scripts/items/ammo/huge_quiver_of_arrows"));
+		items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
 		r = this.Math.rand(0, 1);
 
 		if (r == 0)
