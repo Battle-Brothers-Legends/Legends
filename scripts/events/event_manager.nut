@@ -299,7 +299,7 @@ this.event_manager <- {
 				this.m.Events[i].update();
 			}
 
-			if (i % 2 == 0)
+			if (i % 3 == 0)
 			{
 				yield false;
 			}

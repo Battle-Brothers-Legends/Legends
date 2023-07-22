@@ -320,7 +320,7 @@ this.ai_darkflight <- this.inherit("scripts/ai/tactical/behavior", {
 
 			if (this.hasNegativeTileEffect(dest.Tile, _entity))
 			{
-				tileScore = tileScore - this.Const.AI.Behavior.EngageBadTerrainPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult;
+				tileScore = tileScore - this.Const.AI.Behavior.EngageBadTerrainEffectPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult;
 				tileScoreMult = tileScoreMult * this.Const.AI.Behavior.DarkflightBadTerrainMult;
 			}
 

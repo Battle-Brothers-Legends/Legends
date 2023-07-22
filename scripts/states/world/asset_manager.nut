@@ -983,7 +983,7 @@ this.asset_manager <- {
 				{
 					if (item.getCondition() < item.getConditionMax())
 					{
-						local d = this.Math.minf(this.Const.World.Assets.ArmorPerHour * campMultiplier, item.getConditionMax() - item.getCondition());
+						local d = this.Math.minf(this.Const.World.Assets.ArmorPerHour * campMultiplier * this.m.RepairSpeedMult, item.getConditionMax() - item.getCondition());
 						item.setCondition(item.getCondition() + d);
 						this.m.ArmorParts = this.Math.maxf(0, this.m.ArmorParts - d * this.m.ArmorPartsPerArmor);
 					}

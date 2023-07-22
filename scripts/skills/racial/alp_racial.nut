@@ -51,7 +51,7 @@ this.alp_racial <- this.inherit("scripts/skills/skill", {
 		{
 			_properties.DamageReceivedRegularMult *= 0.25;
 		}
-		else if (_skill.getID() == "actives.puncture" || _skill.getID() == "actives.thrust" || _skill.getID() == "actives.stab" || _skill.getID() == "actives.impale" || _skill.getID() == "actives.prong" || _skill.getID() == "actives.rupture" || _skill.getID() == "actives.lunge" || _skill.getID() == "actives.fire_handgonne" || _skill.getID() == "actives.throw_spear")
+		else if (_skill.getID() == "actives.puncture" || _skill.getID() == "actives.thrust" || _skill.getID() == "actives.stab" || _skill.getID() == "actives.deathblow" || _skill.getID() == "actives.impale" || _skill.getID() == "actives.prong" || _skill.getID() == "actives.rupture" || _skill.getID() == "actives.lunge" || _skill.getID() == "actives.fire_handgonne" || _skill.getID() == "actives.throw_spear")
 		{
 			_properties.DamageReceivedRegularMult *= 0.5;
 		}

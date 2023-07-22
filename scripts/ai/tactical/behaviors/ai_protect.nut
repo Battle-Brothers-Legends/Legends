@@ -348,7 +348,7 @@ this.ai_protect <- this.inherit("scripts/ai/tactical/behavior", {
 							}
 						}
 
-						if (tile.Properties.Effect != null && !tile.Properties.Effect.IsPositive && tile.Properties.Effect.Applicable(_entity))
+						if (this.hasNegativeTileEffect(tile, _entity))
 						{
 							immediateBonus = immediateBonus - this.Const.AI.Behavior.ProtectAllyTileEffectPenalty;
 						}

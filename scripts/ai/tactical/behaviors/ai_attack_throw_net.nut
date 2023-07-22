@@ -150,7 +150,7 @@ this.ai_attack_throw_net <- this.inherit("scripts/ai/tactical/behavior", {
 				score = score + this.Const.AI.Behavior.ThrowNetBadTerrainBonus;
 			}
 
-			if (tile.Properties.Effect != null && !tile.Properties.Effect.IsPositive && tile.Properties.Effect.Applicable(target))
+			if (this.hasNegativeTileEffect(tile, target))
 			{
 				score = score + this.Const.AI.Behavior.ThrowNetBadTerrainBonus;
 			}

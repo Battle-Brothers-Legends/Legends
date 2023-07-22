@@ -31,7 +31,7 @@ this.zombie_nomad <- this.inherit("scripts/entity/tactical/enemies/zombie_yeoman
 
 			if (this.Math.rand(1, 100) <= 66)
 			{
-				shield.setCondition(this.Math.round(shield.getConditionMax() / 2 - 1));
+				shield.setCondition(this.Math.round(shield.getConditionMax() / 2 - 1) / 1.0);
 			}
 
 			this.m.Items.equip(shield);
@@ -48,7 +48,7 @@ this.zombie_nomad <- this.inherit("scripts/entity/tactical/enemies/zombie_yeoman
 
 		if (this.Math.rand(1, 100) <= 66)
 		{
-			armor.setArmor(this.Math.round(armor.getArmorMax() / 2 - 1));
+			armor.setArmor(this.Math.round(armor.getArmorMax() / 2 - 1) / 1.0);
 		}
 
 		this.m.Items.equip(armor);
@@ -64,7 +64,7 @@ this.zombie_nomad <- this.inherit("scripts/entity/tactical/enemies/zombie_yeoman
 
 		if (this.Math.rand(1, 100) <= 66)
 		{
-			helmet.setArmor(this.Math.round(helmet.getArmorMax() / 2 - 1));
+			helmet.setArmor(this.Math.round(helmet.getArmorMax() / 2 - 1) / 1.0);
 		}
 
 		this.m.Items.equip(helmet);

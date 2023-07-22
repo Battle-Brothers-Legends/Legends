@@ -2089,7 +2089,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		}
 
 		this.m.Buildings = [];
-		this.m.Buildings.resize(9, null);
+		this.m.Buildings.resize(6, null);
 		local numBuildings = _in.readU8();
 
 		for( local i = 0; i < numBuildings; i = ++i )

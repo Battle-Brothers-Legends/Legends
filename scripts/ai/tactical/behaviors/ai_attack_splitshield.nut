@@ -95,7 +95,7 @@ this.ai_attack_splitshield <- this.inherit("scripts/ai/tactical/behavior", {
 			local destroyShieldValue = this.Math.maxf(1.0, shieldDamage) * this.Const.AI.Behavior.SplitShieldDamageValueMult / shieldCondition;
 			possibleScore = possibleScore * this.Math.pow(this.Math.minf(1.0, destroyShieldValue), 2);
 
-			if (shieldDamage >= shieldDamage)
+			if (shieldDamage >= shieldCondition)
 			{
 				possibleScore = possibleScore * this.Const.AI.Behavior.SplitShieldDestroyBonusMult;
 			}

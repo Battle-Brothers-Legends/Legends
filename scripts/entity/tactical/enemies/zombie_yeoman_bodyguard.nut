@@ -79,7 +79,7 @@ this.zombie_yeoman_bodyguard <- this.inherit("scripts/entity/tactical/enemies/zo
 
 		if (this.Math.rand(1, 100) <= 66)
 		{
-			armor.setArmor(armor.getArmorMax() / 2 - 1);
+			armor.setArmor(this.Math.round(armor.getArmorMax() / 2 - 1) / 1.0);
 		}
 
 		this.m.Items.equip(armor);
@@ -120,7 +120,7 @@ this.zombie_yeoman_bodyguard <- this.inherit("scripts/entity/tactical/enemies/zo
 
 			if (this.Math.rand(1, 100) <= 66)
 			{
-				helmet.setArmor(helmet.getArmorMax() / 2 - 1);
+				helmet.setArmor(this.Math.round(helmet.getArmorMax() / 2 - 1) / 1.0);
 			}
 
 			this.m.Items.equip(helmet);

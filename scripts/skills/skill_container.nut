@@ -49,7 +49,7 @@ this.skill_container <- {
 
 			foreach( i, skill in this.m.SkillsToAdd )
 			{
-				if (skill.getID() == _skill.getID())
+				if (!skill.isGarbage() && skill.getID() == _skill.getID())
 				{
 					return;
 				}

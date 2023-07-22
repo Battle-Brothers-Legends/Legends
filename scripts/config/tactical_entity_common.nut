@@ -47,7 +47,7 @@ gt.Const.Tactical.Common <- {
 			}
 		}
 
-		if (_targetTile.X != _myTile.X && _targetTile.Y != _myTile.Y && this.Math.abs(_targetTile.X - _myTile.X) != this.Math.abs(_targetTile.Y - _myTile.Y))
+		if (_targetTile.X != _myTile.X && _targetTile.Y != _myTile.Y && (this.Math.abs(_targetTile.X - _myTile.X) != this.Math.abs(_targetTile.Y - _myTile.Y) || _myTile.X - _myTile.Y == _targetTile.X - _targetTile.Y))
 		{
 			local org_dir = dir;
 			dir = org_dir + 1 < this.Const.Direction.COUNT ? org_dir + 1 : 0;

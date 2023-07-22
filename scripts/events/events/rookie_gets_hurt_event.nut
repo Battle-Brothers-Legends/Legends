@@ -196,7 +196,7 @@ this.rookie_gets_hurt_event <- this.inherit("scripts/events/event", {
 
 	function onUpdateScore()
 	{
-		if (this.Time.getVirtualTimeF() - this.World.Events.getLastBattleTime() > 10.0)
+		if (this.Time.getVirtualTimeF() - this.World.Events.getLastBattleTime() > 8.0)
 		{
 			return;
 		}
@@ -224,7 +224,7 @@ this.rookie_gets_hurt_event <- this.inherit("scripts/events/event", {
 		}
 
 		this.m.Rookie = candidates[this.Math.rand(0, candidates.len() - 1)];
-		this.m.Score = candidates.len() * 75;
+		this.m.Score = 500;
 	}
 
 	function onPrepare()

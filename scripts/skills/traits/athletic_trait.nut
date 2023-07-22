@@ -34,7 +34,7 @@ this.athletic_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Builds up [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] less fatigue for each tile travelled"
+				text = "Builds up [color=" + this.Const.UI.Color.PositiveValue + "]2[/color] less Fatigue for each tile travelled"
 			}
 		];
 	}

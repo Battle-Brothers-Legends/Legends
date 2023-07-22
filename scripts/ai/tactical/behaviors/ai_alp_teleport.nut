@@ -104,7 +104,7 @@ this.ai_alp_teleport <- this.inherit("scripts/ai/tactical/behavior", {
 					local score = 60.0 + 40.0 * targetValue;
 					score = score - tile.getZoneOfOccupationCountOtherThan(_entity.getAlliedFactions()) * 20.0;
 					score = score + tile.TVTotal;
-					score = score - (tile.Properties.Effect != null && !tile.Properties.Effect.IsPositive ? 40.0 : 0.0);
+					score = score - (this.hasNegativeTileEffect(tile, _entity) ? 40.0 : 0.0);
 
 					foreach( o in targets )
 					{

@@ -143,7 +143,7 @@ this.zombie_knight <- this.inherit("scripts/entity/tactical/enemies/zombie", {
 
 			if (this.Math.rand(1, 100) <= 33)
 			{
-				a.setArmor(this.Math.round(a.getArmorMax() / 2 - 1));
+				a.setArmor(this.Math.round(a.getArmorMax() / 2 - 1) / 1.0);
 			}
 
 			this.m.Items.equip(a);
@@ -167,7 +167,7 @@ this.zombie_knight <- this.inherit("scripts/entity/tactical/enemies/zombie", {
 
 			if (this.Math.rand(1, 100) <= 33)
 			{
-				h.setArmor(this.Math.round(h.getArmorMax() / 2 - 1));
+				h.setArmor(this.Math.round(h.getArmorMax() / 2 - 1) / 1.0);
 			}
 
 			this.m.Items.equip(h);

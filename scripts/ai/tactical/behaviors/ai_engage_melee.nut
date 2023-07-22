@@ -1122,7 +1122,7 @@ this.ai_engage_melee <- this.inherit("scripts/ai/tactical/behavior", {
 
 							if (this.hasNegativeTileEffect(intermediateTile, _entity))
 							{
-								destinationScore = destinationScore - this.Const.AI.Behavior.EngageBadTerrainPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult;
+								destinationScore = destinationScore - this.Const.AI.Behavior.EngageBadTerrainEffectPenalty * this.getProperties().EngageOnBadTerrainPenaltyMult;
 							}
 						}
 					}

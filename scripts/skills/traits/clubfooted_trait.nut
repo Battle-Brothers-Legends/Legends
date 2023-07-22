@@ -36,7 +36,7 @@ this.clubfooted_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Builds up [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] more fatigue for each tile travelled"
+				text = "Builds up [color=" + this.Const.UI.Color.NegativeValue + "]2[/color] more Fatigue for each tile travelled"
 			}
 		];
 	}

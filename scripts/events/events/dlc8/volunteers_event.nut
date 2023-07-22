@@ -88,6 +88,11 @@ this.volunteers_event <- this.inherit("scripts/events/event", {
 			return;
 		}
 
+		if (this.World.Assets.getBusinessReputation() < 1800 || this.World.Assets.getMoney() > 1500)
+		{
+			return;
+		}
+
 		local fallen = [];
 		local fallen = this.World.Statistics.getFallen();
 
@@ -101,19 +106,12 @@ this.volunteers_event <- this.inherit("scripts/events/event", {
 			return;
 		}
 
+		if (this.World.getPlayerRoster().getSize() < 2)
+		{
+			return;
+		}
+
 		if (this.World.getPlayerRoster().getSize() + 3 >= this.World.Assets.getBrothersMax())
-		{
-			return;
-		}
-
-		if (this.World.Assets.getBusinessReputation() < 1800 || this.World.Assets.getMoney() > 1500)
-		{
-			return;
-		}
-
-		local brothers = this.World.getPlayerRoster().getAll();
-
-		if (brothers.len() < 2)
 		{
 			return;
 		}
