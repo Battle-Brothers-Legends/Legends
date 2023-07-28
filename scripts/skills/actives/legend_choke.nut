@@ -66,8 +66,8 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 				damage_min = damage_min + muscularity;
 				damage_max = damage_max + muscularity;
 			}
-		damage_min = this.Math.floor(damage_min*p.DamageTotalMult*p.getCurrentProperties().MeleeDamageMult*p.getCurrentProperties().DamageRegularMult);
-		damage_max = this.Math.floor(damage_max*p.getCurrentProperties().DamageTotalMult*2*p.getCurrentProperties().MeleeDamageMult*p.getCurrentProperties().DamageRegularMult);
+		damage_min = this.Math.floor(damage_min*p.DamageTotalMult*p.MeleeDamageMult*p.DamageRegularMult);
+		damage_max = this.Math.floor(damage_max*p.DamageTotalMult*2*p.MeleeDamageMult*p.DamageRegularMult);
 		foreach( bg in this.m.Backgrounds ) // actually slightly wrong due to rounding errors. In practice underestimates damage by like 1-2 of max
 		{
 			if (actor.getSkills().hasSkill(bg)) // Hopefully there is a better way
