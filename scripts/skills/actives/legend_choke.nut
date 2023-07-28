@@ -56,8 +56,9 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 	function getTooltip()
 	{
 		local actor = this.getContainer().getActor();
-		local damage_min = 10; // Manual workaround because we're doing the math manually. Based on decapitate code
-		local damage_max = 15;
+		local p = actor.getCurrentProperties();
+		local damage_min = p.DamageRegularMin + 10; // Manual workaround because we're doing the math manually. Based on decapitate code
+		local damage_max = p.DamageRegularMax + 15;
 		local has_unarmed_background = false;
 		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_muscularity"))
 			{
@@ -65,8 +66,8 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 				damage_min = damage_min + muscularity;
 				damage_max = damage_max + muscularity;
 			}
-		damage_min = this.Math.floor(damage_min*actor.getCurrentProperties().DamageTotalMult*actor.getCurrentProperties().MeleeDamageMult*actor.getCurrentProperties().DamageRegularMult);
-		damage_max = this.Math.floor(damage_max*actor.getCurrentProperties().DamageTotalMult*2*actor.getCurrentProperties().MeleeDamageMult*actor.getCurrentProperties().DamageRegularMult);
+		damage_min = this.Math.floor(damage_min*p.DamageTotalMult*p.getCurrentProperties().MeleeDamageMult*p.getCurrentProperties().DamageRegularMult);
+		damage_max = this.Math.floor(damage_max*p.getCurrentProperties().DamageTotalMult*2*p.getCurrentProperties().MeleeDamageMult*p.getCurrentProperties().DamageRegularMult);
 		foreach( bg in this.m.Backgrounds ) // actually slightly wrong due to rounding errors. In practice underestimates damage by like 1-2 of max
 		{
 			if (actor.getSkills().hasSkill(bg)) // Hopefully there is a better way
