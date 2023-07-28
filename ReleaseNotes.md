@@ -8,7 +8,7 @@ Permanent injuries removed from training tent injury pool, however:
 Gatherering rate reduced, it had escaped the nerfs of the other tents 
 
 Fixes error where Krastenbrust plate and noble tabards didn't spawn 
-
+Fixes error where gold nugget couldn't be found when completing an orc camp 
 
 
 17.0.6
