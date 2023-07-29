@@ -156,6 +156,10 @@ this.tactical_screen_topbar_options <- this.inherit("scripts/ui/screens/ui_modul
 			this.m.OnQuitPressedListener();
 		}
 	}
-
+	//  why does this crash in fights? 
+	// function changeFleeButtonToAllowRetreat(_bool)
+	// {
+	//	this.m.JSHandle.asyncCall("changeFleeButtonToAllowRetreat", _bool);
+	// }
 });
 

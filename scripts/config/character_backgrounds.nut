@@ -260,6 +260,24 @@ gt.Const.CharacterFemaleBackgrounds <- [
 	"female_tailor_background",
 	"legend_nun_background"
 ];
+gt.Const.SupposedWitchBackgrounds <- [
+	"legend_shieldmaiden_background",
+	"female_thief_background",
+	"legend_witch_background",
+	"female_beggar_background",
+	"legend_vala_background",
+	"female_adventurous_noble_background",
+	"female_disowned_noble_background",
+	"female_bowyer_background",
+	"female_butcher_background",
+	"female_daytaler_background",
+	"female_farmhand_background",
+	"female_miller_background",
+	"female_minstrel_background",
+	"female_servant_background",
+	"female_tailor_background",
+	"legend_nun_background"
+];
 gt.Const.CharacterPartyBackgrounds <- [
 	"legend_diviner_background",
 	"legend_illusionist_background",
