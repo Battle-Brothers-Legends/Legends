@@ -157,9 +157,5 @@ this.tactical_screen_topbar_options <- this.inherit("scripts/ui/screens/ui_modul
 		}
 	}
 
-	function changeFleeButtonToAllowRetreat(_bool)
-	{
-		this.m.JSHandle.asyncCall("changeFleeButtonToAllowRetreat", _bool);
-	}
 });
 
