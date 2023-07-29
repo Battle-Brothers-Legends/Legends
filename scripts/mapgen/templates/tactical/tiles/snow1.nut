@@ -48,6 +48,8 @@ this.snow1 <- this.inherit("scripts/mapgen/tactical_template", {
 		this.Tactical.setTransitions("tile_legend_snow_04", t);
 		this.Tactical.setTransitions("tile_legend_snow_05", t);
 		this.Tactical.setTransitions("tile_legend_snow_06", t);
+		this.Tactical.setTransitions("tile_legend_snow_07", t);
+		this.Tactical.setTransitions("tile_legend_snow_08", t);
 	}
 
 	function onFirstPass( _rect )
