@@ -55,11 +55,16 @@ declare -a BRUSHES=(
 "legend_enemies"
 "legend_weapons"
 "legend_world"
-"legend_ui"
-"legend_orientation"
+"world_tiles"
 "legend_horses"
 "legend_detail"
+<<<<<<< HEAD
 "legend_terrain"
+=======
+"terrain"
+"ui"
+"orientation"
+>>>>>>> parent of c6f8e0eff (Revert "Puts all the legends brushes with mystery metatags inside the vanilla brushes. This resolves flickering and helps with unloading issues")
 "legend_objects"
 "legend_helmets"
 "legend_helmets/0"
