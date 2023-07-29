@@ -85,7 +85,7 @@ this.legend_flogging <- this.inherit("scripts/skills/skill", {
 		local dir = ownTile.getDirectionTo(_targetTile);
 		local target = _targetTile.getEntity();
 
-
+		target.getSkills().add(this.new("scripts/skills/effects/legend_grazed_effect"));
 		if (!_user.isAlive() || _user.isDying())
 		{
 			return;
@@ -99,8 +99,8 @@ this.legend_flogging <- this.inherit("scripts/skills/skill", {
 
 			if (nextTile.IsOccupiedByActor && nextTile.getEntity().isAttackable() && this.Math.abs(nextTile.Level - ownTile.Level) <= 1)
 			{
-				target.getSkills().add(this.new("scripts/skills/effects/legend_grazed_effect"));
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " flogged " + this.Const.UI.getColorizedEntityName(target) + " leaving them bleeding");
+				nextTile.getEntity().getSkills().add(this.new("scripts/skills/effects/legend_grazed_effect"));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " flogged " + this.Const.UI.getColorizedEntityName(nextTile.getEntity()) + " leaving them bleeding");
 			}
 		}
 
@@ -117,8 +117,8 @@ this.legend_flogging <- this.inherit("scripts/skills/skill", {
 
 			if (nextTile.IsOccupiedByActor && nextTile.getEntity().isAttackable() && this.Math.abs(nextTile.Level - ownTile.Level) <= 1)
 			{
-				target.getSkills().add(this.new("scripts/skills/effects/legend_grazed_effect"));
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " flogged " + this.Const.UI.getColorizedEntityName(target) + " leaving them bleeding");
+				nextTile.getEntity().getSkills().add(this.new("scripts/skills/effects/legend_grazed_effect"));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " flogged " + this.Const.UI.getColorizedEntityName(nextTile.getEntity()) + " leaving them bleeding");
 			}
 		}
 	}

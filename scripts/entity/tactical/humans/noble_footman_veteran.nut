@@ -113,7 +113,7 @@ this.noble_footman_veteran <- this.inherit("scripts/entity/tactical/humans/noble
 			shield = this.new("scripts/items/shields/faction_heater_shield");
 		}
 
-		local shield.setFaction(banner);
+		shield.setFaction(banner);
 		this.m.Items.equip(shield);
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
