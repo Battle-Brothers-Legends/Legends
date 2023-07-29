@@ -1212,4 +1212,8 @@
 	<sprite id="upgrade_pauldrons_swan" offsetY="35" ic="FF242D3B" width="104" height="142" img="entity\armor_upgrades\pauldrons_swan_01.png" left="-44" right="50" top="-53" bottom="13" />\n'
 	<sprite id="upgrade_pauldrons_swan_damaged" offsetY="35" ic="FF242D3F" width="104" height="142" img="entity\armor_upgrades\pauldrons_swan_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />\n'
 	<sprite id="upgrade_pauldrons_swan_dead" offsetX="6" offsetY="10" f="64FD" ic="FF242D43" width="131" height="125" img="entity\armor_upgrades\pauldrons_swan_01_dead.png" left="-57" right="59" top="-53" bottom="55" />\n'			
+	<sprite id="upgrade_heraldic_plates" offsetY="35" ic="FF242D3B" width="104" height="142" img="entity\armor_upgrades\upgrade_heraldic_plates.png" left="-44" right="50" top="-53" bottom="13" />\n'
+	<sprite id="upgrade_heraldic_plates_damaged" offsetY="35" ic="FF242D3F" width="104" height="142" img="entity\armor_upgrades\upgrade_heraldic_plates_damaged.png" left="-44" right="50" top="-53" bottom="13" />\n'
+	<sprite id="upgrade_heraldic_plates_dead" offsetX="6" offsetY="10" f="64FD" ic="FF242D43" width="131" height="125" img="entity\armor_upgrades\upgrade_heraldic_plates_dead.png" left="-57" right="59" top="-53" bottom="55" />\n'			
+
 </brush>

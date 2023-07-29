@@ -281,6 +281,8 @@ this.legends_debug_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			"armor_upgrades/legend_armor_sacred_shield_upgrade",
 			"armor_upgrades/legend_armor_skull_chain_upgrade",
 			"armor_upgrades/legend_armor_chain_and_mail_upgrade",
+			"armor_upgrades/legend_heraldic_plates_upgrade",
+			
 
 			"runes/legend_rune_endurance",
 			"runes/legend_rune_resilience",

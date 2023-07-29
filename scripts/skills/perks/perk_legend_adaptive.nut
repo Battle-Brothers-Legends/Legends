@@ -430,6 +430,10 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 			this.addRandomPerkGroup()
 			}
 		}
+		else
+		{
+			actor.getBackground().addPerkGroup(this.Const.Perks.FistsClassTree.Tree);
+		}
 			   
 	}
 
