@@ -1,0 +1,6 @@
+<brush name="gfx/legend_world_tiles.png" version="17" b1="8" b6="1" b9="0" b11="1" i0="5">
+  <sprite id="world_grassland_05" b6="1" ic="FF335758" img="world_tiles\world_grass_05.png" />
+  <sprite id="world_grassland_06" b6="1" ic="FF335758" img="world_tiles\world_grass_06.png" />
+  <sprite id="world_grassland_07" b6="1" ic="FF335758" img="world_tiles\world_grass_07.png" />
+  <sprite id="world_grassland_08" b6="1" ic="FF335758" img="world_tiles\world_grass_08.png" />
+</brush>

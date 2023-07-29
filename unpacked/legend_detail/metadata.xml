@@ -35,5 +35,4 @@
   <sprite id="swamp_grass_green_08_reflect" offsetX="-35" offsetY="18" f="6408" ic="FF366174" img="detail\swamp_grass_green_08_reflect.png" left="-52" right="53" />
   <sprite id="swamp_grass_green_09_reflect" offsetX="23" offsetY="17" f="640A" img="detail\swamp_grass_green_09_reflect.png" left="-35" right="36" />
   <sprite id="swamp_grass_green_10_reflect" offsetX="-15" offsetY="10" f="6405" ic="FF36657A" img="detail\swamp_grass_green_10_reflect.png" />
-   <sprite id="corn_01" offsetX="6" offsetY="7" f="6402" b7="20" ic="FF345C6B" img="detail\corn_01.png" />
 </brush>
