@@ -59,7 +59,7 @@ declare -a BRUSHES=(
 "legend_orientation"
 "legend_horses"
 "legend_detail"
-"terrain"
+"legend_terrain"
 "legend_objects"
 "legend_helmets"
 "legend_helmets/0"

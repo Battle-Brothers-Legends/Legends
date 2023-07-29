@@ -29,10 +29,12 @@ gfx/legend_helmets_15.png
 gfx/legend_horses.png
 gfx/legend_objects.png
 gfx/terrain.png
+gfx/legend_terrain.png
 gfx/entity_0.png
 gfx/entity_3.png
 gfx/entity_icons.png
 gfx/ui.png
+gfx/legend_ui.png
 gfx/world_tiles.png
 gfx/world_detail.png
 gfx/world_entity_0.png
