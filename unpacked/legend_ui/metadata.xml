@@ -1,0 +1,132 @@
+<brush name="gfx/legend_ui.png" version="17" b1="2" b5="0">
+	<sprite id="legend_halberd_impale" ic="FF23165B" img="skills\legend_halberd_impale.png" />
+	<sprite id="legend_halberd_smite" ic="FF23165B" img="skills\legend_halberd_smite.png" />
+	<sprite id="cat_bite" ic="FF23165B" img="skills\cat_bite.png" />
+	<sprite id="stone_aim_square" ic="FF23165B" img="skills\stone_aim_square.png" />
+	<sprite id="coordinated_volleys_square" ic="FF23165B" img="skills\coordinated_volleys_square.png" />
+	<sprite id="mini_coordinated_volleys_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_coordinated_volleys_circle.png" />
+	<sprite id="mini_mark_target" offsetY="35" ic="FF344955" img="skills\mini\mini_mark_target.png" />
+	<sprite id="mini_big_game_hunter" offsetY="35" ic="FF344955" img="skills\mini\mini_big_game_hunter.png" />
+	<sprite id="status_daze56_circle" ic="FF23165B" img="skills\status_daze56_circle.png" />
+	<sprite id="daze_square" ic="FF23165B" img="skills\daze_square.png" />
+	<sprite id="mini_daze56_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_daze56_circle.png" />
+	<sprite id="deathtouch_square" ic="FF23165B" img="skills\deathtouch_square.png" />
+	<sprite id="blooddrop_square" ic="FF23165B" img="skills\blooddrop_square.png" />
+	<sprite id="siphon_square" ic="FF23165B" img="skills\siphon_square.png" />
+	<sprite id="enthrall" ic="FF23165B" img="skills\enthrall.png" />
+	<sprite id="entice" ic="FF23165B" img="skills\entice.png" />
+	<sprite id="evasion" ic="FF23165B" img="skills\evasion.png" />
+	<sprite id="horse_kick" ic="FF23165B" img="skills\horse_kick.png" />
+	<sprite id="scry" ic="FF23165B" img="skills\scry.png" />
+	<sprite id="teleport" ic="FF23165B" img="skills\teleport.png" />
+	<sprite id="mini_steel_brow" offsetY="35" ic="FF344955" img="skills\mini\mini_steel_brow.png" />
+	<sprite id="mark_target" ic="FF23165B" img="skills\MarkTarget.png" />
+	<sprite id="mini_choke" offsetY="35" ic="FF344955" img="skills\mini\mini_choke.png" />
+	<sprite id="mini_grapple" offsetY="35" ic="FF344955" img="skills\mini\mini_grapple.png" />
+	<sprite id="mini_tackle" offsetY="35" ic="FF344955" img="skills\mini\mini_tackle.png" />
+	<sprite id="piercing_bolt" ic="FF23165B" img="skills\PiercingBolt.png" />
+	<sprite id="guided_steps_square" ic="FF23165B" img="skills\guided_steps_square.png" />
+	<sprite id="mini_guided_steps_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_guided_steps_circle.png" />
+	<sprite id="holdtheline_square" ic="FF23165B" img="skills\holdtheline_square.png" />
+	<sprite id="status_holdtheline_circle" ic="FF23165B" img="skills\status_holdtheline_circle.png" />
+	<sprite id="mini_holdtheline_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_holdtheline_circle.png" />
+	<sprite id="missile_square" ic="FF23165B" img="skills\missile_square.png" />
+	<sprite id="miasma_square" ic="FF23165B" img="skills\miasma_square.png" />
+	<sprite id="nightvision_square" ic="FF23165B" img="skills\nightvision_square.png" />
+	<sprite id="spears_square" ic="FF23165B" img="skills\spears_square.png" />
+	<sprite id="status_spears_circle" ic="FF23165B" img="skills\status_spears_circle.png" />
+	<sprite id="status_effect_doublestrike" ic="FF23165B" img="skills\status_effect_doublestrike.png" />
+	<sprite id="mini_doublestrike_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_doublestrike_circle.png" />
+	<sprite id="mini_spears_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_spears_circle.png" />
+	<sprite id="revolt_square" ic="FF23165B" img="skills\revolt_square.png" />
+	<sprite id="relax_square" ic="FF23165B" img="skills\relax_square.png" />
+	<sprite id="rebuild_skeleton" ic="FF23165B" img="skills\rebuild_skeleton.png" />
+	<sprite id="rust" ic="FF23165B" img="skills\rust56.png" />
+	<sprite id="skeleton_archer_01_square" ic="FF23165B" img="skills\skeleton_archer_01_square.png" />
+	<sprite id="skeleton_archer_02_square" ic="FF23165B" img="skills\skeleton_archer_02_square.png" />
+	<sprite id="skeleton_archer_03_square" ic="FF23165B" img="skills\skeleton_archer_03_square.png" />
+	<sprite id="arrange_bones" ic="FF23165B" img="skills\arrange_bones.png" />
+	<sprite id="align_joints" ic="FF23165B" img="skills\align_joints.png" />
+	<sprite id="remake_man" ic="FF23165B" img="skills\remake_man.png" />
+	<sprite id="mold_carrion" ic="FF23165B" img="skills\mold_carrion.png" />
+	<sprite id="fashion_body" ic="FF23165B" img="skills\fashion_body.png" />
+	<sprite id="zombie_archer_01_square" ic="FF23165B" img="skills\zombie_archer_01_square.png" />
+	<sprite id="zombie_archer_02_square" ic="FF23165B" img="skills\zombie_archer_02_square.png" />
+	<sprite id="zombie_archer_03_square" ic="FF23165B" img="skills\zombie_archer_03_square.png" />
+	<sprite id="stun56" ic="FF23165B" img="skills\stun56.png" />
+	<sprite id="cat_square" ic="FF23165B" img="skills\cat_square.png" />
+	<sprite id="violent_decomposition" ic="FF23165B" img="skills\violent_decomposition.png" />
+	<sprite id="wither" ic="FF23165B" img="skills\wither56_skill.png" />
+	<sprite id="blood_potion_circle" ic="FF23165B" img="skills\blood_potion_circle.png" />
+	<sprite id="ichor_potion_circle" ic="FF23165B" img="skills\ichor_potion_circle.png" />
+	<sprite id="drums_of_life_circle" ic="FF23165B" img="skills\drums_of_life_circle.png" />
+	<sprite id="drums_of_life_square" ic="FF23165B" img="skills\drums_of_life_square.png" />
+	<sprite id="drums_of_war_square" ic="FF23165B" img="skills\drums_of_war_square.png" />
+	<sprite id="drums_of_war_circle" ic="FF23165B" img="skills\drums_of_war_circle.png" />
+	<sprite id="climb_square" ic="FF23165B" img="skills\climb_square.png" />
+	<sprite id="prayer_purple" ic="FF23165B" img="skills\prayer_purple.png" />
+	<sprite id="prayer_green" ic="FF23165B" img="skills\prayer_green.png" />
+	<sprite id="prayer_blue" ic="FF23165B" img="skills\prayer_green.png" />
+	<sprite id="alcohol" ic="FF23165B" img="skills\alcohol.png" />
+	<sprite id="graze" ic="FF23165B" img="skills\graze.png" />
+	<sprite id="bleed" ic="FF23165B" img="skills\bleed.png" />
+	<sprite id="horse_charge" ic="FF23165B" img="skills\horse_charge.png" />
+	<sprite id="horse_pirouette" ic="FF23165B" img="skills\horse_pirouette.png" />
+	<sprite id="dog_circle" ic="FF23165B" img="skills\dog_circle.png" />
+	<sprite id="wolf_circle" ic="FF23165B" img="skills\wolf_circle.png" />
+	<sprite id="falcon_circle" ic="FF23165B" img="skills\falcon_circle.png" />
+	<sprite id="bear_circle" ic="FF23165B" img="skills\bear_circle.png" />
+	<sprite id="catapult_circle" ic="FF23165B" img="skills\catapult_circle.png" />
+	<sprite id="food_circle" ic="FF23165B" img="skills\food_circle.png" />
+	<sprite id="baffled_circle" ic="FF23165B" img="skills\baffled_circle.png" />
+	<sprite id="fire_circle" ic="FF23165B" img="skills\fire_circle.png" />
+	<sprite id="bluefire_circle" ic="FF23165B" img="skills\bluefire_circle.png" />
+	<sprite id="incoming_circle" ic="FF23165B" img="skills\incoming_circle.png" />
+	<sprite id="throw_sand" ic="FF23165B" img="skills\throw_sand_01.png" />
+	<sprite id="boneplating_effect" ic="FF23165B" img="skills\boneplating_effect.png" />
+	<sprite id="trait_invictus" ic="FF23165B" img="skills\trait_invictus.png" />
+	<sprite id="mini_boneplating_effect" offsetY="35" ic="FF344955" img="skills\mini\mini_boneplating_effect.png" />
+	<sprite id="mini_safegaurd_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_safegaurd_circle.png" />
+	<sprite id="mini_shimmering_visage_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_shimmering_visage_circle.png" />
+	<sprite id="mini_fortified_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_fortified_circle.png" />
+	<sprite id="mini_parried_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_parried_circle.png" />
+	<sprite id="mini_bear_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_bear_circle.png" />
+	<sprite id="mini_wolf_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_wolf_circle.png" />
+	<sprite id="mini_dog_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_dog_circle.png" />
+	<sprite id="mini_falcon_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_falcon_circle.png" />
+	<sprite id="mini_catapult_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_catapult_circle.png" />
+	<sprite id="mini_incoming_circle" ic="FF23165B" img="skills\mini\mini_incoming_circle.png" />
+	<sprite id="mini_omens_circle" ic="FF23165B" img="skills\mini\mini_omens_circle.png" />
+	<sprite id="demon_hound_flame_01" ic="FF23165B" img="skills\demon_hound_flame_01.png" />
+	<sprite id="demon_hound_bite" ic="FF23165B" img="skills\demon_hound_bite.png" />
+	<sprite id="demon_hound_bite_effect" ic="FF23165B" img="skills\demon_hound_bite_effect.png" />
+	<sprite id="mini_graze_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_graze_circle.png" />
+	<sprite id="mini_bleed_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_bleed_circle.png" />
+	<sprite id="mini_food_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_food_circle.png" />
+	<sprite id="mini_baffled_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_baffled_circle.png" />
+	<sprite id="mini_prayer_green" offsetY="35" ic="FF344955" img="skills\mini\mini_prayer_green.png" />
+	<sprite id="mini_prayer_purple" offsetY="35" ic="FF344955" img="skills\mini\mini_prayer_purple.png" />
+	<sprite id="mini_fire_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_fire_circle.png" />
+	<sprite id="mini_bluefire_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_bluefire_circle.png" />
+	<sprite id="mini_throw_sand_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_throw_sand_circle.png" />
+	<sprite id="effect_sanctify_01" ic="FFEFEEEF" img="effects\effect_sanctify_01.png" left="-15" right="16" />
+	<sprite id="effect_sanctify_02" ic="FFEFEEEF" img="effects\effect_sanctify_02.png" left="-15" right="16" />
+	<sprite id="effect_sanctify_03" ic="FFEFEEEF" img="effects\effect_sanctify_03.png" left="-15" right="16" />
+	<sprite id="effect_transform_01" width="80" height="80" img="effects\effect_transform_01.png" left="-39" right="37" top="-34" bottom="36" />
+	<sprite id="effect_transform_02" width="80" height="80" img="effects\effect_transform_02.png" left="-39" right="37" top="-34" bottom="36" />
+	<sprite id="effect_transform_03" width="80" height="80" img="effects\effect_transform_03.png" left="-39" right="37" top="-34" bottom="36" />
+	<sprite id="active_71" ic="FF181B33" img="skills\active_71.png" />
+	<sprite id="active_21" ic="FF181B33" img="skills\active_21.png" />
+	<sprite id="active_24" ic="FF181B33" img="skills\active_24.png" />
+	<sprite id="active_117" ic="FF181B33" img="skills\active_117.png" />
+	<sprite id="rat_bite" ic="FF181B33" img="skills\rat_bite.png" />
+	<sprite id="blowgun_square" ic="FF23165B" img="skills\blowgun_square.png" />
+	<sprite id="mummy_curse" ic="FF23165B" img="skills\mummy_curse.png" />
+	<sprite id="icon_mummy_curse" ic="FF23165B" img="skills\icon_mummy_curse.png" />
+	<sprite id="mini_icon_mummy_curse" offsetY="35" ic="FF344955" img="skills\mini\mini_icon_mummy_curse.png" />
+	<sprite id="active_pass" ic="FF2B206C" img="skills\pass.png" />
+	<sprite id="status_helpful" ic="FF3D536F" img="skills\helpful.png" />
+	<sprite id="active_kick" ic="FF2B206C" img="skills\kick_square.png" />
+	<sprite id="active_choke" ic="FF2B206C" img="skills\choke_square.png" />
+	<sprite id="active_grapple" ic="FF2B206C" img="skills\grapple_square.png" />
+</brush>
