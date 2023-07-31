@@ -201,7 +201,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 						if (this.LegendsMod.Configs().LegendArmorsEnabled())
 						{
 							local rune;
-							local variant = this.Math.rand(21, 23)
+							local variant = this.Math.rand(21, 22)
 							switch (variant)
 							{
 								case 21:
@@ -210,10 +210,6 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 
 								case 22:
 								rune = this.new("scripts/items/legend_armor/runes/legend_rune_safety");
-								break
-
-								case 23:
-								rune = this.new("scripts/items/legend_armor/runes/legend_rune_resilience");
 								break
 							}
 							rune.setRuneVariant(variant);
@@ -232,7 +228,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 						if (this.Math.rand(1, 100) <= chance)
 						{
 							local rune;
-							local variant = this.Math.rand(21, 23)
+							local variant = this.Math.rand(21, 22)
 							switch (variant)
 							{
 								case 21:
@@ -241,10 +237,6 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 
 								case 22:
 								rune = this.new("scripts/items/legend_armor/runes/legend_rune_safety");
-								break
-
-								case 23:
-								rune = this.new("scripts/items/legend_armor/runes/legend_rune_resilience");
 								break
 							}
 							rune.setRuneVariant(variant);
