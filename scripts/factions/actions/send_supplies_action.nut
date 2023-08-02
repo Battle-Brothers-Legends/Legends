@@ -86,9 +86,9 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 		party.setMirrored(true);
 		party.setDescription("A caravan with armed escorts transporting provisions, supplies and equipment between settlements.");
 		party.setFootprintType(this.Const.World.FootprintsType.Caravan);
-		party.setOrigin(this.World.State.getCurrentTown());
 		party.getFlags().set("IsCaravan", true);
 		party.getFlags().set("IsRandomlySpawned", true);
+		party.setOrigin(this.m.Start);
 
 		if (this.World.Assets.m.IsBrigand && this.m.Start.getTile().getDistanceTo(this.World.State.getPlayer().getTile()) <= 70)
 		{
@@ -97,20 +97,22 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 			party.setDiscovered(true);
 		}
 
+		// the inital goods this caravan has
 		if (this.m.Start.getProduce().len() != 0)
 		{
-			local produce = 3
+			local produce = 3;
 			if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 			{
 				produce = this.Math.max(3, 3 + this.Math.round(0.05 * this.m.Start.getResources()));
 			}
 
+			local getAsString = !::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue(); 
 			for( local j = 0; j < produce; j = ++j )
 			{
-				party.addToInventory(this.m.Start.getProduce()[this.Math.rand(0, this.m.Start.getProduce().len() - 1)]);
+				local p = ::MSU.Array.rand(this.m.Start.getProduce())
+				party.addToInventory(getAsString ? p : this.new("scripts/items/" + p));
 			}
 		}
-
 
 		party.getLoot().Money = this.Math.floor(this.Math.rand(0, 100) * r);
 		local r = this.Math.rand(1, 3);
@@ -130,48 +132,39 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			local town = this.m.Start;
-			local value = 0; 
-			foreach (building in town.getBuildings())
+			local value = 0;
+			// gather goods from shops to export
+			foreach (building in this.m.Start.getBuildings())
 			{
 				local stash = building.getStash()
 				if (stash != null)
 				{
 					foreach (item in stash.getItems())
 					{
-					if (item == null) continue;
+						if (item == null) continue;
 
-
-						if (::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
+						if (item.isItemType(this.Const.Items.ItemType.TradeGood))
 						{
-							if (item.isItemType(this.Const.Items.ItemType.TradeGood))
+							party.addToInventory(item);
+						}
+						else if (this.Math.rand(1, 10) == 1)
+						{
+							party.addToInventory(item);
+							if (item.getValue() > 0)
 							{
-								party.addToInventory(item);
-								
+								value += item.getValue() * 0.01;
 							}
-							else
-							{
-								local r = this.Math.rand(1,10);
-								if (r == 1)
-								{							
-								party.addToInventory(item);
-									if (item.getValue())
-									{
-									value += item.getValue() * 0.01;
-									}
-								}
-							}
-
 						}
 					}
 				}
-			value = this.Math.floor(value);
-			local resources = this.Math.max(1, this.Math.round(0.025 * town.getResources()));
-			local total = value + resources;
-			town.setResources(town.getResources() - total);
-			party.setResources(resources + value);
-			this.logWarning("Exporting " + resources + " resources and " + party.getInventory().len() + "items from " + town.getName() + " via a caravan bound for " + this.m.Dest.getName() + " town")
 			}
+
+			value = this.Math.floor(value);
+			local resources = this.Math.max(1, this.Math.round(0.025 * this.m.Start.getResources()));
+			local total = value + resources;
+			this.m.Start.setResources(this.m.Start.getResources() - total);
+			party.setResources(resources + value);
+			this.logWarning("Exporting " + resources + " resources and " + party.getStashInventory().getItems().len() + " items from " + this.m.Start.getName() + " via a caravan bound for " + this.m.Dest.getName() + " town")
 		}
 		else
 		{
