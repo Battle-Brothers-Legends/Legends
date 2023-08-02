@@ -53,13 +53,26 @@ this.legend_oms_paw_item <- this.inherit("scripts/items/accessory/accessory", {
 			});
 		}
 
-		result.push({
-			id = 10,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Does something...?"
-		});
-		return result;
+		if (!this.World.Flags.get("Item Identified"))
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Does something...?"
+			});
+			return result;
+		}
+		else
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Adds an addition +6 to fatigue recovery per turn. Increases the effect from morale effects and mental attacks by 50%."
+			});
+			return result;
+		}
 	}
 
 	function onUpdate( _properties )

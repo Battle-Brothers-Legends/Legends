@@ -53,19 +53,32 @@ this.legend_oms_fate_item <- this.inherit("scripts/items/accessory/accessory", {
 			});
 		}
 
-		result.push({
-			id = 10,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Does something...?"
-		});
-		return result;
+		if (!this.World.Flags.get("Item Identified"))
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Does something...?"
+			});
+			return result;
+		}
+		else
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Chance to survive after being struck down will always be zero. Gain +40% chance to reroll an attack that would normally hit you."
+			});
+			return result;
+		}
 	}
 
 	function onUpdate( _properties )
 	{
 		_properties.SurviveWithInjuryChanceMult = 0.0;
-		_properties.RerollDefenseChance += 25;
+		_properties.RerollDefenseChance += 40;
 	}
 
 });

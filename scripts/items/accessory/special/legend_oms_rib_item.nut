@@ -53,13 +53,26 @@ this.legend_oms_rib_item <- this.inherit("scripts/items/accessory/accessory", {
 			});
 		}
 
-		result.push({
-			id = 10,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Does something...?"
-		});
-		return result;
+		if (!this.World.Flags.get("Item Identified"))
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Does something...?"
+			});
+			return result;
+		}
+		else
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Damage from ranged weapons reduced by 66%. Damage received from leee weapons increased by 33%."
+			});
+			return result;
+		}
 	}
 
 	function onUpdateProperties( _properties )
