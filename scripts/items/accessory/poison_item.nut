@@ -5,7 +5,7 @@ this.poison_item <- this.inherit("scripts/items/accessory/accessory", {
 		this.accessory.create();
 		this.m.ID = "accessory.poison";
 		this.m.Name = "Goblin Poison";
-		this.m.Description = "A flask of spider poison used by goblins. Can be used to coat your weapons and arrowtips.";
+		this.m.Description = "A flask of poison used by goblins. Can be used to coat your weapons and arrowtips.";
 		this.m.SlotType = this.Const.ItemSlot.Bag;
 		this.m.IsAllowedInBag = true;
 		this.m.IsDroppedAsLoot = true;
