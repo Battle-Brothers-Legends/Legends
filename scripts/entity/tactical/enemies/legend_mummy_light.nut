@@ -78,8 +78,7 @@ this.legend_mummy_light <- this.inherit("scripts/entity/tactical/legend_mummy", 
 		{
 			local weapons = [
 				[
-					"weapons/short_bow",
-					"ammo/quiver_of_arrows"
+					"weapons/legend_sling"
 				]
 			];
 			local n = this.Math.rand(0, weapons.len() - 1);
