@@ -77,7 +77,7 @@ this.send_barbarian_ambushers_action <- this.inherit("scripts/factions/faction_a
 				continue;
 			}
 
-			if (s.getLastSpawnTime() + 300.0 > this.Time.getVirtualTimeF())
+			if (s.getLastSpawnTime() + 100.0 > this.Time.getVirtualTimeF())
 			{
 				continue;
 			}
@@ -95,7 +95,10 @@ this.send_barbarian_ambushers_action <- this.inherit("scripts/factions/faction_a
 		}
 
 		local settlement = this.pickWeightedRandom(settlements);
+		if (settlement != null)
+		{
 		settlement.setLastSpawnTimeToNow();
+		}
 		local mult = this.World.FactionManager.isCivilWar() ? 1.1 : 1.0;
 			if (this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
