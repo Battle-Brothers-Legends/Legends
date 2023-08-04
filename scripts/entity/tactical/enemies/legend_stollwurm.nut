@@ -29,7 +29,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 		}
 	}
 
-		function getImageOffsetY()
+	function getImageOffsetY()
 	{
 		return 20;
 	}
@@ -154,7 +154,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 			{
 				local n = 1 + (!this.Tactical.State.isScenarioMode() && this.Math.rand(1, 100) <= this.World.Assets.getExtraLootChance() ? 1 : 0);
 
-				for( local i = 0; i < n; i = ++i )
+				for( local i = 0; i < n; i = i )
 				{
 					if (this.Const.DLC.Unhold)
 					{
@@ -162,6 +162,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 						local loot;
 						loot = this.new("scripts/items/misc/legend_stollwurm_scales_item");
 						loot.drop(_tile);
+
 						if (r <= 35)
 						{
 							loot = this.new("scripts/items/misc/legend_stollwurm_blood_item");
@@ -177,41 +178,47 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 							loot = this.new("scripts/items/misc/lindwurm_bones_item");
 							loot.drop(_tile);
 						}
+
 						local r = this.Math.rand(1, 100);
+
 						if (r <= 30)
 						{
 							loot = this.new("scripts/items/misc/legend_stollwurm_blood_item");
 							loot.drop(_tile);
 						}
+
 						local r = this.Math.rand(1, 100);
+
 						if (r <= 30)
 						{
 							loot = this.new("scripts/items/misc/lindwurm_bones_item");
 							loot.drop(_tile);
-						}						
-						
+						}
 
 						loot.drop(_tile);
-
 						local chance = 50;
+
 						if (this.LegendsMod.Configs().LegendMagicEnabled())
 						{
 							chance = 100;
 						}
-						if (this.LegendsMod.Configs().LegendArmorsEnabled())
+
+						if (this.Math.rand(1, 100) <= chance)
 						{
 							local rune;
-							local variant = this.Math.rand(21, 22)
-							switch (variant)
+							local variant = this.Math.rand(21, 22);
+
+							switch(variant)
 							{
-								case 21:
+							case 21:
 								rune = this.new("scripts/items/legend_armor/runes/legend_rune_endurance");
 								break;
 
-								case 22:
+							case 22:
 								rune = this.new("scripts/items/legend_armor/runes/legend_rune_safety");
-								break
+								break;
 							}
+
 							rune.setRuneVariant(variant);
 							rune.setRuneBonus(true);
 							rune.setRuneVariant(0);
@@ -220,25 +227,28 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 						else
 						{
 							local token = this.new("scripts/items/rune_sigils/legend_vala_inscription_token");
-							token.setRuneVariant(this.Math.rand(21, 23));
+							token.setRuneVariant(this.Math.rand(21, 22));
 							token.setRuneBonus(true);
 							token.updateRuneSigilToken();
 							token.drop(_tile);
-							}
+						}
+
 						if (this.Math.rand(1, 100) <= chance)
 						{
 							local rune;
-							local variant = this.Math.rand(21, 22)
-							switch (variant)
+							local variant = this.Math.rand(21, 22);
+
+							switch(variant)
 							{
-								case 21:
+							case 21:
 								rune = this.new("scripts/items/legend_armor/runes/legend_rune_endurance");
 								break;
 
-								case 22:
+							case 22:
 								rune = this.new("scripts/items/legend_armor/runes/legend_rune_safety");
-								break
+								break;
 							}
+
 							rune.setRuneVariant(variant);
 							rune.setRuneBonus(true);
 							rune.setRuneVariant(0);
@@ -250,6 +260,8 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 						local loot = this.new("scripts/items/tools/acid_flask_item");
 						loot.drop(_tile);
 					}
+
+					i = ++i;
 				}
 
 				if (!this.Const.DLC.Unhold || this.Math.rand(1, 100) <= 90)
@@ -326,6 +338,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 		b.IsMovable = false;
 		b.IsImmuneToDisarm = true;
 		b.IsAffectedByRain = false;
+
 		if (!this.Tactical.State.isScenarioMode() && this.World.getTime().Days >= 170)
 		{
 			b.MeleeSkill += 10;
@@ -377,7 +390,8 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_composure"));
 		this.m.Skills.add(this.new("scripts/skills/actives/legend_stollwurm_move_skill"));
-		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
+
+		if (("Assets" in this.World) && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
 			this.m.Hitpoints = b.Hitpoints * 1.5;
 			this.m.ActionPoints = b.ActionPoints + 5;
@@ -386,28 +400,33 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_killing_frenzy"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 		}
+
 		if (!this.Tactical.State.isScenarioMode())
 		{
 			local dateToSkip = 0;
-			switch (this.World.Assets.getCombatDifficulty())
+
+			switch(this.World.Assets.getCombatDifficulty())
 			{
-				case this.Const.Difficulty.Easy:
-					dateToSkip = 250;
-					break;
-				case this.Const.Difficulty.Normal:
-					dateToSkip = 200
-					break;
-				case this.Const.Difficulty.Hard:
-					dateToSkip = 150
-					break;
-				case this.Const.Difficulty.Legendary:
-					dateToSkip = 100
-					break;
+			case this.Const.Difficulty.Easy:
+				dateToSkip = 250;
+				break;
+
+			case this.Const.Difficulty.Normal:
+				dateToSkip = 200;
+				break;
+
+			case this.Const.Difficulty.Hard:
+				dateToSkip = 150;
+				break;
+
+			case this.Const.Difficulty.Legendary:
+				dateToSkip = 100;
+				break;
 			}
 
 			if (this.World.getTime().Days >= dateToSkip)
 			{
-				local bonus = this.Math.min(1, this.Math.floor( (this.World.getTime().Days - dateToSkip) / 20.0));
+				local bonus = this.Math.min(1, this.Math.floor((this.World.getTime().Days - dateToSkip) / 20.0));
 				b.MeleeSkill += bonus;
 				b.RangedSkill += bonus;
 				b.MeleeDefense += this.Math.floor(bonus / 2);
@@ -415,7 +434,6 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 				b.Hitpoints += this.Math.floor(bonus * 2);
 				b.Initiative += this.Math.floor(bonus / 2);
 				b.Stamina += bonus;
-			//	b.XP += this.Math.floor(bonus * 4);
 				b.Bravery += bonus;
 				b.FatigueRecoveryRate += this.Math.floor(bonus / 4);
 			}
@@ -436,7 +454,7 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 			}
 			else
 			{
-				for( local i = 0; i < 6; i = ++i )
+				for( local i = 0; i < 6; i = i )
 				{
 					if (!myTile.hasNextTile(i))
 					{
@@ -446,6 +464,8 @@ this.legend_stollwurm <- this.inherit("scripts/entity/tactical/actor", {
 						spawnTile = myTile.getNextTile(i);
 						break;
 					}
+
+					i = ++i;
 				}
 			}
 
