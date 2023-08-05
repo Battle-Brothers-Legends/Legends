@@ -65,16 +65,41 @@ this.witchhut_enter_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{	//may replace this with a flag on the old man sells event later
-				if (item != null && item.getID() == "accessory.legend_oms_amphora" || "accessory.legend_oms_fate" || "accessory.legend_oms_tome" || "accessory.legend_oms_paw" || "accessory.legend_oms_rib")
+				local brothers = this.World.getPlayerRoster().getAll();				
+				
+				foreach( bro in brothers ) //replicated in oracle_event.nut
 				{
-					this.Options.push({
-						Text = "Can you tell me what this relic does?",
-						function getResult( _event )
-						{
-							this.World.Flags.set("Item Identified", true); //Used to change the description of the identified item to explain it's effect(s)
-							return "Relic_identify";
-						}
-					});
+					local item = bro.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory);
+
+					if (item != null && item.getID() == "accessory.legend_oms_amphora" || item.getID() == "accessory.legend_oms_fate" || item.getID() == "accessory.legend_oms_tome" || item.getID() == "accessory.legend_oms_paw" || item.getID() == "accessory.legend_oms_rib"))
+					{
+						this.Options.push({
+							Text = "Can tell me what this relic does?",
+							function getResult( _event )
+							{
+								this.World.Flags.set("Item Identified", true); //Used to change the description of the identified item to explain it's effect(s)
+								return "Relic_identify";
+							}
+						});
+					}
+				}
+
+				foreach( item in stash )
+				{
+					local stash = this.World.Assets.getStash().getItems();
+
+					if (item != null && item.getID() == "accessory.legend_oms_amphora" || item.getID() == "accessory.legend_oms_fate" || item.getID() == "accessory.legend_oms_tome" || item.getID() == "accessory.legend_oms_paw" || item.getID() == "accessory.legend_oms_rib"))
+				
+					{
+						this.Options.push({
+							Text = "Can tell me what this relic does?",
+							function getResult( _event )
+							{
+								this.World.Flags.set("Item Identified", true); //Used to change the description of the identified item to explain it's effect(s)
+								return "Relic_identify";
+							}
+						});
+					}
 				}
 			}
 

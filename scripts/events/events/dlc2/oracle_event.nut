@@ -59,21 +59,70 @@ this.oracle_event <- this.inherit("scripts/events/event", {
 
 				}
 			],
+
+// function findItem()
+// {
+// 	local itemIDs = [
+// 		"id1",
+// 		"id2",
+// 		"id3",
+// 	];
+
+// 	foreach (bro in this.World.getPlayerRoster().getAll())
+// 	{
+// 		local item = bro.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory);
+
+// 		if (item != null && itemIDs.find(item.getID()) != null) return true;
+// 	}
+
+// 	foreach (id in itemIDs)
+// 	{
+// 		if (this.World.Assets.getStash().hasItem(id)) return true;
+// 	}
+
+// 	return false;
+// }
+///-----Will clean up the below with the above later - Luft
+
 			function start( _event )
 			{	//may replace this with a flag on the old man sells event later
-				if (item != null && item.getID() == "accessory.legend_oms_amphora" || "accessory.legend_oms_fate" || "accessory.legend_oms_tome" || "accessory.legend_oms_paw" || "accessory.legend_oms_rib")
+				local brothers = this.World.getPlayerRoster().getAll();				
+				
+				foreach( bro in brothers )
 				{
-					this.Options.push({
-						Text = "I\'ll pay you 100 crowns if you can tell me what this relic does.",
-						function getResult( _event )
-						{
-							this.World.Flags.set("Item Identified", true); //Used to change the description of the identified item to explain it's effect(s)
-							return "Relic_identify";
-						}
-					});
+					local item = bro.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory);
+
+					if (item != null && item.getID() == "accessory.legend_oms_amphora" || item.getID() == "accessory.legend_oms_fate" || item.getID() == "accessory.legend_oms_tome" || item.getID() == "accessory.legend_oms_paw" || item.getID() == "accessory.legend_oms_rib"))
+					{
+						this.Options.push({
+							Text = "I\'ll pay you 100 crowns if you can tell me what this relic does.",
+							function getResult( _event )
+							{
+								this.World.Flags.set("Item Identified", true); //Used to change the description of the identified item to explain it's effect(s)
+								return "Relic_identify";
+							}
+						});
+					}
+				}
+
+				foreach( item in stash )
+				{
+					local stash = this.World.Assets.getStash().getItems();
+
+					if (item != null && item.getID() == "accessory.legend_oms_amphora" || item.getID() == "accessory.legend_oms_fate" || item.getID() == "accessory.legend_oms_tome" || item.getID() == "accessory.legend_oms_paw" || item.getID() == "accessory.legend_oms_rib"))
+				
+					{
+						this.Options.push({
+							Text = "I\'ll pay you 100 crowns if you can tell me what this relic does.",
+							function getResult( _event )
+							{
+								this.World.Flags.set("Item Identified", true); //Used to change the description of the identified item to explain it's effect(s)
+								return "Relic_identify";
+							}
+						});
+					}
 				}
 			}
-
 		});
 		this.m.Screens.push({
 			ID = "Relic_identify",
