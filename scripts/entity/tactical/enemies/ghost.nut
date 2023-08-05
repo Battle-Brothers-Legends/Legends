@@ -238,5 +238,23 @@ this.ghost <- this.inherit("scripts/entity/tactical/actor", {
 		}
 	}
 
+	function makeMiniboss()
+	{
+		if (!this.actor.makeMiniboss())
+		{
+			return false;
+		}
+
+		this.getSprite("miniboss").setBrush("bust_miniboss");
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_nine_lives"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_fast_adaption"));
+		this.m.ActionPoints = 12;
+		this.m.BaseProperties.ActionPoints = 12;
+		this.m.Skills.update();
+
+		return true;
+	}
+
 });
 
