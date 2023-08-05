@@ -119,7 +119,7 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local bonus = this.getBonus();
-		_properties.MeleeDefense = bonus;
-		_properties.RangedDefense = bonus;
+		_properties.MeleeDefense += bonus;
+		_properties.RangedDefense += bonus;
 	}
 });
