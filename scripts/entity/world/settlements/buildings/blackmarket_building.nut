@@ -51,6 +51,7 @@ this.blackmarket_building <- this.inherit("scripts/entity/world/settlements/buil
 		this.m.UIImage = "ui/settlements/blackmarket_day";
 		this.m.UIImageNight = "ui/settlements/blackmarket_night"; 
 		this.m.Tooltip = "world-town-screen.main-dialog-module.Blackmarket";
+		this.m.TooltipIcon = "ui/icons/buildings/blackmarket.png";
 		this.m.IsClosedAtDay = true;
 		this.m.IsClosedAtNight = false;
 		this.m.Stash = this.new("scripts/items/stash_container");
