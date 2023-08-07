@@ -528,27 +528,31 @@ this.blackmarket_building <- this.inherit("scripts/entity/world/settlements/buil
 				P = 20.0,
 				S = "special/fountain_of_youth_item"
 			},
-			// runes removed due to being bugged when acquired this way
-			//{
-			//	R = 90,
-			//	P = 20.0,
-			//	S = "legend_armor/runes/legend_rune_safety"
-			//},
-			//{
-			//	R = 90,
-			//	P = 20.0,
-			//	S = "legend_armor/runes/legend_rune_resilience"
-			//},
-			//{
-			//	R = 90,
-			//	P = 20.0,
-			//	S = "legend_helmets/runes/legend_rune_bravery"
-			//},
-			//{
-			//	R = 90,
-			//	P = 20.0,
-			//	S = "legend_helmets/runes/legend_rune_clarity"
-			//},
+			{
+				R = 90,
+				P = 20.0,
+				S = "legend_armor/runes/legend_rune_safety"
+			},
+			{
+				R = 90,
+				P = 20.0,
+				S = "legend_armor/runes/legend_rune_endurance"
+			},
+			{
+				R = 90,
+				P = 20.0,
+				S = "legend_helmets/runes/legend_rune_luck"
+			},
+			{
+				R = 90,
+				P = 20.0,
+				S = "legend_helmets/runes/legend_rune_bravery"
+			},
+			{
+				R = 90,
+				P = 20.0,
+				S = "legend_helmets/runes/legend_rune_clarity"
+			},
 			{
 				R = 30,
 				P = 3.0,

@@ -19,6 +19,8 @@ this.legend_rune_endurance <- this.inherit("scripts/items/legend_armor/legend_ar
 		this.m.SpriteCorpseFront = "";
 		this.m.SpriteCorpseBack = "";
 		this.m.Value = 1200;
+		this.setRuneVariant(21);
+		this.setRuneBonus(false); // false = unupgraded enchanter stats. true = upgraded enchanter stats
 	}
 
 	function getTooltip()
