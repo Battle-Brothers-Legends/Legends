@@ -680,6 +680,37 @@ this.legends_swamp_fort <- this.inherit("scripts/entity/world/settlements/legend
 	{
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/crowd_building"), 5);
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/marketplace_building"), 2);
+
+		if (::Legends.Mod.ModSettings.getSetting("StackCitadels").getValue())
+		{
+			local ALL = [
+				this.Const.World.TerrainType.Plains,
+				this.Const.World.TerrainType.Steppe,
+				this.Const.World.TerrainType.Snow,
+				this.Const.World.TerrainType.Hills,
+				this.Const.World.TerrainType.Tundra,
+				this.Const.World.TerrainType.Forest,
+				this.Const.World.TerrainType.SnowyForest,
+				this.Const.World.TerrainType.AutumnForest,
+				this.Const.World.TerrainType.LeaveForest
+			];
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/training_hall_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/armorsmith_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/weaponsmith_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/fletcher_building"));
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/stone_watchtower_location", ALL, [], 5, true, true, true);
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/fortified_outpost_location", ALL, [], 1, true, true, true);
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/fletchers_hut_location", ALL, [], 0, false, true, true);
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/ore_smelters_location", ALL, [], 0, false, true, true);
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/blast_furnace_location", ALL, [], 0, false, true, true);
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/workshop_location", ALL, [], 0, false, true, true);
+
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/pig_farm_location", ALL, [], 0, false, true, true);
+			this.buildAttachedLocation(1, "scripts/entity/world/attached_location/brewery_location", ALL, [], 0, false, true, true);
+			return;
+		}
+
+
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/armorsmith_building"));
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/weaponsmith_building"));
 
