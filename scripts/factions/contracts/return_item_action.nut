@@ -21,7 +21,7 @@ this.return_item_action <- this.inherit("scripts/factions/faction_action", {
 			return;
 		}
 
-		if (this.World.getTime().Days <= 3 && this.Math.rand(1, 100) < 20 || this.Math.rand(1, 100) > 9)
+		if (this.World.getTime().Days >= 20 && this.Math.rand(1, 100) > 9)
 		{
 			return;
 		}
