@@ -68,7 +68,7 @@ gt.Const.Contracts.Overview <- [
 
 			if (this.Contract.m.Payment.IsFinal)
 			{
-				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no, no.  | %SPEECH_START%Who do you think you are? I tell you how you\'re getting paid.  | He just looks at you sternly and shakes his head.%SPEECH_ON% | %SPEECH_START%No way!%SPEECH_OFF%He shouts, bursting with anger. | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Do not push me too far!  | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }%SPEECH_OFF%";
+				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no and no.  | %SPEECH_START%Who do you think you are? I tell you how much you\'re getting paid!  | They look at you sternly and shake their head.%SPEECH_ON% | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Don\'t not push me too far! | %SPEECH_START%This isn\'t worth that much to me. | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }%SPEECH_OFF%";
 			}
 			this.Contract.m.IsNegotiated = true;
 		}
@@ -266,7 +266,7 @@ gt.Const.Contracts.NegotiationDefault <- [
 			}
 			else if (this.Contract.m.Payment.IsFinal)
 			{
-				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no, no.  | %SPEECH_START%Who do you think you are? I tell you how you\'re getting paid.  | He just looks at you sternly and shakes his head.%SPEECH_ON% | %SPEECH_START%No way!%SPEECH_OFF%He shouts, bursting with anger. | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Do not push me too far!  | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }";
+				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no, no.  | %SPEECH_START%Who do you think you are? I tell you how you\'re getting paid.  | He just looks at you sternly and shakes his head.%SPEECH_ON% | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Do not push me too far!  | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }";
 			}
 			else
 			{
@@ -582,7 +582,7 @@ gt.Const.Contracts.NegotiationPerHead <- [
 			}
 			else if (this.Contract.m.Payment.IsFinal)
 			{
-				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no, no.  | %SPEECH_START%Who do you think you are? I tell you how you\'re getting paid.  | He just looks at you sternly and shakes his head.%SPEECH_ON% | %SPEECH_START%No way!%SPEECH_OFF%He shouts, bursting with anger. | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Do not push me too far!  | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }";
+				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no, no.  | %SPEECH_START%Who do you think you are? I tell you how you\'re getting paid.  | He just looks at you sternly and shakes his head.%SPEECH_ON% | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Do not push me too far!  | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }";
 			}
 			else
 			{
@@ -916,7 +916,7 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 			}
 			else if (this.Contract.m.Payment.IsFinal)
 			{
-				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no, no.  | %SPEECH_START%Who do you think you are? I tell you how you\'re getting paid.  | He just looks at you sternly and shakes his head.%SPEECH_ON% | %SPEECH_START%No way!%SPEECH_OFF%He shouts, bursting with anger. | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Do not push me too far!  | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }";
+				this.Text = "[img]gfx/ui/events/event_04.png[/img]{%SPEECH_START%I refuse to pay any more for this.  | %SPEECH_START%Be reasonable.  | %SPEECH_START%No, no, no.  | %SPEECH_START%Who do you think you are? I tell you how you\'re getting paid.  | He just looks at you sternly and shakes his head.%SPEECH_ON% | %SPEECH_START%No, you are already getting more than you\'re worth.  | %SPEECH_START%No. Do not push me too far!  | %SPEECH_START%I don\'t think you quite understand how this works. We need to come to terms if you want to be paid for this. My offer still stands. }";
 			}
 			else
 			{
