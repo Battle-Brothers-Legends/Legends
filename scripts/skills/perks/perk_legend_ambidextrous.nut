@@ -68,7 +68,8 @@ this.perk_legend_ambidextrous <- this.inherit("scripts/skills/skill", {
 	function onAnySkillExecuted( _skill, _targetTile, _targetEntity, _forFree )
 	{
 		local items = this.getContainer().getActor().getItems();
-		if (_targetEntity != null && !items.hasBlockedSlot(this.Const.ItemSlot.Offhand))
+		local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
+		if (_targetEntity != null && !items.hasBlockedSlot(this.Const.ItemSlot.Offhand) && off == null)
 		{
 			if (!_forFree)
 			{
