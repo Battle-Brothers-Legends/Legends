@@ -1468,7 +1468,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 
 		foreach( bro in roster )
 		{
-			if (bro.isInReserves() && bro.getSkills().hasSkill("perk.legend_peaceful"))
+			if (bro.isInReserves() && bro.getSkills().hasSkill("perk.legend_pacifist"))
 			{
 				bro.addXP(this.Math.max(1, this.Math.floor(XPgroup / brothers.len())));
 			}
