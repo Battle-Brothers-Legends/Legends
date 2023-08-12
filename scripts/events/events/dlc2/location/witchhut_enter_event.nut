@@ -71,7 +71,7 @@ this.witchhut_enter_event <- this.inherit("scripts/events/event", {
 				{
 					local item = bro.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory);
 
-					if (item != null && item.getID() == "accessory.legend_oms_amphora" || item.getID() == "accessory.legend_oms_fate" || item.getID() == "accessory.legend_oms_tome" || item.getID() == "accessory.legend_oms_paw" || item.getID() == "accessory.legend_oms_rib"))
+					if (item != null && item.getID() == "accessory.legend_oms_amphora" || item.getID() == "accessory.legend_oms_fate" || item.getID() == "accessory.legend_oms_tome" || item.getID() == "accessory.legend_oms_paw" || item.getID() == "accessory.legend_oms_rib")
 					{
 						this.Options.push({
 							Text = "Can tell me what this relic does?",
@@ -88,7 +88,7 @@ this.witchhut_enter_event <- this.inherit("scripts/events/event", {
 				{
 					local stash = this.World.Assets.getStash().getItems();
 
-					if (item != null && item.getID() == "accessory.legend_oms_amphora" || item.getID() == "accessory.legend_oms_fate" || item.getID() == "accessory.legend_oms_tome" || item.getID() == "accessory.legend_oms_paw" || item.getID() == "accessory.legend_oms_rib"))
+					if (item != null && item.getID() == "accessory.legend_oms_amphora" || item.getID() == "accessory.legend_oms_fate" || item.getID() == "accessory.legend_oms_tome" || item.getID() == "accessory.legend_oms_paw" || item.getID() == "accessory.legend_oms_rib")
 				
 					{
 						this.Options.push({
