@@ -168,7 +168,7 @@ this.legend_orc_behemoth <- this.inherit("scripts/entity/tactical/actor", {
 
 			this.spawnTerrainDropdownEffect(_tile);
 			local corpse = clone this.Const.Corpse;
-			corpse.CorpseName = "An Orc Elite";
+			corpse.CorpseName = "An Orc Behemoth";
 			corpse.Tile = _tile;
 			corpse.IsResurrectable = false;
 			corpse.IsConsumable = true;
