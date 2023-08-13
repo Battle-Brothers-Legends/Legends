@@ -104,16 +104,20 @@ this.legend_mummy_heavy <- this.inherit("scripts/entity/tactical/legend_mummy", 
 		}
 
 		local weapons = [
-			[1, "named_billhook"],
+			[1, "legend_named_gladius"],
 			[1, "named_crypt_cleaver"],
 			[1, "named_khopesh"],
 			[1, "named_legend_great_khopesh"],
-			[1, "named_rusty_warblade"]
+			[1, "named_warscythe"],
+			[1, "named_bladed_pike"]
 
 		]
 
 		local weaponAdd = this.Const.World.Common.pickItem(weapons, "scripts/items/weapons/named/");
 		this.m.Items.equip(weaponAdd);
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_forceful_swing"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_sundering_strikes"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
 
 	}
 
