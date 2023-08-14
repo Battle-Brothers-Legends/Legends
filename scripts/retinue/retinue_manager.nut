@@ -136,7 +136,7 @@ this.retinue_manager <- {
 				IsUnlocked = p.isUnlocked(),
 				Cost = p.getCost(),
 				Effects = p.getEffects(),
-				Requirements = p.getRequirements()
+				Requirements = p.getRequirementsForUI()
 			});
 		}
 

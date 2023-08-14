@@ -182,7 +182,7 @@ this.item <- {
 
 	function isDroppedAsLoot()
 	{
-		return this.m.IsDroppedAsLoot;
+		return this.m.IsDroppedAsLoot || this.isNamed();
 	}
 
 	function isSold()

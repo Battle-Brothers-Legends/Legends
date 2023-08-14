@@ -9,12 +9,12 @@ this.legends_snow_village <- this.inherit("scripts/entity/world/settlements/lege
 			"Kravlund",
 			"Bola",
 			"Ravestad",
-						"Gammeljord",
-						"Tabtmennesker",
-						"Morktoppe",
-						"Lysdal",
-						"Narredod",
-						"Forsvinde",
+			"Gammeljord",
+			"Tabtmennesker",
+			"Morktoppe",
+			"Lysdal",
+			"Narredod",
+			"Forsvinde",
 			"Alsliv",
 			"Hellevad",
 			"Heimstad",
@@ -546,7 +546,7 @@ this.legends_snow_village <- this.inherit("scripts/entity/world/settlements/lege
 		}
 		else if (r == 3)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 
 		if (this.Math.rand(1, 100) <= 50)
@@ -613,9 +613,9 @@ this.legends_snow_village <- this.inherit("scripts/entity/world/settlements/lege
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/temple_building"));
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/tavern_building"));
 
-		if (this.Math.rand(1, 100) <= 50 || this.Const.World.Buildings.Barbers == 0)
+		if (this.Math.rand(1, 100) <= 50 || this.Const.World.Buildings.Blackmarket == 0)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else
 		{

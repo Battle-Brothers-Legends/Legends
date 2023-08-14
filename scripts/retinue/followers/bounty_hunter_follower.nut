@@ -12,23 +12,18 @@ this.bounty_hunter_follower <- this.inherit("scripts/retinue/follower", {
 			"Significantly increases the chance of encountering champions",
 			"Pays between 300 and 750 crowns for every champion slain"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = ""
-			},
-			{
-				IsSatisfied = false,
-				Text = "Have at least one of the following backgrounds: Manhunter, Witch Hunter, Beast Slayer"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addRequirement("Have at least a named or a legendary items in your possession ", function() {
+			return this.getNumberOfNamedItems() >= 1;
+		});
+
+		this.addSkillRequirement("Have at least one of the following backgrounds: Manhunter, Witch Hunter, Beast Slayer", [
 			"background.witchhunter",
 			"background.beast_slayer",
 			"background.manhunter",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		]
+		]);
 	}
 
 	function isValid()
@@ -40,19 +35,6 @@ this.bounty_hunter_follower <- this.inherit("scripts/retinue/follower", {
 	{
 		if ("ChampionChanceAdditional" in this.World.Assets.m)
 			this.World.Assets.m.ChampionChanceAdditional = 3;
-	}
-
-	function onEvaluate()
-	{
-		local namedItems = this.getNumberOfNamedItems();
-
-		this.m.Requirements[0].Text = "Have " + this.Math.min(1, namedItems) + "/1 named or legendary items in your possession ";
-		if (namedItems >= 1) 
-		{
-			this.m.Requirements[0].IsSatisfied = true;
-		} 
-
-		this.follower.onEvaluate();
 	}
 
 	function onChampionKilled( _champion )

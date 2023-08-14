@@ -18,10 +18,10 @@ this.legends_swamp_village <- this.inherit("scripts/entity/world/settlements/leg
 			"Lauenbruck",
 			"Farnheim",
 			"Birkhain",
-						"Rankestadt",
-						"Trubewasser",
-						"Sumpfschritt",
-						"Verschwunden",
+			"Rankestadt",
+			"Trubewasser",
+			"Sumpfschritt",
+			"Verschwunden",
 			"Ahlen",
 			"Suderbusch",
 			"Altenfurth",
@@ -468,7 +468,7 @@ this.legends_swamp_village <- this.inherit("scripts/entity/world/settlements/leg
 			}
 			else if (r == 3)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 		}
 		else
@@ -481,7 +481,7 @@ this.legends_swamp_village <- this.inherit("scripts/entity/world/settlements/leg
 			}
 			else if (r == 3)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 		}
 
@@ -558,9 +558,9 @@ this.legends_swamp_village <- this.inherit("scripts/entity/world/settlements/leg
 		{
 			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/taxidermist_building"));
 		}
-		else if (this.Math.rand(1, 100) <= 80 || this.Const.World.Buildings.Barbers == 0)
+		else if (this.Math.rand(1, 100) <= 80 || this.Const.World.Buildings.Blackmarket == 0)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else
 		{

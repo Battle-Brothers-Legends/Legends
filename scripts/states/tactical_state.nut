@@ -1910,6 +1910,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 				this.World.Statistics.getFlags().set("LastPlayersAtBattleStartCount", this.m.MaxPlayers);
 				this.World.Statistics.getFlags().set("LastEnemiesDefeatedCount", this.m.MaxHostiles);
 				this.World.Statistics.getFlags().set("LastCombatResult", 1);
+				this.World.Statistics.getFlags().increment("BattlesWon");
 
 				if (this.World.Statistics.getFlags().getAsInt("LastCombatFaction") == this.World.FactionManager.getFactionOfType(this.Const.FactionType.Beasts).getID())
 				{

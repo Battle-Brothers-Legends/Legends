@@ -16,14 +16,14 @@ this.debilitate <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsAttack = false;
 		this.m.ActionPointCost = 3;
-		this.m.FatigueCost = 30;
+		this.m.FatigueCost = 10;
 		this.m.MinRange = 0;
 		this.m.MaxRange = 0;
 	}
 
 	function getDescription()
 	{
-		return "Prepare your next attack to debilitate a target for three turns, reducing their ability to inflict damage by [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color]. Missing the target will waste the effect.";
+		return "Prepare your next attack to debilitate a target for three turns, reducing their ability to inflict damage by [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] and increasing their damage taken by [color=" + this.Const.UI.Color.NegativeValue + "]+15%[/color].";
 	}
 
 	function getTooltip()

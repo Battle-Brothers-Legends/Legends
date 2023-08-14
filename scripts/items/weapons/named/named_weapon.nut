@@ -86,8 +86,8 @@ this.named_weapon <- this.inherit("scripts/items/weapons/weapon", {
 	function randomizeValues()
 	{
 		if (this.m.ConditionMax > 1)
-		{
-			this.m.Condition = this.Math.round(this.m.Condition * this.Math.rand(90, 140) * 0.01) * 1.0;
+		{															//Vanilla = 90, 140. I think this is bullshit. - Luft
+			this.m.Condition = this.Math.round(this.m.Condition * this.Math.rand(110, 140) * 0.01) * 1.0;
 			this.m.ConditionMax = this.m.Condition;
 		}
 

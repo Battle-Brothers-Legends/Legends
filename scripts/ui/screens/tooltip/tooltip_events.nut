@@ -1171,6 +1171,11 @@ this.tooltip_events <- {
 			{
 				local L = [];
 				dailyMoney = dailyMoney + bro.getDailyCost();
+				if (bro.getSkills().hasSkill("perk.legend_barter_convincing"))
+				{
+					dailyMoney -= (10 + bro.getLevel());
+				}
+				
 				local L = [
 					bro.getDailyCost(),
 					bro.getName(),
@@ -1268,7 +1273,7 @@ this.tooltip_events <- {
 				id = id,
 				type = "text",
 				icon = "ui/icons/asset_moral_reputation.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + barterMult + "[/color]% Barter Multiplier"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + barterMult + "[/color]% Barter Multiplier"
 			});
 			id = ++id;
 			return ret;
@@ -1757,7 +1762,7 @@ this.tooltip_events <- {
 				{
 					id = 1,
 					type = "title",
-					text = "Reputation: " + this.World.Assets.getMoralReputationAsText()
+					text = "Reputation: " + this.World.Assets.getMoralReputationAsText() + " (" + this.World.Assets.getMoralReputation() + ")"
 				},
 				{
 					id = 2,
@@ -4116,6 +4121,20 @@ this.tooltip_events <- {
 					id = 2,
 					type = "description",
 					text = "A lively market offering all sorts of goods common in the region. New wares will be on offer every few days, and when trading caravans reach this settlement."
+				}
+			];
+
+		case "world-town-screen.main-dialog-module.Blackmarket":
+			return [
+				{
+					id = 1,
+					type = "title",
+					text = "Black Market"
+				},
+				{
+					id = 2,
+					type = "description",
+					text = "A shady setup populated with shadier individuals - deals for luxuries, \'loaned\' items and curiosities can be made here, for a price."
 				}
 			];
 

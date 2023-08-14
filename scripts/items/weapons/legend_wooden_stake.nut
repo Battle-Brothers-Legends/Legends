@@ -17,8 +17,8 @@ this.legend_wooden_stake <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.ShowArmamentIcon = true;
 		this.m.ArmamentIcon = "icon_wooden_stake_01";
 		this.m.Value = 10;
-		this.m.Condition = 5.0;
-		this.m.ConditionMax = 5.0;
+		this.m.Condition = 16;
+		this.m.ConditionMax = 16;
 		this.m.RegularDamage = 10;
 		this.m.RegularDamageMax = 15;
 		this.m.ArmorDamageMult = 0.1;

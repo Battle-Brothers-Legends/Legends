@@ -57,7 +57,7 @@ this.bowyer_background <- this.inherit("scripts/skills/backgrounds/character_bac
 			Weapon = [
 				this.Const.Perks.BowTree,
 				this.Const.Perks.CrossbowTree,
-				this.Const.Perks.ThrowingTree,
+				this.Const.Perks.StaffTree,
 				this.Const.Perks.DaggerTree
 			],
 			Defense = [
@@ -66,8 +66,8 @@ this.bowyer_background <- this.inherit("scripts/skills/backgrounds/character_bac
 			Traits = [
 				this.Const.Perks.CalmTree,
 				this.Const.Perks.OrganisedTree,
-				this.Const.Perks.FastTree,
-				this.Const.Perks.AgileTree
+				this.Const.Perks.IntelligentTree,
+				this.Const.Perks.FastTree
 			],
 			Enemy = [],
 			Class = [],

@@ -6,7 +6,7 @@ this.perk_legend_meek <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.legend_meek";
 		this.m.Name = this.Const.Strings.PerkName.LegendMeek;
-		this.m.Description = "Gains a lucky reroll chance based on low defenses";
+		this.m.Description = "Gains a scaling lucky reroll chance based on low defenses";
 		this.m.Icon = "ui/perks/meek.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
@@ -36,7 +36,7 @@ this.perk_legend_meek <- this.inherit("scripts/skills/skill", {
 				id = 6,
 				type = "text",
 				icon = "ui/tooltips/warning.png",
-				text = "This character has too many defenses and resolve, so they currently get no bonus from this perk"
+				text = "This character\'s [color=" + this.Const.UI.Color.NegativeValue + "]Melee Defence and Resolve is too high[/color] and is gaining no bonus from the \'Meek\' perk"
 			});
 		}
 
@@ -47,8 +47,8 @@ this.perk_legend_meek <- this.inherit("scripts/skills/skill", {
 	{
 		local actor = this.getContainer().getActor();
 		local mdef = actor.getCurrentProperties().getMeleeDefense();
-		local rdef = actor.getCurrentProperties().getRangedDefense();
-		local stack = mdef + rdef;
+		local resolve = actor.getCurrentProperties().getBravery();
+		local stack = mdef + resolve;
 		local bonus = this.Math.max(10, 100 - stack);
 		return this.Math.floor(bonus);
 	}

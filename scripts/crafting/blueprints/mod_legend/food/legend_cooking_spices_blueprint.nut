@@ -29,6 +29,12 @@ this.legend_cooking_spices_blueprint <- this.inherit("scripts/crafting/food_blue
 	function onCraft( _stash )
 	{
 		_stash.add(this.new("scripts/items/trade/legend_cooking_spices_trade_item"));
+		_stash.add(this.new("scripts/items/trade/legend_cooking_spices_trade_item"));
+		_stash.add(this.new("scripts/items/trade/legend_cooking_spices_trade_item"));
+		_stash.add(this.new("scripts/items/trade/legend_cooking_spices_trade_item"));
+		_stash.add(this.new("scripts/items/trade/legend_cooking_spices_trade_item"));
+		_stash.add(this.new("scripts/items/trade/legend_cooking_spices_trade_item"));
+		_stash.add(this.new("scripts/items/trade/legend_cooking_spices_trade_item"));
 	}
 
 });

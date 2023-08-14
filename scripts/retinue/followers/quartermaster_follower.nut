@@ -12,17 +12,12 @@ this.quartermaster_follower <- this.inherit("scripts/retinue/follower", {
 			"Increases the amount of ammunition you can carry by 100",
 			"Increases the amount of medical supplies and tools you can carry by 50 each"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have someone with the Skillful Stacking perk. Guaranteed on Vagabonds, Millers, Donkeys and many others"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have someone with the Skillful Stacking perk. Guaranteed on Vagabonds, Millers, Donkeys and many others", [
 			"perk.legend_skillful_stacking",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

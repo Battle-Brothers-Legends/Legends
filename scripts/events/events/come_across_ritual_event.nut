@@ -38,7 +38,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({
 			ID = "Arrival",
-			Text = "[img]gfx/ui/events/event_140.png[/img]As you follow the foosteps, you begin to hear the murmurs of a chant. You tell the company to rest while you sneak forward, eventually finding a large bonfire with cloaked men circling around it. They stomp their feet and throw their hands up, shouting some token words to their elder god, Davkul. It\'s a bestial ceremony, roaring and growling abound, and the men dance about with their oversized clothes like darkly spirits still angry at the world they\'d departed. %randombrother% crawls up beside you and shakes his head.%SPEECH_ON%Just what is going on down there? What should we do?%SPEECH_OFF%",
+			Text = "[img]gfx/ui/events/event_140.png[/img]The footsteps meander through what seems to an an ancient path, long downtrodden and broken by the the frequent use of this trail. In the distance a chant becomes steadily louder and bolder. You tell the company to rest while you sneak forward, eventually finding a large bonfire.\n\n Around the fire cloaked figures circle this way and that, as if they knew of your intrusion and had set their sights on searching for you. %randombrother% crawls up beside you and shakes their head.%SPEECH_ON%Just what is going on down there? What should we do?%SPEECH_OFF%",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -52,7 +52,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "Let\'s wait and see what happens.",
+					Text = "Let\'s wait and see what happens...",
 					function getResult( _event )
 					{
 						return "Observe1";
@@ -60,7 +60,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "Time to leave. Now.",
+					Text = "I want no part in this.",
 					function getResult( _event )
 					{
 						return 0;
@@ -75,7 +75,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({
 			ID = "Observe1",
-			Text = "[img]gfx/ui/events/event_140.png[/img]You decide to wait it out and see what happens. Just as you say that, the cultists drag an old man before the fire. He bows his head before the flames, opens his arms, and then falls in. There are no screams. Another man is pulled forward. He whispers words to a cultist, they both nod, and so too this man puts himself to the flame. A third is pushed forth, but unlike the others he is shackled and wild-eyed. He screams at the cultists.%SPEECH_ON%Fark your god, he means nothing! It\'s all a lie!%SPEECH_OFF%A face appears in the flames, its shape bulbous and churning in the smoke and fire. It is cruelty embodied, and could be no better painted by flames than by darkness itself. It turns and grins. One of the cultist shouts.%SPEECH_ON%Davkul awaits you!%SPEECH_OFF%But the prisoner kicks one of his imprisoners and tries to make a run for it.",
+			Text = "[img]gfx/ui/events/event_140.png[/img]You decide to wait it out and see what happens. Just as you say that, the cultists drag an old man before the fire. He bows his head before the flames, opens his arms, and then falls in.\n\n There are no screams.\n\n Another man is pulled forward. He whispers words to a cultist, they both nod, and so too this man puts himself to the flame. A third is pushed forth, but unlike the others he is shackled and wild-eyed. He screams at the captors.%SPEECH_ON%Fark your god, he means nothing! It\'s all a lie!%SPEECH_OFF%A face appears in the flames, its shape bulbous and churning in the smoke and fire. It is cruelty embodied, and could be no better painted by flames than by darkness itself. It turns and grins. One of the cultist shouts.%SPEECH_ON%Davkul awaits you!%SPEECH_OFF%But the prisoner kicks one of his imprisoners and tries to make a run for it.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -89,7 +89,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 
 				},
 				{
-					Text = "Hold on, let\'s see what happens next.",
+					Text = "Hold on, looks like there\'s more...",
 					function getResult( _event )
 					{
 						return "Observe2";
@@ -139,7 +139,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 						properties.IsAutoAssigningBases = false;
 						properties.Entities = [];
 
-						for( local i = 0; i < 25; i = ++i )
+						for( local i = 0; i < 20; i = ++i )
 						{
 							local unit = clone this.Const.World.Spawn.Troops.Cultist;
 							unit.Faction <- this.Const.Faction.Enemy;
@@ -186,7 +186,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				this.World.Assets.addMoralReputation(-5);
+				this.World.Assets.addMoralReputation(-10);
 				this.List.push({
 						id = 10,
 						icon = "ui/icons/asset_moral_reputation.png",
@@ -221,7 +221,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 						properties.IsAutoAssigningBases = false;
 						properties.Entities = [];
 
-						for( local i = 0; i < 25; i = ++i )
+						for( local i = 0; i < 20; i = ++i )
 						{
 							local unit = clone this.Const.World.Spawn.Troops.Cultist;
 							unit.Faction <- this.Const.Faction.Enemy;
@@ -262,7 +262,7 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 						properties.IsAutoAssigningBases = false;
 						properties.Entities = [];
 
-						for( local i = 0; i < 25; i = ++i )
+						for( local i = 0; i < 20; i = ++i )
 						{
 							local unit = clone this.Const.World.Spawn.Troops.Cultist;
 							unit.Faction <- this.Const.Faction.Enemy;
@@ -290,10 +290,6 @@ this.come_across_ritual_event <- this.inherit("scripts/events/event", {
 
 	function onUpdateScore()
 	{
-		if (this.World.getTime().IsDaytime)
-		{
-			return;
-		}
 
 		if (this.World.getTime().Days <= 200)
 		{

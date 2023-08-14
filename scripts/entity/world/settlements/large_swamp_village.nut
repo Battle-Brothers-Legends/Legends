@@ -120,9 +120,9 @@ this.large_swamp_village <- this.inherit("scripts/entity/world/settlement", {
 		{
 			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/taxidermist_building"));
 		}
-		else if (this.Math.rand(1, 100) <= 80 || this.Const.World.Buildings.Barbers == 0)
+		else if (this.Math.rand(1, 100) <= 80 || this.Const.World.Buildings.Blackmarket == 0)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else
 		{

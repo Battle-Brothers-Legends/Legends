@@ -11,17 +11,17 @@ this.trader_follower <- this.inherit("scripts/retinue/follower", {
 		this.m.Effects = [
 			"Increases the amount of trade goods for sale by 1 for each location that produces them, like salt near salt mines, allowing you to trade at higher volumes"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = ""
-			},
-			{
-				IsSatisfied = false,
-				Text = "Have at least one of the following backgrounds: Caravan Hand, Peddler, Trader, Donkey"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addRequirement("Sold 25 trade goods", function() {
+			return ::World.Statistics.getFlags().getAsInt("TradeGoodsSold") >= 25;
+		}, false, function( _r ) {
+			_r.Count <- 25;
+			_r.UpdateText <- function() {
+				this.Text = "Sold " + ::Math.min(this.Count, ::World.Statistics.getFlags().getAsInt("TradeGoodsSold")) + "/" + this.Count + " trade goods"
+			};
+		});
+
+		this.addSkillRequirement("Have at least one of the following backgrounds: Caravan Hand, Peddler, Trader, Donkey", [
 			"background.caravan_hand",
 			"background.legend_trader",
 			"background.legend_commander_trader",
@@ -29,19 +29,7 @@ this.trader_follower <- this.inherit("scripts/retinue/follower", {
 			"background.peddler",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
-	}
-
-	function onEvaluate()
-	{
-		this.m.Requirements[0].Text = "Sold " + this.Math.min(25, this.World.Statistics.getFlags().getAsInt("TradeGoodsSold")) + "/25 trade goods.";
-
-		if (this.World.Statistics.getFlags().getAsInt("TradeGoodsSold") >= 25)
-		{
-			this.m.Requirements[0].IsSatisfied = true;
-		}
-
-		this.follower.onEvaluate();
+		]);
 	}
 
 });

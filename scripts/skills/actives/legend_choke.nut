@@ -12,11 +12,11 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.legend_choke";
 		this.m.Name = "Choke";
-		this.m.Description = "A well-placed attack at the opponent\'s neck. Ignores all armor but is harder to hit with. Hit chance is based on target's fatigue. Damage is based on the difference in fatigue.";
+		this.m.Description = "A well-placed attack at the opponent\'s neck. Ignores all armor but is harder to hit with. Hit chance is based on target's fatigue. Damage is based on the difference in fatigue. Deals 50% damage vs grappled or choked enemies. Hit chance is increased against grappled, stunned, netted, dazed, parried or sleeping enemies";
 		this.m.KilledString = "Choked";
 		this.m.Icon = "skills/choke_square.png";
 		this.m.IconDisabled = "skills/choke_square_bw.png";
-		this.m.Overlay = "active_27";
+		this.m.Overlay = "active_choke";
 		this.m.SoundOnUse = [
 			"sounds/combat/puncture_01.wav",
 			"sounds/combat/puncture_02.wav",
@@ -243,6 +243,7 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 		{
 			local target = _targetTile.getEntity();
 			target.getSkills().add(this.new("scripts/skills/effects/legend_choked_effect"));
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " choked " + this.Const.UI.getColorizedEntityName(target) + " ");
 		}
 		return success;
 	}
@@ -256,14 +257,14 @@ this.legend_choke <- this.inherit("scripts/skills/skill", {
 
 		local chance = this.getHitChance(_targetEntity); // Calculates the hitchance bonus from other status effects
 		local actor = this.getContainer().getActor();
-
+		
 		_properties.DamageRegularMin += 10; // If you change these values, change them in the tooltip above too.
 		_properties.DamageRegularMax += 15;
 		_properties.IsIgnoringArmorOnAttack = true;
 		_properties.DamageArmorMult *= 0.0;
 		_properties.MeleeSkill += chance;
 
-
+		
 		foreach( bg in this.m.Backgrounds )
 		{
 			if (actor.getSkills().hasSkill(bg))

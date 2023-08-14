@@ -487,11 +487,11 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 			slot = this.Const.Items.HelmetUpgrades.ExtraVanity;
 		}
 		local oldIndex;
-		// uncomment these lines to make scenario battles work
-		//if ("Assets" in this.World && this.World.Assets != null)   
-		//{
-		oldIndex = "Assets" in ::World ? this.World.Assets.getStash().getItemByInstanceID(_upgrade.getInstanceID()) : null;
-		//}
+
+		if ("Assets" in this.World && this.World.Assets.getStash())   
+		{
+		oldIndex =  this.World.Assets.getStash().getItemByInstanceID(_upgrade.getInstanceID());
+		}
 		
 		if (oldIndex != null) oldIndex = oldIndex.index
 		local oldItem;
@@ -752,6 +752,11 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 			return false;
 		}
 
+		if (this.isArmorNamed())
+		{
+			return true;
+		}
+
 		local isPlayer = this.m.LastEquippedByFaction == this.Const.Faction.Player || this.getContainer() != null && this.getContainer().getActor() != null && !this.getContainer().getActor().isNull() && this.isKindOf(this.getContainer().getActor().get(), "player");
 		local isLucky = !this.Tactical.State.isScenarioMode() && this.World.Assets.getOrigin().isDroppedAsLoot(this);
 		local isBlacksmithed = isPlayer && !this.Tactical.State.isScenarioMode() && this.World.Assets.m.IsBlacksmithed;
@@ -759,7 +764,7 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 		local repair = this.getRepair();
 		local repairMax = this.getRepairMax();
 
-		if (this.getArmor() > 15 && isPlayer || this.getArmor() > 30 && this.getArmor() / this.getArmorMax() >= 0.25 && (isLucky || this.Math.rand(1, 100) <= 70) || this.isItemType(this.Const.Items.ItemType.Named) || this.isItemType(this.Const.Items.ItemType.Legendary) || isBlacksmithed)
+		if (this.getArmor() > 15 && isPlayer || this.getArmor() > 30 && this.getArmor() / this.getArmorMax() >= 0.25 && (isLucky || this.Math.rand(1, 100) <= 70) || isBlacksmithed)
 		{
 			return true;
 		}
@@ -772,24 +777,6 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 		if (repair > 30 && repair / repairMax >= 0.25 && (isLucky || this.Math.rand(1, 100) <= 70))
 		{
 			return true;
-		}
-
-		if (this.isItemType(this.Const.Items.ItemType.Named))
-		{
-			return true;
-		}
-
-		if (this.isItemType(this.Const.Items.ItemType.Legendary))
-		{
-			return true;
-		}
-
-		foreach( u in this.m.Upgrades )
-		{
-			if (u != null && (u.isItemType(this.Const.Items.ItemType.Named) || u.isItemType(this.Const.Items.ItemType.Legendary)))
-			{
-				return true;
-			}
 		}
 
 		return false;

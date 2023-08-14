@@ -5,13 +5,12 @@ this.legends_troubador_and_juggler_event <- this.inherit("scripts/events/event",
 	},
 	function create()
 	{
-		this.m.ID = "event.legends.troubador_and_juggler";
+		this.m.ID = "event.legends_troubador_and_juggler";
 		this.m.Title = "During camp...";
 		this.m.Cooldown = 50.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_26.png[/img] As sparks rise from the fire, %juggler% is stretching and adopting various acrobatic poses. %troubador% approaches and adopts some of the positions along side the juggler. %SPEECH_ON% These movements remind me of the theater troupe i used to perform in. Playing at fighting and love needs tight timings and positioning, to know your spacing as well as your lines. Do you know the faked dagger pass? The trust fall? What of the stage dive?  %SPEECH_OFF% /n/n The juggler laughs and replies. %SPEECH_ON%I have been practicing them for years troubador, shall we dance? %SPEECH_OFF%  The two rise and begin conducting a series of moves you have not seen before. One turning their back to the other and then falling into their arms, before trading places. They grow faster and faster at this blind falling, before the juggler turns midair and the fall becomes a tumble. Soon both are tumbling, through each others arms, and spinning around each other. It becomes a blur of arms, legs and objects moving between them. They begin passing things back and forth, first a ball, then a rock, then a knife. Before long there are items hurling through the air, most caught, but some bouncing off through the camp."
-
+			Text = "[img]gfx/ui/events/event_26.png[/img]As sparks rise from the fire, %juggler% is stretching and adopting various acrobatic poses. %troubador% approaches and adopts some of the positions along side the juggler. %SPEECH_ON% These movements remind me of the theater troupe I used to perform in. Playing at fighting and love needs tight timings and positioning, to know your spacing as well as your lines. Do you know the faked dagger pass? The trust fall? What of the stage dive? %SPEECH_OFF% \n\n The juggler laughs and replies. %SPEECH_ON%I have been practicing them for years troubador, shall we dance? %SPEECH_OFF% The two rise and begin conducting a series of moves you have not seen before. One turning their back to the other and then falling into their arms, before trading places. They grow faster and faster at this blind falling, before the juggler turns midair and the fall becomes a tumble. Soon both are tumbling, through each others arms, and spinning around each other. It becomes a blur of arms, legs and objects moving between them. They begin passing things back and forth, first a ball, then a rock, then a knife. Before long there are items hurling through the air, most caught, but some bouncing off through the camp.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -36,86 +35,94 @@ this.legends_troubador_and_juggler_event <- this.inherit("scripts/events/event",
 				if (r > rdef)
 				{
 				r = this.Math.rand(1, 5);
+
 					if (r == 1)
 					{
-					_event.m.Troubador.getBaseProperties().MeleeDefense += 1;
-					_event.m.Troubador.getSkills().update();
-					this.List.push({
-						id = 17,
-						icon = "ui/icons/melee_defense.png",
-						text = _event.m.Troubador.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Melee Defense"
-					});
+						_event.m.Troubador.getBaseProperties().MeleeDefense += 1;
+						_event.m.Troubador.getSkills().update();
+						this.List.push({
+							id = 17,
+							icon = "ui/icons/melee_defense.png",
+							text = _event.m.Troubador.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Melee Defense"
+						});
 					}
+
 					if (r == 2)
 					{
-					_event.m.Troubador.getBaseProperties().MeleeSkill += 1;
-					_event.m.Troubador.getSkills().update();
-					this.List.push({
-						id = 17,
-						icon = "ui/icons/melee_skill.png",
-						text = _event.m.Troubador.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Melee Skill"
-					});
+						_event.m.Troubador.getBaseProperties().MeleeSkill += 1;
+						_event.m.Troubador.getSkills().update();
+						this.List.push({
+							id = 17,
+							icon = "ui/icons/melee_skill.png",
+							text = _event.m.Troubador.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Melee Skill"
+						});
 					}
+
 					if (r == 3)
 					{
-					local injury = _event.m.Minstrel.addInjury(this.Const.Injury.BluntBody);
-					this.List.push({
-					id = 10,
-					icon = injury.getIcon(),
-					text = _event.m.Minstrel.getName() + " suffers " + injury.getNameOnly()
-					});
+						local injury = _event.m.Minstrel.addInjury(this.Const.Injury.BluntBody);
+						this.List.push({
+						id = 10,
+						icon = injury.getIcon(),
+						text = _event.m.Minstrel.getName() + " suffers " + injury.getNameOnly()
+						});
 					}
+
 					else
 					{
-					local injury = _event.m.Minstrel.addInjury(this.Const.Injury.PiercingBody);
-					this.List.push({
-					id = 10,
-					icon = injury.getIcon(),
-					text = _event.m.Minstrel.getName() + " suffers " + injury.getNameOnly()
-					});
+						local injury = _event.m.Minstrel.addInjury(this.Const.Injury.PiercingBody);
+						this.List.push({
+						id = 10,
+						icon = injury.getIcon(),
+						text = _event.m.Minstrel.getName() + " suffers " + injury.getNameOnly()
+						});
 					}
 				}
 				else
 				{
 					local r;
 					r = this.Math.rand(1, 8);
+
 					if (r == 1)
 					{
-					_event.m.Juggler.getBaseProperties().Meleedefense += 1;
-					_event.m.Juggler.getSkills().update();
-					this.List.push({
-						id = 17,
-						icon = "ui/icons/ranged_skill.png",
-						text = _event.m.Juggler.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Melee Defense"
-					});
+						_event.m.Juggler.getBaseProperties().Meleedefense += 1;
+						_event.m.Juggler.getSkills().update();
+						this.List.push({
+							id = 17,
+							icon = "ui/icons/ranged_skill.png",
+							text = _event.m.Juggler.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Melee Defense"
+						});
 					}
+
 					if (r == 2)
 					{
-					_event.m.Juggler.getBaseProperties().Meleeskill += 1;
-					_event.m.Juggler.getSkills().update();
-					this.List.push({
-						id = 17,
-						icon = "ui/icons/ranged_skill.png",
-						text = _event.m.Juggler.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Melee Skill"
-					});
+						_event.m.Juggler.getBaseProperties().Meleeskill += 1;
+						_event.m.Juggler.getSkills().update();
+						this.List.push({
+							id = 17,
+							icon = "ui/icons/ranged_skill.png",
+							text = _event.m.Juggler.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Melee Skill"
+						});
 					}
+
 					if (r == 3)
 					{
-					local injury = _event.m.Minstrel.addInjury(this.Const.Injury.BluntBody);
-					this.List.push({
-					id = 10,
-					icon = injury.getIcon(),
-					text = _event.m.Minstrel.getName() + " suffers " + injury.getNameOnly()
-					});
+						local injury = _event.m.Minstrel.addInjury(this.Const.Injury.BluntBody);
+						this.List.push({
+						id = 10,
+						icon = injury.getIcon(),
+						text = _event.m.Minstrel.getName() + " suffers " + injury.getNameOnly()
+						});
 					}
+
 					if (r == 4)
 					{
-					local injury = _event.m.Minstrel.addInjury(this.Const.Injury.PiercingBody);
-					this.List.push({
-					id = 10,
-					icon = injury.getIcon(),
-					text = _event.m.Minstrel.getName() + " suffers " + injury.getNameOnly()
-					});
+						local injury = _event.m.Minstrel.addInjury(this.Const.Injury.PiercingBody);
+						this.List.push({
+						id = 10,
+						icon = injury.getIcon(),
+						text = _event.m.Minstrel.getName() + " suffers " + injury.getNameOnly()
+						});
 					}
 
 
@@ -127,23 +134,25 @@ this.legends_troubador_and_juggler_event <- this.inherit("scripts/events/event",
 						}
 						local r;
 						r = this.Math.rand(1, 20);
+
 						if (r == 1)
-							{
+						{
 							bro.getBaseProperties().RangedDefense += 1;
 							this.List.push({
 							id = 17,
 							icon = "ui/icons/ranged_skill.png",
 							text = bro.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+1[/color] Ranged Defense"
 							});
-							}
+						}
+
 						if (r == 2)
 						{
-						local injury = bro.addInjury(this.Const.Injury.Archery);
-						this.List.push({
-						id = 10,
-						icon = injury.getIcon(),
-						text = bro.getName() + " suffers " + injury.getNameOnly()
-						});
+							local injury = bro.addInjury(this.Const.Injury.Archery);
+							this.List.push({
+							id = 10,
+							icon = injury.getIcon(),
+							text = bro.getName() + " suffers " + injury.getNameOnly()
+							});
 
 						}
 					}

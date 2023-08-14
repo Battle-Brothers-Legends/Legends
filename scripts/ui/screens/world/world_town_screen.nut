@@ -6,6 +6,7 @@ this.world_town_screen <- {
 		ShopDialogModule = null,
 		TravelDialogModule = null,
 		BarberDialogModule = null,
+		BlackmarketDialogModule = null,
 		TempleDialogModule = null,
 		TavernDialogModule = null,
 		TrainingDialogModule = null,
@@ -65,6 +66,11 @@ this.world_town_screen <- {
 	function getBarberDialogModule()
 	{
 		return this.m.BarberDialogModule;
+	}
+
+	function getBlackmarketDialogModule()
+	{
+		return this.m.BlackmarketDialogModule;
 	}
 
 	function getTavernDialogModule()
@@ -348,6 +354,16 @@ this.world_town_screen <- {
 			this.m.LastActiveModule = this.m.BarberDialogModule;
 			this.Tooltip.hide();
 			this.m.JSHandle.asyncCall("showBarberDialog", this.m.BarberDialogModule.queryRosterInformation());
+		}
+	}
+
+	function showBlackmarketDialog()
+	{
+		if (this.m.JSHandle != null && this.isVisible())
+		{
+			this.m.LastActiveModule = this.m.BlackmarketDialogModule;
+			this.Tooltip.hide();
+			this.m.JSHandle.asyncCall("showBlackmarketDialog", this.m.BlackmarketDialogModule.queryRosterInformation());
 		}
 	}
 

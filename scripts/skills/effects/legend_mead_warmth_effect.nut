@@ -6,9 +6,9 @@ this.legend_mead_warmth_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.legend_mead_warmth_effect";
 		this.m.Name = "Warmth";
-		this.m.Icon = "skills/status_effect_61.png";
-		this.m.IconMini = "status_effect_61_mini";
-		this.m.Overlay = "status_effect_61";
+		this.m.Icon = "skills/status_effect_92.png";
+		this.m.IconMini = "status_effect_92_mini";
+		this.m.Overlay = "status_effect_92";
 		this.m.Type = this.Const.SkillType.StatusEffect | this.Const.SkillType.DrugEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
@@ -17,7 +17,7 @@ this.legend_mead_warmth_effect <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "After consuming mead, this character has [color=" + this.Const.UI.Color.PositiveValue + "]+9%[/color] Resolve and Hitchance, [color=" + this.Const.UI.Color.NegativeValue + "]-18%[/color] Defenses and [color=" + this.Const.UI.Color.NegativeValue + "]-36%[/color] Initiative for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
+		return "After consuming mead, this character has [color=" + this.Const.UI.Color.PositiveValue + "]+9[/color] Resolve, Melee and Ranged Skill, [color=" + this.Const.UI.Color.NegativeValue + "]-9[/color] Defenses and [color=" + this.Const.UI.Color.NegativeValue + "]-18[/color] Initiative for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
 	}
 
 	function getTooltip()
@@ -37,37 +37,37 @@ this.legend_mead_warmth_effect <- this.inherit("scripts/skills/skill", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/bravery.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+9%[/color] Resolve"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+9[/color] Resolve"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+9%[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+9[/color] Melee Skill"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+9%[/color] Ranged Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+9[/color] Ranged Skill"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-18%[/color] Melee Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-9[/color] Melee Defense"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-18%[/color] Ranged Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-9[/color] Ranged Defense"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-36%[/color] Initiative"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-18[/color] Initiative"
 			}
 		];
 		return ret;
@@ -76,12 +76,12 @@ this.legend_mead_warmth_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 
-		_properties.BraveryMult *= 1.09;
-		_properties.MeleeSkillMult *= 1.09;
-		_properties.RangedSkillMult *= 1.09;
-		_properties.MeleeDefenseMult *= 0.82;
-		_properties.RangedDefenseMult *= 0.82;
-		_properties.InitiativeMult *= 0.64;
+		_properties.Bravery += 9;
+		_properties.MeleeSkill += 9;
+		_properties.RangedSkill += 9;
+		_properties.MeleeDefense -= 9;
+		_properties.RangedDefense -= 9;
+		_properties.Initiative -= 18;
 
 	}
 

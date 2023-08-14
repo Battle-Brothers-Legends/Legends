@@ -6,14 +6,13 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "terrain.hidden";
 		this.m.Name = "Hidden";
-		this.m.Description = "This character is hidden by terrain and cannot be seen by opponents unless directly adjacent or attacking them first.";
+		this.m.Description = "This character is hidden, being lightly armored will allow the best stealth allowing them to hide in plain sight and not be revealed until directly adjacent to an enemy. Medium armor still allows for some stealth but enemies can hear you coming from 3 tiles away. Heavy armor is just not designed for stealth and enemies will hear you coming from 5 tiles away. Ranged attacks will always reveal at the end of the round.";
 		this.m.Icon = "skills/status_effect_08.png";
 		this.m.IconMini = "status_effect_08_mini";
 		this.m.Type = this.Const.SkillType.Terrain | this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsHidden = false;
 		this.m.IsSerialized = false;
-//		this.m.IsRemovedAfterBattle = true; // the old legend_hidden_effect has this line but was missing, required?
 	}
 
 	function getDescription()
@@ -96,11 +95,87 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 	//added all this missing code from legend_hidden_effect which seemingly controls the hidden graphics--
 	function onMovementCompleted( _tile )
 	{
-		if (_tile.hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions()))
+		//initialise variables
+		local body = 0;
+		local head = 0;
+		local actor = this.getContainer().getActor();
+		
+		//get the items
+		local bodyItem = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Body);
+		local headItem = this.getContainer().getActor().getItems().getItemAtSlot(this.Const.ItemSlot.Head);
+
+		//check if the item exists to stop the error: getStaminaModifier does not exist
+		
+		if (bodyItem != null)
 		{
-			this.getContainer().getActor().setHidden(false);
-			this.m.ToRemove = true;
-			return;
+		//update the variables
+		body = bodyItem.getStaminaModifier();
+		}
+		
+		if (headItem != null)
+		{	
+		head = headItem.getStaminaModifier();
+		}
+		
+		//calculate either on the initial or updated variable
+		
+		local fat = ::Math.abs(head + body);
+
+		local entites = this.Tactical.Entities.getAllHostilesAsArray();
+
+		local outOfEarshot3 = true;
+		if(fat > 15 && fat <=35){
+
+			foreach( unit in entites )
+			{
+	            if (unit.getID() == actor.getID())
+	            {
+	                continue;
+	            }
+				if (unit.getTile().getDistanceTo(_tile) <= 3)
+				{
+					outOfEarshot3 = false;
+					break;
+				}
+			}
+
+			if (!outOfEarshot3)
+			{
+				this.m.ToRemove = true;
+				effect();
+				return;
+			}
+		}
+
+		local outOfEarshot5 = true;
+		if(fat > 35){
+			foreach( unit in entites )
+			{
+	            if (unit.getID() == actor.getID())
+	            {
+	                continue;
+	            }
+				if (unit.getTile().getDistanceTo(_tile) <= 5)
+				{
+					outOfEarshot5 = false;
+					break;
+				}
+			}
+
+			if (!outOfEarshot5)
+			{
+				this.m.ToRemove = true;
+				effect();
+				return;
+			}
+		}
+		if(fat <= 15){
+			if (_tile.hasZoneOfControlOtherThan(actor.getAlliedFactions()))
+			{
+				this.m.ToRemove = true;
+				effect()
+				return;
+			}
 		}
 		// commented: AI can X-ray hidden bros uncommented: No AI X-ray
 		this.getContainer().getActor().setHidden(true);
@@ -109,12 +184,14 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		this.getContainer().getActor().setHidden(false);
+		effect();
 		this.m.ToRemove = true;
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
 	{
 		this.getContainer().getActor().setHidden(false);
+		effect();
 		this.m.ToRemove = true;
 	}
 
@@ -139,6 +216,28 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 		//actor.setHidden(true);
 		//actor.setDirty(true);
 	}
+
+		function effect()
+		{
+		local actor = this.getContainer().getActor();
+//		actor.setHidden(true);
+		if (actor.getTile().IsVisibleForPlayer && this.m.ToRemove == false)
+		{
+			if (this.Const.Tactical.HideParticles.len() != 0)
+			{
+				for( local i = 0; i < this.Const.Tactical.HideParticles.len(); i = ++i )
+				{
+					this.Tactical.spawnParticleEffect(false, this.Const.Tactical.HideParticles[i].Brushes, actor.getTile(), this.Const.Tactical.HideParticles[i].Delay, this.Const.Tactical.HideParticles[i].Quantity, this.Const.Tactical.HideParticles[i].LifeTimeQuantity, this.Const.Tactical.HideParticles[i].SpawnRate, this.Const.Tactical.HideParticles[i].Stages);
+				}
+			}
+		}
+
+		//actor.setBrushAlpha(10);
+		//actor.getSprite("hair").Visible = false;
+		//actor.getSprite("beard").Visible = false;
+		//actor.setHidden(true);
+		//actor.setDirty(true);
+		}
 
 	function onRemoved()
 	{
@@ -206,6 +305,3 @@ this.hidden_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = true;
 	}
 });
-
-
-

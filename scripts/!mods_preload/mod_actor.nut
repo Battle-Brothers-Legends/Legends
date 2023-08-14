@@ -300,12 +300,33 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 
 				_attacker.getSkills().add(this.new("scripts/skills/effects/legend_parried_effect"));
 			}
+			
+			local item = this.getOffhandItem();
+			if (item != null)
+			{
+				if (item.getID() == "shield.legend_parrying_dagger" || item.getID() == "shield.legend_named_parrying_dagger"  && _attacker != null && !_attacker.isAlliedWith(this) && _attacker.getTile().getDistanceTo(this.getTile()) == 1 && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _attacker.getID() && _skill != null && !_skill.isIgnoringRiposte())
+				{
+					if (_attacker.getCurrentProperties().IsImmuneToDisarm)
+							{
+								this.spawnAttackEffect(_attacker.getTile(), this.Const.Tactical.AttackEffectslash);
 
+								if (_attacker.isAlive() && !_attacker.getSkills().hasSkill("effects.legend_parried"))
+								{
+									_attacker.getSkills().add(this.new("scripts/skills/effects/legend_parried_effect"));
+
+									if (!this.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
+									{
+										this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_attacker) + "is parried");
+									}
+								}			
+							}
+				}
+			}
 			if (_skill != null && !_skill.isRanged())
 			{
 				this.m.Fatigue = this.Math.min(this.getFatigueMax(), this.Math.round(this.m.Fatigue + this.Const.Combat.FatigueLossOnBeingMissed * this.m.CurrentProperties.FatigueEffectMult * this.m.CurrentProperties.FatigueLossOnAnyAttackMult * this.m.CurrentProperties.FatigueLossOnBeingMissedMult));
 			}
-
+			
 			this.m.Skills.onMissed(_attacker, _skill);
 		}
 

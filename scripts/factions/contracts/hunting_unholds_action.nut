@@ -40,15 +40,15 @@ this.hunting_unholds_action <- this.inherit("scripts/factions/faction_action", {
 
 		local village = _faction.getSettlements()[0];
 
-		if (this.isKindOf(village, "small_lumber_village") || this.isKindOf(village, "medium_lumber_village") || this.isKindOf(village, "small_swamp_village") || this.isKindOf(village, "medium_swamp_village"))
+		if (this.isKindOf(village, "legends_lumber_village") || this.isKindOf(village, "legends_swamp_village") || this.isKindOf(village, "small_lumber_village") || this.isKindOf(village, "medium_lumber_village") || this.isKindOf(village, "small_swamp_village") || this.isKindOf(village, "medium_swamp_village"))
 		{
 			this.m.EnemyType = 0;
 		}
-		else if (this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
+		else if (this.isKindOf(village, "legends_snow_village") || this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
 		{
 			this.m.EnemyType = 1;
 		}
-		else if (this.isKindOf(village, "small_tundra_village") || this.isKindOf(village, "medium_tundra_village") || this.isKindOf(village, "small_mining_village"))
+		else if (this.isKindOf(village, "legends_tundra_village") || this.isKindOf(village, "legends_mining_village") || this.isKindOf(village, "small_tundra_village") || this.isKindOf(village, "medium_tundra_village") || this.isKindOf(village, "small_mining_village"))
 		{
 			this.m.EnemyType = 2;
 		}

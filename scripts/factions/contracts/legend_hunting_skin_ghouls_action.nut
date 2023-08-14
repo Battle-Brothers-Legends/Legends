@@ -34,7 +34,7 @@ this.legend_hunting_skin_ghouls_action <- this.inherit("scripts/factions/faction
 			return;
 		}
 
-		if (this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
+		if (this.isKindOf(village, "legends_snow_village") || this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
 		{
 			return;
 		}

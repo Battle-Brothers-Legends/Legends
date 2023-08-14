@@ -45,6 +45,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			"legend_preserver_background" //light and fast healer
 		]);
 		bros[0].setPlaceInFormation(3);
+		bros[0].setVeteranPerks(2);
 		bros[0].getSprite("miniboss").setBrush("bust_miniboss_undead");
 		bros[0].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[0].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
@@ -55,6 +56,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			"legend_warlock_summoner_background" //sickly but good def. summons.
 		]);
 		bros[1].setPlaceInFormation(4);
+		bros[1].setVeteranPerks(2);
 		bros[1].getSprite("miniboss").setBrush("bust_miniboss_undead");
 		bros[1].getSkills().add(this.new("scripts/skills/traits/ailing_trait"));
 		bros[1].getFlags().set("IsPlayerCharacter", true); //player character
@@ -66,6 +68,7 @@ this.legends_necro_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			"legend_puppet_master_background" //strong but slow tank
 		]);
 		bros[2].setPlaceInFormation(5);
+		bros[2].setVeteranPerks(2);
 		bros[2].getSprite("miniboss").setBrush("bust_miniboss_undead");
 		bros[2].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[2].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));

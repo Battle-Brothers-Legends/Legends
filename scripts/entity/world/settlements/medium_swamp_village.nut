@@ -137,7 +137,7 @@ this.medium_swamp_village <- this.inherit("scripts/entity/world/settlement", {
 			}
 			else if (r == 3)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 		}
 		else
@@ -150,7 +150,7 @@ this.medium_swamp_village <- this.inherit("scripts/entity/world/settlement", {
 			}
 			else if (r == 3)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 		}
 

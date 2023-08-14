@@ -38,7 +38,7 @@ this.hunting_lindwurms_action <- this.inherit("scripts/factions/faction_action",
 
 		local village = _faction.getSettlements()[0];
 
-		if (!this.isKindOf(village, "small_steppe_village") && !this.isKindOf(village, "medium_steppe_village") && !this.isKindOf(village, "large_steppe_village") && !this.isKindOf(village, "small_farming_village") && !this.isKindOf(village, "medium_farming_village") && !this.isKindOf(village, "large_farming_village"))
+		if (!this.isKindOf(village, "legends_steppe_village") && !this.isKindOf(village, "legends_farming_village") && !this.isKindOf(village, "small_steppe_village") && !this.isKindOf(village, "medium_steppe_village") && !this.isKindOf(village, "large_steppe_village") && !this.isKindOf(village, "small_farming_village") && !this.isKindOf(village, "medium_farming_village") && !this.isKindOf(village, "large_farming_village"))
 		{
 			return;
 		}

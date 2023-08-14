@@ -1164,16 +1164,6 @@ gt.Const.World.Spawn.Troops <- {
 		Row = 3,
 		Script = "scripts/entity/tactical/objective/donkey_southern"
 	},
-	Oathbringer = {
-		ID = this.Const.EntityType.Oathbringer,
-		Variant = 1,
-		Strength = 40,
-		Cost = 40,
-		Row = 1,
-		Script = "scripts/entity/tactical/humans/oathbringer",
-		NameList = this.Const.Strings.OathbringerNames,
-		TitleList = null
-	},
 	LegendWhiteDirewolf = {
 		ID = this.Const.EntityType.LegendWhiteDirewolf,
 		Variant = 0,
@@ -1445,24 +1435,6 @@ gt.Const.World.Spawn.Troops <- {
 		NameList = this.Const.Strings.SouthernNames,
 		TitleList = this.Const.Strings.SatoManhunterVeteranTitles
 	},
-	SatoManhunterRanged = {
-		ID = this.Const.EntityType.SatoManhunter,
-		Variant = 0,
-		Strength = 20,
-		Cost = 20,
-		Row = 1,
-		Script = "scripts/entity/tactical/humans/sato_manhunter_ranged"
-	},
-	SatoManhunterVeteranRanged = {
-		ID = this.Const.EntityType.SatoManhunterVeteran,
-		Variant = 1,
-		Strength = 25,
-		Cost = 28,
-		Row = 1,
-		Script = "scripts/entity/tactical/humans/sato_manhunter_veteran_ranged",
-		NameList = this.Const.Strings.SouthernNames,
-		TitleList = this.Const.Strings.SatoManhunterVeteranTitles
-	},
 	KoboldFighter = {
 		ID = this.Const.EntityType.KoboldFighter,
 		Variant = 0,
@@ -1675,6 +1647,34 @@ gt.Const.World.Spawn.Troops <- {
 		Row = 1,
 		Script = "scripts/entity/tactical/humans/free_company_leader_low"
 	},
+	Oathbringer = {
+		ID = this.Const.EntityType.Oathbringer,
+		Variant = 1,
+		Strength = 40,
+		Cost = 40,
+		Row = 1,
+		Script = "scripts/entity/tactical/humans/oathbringer",
+		NameList = this.Const.Strings.OathbringerNames,
+		TitleList = null
+	},
+	SatoManhunterRanged = {
+		ID = this.Const.EntityType.SatoManhunterRanged,
+		Variant = 0,
+		Strength = 20,
+		Cost = 20,
+		Row = 2,
+		Script = "scripts/entity/tactical/humans/sato_manhunter_ranged"
+	},
+	SatoManhunterVeteranRanged = {
+		ID = this.Const.EntityType.SatoManhunterVeteranRanged,
+		Variant = 1,
+		Strength = 25,
+		Cost = 28,
+		Row = 2,
+		Script = "scripts/entity/tactical/humans/sato_manhunter_veteran_ranged",
+		NameList = this.Const.Strings.SouthernNames,
+		TitleList = this.Const.Strings.SatoManhunterVeteranTitles
+	},
 	LegendNobleGuard= {
 		ID = this.Const.EntityType.LegendNobleGuard,
 		Variant = 0,
@@ -1690,7 +1690,7 @@ gt.Const.World.Spawn.Troops <- {
 		Cost = 100,
 		Row = 1,
 		Script = "scripts/entity/tactical/humans/noble_man_at_arms"
-	},
+	}
 };
 
 gt.Const.World.Spawn.Caravan <-

@@ -224,11 +224,16 @@ this.shield <- this.inherit("scripts/items/item", {
 			return false;
 		}
 
+		if (this.isNamed())
+		{
+			return true;
+		}
+
 		local isPlayer = this.m.LastEquippedByFaction == this.Const.Faction.Player || this.getContainer() != null && this.getContainer().getActor() != null && !this.getContainer().getActor().isNull() && this.isKindOf(this.getContainer().getActor().get(), "player");
 		local isLucky = !this.Tactical.State.isScenarioMode() && !isPlayer && this.World.Assets.getOrigin().isDroppedAsLoot(this);
 		local isBlacksmithed = isPlayer && !this.Tactical.State.isScenarioMode() && this.World.Assets.m.IsBlacksmithed;
 
-		if ((isBlacksmithed || this.m.Condition >= 6) && (isPlayer || this.m.Condition / this.m.ConditionMax >= 0.25) && (isPlayer || isLucky || isBlacksmithed || !isPlayer && this.isItemType(this.Const.Items.ItemType.Named) || this.isItemType(this.Const.Items.ItemType.Legendary) || this.Math.rand(1, 100) <= 90))
+		if ((isBlacksmithed || this.m.Condition >= 6) && (isPlayer || this.m.Condition / this.m.ConditionMax >= 0.25) && (isPlayer || isLucky || isBlacksmithed || this.Math.rand(1, 100) <= 90))
 		{
 			return true;
 		}

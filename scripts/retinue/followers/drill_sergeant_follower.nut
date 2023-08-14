@@ -12,20 +12,24 @@ this.drill_sergeant_follower <- this.inherit("scripts/retinue/follower", {
 			"Makes your men gain 20% more experience at level 1, with 2% less at each further level",
 			"Makes men in reserve never lose mood from not taking part in battles"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have a Retired Soldier, Swordmaster, Sellsword, or Gladiator with a permanent injury in your company"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addRequirement("Won 50 battles", function() {
+			return ::World.Statistics.getFlags().getAsInt("BattlesWon") >= 50;
+		}, true, function( _r ) {
+			_r.Count <- 50;
+			_r.UpdateText <- function() {
+				this.Text = "Won at least " + ::Math.min(this.Count, ::World.Statistics.getFlags().getAsInt("BattlesWon")) + "/" + this.Count + " battles"
+			};
+		});
+
+		this.addSkillRequirement("Have at least one of the following backgrounds: Retired Soldier, Swordmaster, Sellsword, or Gladiator", [
 			"background.retired_soldier",
 			"background.swordmaster",
 			"background.sellsword",
 			"background.gladiator",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		], true);
 	}
 
 	function onUpdate()
@@ -34,25 +38,5 @@ this.drill_sergeant_follower <- this.inherit("scripts/retinue/follower", {
 			this.World.Assets.m.IsDisciplined = true;
 	}
 
-	function checkRequiredSkills()
-	{
-		local isCorrectSkill = function( _skill )
-		{
-			if (this.m.RequiredSkills.find(_skill.getID()) != null)
-			{
-				return true;
-			}
-			return false;
-		}
-
-		foreach (bro in this.World.getPlayerRoster().getAll())
-		{
-			if (bro.getSkills().getSkillsByFunction(isCorrectSkill.bindenv(this)).len() != 0 && (bro.getSkills().hasSkillOfType(this.Const.SkillType.PermanentInjury)))
-			{
-				this.m.LinkedBro = bro;
-				break;
-			}
-		}
-	}
 });
 

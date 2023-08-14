@@ -218,6 +218,7 @@ this.training_building <- this.inherit("scripts/entity/world/camp/camp_building"
 		return names[this.Math.rand(0, names.len() - 1)];
 	}
 
+
 	function getResults()
 	{
 		local res = [];
@@ -243,13 +244,27 @@ this.training_building <- this.inherit("scripts/entity/world/camp/camp_building"
 		return mod.Assigned;
 	}
 
+
 	function getInjury( bro )
 	{
+	
+		if (bro.getSkills().hasSkillOfType(this.Const.SkillType.TemporaryInjury) || bro.getSkills().hasSkillOfType(this.Const.SkillType.SemiInjury)) 
+		{
+		local injury = bro.addInjury(this.Const.Injury.Permanent);
+		this.m.Results.push({
+			Icon = injury.getIcon(),
+			Text = bro.getName() + " suffers " + injury.getNameOnly() + " while training."
+		});
+		}
+		else
+		{
 		local injury = bro.addInjury(this.Const.Injury.CampTraining);
 		this.m.Results.push({
 			Icon = injury.getIcon(),
 			Text = bro.getName() + " suffers " + injury.getNameOnly() + " while training."
 		});
+		}
+
 	}
 
 	function getTrained( bro )
@@ -519,6 +534,15 @@ this.training_building <- this.inherit("scripts/entity/world/camp/camp_building"
 			{
 				this.getInjury(bro);
 			}
+
+			local r = this.Math.min(injuryMin, 4 * this.Math.pow(this.m.Camp.getCampTimeHours(), 0.5) - bro.getLevel());
+	
+			if (this.Math.rand(1, 100) < r)
+			{
+					local effect = this.new("scripts/skills/effects_world/exhausted_effect");
+					bro.getSkills().add(effect);
+			}
+		
 		}
 	}
 	function getTrainedAfter11( bro )

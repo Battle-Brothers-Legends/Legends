@@ -15,7 +15,7 @@ this.make_nobles_aware_ambition <- this.inherit("scripts/ambitions/ambition", {
 
 	function onUpdateScore()
 	{
-		if (this.World.Ambitions.getDone() < 2)
+		if (this.World.Ambitions.getDone() < 2 && !this.World.Assets.getOrigin().getID() == "scenario.legends_noble")
 		{
 			return;
 		}
@@ -25,12 +25,12 @@ this.make_nobles_aware_ambition <- this.inherit("scripts/ambitions/ambition", {
 			return;
 		}
 
-		if (!this.World.Ambitions.getAmbition("ambition.battle_standard").isDone())
+		if (!this.World.Ambitions.getAmbition("ambition.battle_standard").isDone() && !this.World.Assets.getOrigin().getID() == "scenario.legends_noble")
 		{
 			return;
 		}
 
-		if (this.World.Assets.getBusinessReputation() >= 1050 && this.World.FactionManager.isGreaterEvil())
+		if (this.World.Assets.getBusinessReputation() >= 1050 && this.World.FactionManager.isGreaterEvil() || !this.World.Assets.getOrigin().getID() == "scenario.legends_noble")
 		{
 			this.m.IsDone = true;
 			return;

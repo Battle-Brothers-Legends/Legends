@@ -4,11 +4,12 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 	{
 		this.m.ID = "scenario.legends_inquisition";
 		this.m.Name = "The Inquisition";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_40.png[/img][/p]There is a great evil in the world, the undead walk the earth and cultists hide in every town. The holy must purge the filth. \n\n[color=#bcad8c]Righteous Cause:[/color] Cannot recruit outlaw backgrounds; however, the pious will flock to join your cause. \n[color=#bcad8c]Penitence:[/color] Anyone you hire gains the Mind over Body perk.\n";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_40.png[/img][/p]There is a great evil in the world, the undead walk the earth and cultists hide in every town. The holy must purge the filth.\n\n[color=#bcad8c]Endless Dead:[/color] Begins with the Undead Crisis already underway, and it can repeat \n\n[color=#bcad8c]Righteous Cause:[/color] Can\'t recruit outlaw backgrounds but more holy backgrounds available to hire\n[color=#bcad8c]Penitence:[/color] Anyone you hire gains the Mind over Body perk.\n";
 		this.m.Difficulty = 2;
 		this.m.Order = 280;
-		this.m.IsFixedLook = true;
-		this.m.StartingRosterTier = this.Const.Roster.getTierForSize(3);
+		this.m.IsFixedLook = true;	
+		this.m.StartingRosterTier = this.Const.Roster.getTierForSize(6);
+		this.m.StartingBusinessReputation = 1100;
 	}
 
 	function isValid()
@@ -163,6 +164,14 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 		this.World.Assets.getStash().add(this.new("scripts/items/weapons/legend_wooden_stake"))
 		this.World.Assets.getStash().add(this.new("scripts/items/weapons/legend_wooden_stake"));
 		this.World.Assets.getStash().add(this.new("scripts/items/weapons/legend_wooden_stake"));
+		this.World.Assets.getStash().add(this.new("scripts/items/weapons/legend_hand_crossbow"));
+		this.World.Assets.getStash().add(this.new("scripts/items/ammo/quiver_of_bolts"));
+		
+		//unleash the dogs of war 
+		this.World.FactionManager.setGreaterEvilType(this.Const.World.GreaterEvilType.Undead);
+		this.World.FactionManager.setGreaterEvilPhase(this.Const.World.GreaterEvilPhase.Live);
+		this.World.FactionManager.addGreaterEvilStrength(500);
+		this.World.Statistics.addNews("crisis_undead_start", this.World.Statistics.createNews());
 	}
 
 	function onSpawnPlayer()

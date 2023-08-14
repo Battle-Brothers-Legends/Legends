@@ -299,6 +299,8 @@ gt.Const.Strings.EntityName <- [
 	"Free Company Leader",
 	"Free Company Ringleader",
 	"Oathbringer",
+	"Manhunter Handgonner",
+	"Manhunter Veteran Handonner",
 	"Noble Guard",
 	"Man at Arms"
 ];
@@ -469,6 +471,8 @@ gt.Const.Strings.EntityNamePlural <- [
 	"Free Company Leaders",
 	"Free Company Ringleaders",
 	"Oathbringers",
+	"Manhunter Handgonners",
+	"Manhunter Veteran Handonners",
 	"Veteran Footmen",
 	"Men at Arms"
 ];
@@ -2450,7 +2454,7 @@ gt.Const.Strings.PerkDescription <- {
 	PerfectFocus = "Take a deep breath, then go to work.\n\nUnlocks the \'Perfect Focus\' skill which allows the use of all other skills for one round at half the normal Action Point cost (rounded down), but +75% fatigue cost.",
 	Rotation = "Just like dancing with your nan when you were young.\n\nUnlocks the \'Rotation\' skill which allows two characters to switch places while ignoring Zone of Control as long as neither character is stunned, rooted or otherwise disabled.",
 	Footwork = "You've learned how to escape from sticky situations.\n\nUnlocks the \'Footwork\' skill which allows you to leave a Zone of Control without triggering free attacks by using skillful footwork.",
-	Debilitate = "Ankles, hands, elbows and knees, you've learned how to fight dirty to secure victory.\n\nUnlocks the \'Debilitate\' skill which can prime your next attack to cripple a target for three turns, reducing their ability to inflict damage by [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color].",
+	Debilitate = "Ankles, hands, elbows and knees, you've learned how to fight dirty to secure victory.\n\nUnlocks the \'Debilitate\' skill which can prime your next attack to cripple a target for three turns, reducing their ability to inflict damage by [color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] and increasing the damage they take by [color=" + this.Const.UI.Color.NegativeValue + "]+15%[/color].",
 	Furor = "Unlocks the \'Furor\' skill which allows for an unlimited number of other skill uses for a single turn until the character is completely fatigued.",
 	Indomitable = "In the face of insurmountable odds, you stand firm.\n\nUnlocks the \'Indomitable\' skill which grants a [color=" + this.Const.UI.Color.PositiveValue + "]50%[/color] damage reduction and immunity to being stunned, knocked back, grabbed or swallowed for one turn.",
 	RallyTheTroops = "\'Get back in there or I\'ll kill you myself!\'\n\nUnlocks the \'Rally\' skill which can rally fleeing allies, and raise morale of all nearby allies to a steady level. The higher the Resolve of the character using the skill, the higher the chance to succeed.",
@@ -2573,7 +2577,7 @@ gt.Const.Strings.PerkDescription <- {
 	LegendGruesomeFeast = "Taste of the forbidden flesh. Devour a recently departed corpse to gain strength and restore your own health by [color=" + this.Const.UI.Color.PositiveValue + "]50[/color] ",
 	LegendRelax = "Sooth an ally, halving their fatigue.",
 	LegendUberNimble = "Gain another stack of nimble when not wearing both armour and a helmet, real berserkers don\'t need pants.",
-	LegendMuscularity = "Put your full weight into every blow and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] of your current hitpoints as additional minimum and maximum damage, up to 50.",
+	LegendMuscularity = "Put your full weight into every blow and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] of your current hitpoints as additional minimum and maximum damage.",
 	LegendBattleheart = "Wade into the thick of battle, dodging blades from behind and above, aware of all around you at the heart of the battle. Being surrounded no longer affects this character\'s defences at all. Upgraded version of Underdog, immune to Backstabber.",
 	LegendTrueBeliever = "Lesser men may cower and flee, but you are unassuageable in your commitment. Allies fleeing or dying no longer lowers this character\'s morale. This character gains 5% resolve for every fleeing character on the field, friend or foe. Taking this perk also removes the superstitious, insecure, craven and dastard traits.",
 	LegendPoisonImmunity = "With a well developed immune system and incredible fitness, a warrior\'s system can shrug off even powerful toxins. This character becomes immune to all poisons.",
@@ -2622,7 +2626,7 @@ gt.Const.Strings.PerkDescription <- {
 	LegendMedIngredients = "Learning the plants of the healing trade allows you to fashion crude healing supplies from common ingredients. Unlocks crafting bandages and medicine. Also increases maximum medicine storage by 10 and resolve by [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color].",
 	LegendToolsDrawers = "Organising your tools into labeled compartments lets you carry more. Increases maximum tool storage by [color=" + this.Const.UI.Color.PositiveValue + "] 10 [/color], reduces tool usage by [color=" + this.Const.UI.Color.PositiveValue + "] 4% [/color], and increases Fatigue by [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color].",
 	LegendToolsSpares = "Your experience with repairs has taught you to save your scraps and left over parts. These spares take up little space but are often just what you need for field repairs. Increases maximum tool storage by [color=" + this.Const.UI.Color.PositiveValue + "]20[/color], reduces tool usage by [color=" + this.Const.UI.Color.PositiveValue + "] 6% [/color] and increases fatigue by [color=" + this.Const.UI.Color.PositiveValue + "]+6[/color].",
-	LegendBarterConvincing = "This characters skill with words makes their trade proposals more acceptable.\n\n[color=#4f1800][u]Passive:[/u][/color]\n• Increases Barter by [color=" + this.Const.UI.Color.PositiveValue + "]+1%[/color]\n• Generate [color=" + this.Const.UI.Color.PositiveValue + "]+10 Crowns[/color] each day",
+	LegendBarterConvincing = "This characters skill with words makes their trade proposals more acceptable.\n\n[color=#4f1800][u]Passive:[/u][/color]\n• Increases their Barter skill by [color=" + this.Const.UI.Color.PositiveValue + "]+1%[/color], improving all buy and sell prices and rewards from trade contracts.\n• They also generate [color=" + this.Const.UI.Color.PositiveValue + "]+10 Crowns[/color] each day through their investments and an additional [color=" + this.Const.UI.Color.PositiveValue + "]+1 Crowns[/color] per level. \n Unfortunately their negotional skill also increases their daily pay rate by [color=" + this.Const.UI.Color.NegativeValue + "]+25%[/color] ",
 	LegendBarterTrustworthy = "This characters body language makes people believe them, leading to more favourable trade agreements. Grants +2% barter skill increasing sell prices, reducing buy prices and increasing pay for delivery contracts. Barter skill begins falling off at higher total rates.",
 	LegendBribe = "You\'ve never met a problem that money couldn't solve.\n\nThrow coins at your enemies to bribe them away from battle, only works on humans. The cost is the XP that would be granted by killing the enemy, to the power of 1.3.",
 	LegendOffBookDeal = "Convince anyone into selling you their priciest possession. Even if that means paying extra.\n\n[color=#4f1800][u]Passive:[/u][/color]\n• Reduces Barter by [color=" + this.Const.UI.Color.NegativeValue + "]-1%[/color]\n• When entering a town that has no active situation, apply the 'Off-Book Deal' situation for 3 days\n• This situation grants [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] to available items and [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] to buying price for each brother with this perk",
@@ -2663,7 +2667,7 @@ gt.Const.Strings.PerkDescription <- {
 	LegendTeacher = "The techniques you have mastered are inspirational and inspire curiosity in those who behold, granting the \'Student\' perk to anyone you fight with.",
 	LegendResurrectionist = "This character\'s experience with corpses gives an additional [color=" + this.Const.UI.Color.PositiveValue + "]5%[/color] chance to retrieve each human body or skeleton from the battlefield, if you are already collecting them.",
 	LegendScry = "Use your extraordinary senses to notice things no one else can. Reveals everything within 12 tiles.",
-	LegendPiercingShot = "Launch a shot so powerful it can hit two targets in a straight line. Does not work with throwing weapons.",
+	LegendPiercingShot = "Launch a shot so powerful it goes through an additional target. Bows and crossbows hit two targets in a straight line. Handgonnes reach an additional tile further. Does not work with throwing weapons.",
 	LegendLevitate = "Levitate a person above the ground, making movement across any terrain cost 1 AP and 2 Fatigue per tile.",
 	LegendTeleport = "Step through the world, disappearing from one place and reappearing in another place immediately.",
 	LegendSpecialistShieldSkill = "Begin each battle with your shieldwall activated and gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Ranged Defense while using a shield.",
@@ -2735,7 +2739,7 @@ gt.Const.Strings.PerkDescription <- {
 	LegendSpecCultHood = "In Pain we find the truth of ourselves. We have no identity beyond servitude, our glory is agony. While your face is obscured by a cultist hood, gain [color=" + this.Const.UI.Color.PositiveValue + "]+15%[/color] of your base resolve as a bonus to melee and ranged defense. Also works with cultist leather hood, leather helmet, sack, decayed sack helm, warlock hood or mask of davkul.\n Also unlocks a crafting recipe to make cultist hoods and sacks.",
 	LegendSpecCultArmor = "Only in suffering can we know truth. Gain [color=" + this.Const.UI.Color.PositiveValue + "]+75%[/color] of your missing health as resolve, while wearing cultist robes, barbarian hide, bone armour or warlock robes. Adds [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] maximum damage for every hostile entity adjacent to you. \n Also unlocks a crafting recipe to make cultist robes.",
 	LegendPrepareBleed = "Time spent assessing an enemy, finding the arteries, will pay off in blood shed on the field. Grants the active skill Prepare to Bleed that primes your next strike to inflict intense but short lived bleeding.",
-	LegendPrepareGraze = "Long slow deep rending scratches can leave many bleeding grazes. Grants the active skill Prepare to Graze that primes your next strike to inflict weak but long lasting bleeding.",
+	LegendPrepareGraze = "Long, slow, deep rending scratches that leave many bleeding grazes. Grants the active skill Prepare to Graze that primes your next strike to inflict weak but long lasting bleeding.",
 	LegendSlaughter = "If it bleeds, we can kill it. An existing injury can open up avenues of attack for the final slaughter. Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] damage when attacking a bleeding enemy.",
 	LegendUntouchable = "Staying hidden is about more than just clever disguise, one must be prepared to avoid stray blows and arrows in the heat of battle. Extends your camouflage by two turns.",
 	LegendAssassinate = "Becoming invisible is impressive, but it is what you do with this power that really counts.  Striking from the shadows allows you to bypass enemy defenses and strike for their undefended weak points. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+20%[/color] maximum and minimum damage while hidden by being within a bush or smoke. Assassins who specialize in the art of stealth gain [color=" + this.Const.UI.Color.PositiveValue + "]+30%[/color] instead. Master assassins more deadly in stealth and killing gain [color=" + this.Const.UI.Color.PositiveValue + "]+50%[/color].",
@@ -2767,7 +2771,7 @@ gt.Const.Strings.PerkDescription <- {
 	LegendSummonCatapult = "Put to use your skill in the creation and maintenance of siege weapons. Unlocks crafting Catapults in the crafting tent.",
 	LegendNetRepair = "Many years spent repairing and packing nets allows you to create nets and wield them more effectively. Unlocks the Net recipe in the crafting tent. Also grants +10 melee defense while holding a net.",
 	LegendNetCasting = "Learning the ways of the cast takes practice, holding the net in the right position and twisting at the hips allows you to cover a greater distance with each cast. Increases the throwing range of nets and reinforced nets by 2.",
-	LegendPacifist = "Fighting is a brutal thuggish pastime, most folk prefer a life without frequent bouts of extreme violence.  This character does not count towards your party strength when determining game difficulty. They will gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] resolve. They become content with being in reserve, and will grow unhappy if they are in more than half of the battles your company takes.",
+	LegendPacifist = "Fighting is a brutal thuggish pastime, most folk prefer a life without frequent bouts of extreme violence.  This character does not count towards your party strength when determining game difficulty. They will gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] resolve. They become content with being in reserve, and each battle they are forced to participate in worsens their mood.",
 	LegendMagicMissile = "Release a controlled forceful bolt, leaping towards a foe. Damage based on current initiative, accuracy based on ranged attack skill.",
 	LegendHorseMovement = "Move like a horse, quickly across flat terrain, but slowly through bogs and mountains.",
 	LegendCampCook = "There is a fine art to cooking, skills and ingredients that are not obvious but unlock a world of flavor or preserve food for longer. Unlocks food crafting in the crafting tent. Allows the creation of porridge, puddings, pies, meat curing, fruit drying and ration making.",
@@ -2790,7 +2794,7 @@ gt.Const.Strings.PerkDescription <- {
 	LegendZombieBite = "braaaains",
 	LegendCheerOn = "Use your way with song to cheer on an ally. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] Action Points to an ally adjacent to you. Costs 4 Action Points to perform. Can only be used with an Instrument or Banner equipped.",
 	LegendLeap = "Use your athletic skill to leap high and far, covering two tiles distance but at a great fatigue cost. Unlocks the \'Leap\' skill.",
-	LegendTumble = "Make use of your acrobatic skill to improve your movements. Halves the Fatigue Cost of Lunge, Unarmed Lunge, Footwork, Leap and Tumble. The Action Point cost of all these skills is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color], except that of Leap which is halved instead.",
+	LegendTumble = "Make use of your acrobatic skill to improve your movements. Halves the Fatigue Cost of Lunge, Great Lunge, Footwork, Leap and Tumble. The Action Point cost of all these skills is reduced by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color], except that of Leap which is halved instead.",
 	LegendHairSplitter = "Years of practice throwing things at apples above heads have granted a magnetic attraction to the cranium. Grants [color=" + this.Const.UI.Color.PositiveValue + "]+30%[/color] chance to hit the head.",
 	LegendBearform = "Transform into a powerful bear, doubles your hitpoints. Requires free hands.",
 	LegendRoots = "Summon roots and vines to entangle your enemies.",
@@ -2840,13 +2844,13 @@ gt.Const.Strings.PerkDescription <- {
 	LegendPrepared = "While using a dagger, dealing health damage to an enemy has a [color=" + this.Const.UI.Color.PositiveValue + "]+25%[/color] chance of poisoning them. You will also gain [color=" + this.Const.UI.Color.PositiveValue + "]+12[/color] melee skill and [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] fatigue recovery per turn while holding a dagger in your mainhand.",
 	LegendLurker = "When neither ally nor enemy is within 2 tiles, gain [color=" + this.Const.UI.Color.PositiveValue + "]+30%[/color] ranged defence, [color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] initiative and [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] action points. If you are under the effects of \'hidden\' gain [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] fatigue recovery per turn and [color=" + this.Const.UI.Color.PositiveValue + "]+20%[/color] ranged skill. If you are within a smoke cloud gain [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] maximum action points.",
 	LegendNightRaider = "Gain [color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] vision and become unaffected by night time penalties. When attacking at night, adjacent enemies will lose [color=" + this.Const.UI.Color.PositiveValue + "]10[/color] resolve when adjacent to you. Gain [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] melee and ranged skill while fighting at night.",
-	LegendAdaptive = "Add a new group of perks to this character's perk tree, the perks are determined by what is currently equipped in their hands",
-	LegendRecuperation = "Heal 2 hitpoints and 2 fatigue at the end of every turn",
-	LegendClimb = "Unlocks the \'Climb\' skill which allows you to climb sheer cliffs up to five height in one move. Does not trigger attacks of opportunity"
-	LegendSmallTarget = "Gain +100 Melee and Ranged defences. Lose 1 point for every point of armor and health you have.",
-	LegendFashionable = "You can wear tabards, cloaks and helmet vanity layers without negatively impacting \'Small Target\'.",
-	LegendMeek = "Gain %100 lucky chance to force an enemy to reroll a failed attack. Lose 1% for every point of melee and ranged defense you have",
-	LegendHelpful = "Gain the ability to freely give items from your bag to allies"
+	LegendAdaptive = "Add a new group of perks to this character\'s perk tree, the perks are determined by what is currently equipped in their hands.\n\n Mainhand will always be checked first, followed by offhand.\n For hybrid weapons, you will be given the perktree you do not have, or be given one randomly from that weapon type if you have neither.\n If not holding a weapon, you will gain the unarmed tree if you do not have it.\n If you have all the perktrees of the weapons you are currently holding, you will be given a random trait tree you do not have.",
+	LegendRecuperation = "Heal [color=" + this.Const.UI.Color.PositiveValue + "]+2[/color] hitpoints and fatigue at the end of every turn.",
+	LegendClimb = "Unlocks the \'Climb\' skill which allows you to climb sheer cliffs up to five levels of height in one action.\n Does not trigger attacks of opportunity."
+	LegendSmallTarget = "Use your thin stature and lack of bulky armor to your advantage by adjusting your stance to create a narrow target area. \n\n Gain [color=" + this.Const.UI.Color.PositiveValue + "]+100[/color] Melee and Ranged defence. Lose [color=" + this.Const.UI.Color.NegativeValue + "]1[/color] point for every point of armor and health you have.",
+	LegendFashionable = "Use flowing, billiowing and distracting clothes to hide where your body is and make it hard for enemies to land a hit.\n\n You can wear tabards, cloaks and helmet vanity layers without negatively impacting \'Small Target\'.",
+	LegendMeek = "Your unassuming posture leads the enemy to think you are an easy target, making their attacks careless. \n\n Force an enemy to reroll their successful attacks. \n\n This chance starts at [color=" + this.Const.UI.Color.PositiveValue + "]100%[/color] and is reduced by 1% for every point of Melee Defense and Resolve you have",
+	LegendHelpful = "Amateurs discuss tactics, the professionals discuss logistics.\n\n Gain the ability to give items from your bag to allies under your control [color=" + this.Const.UI.Color.PositiveValue + "]with no cost or penalty.[/color]\n [color=" + this.Const.UI.Color.NegativeValue + "]Does not work when receiving items.[/color]"
 
 };
 gt.Const.Strings.Tooltip <- {

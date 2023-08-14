@@ -31,6 +31,7 @@ this.tavern_building <- this.inherit("scripts/entity/world/settlements/buildings
 			"The Drunk Nobleman",
 			"The Scarlet Maiden",
 			"The Pit",
+			"The Artroom",
 			"Crossroads Inn",
 			"The Nobleman\'s Demise",
 			"Trapper Tavern",

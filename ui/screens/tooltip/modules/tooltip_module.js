@@ -3,10 +3,10 @@
 
 var TooltipModuleIdentifier =
 {
-	KeyEvent:
-	{
-		Namespace: '.tooltip-module'
-	}
+    KeyEvent:
+    {
+        Namespace: '.tooltip-module'
+    }
 };
 
 
@@ -18,21 +18,21 @@ var TooltipModule = function()
 	this.mEventListener = null;
 
 	// container
-	this.mParent	= null;
+	this.mParent    = null;
 	this.mContainer = null;
 	
 	// current element data
-	this.mCurrentData	= null;
+	this.mCurrentData    = null;
 	this.mCurrentElement = null;
 
 	// constants
-	this.mLastMouseX	   = 0;
-	this.mLastMouseY	   = 0;
+	this.mLastMouseX       = 0;
+	this.mLastMouseY       = 0;
 	this.mMinMouseMovement = 4;
-	this.mCursorWidth	  = 32;
-	this.mCursorHeight	 = 32;
-	this.mCursorXOffset	= 0;
-	this.mCursorYOffset	= 0;
+	this.mCursorWidth      = 32;
+	this.mCursorHeight     = 32;
+	this.mCursorXOffset    = 0;
+	this.mCursorYOffset    = 0;
 	this.mDefaultYOffset   = 4;
 		
 	this.mMaxIconsPerRow = 7;
@@ -238,7 +238,7 @@ TooltipModule.prototype.bindToElement = function(_targetDIV, _data)
 		//console.error('killmeeeeeee ' + _data.contentType); 
 		//TESTSTART
 /* 		var height = baseself.mContainer.outerHeight(true);
-		var targetOffset	= _targetDIV.offset();
+		var targetOffset    = _targetDIV.offset();
 		var scrollheight = baseself.mContainer.get(0).scrollHeight;
 		var divheight = _targetDIV.outerHeight(true);
 		console.error('targetdiv ' + divheight + ', height ' + height + ', left ' + baseself.mContainer.css("left") + ', top ' + baseself.mContainer.css("top")); */
@@ -266,8 +266,8 @@ TooltipModule.prototype.bindToElement = function(_targetDIV, _data)
 		self.mShowUITooltipTimer = setTimeout(function() { self.showTooltip(_targetDIV, _data); }, self.mShowDelay);
 	});
 
-	_targetDIV.on('mouseleave' + TooltipModuleIdentifier.KeyEvent.Namespace + ' mouseout' + TooltipModuleIdentifier.KeyEvent.Namespace + ' blur' + TooltipModuleIdentifier.KeyEvent.Namespace, null, this, function (_event)
-	{
+    _targetDIV.on('mouseleave' + TooltipModuleIdentifier.KeyEvent.Namespace + ' mouseout' + TooltipModuleIdentifier.KeyEvent.Namespace + ' blur' + TooltipModuleIdentifier.KeyEvent.Namespace, null, this, function (_event)
+    {
 		var self = _event.data;
 		//console.error('killmeeeeeee 2 ' + _data.contentType); 
 		//console.log('TooltipModule::mouseleave event triggered');
@@ -281,15 +281,15 @@ TooltipModule.prototype.bindToElement = function(_targetDIV, _data)
 	});
 	
 	
-/*	 _targetDIV.on('keydown' + TooltipModuleIdentifier.KeyEvent.Namespace, null, _targetDIV, function (_event)
-	{
+/*     _targetDIV.on('keydown' + TooltipModuleIdentifier.KeyEvent.Namespace, null, _targetDIV, function (_event)
+    {
 		console.error('oilala');
-		 var code = _event.which || _event.keyCode;
+         var code = _event.which || _event.keyCode;
 		var scrollheight = baseself.mContainer.get(0).scrollHeight;
 		var height = baseself.mContainer.outerHeight(true);
 		console.error('scrollheight ' + scrollheight + ', height ' + height);
 
-		if (code === KeyConstants.PageDown)
+        if (code === KeyConstants.PageDown)
 		{
 			
 			console.error('scrollheight ' + scrollheight + ', heigh ' + height);
@@ -301,8 +301,8 @@ TooltipModule.prototype.bindToElement = function(_targetDIV, _data)
 	}); */
 
 	// bind special callbacks
-	_targetDIV.on('update-tooltip' + TooltipModuleIdentifier.KeyEvent.Namespace, null, this, function (_event)
-	{
+    _targetDIV.on('update-tooltip' + TooltipModuleIdentifier.KeyEvent.Namespace, null, this, function (_event)
+    {
 		var self = _event.data;
 		//console.error('killmeeeeeee 3 ' + _data.contentType); 
 
@@ -311,8 +311,8 @@ TooltipModule.prototype.bindToElement = function(_targetDIV, _data)
 		self.reloadUITooltip();
 	});
 
-	_targetDIV.on('hide-tooltip' + TooltipModuleIdentifier.KeyEvent.Namespace, null, this, function (_event)
-	{
+    _targetDIV.on('hide-tooltip' + TooltipModuleIdentifier.KeyEvent.Namespace, null, this, function (_event)
+    {
 		var self = _event.data;
 
 		//console.log('TooltipModule::hide-tooltip event triggered');
@@ -360,8 +360,8 @@ TooltipModule.prototype.setupUITooltip = function(_targetDIV, _data)
 	var wnd = this.mParent; // $(window);
 	
 	// calculate tooltip position
-	var targetOffset	= _targetDIV.offset(); //from top to element
-	var elementWidth	= _targetDIV.outerWidth(true);
+	var targetOffset    = _targetDIV.offset(); //from top to element
+	var elementWidth    = _targetDIV.outerWidth(true);
 	var elementHeight   = _targetDIV.outerHeight(true);
 	var containerWidth  = this.mContainer.outerWidth(true);
 	var containerHeight = this.mContainer.outerHeight(true);
@@ -449,45 +449,45 @@ TooltipModule.prototype.showTooltip = function(_targetDIV, _data)
 	{
 		console.log('ERROR: Target UI element is not within the DOM.');
 		// clean up
-		this.mCurrentData	= null;
+		this.mCurrentData    = null;
 		this.mCurrentElement = null;
 		return;
 	}
 */
-	// check if the tooltip is enabled for this particular element
-	var isEnabled = _targetDIV.data('is-enabled');
-	if (isEnabled !== null && isEnabled === false)
-	{
-		return;
-	}
+    // check if the tooltip is enabled for this particular element
+    var isEnabled = _targetDIV.data('is-enabled');
+    if (isEnabled !== null && isEnabled === false)
+    {
+        return;
+    }
 
-	// get tooltip data
-	var self = this;
-	this.notifyBackendQueryTooltipData(_data, function (tooltipData)
-	{
-		if (tooltipData === undefined || tooltipData === null)
-		{
-			console.log('ERROR: Failed to query Tooltip data. Reason: Data is not valid.');
-			return;
-		}
+    // get tooltip data
+    var self = this;
+    this.notifyBackendQueryTooltipData(_data, function (tooltipData)
+    {
+        if (tooltipData === undefined || tooltipData === null)
+        {
+            console.log('ERROR: Failed to query Tooltip data. Reason: Data is not valid.');
+            return;
+        }
 
-		self.mIsVisible = true;
-		self.mCurrentData = _data;
-		self.mCurrentElement = _targetDIV;
+        self.mIsVisible = true;
+        self.mCurrentData = _data;
+        self.mCurrentElement = _targetDIV;
 
-		// setup tooltip div
-		self.buildFromData(tooltipData, false, _data.contentType);
-		self.setupUITooltip(_targetDIV, _data);
-	});   
+        // setup tooltip div
+        self.buildFromData(tooltipData, false, _data.contentType);
+        self.setupUITooltip(_targetDIV, _data);
+    });   
 };
 
 TooltipModule.prototype.hideTooltip = function()
 {
-	// clear tile tooltip timer
-	if (this.mShowTileTooltipTimer)
-	{
-		this.mShowTileTooltipTimer = clearTimeout(this.mShowTileTooltipTimer);
-	}
+    // clear tile tooltip timer
+    if (this.mShowTileTooltipTimer)
+    {
+        this.mShowTileTooltipTimer = clearTimeout(this.mShowTileTooltipTimer);
+    }
 
 	// clear UI tooltip timer
 	if (this.mShowUITooltipTimer)
@@ -497,8 +497,8 @@ TooltipModule.prototype.hideTooltip = function()
 	
 	// hide tooltip
 	this.mContainer.removeClass('display-block').addClass('display-none');
-	this.mIsVisible	  = false;
-	this.mCurrentData	= null;
+	this.mIsVisible      = false;
+	this.mCurrentData    = null;
 	this.mCurrentElement = null;
 };
 
@@ -523,8 +523,8 @@ TooltipModule.prototype.hideUITooltip = function()
 	if (hideTooltip)
 	{
 		this.mContainer.removeClass('display-block').addClass('display-none');
-		this.mIsVisible	  = false;
-		this.mCurrentData	= null;
+		this.mIsVisible      = false;
+		this.mCurrentData    = null;
 		this.mCurrentElement = null;
 	}
 };
@@ -546,7 +546,7 @@ TooltipModule.prototype.reloadUITooltip = function()
 	{
 		//console.error('ERROR: Current UI element is not within the DOM.');
 		// clean up
-		this.mCurrentData	= null;
+		this.mCurrentData    = null;
 		this.mCurrentElement = null;
 
 		// TODO: Prüfen ob das hier an der richtigen Stelle ist und nicht noch geprüft werden muss
@@ -560,14 +560,14 @@ TooltipModule.prototype.reloadUITooltip = function()
 	this.notifyBackendQueryTooltipData(this.mCurrentData, function(tooltipData)
 	{
 		if (tooltipData === null || self.mCurrentData == null || self.mCurrentData == null)
-		{
-			//console.log('ERROR: Failed to query Tooltip data. Reason: Data is not valid.');
-			return;
-		}
+	    {
+	        //console.log('ERROR: Failed to query Tooltip data. Reason: Data is not valid.');
+	        return;
+	    }
 
-		// update tooltip
-		self.buildFromData(tooltipData, true, self.mCurrentData.contentType);
-		self.setupUITooltip(self.mCurrentElement, self.mCurrentData);
+	    // update tooltip
+	    self.buildFromData(tooltipData, true, self.mCurrentData.contentType);
+	    self.setupUITooltip(self.mCurrentElement, self.mCurrentData);
 	});
 };
 
@@ -578,8 +578,8 @@ TooltipModule.prototype.resetInternal = function()
 	this.mContainer.stop(true, true);
 
 	// NOTE: Special Chrome treatment...removeAttr('styles') does not work properly...
-	this.mContainer.css(
-	{
+    this.mContainer.css(
+    {
 		'width': '',
 		'height': '',
 		'left': '',
@@ -681,32 +681,32 @@ TooltipModule.prototype.showTileTooltip = function()
 	this.notifyBackendQueryTooltipData(this.mCurrentData, function(tooltipData)
 	{
 		if (tooltipData === undefined || tooltipData === null)
-		{
-			//console.log('ERROR: Failed to query Tooltip data. Reason: Data is not valid.');
-			return;
-		}
+	    {
+	        //console.log('ERROR: Failed to query Tooltip data. Reason: Data is not valid.');
+	        return;
+	    }
 
-		// do we need to update the contentType as an entity could have moved on to the hovered tile
-		// while we had our hands in our pants :L
-		var newContentType = self.updateContentType(tooltipData);
-		if (newContentType !== null)
-		{
-			//console.log('Content Typed updated to: ' + newContentType.contentType);
-			self.mCurrentData = newContentType;
-		}
-		/*else
-		{
-			return;
-		}*/
+	    // do we need to update the contentType as an entity could have moved on to the hovered tile
+	    // while we had our hands in our pants :L
+	    var newContentType = self.updateContentType(tooltipData);
+	    if (newContentType !== null)
+	    {
+	        //console.log('Content Typed updated to: ' + newContentType.contentType);
+	        self.mCurrentData = newContentType;
+	    }
+	    /*else
+	    {
+	    	return;
+	    }*/
 
-		if(self.mCurrentData == null)
-			return;
+	    if(self.mCurrentData == null)
+	    	return;
 
 		// setup tooltip div
-		self.buildFromData(tooltipData, false, self.mCurrentData.contentType);
-		self.setupTileTooltip();
+	    self.buildFromData(tooltipData, false, self.mCurrentData.contentType);
+	    self.setupTileTooltip();
 
-		self.mIsVisible = true;
+	    self.mIsVisible = true;
 	});
 };
 
@@ -730,8 +730,8 @@ TooltipModule.prototype.hideTileTooltip = function()
 	if (hideTooltip)
 	{
 		this.mContainer.removeClass('display-block').addClass('display-none');
-		this.mIsVisible	  = false;
-		this.mCurrentData	= null;
+		this.mIsVisible      = false;
+		this.mCurrentData    = null;
 		this.mCurrentElement = null;
 	}
 };
@@ -753,31 +753,31 @@ TooltipModule.prototype.reloadTileTooltip = function()
 	var self = this;
 	this.notifyBackendQueryTooltipData(currentData, function(tooltipData)
 	{
-		if (tooltipData === null)
-		{
-			//console.log('ERROR: Failed to query Tooltip data. Reason: Data is not valid.');
-			return;
-		}
+	    if (tooltipData === null)
+	    {
+	        //console.log('ERROR: Failed to query Tooltip data. Reason: Data is not valid.');
+	        return;
+	    }
 
-		// do we need to update the contentType as an entity could have moved on to the hovered tile
-		// while we had our hands in our pants :L
-		var newContentType = self.updateContentType(tooltipData);
-		if (newContentType !== null)
-		{
-			//console.log('Content Typed updated to: ' + newContentType.contentType);
-			self.mCurrentData = newContentType;
-		}
-		/*else
-		{
-			return;
-		}*/
+	    // do we need to update the contentType as an entity could have moved on to the hovered tile
+	    // while we had our hands in our pants :L
+	    var newContentType = self.updateContentType(tooltipData);
+	    if (newContentType !== null)
+	    {
+	        //console.log('Content Typed updated to: ' + newContentType.contentType);
+	        self.mCurrentData = newContentType;
+	    }
+	    /*else
+	    {
+	    	return;
+	    }*/
 
-		if (self.mCurrentData == null)
-			return;
+	    if (self.mCurrentData == null)
+	    	return;
 
-		// setup tooltip div
-		self.buildFromData(tooltipData, true, currentData.contentType);
-		self.setupTileTooltip();
+	    // setup tooltip div
+	    self.buildFromData(tooltipData, true, currentData.contentType);
+	    self.setupTileTooltip();
 	});
 };
 
@@ -874,7 +874,7 @@ TooltipModule.prototype.updateContentType = function(_data)
 						return { contentType: 'tile-entity', entityId: _data[i].entityId };
 					}
 				} break;
-				case 'roster-entity':
+                case 'roster-entity':
 				case 'entity':
 				{
 					if ('entityId' in _data[i])
@@ -902,12 +902,12 @@ TooltipModule.prototype.buildFromData = function(_data, _shouldBeUpdated, _conte
 	var shouldBeUpdated = false;//(_shouldBeUpdated !== undefined && _shouldBeUpdated !== false);
 
 	// container handle
-	var headerContainer	   = null;
-	var contentContainer	  = null;
+	var headerContainer       = null;
+	var contentContainer      = null;
 	var leftContentContainer  = null;
 	var rightContentContainer = null;
-	var footerContainer	   = null;
-	var hintContainer		 = null;
+	var footerContainer       = null;
+	var hintContainer         = null;
 
 	if (!shouldBeUpdated)
 	{
@@ -940,12 +940,12 @@ TooltipModule.prototype.buildFromData = function(_data, _shouldBeUpdated, _conte
 	else
 	{
 		// accquire: container
-		headerContainer	   = this.mContainer.find('.header-container:first');
-		contentContainer	  = this.mContainer.find('.content-container:first');
+		headerContainer       = this.mContainer.find('.header-container:first');
+		contentContainer      = this.mContainer.find('.content-container:first');
 		leftContentContainer  = contentContainer.find('.left-content-container:first');
 		rightContentContainer = contentContainer.find('.right-content-container:first');
-		footerContainer	   = this.mContainer.find('.footer-container:first');
-		hintContainer		 = this.mContainer.find('.hint-container:first');
+		footerContainer       = this.mContainer.find('.footer-container:first');
+		hintContainer         = this.mContainer.find('.hint-container:first');
 
 		// sanity check
 		if (headerContainer.length === 0 ||
@@ -970,9 +970,9 @@ TooltipModule.prototype.buildFromData = function(_data, _shouldBeUpdated, _conte
 	var hasFooter		= false;
 	var hasHint			= false;
 
-	var headerTitle	   = null;
+	var headerTitle       = null;
 	var headerDescription = null;
-	var headerLastText	= null;
+	var headerLastText    = null;
 	var atmosphericImageContainer = null;
 
 	// fill container
@@ -1028,20 +1028,20 @@ TooltipModule.prototype.buildFromData = function(_data, _shouldBeUpdated, _conte
 				hasHeader = true;
 			} break;
 
-			case 'header':
+            case 'header':
 			{
-				var element = null;
+                var element = null;
 
-				if (!shouldBeUpdated)
+                if (!shouldBeUpdated)
 				{
-					element = this.addHeaderContentTextDiv(rightContentContainer, data, false, false);
+                    element = this.addHeaderContentTextDiv(rightContentContainer, data, false, false);
 				}
 				else
 				{
-					element = this.updateHeaderContentTextDiv(rightContentContainer, data, false, false);
-				}
+                    element = this.updateHeaderContentTextDiv(rightContentContainer, data, false, false);
+                }
 
-				if (element !== null)
+                if (element !== null)
 				{
 					hasContent = true;
 				}
@@ -1181,16 +1181,16 @@ TooltipModule.prototype.buildFromData = function(_data, _shouldBeUpdated, _conte
 		{
 			this.mContainer.addClass('is-full-width is-tile-content');
 		} break;
-		case 'tile-entity':
+	    case 'tile-entity':
 		case 'entity':
 		{
 			this.mContainer.addClass('is-entity-content');
 		} break;
-		case 'roster-entity':
-		{
-			this.mContainer.addClass('is-full-width is-entity-content');
-		} break;
-		case 'skill':
+	    case 'roster-entity':
+	    {
+	        this.mContainer.addClass('is-full-width is-entity-content');
+	    } break;
+	    case 'skill':
 		{
 			this.mContainer.addClass('is-full-width is-skill-content');
 		} break;
@@ -1202,9 +1202,9 @@ TooltipModule.prototype.buildFromData = function(_data, _shouldBeUpdated, _conte
 		{
 			this.mContainer.addClass('is-full-width is-status-effect-content');
 		} break;
-		case 'ui-element':
-		case 'verbatim':
-		case 'company-perk':
+        case 'ui-element':
+        case 'verbatim':
+        case 'company-perk':
 		{
 			this.mContainer.addClass('is-full-width is-ui-element-content');
 		} break;
@@ -1212,10 +1212,10 @@ TooltipModule.prototype.buildFromData = function(_data, _shouldBeUpdated, _conte
 		{
 			this.mContainer.addClass('is-full-width is-ui-item-content');
 		} break;
-		case 'follower':
-		{
-			this.mContainer.addClass('is-full-width is-ui-element-content');
-		} break;
+        case 'follower':
+        {
+            this.mContainer.addClass('is-full-width is-ui-element-content');
+        } break;
 	}
 
 	/*
@@ -1300,8 +1300,8 @@ TooltipModule.prototype.addHeaderTitleDiv = function(_parentDIV, _data)
 	var title = $('<div class="title title-font-normal font-bold font-color-ink"></div>');
 	title.attr('id', 'tooltip-module-title-' + _data.id);
 	
-	var parsedText = XBBCODE.process(
-	{
+    var parsedText = XBBCODE.process(
+    {
 		text: _data.text,
 		removeMisalignedTags: false,
 		addInLineBreaks: true
@@ -1366,8 +1366,8 @@ TooltipModule.prototype.addHeaderDescriptionDiv = function(_parentDIV, _data)
 	description.attr('id', 'tooltip-module-title-description-' + _data.id);
 	container.append(description);
 	
-	var parsedText = XBBCODE.process(
-	{
+    var parsedText = XBBCODE.process(
+    {
 		text: _data.text,
 		removeMisalignedTags: false,
 		addInLineBreaks: true
@@ -1441,7 +1441,7 @@ TooltipModule.prototype.addHeaderContentTextDiv = function(_parentDIV, _data, _i
 		rightColumn.addClass('is-full-width');
 	}
 
-	var text = $('<div class="title title-font-normal font-bold font-color-ink"></div>');
+    var text = $('<div class="title title-font-normal font-bold font-color-ink"></div>');
 	text.attr('id', 'tooltip-module-content-text-' + _data.id);
 	rightColumn.append(text);
 
@@ -1456,7 +1456,7 @@ TooltipModule.prototype.addHeaderContentTextDiv = function(_parentDIV, _data, _i
 		text.html(parsedText.html);
 	}
 
-	container.addClass('ui-control-tooltip-module-bottom-devider');
+    container.addClass('ui-control-tooltip-module-bottom-devider');
 
 	return container;
 };
@@ -2019,7 +2019,7 @@ TooltipModule.prototype.addFooterIconDiv = function(_parentDIV, _data)
 	var gfxPath = Path.GFX;
 	if ('useItemPath' in _data && _data.useItemPath === true)
 	{
-		gfxPath = Path.ITEMS;
+	    gfxPath = Path.ITEMS;
 	}
 
 	var sectionIconContainerLayout = $('<div class="l-section-icon-container"></div>');
@@ -2132,8 +2132,8 @@ TooltipModule.prototype.addHintDiv = function(_parentDIV, _data, _isChildRow, _i
 		{
 			if (typeof(_data.label) == 'string')
 			{
-				var parsedLabel = XBBCODE.process(
-				{
+                var parsedLabel = XBBCODE.process(
+                {
 					text: _data.label,
 					removeMisalignedTags: false,
 					addInLineBreaks: true
@@ -2160,8 +2160,8 @@ TooltipModule.prototype.addHintDiv = function(_parentDIV, _data, _isChildRow, _i
 
 	if (typeof(_data.text) == 'string')
 	{
-		var parsedText = XBBCODE.process(
-		{
+        var parsedText = XBBCODE.process(
+        {
 			text: _data.text,
 			removeMisalignedTags: false,
 			addInLineBreaks: true
@@ -2271,68 +2271,68 @@ TooltipModule.prototype.notifyBackendQueryTooltipData = function (_data, _callba
 			{
 				if ('entityId' in _data)
 				{
-					SQ.call(this.mSQHandle, 'onQueryEntityTooltipData', [_data.entityId, false], _callback);
+				    SQ.call(this.mSQHandle, 'onQueryEntityTooltipData', [_data.entityId, false], _callback);
 				}
 			} break;
-			case 'roster-entity':
-			{
-				if ('entityId' in _data)
-				{
-					SQ.call(this.mSQHandle, 'onQueryRosterEntityTooltipData', _data.entityId, _callback);
-				}
-			} break;
+		    case 'roster-entity':
+		    {
+		        if ('entityId' in _data)
+		        {
+		            SQ.call(this.mSQHandle, 'onQueryRosterEntityTooltipData', _data.entityId, _callback);
+		        }
+		    } break;
 			case 'skill':
 			{
 				if ('entityId' in _data && 'skillId' in _data)
 				{
-					SQ.call(this.mSQHandle, 'onQuerySkillTooltipData', [_data.entityId, _data.skillId], _callback);
+				    SQ.call(this.mSQHandle, 'onQuerySkillTooltipData', [_data.entityId, _data.skillId], _callback);
 				}
 			} break;
 			case 'status-effect':
 			{
 				if ('entityId' in _data && 'statusEffectId' in _data)
 				{
-					SQ.call(this.mSQHandle, 'onQueryStatusEffectTooltipData', [_data.entityId, _data.statusEffectId], _callback);
+				    SQ.call(this.mSQHandle, 'onQueryStatusEffectTooltipData', [_data.entityId, _data.statusEffectId], _callback);
 				}
 			} break;
 			case 'settlement-status-effect':
 			{
 				if ('statusEffectId' in _data)
 				{
-					SQ.call(this.mSQHandle, 'onQuerySettlementStatusEffectTooltipData', [_data.statusEffectId], _callback);
+				    SQ.call(this.mSQHandle, 'onQuerySettlementStatusEffectTooltipData', [_data.statusEffectId], _callback);
 				}
 			} break;
 			case 'ui-element':
 			{
 				if ('elementId' in _data)
 				{
-					SQ.call(this.mSQHandle, 'onQueryUIElementTooltipData', [('entityId' in _data ? _data.entityId : null), _data.elementId, ('elementOwner' in _data ? _data.elementOwner : null)], _callback);
+				    SQ.call(this.mSQHandle, 'onQueryUIElementTooltipData', [('entityId' in _data ? _data.entityId : null), _data.elementId, ('elementOwner' in _data ? _data.elementOwner : null)], _callback);
 				}
 			} break;
 			case 'ui-item':
 			{
 				if ('itemId' in _data && 'itemOwner' in _data)
 				{
-					SQ.call(this.mSQHandle, 'onQueryUIItemTooltipData', [_data.entityId === undefined ? null : _data.entityId, _data.itemId, _data.itemOwner], _callback);
+				    SQ.call(this.mSQHandle, 'onQueryUIItemTooltipData', [_data.entityId === undefined ? null : _data.entityId, _data.itemId, _data.itemOwner], _callback);
 				}
 			} break;
-			case 'ui-perk':
+            case 'ui-perk':
+            {
+                if ('entityId' in _data && 'perkId' in _data)
+                {
+                    SQ.call(this.mSQHandle, 'onQueryUIPerkTooltipData', [_data.entityId, _data.perkId], _callback);
+                }
+            } break;
+            case 'follower':
+            {
+                if ('followerId' in _data)
+                {
+                    SQ.call(this.mSQHandle, 'onQueryFollowerTooltipData', _data.followerId, _callback);
+                }
+            } break;
+            case 'verbatim':
 			{
-				if ('entityId' in _data && 'perkId' in _data)
-				{
-					SQ.call(this.mSQHandle, 'onQueryUIPerkTooltipData', [_data.entityId, _data.perkId], _callback);
-				}
-			} break;
-			case 'follower':
-			{
-				if ('followerId' in _data)
-				{
-					SQ.call(this.mSQHandle, 'onQueryFollowerTooltipData', _data.followerId, _callback);
-				}
-			} break;
-			case 'verbatim':
-			{
-				_callback(_data.tooltip);
+                _callback(_data.tooltip);
 			} break;
 		}
 	}
@@ -2344,7 +2344,7 @@ TooltipModule.prototype.notifyBackendQueryTooltipData = function (_data, _callba
 **/
 $.fn.bindTooltip = function (_data)
 {
-	if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
+    if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
 	{
 		return;
 	}
@@ -2358,57 +2358,57 @@ $.fn.bindTooltip = function (_data)
 
 $.fn.unbindTooltip = function ()
 {
-	if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
-	{
-		return;
-	}
+    if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
+    {
+        return;
+    }
 
-	var tooltip = Screens.Tooltip.getModule('TooltipModule');
-	if (tooltip !== null)
-	{
-		tooltip.unbindFromElement(this);
+    var tooltip = Screens.Tooltip.getModule('TooltipModule');
+    if (tooltip !== null)
+    {
+        tooltip.unbindFromElement(this);
 	}
 };
 
 $.fn.updateTooltip = function ()
 {
-	if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
-	{
-		return;
-	}
+    if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
+    {
+        return;
+    }
 
-	var tooltip = Screens.Tooltip.getModule('TooltipModule');
-	if (tooltip !== null)
-	{
-		tooltip.reloadUITooltip();
+    var tooltip = Screens.Tooltip.getModule('TooltipModule');
+    if (tooltip !== null)
+    {
+        tooltip.reloadUITooltip();
 	}
 };
 
 $.fn.showTooltip = function (_data)
 {
-	if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
-	{
-		return;
-	}
+    if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
+    {
+        return;
+    }
 
-	var tooltip = Screens.Tooltip.getModule('TooltipModule');
-	if (tooltip !== null)
-	{
-		tooltip.showUITooltip(this, _data);
+    var tooltip = Screens.Tooltip.getModule('TooltipModule');
+    if (tooltip !== null)
+    {
+        tooltip.showUITooltip(this, _data);
 	}
 };
 
 $.fn.hideTooltip = function ()
 {
-	if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
-	{
-		return;
-	}
+    if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
+    {
+        return;
+    }
 
-	var tooltip = Screens.Tooltip.getModule('TooltipModule');
-	if (tooltip !== null)
-	{
-		if (tooltip.isVisibleForElement(this) === true)
+    var tooltip = Screens.Tooltip.getModule('TooltipModule');
+    if (tooltip !== null)
+    {
+        if (tooltip.isVisibleForElement(this) === true)
 		{
 			tooltip.hideUITooltip();
 		}
@@ -2417,16 +2417,16 @@ $.fn.hideTooltip = function ()
 
 $.fn.setTooltipEnabled = function (_value)
 {
-	if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
-	{
-		return;
-	}
+    if (Screens.Tooltip === null || !Screens.Tooltip.isConnected())
+    {
+        return;
+    }
 
-	var tooltip = Screens.Tooltip.getModule('TooltipModule');
-	if (tooltip !== null)
-	{
-		this.data('is-enabled', _value === true);
-	}
+    var tooltip = Screens.Tooltip.getModule('TooltipModule');
+    if (tooltip !== null)
+    {
+        this.data('is-enabled', _value === true);
+    }
 };
 
 

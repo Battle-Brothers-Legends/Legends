@@ -9,7 +9,7 @@ this.legend_reserve_gets_fat_event <- this.inherit("scripts/events/event", {
 		this.m.Cooldown = 30.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/legend_glutton.png[/img]%fatguy% has been in reserves, and has filled their spare time with food. Snacking through the day and taking second helpings at meal times, it is starting to impact your supplies. Perhaps he needs more movement, or less food.",
+			Text = "[img]gfx/ui/events/legend_glutton.png[/img]%fatguy% has been in reserves, and has filled %their% spare time with food. Snacking through the day and taking second helpings at meal times, it is starting to impact your supplies. Perhaps %they% needs more movement, or less food.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -26,11 +26,11 @@ this.legend_reserve_gets_fat_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				this.Characters.push(_event.m.FatGuy.getImagePath());
-				_event.m.FatGuy.getSkills().addSkill(this.new("scripts/skills/traits/gluttonous_trait"));
+				_event.m.FatGuy.getSkills().add(this.new("scripts/skills/traits/gluttonous_trait"));
 				this.List = [
 					{
 						id = 10,
-						icon = "ui/traits/trait_icon_10.png",
+						icon = "ui/traits/trait_icon_07.png",
 						text = _event.m.FatGuy.getName() + " is now gluttonous"
 					}
 				];
@@ -47,7 +47,7 @@ this.legend_reserve_gets_fat_event <- this.inherit("scripts/events/event", {
 			return;
 		}
 		
-		if (this.World.Assets.getFood() < 50)
+		if (this.World.Assets.getFood() < 100)
 		{
 			return;
 		}
@@ -83,6 +83,7 @@ this.legend_reserve_gets_fat_event <- this.inherit("scripts/events/event", {
 			"fatguy",
 			this.m.FatGuy.getName()
 		]);
+		this.Const.LegendMod.extendVarsWithPronouns(_vars, this.m.FatGuy.getGender());
 	}
 
 	function onDetermineStartScreen()

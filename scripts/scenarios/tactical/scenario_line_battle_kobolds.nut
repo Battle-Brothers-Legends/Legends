@@ -130,6 +130,9 @@ this.scenario_line_battle_kobolds <- this.inherit("scripts/scenarios/tactical/sc
 		items.equip(this.Const.World.Common.pickHelmet([[1, "mail_coif"]]));
 		items.equip(this.new("scripts/items/armor/coat_of_plates"));
 		items.equip(this.new("scripts/items/weapons/greatsword"));
+		entity = this.spawnEntity("scripts/entity/tactical/enemies/serpent", 5, 5, 10, 10);
+		entity.setFaction(this.Const.Faction.Goblins);
+		entity.assignRandomEquipment();
 		entity = this.spawnEntity("scripts/entity/tactical/enemies/kobold_fighter", 19, 19, 11, 11);
 		entity.setFaction(this.Const.Faction.Goblins);
 		entity.assignRandomEquipment();
@@ -174,7 +177,8 @@ this.scenario_line_battle_kobolds <- this.inherit("scripts/scenarios/tactical/sc
 		entity.assignRandomEquipment();
 		entity = this.spawnEntity("scripts/entity/tactical/enemies/kobold_fighter", 20, 20, 18, 18);
 		entity.setFaction(this.Const.Faction.Goblins);
-		entity.assignRandomEquipment();
+		entity = this.spawnEntity("scripts/entity/tactical/enemies/serpent", 5, 5, 19, 19);
+		entity.setFaction(this.Const.Faction.Goblins);
 	}
 
 	function spawnEntity( _script, _minX = 10, _maxX = 28, _minY = 3, _maxY = 28 )

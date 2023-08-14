@@ -1,19 +1,122 @@
 ### Legend Mod Release Notes
 
+17.0.7
+Permanent injuries removed from training tent injury pool, however:
+- trainees now additionally get exhausted about as often as they get injured
+- If you put an injured person in to train and they get injured again, it will be permanent 
+- The same fate awaits if they train while exhausted, drunk, hungover, irritable or have a headache 
+Gatherering rate reduced, it had escaped the nerfs of the other tents 
+
+Fixes error where Krastenbrust plate and noble tabards didn't spawn 
+Fixes error where gold nugget couldn't be found when completing an orc camp 
+
+
+17.0.6
+Fixes crashes when fighting noble guard, men at arms, manhunter handgonners and manhunter veteran handgonners.
+Fixes error if a caravan arrived with no items
+Fixes Camp Kitchen not working properly when upgraded
+Fixes Heraldic plates not having graphics
+Fixes instance where faction helmets wouldn't load
+Fixes more issues with scars and warpaint not loading correctly
+Balance:
+
+Nine tails flogging can target three tiles
+Thieves and assassins guaranteed bow skills so they can always act as lookouts for your party
+
+
+17.0.5
+Fixes
+
+Fixes errors with women not having scars, tattoos and warpaint. This stops the cause of some corrupted saves and graphics issues
+Fixes instances where noble and manhunter parties couldn't attack or be attacked.
+Fixes log errors from caravans exporting invaluable items, this fixes some instances of towns not being enterable
+Fixes Steelbrow not working correctly
+Fixes vampires taking too little damage from most weapons
+Fixes log errors from parties not knowing where they came from
+Fixes the noble joiner event from giving both disloyal and loyal to the recruit
+Fixes a typo in the 'helpful' perk
+Fixes perfect fit not applying the initiative bonus correctly
+Balance
+
+Big game hunter reworked: gain an additional modifier that deals bonus damage based on the target's missing health. When not fighting beasts, gain +10% ranged weapon damage but no additional modifier. Only works with ranged weapons.
+Ambidextrous does not reduce AP cost until you have mastery, also doesn't apply to attacks of opportunity
+Buffs debilitate by reducing the fatigue cost, making it so that it is not lost on miss and adds +15% damage
+
+Version 17.0.4
+
+Caravans can be a bit better guarded
+Buffs debilitate by reducing the fatigue cost and making it so that it is not lost on miss. Also adds +15% damage against debilitated targets
+
+Fixes
+
+Fixes an issue where cities couldn't be entered due to an Australian mispronouncing liquor as liguor
+Fixes a crash when a spiked collar died
+Fixes scaling beggar sometimes having too many perks to fit on the screen
+Fixes named bladed pikes not appearing
+Fixes nose plate not loading in battle or buildings
+Fixes crowns not appearing in the black market
+Fixes a typo in the named bladed pike's ID that was causing it to be incorrectly referenced.
+Fixes incorrect instance of cultists not getting an offhand item assigned in battle
+Fixed and issue where refugees and supply caravans didn't know where they had come from
+Fixed a caravan error when world economy was disabled
+Fixed and issue with faction helmets not loading
+
+17.0.3
+Unarmed tree perks reordered
+Inquisition undead crisis made stronger, and made the fight undead ambition available  
+Fixed Adaptive sometimes not giving you a perk tree
+Fixes error with clarity rune not spawning in Black Market
+Fixes beasts not spawning because they were checking if they were allowed in the tundra 
+Fixed Small Target defense values not adding up correctly until you get into battle 
+Fixed an error with padded leather armor not spawning 
+
+
+17.0.2  
+
+Duelist also gains half benefit from the offhand crossbow 
+Pacifist moves to tier 1 to allow conscientious objection early 
+Skull chain reduced to +5% chance to hit the head 
+
+**Fixes** 
+Fixes scenario mode
+fixed crash in tactical state from campaign menu issue
+fixed adaptive not granting the Shovel perk tree
+fixed error in Hidden perk if no armor is equipped 
+fixed rare helmets not spawning in black market 
+fixed log error from helmet antlers
+fixed log errors from a missing blackmarket image
+fixed log errors from greater evil live phase 
+fixed log errors from campaign menu module 
+fixes from 17.0.01: 
+fixes missing image for black market 
+fixes greater eveil log spam
+fixes menu module error 
+
+**changes missed in v17 patch notes**
+Clarification - food consumption rate not increased. This was reverted and patch notes not updated.
+Training can now rarely result in a permanent injury. Brain damage, a broken knee or a missing finger. 
+Unarmed tree perk order shifted around 
+Hand crossbow available in the bowyer event if you have an inventor 
+Wooden stake condition increased to support witch hunting
+Legendary creature rewards buffed and appear in slightly smaller groups. 
+
+
+**reminder**
+Many mods may be broken 
+- more save slots 
+- woditor
+- PTR 
+
+
 ## 17 Wildlands Warriors
 
 **Environment**
 -Greater variety of trees, grasses, bushes, logs and flowers on the world map 
 -Forest biomes now blend into each other to create more natural looking terrain
 -Marshes can sometimes be lush Wetlands with a new tactical map type. This is more common near forest edges 
-
-**Wildlife**
-Bear graphics updated 
-
-**Kobolds**
-Kobolds can now found in marshes, where they disapear into the undergrowth while their dart guns waylay you
-You can try them out in a new tactical scenario 'Kobold Swamp'
-
+-Kobolds can now found in Wetlands, where they disapear into the undergrowth while their dart guns waylay you
+-You can try them out in a new tactical scenario 'Kobold Swamp'
+-Beasts can now sometimes roam well outside their usual territories, this includes legendary beasts. 
 
 **Hats**
 Vanity:
@@ -74,6 +177,7 @@ Attachments:
 **World economy**
 Caravans now take goods out of each building's inventory of the town they leave, carry the goods in their inventory, and deliver the goods into the inventory of the town they arrive at. Paying the origin town when they unload.
 Patrols, Mercenaries, Ships, Peasants and caravans are more frequent to increase the odds of caravans making it through and towns surving and thriving.
+Enemy caravan ambushes can also happen more frequently
 
 Attached locations: 
 - Increased production rates by introducing smaller versions of their trade goods. This increases the number of trade goods without overall ballooning trade values
@@ -92,13 +196,14 @@ Healing:
 
 Food:
 - Background food consumption rate increased by 50% to incentivise cooking
-- Hunting tent renamed to Kitchen to better reflect its role, description updated to explain what it does  
+- Hunting tent renamed to Camp Kitchen to better reflect its role, description updated to explain what it does  
 - Upgraded kitchen now allows production of mead, porridge, pudding and pies, while also increasing the hunting rate and chance of getting better foods.
 - Assigned cooking backgrounds have a small chance to produce cured goods without a cooking perk, though the perk drastically increases the chances.
 - It is still possible to improve food using spices in the crafting tent. 
 
 Training: 
-- Training speed halved, upgrading the tent doubles the rate
+- Training speed halved, upgrading the tent doubles the rate back to current
+- Training can now rarely result in a permanent injury. Brain damage, a broken knee or a missing finger. 
 
 Gathering:
 - Description updated to explain what it does, making it clearer you're offsetting medicine consumption rate. 
@@ -150,6 +255,7 @@ Fortified mind moved from intelligent to sturdy perk group
 Backflip also increases the range of leap, stacking with the existing range increase from staff mastery 
 Fixed an issue where duplicate perk trees were resulting in some recruits having too few perks. 
 
+
 **Trait changes**
 These changes mainly serve to reduce the impact of extreme traits. 
 New Trait - Nocturnal - The negatives and positives from night and day are reversed 
@@ -171,13 +277,29 @@ Double Tongued Trait:
 - Mercenaries who are Pessimistic, Superstitious, Paranoid, Traumatized, or have a Deathwish are strangely inspired by these dark speeches and gain +2AP for the first turn.
 - Characters with this trait can now stop the children's crusade event - with event art 
 
+**Retinue changes**
+Implemented a new requirement system for retinue, incorporating legends backgrounds and perks
+Changes to the UI screen of world_campfire_screen_hire_dialog_module.js to fit with the use of the new requirement system for retinue.
+Converted all scripts in retinue/followers folder to use the new system.
+'Stolen Documents' now has an alternative requirement: 'Raid 3 caravans'.
+'Training Dummies' doesn't require certain specific backgrounds to have a permanent injury. Has has an alternative requirement: 'Won 50 battles'.
+'Meeting Point' has an alternative requirement: 'Negotiated for the payment of contracts 10 times'.
 
-**Other Changes:**
+**Visual Changes:**
 Visual pass on legends weapons and shields to more closely follow Overhype art process guides, reducing blur, colour issues, and alignment issues.
 Alignment pass on sallets, armets and faceplates. 
 Most decorative layers had their condition and value reduced. 
 Undead facemask helmets moved to top layer so they can be stacked on helmets
 The emporer's wreath helmet now has a wreath 
+Updated Legends event art 
+Bear graphics updated 
+Parrying daggers held askew 
+
+**Other Changes**
+Noble scenario can unlock noble contracts from the start
+Inquisition begins in the middle of an undead crisis 
+Named items will always drop as loot even if the condition is at 0. An indirect nerf to 'Blacksmith's Tools'.
+Named items now always have more durability than unamed 
 More variety added to character and location names 
 Legendary beasts spawn in lower numbers with an increased chance of rare drops
 Rumors and camp descriptions are now gender neutral 
@@ -186,10 +308,22 @@ Necrosavants gain a racial weakness to crossbows, in addition to massive weaknes
 Bandit rabble poachers have improved aim, sling damage reduced. You'll take more small hits rather than constantly being missed.  
 Ijirock loses nimble on Legendary difficulty, gains colossus, fearsome, killing frenzy, last stand, underdog and slaughter
 Towershield defenses changed to 25/20 from 30/15 
+Minor nerf to hidden to make it less effective when heavily armored, explained in tooltip
 Added fresh fish, fresh milk as products from attached locations and a recipe for Goat Curry 
 Added gold dust, gold nuggest, seashells and small furs as small trade items 
+Parry daggers apply parried effect when enemies miss 
+
+**Fixes**
+Repackages image brushes to improve graphics efficiency
+Fixes warlock scenario not setting veteran perks correctly
+Fixes bandit and lone wolf tabards which didn't exit 
+Fixed Mark Target being usable on allies
+Fixes Tumble not working on Great Lunge
+Fixes bug where Pacifist could ruin moods at the wrong time. Now it just makes them unhappy each time they're in battle
 Fixed issue where radiance rune worked up and down many levels 
 Fixed an issue where sub-healthpoint healing was being rounded.  This was making tent heal skills not work as expected, and making passive healing round to zero in higher difficulties.
+Fixes Blend In not reducing enemy target attraction properly. 
+Fixed the most common mime errors in logs
 Bandages can now heal grazes 
 
 

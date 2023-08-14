@@ -489,9 +489,9 @@ this.legends_steppe_village <- this.inherit("scripts/entity/world/settlements/le
 		{
 			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/fletcher_building"));
 		}
-		else if (r == 2 || this.Const.World.Buildings.Barbers == 0)
+		else if (r == 2 || this.Const.World.Buildings.Blackmarket == 0)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else if (r == 2)
 		{

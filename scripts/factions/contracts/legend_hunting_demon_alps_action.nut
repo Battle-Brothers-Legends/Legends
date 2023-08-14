@@ -34,7 +34,7 @@ this.legend_hunting_demon_alps_action <- this.inherit("scripts/factions/faction_
 
 		local village = _faction.getSettlements()[0];
 
-		if (this.isKindOf(village, "small_lumber_village") || this.isKindOf(village, "medium_lumber_village") || this.isKindOf(village, "small_mining_village") || this.isKindOf(village, "medium_mining_village"))
+		if (this.isKindOf(village, "legends_lumber_village") || this.isKindOf(village, "legends_mining_village") || this.isKindOf(village, "small_lumber_village") || this.isKindOf(village, "medium_lumber_village") || this.isKindOf(village, "small_mining_village") || this.isKindOf(village, "medium_mining_village"))
 		{
 			return;
 		}

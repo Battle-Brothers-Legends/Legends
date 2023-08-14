@@ -901,7 +901,7 @@ layers = [
     "desc" :  "A dark hood for those who work with filth", \
     "adesc" : "Has a dark hood for working with entrails"
 },
-{"name": "relic_hood",           "layer": "cloak", "min": 1, "max": 10, "value" : 600, "con" : 30, "stam" : -2, "bravery" : 2, "impactSound" : "leather", "invSound" : "cloth", "brush" : "relic_hood",\
+{"name": "relic_hood",           "layer": "cloak", "min": 1, "max": 10, "value" : 800, "con" : 35, "stam" : -4, "bravery" : 2, "impactSound" : "leather", "invSound" : "cloth", "brush" : "relic_hood",\
     "title" :  "Relic Hood", \
     "desc" :  "A hood and belts adorned with a holy relic", \
     "adesc" : "Has a hood and belts adorned with a holy relic"

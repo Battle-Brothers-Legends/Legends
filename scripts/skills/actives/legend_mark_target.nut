@@ -61,9 +61,25 @@ this.legend_mark_target <- this.inherit("scripts/skills/skill", {
 
 			if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
 			{
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " stupefied " + this.Const.UI.getColorizedEntityName(target) + " leaving them marked");
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " calls and singles out " + this.Const.UI.getColorizedEntityName(target) + " leaving them marked");
 			}
 		}
 	}
 
+	function onVerifyTarget( _originTile, _targetTile ) //This stops you from targeting allies with this skill
+	{
+		if (!this.skill.onVerifyTarget(_originTile, _targetTile))
+		{
+			return false;
+		}
+
+		local target = _targetTile.getEntity();
+
+		if (_targetTile.getEntity().isAlliedWith(this.getContainer().getActor()))
+		{
+			return false;
+		}
+
+		return true;
+	}
 });

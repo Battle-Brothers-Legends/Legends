@@ -21,7 +21,7 @@ this.money_delivery_action <- this.inherit("scripts/factions/faction_action", {
 			return;
 		}
 
-		if (this.World.Assets.getMoralReputation() <= 80)
+		if (this.World.Assets.getMoralReputation() < 40)
 		{
 			return;
 		}

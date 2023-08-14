@@ -35,6 +35,12 @@ this.debilitating_attack_effect <- this.inherit("scripts/skills/skill", {
 				type = "text",
 				icon = "ui/icons/special.png",
 				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-25%[/color] Damage inflicted by target hit for three turns"
+			},
+			{
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]+15%[/color] Damage taken by target hit for three turns"
 			}
 		];
 	}
@@ -54,11 +60,6 @@ this.debilitating_attack_effect <- this.inherit("scripts/skills/skill", {
 			_targetEntity.getSkills().add(effect);
 			this.removeSelf();
 		}
-	}
-
-	function onTargetMissed( _skill, _targetEntity )
-	{
-		this.removeSelf();
 	}
 
 });

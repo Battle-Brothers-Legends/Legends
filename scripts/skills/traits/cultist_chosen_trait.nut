@@ -6,7 +6,7 @@ this.cultist_chosen_trait <- this.inherit("scripts/skills/traits/character_trait
 		this.m.ID = "trait.cultist_chosen";
 		this.m.Name = "Chosen of Davkul";
 		this.m.Icon = "ui/traits/trait_icon_68.png";
-		this.m.Description = "This character feels chosen by Davkul, something not many in this world can claim. They embraces physical pain and peril as bringing them closer to salvation, and they believe that their god will protect, so they can act on behest of their god.";
+		this.m.Description = "This character feels chosen by Davkul, something not many in this world can claim. They embrace physical pain and peril as bringing them closer to salvation, and they believe that their god will protect, so they can act on behest of their god.";
 		this.m.Order = this.Const.SkillOrder.Trait - 1;
 	}
 

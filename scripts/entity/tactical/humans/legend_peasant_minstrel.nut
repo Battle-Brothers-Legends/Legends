@@ -11,7 +11,7 @@ this.legend_peasant_minstrel <- this.inherit("scripts/entity/tactical/human", {
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = this.Const.Beards.All;
 		this.getFlags().add("peasant");
-		this.m.AIAgent = this.new("scripts/ai/tactical/agents/barbarian_drummer_agent");
+		this.m.AIAgent = this.new("scripts/ai/tactical/agents/legend_minstrel_agent");
 		this.m.AIAgent.setActor(this);
 		if (this.Math.rand(1, 100) <= 50)
 		{
@@ -35,15 +35,17 @@ this.legend_peasant_minstrel <- this.inherit("scripts/entity/tactical/human", {
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_specialist_lute_damage"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_entice"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_daze"));
-		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_drums_of_life"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_drums_of_war"));
+		
 		this.getSprite("socket").setBrush("bust_base_militia");
 			if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 			{
 			this.m.Hitpoints = b.Hitpoints * 1.5;
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_taunt"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_dodge"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_relentless"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_drums_of_life"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			}
 	}
@@ -69,7 +71,13 @@ this.legend_peasant_minstrel <- this.inherit("scripts/entity/tactical/human", {
 		{
 			this.m.Items.equip(this.new("scripts/items/weapons/legend_drum"));
 		}
-
+		
+		local r;
+		r = this.Math.rand(1, 10);
+		if (r == 1)
+		{
+			this.m.Items.equip(this.new("scripts/items/tools/throwing_net"));
+		}
 
 		this.m.Items.equip(this.Const.World.Common.pickArmor([
 			[1, "sackcloth"],

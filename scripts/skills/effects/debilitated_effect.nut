@@ -17,7 +17,7 @@ this.debilitated_effect <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "This character has is debilitated and will only do [color=" + this.Const.UI.Color.NegativeValue + "] 75% [/color] damage each turn for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] more turn(s).";
+		return "This character is debilitated and will only do [color=" + this.Const.UI.Color.NegativeValue + "] 75% [/color] damage and take [color=" + this.Const.UI.Color.NegativeValue + "] 115% [/color] damage for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] more turn(s).";
 	}
 
 	function onAdded()
@@ -33,6 +33,7 @@ this.debilitated_effect <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		_properties.DamageTotalMult *= 0.75;
+		_properties.DamageReceivedTotalMult *= 1.15;
 	}
 
 	function onTurnEnd()

@@ -12,13 +12,8 @@ this.scout_follower <- this.inherit("scripts/retinue/follower", {
 			"Reduces the movement penalty of difficult terrain by 15%",
 			"Prevents sickness and accidents due to terrain"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have at least one of the following backgrounds: Wildman/Wildwoman, Hunter, Lumberjack, Ranger, Master Archer"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have at least one of the following backgrounds: Wildman/Wildwoman, Hunter, Lumberjack, Ranger, Master Archer", [
 			"background.wildman",
 			"background.wildwoman",
 			"background.hunter",
@@ -28,7 +23,7 @@ this.scout_follower <- this.inherit("scripts/retinue/follower", {
 			"background.legend_master_archer",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

@@ -197,11 +197,16 @@ this.helmet <- this.inherit("scripts/items/item", {
 			return false;
 		}
 
+		if (this.isNamed())
+		{
+			return true;
+		}
+
 		local isPlayer = this.m.LastEquippedByFaction == this.Const.Faction.Player || this.getContainer() != null && this.getContainer().getActor() != null && !this.getContainer().getActor().isNull() && this.isKindOf(this.getContainer().getActor().get(), "player");
 		local isLucky = !this.Tactical.State.isScenarioMode() && !isPlayer && this.World.Assets.getOrigin().isDroppedAsLoot(this);
 		local isBlacksmithed = isPlayer && !this.Tactical.State.isScenarioMode() && this.World.Assets.m.IsBlacksmithed;
 
-		if (this.m.Condition > 15 && isPlayer || this.m.Condition > 30 && this.m.Condition / this.m.ConditionMax >= 0.25 && (isLucky || this.Math.rand(1, 100) <= 70) || !isPlayer && this.isItemType(this.Const.Items.ItemType.Named) || this.isItemType(this.Const.Items.ItemType.Legendary) || isBlacksmithed)
+		if (this.m.Condition > 15 && isPlayer || this.m.Condition > 30 && this.m.Condition / this.m.ConditionMax >= 0.25 && (isLucky || this.Math.rand(1, 100) <= 70) || isBlacksmithed)
 		{
 			return true;
 		}

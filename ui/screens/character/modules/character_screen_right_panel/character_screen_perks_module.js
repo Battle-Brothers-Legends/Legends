@@ -8,21 +8,24 @@
 
 var CharacterScreenPerksModule = function(_parent, _dataSource)
 {
-	this.mParent = _parent;
-	this.mDataSource = _dataSource;
+    this.mParent = _parent;
+    this.mDataSource = _dataSource;
 
 	// container
 	this.mContainer = null;
+    this.mListContainer = null;
+    this.mListScrollContainer = null;
+	this.mHorizontalBar = null;
 
-	this.mLeftColumn = null;
-	this.mMiddleColumn = null;
-	this.mRightColumn = null;
+    this.mLeftColumn = null;
+    this.mMiddleColumn = null;
+    this.mRightColumn = null;
 
-	// perks
-	this.mPerkTree = null;
-	this.mPerkRows = [];
+    // perks
+    this.mPerkTree = null;
+    this.mPerkRows = [];
 
-	this.registerDatasourceListener();
+    this.registerDatasourceListener();
 };
 
 
@@ -31,28 +34,72 @@ CharacterScreenPerksModule.prototype.createDIV = function (_parentDiv)
 	// create: containers (init hidden!)
 	this.mContainer = $('<div class="perks-module opacity-none"/>');
 	_parentDiv.append(this.mContainer);
-
-	// create rows
-	this.mLeftColumn = $('<div class="column"/>');
-	this.mContainer.append(this.mLeftColumn);
+	
+	this.mListContainer = $('<div class="ui-control list has-frame"/>');
+	var scrollContainer = $('<div class="scroll-container"/>');
+    this.mListContainer.append(scrollContainer);
+	this.mContainer.append(this.mListContainer);
+    this.mListContainer.aciScrollBar({
+         delta: 1.0,
+         lineDelay: 0,
+         lineTimer: 0,
+         pageDelay: 0,
+         pageTimer: 0,
+         bindKeyboard: false,
+         resizable: false,
+         smoothScroll: false,
+		 verticalBar: 'none',
+    });
+    //this.mListContainer = this.mContainer.createList(1.0/*8.85*/);
+    this.mListScrollContainer = this.mListContainer.findListScrollContainer();
+	//this.mListContainer.showListScrollbar(false);
+	this.mHorizontalBar = this.mListContainer.find('.aciSb_bar_h:first');
+/*     if (this.mHorizontalBar.length > 0)
+    {
+        console.error('foundit');
+		var _container = this.mHorizontalBar.find('.aciSb_cnt:first');
+		_container.css({ 'left' : '-30px' });
+		//horizbar.css({ 'bottom': '-30px' });
+    }  */
+    // create rows
+    this.mLeftColumn = $('<div class="column"/>');
+    this.mListScrollContainer.append(this.mLeftColumn);
 };
 
 CharacterScreenPerksModule.prototype.destroyDIV = function ()
 {
-	this.mLeftColumn.empty();
-	this.mLeftColumn.remove();
-	this.mLeftColumn = null;
+    this.mLeftColumn.empty();
+    this.mLeftColumn.remove();
+    this.mLeftColumn = null;
 
-	this.mContainer.empty();
-	this.mContainer.remove();
-	this.mContainer = null;
+    this.mListScrollContainer.empty();
+    this.mListScrollContainer = null;
+    this.mListContainer.destroyList();
+    this.mListContainer.remove();
+    this.mListContainer = null;
+	
+    this.mContainer.empty();
+    this.mContainer.remove();
+    this.mContainer = null;
 };
 
 
 CharacterScreenPerksModule.prototype.createPerkTreeDIV = function (_perkTree, _parentDiv)
 {
 	var self = this;
+	var widetree = false;
+	var lowestx = 0;
 
+	for (var row = 0; row < _perkTree.length; ++row)
+	{
+		lowestx = Math.min(lowestx, ((660 - (50.0 * _perkTree[row].length)) / 2));
+		if (_perkTree[row].length > 13)
+		{
+			widetree = true;
+		}
+	}
+	//console.error('lowestx = ' + lowestx);
+	
 	for (var row = 0; row < _perkTree.length; ++row)
 	{
 		var rowDIV = $('<div class="row"/>');
@@ -63,7 +110,7 @@ CharacterScreenPerksModule.prototype.createPerkTreeDIV = function (_perkTree, _p
 		rowDIV.append(centerDIV);
 
 		this.mPerkRows[row] = rowDIV;
-
+		
 		for (var i = 0; i < _perkTree[row].length; ++i)
 		{
 			var perk = _perkTree[row][i];
@@ -80,9 +127,21 @@ CharacterScreenPerksModule.prototype.createPerkTreeDIV = function (_perkTree, _p
 			perk.Image.attr('src', Path.GFX + perk.IconDisabled);
 			perk.Container.append(perk.Image);
 		}
-
+		
 		centerDIV.css({ 'width': (5.0 * _perkTree[row].length) + 'rem' }); // css is retarded?
-		centerDIV.css({ 'left': ((660 - centerDIV.width()) / 2) + 'px' }); // css is retarded?
+		centerDIV.css({ 'left': (((660 - centerDIV.width()) / 2) - lowestx) + 'px' }); // css is retarded?
+	}
+	if (widetree == true)
+	{
+		self.mHorizontalBar.css({ opacity : 1 });
+		//self.mHorizontalBar.css({ 'z-index' : '10' });
+	}
+	else
+	{
+		self.mHorizontalBar.css({ opacity : 0 });
+/* 		var zet = this.mListContainer.find('.aciScrollBar:first');
+		zet.css({ 'z-index' : '-10' }); */
+		//console.error('forbidden lowestx = ' + lowestx);
 	}
 };
 
@@ -181,9 +240,9 @@ CharacterScreenPerksModule.prototype.setupPerkTree = function (_perkTree)
 	}
 	this.mLeftColumn.empty();
 	this.mPerkTree = _perkTree;
-	this.createPerkTreeDIV(this.mPerkTree, this.mLeftColumn);
+    this.createPerkTreeDIV(this.mPerkTree, this.mLeftColumn);
 
-	this.setupPerksEventHandlers(this.mPerkTree);
+    this.setupPerksEventHandlers(this.mPerkTree);
 };
 
 CharacterScreenPerksModule.prototype.updatePerkTreeLayout = function (_inventoryMode)
@@ -192,17 +251,17 @@ CharacterScreenPerksModule.prototype.updatePerkTreeLayout = function (_inventory
 
 CharacterScreenPerksModule.prototype.loadPerkTreesWithBrotherData = function (_brother)
 {
-	this.setupPerkTree(_brother[CharacterScreenIdentifier.Perk.Tree]);
+    this.setupPerkTree(_brother[CharacterScreenIdentifier.Perk.Tree]);
 
-	if (CharacterScreenIdentifier.Perk.Key in _brother)
-	{
-		this.initPerkTree(this.mPerkTree, _brother[CharacterScreenIdentifier.Perk.Key]);
-	}
+    if (CharacterScreenIdentifier.Perk.Key in _brother)
+    {
+        this.initPerkTree(this.mPerkTree, _brother[CharacterScreenIdentifier.Perk.Key]);
+    }
 
-	if (CharacterScreenIdentifier.Entity.Id in _brother)
-	{
-		this.setupPerkTreeTooltips(this.mPerkTree, _brother[CharacterScreenIdentifier.Entity.Id]);
-	}
+    if (CharacterScreenIdentifier.Entity.Id in _brother)
+    {
+        this.setupPerkTreeTooltips(this.mPerkTree, _brother[CharacterScreenIdentifier.Entity.Id]);
+    }
 };
 
 CharacterScreenPerksModule.prototype.isPerkUnlockable = function (_perk)
@@ -286,115 +345,115 @@ CharacterScreenPerksModule.prototype.setupPerksEventHandlers = function(_perkTre
 
 CharacterScreenPerksModule.prototype.removePerksEventHandlers = function()
 {
-	this.removePerksEventHandler(this.mPerkTree);
+    this.removePerksEventHandler(this.mPerkTree);
 };
 
 
 CharacterScreenPerksModule.prototype.showPerkUnlockDialog = function(_perk)
 {
-	this.mDataSource.notifyBackendPopupDialogIsVisible(true);
+    this.mDataSource.notifyBackendPopupDialogIsVisible(true);
 
-	var self = this;
-	var popupDialog = $('.character-screen').createPopupDialog('Unlock Perk', null, null, 'unlock-perk-popup');
-	
-	popupDialog.addPopupDialogContent(this.createPerkUnlockDialogContent(_perk));
+    var self = this;
+    var popupDialog = $('.character-screen').createPopupDialog('Unlock Perk', null, null, 'unlock-perk-popup');
+    
+    popupDialog.addPopupDialogContent(this.createPerkUnlockDialogContent(_perk));
 
-	popupDialog.addPopupDialogOkButton(jQuery.proxy(function (_dialog)
-	{
-		self.mDataSource.unlockPerk(null, _perk.ID);
-		_dialog.destroyPopupDialog();
-		self.mDataSource.notifyBackendPopupDialogIsVisible(false);
-	}, this));
+    popupDialog.addPopupDialogOkButton(jQuery.proxy(function (_dialog)
+    {
+    	self.mDataSource.unlockPerk(null, _perk.ID);
+        _dialog.destroyPopupDialog();
+        self.mDataSource.notifyBackendPopupDialogIsVisible(false);
+    }, this));
 
-	popupDialog.addPopupDialogCancelButton(function (_dialog)
-	{
-		_dialog.destroyPopupDialog();
-		self.mDataSource.notifyBackendPopupDialogIsVisible(false);
-	});
+    popupDialog.addPopupDialogCancelButton(function (_dialog)
+    {
+        _dialog.destroyPopupDialog();
+        self.mDataSource.notifyBackendPopupDialogIsVisible(false);
+    });
 };
 
 CharacterScreenPerksModule.prototype.createPerkUnlockDialogContent = function (_perk)
 {
 	var result = $('<div class="unlock-perk-popup-dialog-content-container"/>');
 
-	var leftColumn = $('<div class="left-column"/>');
-	result.append(leftColumn);
+    var leftColumn = $('<div class="left-column"/>');
+    result.append(leftColumn);
 
-	var perkImage = $('<img/>');
-	perkImage.attr('src', Path.GFX + _perk.Icon);
-	leftColumn.append(perkImage);
+    var perkImage = $('<img/>');
+    perkImage.attr('src', Path.GFX + _perk.Icon);
+    leftColumn.append(perkImage);
 
-	var rightColumn = $('<div class="right-column"/>');
-	result.append(rightColumn);
-	
-	var perkNameLabel = $('<div class="name title-font-normal font-bold font-color-title">' + _perk.Name + '</div>');
-	rightColumn.append(perkNameLabel);
+    var rightColumn = $('<div class="right-column"/>');
+    result.append(rightColumn);
+    
+    var perkNameLabel = $('<div class="name title-font-normal font-bold font-color-title">' + _perk.Name + '</div>');
+    rightColumn.append(perkNameLabel);
 
-	var descriptionText = _perk.Tooltip.replace(/#135213/gi, "#1e861e"); // positive values
-	descriptionText = descriptionText.replace(/#8f1e1e/gi, "#a22424"); // negative values
+    var descriptionText = _perk.Tooltip.replace(/#135213/gi, "#1e861e"); // positive values
+    descriptionText = descriptionText.replace(/#8f1e1e/gi, "#a22424"); // negative values
 
-	var parsedDescriptionText = XBBCODE.process({
-		text: descriptionText,
-		removeMisalignedTags: false,
-		addInLineBreaks: true
-	});
+    var parsedDescriptionText = XBBCODE.process({
+    	text: descriptionText,
+        removeMisalignedTags: false,
+        addInLineBreaks: true
+    });
 
-	var perkDescriptionLabel = $('<div class="description description-font-small font-style-italic font-color-description">' + parsedDescriptionText.html + '</div>');
-	rightColumn.append(perkDescriptionLabel);
+    var perkDescriptionLabel = $('<div class="description description-font-small font-style-italic font-color-description">' + parsedDescriptionText.html + '</div>');
+    rightColumn.append(perkDescriptionLabel);
 
-	return result;
+    return result;
 };
 
 
 CharacterScreenPerksModule.prototype.registerDatasourceListener = function()
 {
-	this.mDataSource.addListener(CharacterScreenDatasourceIdentifier.Inventory.ModeUpdated, jQuery.proxy(this.onInventoryModeUpdated, this));
+    this.mDataSource.addListener(CharacterScreenDatasourceIdentifier.Inventory.ModeUpdated, jQuery.proxy(this.onInventoryModeUpdated, this));
 
-	this.mDataSource.addListener(CharacterScreenDatasourceIdentifier.Perks.TreesLoaded, jQuery.proxy(this.onPerkTreeLoaded, this));
+    this.mDataSource.addListener(CharacterScreenDatasourceIdentifier.Perks.TreesLoaded, jQuery.proxy(this.onPerkTreeLoaded, this));
 
-	this.mDataSource.addListener(CharacterScreenDatasourceIdentifier.Brother.Updated, jQuery.proxy(this.onBrotherUpdated, this));
+    this.mDataSource.addListener(CharacterScreenDatasourceIdentifier.Brother.Updated, jQuery.proxy(this.onBrotherUpdated, this));
 	this.mDataSource.addListener(CharacterScreenDatasourceIdentifier.Brother.Selected, jQuery.proxy(this.onBrotherSelected, this));
 };
 
 
 CharacterScreenPerksModule.prototype.create = function(_parentDiv)
 {
-	this.createDIV(_parentDiv);
+    this.createDIV(_parentDiv);
 };
 
 CharacterScreenPerksModule.prototype.destroy = function()
 {
-	this.destroyDIV();
+    this.destroyDIV();
 };
 
 
 CharacterScreenPerksModule.prototype.register = function (_parentDiv)
 {
-	console.log('CharacterScreenPerksModule::REGISTER');
+    console.log('CharacterScreenPerksModule::REGISTER');
 
-	if (this.mContainer !== null)
-	{
-		console.error('ERROR: Failed to register Perks Module. Reason: Module is already initialized.');
-		return;
-	}
+    if (this.mContainer !== null)
+    {
+        console.error('ERROR: Failed to register Perks Module. Reason: Module is already initialized.');
+        return;
+    }
 
-	if (_parentDiv !== null && typeof(_parentDiv) == 'object')
-	{
-		this.create(_parentDiv);
-	}
+    if (_parentDiv !== null && typeof(_parentDiv) == 'object')
+    {
+        this.create(_parentDiv);
+    }
 };
 
 CharacterScreenPerksModule.prototype.unregister = function ()
 {
-	console.log('CharacterScreenPerksModule::UNREGISTER');
+    console.log('CharacterScreenPerksModule::UNREGISTER');
 
-	if (this.mContainer === null)
-	{
-		console.error('ERROR: Failed to unregister Perks Module. Reason: Module is not initialized.');
-		return;
-	}
+    if (this.mContainer === null)
+    {
+        console.error('ERROR: Failed to unregister Perks Module. Reason: Module is not initialized.');
+        return;
+    }
 
-	this.destroy();
+    this.destroy();
 };
 
 CharacterScreenPerksModule.prototype.isRegistered = function ()
@@ -410,14 +469,14 @@ CharacterScreenPerksModule.prototype.isRegistered = function ()
 
 CharacterScreenPerksModule.prototype.show = function ()
 {
-	// NOTE: (js) HACK which prevents relayouting..
+    // NOTE: (js) HACK which prevents relayouting..
 	this.mContainer.removeClass('opacity-none').addClass('opacity-full');
 	//this.mContainer.removeClass('display-none').addClass('display-block');
 };
 
 CharacterScreenPerksModule.prototype.hide = function ()
 {
-	// NOTE: (js) HACK which prevents relayouting..
+    // NOTE: (js) HACK which prevents relayouting..
 	this.mContainer.removeClass('opacity-full is-top').addClass('opacity-none');
 	//this.mContainer.removeClass('display-block is-top').addClass('display-none');
 };
@@ -431,16 +490,16 @@ CharacterScreenPerksModule.prototype.isVisible = function ()
 
 CharacterScreenPerksModule.prototype.onInventoryModeUpdated = function (_dataSource, _mode)
 {
-	this.updatePerkTreeLayout(_mode);
+    this.updatePerkTreeLayout(_mode);
 };
 
 CharacterScreenPerksModule.prototype.onPerkTreeLoaded = function (_dataSource, _perkTree)
 {
-	// if (_perkTree !== null)
-	// {
-	// 	this.mPerkTree = _perkTree;
-	//	 this.setupPerkTree();
-	// }
+    // if (_perkTree !== null)
+    // {
+    // 	this.mPerkTree = _perkTree;
+    //     this.setupPerkTree();
+    // }
 };
 
 CharacterScreenPerksModule.prototype.onBrotherUpdated = function (_dataSource, _brother)
@@ -458,5 +517,5 @@ CharacterScreenPerksModule.prototype.onBrotherSelected = function (_dataSource, 
 		return;
 	}
 
-	this.loadPerkTreesWithBrotherData(_brother);
+    this.loadPerkTreesWithBrotherData(_brother);
 };

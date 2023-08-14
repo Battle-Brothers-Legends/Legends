@@ -12,23 +12,29 @@
 
 .character-screen-container .perks-module
 {
-	top: 3.5rem;
+    top: 3.5rem;
 	left: 1.0rem;
 	right: 1.5rem;
-	bottom: 4.0rem;
+	bottom: -0.8rem;
 	position: absolute;
 
-	overflow: hidden;
+    overflow: hidden;
 
 
-	/*border-bottom: 1px rgba(130, 130, 130, 1) solid;*/
+    /*border-bottom: 1px rgba(130, 130, 130, 1) solid;*/
 }
 
-.character-screen-container .perks-module .column
+.character-screen-container .perks-module .scroll-container
 {
-	position: absolute;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
 
-	top: 2.0rem;
+.character-screen-container .scroll-container .column
+{
+    position: absolute;
+
+    top: 2.0rem;
 	bottom: 1.0rem;
 	left: 1.0rem;
 	right: 0.0rem;
@@ -37,21 +43,21 @@
 	height: 100%;
 
 	/*width: 22.8rem;*/
-	/*height: 48.0rem;*/
+    /*height: 48.0rem;*/
 }
 
-.character-screen-container .perks-module .column .row
+.character-screen-container .scroll-container .column .row
 {
-	/*background-color: #5F98F8;*/
+    /*background-color: #5F98F8;*/
 
 	/*width: 5.0rem;
-	height: 100%;*/
+    height: 100%;*/
 	width: 100%;
-	height: 5.0rem;
-	position: absolute;
+    height: 5.0rem;
+    position: absolute;
 }
 
-.character-screen-container .perks-module .column .row .center
+.character-screen-container .scroll-container .column .row .center
 {
    position: absolute;
 
@@ -61,120 +67,120 @@
    /*background-color: red;*/
 }
 
-.character-screen-container .perks-module .is-unlocked
+.character-screen-container .scroll-container .is-unlocked
 {
 	/*background-color: rgba(200, 120, 20, 0.1);*/
 	opacity: 1;
 }
 
-.character-screen-container .perks-module .is-locked
+.character-screen-container .scroll-container .is-locked
 {
 	opacity: 0.33;
 }
 
 
-.character-screen-container .perks-module .row .l-perk-container
+.character-screen-container .scroll-container .row .l-perk-container
 {
-	width: 5.0rem;
-	height: 5.0rem;
-	position: relative;
-	float: left;
+    width: 5.0rem;
+    height: 5.0rem;
+    position: relative;
+    float: left;
 }
 
-.character-screen-container .perks-module .l-perk-container .selection-image-layer
+.character-screen-container .scroll-container .l-perk-container .selection-image-layer
 {
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 4.7rem;
-	height: 4.7rem;
-	position: absolute;
-	margin: auto;
-	padding-bottom: 0.1rem;
-	z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 4.7rem;
+    height: 4.7rem;
+    position: absolute;
+    margin: auto;
+    padding-bottom: 0.1rem;
+    z-index: 1;
 }
 
-.character-screen-container .perks-module .l-perk-container .perk-image-layer
+.character-screen-container .scroll-container .l-perk-container .perk-image-layer
 {
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 4.5rem;
-	height: 4.5rem;
-	position: absolute;
-	margin: auto;
-	z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    position: absolute;
+    margin: auto;
+    z-index: 2;
 }
 
 
 /* Unlock Popup Dialog */
 .character-screen .ui-control.popup-dialog.unlock-perk-popup
 {
-	width: 60.0rem;
-	height: 30.0rem;
+    width: 60.0rem;
+    height: 30.0rem;
 
-	background-image: url("coui://gfx/ui/skin/popup_background_600x300.png");
-	background-size: 60.0rem 30.0rem;
-	background-repeat: no-repeat;
+    background-image: url("coui://gfx/ui/skin/popup_background_600x300.png");
+    background-size: 60.0rem 30.0rem;
+    background-repeat: no-repeat;
 }
 
 .character-screen .ui-control.popup-dialog .unlock-perk-popup-dialog-content-container
 {
-	top: -2.0rem;
+    top: -2.0rem;
 	width: 100%;
-	height: 17.7rem;
-	padding-top: 0;
+    height: 17.7rem;
+    padding-top: 0;
 	padding-left: 0.6rem;
 	padding-right: 0.6rem;
-	position: relative;
-	float: left;
+    position: relative;
+    float: left;
 }
 
 .character-screen .ui-control.popup-dialog .unlock-perk-popup-dialog-content-container .left-column
 {
-	width: 6.0rem;
-	height: 4.0rem;
-	position: relative;
-	float: left;
+    width: 6.0rem;
+    height: 4.0rem;
+    position: relative;
+    float: left;
 }
 
 .character-screen .ui-control.popup-dialog .unlock-perk-popup-dialog-content-container .left-column img
 {
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 4.0rem;
-	height: 4.0rem;
-	position: absolute;
-	margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 4.0rem;
+    height: 4.0rem;
+    position: absolute;
+    margin: auto;
 }
 
 .character-screen .ui-control.popup-dialog .unlock-perk-popup-dialog-content-container .right-column
 {
-	position: relative;
-	float: none;
+    position: relative;
+    float: none;
 
-	padding-right: 1.0rem;
+    padding-right: 1.0rem;
 
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .character-screen .ui-control.popup-dialog .unlock-perk-popup-dialog-content-container .right-column .name
 {
-	width: 100%;
-	height: 3.6rem;
-	position: relative;
-	float: left;
+    width: 100%;
+    height: 3.6rem;
+    position: relative;
+    float: left;
 
-	line-height: 4.4rem;
+    line-height: 4.4rem;
 }
 
 .character-screen .ui-control.popup-dialog .unlock-perk-popup-dialog-content-container .right-column .description
 {
-	width: 100%;
-	position: relative;
-	float: left;
+    width: 100%;
+    position: relative;
+    float: left;
 }

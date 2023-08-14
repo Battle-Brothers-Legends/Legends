@@ -12,13 +12,8 @@ this.scavenger_follower <- this.inherit("scripts/retinue/follower", {
 			"Recovers a part of all ammo you use during battle",
 			"Recovers tools and supplies from every armor destroyed by you during battle"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have at least one of the following backgrounds: Beggar, Cripple, Refugee, Slave"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have at least one of the following backgrounds: Beggar, Cripple, Refugee, Slave", [
 			"background.beggar",
 			"background.cripple",
 			"background.refugee",
@@ -29,7 +24,7 @@ this.scavenger_follower <- this.inherit("scripts/retinue/follower", {
 			"background.legend_commander_beggar_op",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

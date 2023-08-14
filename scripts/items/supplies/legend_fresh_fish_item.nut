@@ -8,8 +8,8 @@ this.legend_fresh_fish_item <- this.inherit("scripts/items/supplies/legend_usabl
 		this.m.Description = "Provisions. Freshly caught and butchered, this fish tastes good but will not last long without curing. Can be eaten in battle to provide up to 1 healing and fatigue recovery over ten turns, based on the amount remaining. Will be gradually used as provisions if left in the company stash.";
 		this.m.Icon = "supplies/legend_fresh_fish.png";
 		this.m.Amount = 15.0;
-		this.m.Value = 30;
-		this.m.GoodForDays = 2;
+		this.m.Value = 20;
+		this.m.GoodForDays = 1;
 		this.m.IsUndesirable = false;
 	}
 

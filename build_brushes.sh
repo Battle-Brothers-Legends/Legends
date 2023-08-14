@@ -64,7 +64,24 @@ declare -a BRUSHES=(
 "orientation"
 "legend_objects"
 "legend_helmets"
+"legend_helmets/0"
+"legend_helmets/1"
+"legend_helmets/2"
+"legend_helmets/3"
+"legend_helmets/4"
+"legend_helmets/5"
+"legend_helmets/6"
+"legend_helmets/7"
+"legend_helmets/8"
+"legend_helmets/9"
+"legend_helmets/10"
+"legend_helmets/11"
+"legend_helmets/12"
+"legend_helmets/13"
+"legend_helmets/14"
+"legend_helmets/15"
 "legend_armor/0"
+
 )
 
 mkdir -p brushes

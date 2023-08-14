@@ -23,7 +23,7 @@ this.defend_bandits_action <- this.inherit("scripts/factions/faction_action", {
 				continue;
 			}
 
-			if (s.getLastSpawnTime() + 300.0 > this.Time.getVirtualTimeF())
+			if (s.getLastSpawnTime() + 150.0 > this.Time.getVirtualTimeF())
 			{
 				continue;
 			}

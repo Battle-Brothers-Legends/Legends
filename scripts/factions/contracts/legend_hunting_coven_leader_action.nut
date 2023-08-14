@@ -35,7 +35,7 @@ this.legend_hunting_coven_leader_action <- this.inherit("scripts/factions/factio
 			return;
 		}
 
-		if (this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
+		if (this.isKindOf(village, "legends_snow_village") || this.isKindOf(village, "small_snow_village") || this.isKindOf(village, "medium_snow_village"))
 		{
 			return;
 		}

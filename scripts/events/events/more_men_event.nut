@@ -16,7 +16,7 @@ this.more_men_event <- this.inherit("scripts/events/event", {
 					Text = "I\'d hire more if only we could afford it.",
 					function getResult( _event )
 					{
-						if (this.World.Assets.getMoney() >= 3000)
+						if (this.World.Assets.getMoney() >= 4000)
 						{
 							return "D";
 						}
@@ -293,7 +293,7 @@ this.more_men_event <- this.inherit("scripts/events/event", {
 
 	function onUpdateScore()
 	{
-		if (this.World.Assets.getOrigin().getID() == "scenario.lone_wolf" || this.World.Assets.getOrigin().getID() == "scenario.gladiators")
+		if (this.World.Assets.getOrigin().getID() == "scenario.lone_wolf" || this.World.Assets.getOrigin().getID() == "scenario.gladiators" || this.World.Assets.getOrigin().getID() == "scenario.legends_beggar" || this.World.Assets.getOrigin().getID() == "scenario.legends_scaling_beggar")
 		{
 			return;
 		}

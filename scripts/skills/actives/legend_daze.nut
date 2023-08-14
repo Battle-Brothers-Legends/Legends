@@ -85,18 +85,18 @@ this.legend_daze <- this.inherit("scripts/skills/skill", {
 
 					if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
 					{
-						this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " stupefied " + this.Const.UI.getColorizedEntityName(target) + " leaving them dazed");
+						this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " dazed " + this.Const.UI.getColorizedEntityName(target) + " leaving them dazed");
 					}
 				}
 			}
 			else
 			{
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " failed to stupefy an immune " + this.Const.UI.getColorizedEntityName(target));
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " failed to daze an immune " + this.Const.UI.getColorizedEntityName(target));
 			}
 		}
 		else
 		{
-		this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " failed to stupefy " + this.Const.UI.getColorizedEntityName(target));
+		this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " failed to daze " + this.Const.UI.getColorizedEntityName(target));
 		}
 
 	}

@@ -58,7 +58,7 @@ this.medium_farming_village <- this.inherit("scripts/entity/world/settlement", {
 			"tailor_background",
 			"vagabond_background",
 			"retired_soldier_background",
-					"apprentice_background",
+			"apprentice_background",
 			"female_beggar_background",
 			"butcher_background",
 			"gambler_background",
@@ -112,9 +112,9 @@ this.medium_farming_village <- this.inherit("scripts/entity/world/settlement", {
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/tavern_building"));
 		local r = this.Math.rand(1, 3);
 
-		if (r == 1 || this.Const.World.Buildings.Barbers == 0)
+		if (r == 1 || this.Const.World.Buildings.Blackmarket == 0)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else if (r == 2)
 		{

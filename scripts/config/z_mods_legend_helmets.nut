@@ -2234,7 +2234,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "adorned_full_helm",
-		Script = "scripts/items/helmets/adorned_full_helm",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_patched_hood"],
@@ -2274,7 +2274,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "heavy_mail_coif",
-		Script = "scripts/items/helmets/heavy_mail_coif",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_mail_coif"],
@@ -2290,7 +2290,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "masked_kettle_helmet",
-		Script = "scripts/items/helmets/masked_kettle_helmet",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_full_mask"],
@@ -2366,7 +2366,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 			[2, "top/legend_helmet_faceplate_pointed"],
 			[3, "top/legend_helmet_faceplate_pointed_slit"],
 			[3, "top/legend_helmet_facemask"],
-			[3, "top/legend_helmet_noseplate"],
+			[3, "top/legend_helmet_nose_plate"],
 			[1, "top/legend_helmet_goblin_gillie"],
 		],
 		Vanity = [
@@ -2405,7 +2405,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 			[1, "top/legend_helmet_faceplate_gold"],
 			[3, "top/legend_helmet_southern_faceplate"],
 			[1, "top/legend_helmet_facemask"],
-			[1, "top/legend_helmet_noseplate"],
+			[1, "top/legend_helmet_nose_plate"],
 			[1, "top/legend_helmet_goblin_gillie"],
 		],
 		Vanity = [
@@ -2422,7 +2422,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "lonewolf_longsword_helmet",
-		Script = "scripts/items/armor/lonewolf_longsword_helmet",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_padded_cap"], //40
@@ -2439,7 +2439,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "lonewolf_hammershield_helmet", 
-		Script = "scripts/items/armor/lonewolf_hammershield_helmet",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_padded_cap"], //40
@@ -2457,7 +2457,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "lonewolf_axebuckler_helmet",
-		Script = "scripts/items/armor/lonewolf_axebuckler_helmet",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_leather_hood"], //45
@@ -2476,7 +2476,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "lonewolf_crossbowsword_helmet",
-		Script = "scripts/items/armor/lonewolf_crossbowsword_helmet",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_enclave_bevor"], //95
@@ -2495,7 +2495,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "lonewolf_bowdagger_helmet",
-		Script = "scripts/items/armor/lonewolf_bowdagger_helmet",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_leather_hood"], //45
@@ -2515,7 +2515,7 @@ gt.Const.LegendMod.HelmObjs.extend([
 	},
 	{
 		ID = "lonewolf_polearm_helmet",
-		Script = "scripts/items/armor/lonewolf_polearm_helmet",
+		Script = "",
 		Sets = [{
 			Hoods = [
 			[1, "hood/legend_helmet_chain_hood_full"] //90

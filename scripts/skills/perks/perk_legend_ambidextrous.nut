@@ -1,7 +1,5 @@
 this.perk_legend_ambidextrous <- this.inherit("scripts/skills/skill", {
-	m = {
-			Available = true
-		},
+	m = {},
 	function create()
 	{
 		this.m.ID = "perk.legend_ambidextrous";
@@ -26,7 +24,7 @@ this.perk_legend_ambidextrous <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "Fluid like water! This character is a skilled unarmed combatant who can effectively follow up any attack with a punch from their off hand! If both hands are free, they also gain additional melee skill and melee defense.";
+		return "Fluid like water!\n\nThis character will follow up any attack with a punch from their off hand! If both hands are free, they also gain additional melee skill and melee defense.";
 	}
 
 	function getTooltip()
@@ -46,7 +44,7 @@ this.perk_legend_ambidextrous <- this.inherit("scripts/skills/skill", {
 				type = "description",
 				text = this.getDescription() // Since the passive should have a different name than the perk in this case
 			}
-			
+
 		];
 
 		if (main == null)
@@ -72,16 +70,14 @@ this.perk_legend_ambidextrous <- this.inherit("scripts/skills/skill", {
 		local items = this.getContainer().getActor().getItems();
 		if (_targetEntity != null && !items.hasBlockedSlot(this.Const.ItemSlot.Offhand))
 		{
-			if (this.m.Available)
+			if (!_forFree)
 			{
 				if (_targetTile == null) // Is this necessary?
 				{
 					return;
 				}
-				this.m.Available = false;
 				local attack = this.getContainer().getSkillByID("actives.hand_to_hand");
 				attack.useForFree(_targetTile);
-				this.m.Available = true;
 			}
 		}
 	}
@@ -90,7 +86,7 @@ this.perk_legend_ambidextrous <- this.inherit("scripts/skills/skill", {
 		local items = this.getContainer().getActor().getItems();
 		local off = items.getItemAtSlot(this.Const.ItemSlot.Offhand);
 		local main = items.getItemAtSlot(this.Const.ItemSlot.Mainhand)
-		
+
 		if ((main == null || this.getContainer().hasSkill("effects.disarmed")) && off == null && !items.hasBlockedSlot(this.Const.ItemSlot.Offhand))
 		{
 			_properties.MeleeDefense += 10;
@@ -99,10 +95,4 @@ this.perk_legend_ambidextrous <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-	function onTurnStart()
-	{
-		this.m.Available = true;
-	}
-	
 });
-

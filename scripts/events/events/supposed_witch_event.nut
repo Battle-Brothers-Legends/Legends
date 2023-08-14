@@ -127,7 +127,7 @@ this.supposed_witch_event <- this.inherit("scripts/events/event", {
 						_event.m.Dude.getFlags().add("undead");
 						_event.m.Dude.getFlags().add("skeleton");
 							_event.m.Dude.setStartValuesEx(
-								this.Const.CharacterFemaleBackgrounds
+								this.Const.SupposedWitchBackgrounds
 							);
 						_event.m.Dude.getSkills().add(this.new("scripts/skills/racial/skeleton_racial"));
 						_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/legend_fleshless_trait"));
@@ -135,7 +135,7 @@ this.supposed_witch_event <- this.inherit("scripts/events/event", {
 					else
 					{
 						_event.m.Dude.setStartValuesEx(
-							this.Const.CharacterFemaleBackgrounds
+							this.Const.SupposedWitchBackgrounds
 						);
 					}
 

@@ -1961,24 +1961,24 @@ this.worldmap_generator <- this.inherit("scripts/mapgen/map_template", {
 			}
 		}
 
-		if (this.Const.World.Buildings.Barbers < 2)
+		if (this.Const.World.Buildings.Blackmarket < 2)
 		{
 			local candidates = [];
 
 			foreach( s in settlements )
 			{
-				if (s.getSize() >= 2 && !s.isMilitary() && s.hasFreeBuildingSlot() && !s.hasBuilding("building.barber"))
+				if (s.getSize() >= 2 && !s.isMilitary() && s.hasFreeBuildingSlot() && !s.hasBuilding("building.blackmarket"))
 				{
 					candidates.push(s);
 				}
 			}
 
-			for( local i = this.Const.World.Buildings.Barbers; i <= 2; i = ++i )
+			for( local i = this.Const.World.Buildings.Blackmarket; i <= 2; i = ++i )
 			{
 				local r = this.Math.rand(0, candidates.len() - 1);
 				local s = candidates[r];
 				candidates.remove(r);
-				s.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				s.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 
 				if (candidates.len() == 0)
 				{

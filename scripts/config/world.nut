@@ -804,7 +804,7 @@ gt.Const.World.TimeOfDay <- {
 	EarlyMorning = 7
 };
 gt.Const.World.Buildings <- {
-	Barbers = 0,
+	Blackmarket = 0,
 	Kennels = 0,
 	Fletchers = 0,
 	Temples = 0,
@@ -817,7 +817,7 @@ gt.Const.World.Buildings <- {
 	Stables = 0,
 	function reset()
 	{
-		this.Barbers = 0;
+		this.Blackmarket = 0;
 		this.Kennels = 0;
 		this.Fletchers = 0;
 		this.Temples = 0;

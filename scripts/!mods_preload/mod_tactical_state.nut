@@ -53,6 +53,13 @@ this.getroottable().Const.LegendMod.hookTacticalState <- function()
 							bro.onDeath(null, null, null, this.Const.FatalityType.Devoured);
 							this.World.getPlayerRoster().remove(bro);
 						}
+
+						else if (bro.getSkills().hasSkill("perk.legend_pacifist") && bro.isPlacedOnMap())
+						{
+								bro.getLifetimeStats().BattlesWithoutMe = 0;
+								bro.worsenMood(this.Const.MoodChange.BattleWithoutMe, "Forced into battle against their wishes");
+						}
+
 						else if (this.m.StrategicProperties.IsUsingSetPlayers && bro.isPlacedOnMap())
 						{
 							bro.getLifetimeStats().BattlesWithoutMe = 0;
@@ -66,13 +73,7 @@ this.getroottable().Const.LegendMod.hookTacticalState <- function()
 								bro.improveMood(this.Const.MoodChange.BattleWon, "Won a battle");
 							}
 						}
-						else if (bro.getSkills().hasSkill("perk.legend_pacifist"))
-						{
-							if (bro.getLifetimeStats().BattlesWithoutMe > bro.getLifetimeStats().Battles)
-							{
-								bro.worsenMood(this.Const.MoodChange.BattleWithoutMe, "Forced into battle against their wishes");
-							}
-						}
+
 						else if (!this.m.StrategicProperties.IsUsingSetPlayers)
 						{
 							if (bro.isPlacedOnMap())

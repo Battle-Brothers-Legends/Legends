@@ -13,17 +13,12 @@ this.paymaster_follower <- this.inherit("scripts/retinue/follower", {
 			"Reduces the chance of desertion by 50%",
 			"Prevents men demanding more pay in events"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have a mercenary who has taken the Paymaster perk. Guaranteed on Peddlers, Eunuchs and Servants"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have a mercenary who has taken the Paymaster perk. Guaranteed on Peddlers, Eunuchs and Servants", [
 			"perk.legend_barter_paymaster",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 	
 	function onUpdate()

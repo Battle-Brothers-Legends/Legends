@@ -37,6 +37,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		RosterSeed = 0,
 		StablesSeed = 0,
 		Owner = null,
+		ImportedGoodsInventory = null,
 		Factions = [],
 		Culture = 0,
 		ProduceString = "goods",
@@ -593,7 +594,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			result.Contracts.push(c);
 		}
 
-		if (result.Contracts.len() == 0 && this.m.IsMilitary && !this.World.Ambitions.getAmbition("ambition.make_nobles_aware").isDone())
+		if (result.Contracts.len() == 0 && this.m.IsMilitary && !this.World.Ambitions.getAmbition("ambition.make_nobles_aware").isDone() && !this.World.Assets.getOrigin().getID() == "scenario.legends_noble")
 		{
 			result.IsContractsLocked = true;
 		}
@@ -901,7 +902,15 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function addImportedProduce( _p )
 	{
-		this.m.ProduceImported.push(_p);
+		if (typeof _p == "string")
+		{
+			this.m.ProduceImported.push(_p)
+		}
+		else
+		{
+			this.m.ImportedGoodsInventory.add(_p);
+			this.getFlags().set("UseImportedGoodsInventory", true);
+		}
 	}
 
 	function getFoodPriceMult()
@@ -995,6 +1004,9 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	function create()
 	{
 		this.location.create();
+		this.m.ImportedGoodsInventory = this.new("scripts/items/stash_container");
+		this.m.ImportedGoodsInventory.setID("imported_inventory");
+		this.m.ImportedGoodsInventory.setResizable(true);
 		this.m.LocationType = this.Const.World.LocationType.Settlement;
 		this.m.Banner = "banner_noble_11";
 		this.m.ShopSeed = this.Time.getRealTime() + this.Math.rand();
@@ -1225,9 +1237,9 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			}
 		}
 
-		if (_building.getID() == "building.barber")
+		if (_building.getID() == "building.blackmarket")
 		{
-			++this.Const.World.Buildings.Barbers;
+			++this.Const.World.Buildings.Blackmarket;
 		}
 		else if (_building.getID() == "building.kennel")
 		{
@@ -1957,7 +1969,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 	function updateImportedProduce()
 	{
-		if (this.m.ProduceImported.len() == 0)
+		if (this.m.ProduceImported.len() == 0 || this.m.ImportedGoodsInventory.getItems().len() == 0)
 		{
 			return;
 		}
@@ -1984,7 +1996,13 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			marketplace.getStash().add(item);
 		}
 
+		foreach( p in this.m.ImportedGoodsInventory.getItems() )
+		{
+			marketplace.getStash().add(p)
+		}
+
 		marketplace.getStash().sort();
+		this.m.ImportedGoodsInventory.clear();
 		this.m.ProduceImported = [];
 	}
 
@@ -2898,6 +2916,11 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			_out.writeU8(this.m.HousesTiles[i].V);
 			i = ++i;
 		}
+
+		if (this.getFlags().get("UseImportedGoodsInventory"))
+		{
+			this.m.ImportedGoodsInventory.onSerialize(_out);
+		}
 	}
 
 	function onDeserialize( _in )
@@ -3014,6 +3037,11 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 				V = v
 			});
 			i = ++i;
+		}
+
+		if (this.getFlags().get("UseImportedGoodsInventory"))
+		{
+			this.m.ImportedGoodsInventory.onDeserialize(_in);
 		}
 
 		this.updateSprites();

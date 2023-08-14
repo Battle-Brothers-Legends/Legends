@@ -12,17 +12,12 @@ this.recruiter_follower <- this.inherit("scripts/retinue/follower", {
 			"Makes you pay 10% less up front for hiring new men, and 50% less for tryouts",
 			"Makes between 2 and 4 additional men available to recruit in every settlement"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have a mercenary who has taken the Inspiring Presence perk. Guaranteed on Cultists, Pimps, Retired Soldiers and many others."
-			}
-		];
-		this.m.RequiredSkills = [ 
+
+		this.addSkillRequirement("Have a mercenary who has taken the Inspiring Presence perk. Guaranteed on Cultists, Pimps, Retired Soldiers and many others.", [
 			"perk.inspiring_presence",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

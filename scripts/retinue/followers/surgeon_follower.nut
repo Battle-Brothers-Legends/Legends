@@ -12,17 +12,12 @@ this.surgeon_follower <- this.inherit("scripts/retinue/follower", {
 			"Makes every man without a permanent injury guaranteed to survive an otherwise fatal blow",
 			"Makes every injury take one less day to heal"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have someone with the Field Triage perk. Guaranteed on Monks and Nuns"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have someone with the Field Triage perk. Guaranteed on Monks and Nuns", [
 			"perk.legend_field_triage",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

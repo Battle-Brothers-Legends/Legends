@@ -4,6 +4,7 @@ this.ai_attack_throw_net <- this.inherit("scripts/ai/tactical/behavior", {
 		PossibleSkills = [
 			"actives.throw_net",
 			"actives.web",
+			"actives.legend_daze",
 			"actives.kraken_ensnare"
 		],
 		Skill = null

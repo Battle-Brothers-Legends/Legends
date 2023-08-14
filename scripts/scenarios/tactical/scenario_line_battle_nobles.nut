@@ -41,7 +41,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 			}
 		}
 
-		entity = this.spawnEntity("scripts/entity/tactical/player", 12, 12, 15, 15);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 7, 7, 15, 15);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();
@@ -50,7 +50,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 		items.equip(this.new("scripts/items/armor/padded_leather"));
 		items.equip(this.new("scripts/items/weapons/billhook"));
 		entity.getSkills().add(this.new("scripts/skills/actives/rally_the_troops"));
-		entity = this.spawnEntity("scripts/entity/tactical/player", 12, 12, 13, 13);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 7, 7, 13, 13);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();
@@ -60,7 +60,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 		items.equip(this.Const.World.Common.pickHelmet([[1, "hood"]]));
 		items.addToBag(this.new("scripts/items/weapons/dagger"));
 		entity.getSkills().add(this.new("scripts/skills/actives/rally_the_troops"));
-		entity = this.spawnEntity("scripts/entity/tactical/player", 11, 11, 14, 14);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 6, 6, 14, 14);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();
@@ -70,7 +70,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 		items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
 		items.addToBag(this.new("scripts/items/weapons/dagger"));
 		entity.getSkills().add(this.new("scripts/skills/actives/rally_the_troops"));
-		entity = this.spawnEntity("scripts/entity/tactical/player", 11, 11, 15, 15);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 6, 6, 15, 15);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();
@@ -81,7 +81,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 		items.equip(this.new("scripts/items/ammo/quiver_of_bolts"));
 		items.addToBag(this.new("scripts/items/weapons/dagger"));
 		entity.getSkills().add(this.new("scripts/skills/actives/rally_the_troops"));
-		entity = this.spawnEntity("scripts/entity/tactical/player", 13, 13, 11, 11);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 8, 8, 11, 11);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();
@@ -90,7 +90,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 		items.equip(this.new("scripts/items/armor/lamellar_harness"));
 		items.equip(this.new("scripts/items/weapons/greatsword"));
 		entity.getSkills().add(this.new("scripts/skills/actives/rally_the_troops"));
-		entity = this.spawnEntity("scripts/entity/tactical/player", 13, 13, 13, 13);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 8, 8, 13, 13);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();
@@ -99,7 +99,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 		items.equip(this.new("scripts/items/weapons/hand_axe"));
 		items.equip(this.new("scripts/items/shields/wooden_shield"));
 		entity.getSkills().add(this.new("scripts/skills/actives/rally_the_troops"));
-		entity = this.spawnEntity("scripts/entity/tactical/player", 13, 13, 14, 14);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 8, 8, 14, 14);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();
@@ -109,7 +109,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 		items.equip(this.new("scripts/items/weapons/boar_spear"));
 		items.equip(this.new("scripts/items/shields/wooden_shield"));
 		entity.getSkills().add(this.new("scripts/skills/actives/rally_the_troops"));
-		entity = this.spawnEntity("scripts/entity/tactical/player", 13, 13, 16, 16);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 8, 8, 16, 16);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();
@@ -119,7 +119,7 @@ this.scenario_line_battle_nobles <- this.inherit("scripts/scenarios/tactical/sce
 		items.equip(this.new("scripts/items/weapons/winged_mace"));
 		items.equip(this.new("scripts/items/shields/wooden_shield"));
 		entity.getSkills().add(this.new("scripts/skills/actives/rally_the_troops"));
-		entity = this.spawnEntity("scripts/entity/tactical/player", 13, 13, 17, 17);
+		entity = this.spawnEntity("scripts/entity/tactical/player", 8, 8, 17, 17);
 		this.World.getPlayerRoster().add(entity);
 		entity.setName(this.getRandomPlayerName());
 		entity.setScenarioValues();

@@ -8,7 +8,7 @@ this.legend_pass_skill <- this.inherit("scripts/skills/skill", {
 		this.m.Description = "Give the first item in your bag to an adjacent ally. Can not be used while engaged in melee, and anyone receiving the item needs to have a free bag slot.";
 		this.m.Icon = "skills/pass.png";
 		this.m.IconDisabled = "skills/pass_bw.png";
-		this.m.Overlay = "active_96";
+		this.m.Overlay = "active_pass";
 		this.m.SoundOnUse = [
 			"sounds/cloth_01.wav"
 		];
@@ -77,7 +77,12 @@ this.legend_pass_skill <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-
+		local item = this.getContainer().getActor().getItems().getItemAtBagSlot(0);
+		
+		if (item = null)
+		{
+			return false;
+		}
 		local tile = this.getContainer().getActor().getTile();
 		return this.skill.isUsable() && !tile.hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions());
 	}
@@ -91,10 +96,6 @@ this.legend_pass_skill <- this.inherit("scripts/skills/skill", {
 		}
 		
 
-		if (!this.m.Container.getActor().isAlliedWith(target))
-		{
-			return false;
-		}
 		
 		local target = _targetTile.getEntity();
 		local user = _originTile.getEntity();	
@@ -104,7 +105,11 @@ this.legend_pass_skill <- this.inherit("scripts/skills/skill", {
 		{
 			return false;
 		}
-		
+	
+		if (!this.m.Container.getActor().isAlliedWith(target))
+		{
+			return false;
+		}	
 		
 		if (target.getID() != user.getID())
 		{
@@ -123,15 +128,14 @@ this.legend_pass_skill <- this.inherit("scripts/skills/skill", {
 		local item = this.getContainer().getActor().getItems().getItemAtBagSlot(0);
 		local itemName = item.getName();
 		
-		this.spawnIcon("status_effect_97", _targetTile);
+		this.spawnIcon("status_helpful", _targetTile);
 
 		if (!_user.isHiddenToPlayer())
 		{
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " gives " + itemName + " to " + this.Const.UI.getColorizedEntityName(user));
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " gives " + itemName + " to " + this.Const.UI.getColorizedEntityName(target));
 		}
 
 		this.Sound.play("sounds/cloth_01.wav", this.Const.Sound.Volume.Inventory);
-		local item = this.m.Item.get();
 		
 		_user.getItems().removeFromBag(item);
 		target.getItems().addToBag(item);

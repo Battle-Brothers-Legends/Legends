@@ -6,9 +6,9 @@ this.legend_beer_buzz_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.legend_beer_buzz_effect";
 		this.m.Name = "Buzzed";
-		this.m.Icon = "skills/status_effect_61.png";
-		this.m.IconMini = "status_effect_61_mini";
-		this.m.Overlay = "status_effect_61";
+		this.m.Icon = "skills/status_effect_92.png";
+		this.m.IconMini = "status_effect_92_mini";
+		this.m.Overlay = "status_effect_92";
 		this.m.Type = this.Const.SkillType.StatusEffect | this.Const.SkillType.DrugEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
@@ -17,7 +17,7 @@ this.legend_beer_buzz_effect <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "After guzzling beer, this character has [color=" + this.Const.UI.Color.PositiveValue + "]+3%[/color] Resolve and Hitchance, [color=" + this.Const.UI.Color.NegativeValue + "]-6%[/color] Defenses and [color=" + this.Const.UI.Color.NegativeValue + "]-12%[/color] Initiative for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
+		return "After guzzling beer, this character has [color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] Resolve, Melee and Ranged Skill, [color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Defenses and [color=" + this.Const.UI.Color.NegativeValue + "]-6[/color] Initiative for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
 	}
 
 	function getTooltip()
@@ -37,37 +37,37 @@ this.legend_beer_buzz_effect <- this.inherit("scripts/skills/skill", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/bravery.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+3%[/color] Resolve"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] Resolve"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+3%[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] Melee Skill"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+3%[/color] Ranged Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+3[/color] Ranged Skill"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-6%[/color] Melee Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Melee Defense"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-6%[/color] Ranged Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-3[/color] Ranged Defense"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-12%[/color] Initiative"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-6[/color] Initiative"
 			}
 		];
 		return ret;
@@ -75,12 +75,12 @@ this.legend_beer_buzz_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		_properties.BraveryMult *= 1.03;
-		_properties.MeleeSkillMult *= 1.03;
-		_properties.RangedSkillMult *= 1.03;
-		_properties.MeleeDefenseMult *= 0.94;
-		_properties.RangedDefenseMult *= 0.94;
-		_properties.InitiativeMult *= 0.88;
+		_properties.Bravery += 3;
+		_properties.MeleeSkill += 3;
+		_properties.RangedSkill += 3;
+		_properties.MeleeDefense -= 3;
+		_properties.RangedDefense -= 3;
+		_properties.Initiative -= 6;
 
 	}
 

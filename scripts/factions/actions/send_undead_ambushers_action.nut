@@ -38,7 +38,7 @@ this.send_undead_ambushers_action <- this.inherit("scripts/factions/faction_acti
 
 		foreach( s in _faction.getSettlements() )
 		{
-			if (s.getLastSpawnTime() + 300.0 > this.Time.getVirtualTimeF())
+			if (s.getLastSpawnTime() + 150.0 > this.Time.getVirtualTimeF())
 			{
 				continue;
 			}

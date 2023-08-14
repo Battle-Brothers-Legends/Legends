@@ -12,17 +12,12 @@ this.blacksmith_follower <- this.inherit("scripts/retinue/follower", {
 			"Repairs all armor, helmets, weapons and shields worn by your men even if they\'re broken or lost because your man died",
 			"Increases repair speed by 33%"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have a mercenary who has taken the Field Repairs perk. Guaranteed on Blacksmiths, Ironmongers, and Crusaders"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have a mercenary who has taken the Field Repairs perk. Guaranteed on Blacksmiths, Ironmongers, and Crusaders", [
 			"perk.legend_field_repairs",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

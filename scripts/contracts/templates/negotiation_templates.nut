@@ -17,6 +17,7 @@ gt.Const.Contracts.Overview <- [
 				Text = "I accept this contract.",
 				function getResult()
 				{
+					::World.Statistics.getFlags().increment("NegotiatingTries", this.Contract.m.Flags.getAsInt("NegotiatingTries"));
 					this.Contract.setState("Running");
 					return 0;
 				}
@@ -124,7 +125,6 @@ gt.Const.Contracts.NegotiationDefault <- [
 						}
 					}
 
-
 					this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
 
 					local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance)
@@ -136,11 +136,13 @@ gt.Const.Contracts.NegotiationDefault <- [
 					else if (this.Math.rand(1, 100) <= failChance)
 					{
 						this.Contract.m.Payment.IsFinal = true;
+						this.Contract.m.Flags.increment("NegotiatingTries");
 						return "Overview"
 					}
 					else
 					{
 						this.Contract.m.Payment.IsFinal = false;
+						this.Contract.m.Flags.increment("NegotiatingTries");
 						if (this.World.Retinue.hasFollower("follower.negotiator"))
 						{
 							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
@@ -172,6 +174,7 @@ gt.Const.Contracts.NegotiationDefault <- [
 						}
 
 						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+						this.Contract.m.Flags.increment("NegotiatingTries");
 
 						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
 
@@ -215,6 +218,7 @@ gt.Const.Contracts.NegotiationDefault <- [
 						}
 
 						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+						this.Contract.m.Flags.increment("NegotiatingTries");
 
 						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
 
@@ -377,11 +381,13 @@ gt.Const.Contracts.NegotiationPerHead <- [
 					else if (this.Math.rand(1, 100) <= failChance)
 					{
 						this.Contract.m.Payment.IsFinal = true;
+						this.Contract.m.Flags.increment("NegotiatingTries");
 						return "Overview"
 					}
 					else
 					{
 						this.Contract.m.Payment.IsFinal = false;
+						this.Contract.m.Flags.increment("NegotiatingTries");
 						if (this.World.Retinue.hasFollower("follower.negotiator"))
 						{
 							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
@@ -427,11 +433,13 @@ gt.Const.Contracts.NegotiationPerHead <- [
 						else if (this.Math.rand(1, 100) <= failChance)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							this.Contract.m.Flags.increment("NegotiatingTries");
 							return "Overview"
 						}
 						else
 						{
 							this.Contract.m.Payment.IsFinal = false;
+							this.Contract.m.Flags.increment("NegotiatingTries");
 
 							if (this.Contract.m.Payment.Completion > 0 && this.Contract.m.Payment.Advance > 0)
 							{
@@ -470,6 +478,7 @@ gt.Const.Contracts.NegotiationPerHead <- [
 						}
 
 						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+						this.Contract.m.Flags.increment("NegotiatingTries");
 
 						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
 
@@ -519,6 +528,7 @@ gt.Const.Contracts.NegotiationPerHead <- [
 						}
 
 						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+						this.Contract.m.Flags.increment("NegotiatingTries");
 
 						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
 
@@ -703,11 +713,13 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 					else if (this.Math.rand(1, 100) <= failChance)
 					{
 						this.Contract.m.Payment.IsFinal = true;
+						this.Contract.m.Flags.increment("NegotiatingTries");
 						return "Overview"
 					}
 					else
 					{
 						this.Contract.m.Payment.IsFinal = false;
+						this.Contract.m.Flags.increment("NegotiatingTries");
 						if (this.World.Retinue.hasFollower("follower.negotiator"))
 						{
 							this.Contract.m.Payment.Pool = this.Contract.m.Payment.Pool * (1.0 + this.Math.rand(3, 10) * 0.01);
@@ -755,11 +767,13 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 						else if (this.Math.rand(1, 100) <= failChance)
 						{
 							this.Contract.m.Payment.IsFinal = true;
+							this.Contract.m.Flags.increment("NegotiatingTries");
 							return "Overview"
 						}
 						else
 						{
 							this.Contract.m.Payment.IsFinal = false;
+							this.Contract.m.Flags.increment("NegotiatingTries");
 
 							if (this.Contract.m.Payment.Completion > 0 && this.Contract.m.Payment.Advance > 0)
 							{
@@ -798,6 +812,7 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 						}
 
 						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+						this.Contract.m.Flags.increment("NegotiatingTries");
 
 						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
 
@@ -847,6 +862,7 @@ gt.Const.Contracts.NegotiationPerHeadAtDestination <- [
 						}
 
 						this.Contract.m.Payment.Annoyance += this.Math.maxf(1.0, this.Math.rand(this.Const.Contracts.Settings.NegotiationAnnoyanceGainMin, this.Const.Contracts.Settings.NegotiationAnnoyanceGainMax) * this.World.Assets.m.NegotiationAnnoyanceMult);
+						this.Contract.m.Flags.increment("NegotiatingTries");
 
 						local failChance = this.Math.min(90, this.Const.Contracts.Settings.NegotiationRefuseChance * this.Contract.m.Payment.Annoyance * 2)
 

@@ -69,14 +69,14 @@ this.patrol_area_action <- this.inherit("scripts/factions/faction_action", {
 		roam.setPivot(settlements[0]);
 		roam.setMinRange(1);
 		roam.setMaxRange(10);
-		roam.setTime(200.0);
+		roam.setTime(300.0);
 		local move = this.new("scripts/ai/world/orders/move_order");
 		move.setDestination(settlements[0].getTile());
 		local despawn = this.new("scripts/ai/world/orders/despawn_order");
 		c.addOrder(roam);
 		c.addOrder(move);
 		c.addOrder(despawn);
-		this.m.Cooldown = this.World.FactionManager.isGreaterEvil() ? 200.0 : 400.0;
+		this.m.Cooldown = this.World.FactionManager.isGreaterEvil() ? 150.0 : 300.0;
 		return true;
 	}
 

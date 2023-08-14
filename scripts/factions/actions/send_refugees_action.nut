@@ -63,7 +63,7 @@ this.send_refugees_action <- this.inherit("scripts/factions/faction_action", {
 		party.setFootprintType(this.Const.World.FootprintsType.Refugees);
 		party.getFlags().set("IsRandomlySpawned", true);
 		party.getLoot().Money = this.Math.rand(0, 50);
-
+		party.setOrigin(this.World.State.getCurrentTown());
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
 			local resources = this.Math.max(1, this.Math.round(0.01 * this.m.Start.getResources()));

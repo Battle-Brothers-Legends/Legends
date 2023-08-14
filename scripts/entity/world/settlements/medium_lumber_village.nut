@@ -61,7 +61,7 @@ this.medium_lumber_village <- this.inherit("scripts/entity/world/settlement", {
 			"witchhunter_background",
 			"cripple_background",
 			"eunuch_background",
-				"female_beggar_background",
+			"female_beggar_background",
 			"female_bowyer_background",
 			"female_bowyer_background",
 			"brawler_background",
@@ -134,9 +134,9 @@ this.medium_lumber_village <- this.inherit("scripts/entity/world/settlement", {
 			{
 				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/fletcher_building"));
 			}
-			else if (r == 3 || this.Const.World.Buildings.Barbers == 0)
+			else if (r == 3 || this.Const.World.Buildings.Blackmarket == 0)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 			else if (r == 4)
 			{
@@ -151,9 +151,9 @@ this.medium_lumber_village <- this.inherit("scripts/entity/world/settlement", {
 			{
 				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/fletcher_building"));
 			}
-			else if (r == 2 || this.Const.World.Buildings.Barbers == 0)
+			else if (r == 2 || this.Const.World.Buildings.Blackmarket == 0)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 			else if (r == 3)
 			{

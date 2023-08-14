@@ -1,4 +1,4 @@
-this.legend_noble_man_at_arms <- this.inherit("scripts/entity/tactical/human", {
+this.noble_man_at_arms <- this.inherit("scripts/entity/tactical/human", {
 	m = {},
 	function create()
 	{
@@ -109,7 +109,7 @@ this.legend_noble_man_at_arms <- this.inherit("scripts/entity/tactical/human", {
 		{
 			this.m.Items.equip(this.new("scripts/items/weapons/flail"));
 		}
-		shield = this.new("scripts/items/shields/faction_kite_shield");
+		local shield = this.new("scripts/items/shields/faction_kite_shield");
 
 
 		shield.setFaction(banner);

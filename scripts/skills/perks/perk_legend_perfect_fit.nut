@@ -45,7 +45,7 @@ this.perk_legend_perfect_fit <- this.inherit("scripts/skills/skill", {
 
 	function getInitiativeBonus(_bonus)
 	{
-		return this.Math.floor(0.01 * _bonus * this.getContainer().getActor().getItems().getStaminaModifier([::Const.ItemSlot.Body, ::Const.ItemSlot.Head]) * -1);
+		return this.Math.floor(_bonus);
 	}
 
 	function getFatCostReductionBonus(_bonus)
@@ -60,18 +60,20 @@ this.perk_legend_perfect_fit <- this.inherit("scripts/skills/skill", {
 
 		if (bonus > this.m.BonusMin)
 		{
-			tooltip.push({
-				id = 6,
-				type = "text",
-				icon = "ui/icons/initiative.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getInitiativeBonus(bonus) + "[/color] Initiative"
-			});
-			tooltip.push({
-				id = 6,
-				type = "text",
-				icon = "ui/icons/fatigue.png",
-				text = "Fatigue cost of skills reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + this.getFatCostReductionBonus(bonus) + "%[/color]"
-			});
+			tooltip.extend([
+				{
+					id = 6,
+					type = "text",
+					icon = "ui/icons/initiative.png",
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + this.getInitiativeBonus(bonus) + "%[/color] Initiative"
+				},
+				{
+					id = 6,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "Fatigue cost of skills reduced by [color=" + this.Const.UI.Color.PositiveValue + "]" + this.getFatCostReductionBonus(bonus) + "%[/color]"
+				}
+			]);
 		}
 
 		if (this.getContainer().getActor().getBodyItem() == null)
@@ -90,7 +92,7 @@ this.perk_legend_perfect_fit <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local bonus = this.getBonus();
-		_properties.Initiative += this.getInitiativeBonus(bonus);
+		_properties.InitiativeMult *= 1.0 + 0.01 * this.getInitiativeBonus(bonus);
 		_properties.FatigueEffectMult *= 1.0 - 0.01 * this.getFatCostReductionBonus(bonus);
 	}
 });

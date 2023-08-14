@@ -1,8 +1,8 @@
 this.party <- this.inherit("scripts/entity/world/world_entity", {
 	m = {
 		BaseMovementSpeed = 100.0,
+		StashInventory = null,
 		Destination = null,
-		Origin = null,
 		Path = null,
 		LastFootprintTime = 0.0,
 		LastFootprintType = 1,
@@ -67,11 +67,21 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 	{
 		this.m.Destination = _dest;
 	}
+
+	function getStashInventory()
+	{
+		return this.m.StashInventory;
+	}
 	
 	function setOrigin( _origin )
 	{
-		this.m.Destination = _origin;
+		this.getFlags().set("CaravanOrigin", _origin.getID());
 	}
+
+	function getOrigin()
+	{
+		return this.getFlags().has("CaravanOrigin") ? this.World.getEntityByID(this.getFlags().get("CaravanOrigin")) : null;
+	}	
 
 	function setPath( _path )
 	{
@@ -261,6 +271,10 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 		this.world_entity.create();
 		this.m.IsAttackable = true;
 		this.m.SpawnTime = this.Time.getVirtualTimeF();
+
+		this.m.StashInventory = this.new("scripts/items/stash_container");
+		this.m.StashInventory.setResizable(true);
+		this.m.StashInventory.setID("caravan");
 
 		if (!this.m.IsPlayer)
 		{
@@ -526,6 +540,25 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 		  }
 	}
 
+	function addToInventory( _i )
+	{
+		if (typeof _i == "string")
+		{
+			this.world_entity.addToInventory(_i);
+		}
+		else
+		{
+			this.m.StashInventory.add(_i);
+			this.getFlags().set("UseStashInventory", true);
+		}
+	}
+	
+	function clearInventory()
+	{
+		this.world_entity.clearInventory();
+		this.m.StashInventory.clear();
+	}
+
 	function onDropLootForPlayer( _lootTable )
 	{
 		this.world_entity.onDropLootForPlayer(_lootTable);
@@ -533,6 +566,8 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 		this.dropAmmo(this.m.Loot.Ammo, _lootTable);
 		this.dropMedicine(this.m.Loot.Medicine, _lootTable);
 		this.dropArmorParts(this.m.Loot.ArmorParts, _lootTable);
+
+		_lootTable.extend(this.m.StashInventory.getItems());
 
 		if (this.m.Flags.get("IsCaravan"))
 		{
@@ -573,6 +608,11 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 		_out.writeBool(this.isVisibleInFogOfWar());
 		_out.writeF32(this.m.StunTime);
 		_out.writeU8(this.m.IdleSoundsIndex);
+
+		if (this.getFlags().get("UseStashInventory"))
+		{
+			this.m.StashInventory.onSerialize(_out);
+		}
 	}
 
 	function onDeserialize( _in )
@@ -627,6 +667,11 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 		if (this.hasLabel("name"))
 		{
 			this.getLabel("name").Visible = this.m.IsShowingName && this.Const.World.AI.VisualizeNameOfUnits;
+		}
+
+		if (this.getFlags().get("UseStashInventory"))
+		{
+			this.m.StashInventory.onDeserialize(_in);
 		}
 	}
 

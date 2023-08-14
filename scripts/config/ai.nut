@@ -77,8 +77,9 @@ gt.Const.AI <- {
 			LegendButcher = "agent.legend_butcher",
 			Bear = "agent.bear",
 			Boar = "agent.boar",
-			KoboldWolfrider = "kobold.wolfrider",
+			KoboldWolfrider = "agent.kobold_wolfrider",
 			LegendMummyQueen = "agent.legend_mummy_queen",
+			LegendMinstrel = "agent.minstrel",
 		},
 		Intentions = {
 			IsDefendingPosition = false,

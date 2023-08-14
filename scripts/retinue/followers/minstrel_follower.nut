@@ -12,17 +12,12 @@ this.minstrel_follower <- this.inherit("scripts/retinue/follower", {
 			"Makes you earn 15% more renown with every action",
 			"Makes tavern rumors more likely to contain useful information"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have someone with the Entice perk. Guaranteed on Minstrels and Troubadours"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have someone with the Entice perk. Guaranteed on Minstrels and Troubadours", [
 			"perk.legend_entice",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

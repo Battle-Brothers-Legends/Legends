@@ -90,12 +90,14 @@ this.patrol_roads_action <- this.inherit("scripts/factions/faction_action", {
 		move1.setRoadsOnly(true);
 		move1.setDestination(waypoints[1].getTile());
 		local wait1 = this.new("scripts/ai/world/orders/wait_order");
-		wait1.setTime(20.0);
+		local r = this.Math.rand(5, 40);
+		wait1.setTime(r);
 		local move2 = this.new("scripts/ai/world/orders/move_order");
 		move2.setRoadsOnly(true);
 		move2.setDestination(waypoints[2].getTile());
 		local wait2 = this.new("scripts/ai/world/orders/wait_order");
-		wait2.setTime(20.0);
+		local r = this.Math.rand(5, 40);
+		wait2.setTime(r);
 		local move3 = this.new("scripts/ai/world/orders/move_order");
 		move3.setRoadsOnly(true);
 		move3.setDestination(waypoints[0].getTile());
@@ -106,7 +108,7 @@ this.patrol_roads_action <- this.inherit("scripts/factions/faction_action", {
 		c.addOrder(wait2);
 		c.addOrder(move3);
 		c.addOrder(despawn);
-		this.m.Cooldown = this.World.FactionManager.isGreaterEvil() ? 200.0 : 400.0;
+		this.m.Cooldown = this.World.FactionManager.isGreaterEvil() ? 150.0 : 300.0;
 		return true;
 	}
 

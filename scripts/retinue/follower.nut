@@ -61,6 +61,19 @@ this.follower <- {
 		return this.m.Requirements;
 	}
 
+	function getRequirementsForUI()
+	{
+		local ret = [];
+
+		foreach (r in this.m.Requirements)
+		{
+			ret.push(this.cloneValue(r));
+		}
+
+		ret.sort(this.sortByPriority);
+		return ret;
+	}
+
 	function isValid()
 	{
 		return true;
@@ -68,19 +81,6 @@ this.follower <- {
 
 	function isVisible()
 	{
-		return true;
-	}
-
-	function isUnlocked()
-	{
-		for( local i = 0; i < this.m.Requirements.len(); i = ++i )
-		{
-			if (!this.m.Requirements[i].IsSatisfied)
-			{
-				return false;
-			}
-		}
-
 		return true;
 	}
 
@@ -127,16 +127,6 @@ this.follower <- {
 		this.onUpdate();
 	}
 
-	function isEnabled()
-	{
-		if (this.m.RequiredSkills.len() == 0)
-		{
-			return true;
-		}
-		this.checkRequiredSkills();
-		return this.m.LinkedBro != null && this.m.LinkedBro.isAlive();
-	}
-
 	function resetLinkedBro()
 	{
 		this.m.LinkedBro = null;
@@ -152,23 +142,99 @@ this.follower <- {
 		this.onEvaluate();
 	}
 
-	function clear()
-	{
-	}
-
 	function onEvaluate()
 	{
-		this.m.Requirements[this.m.Requirements.len() - 1].IsSatisfied = this.isEnabled()
+		foreach (r in this.m.Requirements)
+		{
+			r.IsSatisfied = r.CheckRequirement();
+
+			if ("UpdateText" in r) r.UpdateText();
+		}
+	}
+
+	function isUnlocked()
+	{
+		local hasSecondary = false;
+		local isSecondaryFulfilled = false;
+
+		foreach (r in this.m.Requirements)
+		{
+			if (r.NotImportant)
+			{
+				hasSecondary = true;
+
+				if (isSecondaryFulfilled || !r.IsSatisfied) continue;
+			
+				isSecondaryFulfilled = true;
+				continue;
+			}
+
+			// primary requirement (must fulfill this)
+			if (!r.IsSatisfied) return false;
+		}
+
+		if (hasSecondary) return isSecondaryFulfilled;
+
+		return true;
+	}
+
+	function isEnabled()
+	{
+		local hasSecondary = false;
+		local isSecondaryFulfilled = false;
+
+		foreach (r in this.m.Requirements)
+		{
+			// secondary requirement (only need to fulfill one among all secondary requirements)
+			if (r.NotImportant)
+			{
+				hasSecondary = true;
+
+				if (isSecondaryFulfilled || !r.CheckRequirement()) continue;
+			
+				isSecondaryFulfilled = true;
+				continue;
+			}
+
+			// primary requirement (must fulfill this)
+			if (!r.CheckRequirement()) return false;
+		}
+
+		if (hasSecondary) return isSecondaryFulfilled;
+
+		return true;
+	}
+
+	function addRequirement( _text, _function, _isNotImportant = false, _afterAddRequirementFunction = null)
+	{
+		local requirement = {};
+		requirement.Text <- _text;
+		requirement.IsSatisfied <- false;
+		requirement.CheckRequirement <- _function.bindenv(this);
+		requirement.NotImportant <- _isNotImportant;
+
+		this.m.Requirements.push(requirement);
+
+		if (typeof _afterAddRequirementFunction == "function") _afterAddRequirementFunction.call(this, requirement);
+	}
+
+	function addSkillRequirement( _text, _requiredSkills, _isNotImportant = false, _afterAddRequirementFunction = null )
+	{
+		this.m.RequiredSkills = _requiredSkills;
+		this.addRequirement(_text, this.checkRequiredSkills, _isNotImportant, _afterAddRequirementFunction);
 	}
 
 	function checkRequiredSkills()
 	{
+		if (this.m.RequiredSkills.len() == 0)
+		{
+			return true;
+		}
+
 		local isCorrectSkill = function( _skill )
 		{
-			if (this.m.RequiredSkills.find(_skill.getID()) != null)
-			{
-				return true;
-			}
+			if (this.m.RequiredSkills.find(_skill.getID()) != null) return true;
+
 			return false;
 		}
 
@@ -180,6 +246,12 @@ this.follower <- {
 				break;
 			}
 		}
+
+		return this.m.LinkedBro != null && this.m.LinkedBro.isAlive();
+	}
+
+	function clear()
+	{
 	}
 
 	function onUpdate()
@@ -196,6 +268,43 @@ this.follower <- {
 
 	function onDeserialize( _in )
 	{
+	}
+
+	// clone the value for the ui, the return table should not contain any function
+	function cloneValue( _r )
+	{
+		local ret = clone _r;
+		local garbage = [];
+
+		// collect stuffs
+		foreach(k, v in ret)
+		{
+			if (typeof v != "function") continue;
+
+			garbage.push(k);
+		}
+
+		// dump stuffs
+		foreach(k in garbage)
+		{
+			ret.rawdelete(k);
+		}
+
+	    return ret;
+	}
+
+	function sortByPriority( _a, _b )
+	{
+		if (!_a.NotImportant && _b.NotImportant)
+		{
+			return -1;
+		}
+		else if (_a.NotImportant && !_b.NotImportant)
+		{
+			return 1;
+		}
+
+		return 0;
 	}
 
 };

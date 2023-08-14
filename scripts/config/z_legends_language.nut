@@ -50,6 +50,16 @@ gt.Const.LegendMod.getPronoun <- function( _gender, _neuter )
 	return pronoun;
 }
 
+gt.Const.LegendMod.ToBeVerbPronouns <- [
+	["they are", ["they are", "he is", "she is"]],
+	["they were", ["they were", "he was", "she was"]],
+	["they will", ["they will", "he will", "she will"]], // technically not needed, but included for consistency
+	["they're", ["they're", "he's", "she's"]],
+	["they'll", ["they'll", "he'll", "she'll"]], // technically not needed, but included for consistency
+	["are they", ["are they", "is he", "is she"]],
+	["were they", ["were they", "was he", "was she"]],
+]
+
 gt.Const.LegendMod.extendVarsWithPronouns <- function( _vars, _gender )
 {
 	foreach (pronoun in this.Const.LegendMod.Pronouns)
@@ -58,5 +68,24 @@ gt.Const.LegendMod.extendVarsWithPronouns <- function( _vars, _gender )
 			pronoun,
 			this.Const.LegendMod.getPronoun(_gender, pronoun)
 		]);
+	}
+
+	// Add handling for pesky English to-be verbs and their corresponding pronouns
+	foreach (pronounToBeVerb in this.Const.LegendMod.ToBeVerbPronouns)
+	{
+		local placeholder = pronounToBeVerb[0];
+		local value = pronounToBeVerb[1][_gender + 1];
+
+		_vars.push([
+			placeholder,
+			value
+		]);
+
+		// Add first-letter-capitalized versions as well
+		_vars.push([
+			placeholder.slice(0,1).toupper() + placeholder.slice(1),
+			value.slice(0,1).toupper() + value.slice(1),
+		])
+
 	}
 }

@@ -524,8 +524,10 @@
 	right: 2.0rem;
 	position: absolute;
 
-	width: 40.0rem;
-	height: 20.0rem;
+	width: 47.0rem;
+	height: 10.0rem; /*20*/
+
+	/*border: 1px solid green;*/
 }
 
 .world-campfire-screen > .l-hire-dialog-container .content .details-container .row.is-requirements-container .is-requirements-components-container > .container
@@ -559,7 +561,7 @@
 
 .world-campfire-screen > .l-hire-dialog-container .content .details-container .row.is-costs-container
 {
-	top: 41.0rem;
+	top: 45.0rem;
 	height: 8.0rem;
 }
 
@@ -575,8 +577,8 @@
 	top: 0;
 	height: 4.0rem;
 
-	border-image: url("coui://gfx/ui/skin/line_metal.png") 0% 0% 100% 0%;
-	border-image-outset: 0 0 -0.5rem 0;
+	/*border-image: url("coui://gfx/ui/skin/line_metal.png") 0% 0% 100% 0%;
+	border-image-outset: 0 0 -0.5rem 0;*/
 }
 
 .world-campfire-screen > .l-hire-dialog-container .content .details-container .row.is-costs-container > .row.is-header .label
@@ -613,8 +615,8 @@
 
 .world-campfire-screen > .l-hire-dialog-container .content .details-container .row.is-costs-container > .row .l-costs-container
 {
-	top: 0;
-	left: 10.9rem;
+	top: 1.0rem;
+	left: 7.9rem; /*10.9*/
 	bottom: 0;
 	width: 16.0rem;
 	height: 3.0rem;

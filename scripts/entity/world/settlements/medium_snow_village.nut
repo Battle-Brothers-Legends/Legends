@@ -65,7 +65,7 @@ this.medium_snow_village <- this.inherit("scripts/entity/world/settlement", {
 			"wildwoman_background",
 			"disowned_noble_background",
 			"cripple_background",
-						"apprentice_background",
+			"apprentice_background",
 			"brawler_background",
 			"brawler_background",
 			"cultist_background",
@@ -126,7 +126,7 @@ this.medium_snow_village <- this.inherit("scripts/entity/world/settlement", {
 		}
 		else if (r == 3)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 
 		if (this.Math.rand(1, 100) <= 50)

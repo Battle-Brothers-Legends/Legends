@@ -499,9 +499,9 @@ this.legends_fishing_village <- this.inherit("scripts/entity/world/settlements/l
 		{
 			local r = this.Math.rand(1, 2);
 
-			if (r == 1 || this.Const.World.Buildings.Barbers == 0)
+			if (r == 1 || this.Const.World.Buildings.Blackmarket == 0)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 			else if (r <= 2)
 			{
@@ -564,9 +564,9 @@ this.legends_fishing_village <- this.inherit("scripts/entity/world/settlements/l
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/temple_building"));
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/tavern_building"));
 
-		if (this.Math.rand(1, 100) <= 60 || this.Const.World.Buildings.Barbers == 0)
+		if (this.Math.rand(1, 100) <= 60 || this.Const.World.Buildings.Blackmarket == 0)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else
 		{

@@ -12,17 +12,12 @@ this.lookout_follower <- this.inherit("scripts/retinue/follower", {
 			"Increases your sight radius by 25%",
 			"Reveals extended information about footprints"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have someone with the Lookout perk. Guaranteed on Thief, Poacher, Nomad and many others"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have someone with the Lookout perk. Guaranteed on Thief, Poacher, Nomad and many others", [
 			"perk.lookout",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

@@ -384,11 +384,14 @@ this.scenario_vampire_lord <- this.inherit("scripts/scenarios/tactical/scenario_
 		this.Stash.add(this.new("scripts/items/ammo/quiver_of_bolts"));
 		this.Stash.add(this.new("scripts/items/ammo/quiver_of_bolts"));
 		this.Stash.add(this.new("scripts/items/ammo/quiver_of_bolts"));
+		this.Stash.add(this.new("scripts/items/ammo/quiver_of_bolts"));
 		this.Stash.add(this.new("scripts/items/weapons/legend_estoc"));
 		this.Stash.add(this.new("scripts/items/weapons/legend_wooden_stake"));
 		this.Stash.add(this.new("scripts/items/weapons/legend_wooden_stake"));
 		this.Stash.add(this.new("scripts/items/weapons/legend_wooden_stake"));
 		this.Stash.add(this.new("scripts/items/weapons/legend_wooden_stake"));
+		this.Stash.add(this.new("scripts/items/weapons/legend_wooden_stake"));
+		this.Stash.add(this.new("scripts/items/weapons/legend_hand_crossbow"));
 		this.Stash.add(this.new("scripts/items/weapons/greenskins/goblin_crossbow"));
 	}
 

@@ -102,7 +102,7 @@ this.large_tundra_village <- this.inherit("scripts/entity/world/settlement", {
 		}
 		else if (this.Math.rand(1, 100) <= 75)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else
 		{

@@ -38,7 +38,7 @@ this.orc_camp_location <- this.inherit("scripts/entity/world/location", {
 			"trade/copper_ingots_item",
 			"trade/iron_ingots_item",
 			"trade/tin_ingots_item",
-			"trade/gold_nugget_item"
+			"trade/legend_gold_nugget_item"
 		], _lootTable);
 
 		if (this.Const.DLC.Unhold && this.Math.rand(1, 100) <= 10)

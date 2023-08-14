@@ -71,10 +71,6 @@ this.vampire_racial <- this.inherit("scripts/skills/skill", {
 			{
 				_properties.DamageReceivedRegularMult *= 5.0;
 			}
-			else
-			{
-				_properties.DamageReceivedRegularMult *= 0.2;
-			}
 		}
 
 	}

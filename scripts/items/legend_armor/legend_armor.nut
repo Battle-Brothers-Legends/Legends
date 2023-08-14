@@ -422,14 +422,14 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 		if (_upgrade != null && this.m.Blocked[_upgrade.getType()]) return false;
 
 		local oldIndex;
-		// uncomment these lines to make scenario battles work
-		//if (this.Tactical.isActive())
-		//{
-		//	if(!this.Tactical.State.isScenarioMode())
-		//	{
-			local oldIndex = this.World.Assets.getStash().getItemByInstanceID(_upgrade.getInstanceID())
-		//	}
-		//}
+		
+		
+		if ("Assets" in this.World && this.World.Assets.getStash())
+		{
+
+			oldIndex = this.World.Assets.getStash().getItemByInstanceID(_upgrade.getInstanceID())
+			
+		}
 		
 		if (oldIndex != null) oldIndex = oldIndex.index
 
@@ -671,6 +671,11 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 			return false;
 		}
 
+		if (this.isArmorNamed())
+		{
+			return true;
+		}
+
 		local isPlayer = this.m.LastEquippedByFaction == this.Const.Faction.Player || this.getContainer() != null && this.getContainer().getActor() != null && !this.getContainer().getActor().isNull() && this.isKindOf(this.getContainer().getActor().get(), "player");
 		local isLucky = !this.Tactical.State.isScenarioMode() && this.World.Assets.getOrigin().isDroppedAsLoot(this);
 		local repair = this.getRepair();
@@ -687,16 +692,6 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 			return true;
 		}
 
-		if (this.isItemType(this.Const.Items.ItemType.Named))
-		{
-			return true;
-		}
-
-		if (this.isItemType(this.Const.Items.ItemType.Legendary))
-		{
-			return true;
-		}
-
 		if (isLucky)
 		{
 			return true;
@@ -705,25 +700,6 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 		if (isBlacksmithed)
 		{
 			return true;
-		}
-
-		foreach( u in this.m.Upgrades )
-		{
-			if (u == null)
-			{
-				continue;
-			}
-
-			if (u.isItemType(this.Const.Items.ItemType.Named))
-			{
-				return true;
-			}
-
-			if (u.isItemType(this.Const.Items.ItemType.Legendary))
-			{
-				return true;
-			}
-
 		}
 
 		return false;

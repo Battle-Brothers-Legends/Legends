@@ -677,7 +677,8 @@ gt.Const.Perks.OrganisedTree <- {
 	},
 	Tree = [
 		[
-			gt.Const.Perks.PerkDefs.BagsAndBelts
+			gt.Const.Perks.PerkDefs.BagsAndBelts,
+			gt.Const.Perks.PerkDefs.LegendPacifist
 		],
 		[  
 			gt.Const.Perks.PerkDefs.LegendHelpful
@@ -690,7 +691,7 @@ gt.Const.Perks.OrganisedTree <- {
 			gt.Const.Perks.PerkDefs.LegendSkillfulStacking
 		],
 		[
-			gt.Const.Perks.PerkDefs.LegendPacifist
+			
 		],
 		[]
 	]

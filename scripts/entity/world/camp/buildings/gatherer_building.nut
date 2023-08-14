@@ -10,7 +10,7 @@ this.gatherer_building <- this.inherit("scripts/entity/world/camp/camp_building"
 		this.camp_building.create();
 		this.m.ID = this.Const.World.CampBuildings.Gatherer;
 		this.m.ModName = "Gathering";
-		this.m.BaseCraft = 1.0;
+		this.m.BaseCraft = 0.5;
 		this.m.Slot = "gather";
 		this.m.Name = "Supply Tent";
 		this.m.Description = "Send people out to gather supplies like medicinal herbs, plants, wood and stones.";
@@ -33,7 +33,7 @@ this.gatherer_building <- this.inherit("scripts/entity/world/camp/camp_building"
 		desc += "People assigned to this task will go out get supplies, like herbs and plants of medicinal quality. The more people assigned, the more is gathered. "
 		desc += "The more people assigned, the more medicine is gathered. Skilled backgrounds increase the amount further"
 		desc += "\n\n"
-		desc += "Assigning Woodsmen can return wood for trade, while Miners can find gems in surrounding rocks. "
+		desc += "Assigning Woodsmen with the Woodsman\'s Cuts perk can return wood for trade, while Miners with the Miners Strikes perk can find gems. "
 		desc += "Assigning skilled apocatheries like Herbalists, Vala, Alchemists and Druids can return more advanced medicines and bandages."
 		desc += "\n\n"
 		desc += "Buying and upgraded tent will increase gathering speed by 15% and produce more kinds of medicine"

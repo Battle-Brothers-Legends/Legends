@@ -110,13 +110,13 @@ this.add_random_situation_action <- this.inherit("scripts/factions/faction_actio
 			}
 		}
 
-		if (this.isKindOf(this.m.Settlement, "small_fishing_village") || this.isKindOf(this.m.Settlement, "medium_fishing_village"))
+		if (this.isKindOf(this.m.Settlement, "legends_fishing_village") || this.isKindOf(this.m.Settlement, "small_fishing_village") || this.isKindOf(this.m.Settlement, "medium_fishing_village"))
 		{
 			possible_situations.push("lost_at_sea_situation");
 			possible_situations.push("full_nets_situation");
 		}
 
-		if (this.isKindOf(this.m.Settlement, "small_steppe_village") || this.isKindOf(this.m.Settlement, "medium_steppe_village") || this.isKindOf(this.m.Settlement, "large_steppe_village") || this.isKindOf(this.m.Settlement, "small_farming_village") || this.isKindOf(this.m.Settlement, "medium_farming_village") || this.isKindOf(this.m.Settlement, "large_farming_village") || this.isKindOf(this.m.Settlement, "city_state"))
+		if (this.isKindOf(this.m.Settlement, "legends_steppe_village") || this.isKindOf(this.m.Settlement, "legends_farming_village") || this.isKindOf(this.m.Settlement, "small_steppe_village") || this.isKindOf(this.m.Settlement, "medium_steppe_village") || this.isKindOf(this.m.Settlement, "large_steppe_village") || this.isKindOf(this.m.Settlement, "small_farming_village") || this.isKindOf(this.m.Settlement, "medium_farming_village") || this.isKindOf(this.m.Settlement, "large_farming_village") || this.isKindOf(this.m.Settlement, "city_state"))
 		{
 			if (!this.isKindOf(this.m.Settlement, "city_state"))
 			{
@@ -126,18 +126,18 @@ this.add_random_situation_action <- this.inherit("scripts/factions/faction_actio
 			possible_situations.push("good_harvest_situation");
 		}
 
-		if (this.isKindOf(this.m.Settlement, "small_snow_village") || this.isKindOf(this.m.Settlement, "medium_snow_village") || this.isKindOf(this.m.Settlement, "large_snow_village"))
+		if (this.isKindOf(this.m.Settlement, "legends_snow_village") || this.isKindOf(this.m.Settlement, "small_snow_village") || this.isKindOf(this.m.Settlement, "medium_snow_village") || this.isKindOf(this.m.Settlement, "large_snow_village"))
 		{
 			possible_situations.push("snow_storms_situation");
 		}
 
-		if (this.isKindOf(this.m.Settlement, "small_mining_village") || this.isKindOf(this.m.Settlement, "medium_mining_village"))
+		if (this.isKindOf(this.m.Settlement, "legends_mining_village") || this.isKindOf(this.m.Settlement, "small_mining_village") || this.isKindOf(this.m.Settlement, "medium_mining_village"))
 		{
 			possible_situations.push("mine_cavein_situation");
 			possible_situations.push("rich_veins_situation");
 		}
 
-		if (this.isKindOf(this.m.Settlement, "small_lumber_village") || this.isKindOf(this.m.Settlement, "medium_lumber_village") || this.isKindOf(this.m.Settlement, "large_lumber_village") || this.isKindOf(this.m.Settlement, "small_forest_fort") || this.isKindOf(this.m.Settlement, "medium_forest_fort") || this.isKindOf(this.m.Settlement, "large_forest_fort"))
+		if (this.isKindOf(this.m.Settlement, "legends_lumber_village") || this.isKindOf(this.m.Settlement, "legends_forest_fort") || this.isKindOf(this.m.Settlement, "small_lumber_village") || this.isKindOf(this.m.Settlement, "medium_lumber_village") || this.isKindOf(this.m.Settlement, "large_lumber_village") || this.isKindOf(this.m.Settlement, "small_forest_fort") || this.isKindOf(this.m.Settlement, "medium_forest_fort") || this.isKindOf(this.m.Settlement, "large_forest_fort"))
 		{
 			possible_situations.push("hunting_season_situation");
 		}

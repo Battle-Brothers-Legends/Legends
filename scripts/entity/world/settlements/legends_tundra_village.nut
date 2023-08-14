@@ -9,10 +9,10 @@ this.legends_tundra_village <- this.inherit("scripts/entity/world/settlements/le
 			"Kravlund",
 			"Bola",
 			"Ravestad",
-						"Plyndring",
-						"Koldjord",
-						"Naturlegeme",
-						"Klogflygte",
+			"Plyndring",
+			"Koldjord",
+			"Naturlegeme",
+			"Klogflygte",
 			"Alsliv",
 			"Hellevad",
 			"Heimstad",
@@ -511,7 +511,7 @@ this.legends_tundra_village <- this.inherit("scripts/entity/world/settlements/le
 			}
 			else if (r == 4)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 		}
 		else
@@ -528,7 +528,7 @@ this.legends_tundra_village <- this.inherit("scripts/entity/world/settlements/le
 			}
 			else if (r == 4)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 		}
 
@@ -651,7 +651,7 @@ this.legends_tundra_village <- this.inherit("scripts/entity/world/settlements/le
 		}
 		else if (this.Math.rand(1, 100) <= 75)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else
 		{

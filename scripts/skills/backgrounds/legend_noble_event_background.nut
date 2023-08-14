@@ -122,10 +122,6 @@ this.legend_noble_event_background <- this.inherit("scripts/skills/backgrounds/c
 
 	function onAdded()
 	{
-		this.character_background.onAdded();
-		this.m.Container.add(this.new("scripts/skills/traits/loyal_trait"));
-		this.m.Container.add(this.new("scripts/skills/traits/legend_noble_killer_trait"));
-		//this.m.Container.add(this.new("scripts/skills/perks/perk_rally_the_troops"));
 	}
 
 	function onAddEquipment()

@@ -11,47 +11,28 @@ this.agent_follower <- this.inherit("scripts/retinue/follower", {
 		this.m.Effects = [
 			"Reveals available contracts and active situations in the tooltip of settlements no matter where you are"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have allied relations with a noble house or city state"
-			},
-			{
-				IsSatisfied = false,
-				Text = "Have at least one of the following backgrounds: Eunuch, Messenger, Assassin (Southern or Northern)"
+
+		this.addRequirement("Have allied relations with a noble house or city state", function() {
+			local factions = ::World.FactionManager.getFactionsOfType(::Const.FactionType.NobleHouse);
+			factions.extend(::World.FactionManager.getFactionsOfType(::Const.FactionType.OrientalCityState));		
+
+			foreach (f in factions) {
+				if (f.getPlayerRelation() >= 90.0 ) {
+					return true;
+				}
 			}
-		];
-		this.m.RequiredSkills = [
+
+			return false;
+		});
+
+		this.addSkillRequirement("Have at least one of the following backgrounds: Eunuch, Messenger, Assassin (Southern or Northern)", [
 			"background.eunuch",
 			"background.messenger",
 			"background.assassin",
 			"background.assassin_southern",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
-	}
-
-	function onUpdate()
-	{
-	}
-
-	function onEvaluate()
-	{
-		local allied = false;
-
-		local factions = this.World.FactionManager.getFactionsOfType(this.Const.FactionType.NobleHouse);
-		factions.extend(this.World.FactionManager.getFactionsOfType(this.Const.FactionType.OrientalCityState));		
-
-		foreach (f in factions)
-		{
-			if (f.getPlayerRelation() >= 90.0 )
-			{
-				this.m.Requirements[0].IsSatisfied = true;
-				break;
-			}
-		}
-
-		this.follower.onEvaluate();
+		]);
 	}
 
 });

@@ -53,13 +53,26 @@ this.legend_oms_ledger_item <- this.inherit("scripts/items/accessory/accessory",
 			});
 		}
 
-		result.push({
-			id = 10,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Does something...?"
-		});
-		return result;
+		if (!this.World.Flags.get("Item Identified"))
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Does something...?"
+			});
+			return result;
+		}
+		else
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Melee damage received from undead reduced by 50%."
+			});
+			return result;
+		}
 	}
 
 	function onUpdate( _properties )
@@ -71,7 +84,7 @@ this.legend_oms_ledger_item <- this.inherit("scripts/items/accessory/accessory",
 
 		if (this.Tactical.Entities.getInstancesNum(this.World.FactionManager.getFactionOfType(this.Const.FactionType.Undead).getID()) != 0)
 		{
-			_properties.DamageReceivedMeleeMult *= 0.66;
+			_properties.DamageReceivedMeleeMult *= 0.50;
 		}
 	}
 

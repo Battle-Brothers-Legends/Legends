@@ -64,7 +64,7 @@ this.fletcher_building <- this.inherit("scripts/entity/world/camp/camp_building"
 		desc += "Ammunition fabrication only occurs while encamped. The more people assigned, the more ammo crafted. "
 		desc += "\n\n"
 		desc += "The Fletching tent can be upgraded by purchasing a crafting cart from a settlement merchant. An upgraded tent has a 15% increase in production speed. "
-		desc += "Additionally, there's a chance that ammunition of the disposal throwing kind will be crafted."
+		desc += "Additionally, there's a chance that ammunition of the disposable throwing kind will be crafted."
 		return desc;
 	}
 

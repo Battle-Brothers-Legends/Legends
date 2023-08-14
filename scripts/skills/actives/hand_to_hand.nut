@@ -105,7 +105,7 @@ this.hand_to_hand <- this.inherit("scripts/skills/skill", {
 
 	function onAfterUpdate( _properties )
 	{
-		if ("IsSpecializedInFists" in _properties)
+		if(_properties.IsSpecializedInFists)
 		{
 			this.m.FatigueCostMult = _properties.IsSpecializedInFists ? this.Const.Combat.WeaponSpecFatigueMult : 1.0;
 			if (this.m.Container.hasSkill("perk.legend_ambidextrous")) //ambidextrous & specialzed

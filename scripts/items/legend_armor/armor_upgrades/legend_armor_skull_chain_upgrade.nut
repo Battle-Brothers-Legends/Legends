@@ -29,7 +29,7 @@ this.legend_armor_skull_chain_upgrade <- this.inherit("scripts/items/legend_armo
 			id = 10,
 			type = "text",
 			icon = "ui/icons/chance_to_hit_head.png",
-			text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+10%[/color] Chance To Hit Head"
+			text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color] Chance To Hit Head"
 		});
 		result.push({
 			id = 10,
@@ -42,7 +42,7 @@ this.legend_armor_skull_chain_upgrade <- this.inherit("scripts/items/legend_armo
 	function onUpdateProperties( _properties )
 	{
 		this.legend_armor_upgrade.onUpdateProperties(_properties);
-		_properties.HitChance[this.Const.BodyPart.Head] += 10;
+		_properties.HitChance[this.Const.BodyPart.Head] += 5;
 		_properties.MovementFatigueCostAdditional += 1;
 	}
 });

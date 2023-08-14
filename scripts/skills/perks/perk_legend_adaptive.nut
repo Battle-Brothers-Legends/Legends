@@ -59,7 +59,7 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 					//Shovel
 						case "weapon.legend_named_shovel":
 						case "weapon.legend_shovel":
-							newTree = this.Const.Perks.ShoveClassTree;
+							newTree = this.Const.Perks.ShovelClassTree;
 							break;
 					//Spear
 						case "weapon.spear":
@@ -421,76 +421,53 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 							newTree = this.Const.Perks.HealerClassTree;
 							break;	
 					}	
-		if (newTree != null && !actor.getBackground().hasPerkGroup(newTree)) 
-		{
-		actor.getBackground().addPerkGroup(newTree.Tree);
+			if (newTree != null && !actor.getBackground().hasPerkGroup(newTree)) 
+			{
+			actor.getBackground().addPerkGroup(newTree.Tree);
+			}
+			else
+			{
+			this.addRandomPerkGroup()
+			}
 		}
-		else
-		{
-		actor.addRandomPerkGroup()
-		}
-		}
-
-		   
 			   
 	}
 
 	function addRandomPerkGroup()
 	{
-	local actor = this.getContainer().getActor();
-	local r = this.Math.rand(1,14);
-	local randomTree;
-		switch(r) {
-		case "1":
-			randomTree = this.Const.Perks.AgileTree;
-			break;	
-		case "2":
-			randomTree = this.Const.Perks.IndestructibleTree;
-			break;	
-		case "3":
-			randomTree = this.Const.Perks.MartyrTree
-			break;		
-		case "4":
-			randomTree = this.Const.Perks.ViciousTree;
-			break;
-		case "5":
-			randomTree = this.Const.Perks.DeviousTree;
-			break;
-		case "6":
-			randomTree = this.Const.Perks.InspirationalTree;
-			break;
-		case "7":
-			randomTree = this.Const.Perks.IntelligentTree;
-			break;
-		case "8":
-			randomTree = this.Const.Perks.CalmTree;
-			break;
-		case "9":
-			randomTree = this.Const.Perks.FastTree;
-			break;
-		case "10":
-			randomTree = this.Const.Perks.LargeTree;
-			break;
-		case "11":
-			randomTree = this.Const.Perks.OrganisedTree;
-			break;
-		case "12":
-			randomTree = this.Const.Perks.SturdyTree;
-			break;
-		case "13":
-			randomTree = this.Const.Perks.FitTree;
-			break;
-		case "14":
-			randomTree = this.Const.Perks.TrainedTree;
-			break;
+		local actor = this.getContainer().getActor();
+		local allTrees = [
+			this.Const.Perks.AgileTree,
+			this.Const.Perks.IndestructibleTree,
+			this.Const.Perks.MartyrTree,
+			this.Const.Perks.ViciousTree,
+			this.Const.Perks.DeviousTree,
+			this.Const.Perks.InspirationalTree,
+			this.Const.Perks.IntelligentTree,
+			this.Const.Perks.CalmTree,
+			this.Const.Perks.FastTree,
+			this.Const.Perks.LargeTree,
+			this.Const.Perks.OrganisedTree,
+			this.Const.Perks.SturdyTree,
+			this.Const.Perks.FitTree,
+			this.Const.Perks.TrainedTree
+		];
+
+		// List to hold trees the actor does not have
+		local availableTrees = [];
+
+		foreach(tree in allTrees) {
+			if(!actor.getBackground().hasPerkGroup(tree)) {
+				availableTrees.append(tree);
+			}
 		}
-		if (!actor.getBackground().hasPerkGroup(randomTree))
-		{
-		actor.getBackground().addPerkGroup(randomTree.Tree);
-		}
-		else
-		{
-		actor.getBackground().addPerkGroup(PhilosophyMagicTree.Tree);
+
+		if(availableTrees.len() > 0) {
+			local randomIndex = this.Math.rand(0, availableTrees.len()-1);
+			local randomTree = availableTrees[randomIndex];
+			actor.getBackground().addPerkGroup(randomTree.Tree);
+		} else {
+			actor.getBackground().addPerkGroup(this.Const.Perks.PhilosophyMagicTree.Tree);
 		}
 	}
 

@@ -36,7 +36,7 @@ this.legend_hunting_stollwurms_action <- this.inherit("scripts/factions/faction_
 
 		local village = _faction.getSettlements()[0];
 
-		if (!this.isKindOf(village, "small_stepppe_village") && !this.isKindOf(village, "medium_stepppe_village") && !this.isKindOf(village, "large_stepppe_village") && !this.isKindOf(village, "small_farming_village") && !this.isKindOf(village, "medium_farming_village") && !this.isKindOf(village, "large_farming_village"))
+		if (!this.isKindOf(village, "legends_stepppe_village") && !this.isKindOf(village, "legends_farming_village") && !this.isKindOf(village, "small_stepppe_village") && !this.isKindOf(village, "medium_stepppe_village") && !this.isKindOf(village, "large_stepppe_village") && !this.isKindOf(village, "small_farming_village") && !this.isKindOf(village, "medium_farming_village") && !this.isKindOf(village, "large_farming_village"))
 		{
 			return;
 		}

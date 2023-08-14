@@ -112,11 +112,51 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 			roam.setTerrain(this.Const.World.TerrainType.Forest, true);
 			roam.setTerrain(this.Const.World.TerrainType.SnowyForest, true);
 			roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
-			roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+			roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+			roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
 			roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+			local r = this.Math.rand(1, 20);
+			if (r == 1)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+			}
+			else if (r == 2)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+			roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+			}
+			else if (r == 3)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.Swamp, true);
+			}		
+			else if (r == 4)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+			}			
+			else if (r == 5)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+			}			
+			else if (r == 6)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.Snow, true);
+			}	
+			else if (r == 7)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.Badlands, true);
+			}		
+			else if (r == 8)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+			}	
+			else if (r == 9)
+			{
+			roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
+			}
 			party.getController().addOrder(roam);
 			return true;
 		};
+			
 		this.m.Options.push(beast);
 		this.m.BeastsLow.push(beast);
 
@@ -163,6 +203,29 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Oasis, true);
 				roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
 				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				local r = this.Math.rand(1, 10);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Swamp, true);
+				}		
+				else if (r == 4)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Badlands, true);
+				}			
+				else if (r == 5)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				}			
+			
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -214,6 +277,46 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Oasis, true);
 				roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
 				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Swamp, true);
+				}		
+				else if (r == 4)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+				}			
+				else if (r == 5)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				}			
+				else if (r == 6)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Ocean, true);
+				}	
+				else if (r == 7)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Badlands, true);
+				}		
+				else if (r == 8)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
+				}	
+				else if (r == 9)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				}				
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -263,6 +366,8 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Forest, true);
 				roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
 				roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
 				roam.setMinRange(1);
 				roam.setMaxRange(4);
 				party.getController().addOrder(roam);
@@ -317,6 +422,43 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
 				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
 				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Badlands, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SnowyForest, true);
+				}		
+				else if (r == 4)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+				}			
+				else if (r == 5)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				}			
+				else if (r == 6)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
+				}	
+				else if (r == 7)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				}		
+				else if (r == 8)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
+				}	
+				else if (r == 9)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Snow, true);
+				}				
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -329,12 +471,12 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 					return false;
 				}
 
-				local isTundraAllowed = this.Math.rand(1, 100) <= 20;
+
 				local disallowedTerrain = [];
 
 				for( local i = 0; i < this.Const.World.TerrainType.COUNT; i = ++i )
 				{
-					if (i == this.Const.World.TerrainType.Snow || i == this.Const.World.TerrainType.SnowyForest || i == this.Const.World.TerrainType.Tundra && isTundraAllowed)
+					if (i == this.Const.World.TerrainType.Snow || i == this.Const.World.TerrainType.SnowyForest || i == this.Const.World.TerrainType.Tundra)
 					{
 					}
 					else
@@ -370,9 +512,14 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.SnowyForest, true);
 				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
 
-				if (isTundraAllowed)
+				local r = this.Math.rand(1, 20);
+				if (r <= 5)
 				{
-					roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				}
+				else if (r >= 18)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
 				}
 
 				party.getController().addOrder(roam);
@@ -425,6 +572,22 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setNoTerrainAvailable();
 				roam.setTerrain(this.Const.World.TerrainType.Swamp, true);
 				roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Oasis, true);
+				roam.setTerrain(this.Const.World.TerrainType.Shore, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				}
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -446,6 +609,8 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 					this.Const.World.TerrainType.Mountains,
 					this.Const.World.TerrainType.Forest,
 					this.Const.World.TerrainType.LeaveForest,
+					this.Const.World.TerrainType.SwampForest,
+					this.Const.World.TerrainType.SwampGreen,
 					this.Const.World.TerrainType.AutumnForest,
 					this.Const.World.TerrainType.SnowyForest,
 					this.Const.World.TerrainType.Swamp,
@@ -480,6 +645,25 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Mountains, false);
 				roam.setTerrain(this.Const.World.TerrainType.Ocean, false);
 				roam.setTerrain(this.Const.World.TerrainType.Shore, false);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Forest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				}
+				else if (r == 4)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Swamp, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
+				}
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -533,6 +717,26 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Mountains, false);
 				roam.setTerrain(this.Const.World.TerrainType.Ocean, false);
 				roam.setTerrain(this.Const.World.TerrainType.Shore, false);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Forest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				roam.setTerrain(this.Const.World.TerrainType.Urban, true);
+				}
+				else if (r == 4)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Swamp, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
+				}
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -587,6 +791,25 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Forest, true);
 				roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
 				roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SnowyForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SnowyForest, true);
+				}
+				else if (r == 4)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				}
 				roam.setMinRange(1);
 				roam.setMaxRange(4);
 				party.getController().addOrder(roam);
@@ -753,6 +976,24 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
 				roam.setTerrain(this.Const.World.TerrainType.Desert, true);
 				roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
+				roam.setTerrain(this.Const.World.TerrainType.Swamp, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				}
+
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -814,6 +1055,21 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				local roam = this.new("scripts/ai/world/orders/roam_order");
 				roam.setNoTerrainAvailable();
 				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				}
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -868,6 +1124,20 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setNoTerrainAvailable();
 				roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
 				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				roam.setTerrain(this.Const.World.TerrainType.Urban, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Badlands, true);
+				}
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -922,6 +1192,44 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setNoTerrainAvailable();
 				roam.setTerrain(this.Const.World.TerrainType.Snow, true);
 				roam.setTerrain(this.Const.World.TerrainType.SnowyForest, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				}
+				else if (r == 4)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				roam.setTerrain(this.Const.World.TerrainType.Forest, true);
+				roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				}
+				else if (r == 5)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				}
+				else if (r == 5)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Tundra, true);
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				roam.setTerrain(this.Const.World.TerrainType.Badlands, true);
+				roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
+				}
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -977,6 +1285,22 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Forest, true);
 				roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
 				roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Desert, true);
+				roam.setTerrain(this.Const.World.TerrainType.Badlands, true);
+				}
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -1023,13 +1347,31 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 					}
 				local party = _action.getFaction().spawnEntity(tile, "Stollwurm", false, this.Const.World.Spawn.LegendStollwurm, this.Math.rand(80, 120) * _action.getScaledDifficultyMult() * this.Math.maxf(0.7, this.Math.minf(1.5, distanceToNextSettlement / 14.0)));
 				party.getSprite("banner").setBrush("banner_beasts_01");
-				party.setDescription("A Stollwurm - a wingless bipedal dragon resembling a giant snake.");
+				party.setDescription("A Stollwurm - a wingless bipedal dragon resembling a giant snake made of rock.");
 				party.setSlowerAtNight(false);
 				party.setUsingGlobalVision(false);
 				party.setLooting(false);
 				local roam = this.new("scripts/ai/world/orders/roam_order");
 				roam.setNoTerrainAvailable();
 				roam.setTerrain(this.Const.World.TerrainType.Hills, true);
+				roam.setTerrain(this.Const.World.TerrainType.Mountains, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Steppe, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Desert, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Badlands, true);
+				}
+				else if (r == 3)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Plains, true);
+				}
 				party.getController().addOrder(roam);
 				return true;
 			};
@@ -1085,6 +1427,21 @@ this.send_beast_roamers_action <- this.inherit("scripts/factions/faction_action"
 				roam.setTerrain(this.Const.World.TerrainType.Forest, true);
 				roam.setTerrain(this.Const.World.TerrainType.LeaveForest, true);
 				roam.setTerrain(this.Const.World.TerrainType.AutumnForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampForest, true);
+				roam.setTerrain(this.Const.World.TerrainType.SwampGreen, true);
+				local r = this.Math.rand(1, 20);
+				if (r == 1)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.SnowyForest, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Swamp, true);
+				}
+				else if (r == 2)
+				{
+				roam.setTerrain(this.Const.World.TerrainType.Farmland, true);
+				}
 				roam.setMinRange(1);
 				roam.setMaxRange(2);
 				party.getController().addOrder(roam);

@@ -6,9 +6,9 @@ this.legend_wine_tipsy_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.legend_wine_tipsy_effect";
 		this.m.Name = "Tipsy";
-		this.m.Icon = "skills/status_effect_61.png";
-		this.m.IconMini = "status_effect_61_mini";
-		this.m.Overlay = "status_effect_61";
+		this.m.Icon = "skills/status_effect_92.png";
+		this.m.IconMini = "status_effect_92_mini";
+		this.m.Overlay = "status_effect_92";
 		this.m.Type = this.Const.SkillType.StatusEffect | this.Const.SkillType.DrugEffect;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
@@ -17,7 +17,7 @@ this.legend_wine_tipsy_effect <- this.inherit("scripts/skills/skill", {
 
 	function getDescription()
 	{
-		return "After imbibing wine, this character has [color=" + this.Const.UI.Color.PositiveValue + "]+6%[/color] Resolve and Hitchance, [color=" + this.Const.UI.Color.NegativeValue + "]-12%[/color] Defenses and [color=" + this.Const.UI.Color.NegativeValue + "]-24%[/color] Initiative for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
+		return "After imbibing wine, this character has [color=" + this.Const.UI.Color.PositiveValue + "]6[/color] Resolve, Melee and Ranged Skill, [color=" + this.Const.UI.Color.NegativeValue + "]-6[/color] Defenses and [color=" + this.Const.UI.Color.NegativeValue + "]-12[/color] Initiative for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
 	}
 
 	function getTooltip()
@@ -37,37 +37,37 @@ this.legend_wine_tipsy_effect <- this.inherit("scripts/skills/skill", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/bravery.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+6%[/color] Resolve"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+6[/color] Resolve"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+6%[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+6[/color] Melee Skill"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+6%[/color] Ranged Skill"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+6[/color] Ranged Skill"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/melee_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-12%[/color] Melee Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-6[/color] Melee Defense"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-12%[/color] Ranged Defense"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-6[/color] Ranged Defense"
 			},
 			{
 				id = 11,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-24%[/color] Initiative"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-12[/color] Initiative"
 			}
 		];
 		return ret;
@@ -75,12 +75,12 @@ this.legend_wine_tipsy_effect <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
-		_properties.BraveryMult *= 1.06;
-		_properties.MeleeSkillMult *= 1.06;
-		_properties.RangedSkillMult *= 1.06;
-		_properties.MeleeDefenseMult *= 0.88;
-		_properties.RangedDefenseMult *= 0.88;
-		_properties.InitiativeMult *= 0.76;
+		_properties.Bravery += 6;
+		_properties.MeleeSkill += 6;
+		_properties.RangedSkill += 6;
+		_properties.MeleeDefense -= 6;
+		_properties.RangedDefense -= 6;
+		_properties.InitiativeMult -= 12;
 
 	}
 

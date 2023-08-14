@@ -83,11 +83,14 @@ gt.Const.Perks.FistsClassTree <- {
 		"unarmed combat"
 	],
 	Tree = [
-		[gt.Const.Perks.PerkDefs.LegendKick],
+		[
+		gt.Const.Perks.PerkDefs.LegendKick,
+		gt.Const.Perks.PerkDefs.LegendAmbidextrous
+		],
 		[gt.Const.Perks.PerkDefs.LegendChoke],
 		[gt.Const.Perks.PerkDefs.LegendGrapple],
 		[gt.Const.Perks.PerkDefs.LegendSpecFists],
-		[gt.Const.Perks.PerkDefs.LegendAmbidextrous],
+		[],
 		[gt.Const.Perks.PerkDefs.LegendTackle],
 		[]
 	]

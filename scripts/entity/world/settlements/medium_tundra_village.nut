@@ -62,7 +62,7 @@ this.medium_tundra_village <- this.inherit("scripts/entity/world/settlement", {
 			"thief_background",
 			"vagabond_background",
 			"wildman_background",
-						"female_beggar_background",
+			"female_beggar_background",
 			"female_bowyer_background",
 			"brawler_background",
 			"brawler_background",
@@ -128,7 +128,7 @@ this.medium_tundra_village <- this.inherit("scripts/entity/world/settlement", {
 			}
 			else if (r == 4)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 		}
 		else
@@ -145,7 +145,7 @@ this.medium_tundra_village <- this.inherit("scripts/entity/world/settlement", {
 			}
 			else if (r == 4)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 		}
 

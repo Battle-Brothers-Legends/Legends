@@ -132,9 +132,9 @@ this.medium_fishing_village <- this.inherit("scripts/entity/world/settlement", {
 		{
 			local r = this.Math.rand(1, 2);
 
-			if (r == 1 || this.Const.World.Buildings.Barbers == 0)
+			if (r == 1 || this.Const.World.Buildings.Blackmarket == 0)
 			{
-				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+				this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 			}
 			else if (r <= 2)
 			{

@@ -40,6 +40,12 @@ this.perk_legend_barter_convincing <- this.inherit("scripts/skills/skill", {
 
 	function onNewDay()
 	{
-		::World.Assets.addMoney(10);
+		local bonus = 10 + this.getContainer().getActor().getLevel();		
+		::World.Assets.addMoney(bonus);
+	}
+	
+	function onUpdate( _properties )
+	{
+		_properties.DailyWageMult *= 1.1;
 	}
 });

@@ -111,6 +111,7 @@ gt.Const.Strings.BarbarianNames <- [
 	"Mortkin",
 	"Styrbjorn",
 	"Urlf",
+	"Lylgi",
 	"Wulfrik",
 	"Alfkaell",
 	"Garmr",
@@ -120,7 +121,8 @@ gt.Const.Strings.BarbarianNames <- [
 	"Valgar",
 	"Hakka",
 	"Engra",
-	"Yrar"
+	"Yrar",
+	"Grenik",
 	"Sigbaal"
 ];
 gt.Const.Strings.BarbarianTitles <- [
@@ -1641,6 +1643,7 @@ gt.Const.Strings.FallenHeroTitles <- [
 	"the Blackguard",
 	"the Suffering",
 	"the Unforgiving",
+	"the Resurected",
 	"the Maleficent",
 	"the Vengeful",
 	"the Doomed",

@@ -9,7 +9,7 @@ this.legend_fresh_fruit_item <- this.inherit("scripts/items/supplies/legend_usab
 		this.m.Icon = "supplies/legend_fresh_fruit.png";
 		this.m.Value = 40;
 		this.m.Amount = 15.0;
-		this.m.GoodForDays = 3;
+		this.m.GoodForDays = 1;
 		this.m.IsUndesirable = false;
 	}
 

@@ -2,7 +2,7 @@ this.sato_manhunter_veteran <- this.inherit("scripts/entity/tactical/human", {
 	m = {},
 	function create()
 	{
-		this.m.Type = this.Const.EntityType.SatoManhunterVeteran;
+		this.m.Type = this.Const.EntityType.SatoManhunterVeteranRanged;
 		this.m.BloodType = this.Const.BloodType.Red;
 		this.m.XP = this.Const.Tactical.Actor.SatoManhunterVeteran.XP;
 		this.human.create();

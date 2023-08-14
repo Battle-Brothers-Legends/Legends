@@ -80,7 +80,7 @@ this.assassin_background <- this.inherit("scripts/skills/backgrounds/character_b
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.DaggerTree,
 				this.Const.Perks.PolearmTree,
-				this.Const.Perks.CrossbowTree,
+				this.Const.Perks.BowTree,
 				this.Const.Perks.ThrowingTree
 			],
 			Defense = [

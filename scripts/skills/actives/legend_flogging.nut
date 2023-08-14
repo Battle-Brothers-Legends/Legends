@@ -28,8 +28,8 @@ this.legend_flogging <- this.inherit("scripts/skills/skill", {
 		this.m.IsIgnoredAsAOO = true;
 		this.m.IsUsingHitchance = false;
 
-		this.m.ActionPointCost = 1;
-		this.m.FatigueCost = 5;
+		this.m.ActionPointCost = 4;
+		this.m.FatigueCost = 20;
 		this.m.MinRange = 1;
 		this.m.MaxRange = 1;
 	}
@@ -42,42 +42,84 @@ this.legend_flogging <- this.inherit("scripts/skills/skill", {
 			id = 7,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Flog someone, inflicting a bleed of 2 damage per turn over 5 turns"
+			text = "Flog up to three targets, inflicting a bleed of 2 damage per turn over 5 turns"
 		})
 		return ret;
 	}
-	
-	function onVerifyTarget( _originTile, _targetTile )
+
+	function onTargetSelected( _targetTile )
 	{
-		if (!this.skill.onVerifyTarget(_originTile, _targetTile))
+		local ownTile = this.m.Container.getActor().getTile();
+		local dir = ownTile.getDirectionTo(_targetTile);
+		this.Tactical.getHighlighter().addOverlayIcon(this.Const.Tactical.Settings.AreaOfEffectIcon, _targetTile, _targetTile.Pos.X, _targetTile.Pos.Y);
+		local nextDir = dir - 1 >= 0 ? dir - 1 : this.Const.Direction.COUNT - 1;
+
+		if (ownTile.hasNextTile(nextDir))
 		{
-			return false;
+			local nextTile = ownTile.getNextTile(nextDir);
+
+			if (this.Math.abs(nextTile.Level - ownTile.Level) <= 1)
+			{
+				this.Tactical.getHighlighter().addOverlayIcon(this.Const.Tactical.Settings.AreaOfEffectIcon, nextTile, nextTile.Pos.X, nextTile.Pos.Y);
+			}
 		}
 
+		nextDir = nextDir - 1 >= 0 ? nextDir - 1 : this.Const.Direction.COUNT - 1;
 
-		return true;
+		if (ownTile.hasNextTile(nextDir))
+		{
+			local nextTile = ownTile.getNextTile(nextDir);
+
+			if (this.Math.abs(nextTile.Level - ownTile.Level) <= 1)
+			{
+				this.Tactical.getHighlighter().addOverlayIcon(this.Const.Tactical.Settings.AreaOfEffectIcon, nextTile, nextTile.Pos.X, nextTile.Pos.Y);
+			}
+		}
 	}
+	
 
 	function onUse( _user, _targetTile )
 	{
+		this.spawnAttackEffect(_targetTile, this.Const.Tactical.AttackEffectSwing);
+		local ownTile = _user.getTile();
+		local dir = ownTile.getDirectionTo(_targetTile);
 		local target = _targetTile.getEntity();
 
-		if (!target.isAlive())
-		{
-			return;
-		}
-
-		if (target.getSkills().hasSkill("effects.legend_grazed_effect"))
-		{
-			return;
-		}
-		
-
 		target.getSkills().add(this.new("scripts/skills/effects/legend_grazed_effect"));
-
-		if (!_user.isHiddenToPlayer() && _targetTile.IsVisibleForPlayer)
+		if (!_user.isAlive() || _user.isDying())
 		{
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " flogged " + this.Const.UI.getColorizedEntityName(target) + " leaving them bleeding");
+			return;
+		}
+
+		local nextDir = dir - 1 >= 0 ? dir - 1 : this.Const.Direction.COUNT - 1;
+
+		if (ownTile.hasNextTile(nextDir))
+		{
+			local nextTile = ownTile.getNextTile(nextDir);
+
+			if (nextTile.IsOccupiedByActor && nextTile.getEntity().isAttackable() && this.Math.abs(nextTile.Level - ownTile.Level) <= 1)
+			{
+				nextTile.getEntity().getSkills().add(this.new("scripts/skills/effects/legend_grazed_effect"));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " flogged " + this.Const.UI.getColorizedEntityName(nextTile.getEntity()) + " leaving them bleeding");
+			}
+		}
+
+		if (!_user.isAlive() || _user.isDying())
+		{
+			return;
+		}
+
+		nextDir = nextDir - 1 >= 0 ? nextDir - 1 : this.Const.Direction.COUNT - 1;
+
+		if (ownTile.hasNextTile(nextDir))
+		{
+			local nextTile = ownTile.getNextTile(nextDir);
+
+			if (nextTile.IsOccupiedByActor && nextTile.getEntity().isAttackable() && this.Math.abs(nextTile.Level - ownTile.Level) <= 1)
+			{
+				nextTile.getEntity().getSkills().add(this.new("scripts/skills/effects/legend_grazed_effect"));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " flogged " + this.Const.UI.getColorizedEntityName(nextTile.getEntity()) + " leaving them bleeding");
+			}
 		}
 	}
 

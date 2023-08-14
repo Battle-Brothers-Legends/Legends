@@ -6,7 +6,7 @@ this.cultist_disciple_trait <- this.inherit("scripts/skills/traits/character_tra
 		this.m.ID = "trait.cultist_disciple";
 		this.m.Name = "Disciple of Davkul";
 		this.m.Icon = "ui/traits/trait_icon_67.png";
-		this.m.Description = "This character is a disciple of Davkul, an individual with unquestionable loyalty to the elder god. They embraces physical pain and peril as bringing them closer to salvation.";
+		this.m.Description = "This character is a disciple of Davkul, an individual with unquestionable loyalty to the elder god. They embrace physical pain and peril as bringing them closer to salvation.";
 		this.m.Order = this.Const.SkillOrder.Trait - 1;
 	}
 

@@ -56,7 +56,7 @@ this.medium_steppe_village <- this.inherit("scripts/entity/world/settlement", {
 			"adventurous_noble_background",
 			"cripple_background",
 			"poacher_background",
-						"apprentice_background",
+			"apprentice_background",
 			"female_beggar_background",
 			"female_bowyer_background",
 			"caravan_hand_background",
@@ -123,9 +123,9 @@ this.medium_steppe_village <- this.inherit("scripts/entity/world/settlement", {
 		{
 			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/fletcher_building"));
 		}
-		else if (r == 2 || this.Const.World.Buildings.Barbers == 0)
+		else if (r == 2 || this.Const.World.Buildings.Blackmarket == 0)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else if (r == 2)
 		{

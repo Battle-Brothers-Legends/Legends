@@ -11,17 +11,12 @@ this.cartographer_follower <- this.inherit("scripts/retinue/follower", {
 		this.m.Effects = [
 			"Pays you between 100 and 400 crowns for every location you discover on your own. The further away from civilization, the more you\'re paid. Legendary locations pay double."
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Discovered a legendary location"
-			},
-			{
-				IsSatisfied = false,
-				Text = "Have at least one of the following backgrounds: Adventurous Noble/Lady, Noble Commander, Philosopher, Historian"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addRequirement("Discovered a legendary location", function() {
+			return ::World.Flags.getAsInt("LegendaryLocationsDiscovered") >= 1;
+		});
+
+		this.addSkillRequirement("Have at least one of the following backgrounds: Adventurous Noble/Lady, Noble Commander, Philosopher, Historian", [
 			"background.adventurous_noble",
 			"background.historian",
 			"background.legend_philosopher",
@@ -29,17 +24,7 @@ this.cartographer_follower <- this.inherit("scripts/retinue/follower", {
 			"background.legend_commander_noble",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
-	}
-
-	function onEvaluate()
-	{
-		if (this.World.Flags.getAsInt("LegendaryLocationsDiscovered") >= 1)
-		{
-			this.m.Requirements[0].IsSatisfied = true;
-		}
-
-		this.follower.onEvaluate();
+		]);
 	}
 
 	function onLocationDiscovered( _location )

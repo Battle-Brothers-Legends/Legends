@@ -440,8 +440,8 @@ gt.Const.EntityType <- {
 	Oathbringer = 165,
 	SatoManhunterRanged = 166,
 	SatoManhunterVeteranRanged = 167,
-	LegendNobleGuard= 168,
-	LegendManAtArms = 169,
+	LegendNobleGuard = 168,
+	LegendManAtArms = 169
 	
 		/**
 	 * This is used during deserialization of older saves to convert IDs of enemy types to the Legends versions. 
@@ -793,6 +793,8 @@ gt.Const.EntityType <- {
 		case this.Const.EntityType.PeasantSouthern:
 		case this.Const.EntityType.SatoManhunter:
 		case this.Const.EntityType.SatoManhunterVeteran:
+		case this.Const.EntityType.SatoManhunterRanged:
+		case this.Const.EntityType.SatoManhunterVeteranRanged:	
 			return this.Const.FactionType.OrientalCityState;
 
 		case this.Const.EntityType.NomadCutthroat:
@@ -980,9 +982,13 @@ gt.Const.EntityIcon <- [
 	"mercenary_orientation",//Pikemen
 	"mercenary_orientation",//Infantry
 	"mercenary_orientation",//Leaders
-	"mercenary_orientation" //Managers
-
+	"mercenary_orientation", //Managers
+	
 	"oathbringer_orientation",
-	"footman_veteran_orientation",//VeteranFootman
-	"footman_veteran_orientation"//LegendManAtArms
+	
+	"nomad_02",
+	"nomad_05",
+	
+	"footman_veteran_orientation", //LegendNobleGuard
+	"footman_veteran_orientation" //LegendManAtArms
 ];

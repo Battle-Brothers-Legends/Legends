@@ -27,7 +27,7 @@ this.perk_legend_darkflight <- this.inherit("scripts/skills/skill", {
 		this.m.Container.removeByID("actives.legend_darkflight");
 	}
 
-	function onUpdated( _properties )
+	function onUpdate( _properties )
 	{
 		_properties.TargetAttractionMult *= 1.33;
 	}

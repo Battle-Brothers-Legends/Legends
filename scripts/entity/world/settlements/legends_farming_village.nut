@@ -17,11 +17,11 @@ this.legends_farming_village <- this.inherit("scripts/entity/world/settlements/l
 			"Muhlenheim",
 			"Grunfelde",
 			"Ivendorf",
-						"Ohnemenschen",
-						"Kornstadt",
-						"Ausbeute",
-						"Feldgehen",
-						"Tierbauernhof",
+			"Ohnemenschen",
+			"Kornstadt",
+			"Ausbeute",
+			"Feldgehen",
+			"Tierbauernhof",
 			"Grafenheide",
 			"Hermannshof",
 			"Koppeldorf",
@@ -477,9 +477,9 @@ this.legends_farming_village <- this.inherit("scripts/entity/world/settlements/l
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/tavern_building"));
 		local r = this.Math.rand(1, 3);
 
-		if (r == 1 || this.Const.World.Buildings.Barbers == 0)
+		if (r == 1 || this.Const.World.Buildings.Blackmarket == 0)
 		{
-			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+			this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 		}
 		else if (r == 2)
 		{
@@ -548,7 +548,7 @@ this.legends_farming_village <- this.inherit("scripts/entity/world/settlements/l
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/marketplace_building"), 2);
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/temple_building"));
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/tavern_building"));
-		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
+		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/blackmarket_building"));
 
 		if (this.Const.World.Buildings.Stables == 0)
 		{

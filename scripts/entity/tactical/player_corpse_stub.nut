@@ -8,7 +8,8 @@ this.player_corpse_stub <- {
 		DaysWithCompany = 0,
 		Level = 0,
 		DailyCost = 0,
-		IsCommander = false
+		IsCommander = false,
+		Gender = -1
 	},
 	function getName()
 	{
@@ -50,6 +51,16 @@ this.player_corpse_stub <- {
 	function isCommander()
 	{
 		return this.m.IsCommander;
+	}
+
+	function setGender( _gender )
+	{
+		this.m.Gender = _gender;
+	}
+
+	function getGender()
+	{
+		return this.m.Gender;
 	}
 
 	function getCombatStats()
@@ -139,7 +150,11 @@ this.player_corpse_stub <- {
 
 		if (this.m.LifetimeStats.MostPowerfulVanquished != "")
 		{
-			text = text + (" The most powerful opponent he vanquished was " + this.m.LifetimeStats.MostPowerfulVanquished + ".");
+					local vanquishedText = "{" + (" The most powerful opponent %they% vanquished was " + this.m.LifetimeStats.MostPowerfulVanquished + ".") + "}";
+					local vars = [];
+					this.Const.LegendMod.extendVarsWithPronouns(vars, this.getGender());
+					vanquishedText = this.buildTextFromTemplate(vanquishedText, vars);
+					text = text + vanquishedText;
 		}
 
 		tooltip.push({

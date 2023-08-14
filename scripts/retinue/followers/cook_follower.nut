@@ -11,17 +11,12 @@ this.cook_follower <- this.inherit("scripts/retinue/follower", {
 		this.m.Effects = [
 			"Makes all provisions last 4 extra days"
 		];
-		this.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Have someone who's learned the Camp Cook perk. Guaranteed on Bakers, Fishwives, Cannibals and Butchers, may be rarely found on many others"
-			}
-		];
-		this.m.RequiredSkills = [
+
+		this.addSkillRequirement("Have someone who's learned the Camp Cook perk. Guaranteed on Bakers, Fishwives, Cannibals and Butchers, may be rarely found on many others", [
 			"perk.legend_camp_cook",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
-		];
+		]);
 	}
 
 	function onUpdate()

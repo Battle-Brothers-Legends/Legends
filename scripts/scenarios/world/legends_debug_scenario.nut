@@ -50,9 +50,9 @@ this.legends_debug_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 
 		this.World.Assets.getStash().resize(2000);
 
-		local bros = roster.getAll();
-		bros[0].m.Skills.add(this.new("scripts/skills/injury/cut_arm_injury"));
-		bros[1].m.Skills.add(this.new("scripts/skills/injury/deep_chest_cut_injury"));
+		//local bros = roster.getAll();
+		//bros[0].m.Skills.add(this.new("scripts/skills/injury/cut_arm_injury"));
+		//bros[1].m.Skills.add(this.new("scripts/skills/injury/deep_chest_cut_injury"));
 
 		this.World.Assets.m.Money = 50000;
 		this.World.Assets.m.ArmorParts = 200;
@@ -61,6 +61,12 @@ this.legends_debug_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		this.World.Assets.m.Food = 200;
 		this.World.Assets.addBusinessReputation(this.m.StartingBusinessReputation);
 
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/beer_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/wine_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/mead_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/legend_curry_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/legend_liquor_item"));
+	
 		local banner = this.new("scripts/items/tools/player_banner");
 		banner.setVariant(2);
 		this.World.Assets.getStash().add(banner);
@@ -424,6 +430,7 @@ this.legends_debug_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 			"legend_grisly_scythe",
 			"legend_halberd",
 			"legend_hammer",
+			"legend_hand_crossbow",
 			"legend_hoe",
 			"legend_infantry_axe",
 			"legend_military_goedendag",

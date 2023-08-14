@@ -26,7 +26,7 @@ this.perk_mage_legend_magic_missile <- this.inherit("scripts/skills/skill", {
 		this.m.Container.removeByID("actives.mage_legend_magic_missile");
 	}
 
-	function onUpdated( _properties )
+	function onUpdate( _properties )
 	{
 		_properties.TargetAttractionMult *= 1.33;
 	}

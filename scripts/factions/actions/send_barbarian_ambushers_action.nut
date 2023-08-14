@@ -45,7 +45,7 @@ this.send_barbarian_ambushers_action <- this.inherit("scripts/factions/faction_a
 				continue;
 			}
 
-			if (s.getLastSpawnTime() + 300.0 > this.Time.getVirtualTimeF())
+			if (s.getLastSpawnTime() + 150.0 > this.Time.getVirtualTimeF())
 			{
 				continue;
 			}

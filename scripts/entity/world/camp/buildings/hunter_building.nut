@@ -210,7 +210,7 @@ this.hunter_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 			{
 				if (bro.getSkills().hasSkill("background.female_miller") || bro.getSkills().hasSkill("background.female_butcher") || bro.getSkills().hasSkill("background.butcher") || bro.getSkills().hasSkill("background.female_servant")  || bro.getSkills().hasSkill("background.cannibal"))
 				{
-				   chefLevel += this.Math.floor(bro.getLevel() * 0.1);
+				   brewerLevel += this.Math.floor(bro.getLevel() * 0.1);
 				}
 			}		
 			
@@ -276,7 +276,7 @@ this.hunter_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		local brewerlevels = this.getBrewerLevel();
 		if (this.getUpgraded())
 		{
-			cost = this.Math.floor(brewerlevels * 1.5);
+			brewerlevels = this.Math.floor(brewerlevels * 1.5);
 		}
 		local dropLoot = -300.0 / (brewerlevels + 20) + 15 > this.Math.rand(1, 100);
 		if (dropLoot) // At level 10 there is a 5% chance per hour, increases asymptotically to 15% per hour
@@ -304,7 +304,7 @@ this.hunter_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		local cheflevels = this.getChefLevel();
 		if (this.getUpgraded())
 		{
-			cost = this.Math.floor(cheflevels * 1.5);
+			cheflevels = this.Math.floor(cheflevels * 1.5);
 		}
 		dropLoot = -300.0 / (cheflevels + 20) + 15 > this.Math.rand(1, 100); // At level 10 there is a 5% chance per hour, increases asymptotically to 15% per hour
 		if (dropLoot)
@@ -335,7 +335,7 @@ this.hunter_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		local huntlevels = this.getHuntLevel();
 		if (this.getUpgraded())
 		{
-			cost = this.Math.floor(huntlevels * 1.5);
+			huntlevels = this.Math.floor(huntlevels * 1.5);
 		}
 		dropLoot = -300.0 / (huntlevels + 20) + 15 > this.Math.rand(1, 100); // At level 10 there is a 5% chance per hour, increases asymptotically to 15% per hour
 		if (dropLoot)

@@ -732,4 +732,9 @@
 	<sprite id="mummy_curse" ic="FF23165B" img="skills\mummy_curse.png" />
 	<sprite id="icon_mummy_curse" ic="FF23165B" img="skills\icon_mummy_curse.png" />
 	<sprite id="mini_icon_mummy_curse" offsetY="35" ic="FF344955" img="skills\mini\mini_icon_mummy_curse.png" />
+	<sprite id="active_pass" ic="FF2B206C" img="skills\pass.png" />
+	<sprite id="status_helpful" ic="FF3D536F" img="skills\helpful.png" />
+	<sprite id="active_kick" ic="FF2B206C" img="skills\kick_square.png" />
+	<sprite id="active_choke" ic="FF2B206C" img="skills\choke_square.png" />
+	<sprite id="active_grapple" ic="FF2B206C" img="skills\grapple_square.png" />
 </brush>

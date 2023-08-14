@@ -23,11 +23,13 @@ this.perk_duelist <- this.inherit("scripts/skills/skill", {
 			_properties.DamageDirectAdd += 0.25;
 		}
 		
-		if (off.getID() == "weapon.legend_parrying_dagger" || off.getID() == "shield.buckler")
+		if (off != null)
 		{
-			_properties.DamageDirectAdd += 0.12;
-		}		
-		
+			if (off.getID() == "weapon.legend_parrying_dagger" || off.getID() == "shield.buckler" || off.getID() == "weapon.legend_hand_crossbow")
+			{
+				_properties.DamageDirectAdd += 0.12;
+			}		
+		}
 		
 	}
 

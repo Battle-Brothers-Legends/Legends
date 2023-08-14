@@ -65,7 +65,7 @@ this.thief_background <- this.inherit("scripts/skills/backgrounds/character_back
 			Weapon = [
 				this.Const.Perks.SwordTree,
 				this.Const.Perks.DaggerTree,
-				this.Const.Perks.SlingTree
+				this.Const.Perks.BowTree
 			],
 			Defense = [
 				this.Const.Perks.LightArmorTree

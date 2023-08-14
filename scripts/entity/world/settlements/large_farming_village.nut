@@ -107,7 +107,6 @@ this.large_farming_village <- this.inherit("scripts/entity/world/settlement", {
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/marketplace_building"), 2);
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/temple_building"));
 		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/tavern_building"));
-		this.addBuilding(this.new("scripts/entity/world/settlements/buildings/barber_building"));
 
 		if (this.Const.World.Buildings.Stables == 0)
 		{

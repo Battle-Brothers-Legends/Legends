@@ -272,48 +272,171 @@
 	<sprite id="bust_naked_body_03_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_03_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_03_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_03_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_03_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_03_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
 
 	<sprite id="bust_naked_body_04" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_naked_body_04.png" top="-48" bottom="10" />
 	<sprite id="bust_naked_body_04_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_body_04_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_04_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_04_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_04_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_04_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_04_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_04_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 	<sprite id="bust_naked_body_05" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_naked_body_05.png" top="-48" bottom="10" />
 	<sprite id="bust_naked_body_05_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_body_05_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_05_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_05_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_05_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_05_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_05_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_05_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 	<sprite id="bust_naked_body_06" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_naked_body_06.png" top="-48" bottom="10" />
 	<sprite id="bust_naked_body_06_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_body_06_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_06_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_06_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_06_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_06_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_06_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_06_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 	<sprite id="bust_naked_body_07" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_naked_body_07.png" top="-48" bottom="10" />
 	<sprite id="bust_naked_body_07_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_body_07_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_07_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_07_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_07_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_07_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_07_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_07_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_07" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 	<sprite id="bust_naked_body_08" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_naked_body_08.png" top="-48" bottom="10" />
 	<sprite id="bust_naked_body_08_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_body_08_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_08_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_08_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_08_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_08_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_08_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_08_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_08" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
 
 	<sprite id="bust_naked_body_09" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_naked_body_09.png" top="-48" bottom="10" />
 	<sprite id="bust_naked_body_09_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_body_09_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_09_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_09_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_09_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_09_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_09_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_09_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_09" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 	<sprite id="bust_naked_body_10" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_naked_body_10.png" top="-48" bottom="10" />
 	<sprite id="bust_naked_body_10_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_body_10_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_10_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_10_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_10_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_10_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_10_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_10_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_10" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_06" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
 
 	<sprite id="bust_body_501" offsetY="35" ic="FF25324A" width="104" height="142" img="entity\bodies\bust_body_501.png" top="-56" bottom="14" />
 	<sprite id="bust_body_501_damaged" offsetY="35" ic="FF222E44" width="104" height="142" img="entity\bodies\bust_body_501_damaged.png" left="-52" right="42" top="-67" bottom="13" />
@@ -535,6 +658,23 @@
 	<sprite id="bust_naked_southern_female_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_04_dead_arrow.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_southern_female_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_04_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_southern_female_01_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_04_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="scar_01_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_southern_female_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+
 
 	<sprite id="bust_head_southern_female_01" offsetY="35" ic="FF5B7CAD" width="104" height="142" img="entity\heads\arabfem1.png" left="-21" right="29" top="-21" bottom="47" />
 	<sprite id="bust_head_southern_female_01_dead" offsetX="6" offsetY="10" f="64F6" f1="-15" f2="-15" ic="FF4F6C9D" width="131" height="125" img="entity\heads\arabfem1dead.png" left="-45" right="15" top="-56" bottom="0" />
@@ -589,6 +729,24 @@
 	<sprite id="beard_red_19_dead" offsetX="6" offsetY="10" f="64F2" f1="-15" f2="-15" ic="FF375C75" width="168" height="152" img="entity\heads\beard_red_19_dead.png" left="-52" right="32" top="-75" bottom="1" />
 	<sprite id="beard_black_19_dead" offsetX="6" offsetY="10" f="64F2" f1="-15" f2="-15" ic="FF375C75" img="entity\heads\beard_black_19_dead.png" left="-52" right="32" top="-75" bottom="1" />
 	<sprite id="beard_grey_19_dead" offsetX="6" offsetY="10" f="64F2" f1="-15" f2="-15" ic="FF375C75" width="168" height="152" img="entity\heads\beard_grey_19_dead.png" left="-52" right="32" top="-75" bottom="1" />
+
+	<sprite id="bust_naked_body_04_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_naked_body_04_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 	<sprite id="scar_02_bust_naked_body_03" offsetY="35" width="104" height="142" img="entity\details\scar_02_body_03.png" left="-36" right="38" top="-42" bottom="0" />
 	<sprite id="scar_02_bust_naked_body_03_dead" offsetX="6" offsetY="10" f="64FF" width="131" height="114" img="entity\details\scar_02_body_03_dead.png" left="-21" right="45" top="-38" bottom="26" />
@@ -667,70 +825,402 @@
 	<sprite id="bust_helmet_04_wings_named" offsetY="35" ic="FF464950" width="104" height="142" img="entity\helmets\bust_helmet_04_wings_named.png" left="-28" right="32" top="-29" bottom="51" />
 	<sprite id="bust_helmet_04_wings_named_damaged" offsetY="35" ic="FF41454D" width="104" height="142" img="entity\helmets\bust_helmet_04_wings_named_damaged.png" left="-28" right="32" top="-29" bottom="51" />
 	<sprite id="bust_helmet_04_wings_named_dead" offsetX="6" offsetY="10" f="64F0" f1="-15" f2="-15" ic="FF444850" width="131" height="125" img="entity\helmets\bust_helmet_04_wings_named_dead.png" left="-51" right="19" top="-63" bottom="3" />
+
+
+
 	<sprite id="bust_female_southern_body_00" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_female_southern_body_00.png" top="-48" bottom="10" />
-	<sprite id="bust_female_southern_body_00_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_female_southern_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
-	<sprite id="bust_female_southern_body_00_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
-	<sprite id="bust_female_southern_body_00_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
+	<sprite id="bust_female_southern_body_00_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_southern_female_01_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_female_southern_body_00_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_00_injured.png" left="-40" right="38" top="-48" bottom="8" />
+	<sprite id="bust_female_southern_body_00_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_00_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+
+
 	<sprite id="bust_female_southern_body_01" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\bodies\bust_female_southern_body_01.png" left="-42" right="40" top="-49" bottom="9" />
-	<sprite id="bust_female_southern_body_01_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_female_southern_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
-	<sprite id="bust_female_southern_body_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
-	<sprite id="bust_female_southern_body_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
-	<sprite id="bust_female_southern_body_01_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_01_injured.png" left="-40" right="38" top="-48" bottom="10" />
-	<sprite id="bust_female_southern_body_02" offsetY="35" ic="FF4D719B" width="104" height="142" img="entity\bodies\bust_female_southern_body_02.png" left="-42" right="40" top="-50" bottom="10" />
-	<sprite id="bust_female_southern_body_02_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_female_southern_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
-	<sprite id="bust_female_southern_body_02_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
-	<sprite id="bust_female_southern_body_02_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
-	<sprite id="bust_female_southern_body_02_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_02_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="bust_female_southern_body_01_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_naked_southern_female_01_dead.png" left="-65" right="66" top="-57" bottom="53" />
+	<sprite id="bust_female_southern_body_01_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\female_injured.png" left="-40" right="38" top="-48" bottom="10" />
+	<sprite id="bust_female_southern_body_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+
+	<sprite id="bust_female_southern_body_02" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\bodies\bust_female_southern_body_02.png" left="-42" right="40" top="-49" bottom="9" />
+	<sprite id="bust_female_southern_body_02_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_naked_southern_female_01_dead.png" left="-65" right="66" top="-57" bottom="53" />
+	<sprite id="bust_female_southern_body_02_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\female_injured.png" left="-40" right="38" top="-48" bottom="10" />
+	<sprite id="bust_female_southern_body_02_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_02_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+	<sprite id="bust_female_southern_body_03" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\bodies\bust_female_southern_body_03.png" left="-42" right="40" top="-49" bottom="9" />
+	<sprite id="bust_female_southern_body_03_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_naked_southern_female_01_dead.png" left="-65" right="66" top="-57" bottom="53" />
+	<sprite id="bust_female_southern_body_03_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\female_injured.png" left="-40" right="38" top="-48" bottom="10" />
+	<sprite id="bust_female_southern_body_03_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_03_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+	<sprite id="bust_female_southern_body_04" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\bodies\bust_female_southern_body_04.png" left="-42" right="40" top="-49" bottom="9" />
+	<sprite id="bust_female_southern_body_04_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_naked_southern_female_01_dead.png" left="-65" right="66" top="-57" bottom="53" />
+	<sprite id="bust_female_southern_body_04_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\female_injured.png" left="-40" right="38" top="-48" bottom="10" />
+	<sprite id="bust_female_southern_body_04_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_04_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+	<sprite id="bust_female_southern_body_05" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\bodies\bust_female_southern_body_05.png" left="-42" right="40" top="-49" bottom="9" />
+	<sprite id="bust_female_southern_body_05_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_naked_southern_female_01_dead.png" left="-65" right="66" top="-57" bottom="53" />
+	<sprite id="bust_female_southern_body_05_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\female_injured.png" left="-40" right="38" top="-48" bottom="10" />
+	<sprite id="bust_female_southern_body_05_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_05_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+
+	<sprite id="bust_naked_body_03" offsetY="35" ic="FF4D719B" width="104" height="142" img="entity\bodies\bust_naked_body_03.png" left="-42" right="40" top="-50" bottom="10" />
+	<sprite id="bust_naked_body_03_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_female_southern_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
+	<sprite id="bust_naked_body_03_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
+	<sprite id="bust_naked_body_03_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
+	<sprite id="bust_naked_body_03_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_03_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="bust_naked_body_03_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_naked_body_03_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
 
 	<sprite id="bust_female_southern_body_03" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_female_southern_body_03.png" top="-48" bottom="10" />
 	<sprite id="bust_female_southern_body_03_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_southern_female_02_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_female_southern_body_03_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_female_southern_body_03_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_female_southern_body_03_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_00_injured.png" left="-40" right="38" top="-48" bottom="8" />
+	<sprite id="bust_female_southern_body_03_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_03_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_03" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 	<sprite id="bust_female_southern_body_04" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\bodies\bust_female_southern_body_04.png" left="-42" right="40" top="-49" bottom="9" />
 	<sprite id="bust_female_southern_body_04_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_naked_southern_female_02_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_female_southern_body_04_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_female_southern_body_04_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_female_southern_body_04_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_01_injured.png" left="-40" right="38" top="-48" bottom="10" />
+	<sprite id="bust_female_southern_body_04_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_04_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_04" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 	<sprite id="bust_female_southern_body_05" offsetY="35" ic="FF4D719B" width="104" height="142" img="entity\bodies\bust_female_southern_body_05.png" left="-42" right="40" top="-50" bottom="10" />
 	<sprite id="bust_female_southern_body_05_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_southern_female_02_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_female_southern_body_05_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_female_southern_body_05_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
-	<sprite id="bust_female_southern_body_05_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_02_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="bust_female_southern_body_05_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_03_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="bust_female_southern_body_05_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_southern_body_05_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_southern_body_05" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 	<sprite id="bust_female_northern_body_00" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_female_northern_body_00.png" top="-48" bottom="10" />
 	<sprite id="bust_female_northern_body_00_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_female_northern_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_female_northern_body_00_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_female_northern_body_00_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_female_northern_body_00_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_northern_body_00_injured.png" left="-40" right="38" top="-48" bottom="8" />
+	<sprite id="bust_female_northern_body_00_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_northern_body_00_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_northern_body_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+	<sprite id="bust_female_northern_body_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_northern_body_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+	<sprite id="bust_female_northern_body_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_northern_body_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 	<sprite id="bust_female_northern_body_01" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\bodies\bust_female_northern_body_01.png" left="-42" right="40" top="-49" bottom="9" />
 	<sprite id="bust_female_northern_body_01_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_female_northern_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
-	<sprite id="bust_female_northern_body_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
-	<sprite id="bust_female_northern_body_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_female_northern_body_01_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_northern_body_01_injured.png" left="-40" right="38" top="-48" bottom="10" />
+	<sprite id="bust_female_northern_body_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_northern_body_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_northern_body_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+
 	<sprite id="bust_female_northern_body_02" offsetY="35" ic="FF4D719B" width="104" height="142" img="entity\bodies\bust_female_northern_body_02.png" left="-42" right="40" top="-50" bottom="10" />
 	<sprite id="bust_female_northern_body_02_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_female_northern_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_female_northern_body_02_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_female_northern_body_02_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_female_northern_body_02_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_northern_body_02_injured.png" left="-41" right="39" top="-50" bottom="10" />
-
+	<sprite id="bust_female_northern_body_02_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_female_northern_body_02_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_female_northern_body_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 	<sprite id="bust_naked_body_african_00" offsetY="35" ic="FF4D719A" width="104" height="142" img="entity\bodies\bust_naked_african_body_00.png" top="-48" bottom="10" />
 	<sprite id="bust_naked_body_african_00_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_african_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_african_00_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_african_00_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_african_00_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_00_injured.png" left="-40" right="38" top="-48" bottom="8" />
+	<sprite id="bust_naked_body_african_00_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_naked_body_african_00_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_african_00" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
 	<sprite id="bust_naked_body_african_01" offsetY="35" ic="FF4C709A" width="104" height="142" img="entity\bodies\bust_naked_african_body_01.png" left="-42" right="40" top="-49" bottom="9" />
 	<sprite id="bust_naked_body_african_01_dead" offsetX="6" offsetY="10" ic="FF354C74" width="131" height="114" img="entity\bodies\bust_naked_african_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_african_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_african_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
 	<sprite id="bust_naked_body_african_01_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_01_injured.png" left="-40" right="38" top="-48" bottom="10" />
+	<sprite id="bust_naked_body_african_01_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_naked_body_african_01_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_01_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_01_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_01_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_african_01" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+
+
 	<sprite id="bust_naked_body_african_02" offsetY="35" ic="FF4D719B" width="104" height="142" img="entity\bodies\bust_naked_african_body_02.png" left="-42" right="40" top="-50" bottom="10" />
 	<sprite id="bust_naked_body_african_02_dead" offsetX="6" offsetY="10" ic="FF374D76" width="131" height="114" img="entity\bodies\bust_naked_african_body_00_dead.png" left="-65" right="66" top="-57" bottom="53" />
 	<sprite id="bust_naked_body_african_02_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF494D50" width="131" height="134" img="entity\bodies\bust_naked_body_00_dead_arrows.png" left="-28" right="8" top="-9" bottom="39" />
 	<sprite id="bust_naked_body_african_02_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF111632" width="131" height="154" img="entity\bodies\bust_naked_body_00_dead_javelin.png" left="-25" right="21" top="-4" bottom="72" />
-	<sprite id="bust_naked_body_african_02_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_female_southern_body_02_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="bust_naked_body_african_02_injured" offsetY="35" ic="FF0E0E50" width="104" height="142" img="entity\bodies\bust_naked_body_03_injured.png" left="-41" right="39" top="-50" bottom="10" />
+	<sprite id="bust_naked_body_african_02_dead_arrows" offsetX="6" offsetY="10" f="64FB" ic="FF242D47" width="131" height="114" img="entity\bodies\dead_arrows.png" left="0" right="28" top="-8" bottom="30" />
+	<sprite id="bust_naked_body_african_02_dead_javelin" offsetX="6" offsetY="10" f="64FB" ic="FF242D4E" width="131" height="134" img="entity\bodies\dead_javelin.png" left="-11" right="35" top="-5" bottom="67" />
+	<sprite id="scar_02_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_02_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_03_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="scar_04_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\scar_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_02_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_03_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_03.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_04_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_04.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_05_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_05.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_06_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_06.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_07_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_07.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="tattoo_08_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\tattoo_female_08.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_02_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_02.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="warpaint_03_bust_naked_body_african_02" offsetY="35" f="64FE" ic="FF242D3B" width="104" height="142" img="entity\bodies\warpaint_female_03.png" left="-44" right="50" top="-53" bottom="13" />
 
 
 
@@ -807,4 +1297,10 @@
 	<sprite id="upgrade_pauldrons_swan" offsetY="35" ic="FF242D3B" width="104" height="142" img="entity\armor_upgrades\pauldrons_swan_01.png" left="-44" right="50" top="-53" bottom="13" />\n'
 	<sprite id="upgrade_pauldrons_swan_damaged" offsetY="35" ic="FF242D3F" width="104" height="142" img="entity\armor_upgrades\pauldrons_swan_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />\n'
 	<sprite id="upgrade_pauldrons_swan_dead" offsetX="6" offsetY="10" f="64FD" ic="FF242D43" width="131" height="125" img="entity\armor_upgrades\pauldrons_swan_01_dead.png" left="-57" right="59" top="-53" bottom="55" />\n'			
+	<sprite id="upgrade_pauldrons_stag_dead" offsetX="6" offsetY="10" f="64FD" ic="FF242D43" width="131" height="125" img="entity\armor_upgrades\pauldrons_stag_01_dead.png" left="-57" right="59" top="-53" bottom="55" />\n'
+	<sprite id="upgrade_heraldic_plates" offsetY="35" ic="FF242D3B" width="104" height="142" img="entity\armor_upgrades\upgrade_heraldic_plates.png" left="-44" right="50" top="-53" bottom="13" />\n'
+	<sprite id="upgrade_heraldic_plates_damaged" offsetY="35" ic="FF242D3F" width="104" height="142" img="entity\armor_upgrades\upgrade_heraldic_plates_damaged.png" left="-44" right="50" top="-53" bottom="13" />\n'
+	<sprite id="upgrade_heraldic_plates_dead" offsetX="6" offsetY="10" f="64FD" ic="FF242D43" width="131" height="125" img="entity\armor_upgrades\upgrade_heraldic_plates_dead.png" left="-57" right="59" top="-53" bottom="55" />\n'			
+
+
 </brush>
