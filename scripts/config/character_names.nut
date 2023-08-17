@@ -1019,6 +1019,7 @@ gt.Const.Strings.OrcWarlordNames <- [
 	"Grommok",
 	"Arvius",
 	"Ogrul",
+	"Ogderg",
 	"Shura Nak"
 ];
 gt.Const.Strings.BanditLeaderNames <- [
