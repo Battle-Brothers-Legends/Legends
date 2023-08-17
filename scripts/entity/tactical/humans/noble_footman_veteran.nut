@@ -56,7 +56,7 @@ this.noble_footman_veteran <- this.inherit("scripts/entity/tactical/humans/noble
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_bruiser"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_coup_de_grace"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_defelect"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_deflect"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 			}
 	}
