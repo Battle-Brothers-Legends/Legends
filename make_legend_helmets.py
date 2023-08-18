@@ -1090,7 +1090,7 @@ layers = [
  "title" :  "Golden Helm", \
  "desc" :  "A golden helmet and facemask, showing the visage of an emperor from an age long past, imbued with mystical energies. When you hold it into the light, it almost looks as if the face were moving and making expressions of disgust." \
 },
-{"name" : "faceplate_raised"                     , "layer" : "top", "min" : 1, "max" : 2, "value" :800, "con" : 50, "stam" : -3, "vis" : 0, "hair" : "false", "beard" : "true", "named" : True, "rminViz" : 0, "rmaxViz" : 0, "rmaxStam" : 2, "rminStam" : 3, "rminCond" : 50, "rmaxCond" : 70, "names" : Names,  \
+{"name" : "faceplate_raised"                     , "layer" : "top", "min" : 1, "max" : 2, "value" :800, "con" : 50, "stam" : -3, "vis" : 0, "hair" : "false", "beard" : "false", "named" : True, "rminViz" : 0, "rmaxViz" : 0, "rmaxStam" : 2, "rminStam" : 3, "rminCond" : 50, "rmaxCond" : 70, "names" : Names,  \
  "title" :  "Raised Faceplate", \
  "desc" :  "A faceplate raised up to give more air and vision." \
 },
