@@ -11,11 +11,6 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 		this.m.StartingRosterTier = this.Const.Roster.getTierForSize(6);
 	}
 
-	function isValid()
-	{
-		return this.Const.DLC.Unhold;
-	}
-
 	function onSpawnAssets()
 	{
 		local roster = this.World.getPlayerRoster();
@@ -35,18 +30,22 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 			"legend_shieldmaiden_background"
 		], true, 1);
 		bros[0].setPlaceInFormation(3);
+		
 		bros[1].setStartValuesEx([
 			"wildwoman_background"
 		], true, 1);
 		bros[1].setPlaceInFormation(4);
+		
 		bros[2].setStartValuesEx([
-			"female_thief_background"
+			"legend_battle_sister_background"
 		], true, 1);
 		bros[2].setPlaceInFormation(5);
+		
 		bros[3].setStartValuesEx([
-			"female_bowyer_background"
+			"legend_nun_background"
 		], true, 1);
 		bros[3].setPlaceInFormation(12);
+		
 		bros[4].setStartValuesEx([
 			"legend_vala_commander_background"
 		], true, 1);
@@ -56,6 +55,7 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 		bros[4].getFlags().set("IsPlayerCharacter", true);
 		bros[4].setPlaceInFormation(13);
 		bros[4].setVeteranPerks(2);
+		
 		bros[5].setStartValuesEx([
 			"female_adventurous_noble_background"
 		], true, 1);
@@ -150,6 +150,7 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 
 		this.addBroToRoster(_roster, "legend_shieldmaiden_background", 6);
 		this.addBroToRoster(_roster, "female_disowned_noble_background", 6);
+		this.addBroToRoster(_roster, "female_adventurous_noble_background", 6);
 		this.addBroToRoster(_roster, "legend_nun_background", 6);
 
 		foreach( i, bro in bros )
@@ -184,7 +185,6 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 
 		return false;
 	}
-
 
 	function onBuildPerkTree( _background )
 	{
