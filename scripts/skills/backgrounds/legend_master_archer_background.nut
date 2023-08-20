@@ -6,7 +6,7 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 		this.m.ID = "background.legend_master_archer";
 		this.m.Name = "Master Archer";
 		this.m.Icon = "ui/backgrounds/background_master_archer.png";
-		this.m.BackgroundDescription = "Master Archers have spent years honing their craft, in hunting, in sport, in war. ";
+		this.m.BackgroundDescription = "Master Archers have spent years honing their craft in hunting, sport and war.";
 		this.m.GoodEnding = "While the %companyname% continued on with great success, %name% the hunter eventually saw fit to leave it all behind. They returned to the life of an archer, working for who ever paid the best. %name% rarely showed the grim reality of hunting humans, but you have to imagine they\'d just rather stop doing it. As far as you know, %name% is doing well these days. The archer purchased a bit of land and helps guide nobles on pricy hunting trips.";
 		this.m.BadEnding = "With the decline of the %companyname% readily obvious, %name% the master archer departed from the company and returned to archery contests. Unfortunately, a shoot off went awry while shooting apples off each other\'s heads. The master archer was the better shot, but being better does not help if you\'re dead.";
 		this.m.HiringCost = 885;
@@ -102,6 +102,21 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 				this.Const.Perks.RangerHuntMagicTree
 			]
 		}
+	}
+
+	function setGender(_gender = -1)
+	{
+		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+
+		if (_gender != 1) return;
+
+		this.m.Faces = this.Const.Faces.AllWhiteFemale;
+		this.m.Hairs = this.Const.Hair.AllFemale;
+		this.m.HairColors = this.Const.HairColors.All;
+		this.m.Beards = null;
+		this.m.BeardChance = 1;
+		this.m.Bodies = this.Const.Bodies.AllFemale;
+		this.addBackgroundType(this.Const.BackgroundType.Female);
 	}
 
 	function onBuildDescription()
