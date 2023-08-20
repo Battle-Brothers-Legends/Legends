@@ -60,36 +60,10 @@ this.disowned_noble_background <- this.inherit("scripts/skills/backgrounds/chara
 		}
 	}
 
-	function setGender(_gender = -1)
-	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
-
-		if (_gender != 1) return;
- 			//Female
-		this.m.Faces = this.Const.Faces.AllWhiteFemale;
-		this.m.Hairs = this.Const.Hair.AllFemale;
-		this.m.HairColors = this.Const.HairColors.All;
-		this.m.Beards = null;
-		this.m.BeardChance = 0;
-		this.m.Bodies = this.Const.Bodies.FemaleMuscular;
-		this.m.Name = "Disowned Noblewoman";
-		this.addBackgroundType(this.Const.BackgroundType.Female);
-		this.m.Icon = "ui/backgrounds/background_08.png";
-		this.m.BackgroundDescription = "Disowned noblewomen often have profited from some training in melee fighting at court.";
-		this.m.GoodEnding = "A noble at heart, the disowned noblewoman %name% returned to her family. Word has it she kicked in the doors and demanded a royal seat. An usurper challenged her in combat and, well, %name% learned a lot in her days with the %companyname% and she now sits on a very, very comfortable throne.";
-		this.m.BadEnding = "A woman of nobility at heart, %name% the disowned noblewoman returned to her family home. Word has it an usurper arrested her at the gates. Her head currently rests on a pike with crows for a crown.";
-	}
-
 	function onBuildDescription()
 	{
-		if (this.isBackgroundType(this.Const.BackgroundType.Female))
-		{
-			return "{A constant disappointment to a delusional father | A victim of court intrigue involving poison and cake | After openly denouncing their own heritage | After an incestous relationship with their sister came to light | After a coup to dispose their older brother failed | After pride and hubris had them leading their father\'s army to total defeat | For accidentally killing their oldest brother and heir to the throne on a hunt | As a price to be paid for choosing their allies poorly in a war of succession | For attempting to sell captured poachers as slaves | Caught bedding a fellow noble | Discovered to be the head of a child stealing plot that shocked the peasantry | For turning their back on the gods and causing a riot amongst the laymen | Seen with the cultists\' book of Davkul tucked under an arm}, %name% {was disowned and cast away from their family\'s estate, never to return. | was stripped of their titles and exiled from the land. | was forcibly removed from their land and told never to return. | came to see, by the threat of an executioner\'s axe, that they no longer belonged in the court. | saw the hangman\'s noose, and only by a clever ploy did they slip it. | was branded with the symbol of shame and cast out from their lands. | was believed to have been involved in one too many conspiracies and was removed from the lands. | was seen as being too ambitious, a dangerous trait amongst the nobility.} {%name% now seeks to redeem themselves and live up to the family name. A bit selfish for a mercenary outfit, noble nonetheless. | Their posture slumped by scandal, %name%\'s resistance to difficulties has diminished. | A skilled fighter they may be, but %name% rarely talks about anyone but themselves. | Though quick with a sword, you get the feeling someone like %name% was disowned for a reason. | Down on their luck and essentially broke, %name% ventures in the field of sellswords. | Without title or land, %name% seeks to join the sort of men they used to lord over. | Well-geared this former noble may be, you do notice that the most used piece of equipment %name% has are their boots.}";
-		}
-		else
-		{
-			return "{A constant disappointment to a delusional father | A victim of court intrigue involving poison and cake | After openly denouncing her own heritage | After an incestous relationship with her brother came to light | After a coup to dispose her older sister failed | After pride and hubris had her leading her father\'s army to total defeat | For accidentally killing her oldest brother and heir to the throne on a hunt | As a price to be paid for choosing her allies poorly in a war of succession | For attempting to sell captured poachers as slaves | Caught bedding a fellow noblewoman | Discovered to be the head of a child stealing plot that shocked the peasantry | For turning her back on the gods and causing a riot amongst the laymen | Seen with the cultists\' book of Davkul tucked under an arm}, %name% {was disowned and cast away from her family\'s estate, never to return. | was stripped of her titles and exiled from the land. | was forcibly removed from her land and told never to return. | came to see, by the threat of an executioner\'s axe, that she no longer belonged in the court. | saw the hangman\'s noose, and only by a clever ploy did she slip it. | was branded with the symbol of shame and cast out from her lands. | was believed to have been involved in one too many conspiracies and was removed from the lands. | was seen as being too ambitious, a dangerous trait amongst the nobility.} {%name% now seeks to redeem herself and live up to the family name. A bit selfish for a mercenary outfit, noble nonetheless. | Her posture slumped by scandal, %name%\'s resistance to difficulties has diminished. | A skilled fighter she may be, but %name% rarely talks about anyone but herself. | Though quick with a sword, you get the feeling someone like %name% was disowned for a reason. | Down on her luck and essentially broke, %name% ventures in the field of sellswords. | Without title or land, %name% seeks to join the sort of men she used to lord over. | Well-geared this former noble may be, you do notice that the most used piece of equipment %name% has are her boots.}";			
-		}
+
+		return "{A constant disappointment to a delusional father | A victim of court intrigue involving poison and cake | After openly denouncing her own heritage | After an incestous relationship with her brother came to light | After a coup to dispose her older sister failed | After pride and hubris had her leading her father\'s army to total defeat | For accidentally killing her oldest brother and heir to the throne on a hunt | As a price to be paid for choosing her allies poorly in a war of succession | For attempting to sell captured poachers as slaves | Caught bedding a fellow noblewoman | Discovered to be the head of a child stealing plot that shocked the peasantry | For turning her back on the gods and causing a riot amongst the laymen | Seen with the cultists\' book of Davkul tucked under an arm}, %name% {was disowned and cast away from her family\'s estate, never to return. | was stripped of her titles and exiled from the land. | was forcibly removed from her land and told never to return. | came to see, by the threat of an executioner\'s axe, that she no longer belonged in the court. | saw the hangman\'s noose, and only by a clever ploy did she slip it. | was branded with the symbol of shame and cast out from her lands. | was believed to have been involved in one too many conspiracies and was removed from the lands. | was seen as being too ambitious, a dangerous trait amongst the nobility.} {%name% now seeks to redeem herself and live up to the family name. A bit selfish for a mercenary outfit, noble nonetheless. | Her posture slumped by scandal, %name%\'s resistance to difficulties has diminished. | A skilled fighter she may be, but %name% rarely talks about anyone but herself. | Though quick with a sword, you get the feeling someone like %name% was disowned for a reason. | Down on her luck and essentially broke, %name% ventures in the field of sellswords. | Without title or land, %name% seeks to join the sort of men she used to lord over. | Well-geared this former noble may be, you do notice that the most used piece of equipment %name% has are her boots.}";			
 	}
 
 	function onChangeAttributes()
@@ -113,7 +87,7 @@ this.disowned_noble_background <- this.inherit("scripts/skills/backgrounds/chara
 			],
 			RangedSkill = [
 				0,
-				10
+				5
 			],
 			MeleeDefense = [
 				-1,

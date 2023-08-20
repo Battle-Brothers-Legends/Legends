@@ -66,36 +66,9 @@ this.adventurous_noble_background <- this.inherit("scripts/skills/backgrounds/ch
 		}
 	}
 
-	function setGender(_gender = -1)
-	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
-
-		if (_gender != 1) return;
-
-		this.m.Name = "Adventurous Lady";
-		this.m.Icon = "ui/backgrounds/adventurous_noble_woman.png";
-		this.m.Faces = this.Const.Faces.PrettyFemale;
-		this.m.Hairs = this.Const.Hair.AllFemale;
-		this.m.HairColors = this.Const.HairColors.Young;
-		this.m.Beards = null;
-		this.m.BeardChance = 0;
-		this.m.Bodies = this.Const.Bodies.AllFemale;
-		this.addBackgroundType(this.Const.BackgroundType.Female);
-		this.m.BackgroundDescription = "Adventurous Ladies tend to have high resolve and melee skills, but often neglect ranged defense.";
-		this.m.GoodEnding = "Adventurousness never leaves the soul of a woman like %name%. {Instead of returning to her noble family, she left the %companyname% and headed east in search of rare beasts. Word has it she returned to town with the head of what looked like a giant lizard, but you don\'t believe such fantastical tripe. | She departed the %companyname% and ventured west, sailing across the oceans to unseen lands. There\'s no telling where he is these days, but you\'ve little doubt that he\'ll be coming back with stories to tell. | She retired from the %companyname% and, instead of returning to her noble family, headed south. Word has it she fought in a great noble civil war, killed an orc warlord, climbed the highest mountain in the land, and is currently writing an epic about her travels. | The noblewoman left the %companyname% and, preferring the life of adventure to noble boredom, she headed north. Word has it that she\'s currently marching a troop of explorers to the furthest reaches of the world.}";
-		this.m.BadEnding = "%name% departed the %companyname% and continued her adventuring elsewhere. {She headed east, hoping to discover the source of the greenskins, but the noblewoman has not been heard from since. | She headed north into the snowy wastes. Word has it she was seen a week ago, marching south this time, looking rather pale and shuffling moreso than walking. | She headed south into brutal marshlands. Word has it that a mysterious flame appeared in the fog and she walked toward it. The men who saw this said she disappeared into the mist and never returned. | She headed west and sailed the open sea. Despite having no experience at sea, she saw fit to make himself captain of the boat. They say pieces of her ship and dead sailors kept washing ashore for weeks.}";
-	}
-
 	function onBuildDescription()
 	{
-		if (this.isBackgroundType(this.Const.BackgroundType.Female))
-		{
-			return "{Hailing from the northern families, %name% preferred hunting and marksmanship over 'ladylike' interests. | %name% looks like a wild woman but carries herself like a noble scion. | You find %name% in the midst of a fierce archery competition with a handful of foppish admirers. Easily besting each one who steps forth. | Sipping wine in the midst of a rowdy tavern, %name% almost immediately stands out to you.} {After being found barren, the value to her family greatly diminished. Forcing %name% to find her legacy in battle as opposed to the bedchamber. | Tired of her {meek | abusive | drunkard | incompetent | lecherous | unfaithful} husband, %name% left without a trace one night. Eager to find a more satisfying life. | After her husband was murdered in a dastardly plot, %name% set out to find her lovers killer. | Unimpressed with her selection of suitors in court, %name% set off in pursuit of her true love, battle. | Forced into an arranged marriage with a man 40 years her elder, %name% spurned him at the wedding and fled with a bow gifted during the ceremony.} {%name% warns you that anyone who touches her {will lose their balls and their brain. | she'll split them from gullet to groin.} You assure her your men value their manhood highly. | With a smile %name% offers to shoot an apple off your head to prove her skills. You simply take her word on it. | %name% seems quite eager to see her first battle. You wonder if she has even seen a single skirmish. | %name% asks about how many servants she can bring, and who will be carrying her VAST luggage. | %name% holds a bow nearly a head taller than her at her side. It's a miracle she can even draw it back enough to fire}.";
-		}
-		else
-		{
-			return "{A minor noble | As the third in the line of succession | A young and brash %noble% | A skilled swordsman}, %name%\'s life at court {had grown stale for %them% | was not exciting enough for %them% with endless studying of court etiquette and family lineage | felt like wasting the best time of %their% life | was not half as exciting to %them% as the tales of adventures, battles, fearsome beasts to vanquish and fair maidens to conquer}. {Wearing the family crest proudly | At the encouragement of %their% brother | To the frustration of %their% mother | Finally making a decision to change things}, %name% rode out to {prove %themself% | make a name for themselves | earn glory on the battlefield | test %their% skills in battle} and {live life to its fullest as %they% imagined it from behind the castle walls | see all the wonders and exotic places of the world | earn %their% place in the world | be knighted for %their% valor | become famous and loved in all the known world | become infamous and feared in all the known world}.";
-		}
+		return "{A minor noble | As the third in the line of succession | A young and brash %noble% | A skilled swordsman}, %name%\'s life at court {had grown stale for %them% | was not exciting enough for %them% with endless studying of court etiquette and family lineage | felt like wasting the best time of %their% life | was not half as exciting to %them% as the tales of adventures, battles, fearsome beasts to vanquish and fair maidens to conquer}. {Wearing the family crest proudly | At the encouragement of %their% brother | To the frustration of %their% mother | Finally making a decision to change things}, %name% rode out to {prove %themself% | make a name for themselves | earn glory on the battlefield | test %their% skills in battle} and {live life to its fullest as %they% imagined it from behind the castle walls | see all the wonders and exotic places of the world | earn %their% place in the world | be knighted for %their% valor | become famous and loved in all the known world | become infamous and feared in all the known world}.";
 	}
 
 	function onChangeAttributes()
@@ -119,7 +92,7 @@ this.adventurous_noble_background <- this.inherit("scripts/skills/backgrounds/ch
 			],
 			RangedSkill = [
 				0,
-				10
+				5
 			],
 			MeleeDefense = [
 				3,
@@ -136,7 +109,6 @@ this.adventurous_noble_background <- this.inherit("scripts/skills/backgrounds/ch
 		};
 		return c;
 	}
-
 
 	function onAddEquipment()
 	{
@@ -157,7 +129,6 @@ this.adventurous_noble_background <- this.inherit("scripts/skills/backgrounds/ch
 			items.equip(this.new("scripts/items/weapons/rondel_dagger"));
 			items.equip(this.new("scripts/items/weapons/legend_parrying_dagger"));
 		}
-
 
 		items.equip(this.Const.World.Common.pickArmor([
 			[1, "mail_shirt"],
