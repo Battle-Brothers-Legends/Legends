@@ -66,6 +66,10 @@ this.miller_background <- this.inherit("scripts/skills/backgrounds/character_bac
 		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
+
+		this.m.Name = "Baker";
+		this.m.Icon = "ui/backgrounds/baker.png";
+		this.m.BackgroundDescription = "A baker is used to working the oven and kneading bread.";		
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;
 		this.m.Hairs = this.Const.Hair.AllFemale;
 		this.m.HairColors = this.Const.HairColors.Young;
@@ -77,8 +81,6 @@ this.miller_background <- this.inherit("scripts/skills/backgrounds/character_bac
 		this.m.BadEnding = "As the %companyname% fell on hard times, %name% the miller saw fit to go ahead and leave while she could still walk. She helped a nobleman test out a new way of grinding grains with mules and waterwheels working in tandem. Unfortunately, by \'helping\' she managed to fall into the contraption and was brutally crushed to death.";
 
 	}
-
-
 
 	function onBuildDescription()
 	{

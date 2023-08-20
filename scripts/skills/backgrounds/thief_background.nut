@@ -86,7 +86,25 @@ this.thief_background <- this.inherit("scripts/skills/backgrounds/character_back
 		}
 	}
 
+	function setGender(_gender = -1)
+	{
+		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
 
+		if (_gender != 1) return;
+
+		this.m.Name = "Pickpocket";
+		this.m.Icon = "ui/backgrounds/pickpocket.png";
+		this.m.BackgroundDescription = "A good pickpocket will have quick reflexes and the ability to evade any captors.";
+		this.m.Faces = this.Const.Faces.PrettyFemale;
+		this.m.Hairs = this.Const.Hair.AllFemale;
+		this.m.HairColors = this.Const.HairColors.Young;
+		this.m.Beards = null;
+		this.m.BeardChance = 0;
+		this.m.Bodies = this.Const.Bodies.AllFemale;
+		this.addBackgroundType(this.Const.BackgroundType.Female);
+		this.m.GoodEnding = "The former farmhand, %name%, retired from the %companyname%. The money she made was put toward purchasing a bit of land. she spends the rest of her days happily farming and starting a family with way too many children.";
+		this.m.BadEnding = "The former farmhand, %name%, soon left the %companyname%. She purchased a bit of land out {south | north | east | west} and was doing quite well for herself - until noble soldiers hanged her from a tree for refusing to hand over all her crops.";
+	}
 
 	function onBuildDescription()
 	{
