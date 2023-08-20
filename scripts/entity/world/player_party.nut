@@ -476,12 +476,13 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 		{
 			return;
 		}
-
+		local paymaster = 0;
 		foreach( bro in this.World.getPlayerRoster().getAll() )
 		{
-			if (bro.getSkills().hasSkill("perk.legend_barter_paymaster"))
+			if (bro.getSkills().hasSkill("perk.legend_barter_paymaster") && paymaster = 0)
 			{
-				this.m.WageMultiplier = bro.getBarterModifier();
+				paymaster += 1;
+				this.m.WageMultiplier *= bro.getBarterModifier();
 				return;
 			}
 		}
@@ -509,7 +510,7 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 		{
 			barterMult = barterMult * 1.1;
 		}
-
+		barterMult =  this.Math.pow(barterMult, 0.65); 
 		this.m.BarterMultiplier = barterMult / greed;
 	}
 
