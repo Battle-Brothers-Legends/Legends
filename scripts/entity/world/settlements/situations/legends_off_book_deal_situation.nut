@@ -27,8 +27,10 @@ this.legends_off_book_deal_situation <- this.inherit("scripts/entity/world/settl
 
 	function onUpdate( _modifiers )
 	{
-		_modifiers.BuyPriceMult *= 1.0 + (this.m.Stacks * this.m.BuyPriceMultPerStack);
-		_modifiers.RarityMult *= 1.0 + (this.m.Stacks * this.m.RarityMultPerStack);
+		local priceBonus = this.Math.pow(this.m.Stacks, 0.65);
+		local rarityBonus = this.Math.pow(this.m.Stacks, 0.65);
+		_modifiers.BuyPriceMult *= 1.0 + (priceBonus * this.m.BuyPriceMultPerStack);
+		_modifiers.RarityMult *= 1.0 + (rarityBonus * this.m.BuyPriceMultPerStack);
 	}
 });
 
