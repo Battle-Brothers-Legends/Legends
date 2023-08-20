@@ -30,7 +30,7 @@ this.legend_great_slash <- this.inherit("scripts/skills/skill", {
 		this.m.InjuriesOnBody = this.Const.Injury.CuttingBody;
 		this.m.InjuriesOnHead = this.Const.Injury.CuttingHead;
 		this.m.HitChanceBonus = 10;
-		this.m.DirectDamageMult = 0.4;
+		this.m.DirectDamageMult = 0.25;
 		this.m.ActionPointCost = 4;
 		this.m.FatigueCost = 13;
 		this.m.MinRange = 1;
