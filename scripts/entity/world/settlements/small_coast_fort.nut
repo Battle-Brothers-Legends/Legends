@@ -52,8 +52,6 @@ this.small_coast_fort <- this.inherit("scripts/entity/world/settlement", {
 			"raider_background",
 			"raider_background",
 			"retired_soldier_background",
-			  "female_butcher_background",
-			"female_butcher_background",
 			"fisherman_background",
 			"fisherman_background",
 			"houndmaster_background",

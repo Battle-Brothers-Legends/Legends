@@ -161,7 +161,7 @@ this.legends_snow_village <- this.inherit("scripts/entity/world/settlements/lege
 			"wildman_background",
 			"disowned_noble_background",
 			"cripple_background",
-						"apprentice_background",
+			"apprentice_background",
 			"brawler_background",
 			"brawler_background",
 			"cultist_background",
@@ -215,24 +215,12 @@ this.legends_snow_village <- this.inherit("scripts/entity/world/settlements/lege
 			"legend_inventor_background"
 		]];
 		this.m.FemaleDraftLists = [[
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_thief_background",
+			"wildwoman_background",
 		],[
 			"wildwoman_background",
-			"female_daytaler_background",
-			"female_daytaler_background",
-			"female_thief_background",
 			"female_disowned_noble_background",
 		],[
 			"legend_shieldmaiden_background",
-			"female_beggar_background",
-			"female_bowyer_background",
-			"female_daytaler_background",
-			"female_daytaler_background",
-			"female_farmhand_background",
-			"female_tailor_background",
-			"female_thief_background",
 			"wildwoman_background",
 			"female_adventurous_noble_background",
 			"female_disowned_noble_background",

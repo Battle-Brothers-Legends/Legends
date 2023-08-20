@@ -174,15 +174,12 @@ this.legends_snow_fort <- this.inherit("scripts/entity/world/settlements/legends
 			"cripple_background",
 		]];
 		this.m.FemaleDraftLists = [[
-			"female_beggar_background",
-		],[
-			"female_daytaler_background",
 			"wildwoman_background",
+			"wildwoman_background",
+		],[
 			"female_adventurous_noble_background",
 			"female_disowned_noble_background",
 		],[
-			"female_daytaler_background",
-			"female_servant_background",
 			"wildwoman_background",
 			"female_adventurous_noble_background",
 			"female_disowned_noble_background",

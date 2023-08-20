@@ -208,32 +208,10 @@ this.legends_fishing_village <- this.inherit("scripts/entity/world/settlements/l
 			"legend_inventor_background"
 		]];
 		this.m.FemaleDraftLists = [[
-			"female_beggar_background",
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_butcher_background",
-			"female_butcher_background",
-			"female_tailor_background",
+			"female_adventurous_noble_background",
 		],[
-			"female_beggar_background",
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_butcher_background",
-			"female_butcher_background",
-			"female_servant_background",
-			"female_tailor_background",
-			"female_thief_background",
+			"female_disowned_noble_background",
 		],[
-			"female_beggar_background",
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_daytaler_background",
-			"female_butcher_background",
-			"female_butcher_background",
-			"female_servant_background",
-			"female_servant_background",
-			"female_tailor_background",
-			"female_thief_background",
 			"female_adventurous_noble_background",
 			"female_disowned_noble_background",
 		]];

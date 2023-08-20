@@ -39,7 +39,7 @@ this.large_snow_fort <- this.inherit("scripts/entity/world/settlement", {
 		this.m.DraftList = [
 			"apprentice_background",
 			"brawler_background",
-			"female_daytaler_background",
+			"daytaler_background",
 			"gravedigger_background",
 			"graverobber_background",
 			"mason_background",
@@ -49,7 +49,7 @@ this.large_snow_fort <- this.inherit("scripts/entity/world/settlement", {
 			"militia_background",
 			"ratcatcher_background",
 			"refugee_background",
-			"female_servant_background",
+			"servant_background",
 			"vagabond_background",
 			"vagabond_background",
 			"wildman_background",

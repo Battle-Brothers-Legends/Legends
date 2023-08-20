@@ -210,21 +210,11 @@ this.legends_farm_fort <- this.inherit("scripts/entity/world/settlements/legends
 			"swordmaster_background"
 		]];
 		this.m.FemaleDraftLists = [[
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_miller_background",
 			"female_adventurous_noble_background",
 		],[
-			"female_farmhand_background",
-			"female_minstrel_background",
 			"female_adventurous_noble_background",
 			"female_disowned_noble_background",
 		],[
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_miller_background",
-			"female_miller_background",
-			"female_tailor_background",
 			"female_adventurous_noble_background",
 			"female_disowned_noble_background",
 			"female_disowned_noble_background",

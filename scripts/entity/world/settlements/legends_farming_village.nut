@@ -190,45 +190,6 @@ this.legends_farming_village <- this.inherit("scripts/entity/world/settlements/l
 			"swordmaster_background",
 			"legend_inventor_background"
 		]];
-		this.m.FemaleDraftLists = [[
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_daytaler_background",
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_miller_background",
-			"female_miller_background",
-			"female_tailor_background",
-		],[
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_daytaler_background",
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_miller_background",
-			"female_miller_background",
-			"female_servant_background",
-			"female_tailor_background",
-		],[
-			"female_beggar_background",
-			"female_beggar_background",
-			"female_butcher_background",
-			"female_daytaler_background",
-			"female_daytaler_background",
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_farmhand_background",
-			"female_miller_background",
-			"female_miller_background",
-			"female_miller_background",
-			"female_servant_background",
-			"female_tailor_background",
-			"female_adventurous_noble_background",
-		]];
 
 		this.m.StablesLists = [[
 			"legend_donkey_background",

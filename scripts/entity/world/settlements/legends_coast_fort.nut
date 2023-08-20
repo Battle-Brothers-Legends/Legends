@@ -17,11 +17,11 @@ this.legends_coast_fort <- this.inherit("scripts/entity/world/settlements/legend
 			"Sturmfeste",
 			"Wesefeste",
 			"Dunenfeste",
-						"Horizont",
-						"Ertrunkenort",
-						"Diekante",
-						"Dasende",
-						"Wasserkante",
+			"Horizont",
+			"Ertrunkenort",
+			"Diekante",
+			"Dasende",
+			"Wasserkante",
 			"Seemarkfeste",
 			"Seelandfeste",
 			"Regenfeste",
@@ -151,7 +151,7 @@ this.legends_coast_fort <- this.inherit("scripts/entity/world/settlements/legend
 			"retired_soldier_background",
 			"sellsword_background",
 			"swordmaster_background",
-				"apprentice_background",
+			"apprentice_background",
 			"caravan_hand_background",
 			"gambler_background",
 			"fisherman_background",
@@ -244,19 +244,13 @@ this.legends_coast_fort <- this.inherit("scripts/entity/world/settlements/legend
 
 		this.m.FemaleDraftLists = [
 			[
-   			"female_butcher_background",
-			"female_butcher_background",
 			"female_adventurous_noble_background",
 			],
 			[
-			"female_daytaler_background",
-			"female_servant_background",
 			"female_adventurous_noble_background",
 			"female_adventurous_noble_background",
 			],
 			[
-			"female_daytaler_background",
-			"female_servant_background",
 			"female_adventurous_noble_background",
 			"female_adventurous_noble_background",
 		]];

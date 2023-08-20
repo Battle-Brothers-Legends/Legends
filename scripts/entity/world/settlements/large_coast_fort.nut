@@ -67,7 +67,6 @@ this.large_coast_fort <- this.inherit("scripts/entity/world/settlement", {
 			"caravan_hand_background",
 			"caravan_hand_background",
 			"gambler_background",
-			"female_daytaler_background",
 			"fisherman_background",
 			"fisherman_background",
 			"gravedigger_background",
@@ -78,7 +77,6 @@ this.large_coast_fort <- this.inherit("scripts/entity/world/settlement", {
 			"minstrel_background",
 			"ratcatcher_background",
 			"refugee_background",
-			"female_servant_background",
 			"vagabond_background",
 			"witchhunter_background",
 			"female_adventurous_noble_background",
@@ -98,7 +96,6 @@ this.large_coast_fort <- this.inherit("scripts/entity/world/settlement", {
 			"eunuch_background",
 			"beast_hunter_background",
 			"manhunter_background",
-			"female_thief_background",
 			"legend_taxidermist_background",
 			"legend_blacksmith_background",
 			"legend_noble_ranged"

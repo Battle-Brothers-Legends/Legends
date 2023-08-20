@@ -43,7 +43,6 @@ this.medium_snow_fort <- this.inherit("scripts/entity/world/settlement", {
 			"brawler_background",
 			"brawler_background",
 			"cultist_background",
-			"female_daytaler_background",
 			"gravedigger_background",
 			"mason_background",
 			"messenger_background",

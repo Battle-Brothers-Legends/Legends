@@ -150,15 +150,6 @@ this.legends_sisterhood_scenario <- this.inherit("scripts/scenarios/world/starti
 
 		this.addBroToRoster(_roster, "legend_shieldmaiden_background", 6);
 		this.addBroToRoster(_roster, "female_disowned_noble_background", 6);
-		this.addBroToRoster(_roster, "female_daytaler_background", 6);
-		this.addBroToRoster(_roster, "female_beggar_background", 6);
-		this.addBroToRoster(_roster, "female_bowyer_background", 6);
-		this.addBroToRoster(_roster, "female_butcher_background", 6);
-		this.addBroToRoster(_roster, "female_farmhand_background", 6);
-		this.addBroToRoster(_roster, "female_miller_background", 6);
-		this.addBroToRoster(_roster, "female_servant_background", 6);
-		this.addBroToRoster(_roster, "female_tailor_background", 6);
-		this.addBroToRoster(_roster, "female_thief_background", 6);
 		this.addBroToRoster(_roster, "legend_nun_background", 6);
 
 		foreach( i, bro in bros )

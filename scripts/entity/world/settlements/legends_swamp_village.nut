@@ -216,26 +216,15 @@ this.legends_swamp_village <- this.inherit("scripts/entity/world/settlements/leg
 		]];
 		this.m.FemaleDraftLists = [[
 			"wildwoman_background",
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_daytaler_background",
 		],[
 			"wildwoman_background",
-			"female_beggar_background",
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_daytaler_background",
-			"female_thief_background",
 			"female_adventurous_noble_background",
 			"female_disowned_noble_background",
 		],[
-			"female_beggar_background",
-			"female_beggar_background",
-			"female_daytaler_background",
-			"female_servant_background",
-			"female_thief_background",
 			"wildwoman_background",
 			"female_disowned_noble_background",
+			"female_adventurous_noble_background",
+			"female_adventurous_noble_background",
 		]];
 
 		this.m.StablesLists = [[],[],[]]
