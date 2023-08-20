@@ -482,7 +482,7 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 			if (bro.getSkills().hasSkill("perk.legend_barter_paymaster") && paymaster = 0)
 			{
 				paymaster += 1;
-				this.m.WageMultiplier *= bro.getBarterModifier();
+				this.m.WageMultiplier = bro.getBarterModifier();
 				return;
 			}
 		}
