@@ -35,31 +35,31 @@ this.Const.DLC.Info[1] = {
 	Announce = true,
 	Icon = "ui/images/dlc_1.png",
 	IconDisabled = "ui/images/dlc_1_sw.png",
-	URL = this.isSteamBuild() ? "https://store.steampowered.com/app/732460/Battle_Brothers__Lindwurm/" : "https://www.gog.com/game/battle_brothers"
+	URL = this.isSteamBuild() ? "steam://advertise/732460" : "https://www.gog.com/game/battle_brothers"
 };
 this.Const.DLC.Info[2] = {
 	Announce = true,
 	Icon = "ui/images/dlc_2.png",
 	IconDisabled = "ui/images/dlc_2_sw.png",
-	URL = this.isSteamBuild() ? "https://store.steampowered.com/app/961930/Battle_Brothers__Beasts__Exploration/" : "https://www.gog.com/game/battle_brothers_beasts_exploration"
+	URL = this.isSteamBuild() ? "steam://advertise/961930" : "https://www.gog.com/game/battle_brothers_beasts_exploration"
 };
 this.Const.DLC.Info[4] = {
 	Announce = true,
 	Icon = "ui/images/dlc_4.png",
 	IconDisabled = "ui/images/dlc_4_sw.png",
-	URL = this.isSteamBuild() ? "https://store.steampowered.com/app/1067690/Battle_Brothers__Warriors_of_the_North" : "https://www.gog.com/game/battle_brothers_warriors_of_the_north"
+	URL = this.isSteamBuild() ? "steam://advertise/1067690" : "https://www.gog.com/game/battle_brothers_warriors_of_the_north"
 };
 this.Const.DLC.Info[6] = {
 	Announce = true,
 	Icon = "ui/images/dlc_6.png",
 	IconDisabled = "ui/images/dlc_6_sw.png",
-	URL = this.isSteamBuild() ? "https://store.steampowered.com/app/1361280/Battle_Brothers__Blazing_Deserts" : "https://www.gog.com/game/battle_brothers_blazing_deserts"
+	URL = this.isSteamBuild() ? "steam://advertise/1361280" : "https://www.gog.com/game/battle_brothers_blazing_deserts"
 };
 this.Const.DLC.Info[8] = {
 	Announce = true,
 	Icon = "ui/images/dlc_8.png",
 	IconDisabled = "ui/images/dlc_8_sw.png",
-	URL = this.isSteamBuild() ? "https://store.steampowered.com/app/1910050/Battle_Brothers__Of_Flesh_and_Faith" : "https://www.gog.com/game/battle_brothers_of_flesh_and_faith"
+	URL = this.isSteamBuild() ? "steam://advertise/1910050" : "https://www.gog.com/game/battle_brothers_of_flesh_and_faith"
 };
 gt.Const.Direction <- {
 	N = 0,
