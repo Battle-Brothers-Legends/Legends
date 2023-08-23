@@ -29,14 +29,26 @@ this.legend_oms_amphora_skill <- ::inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local ret = this.skill.getDefaultUtilityTooltip();
-		ret.push({
-			id = 10,
-			type = "text",
-			icon = "ui/icons/special.png",
-			text = "Does something...?"
-		});
-		return ret;
+		if (!this.World.Flags.get("Item Identified"))
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Does something when equipped in the \'accessory\' slot and consumed in battle."
+			});
+			return result;
+		}
+		else
+		{
+			result.push({
+				id = 10,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Drinking in battle provides a random status effect. May be harmful or helpful. Refills after every battle."
+			});
+			return result;
+		}
 	}
 
 	function isUsable()

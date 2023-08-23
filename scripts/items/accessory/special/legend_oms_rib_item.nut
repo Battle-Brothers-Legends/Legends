@@ -59,7 +59,7 @@ this.legend_oms_rib_item <- this.inherit("scripts/items/accessory/accessory", {
 				id = 10,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Does something...?"
+				text = "Does something when equipped in the \'accessory\' slot."
 			});
 			return result;
 		}
