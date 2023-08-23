@@ -268,7 +268,7 @@ this.bandit_thug <- this.inherit("scripts/entity/tactical/human", {
 
 			 item = this.Const.World.Common.pickArmor([
 				[20, "blotched_gambeson"],
-				[30, "bandit_armor_light"],
+				[20, "bandit_armor_light"],
 				[20, "ragged_surcoat"],
 				[20, "padded_surcoat"],
 				[20, "gambeson"]
@@ -280,7 +280,7 @@ this.bandit_thug <- this.inherit("scripts/entity/tactical/human", {
 				[20, "leather_wraps"],
 				[20, "thick_tunic"],
 				[20, "monk_robe"],
-				[30, "bandit_armor_light"],
+				[20, "bandit_armor_light"],
 				[20, "tattered_sackcloth"],
 				[20, "leather_tunic"],
 				[20, "blotched_gambeson"],
