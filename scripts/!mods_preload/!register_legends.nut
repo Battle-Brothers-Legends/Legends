@@ -40,4 +40,5 @@
 
 	this.Const.LegendMod.loadBuyback();
 	this.Const.LegendMod.loadTacticalTooltip();
+	this.Const.Perks.updatePerkGroupTooltips();
 });
