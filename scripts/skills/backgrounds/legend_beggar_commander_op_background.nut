@@ -4,7 +4,7 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 	{
 		this.character_background.create();
 		this.m.ID = "background.legend_commander_beggar_op";
-		this.m.Name = "Framed Beggar OP";
+		this.m.Name = "Framed Beggar";
 		this.m.Icon = "ui/backgrounds/background_18.png";
 		this.m.BackgroundDescription = "Beggars aren\'t the most determined persons, and living on the street tends to be detrimental to their health.";
 		this.m.GoodEnding = "Having enough of all the fighting, %name% the once-beggar retired from the %companyname%. You know the man made a pretty crown in his time with the mercenary company, yet the other day you saw him out begging again. You asked if he\'d wasted all his money and he laughed. He said he\'d purchased land and was doing just fine. Then he held out his little tin and asked for a crown. You gave him two.";
@@ -142,22 +142,9 @@ this.legend_beggar_commander_op_background <- this.inherit("scripts/skills/backg
 
 	function setGender( _gender = -1 )
 	{
-		local r = _gender;
+		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
 
-		if (_gender == -1)
-		{
-			r = this.Math.rand(0, 9);
-
-			if (::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled")
-			{
-				r = this.Math.rand(0, 1);
-			}
-		}
-
-		if (_gender != 1)
-		{
-			return;
-		}
+		if (_gender != 1) return;
 
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;
 		this.m.Hairs = this.Const.Hair.UntidyMale;

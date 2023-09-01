@@ -18,14 +18,13 @@ this.legends_beggar_scenario <- this.inherit("scripts/scenarios/world/starting_s
 
 	function onSpawnAssets()
 	{
-		local roster = this.World.getPlayerRoster();
 		local names = [];
 
 		for( local i = 0; i < 1; i = i )
 		{
 			local bro;
 			bro = roster.create("scripts/entity/tactical/player");
-			bro.worsenMood(1.5, "Saw something awful");
+
 			bro.m.HireTime = this.Time.getVirtualTimeF();
 
 			while (names.find(bro.getNameOnly()) != null)
@@ -37,25 +36,14 @@ this.legends_beggar_scenario <- this.inherit("scripts/scenarios/world/starting_s
 			i = ++i;
 		}
 
-		local bros = roster.getAll();
-		local r;
-		r = this.Math.rand(0, 3);
+		bro.setStartValuesEx([
+			"legend_beggar_commander_background"
+		]);
+		
+		bro.getSkills().add(this.new("scripts/skills/traits/player_character_trait"));		
+		bro.getFlags().set("IsPlayerCharacter", true);
+		bro.worsenMood(1.5, "Saw something awful");
 
-		if (r == 0)
-		{
-			bros[0].setStartValuesEx([
-				"legend_female_beggar_commander_background"
-			]);
-		}
-		else
-		{
-			bros[0].setStartValuesEx([
-				"legend_beggar_commander_background"
-			]);
-		}
-
-		bros[0].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
-		bros[0].getFlags().set("IsPlayerCharacter", true);
 		this.World.Assets.addBusinessReputation(this.m.StartingBusinessReputation);
 		this.World.Assets.getStash().resize(this.World.Assets.getStash().getCapacity() + 9);
 		this.World.Assets.m.Money = this.World.Assets.m.Money / 2 + 2;

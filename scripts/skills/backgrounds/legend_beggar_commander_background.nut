@@ -30,13 +30,26 @@ this.legend_beggar_commander_background <- this.inherit("scripts/skills/backgrou
 			"trait.disloyal",
 			"trait.loyal"
 		];
+		this.m.Titles = [
+			"the Dirty",
+			"the Poor",
+			"the Ragged",
+			"the Sick",
+			"the Liar",
+			"the Idle",
+			"the Sloth",
+			"the Useless",
+			"the Beggar",
+			"the Weasel",
+			"the Skunk",
+			"the Sluggard",
+			"the Homeless"
+		];
 		this.m.ExcludedTalents = [
 			this.Const.Attributes.Hitpoints,
 			this.Const.Attributes.Bravery
 		];
-		this.m.Titles = [
-			"the Desolated"
-		];
+
 		this.m.Faces = this.Const.Faces.AllWhiteMale;
 		this.m.Hairs = this.Const.Hair.UntidyMale;
 		this.m.HairColors = this.Const.HairColors.All;
@@ -88,23 +101,17 @@ this.legend_beggar_commander_background <- this.inherit("scripts/skills/backgrou
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		local r = _gender;
-		if (_gender == -1)
-		{
-			r = this.Math.rand(0, 9);
-			if (::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled")
-			{
-				r = this.Math.rand(0, 1);
-			}
-		}
+		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
+
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;
 		this.m.Hairs = this.Const.Hair.UntidyMale;
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = null;
 		this.m.BeardChance = 0;
 		this.m.Bodies = this.Const.Bodies.AllFemale;
+		this.m.Name = "Framed Widow";
 		this.addBackgroundType(this.Const.BackgroundType.Female);
 		this.m.GoodEnding = "Having enough of all the fighting, %name% the once-beggar retired from the %companyname%. You know the woman made a pretty crown in her time with the mercenary company, yet the other day you saw her out begging again. You asked if she\'d wasted all her money and she laughed. She said she\'d purchased land and was doing just fine. Then she held out his little tin and asked for a crown. You gave her two.";
 		this.m.BadEnding = "The fighting life is a rough one, and %name% the once-beggar saw fit to retire from it before it became a deadly one. Unfortunately, she went back to beggaring. Word has it that a nobleman cleaned a city of riff-raff and sent them marching north despite it being winter. Cold and hungry, %name% died on the side of a road, a tin cup frozen to her finger.";
@@ -159,5 +166,34 @@ this.legend_beggar_commander_background <- this.inherit("scripts/skills/backgrou
 		local actor = this.getContainer().getActor();
 		local dirt = actor.getSprite("dirt");
 		dirt.Visible = true;
+	}
+
+	function onAddEquipment()
+	{
+		this.World.Assets.addMoney(-208);
+		local items = this.getContainer().getActor().getItems();
+		local r;
+		r = this.Math.rand(0, 4);
+
+		if (r == 0)
+		{
+			items.equip(this.new("scripts/items/weapons/knife"));
+		}
+		else if (r == 1)
+		{
+			items.equip(this.new("scripts/items/weapons/wooden_stick"));
+		}
+
+		items.equip(this.Const.World.Common.pickArmor([
+			[1, "tattered_sackcloth"],
+			[1, "leather_wraps"]
+		]));
+
+		local item = this.Const.World.Common.pickHelmet([
+			[3, ""],
+			[1, "hood", 38]
+		])
+		items.equip(item);
+
 	}
 });
