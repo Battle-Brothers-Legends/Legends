@@ -24,7 +24,7 @@ this.legend_companion_ranged_background <- this.inherit("scripts/skills/backgrou
 			"trait.greedy",
 			"trait.weasel",
 			"trait.fear_nobles",
-			"trait.flabby",
+			"trait.frail",
 			"trait.slack",
 			"trait.double_tongued",
 			"trait.clumsy"

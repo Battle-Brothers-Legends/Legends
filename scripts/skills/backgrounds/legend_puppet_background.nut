@@ -59,7 +59,7 @@ this.legend_puppet_background <- this.inherit("scripts/skills/backgrounds/charac
 			"trait.ambitious",
 			"trait.fear_nobles",
 			"trait.hate_nobles",
-			"trait.flabby",
+			"trait.frail",
 			//"trait.legend_cannibalistic",
 			"trait.steady_hands",
 			"trait.talented",

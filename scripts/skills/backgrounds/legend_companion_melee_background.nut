@@ -24,7 +24,7 @@ this.legend_companion_melee_background <- this.inherit("scripts/skills/backgroun
 			"trait.greedy",
 			"trait.weasel",
 			"trait.fear_nobles",
-			"trait.flabby",
+			"trait.frail",
 			"trait.slack",
 			"trait.double_tongued",
 			"trait.clumsy"
