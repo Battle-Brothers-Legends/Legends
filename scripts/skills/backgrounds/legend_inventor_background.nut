@@ -7,8 +7,8 @@ this.legend_inventor_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.Name = "Inventor";
 		this.m.Icon = "ui/backgrounds/legend_inventor.png";
 		this.m.BackgroundDescription = "Inventors are trenchant problem solvers, fueled by a burning passion for knowledge.";
-		this.m.GoodEnding = null;
-		this.m.BadEnding = null;
+		this.m.GoodEnding = "%name% initially did not fit in well with %companyname%, but given time everyone saw their value in setting both weapons and joints back togeather. They took their small fortune and set up a workshop to call their own, accidently creating a mortar that did not fire up in the air, but rather directly at the enemy.";
+		this.m.BadEnding = "%name% was a misfit from the start, their lack of skill on the battlefield held them back compared to their stronger mercenary counterparts. Their journey ironically ended not on the battlefield but instead in their workshop, which stands only as a charred ruin.";
 		this.m.HiringCost = 1250;
 		this.m.DailyCost = 25;
 		this.m.Excluded = [
@@ -47,10 +47,11 @@ this.legend_inventor_background <- this.inherit("scripts/skills/backgrounds/char
 				this.Const.Perks.HammerTree,
 				this.Const.Perks.StaffTree,
 				this.Const.Perks.DaggerTree,
+				this.Const.Perks.SlingTree,
 				this.Const.Perks.CrossbowTree
 			],
 			Defense = [
-				this.Const.Perks.LightArmorTree
+				this.Const.Perks.ClothArmorTree
 			],
 			Traits = [
 				this.Const.Perks.IntelligentTree,
@@ -59,7 +60,9 @@ this.legend_inventor_background <- this.inherit("scripts/skills/backgrounds/char
 				this.Const.Perks.OrganisedTree
 			],
 			Enemy = [],
-			Class = [this.Const.Perks.RepairClassTree],
+			Class = [
+				this.Const.Perks.RepairClassTree
+			],
 			Magic = [
 				this.Const.Perks.PhilosophyMagicTree,
 				this.Const.Perks.InventorMagicTree
@@ -107,7 +110,7 @@ this.legend_inventor_background <- this.inherit("scripts/skills/backgrounds/char
 			],
 			RangedSkill = [
 				0,
-				0
+				5
 			],
 			MeleeDefense = [
 				0,
