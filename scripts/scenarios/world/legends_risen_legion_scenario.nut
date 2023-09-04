@@ -428,6 +428,7 @@ this.legends_risen_legion_scenario <- this.inherit("scripts/scenarios/world/star
 		}
 
 		this.m.StaticRelationsToFaction[this.Const.FactionType.NobleHouse] = true;
+		this.m.StaticRelationsToFaction[this.Const.FactionType.OrientalCityState] = true;
 		this.m.StaticRelationsToFaction[this.Const.FactionType.Undead] = true;
 		this.World.State.m.Player = this.World.spawnEntity("scripts/entity/world/player_party", randomVillageTile.Coords.X, randomVillageTile.Coords.Y);
 		this.World.Assets.updateLook(112);
