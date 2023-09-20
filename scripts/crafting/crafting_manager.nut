@@ -1,6 +1,7 @@
 this.crafting_manager <- {
 	m = {
-		Blueprints = []
+		Blueprints = [],
+		BlueprintsCache = [], // for pagination
 	},
 	function getBlueprint( _id )
 	{
@@ -90,6 +91,8 @@ this.crafting_manager <- {
 				this.m.Blueprints.push(blueprint);
 			}
 		}
+
+		this.m.BlueprintsCache = [];
 	}
 
 	function deleteAllBlueprints()
@@ -113,6 +116,26 @@ this.crafting_manager <- {
 		{
 			b.reset();
 		}
+	}
+
+	function populateCache()
+	{
+		this.m.BlueprintsCache = this.getQualifiedBlueprints();
+	}
+
+	function getPaginatedBlueprints( _page, _perPage )
+	{
+		if (_page < 1) return []; // bad input
+		
+		// page 1: start at 0 				( _perPage * 0)
+		// page 2: start at _perPage		( _perPage * 1)
+		// page 3: start at _perPage * 2 	( _perPage * 2)
+		local startIndex = _perPage * (_page - 1);
+		local endIndex = ::Math.min(this.m.BlueprintsCache.len(), startIndex + _perPage);
+
+		if (startIndex >= this.m.BlueprintsCache.len()) return []; // bad input
+
+		return this.m.BlueprintsCache.slice(startIndex, endIndex);
 	}
 
 	function onSerialize( _out )
