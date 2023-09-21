@@ -94,6 +94,7 @@ this.legend_armor_piercing_arrows <- this.inherit("scripts/items/ammo/ammo", {
 
 		switch(item.getID()) //this ideally needs to be refactored - it does work but we can just call the item.type instead of listing all these out.
 		{
+			case "weapon.composite_bow":
 			case "weapon.wonky_bow":
 			case "weapon.war_bow":
 			case "weapon.named_warbow":
