@@ -437,7 +437,7 @@
 		Type = "Hunt",
 		Tier = 0,
 		Difficulty = 200,
-		Food = "scripts/items/supplies/legends_squirrel_meat_item",
+		Food = "scripts/items/supplies/legend_squirrel_meat_item",
 		Cook = "scripts/items/supplies/legend_yummy_sausages", // placeholder
 		Loot = [
 			[1,"scripts/items/trade/legend_small_furs_item"]
