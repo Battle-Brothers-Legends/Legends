@@ -1057,7 +1057,7 @@ this.tooltip_events <- {
 
 			if (!player.hasPerk(_perkId))
 			{
-				if ("HasUnactivatedPerkTooltipHints" in perk && perk.HasUnactivatedPerkTooltipHints)
+				if ( (::World.State.isInCharacterScreen() || (::Tactical.isActive() && ::Tactical.State.isInCharacterScreen())) && "HasUnactivatedPerkTooltipHints" in perk && perk.HasUnactivatedPerkTooltipHints)
 				{
 					// Allow Perks to push Tooltip elements that will be displayed when the user views the Tooltips of unactivated Perks in the Perk screen
 					local tempContainer = this.new("scripts/skills/skill_container");
