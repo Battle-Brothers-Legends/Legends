@@ -27,7 +27,7 @@ this.legend_inquisition_disciple_trait <- this.inherit("scripts/skills/traits/ch
 				id = 11,
 				type = "text",
 				icon = "ui/icons/health.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] Hitpoints"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+20[/color] Hitpoints"
 			},
 			{
 				id = 10,
