@@ -87,39 +87,45 @@ this.slave_southern_background <- this.inherit("scripts/skills/backgrounds/slave
 	{
 		local c = {
 			Hitpoints = [
-				-10,
-				-10
+				4,
+				8
 			],
 			Bravery = [
-				-10,
-				-5
+				-5,
+				0
 			],
 			Stamina = [
-				5,
-				5
+				4,
+				10
 			],
 			MeleeSkill = [
 				0,
-				0
+				2
 			],
 			RangedSkill = [
-				0,
-				0
+				6,
+				10
 			],
 			MeleeDefense = [
-				0,
-				0
+				1,
+				3
 			],
 			RangedDefense = [
-				0,
-				0
+				2,
+				5
 			],
 			Initiative = [
-				-5,
-				-5
+				3,
+				8
 			]
 		};
 		return c;
+	}
+
+	function onAdded()
+	{
+		this.character_background.onAdded();
+		this.m.Container.add(this.new("scripts/skills/perks/perk_legend_throw_sand"));
 	}
 
 	//no need to do legendsequipment here because it inherits from slave_background

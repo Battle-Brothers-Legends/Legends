@@ -160,7 +160,7 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 		local c = {
 			Hitpoints = [
 				5,
-				16
+				10
 			],
 			Bravery = [
 				-5,
@@ -172,19 +172,19 @@ this.slave_background <- this.inherit("scripts/skills/backgrounds/character_back
 			],
 			MeleeSkill = [
 				0,
-				0
+				2
 			],
 			RangedSkill = [
 				0,
-				0
+				3
 			],
 			MeleeDefense = [
 				0,
-				0
+				2
 			],
 			RangedDefense = [
 				0,
-				0
+				2
 			],
 			Initiative = [
 				-5,

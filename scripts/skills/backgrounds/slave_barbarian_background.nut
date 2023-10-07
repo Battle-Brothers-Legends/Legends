@@ -39,7 +39,8 @@ this.slave_barbarian_background <- this.inherit("scripts/skills/backgrounds/slav
 				this.Const.Perks.ThrowingTree
 			],
 			Defense = [
-				this.Const.Perks.LightArmorTree
+				this.Const.Perks.LightArmorTree,
+				this.Const.Perks.HeavyArmorTree
 			],
 			Traits = [
 				this.Const.Perks.ViciousTree,
@@ -50,8 +51,9 @@ this.slave_barbarian_background <- this.inherit("scripts/skills/backgrounds/slav
 			],
 			Enemy = [
 				this.Const.Perks.CaravanTree,
+				this.Const.Perks.SouthernersTree,
 				this.Const.Perks.NoblesTree
-				],
+			],
 			Class = [],
 			Magic = []
 		}
@@ -61,35 +63,35 @@ this.slave_barbarian_background <- this.inherit("scripts/skills/backgrounds/slav
 	{
 		local c = {
 			Hitpoints = [
-				0,
-				0
+				4,
+				9
 			],
 			Bravery = [
-				-10,
-				-5
+				0,
+				2
 			],
 			Stamina = [
-				5,
-				5
+				8,
+				14
 			],
 			MeleeSkill = [
-				0,
-				0
+				4,
+				8
 			],
 			RangedSkill = [
+				3,
+				5
+			],
+			MeleeDefense = [
+				0,
+				1
+			],
+			RangedDefense = [
 				0,
 				0
 			],
-			MeleeDefense = [
-				-2,
-				-1
-			],
-			RangedDefense = [
-				-2,
-				-1
-			],
 			Initiative = [
-				-5,
+				-8,
 				-5
 			]
 		};
