@@ -151,28 +151,28 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 				-8
 			],
 			Stamina = [
-				5,
-				8
+				15,
+				10
 			],
 			MeleeSkill = [
-				8,
-				12
+				10,
+				14
 			],
 			RangedSkill = [
 				-10,
-				5
+				0
 			],
 			MeleeDefense = [
-				5,
-				8
-			],
-			RangedDefense = [
-				3,
+				0,
 				3
 			],
+			RangedDefense = [
+				0,
+				1
+			],
 			Initiative = [
-				5,
-				5
+				10,
+				10
 			]
 		};
 		return c;

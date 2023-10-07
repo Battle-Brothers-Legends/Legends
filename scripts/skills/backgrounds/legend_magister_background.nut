@@ -6,11 +6,11 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.ID = "background.legend_magister";
 		this.m.Name = "Magister";
 		this.m.Icon = "ui/backgrounds/background_magister.png";
-		this.m.BackgroundDescription = "Magisters are a unqiue breed of insane. While those they control run amock, the Magister coordinates the carnage from up high.";
+		this.m.BackgroundDescription = "Magisters are a unique breed of insane. While among the ranks of the insane preside over, their quiet madness eclipses all and causes the rest to fall in line.";
 		this.m.GoodEnding = "The cultist, %name%, left the company with a band of cloaked converts. You know not what became of the fanatic, but every so often they appear in your dreams. Often standing alone in a great void and there is always someone, or something, lingering in the black beyond. Every night, this image gets a little more clear, and each night you find yourself staying up later and later just to avoid dreaming at all.";
 		this.m.BadEnding = "You heard that %name%, the cultist, left the company at some juncture and went out to spread the faith. There\'s no telling what became of the fanatic, but there was a recent inquisition against unholy faiths and hundreds of \'folk in dark cloaks with even darker intentions\' were burned at the stake across the realm.";
 		this.m.HiringCost = 250;
-		this.m.DailyCost = 25;
+		this.m.DailyCost = 27;
 		this.m.Excluded = [
 			"trait.teamplayer",
 			"trait.fear_undead",
@@ -63,11 +63,13 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.Modifiers.Healing = this.Const.LegendMod.ResourceModifiers.Healing[2];
 		this.m.Modifiers.Injury = this.Const.LegendMod.ResourceModifiers.Injury[2];
 		this.m.Modifiers.MedConsumption = this.Const.LegendMod.ResourceModifiers.MedConsumption[3];
+		this.m.Modifiers.Gathering = this.Const.LegendMod.ResourceModifiers.Gather[2];
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.CleaverTree,
 				this.Const.Perks.FlailTree,	
-				this.Const.Perks.SlingTree,			
+				this.Const.Perks.SlingTree,	
+				this.Const.Perks.SwordTree,						
 				this.Const.Perks.StaffTree
 			],
 			Defense = [
@@ -84,6 +86,7 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 			],
 			Class = [
 				this.Const.Perks.NinetailsClassTree,
+				this.Const.Perks.SickleClassTree,
 				this.Const.Perks.HealerClassTree
 			],
 			Magic = []
@@ -128,7 +131,7 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 
 	function onBuildDescription()
 	{
-		return "{Magisters are a conduit of evil in the world, seemingly sucking up all the suffering around them and directing it upon whoever they please. | %name% is wreathed in fabrics that seem to obay a differant set of rules to the rest of the world. | %name% occasionally turns their head as if an unseen force was whispering to them, nodding and whispering back to the unseen force in kind, almost as if affirming their own madness. | %name% whispers into their weapon and nods in agreement with it, almost as if conversing with a long lost friend. | The stranger tracks and nods towards unseen figures like a ringmaster for a ghostly parade. | The look in the eyes of %name% reveals little, aside from the fact that the more you look at them the more you notice the irregularaties, having a smaller second pupil for instance...or a malformed scar of flesh. | They stand with a a crooked posture, as if holding up a heavy and unseen burden.} \"Davkul awaits us all\" %name% parrots. You are not certain, but you feel a second voice repeat those words in unison from deep inside your mind.";
+		return "{Magisters are a conduit of evil in the world, seemingly sucking up all the suffering around them and directing it upon whoever they please.} {%name% is wreathed in fabrics that seem to obey a differant set of rules to the rest of the world. | %name% occasionally turns their head as if an unseen force was whispering to them, nodding and whispering back to the unseen force in kind, almost as if affirming their own madness. | %name% whispers into their weapon and nods in agreement with it, almost as if conversing with a long lost friend. | The stranger tracks and nods towards unseen figures like a ringmaster for a ghostly parade. | The look in the eyes of %name% reveals little, aside from the fact that the more you look at them the more you notice the irregularaties, having a smaller, second pupil for instance. | They stand with a a crooked posture, as if holding up a heavy and unseen burden.} \"Davkul awaits us all\" %name% parrots. You are not certain, but you feel a second voice repeat those words in unison from deep inside your mind.";
 	}
 
 	function onChangeAttributes()
@@ -140,15 +143,15 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 			],
 			Bravery = [
 				15,
-				20
+				25
 			],
 			Stamina = [
 				-4,
 				6
 			],
 			MeleeSkill = [
-				-5,
-				6
+				5,
+				10
 			],
 			RangedSkill = [
 				5,
@@ -159,7 +162,7 @@ this.legend_magister_background <- this.inherit("scripts/skills/backgrounds/char
 				5
 			],
 			RangedDefense = [
-				-2,
+				2,
 				5
 			],
 			Initiative = [

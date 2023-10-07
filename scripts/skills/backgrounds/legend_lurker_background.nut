@@ -9,8 +9,8 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 		this.m.BackgroundDescription = "This one is unsettling, even for a cultist. Ever quiet and brooding, but with eyes as keen as that of a vengeful god.";
 		this.m.GoodEnding = "The cultist, %name%, left the company with a band of cloaked converts. You know not what became of the fanatic, but every so often they appear in your dreams. Often standing alone in a great void and there is always someone, or something, lingering in the black beyond. Every night, this image gets a little more clear, and each night you find yourself staying up later and later just to avoid dreaming at all.";
 		this.m.BadEnding = "You heard that %name%, the cultist, left the company at some juncture and went out to spread the faith. There\'s no telling what became of the fanatic, but there was a recent inquisition against unholy faiths and hundreds of \'folk in dark cloaks with even darker intentions\' were burned at the stake across the realm.";
-		this.m.HiringCost = 130;
-		this.m.DailyCost = 12;
+		this.m.HiringCost = 120;
+		this.m.DailyCost = 11;
 		this.m.Excluded = [
 			"trait.teamplayer",
 			"trait.fear_undead",
@@ -152,7 +152,7 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 	{
 		local c = {
 			Hitpoints = [
-				-10,
+				-3,
 				-5
 			],
 			Bravery = [
@@ -160,24 +160,24 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 				10
 			],
 			Stamina = [
-				4,
-				12
+				5,
+				0
 			],
 			MeleeSkill = [
-				-5,
+				2,
 				5
 			],
 			RangedSkill = [
-				8,
-				14
+				7,
+				12
 			],
 			MeleeDefense = [
 				-5,
-				5
+				2
 			],
 			RangedDefense = [
-				5,
-				8
+				1,
+				3
 			],
 			Initiative = [
 				8,
