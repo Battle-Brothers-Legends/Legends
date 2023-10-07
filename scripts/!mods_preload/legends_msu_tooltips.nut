@@ -108,7 +108,7 @@
 			Hunt = ::MSU.Class.BasicTooltip(
 				"Focused Hunting",
 				format(
-					"Your hunting party will %s for animals or monsters.\n\nDoubles the drop rate of %s, but increases foraging and hunting time by about %s\n\n%s are required for loot items to be obtainable", 
+					"Your hunting party will %s for animals or monsters, taking their time to scour the remains for loot.\n\nDoubles the drop rate of %s, but increases hunting time by about %s\n\n%s are required for loot items to be obtainable", 
 					::Const.UI.getColorized("only hunt",::Const.UI.Color.PositiveValue), 
 					::Const.UI.getColorized("loot items",::Const.UI.Color.PositiveValue), 
 					::Const.UI.getColorized("40%",::Const.UI.Color.NegativeValue),

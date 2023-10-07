@@ -60,12 +60,12 @@ if (!("HuntingLoot" in ::Const))
 					modeDifficultyMultiplier = 0.75;
 				}
 
-				if(targetDef.Type=="Hunt" && this.Upgraded && this.HuntLevel > 0 && (::Math.rand(1,5) <= (1 * huntModeBonus) || this.dropLoot(this.HuntLevel, isHuntMode)))
+				if(targetDef.Type=="Hunt" && this.Upgraded && this.HuntLevel > 0 && (::Math.rand(1,5) <= (2 * huntModeBonus) || this.dropLoot(this.HuntLevel, isHuntMode)))
 				{
 					loot = this.new(::MSU.Class.WeightedContainer(targetDef.Loot).roll());
 				}
 
-				if("Cook" in targetDef && this.CookLevel > 0 && (::Math.rand(1,5) <= (1 * cookModeBonus) || this.dropLoot(this.CookLevel, isCookMode)))
+				if("Cook" in targetDef && this.CookLevel > 0 && (::Math.rand(1,5) <= (2 * cookModeBonus) || this.dropLoot(this.CookLevel, isCookMode)))
 				{
 					cook = this.new(targetDef.Cook)
 				}
