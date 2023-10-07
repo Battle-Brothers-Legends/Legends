@@ -495,7 +495,7 @@ this.free_greenskin_prisoners_contract <- this.inherit("scripts/contracts/contra
 						}
 						else
 						{
-							if (nearest_goblins.getTile().getDistanceTo(playerTile) <= nearest_orcs.getTile().getDistanceTo(playerTile))
+							if (nearest_goblins.getTile().getDistanceTo(tile) <= nearest_orcs.getTile().getDistanceTo(tile))
 							{
 								camp = nearest_goblins;
 							}
