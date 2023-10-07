@@ -3957,6 +3957,8 @@ this.world_state <- this.inherit("scripts/states/state", {
 		this.World.Assets.clear();
 		this.setEscortedEntity(null);
 		this.logInfo("Save version: " + _in.getMetaData().getVersion());
+		this.logInfo("Legends version in save: " + _in.getMetaData().getString("legendsVersion"));
+		this.logInfo("Current Legends version: " + ::Legends.Version);
 	}
 
 	function onSerialize( _out )
