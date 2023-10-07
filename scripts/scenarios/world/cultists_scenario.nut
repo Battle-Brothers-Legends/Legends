@@ -4,7 +4,7 @@ this.cultists_scenario <- this.inherit("scripts/scenarios/world/starting_scenari
 	{
 		this.m.ID = "scenario.cultists";
 		this.m.Name = "Davkul Cultists";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_140.png[/img][/p][p]Davkul awaits. You lead a small flock devoted to the elder god, and it is time to spread the word. Find more followers, acquire riches, and please Davkul with sacrifices.\n\n[color=#bcad8c]Cultists:[/color] Start with a group of five cultists. Encounter fanatical special cultists in towns.\n[color=#bcad8c]Sacrifices:[/color] Davkul will occasionally demand sacrifices from you, but also bestow boons upon those loyal to him. Davkul will not sacrifice his chosen elite. Cultists cost 25% less to buy and maintain.\n[color=#c90000]Let the Blood Flow:[/color] All cultists gain true believer and bonus melee skill.[/p]";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_140.png[/img][/p][p]Davkul awaits. You lead a small flock devoted to the elder god, and it is time to spread the word. Find more followers, acquire riches, and please Davkul with sacrifices.\n\n[color=#bcad8c]Cultists:[/color] Start with a group of five cultists and encounter fanatical special cultists in towns.\n[color=#bcad8c]Sacrifices:[/color] Davkul will occasionally demand sacrifices from you, but also bestow boons upon those loyal to him. Davkul will not sacrifice his chosen elite. Cultists cost 25% less to hire and maintain.\n[color=#c90000]Let the Blood Flow:[/color] All types of cultists gain bonus melee skill.[/p]";
 		this.m.Difficulty = 2;
 		this.m.Order = 90;
 		this.m.IsFixedLook = true;
