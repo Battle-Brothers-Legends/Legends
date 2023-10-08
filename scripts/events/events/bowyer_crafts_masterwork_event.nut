@@ -20,23 +20,23 @@ this.bowyer_crafts_masterwork_event <- this.inherit("scripts/events/event", {
 					Text = "Build me a bow of legends!",
 					function getResult( _event )
 					{
-
+						local brothers = this.World.getPlayerRoster().getAll();
 						foreach( bro in brothers )
 						{
 							if ( bro.getBackground().getID() == "background.legend_inventor")
 							{
-								return BA;
+								return "BA";
 							}
 						}
 						local r = this.Math.rand(1, 100);
 						
 						if (r <= 60)
 						{
-						return B;
+						return "B";
 						}
 						else
 						{
-						return C;
+						return "C";
 						}
 					}
 

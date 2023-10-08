@@ -149,14 +149,15 @@ this.legends_fletcher_crafts_masterwork_event <- this.inherit("scripts/events/ev
 					}
 				}
 
+				local item;
 				local r = this.Math.rand(1,2)
 				if (r == 1)
 				{
-				local item = this.new("scripts/items/ammo/quiver_of_arrows");
+					item = this.new("scripts/items/ammo/quiver_of_arrows");
 				}
 				if (r == 2)
 				{
-				local item = this.new("scripts/items/ammo/quiver_of_bolts");
+					item = this.new("scripts/items/ammo/quiver_of_bolts");
 				}
 				item.m.Name = _event.m.Bowyer.getNameOnly() + "\'s " + item.m.Name;
 				this.World.Assets.getStash().add(item);
