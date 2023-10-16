@@ -1162,12 +1162,12 @@ this.legend_preemptive_beasts_contract <- this.inherit("scripts/contracts/contra
 			}
 
 			this.m.Home.getSprite("selection").Visible = false;
-		}
 
-		this.World.getGuestRoster().clear();
-		this.m.Peddler = null;
-		this.m.Poacher = null;
-		this.m.ExpertHunter = null;
+			this.World.getGuestRoster().clear();
+			this.m.Peddler = null;
+			this.m.Poacher = null;
+			this.m.ExpertHunter = null;
+		}
 	}
 
 	function onIsValid()
