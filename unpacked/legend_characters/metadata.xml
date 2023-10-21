@@ -621,8 +621,12 @@
 	<sprite id="demonalp_trophy_dead" offsetX="6" offsetY="10" f="64FD" ic="FF484A54" width="191" height="185" img="entity\details\demonalp_trophy_dead.png" left="-39" right="13" top="-45" bottom="17" />
 	<sprite id="hexe_leader_trophy" offsetY="35" ic="FF374C5A" width="140" height="248" img="entity\details\hexe_leader_trophy.png" left="-26" right="34" top="-49" bottom="3" />
 	<sprite id="hexe_leader_trophy_dead" offsetX="6" offsetY="10" f="64FD" ic="FF384D5B" width="191" height="185" img="entity\details\hexe_leader_trophy_dead.png" left="-36" right="16" top="-47" bottom="17" />
+
 	<sprite id="basilisk_trophy" offsetY="35" ic="FF374C5A" width="140" height="248" img="entity\details\basilisk_trophy.png" left="-26" right="34" top="-49" bottom="3" />
 	<sprite id="basilisk_trophy_dead" offsetX="6" offsetY="10" f="64FD" ic="FF384D5B" width="191" height="185" img="entity\details\basilisk_trophy_dead.png" left="-36" right="16" top="-47" bottom="17" />
+	<sprite id="upgrade_basilisk_back_dead" offsetX="6" offsetY="10" f="64FD" ic="FF25424E" width="191" height="185" img="entity\armor_upgrades\upgrade_basilisk_back_dead.png" left="-52" right="36" top="-52" bottom="8" />
+	<sprite id="upgrade_basilisk_back" offsetY="35" ic="FF274752" width="140" height="248" img="entity\armor_upgrades\upgrade_basilisk_back.png" left="-42" right="50" top="-51" bottom="13" />
+	<sprite id="upgrade_basilisk_back_damaged" offsetY="35" ic="FF25424E" width="140" height="248" img="entity\armor_upgrades\upgrade_basilisk_back_damaged.png" left="-42" right="50" top="-51" bottom="13" />
 
 	<sprite id="cloak_white" offsetY="35" ic="FF2F424E" width="140" height="248" img="entity\armor_upgrades\cloak_white.png" left="-45" right="63" top="-95" bottom="7" />
 	<sprite id="cloak_white_damaged" offsetY="35" ic="FF2F414E" width="140" height="248" img="entity\armor_upgrades\cloak_white_damaged.png" left="-45" right="63" top="-95" bottom="7" />

@@ -15,11 +15,11 @@ this.legend_basilisk_cloak <- this.inherit("scripts/items/legend_armor/legend_ar
 		this.m.OverlayIcon = "armor_upgrades/icon_upgrade_basilisk.png"; 
 		this.m.OverlayIconLarge = "armor_upgrades/inventory_upgrade_basilisk.png"; 
 		this.m.SpriteFront = null;
-		this.m.SpriteBack = null; 
+		this.m.SpriteBack = "upgrade_basilisk_back";
 		this.m.SpriteDamagedFront = null;
-		this.m.SpriteDamagedBack = null; 
+		this.m.SpriteDamagedBack = "upgrade_basilisk_back_damaged";
 		this.m.SpriteCorpseFront = null;
-		this.m.SpriteCorpseBack = null;
+		this.m.SpriteCorpseBack = "upgrade_basilisk_back_dead";
 
 		this.m.Value = 2800;
 		this.m.Condition = 30; //normal would be around 20 to 25
