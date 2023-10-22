@@ -41,8 +41,8 @@ this.legend_throw_knife <- this.inherit("scripts/skills/skill", {
 		this.m.IsDoingForwardMove = false;
 		this.m.InjuriesOnBody = this.Const.Injury.CuttingBody;
 		this.m.InjuriesOnHead = this.Const.Injury.CuttingHead; 
-		this.m.ActionPointCost = 4;
-		this.m.FatigueCost = 10;
+		this.m.ActionPointCost = 3;
+		this.m.FatigueCost = 5;
 		this.m.MinRange = 2;
 		this.m.MaxRange = 3;
 		this.m.MaxLevelDifference = 4;
