@@ -9,7 +9,7 @@ this.legend_old_man_sells <- this.inherit("scripts/events/event", {
 		this.m.Cooldown = 10000000000.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_76.png[/img]On your travels, an old man sits atop a crumbling wall. Normally this would be of little concern, but instead their frail body is draped in dark cloth while their face is muzzled by grey, broken hairs. The figure pulls out a pipe and begins to feebly puff on the smaller end.\n\n Without looking, he beckons you over towards the wall and brushes the moss from the top of it.%SPEECH_ON%Fine day, stranger.%SPEECH_OFF%He puffs some more but otherwise masks his intentions by looking straight through you — as if to peer deeper into your thoughts.%SPEECH_ON%I collect things, sellsword. Many things that you would never see in your life. Things that are lost and found again by the wrong people.%SPEECH_OFF%He carefully holds aloft an ornate skull, which has been tethered to his belt by a chain think enough to hold a giant, as if the skull would run away and frolic as soon as it was broken.\n The man puts his pipe down and holds the skull in both hands, casting it to his own eyes and peering deep into the sockets.%SPEECH_ON%My friend here, one of many, says that I carry and collect too many things — that I should share their brillience with others who may spark an interest in the hunt. I\'m willing to part with one of these objects, for a small sum of two-thousand crowns.%SPEECH_OFF% He places the skull on his lap, which stares intently at you with socketless eyes as a dog would guard it\'s master...",
+			Text = "[img]gfx/ui/events/event_76.png[/img]On your travels, an old man sits atop a crumbling wall. Normally this would be of little concern, but their frail body is draped in dark cloth while their face is muzzled by a mush of grey, broken hairs. The figure pulls out a pipe and begins to feebly puff on the smaller end.\n\n Without looking, he beckons you over towards the wall and brushes the moss from the top of it.%SPEECH_ON%Fine day, stranger...%SPEECH_OFF%He puffs some more but otherwise masks his intentions by looking straight through you — as if to peer deeper into your thoughts.%SPEECH_ON%I collect things, sellsword. Many things that you would never see in your life. Things that are lost and found again, by the wrong people.%SPEECH_OFF%He carefully holds aloft an ornate skull, which has been tethered to his belt by a chain thick enough to hold a giant, as if the skull would escape and frolic as soon as it was broken.\n The man puts his pipe down and holds the skull in both hands, casting it to his own eyes and peering deep into the sockets.%SPEECH_ON%My friend here, one of many, says that I carry and collect too many things — that I should share their brilliance with others who may spark an interest in the hunt. I\'m willing to part with one of these objects, for a small sum of two-thousand crowns.%SPEECH_OFF% He places the skull on his lap, which stares intently at you with socketless eyes as a dog would guard it\'s master...",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -43,13 +43,13 @@ this.legend_old_man_sells <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({
 			ID = "B",
-			Text = "[img]gfx/ui/events/event_15.png[/img]The man parses the deal a second time, as if arguing with himself to reconsider. With a stumbling alacrity, the man produces a small chest from almost thin air, opening it to reveal an object wrapped in burlap.%SPEECH_ON%Now if you\'d excuse me — I have a few children back at home to feed.%SPEECH_OFF% He hoists himself up like a damaged puppet with twisted strings and hobbles off into the treeline. A cracking of branches and leaves rustling can be heard from the depths, but soon everything goes quiet again.",
+			Text = "[img]gfx/ui/events/event_15.png[/img]The man parses the deal a second time, as if arguing with himself to reconsider. With a stumbling alacrity, he produces a small chest from almost thin air, opening it to reveal an object wrapped in burlap.%SPEECH_ON%Now if you\'d excuse me — I have a few children back at home to feed.%SPEECH_OFF% He hoists himself up like a damaged puppet with twisted strings and hobbles off into the treeline. A cracking of branches and leaves rustling can be heard from the depths, but soon everything goes quiet again.",
 			Image = "",
 			List = [],
 			Characters = [],
 			Options = [
 				{
-					Text = "Be seeing you",
+					Text = "Be seeing you...",
 					function getResult( _event )
 					{
 						return 0;
@@ -155,7 +155,7 @@ this.legend_old_man_sells <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({
 			ID = "D",
-			Text = "[img]gfx/ui/events/event_29.png[/img]The old man parses your statement for a moment, just enough time for you to see movement in the treeline around you the man deftly sidesteps out of arms reach and walks to the treeline to join the undead. Meanwhile, the company form a circle and have begun holding their ground against the lesser dead throwing themselves against %companyname%.\n\n Without warning, a terse clap is heard from the treeline as if to summon a servent. The ancient dead fall back in a more organised manner and still in formation, while the less organised members gradually swing, shuggle and flounder around in the scattering of corpses they do not pay attention to.\n Regardless, the company has survived with only a few minor bruises. A few members have already begun looting the pockets of the dead on the field.",
+			Text = "[img]gfx/ui/events/event_29.png[/img]The old man parses your statement for a moment, just enough time for you to see movement in the treeline around you as the man deftly sidesteps out of arms reach and walks to the treeline to join the undead. Meanwhile, the company forms a circle and have begun holding their ground against the lesser dead throwing themselves against %companyname%.\n\n Without warning, a terse clap is heard from the treeline as if to summon a servant. The ancient dead fall back in a more organised manner and still in formation, as if expecting you to give chase. The less organised members gradually swing, shuggle and flounder around as if restrained by weights around their arms and legs in the scattering of corpses they do not pay attention to before haphazardly wandering back to follow the others.\n Regardless, the company has survived with only a few minor bruises. A few members have already begun looting the pockets of the dead on the field.",
 			Image = "",
 			List = [],
 			Characters = [],
