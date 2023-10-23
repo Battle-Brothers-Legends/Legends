@@ -94,7 +94,7 @@ this.legend_bandage <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (target.getSkills().hasSkill("effects.bleeding"))
+		if (target.getSkills().hasSkill("effects.bleeding") || target.getSkills().hasSkill("effects.legend_grazed_effect"))
 		{
 			return true;
 		}
@@ -132,6 +132,11 @@ this.legend_bandage <- this.inherit("scripts/skills/skill", {
 		while (target.getSkills().hasSkill("effects.bleeding"))
 		{
 			target.getSkills().removeByID("effects.bleeding");
+		}
+
+		while (target.getSkills().hasSkill("effects.legend_grazed_effect"))
+		{
+			target.getSkills().removeByID("effects.legend_grazed_effect");
 		}
 
 		local skill;
