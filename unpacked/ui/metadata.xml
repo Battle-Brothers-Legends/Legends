@@ -744,4 +744,5 @@
 	<sprite id="active_kick" ic="FF2B206C" img="skills\kick_square.png" />
 	<sprite id="active_choke" ic="FF2B206C" img="skills\choke_square.png" />
 	<sprite id="active_grapple" ic="FF2B206C" img="skills\grapple_square.png" />
+  <sprite id="mini_vengeance" ic ="322E2DFF" img="skills\mini\mini_vengeance.png" />
 </brush>

@@ -4,8 +4,8 @@ this.vengeance_effect <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "effects.vengeance";
 		this.m.Name = "Vengeance!";
-		this.m.Icon = "skills/vengeance_square.png";
-		this.m.IconMini = "status_effect_01_mini";
+		this.m.Icon = "ui/perks/vengeance_circle.png";
+		this.m.IconMini = "mini_vengeance";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
