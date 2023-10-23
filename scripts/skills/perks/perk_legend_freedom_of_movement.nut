@@ -26,6 +26,24 @@ this.perk_legend_freedom_of_movement <- this.inherit("scripts/skills/skill", {
 		return tooltip;
 	}
 
+	function getBonus( _attacker, _defender )
+	{
+		local bonus = 1;
+		if (::MSU.isNull(_attacker) || ::MSU.isNull(_defender)) return bonus;
+
+		local defenderCurrentInitiative = _defender.getInitiative();
+		local attackerCurrentInitiative = _attacker.getInitiative();
+
+		if (defenderCurrentInitiative > attackerCurrentInitiative)
+		{
+			local diff = (defenderCurrentInitiative - attackerCurrentInitiative) / 100.0;
+			local diffPoint = this.Math.minf(1, this.Math.pow(diff, 0.4)) * 0.80;
+			bonus = 1 - diffPoint;
+		}
+
+		return bonus;
+	}
+
 	function onBeforeDamageReceived( _attacker, _skill, _hitInfo, _properties )
 	{
 		if (_attacker == null || _attacker != null && _attacker.getID() == this.getContainer().getActor().getID() || _skill == null || !_skill.isAttack() || !_skill.isUsingHitchance())
@@ -33,18 +51,52 @@ this.perk_legend_freedom_of_movement <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		local ourCurrentInitiative = this.getContainer().getActor().getInitiative();
-		local enemyCurrentInitiative = _attacker.getInitiative();
-		local bonus = 1;
-
-		if (ourCurrentInitiative > enemyCurrentInitiative)
-		{
-			local diff = (ourCurrentInitiative - enemyCurrentInitiative) / 100.0;
-			local diffPoint = this.Math.minf(1, this.Math.pow(diff, 0.4)) * 0.80;
-			bonus = 1 - diffPoint;
-		}
+		local bonus = this.getBonus(_attacker, this.getContainer().getActor());
 
 		_properties.DamageReceivedRegularMult *= bonus;
+	}
+
+	// MSU custom-added event
+	function onOtherActorTooltip( _tooltip, _targetActor )
+	{
+		if (::MSU.isNull(_targetActor) || _targetActor.isPlayerControlled())
+		{
+			return;
+		}
+
+		local bonus = (1 - this.getBonus( _targetActor, this.getContainer().getActor() )) * 100;
+
+		_tooltip.push({
+			id = "10",
+			type = "hint",
+			icon = "ui/perks/freedom_of_movement_circle.png",
+			text = "Receive " + ::Const.UI.getColorized(::Math.round(bonus) + "%", ::Const.UI.Color.PositiveValue) + " less damage from this character due to the current difference in Initiative"
+		});
+	}
+
+	// MSU function
+	function onGetHitFactorsAsTarget( _skill, _targetTile, _tooltip )
+	{
+		::MSU.Log.printData(_skill);
+		local attacker = ::MSU.isNull(_skill) ? null : _skill.getContainer().getActor();
+		::MSU.Log.printData(attacker.getName());
+		if (::MSU.isNull(attacker))
+		{
+			return;
+		}
+
+		local bonus = (1 - this.getBonus(attacker, this.getContainer().getActor())) * 100;
+		::MSU.Log.printData(bonus);
+
+		if (bonus > 0)
+		{
+			_tooltip.push({
+				id = "10",
+				type = "text",
+				icon = "ui/icons/damage_dealt.png",
+				text = ::Const.UI.getColorized("-" + ::Math.round(bonus) + "%", ::Const.UI.Color.NegativeValue) + " damage from " + this.m.Name,
+			})
+		}
 	}
 
 });

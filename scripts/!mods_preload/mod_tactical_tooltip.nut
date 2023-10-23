@@ -1,5 +1,7 @@
 this.getroottable().Const.LegendMod.loadTacticalTooltip <- function()
 {
+	::MSU.Skills.addEvent("onOtherActorTooltip", function(_tooltip, _targetActor){}, true, true);
+
 	local modTacticalTooltip = function ( tooltip, _targetedWithSkill )
 	{
 		if (!this.isPlayerControlled() && !::Legends.Mod.ModSettings.getSetting("EnhancedTooltips").getValue())
@@ -369,7 +371,13 @@ this.getroottable().Const.LegendMod.loadTacticalTooltip <- function()
 		local getTooltip = o.getTooltip;
 		o.getTooltip = function ( _targetedWithSkill = null )
 		{
-			return modTacticalTooltip(getTooltip(_targetedWithSkill), _targetedWithSkill);
+			local tooltip = getTooltip(_targetedWithSkill);
+			local actor = ::Tactical.TurnSequenceBar.getActiveEntity();
+			if (!::MSU.isNull(actor) && actor.isPlayerControlled())
+			{
+				actor.getSkills().onOtherActorTooltip(tooltip, this);
+			}
+			return modTacticalTooltip(tooltip, _targetedWithSkill);
 		};
 	});
 	delete this.Const.LegendMod.loadTacticalTooltip;
