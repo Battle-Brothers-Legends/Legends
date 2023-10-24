@@ -3,7 +3,7 @@ this.legend_basilisk_cloak <- this.inherit("scripts/items/legend_armor/legend_ar
 	function create()
 	{
 		this.legend_armor_cloak.create(); //attachment gives poison immunity and extra durability
-		this.m.ID = "legend_armor.body.basilisk_cloak";
+		this.m.ID = "legend_armor.body.legend_basilisk_cloak";
 		this.m.Type = this.Const.Items.ArmorUpgrades.Cloak;
 		
 		this.m.Name = "Basilisk Cloak";
