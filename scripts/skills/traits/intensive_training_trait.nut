@@ -179,15 +179,95 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 				id = 6,
 				type = "text",
 				icon = "",
-				text = "Training results so far:"
+				text = this.isMaxReached() ? "Training results:" : "Training results so far:"
 				});
 
 			tooltip.push({
 				id = 6,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + getStatsIncreased() + "[/color] skill points"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + getStatsIncreased() + "[/color] total skill points"
 				});
+
+			if (this.m.HitpointsAdded > 0)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/health.png",
+					text = "Hitpoints: " + ::Const.UI.getColorized(this.m.HitpointsAdded, ::Const.UI.Color.PositiveValue)
+				});
+			}
+
+			if (this.m.StaminaAdded > 0)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/fatigue.png",
+					text = "Stamina: " + ::Const.UI.getColorized(this.m.StaminaAdded, ::Const.UI.Color.PositiveValue)
+				});
+			}
+
+			if (this.m.BraveAdded > 0)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/bravery.png",
+					text = "Resolve: " + ::Const.UI.getColorized(this.m.BraveAdded, ::Const.UI.Color.PositiveValue)
+				});
+			}
+
+			if (this.m.IniAdded > 0 )
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/initiative.png",
+					text = "Initiative: " + ::Const.UI.getColorized(this.m.IniAdded, ::Const.UI.Color.PositiveValue)
+				});
+			}
+
+			if (this.m.MatkAdded > 0)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/melee_skill.png",
+					text = "Melee Skill: " + ::Const.UI.getColorized(this.m.MatkAdded, ::Const.UI.Color.PositiveValue)
+				});
+			}
+
+			if (this.m.RatkAdded > 0)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/ranged_skill.png",
+					text = "Ranged Skill: " + ::Const.UI.getColorized(this.m.RatkAdded, ::Const.UI.Color.PositiveValue)
+				});
+			}
+
+			if (this.m.MdefAdded > 0)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/melee_defense.png",
+					text = "Melee Defense: " + ::Const.UI.getColorized(this.m.MdefAdded, ::Const.UI.Color.PositiveValue)
+				});
+			}
+
+			if (this.m.RdefAdded > 0)
+			{
+				tooltip.push({
+					id = 6,
+					type = "text",
+					icon = "ui/icons/ranged_defense.png",
+					text = "Ranged Defense: " + ::Const.UI.getColorized(this.m.RdefAdded, ::Const.UI.Color.PositiveValue)
+				});
+			}
 
 				if ( this.isMaxReached() )
 				{
@@ -195,7 +275,8 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					id = 6,
 					type = "text",
 					icon = "ui/icons/special.png",
-					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + 1 + "[/color] Perk point"
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + 1 + "[/color] Perk point",
+					border = "top"
 					});
 				tooltip.push({
 					id = 6,
@@ -254,6 +335,8 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 
 		if(this.isMaxReached())
 		{
+			this.m.Name = "Training completed";
+			this.m.Description = "This character has learnt all they can from intensive training";
 			this.m.Icon = "ui/traits/IntensiveTrainingCompleted.png";
 		}
 	}
