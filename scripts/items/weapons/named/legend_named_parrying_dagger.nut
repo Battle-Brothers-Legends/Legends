@@ -1,6 +1,7 @@
 this.legend_named_parrying_dagger <- this.inherit("scripts/items/shields/named/named_shield", {
 	m = {
 		Variants = [],
+		WeaponType = ::Const.Items.WeaponType.Dagger, // workaround: hardcode WeaponType since this is actually a shield
 
 		// for offhand weapon
 		RegularDamage = 20,
@@ -162,7 +163,21 @@ this.legend_named_parrying_dagger <- this.inherit("scripts/items/shields/named/n
 	{
 		return 0;
 	}
-		function onSerialize( _out )
+
+	// Hardcode this because the parrying dagger inherits from shield, but active skills may sometimes trigger WeaponType checks
+	function isWeaponType( _t, _any = true, _only = false )
+	{
+		if (_any)
+		{
+			return _only ? this.m.WeaponType - (this.m.WeaponType & _t) == 0 : (this.m.WeaponType & _t) != 0;
+		}
+		else
+		{
+			return _only ? (this.m.WeaponType & _t) == this.m.WeaponType : (this.m.WeaponType & _t) == _t;
+		}
+	}
+
+	function onSerialize( _out )
 	{
 		this.named_shield.onSerialize(_out);
 		_out.writeU16(this.m.RegularDamage);

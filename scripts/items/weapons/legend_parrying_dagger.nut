@@ -1,6 +1,7 @@
 this.legend_parrying_dagger <- this.inherit("scripts/items/shields/shield", {
 	m = {
 		Variants = [],
+		WeaponType = ::Const.Items.WeaponType.Dagger, // workaround: hardcode WeaponType since this is actually a shield
 
 		// for offhand weapon
 		RegularDamage = 20,
@@ -126,6 +127,19 @@ this.legend_parrying_dagger <- this.inherit("scripts/items/shields/shield", {
 	function getAmmoMax()
 	{
 		return 0;
+	}
+
+	// Hardcode this because the parrying dagger inherits from shield, but active skills may sometimes trigger WeaponType checks
+	function isWeaponType( _t, _any = true, _only = false )
+	{
+		if (_any)
+		{
+			return _only ? this.m.WeaponType - (this.m.WeaponType & _t) == 0 : (this.m.WeaponType & _t) != 0;
+		}
+		else
+		{
+			return _only ? (this.m.WeaponType & _t) == this.m.WeaponType : (this.m.WeaponType & _t) == _t;
+		}
 	}
 
 });
