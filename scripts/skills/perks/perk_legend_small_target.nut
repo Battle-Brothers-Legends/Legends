@@ -61,14 +61,19 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 		
 		if (bodyItem != null)
 		{
-		bodyArmor = actor.getArmor(this.Const.BodyPart.Body);
+			bodyArmor = actor.getArmor(this.Const.BodyPart.Body);
 		}
 		
 		if (headItem != null)
 		{
-		headArmor = actor.getArmor(this.Const.BodyPart.Head);
+			headArmor = actor.getArmor(this.Const.BodyPart.Head);
 		}
-		
+
+		else if (bodyItem == null)
+		{
+			return
+		}
+
 		local stackTotal = health + headArmor + bodyArmor;
 		
 		if (actor.getSkills().hasSkill("perk.legend_fashionable"))
