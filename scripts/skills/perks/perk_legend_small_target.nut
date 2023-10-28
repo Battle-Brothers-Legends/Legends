@@ -18,8 +18,19 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		local bonus = this.getBonus();
 
+		if (this.getContainer().getActor().getBodyItem() == null)
+		{
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/tooltips/warning.png",
+				text = "This character is not wearing any body armor and receives no bonus from this perk"
+			});
+			return tooltip;
+		}
+
+		local bonus = this.getBonus();
 		if (bonus > this.m.BonusMin)
 		{
 			tooltip.push({
@@ -35,26 +46,22 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Ranged Defense"
 			});
 		}
-		else if (this.getContainer().getActor().getBodyItem() == null)
-		{
-			tooltip.push({
-				id = 6,
-				type = "text",
-				icon = "ui/tooltips/warning.png",
-				text = "This character is not wearing any body armor and receives no bonus from this perk"
-			});
-		}
 
 		return tooltip;
 	}
 
 	function getBonus()
 	{
-		local stackTotal = 0;
 		local actor = this.getContainer().getActor();
+		local bodyItem = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Body);
+		if (bodyItem == null)
+		{
+			return 0;
+		}
+
+		local stackTotal = 0;
 		local health = 0;
 		health = actor.getBaseProperties().Hitpoints;
-		local bodyItem = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Body);
 		local bodyArmor = 0;
 		local headItem = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Head);
 		local headArmor = 0;
@@ -67,11 +74,6 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 		if (headItem != null)
 		{
 			headArmor = actor.getArmor(this.Const.BodyPart.Head);
-		}
-
-		else if (bodyItem == null)
-		{
-			return
 		}
 
 		local stackTotal = health + headArmor + bodyArmor;
