@@ -4,7 +4,7 @@ this.legend_basilisk_peck_skill <- this.inherit("scripts/skills/skill", {
 	},
 	function create()
 	{
-		this.m.ID = "actives.legend_basilisk_drone_peck";
+		this.m.ID = "actives.legend_basilisk_peck";
 		this.m.Name = "Peck";
 		this.m.Description = "no touch birb";
 		this.m.KilledString = "Pecked to death";

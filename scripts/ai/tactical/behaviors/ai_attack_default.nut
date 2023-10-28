@@ -46,7 +46,7 @@ this.ai_attack_default <- this.inherit("scripts/ai/tactical/behavior", {
 			"actives.ghost_overhead_strike",
 			"actives.headbutt",
 			"actives.serpent_bite",
-			"actives.legend_basilisk_drone_peck"
+			"actives.legend_basilisk_peck"
 			//ADD Any new skills to the mod_ai_attack_default file
 		],
 		Skill = null
