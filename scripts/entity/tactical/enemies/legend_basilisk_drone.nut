@@ -10,6 +10,19 @@ this.legend_basilisk_drone <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.DecapitateBloodAmount = 3.0;
 		this.m.ConfidentMoraleBrush = "icon_confident_orcs";
 		this.actor.create();
+		this.m.ExcludedInjuries = [
+			"injury.fractured_hand",
+			"injury.crushed_finger",
+			"injury.smashed_hand",
+			"injury.broken_arm",
+			"injury.split_hand",
+			"injury.pierced_hand",
+			"injury.injured_knee_cap",
+			"injury.split_nose",
+			"injury.ripped_ear",
+			"injury.sprained_ankle",
+			"injury.burnt_hands"
+		];
 		this.m.Sound[this.Const.Sound.ActorEvent.Death] = [ //credit to wellington for all sounds
 			"sounds/enemies/Basilisk_death01.wav",
 			"sounds/enemies/Basilisk_death02.wav",
