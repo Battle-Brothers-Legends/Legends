@@ -1256,7 +1256,7 @@ this.tooltip_events <- {
 					{
 						id = 2,
 						type = "description",
-						text = "The amount of coin your mercenary company has. Used to pay every mercenary daily, as well as to hire new people and purchase equipment.\n\nYou pay out [color=" + this.Const.UI.Color.PositiveValue + "]" + dailyMoney + "[/color] crowns per day.\n\n[color=" + this.Const.UI.Color.NegativeValue + "]You have no more crowns to pay your men with! Earn some crowns fast or let some people go before they desert you one by one.[/color]"
+						text = "The amount of coin your mercenary company has. Used to pay every mercenary daily, as well as to hire new people and purchase equipment.\n\nYou pay out [color=" + this.Const.UI.Color.PositiveValue + "]" + dailyMoney + "[/color] crowns per day.\n\n[color=" + this.Const.UI.Color.NegativeValue + "]You have no more crowns to pay your fighters with! Earn some crowns fast or let some people go before they desert you one by one.[/color]"
 					}
 				];
 			}
@@ -1616,11 +1616,11 @@ this.tooltip_events <- {
 
 		case "assets.Medicine":
 			local heal = this.World.Assets.getHealingRequired();
-			local desc = "Medical supplies consist of bandages, herbs, salves and the like, and are used to heal the more severe injuries sustained by your men in battle. One point of medical supplies is required each day for every injury to improve and ultimately heal. Lost hitpoints heal while encamped.\n\nRunning out of medical supplies will leave your men unable to recover from severe injuries.";
+			local desc = "Medical supplies consist of bandages, herbs, salves and the like, and are used to heal the more severe injuries sustained by your fighters in battle. One point of medical supplies is required each day for every injury to improve and ultimately heal. Lost hitpoints heal while encamped.\n\nRunning out of medical supplies will leave your fighters unable to recover from severe injuries.";
 
 			if (heal.MedicineMin > 0)
 			{
-				desc = desc + ("\n\nHealing up all your men will take between [color=" + this.Const.UI.Color.PositiveValue + "]" + heal.DaysMin + "[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]" + heal.DaysMax + "[/color] days and requires between ");
+				desc = desc + ("\n\nHealing up all your fighters will take between [color=" + this.Const.UI.Color.PositiveValue + "]" + heal.DaysMin + "[/color] and [color=" + this.Const.UI.Color.PositiveValue + "]" + heal.DaysMax + "[/color] days and requires between ");
 
 				if (heal.MedicineMin <= this.World.Assets.getMedicine())
 				{
@@ -1878,12 +1878,12 @@ this.tooltip_events <- {
 				{
 					id = 1,
 					type = "title",
-					text = "Men in Company"
+					text = "Fighters in Company"
 				},
 				{
 					id = 2,
 					type = "description",
-					text = "The total number of characters in your company. There are no reserves slots but you can toggle anyone into reserves using the button near their portrait."
+					text = "The total number of fighters under your control. Toggle fighters into reserves using the camp icon at the top left near their portrait."
 				}
 			];
 		case "stash.CurrentRoster":
@@ -1891,12 +1891,12 @@ this.tooltip_events <- {
 				{
 					id = 1,
 					type = "title",
-					text = "Men in Fighting Line"
+					text = "Fighters in Fighting Line"
 				}
 				{
 					id = 2,
 					type = "description",
-					text = "Shows the current and maximum number of men out of reserves and ready to fight in the next battle."
+					text = "Shows the current and maximum number of fighters out of reserves and ready to fight in the next battle."
 				}
 			];
 		case "ground.Slots":
@@ -2324,7 +2324,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "You\'ll face fewer and less challenging opponents, your men will gain bonus experience, and retreating from battle is easier.\n\nYour men get a small bonus to hit chance, and the enemy gets a small penalty, to ease you into the game.\n\nRecommended for players new to the game.\n\nEnemy scaling is same as normal, but 25% easier per bro."
+					text = "You\'ll face fewer and less challenging opponents, your fighters will gain bonus experience, and retreating from battle is easier.\n\nYour fighters get a small bonus to hit chance, and the enemy gets a small penalty, to ease you into the game.\n\nRecommended for players new to the game.\n\nEnemy scaling is same as normal, but 25% easier per bro."
 				}
 			];
 
@@ -4573,7 +4573,7 @@ this.tooltip_events <- {
 			}
 			else
 			{
-				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for free on Steam and GOG! [/color] Parts of Legends will not work without this DLC";
+				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for free on Steam and GOG! ALL DLC IS NEEDED TO PLAY LEGENDS![/color]";
 			}
 
 			ret.push({
@@ -4604,7 +4604,7 @@ this.tooltip_events <- {
 			}
 			else
 			{
-				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for purchase on Steam and GOG! [/color] Legends will not work without this DLC";
+				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for purchase on Steam and GOG! ALL DLC IS NEEDED TO PLAY LEGENDS![/color]";
 			}
 
 			ret.push({
@@ -4944,7 +4944,7 @@ this.tooltip_events <- {
 			}
 			else
 			{
-				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for purchase on Steam and GOG![/color]";
+				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for purchase on Steam and GOG! ALL DLC IS NEEDED TO PLAY LEGENDS![/color]";
 			}
 
 			ret.push({
@@ -4975,7 +4975,7 @@ this.tooltip_events <- {
 			}
 			else
 			{
-				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for purchase on Steam and GOG![/color]";
+				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for purchase on Steam and GOG! ALL DLC IS NEEDED TO PLAY LEGENDS![/color]";
 			}
 
 			ret.push({
@@ -5006,7 +5006,7 @@ this.tooltip_events <- {
 			}
 			else
 			{
-				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for free on Steam and GOG![/color]";
+				ret[1].text += "\n\n[color=" + this.Const.UI.Color.NegativeValue + "]This DLC is missing. It\'s available for free on Steam and GOG! ALL DLC IS NEEDED TO PLAY LEGENDS![/color]";
 			}
 
 			ret.push({
