@@ -10,7 +10,7 @@ this.legend_basilisk_peck_skill <- this.inherit("scripts/skills/skill", {
 		this.m.KilledString = "Pecked to death";
 		this.m.Icon = "skills/basilisk_peck.png";
 		this.m.IconDisabled = "skills/basilisk_peck.png";
-		this.m.Overlay = "active_136"; //change
+		this.m.Overlay = "basilisk_peck";
 		this.m.SoundOnUse = [
 			"sounds/combat/hammer_strike_01.wav",
 			"sounds/combat/hammer_strike_02.wav",
