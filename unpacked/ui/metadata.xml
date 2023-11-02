@@ -746,4 +746,5 @@
 	<sprite id="active_grapple" ic="FF2B206C" img="skills\grapple_square.png" />
   <sprite id="mini_vengeance" ic ="322E2DFF" img="skills\mini\mini_vengeance.png" />
   <sprite id="basilisk_peck" ic="60312BFF" img="skills\basilisk_peck.png" />
+  <sprite id="mini_second_wind" ic="4D3315FF" img="skills\mini\mini_second_wind.png" />
 </brush>
