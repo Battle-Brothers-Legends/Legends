@@ -5,7 +5,7 @@ this.gold_mine_location <- this.inherit("scripts/entity/world/attached_location"
 		this.attached_location.create();
 		this.m.Name = "Gold Mine";
 		this.m.ID = "attached_location.gold_mine";
-		this.m.Description = "A deep mine build atop a gold ore vein. This rare metal has a tendency to bring out the worst in people. Contributes gold ingots, miners, caravan hands, sellswords and thieves to the local town";
+		this.m.Description = "A deep mine built atop a gold ore vein. This rare metal has a tendency to bring out the worst in people. Contributes gold ingots, miners, caravan hands, sellswords and thieves to the local town";
 		this.m.Sprite = "world_gold_mine_01";
 		this.m.SpriteDestroyed = "world_gold_mine_01_ruins";
 	}

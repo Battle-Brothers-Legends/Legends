@@ -116,13 +116,13 @@ this.march_wear_and_tear_event <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({
 			ID = "Tailor",
-			Text = "%terrainImage%{%tailor% the tailor rubs their chin with two fingers before finally pointing them forward.%SPEECH_ON%I\'ve got it. Comrades, give me every scrap of unused or trashy clothing you have. Every article you got. Hand it over. There you go. Yes, that\'s absolutely trash, %otherbrother%. Your favorite shirt? By the gods, just give it to me already. Thank you.%SPEECH_OFF%The tailor collects armfuls of discarded clothing and gets to work with scissors. %tailor% slices and dices and pauses. %tailor% pauses a lot, always unsure of the work. But finally the results are presented. A pile of fresh socks and enough left over scraps to furnish some extra bandages. %tailor%\'s also wearing a surprisingly flashy new garb, and you\'ve no idea how it was created}",
+			Text = "%terrainImage%{%tailor% the tailor rubs their chin with two fingers before finally pointing them forward.%SPEECH_ON%I\'ve got it. Comrades, give me every scrap of unused or trashy clothing you have. Every article you got. Hand it over. There you go. Yes, that\'s absolutely trash, %otherbrother%. Your favorite shirt? By the gods, just give it to me already. Thank you.%SPEECH_OFF%The tailor collects armfuls of discarded clothing and gets to work with scissors. %tailor% slices and dices and pauses. %tailor% pauses a lot, always unsure of the work. But finally the results are presented. A pile of fresh socks and enough left over scraps to furnish some extra bandages. %tailor%\'s also wearing a surprisingly flashy new garb, and you\'ve no idea how it was created.}",
 			Image = "",
 			List = [],
 			Characters = [],
 			Options = [
 				{
-					Text = "Now that\'s a magician if I\'ve ever see one.",
+					Text = "Now that\'s a magician if I\'ve ever seen one.",
 					function getResult( _event )
 					{
 						return 0;
