@@ -747,4 +747,7 @@
   <sprite id="mini_vengeance" ic ="322E2DFF" img="skills\mini\mini_vengeance.png" />
   <sprite id="basilisk_peck" ic="60312BFF" img="skills\basilisk_peck.png" />
   <sprite id="mini_second_wind" ic="4D3315FF" img="skills\mini\mini_second_wind.png" />
+  <sprite id="choke_circle" ic="724543FF" img="skills\choke_circle.png" />
+  <sprite id="grapple_circle" ic="5E3f37FF" img="skills\grapple_circle.png" />
+  <sprite id="tackle_circle" ic="3E2929FF" img="skills\tackle_circle.png" />
 </brush>

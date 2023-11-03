@@ -8,7 +8,7 @@ this.legend_tackled_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Name = "Knocked Over";
 		this.m.Icon = "ui/perks/tackle_circle.png";
 		this.m.IconMini = "mini_tackle";
-		this.m.Overlay = "status_daze56_circle";
+		this.m.Overlay = "tackle_circle";
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
