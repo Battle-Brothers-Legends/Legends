@@ -624,6 +624,11 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 		if (this.m.Flags.get("IsCaravan"))
 		{
 			this.World.Statistics.getFlags().increment("CaravansRaided");
+
+			local faction = ::World.FactionManager.getFaction(this.getFaction());
+			local faction_flags = faction.getFlags();
+			local fcr = faction_flags.getAsInt("FactionsCaravansRaided");
+			faction_flags.set("FactionsCaravansRaided", fcr + 1);
 		}
 	}
 

@@ -108,13 +108,19 @@ this.send_caravan_action <- this.inherit("scripts/factions/faction_action", {
 		return this.faction_action.getReputationToDifficultyLightMult() * (this.World.FactionManager.isCivilWar() ? 1.1 : 1.0);
 	}
 
+	function getCaravansRaidedToAdditionalResources( _faction) 
+	{
+		return _faction.getFlags().getAsInt("FactionsCaravansRaided") * 3; 	// 1 hand = ~15 troop power, so every 5 caravans raided is 
+	}																		// another hand's worth of party power before multiplier
+
 	function getResourcesForParty( _settlement, _faction )
 	{
 		if (_settlement == null) return this.Math.rand(100, 200) * this.getReputationToDifficultyLightMult();
 
 		if (_faction.hasTrait(this.Const.FactionTrait.OrientalCityState)) return (this.Math.rand(85, 130) + this.Math.round(0.12 * ::Math.max(1, _settlement.getResources()))) * this.getReputationToDifficultyLightMult(); // this.m.Start.getResources() * 0.6
 
-		return (this.Math.rand(45, 95) + this.Math.round(0.1 * ::Math.max(1, _settlement.getResources()))) * this.getReputationToDifficultyLightMult(); // this.m.Start.getResources() * 0.5
+		local extraFromFCR = this.getCaravansRaidedToAdditionalResources(_faction)
+		return (this.Math.rand(45, 95) + this.Math.round(0.1 * ::Math.max(1, _settlement.getResources())) + extraFromFCR) * this.getReputationToDifficultyLightMult(); // this.m.Start.getResources() * 0.5
 	}
 
 	function convertBudgetToMult( _budget )
@@ -129,7 +135,20 @@ this.send_caravan_action <- this.inherit("scripts/factions/faction_action", {
 	{
 		local budget = !::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue() ? 0 : ::Const.World.Common.WorldEconomy.calculateTradingBudget(this.m.Start);
 		local mult = this.convertBudgetToMult(budget);
+
+		// this.logWarning("FactionsCaravanRaided = " + _faction.getFlags().getAsInt("FactionsCaravansRaided"));
+		// this.logWarning("Caravan spawned from: " + this.m.Start.getName() + " with resources equal to: " + this.getResourcesForParty(this.m.Start, _faction) * mult);
+		// this.logWarning("Start town has resources equal to: " + this.m.Start.getResources());
+		// this.logWarning("Start town has a size of: " + this.m.Start.getSize() + ", and isMilitary is: " + this.m.Start.isMilitary());
+
 		local party = _faction.spawnEntity(this.m.Start.getTile(), "Trading Caravan", false, this.pickSpawnList(this.m.Start, _faction), this.getResourcesForParty(this.m.Start, _faction) * mult); 
+		
+		// this.logWarning("Spawned with the following units:");
+		// foreach(troop in party.getTroops())
+		// {
+		// 	this.logWarning(troop.Script);
+		// }
+		
 		party.getSprite("banner").Visible = false;
 		party.getSprite("base").Visible = false;
 		party.setMirrored(true);
@@ -173,9 +192,13 @@ this.send_caravan_action <- this.inherit("scripts/factions/faction_action", {
 		this.afterSpawnCaravan(party);
 	}
 
+	// Merc making spawnlist tweaks here, southern caravans have a pretty good power level IMO so I won't be changing their stuff around too much yet
+	// Want forts+ to be able to get mercenaries in regular caravans, and never a lowbie so instead of using MinR values I'm actually swapping around the spawnlists
 	function pickSpawnList( _settlement, _faction )
 	{
 		if (_faction.hasTrait(this.Const.FactionTrait.OrientalCityState)) return this.Const.World.Spawn.CaravanSouthern;
+
+		if (_settlement.isMilitary()) return this.Const.World.Spawn.CaravanFort;
 
 		return this.Const.World.Spawn.Caravan;
 	}
