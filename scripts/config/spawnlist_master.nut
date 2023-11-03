@@ -1763,7 +1763,7 @@ gt.Const.World.Spawn.Caravan <-
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.CaravanGuard,
-					Cost = 18
+					Cost = 17
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.MilitiaVeteran,
