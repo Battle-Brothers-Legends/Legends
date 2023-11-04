@@ -27,8 +27,7 @@ this.break_ally_free_skill <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local chance = this.Math.min(100, this.getContainer().getActor().getCurrentProperties().getMeleeSkill() - 10);
-		return [
+		local tooltip = [
 			{
 				id = 1,
 				type = "title",
@@ -48,14 +47,33 @@ this.break_ally_free_skill <- this.inherit("scripts/skills/skill", {
 				id = 4,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]" + chance + "%[/color] chance to succeed, based on Melee Skill, or higher if there\'s been attempts to free the ally before."
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]" + this.getChance() + "%[/color] chance to succeed, based on Melee Skill, or higher if there\'s been attempts to free the ally before."
 			}
 		];
+
+		if (this.getContainer().getActor().getCurrentProperties().IsSpecializedInNets)
+		{
+			tooltip.push({
+				id = 5,
+				type = "hint",
+				icon = "ui/icons/special.png",
+				text = "Net Mastery makes this signficantly easier",
+			});
+		}
+
+		return tooltip;
 	}
 
 	function getChance()
 	{
-		return this.Math.min(100, this.getContainer().getActor().getCurrentProperties().getMeleeSkill() - 10);
+		local actor = this.getContainer().getActor();
+		local skill = actor.getCurrentProperties().getMeleeSkill();
+		local toHit = this.Math.min(100, skill - 10 + (actor.getSkills().hasSkill("effects.goblin_shaman_potion") ? 100 : 0));
+		if (actor.getCurrentProperties().IsSpecializedInNets)
+		{
+			toHit = this.Math.max(99, toHit);
+		}
+		return toHit;
 	}
 
 	function isHidden()
@@ -202,7 +220,7 @@ this.break_ally_free_skill <- this.inherit("scripts/skills/skill", {
 			}
 
 			breakFree.setSkillBonus(this.getContainer().getActor().getCurrentProperties().getMeleeSkill());
-			breakFree.onUse(target, _targetTile);
+			breakFree.onUseByAlly(this.getContainer().getActor(), _targetTile);
 		}
 
 		return true;

@@ -18,4 +18,14 @@ this.perk_legend_mastery_nets <- this.inherit("scripts/skills/skill", {
 		_properties.IsSpecializedInNets = true;
 	}
 
+	function onAfterUpdate( _properties )
+	{
+		local skills = this.getContainer().getSkillsByFunction(@(_skill) _skill.getID() == "actives.break_free" || _skill.getID() == "actives.break_ally_free");
+		foreach (s in skills)
+		{
+			s.m.ActionPointCost -= 1;
+			s.m.FatigueCostMult *= 0.33;
+		}
+	}
+
 });
