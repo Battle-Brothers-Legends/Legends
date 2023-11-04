@@ -2,7 +2,9 @@ this.break_free_skill <- this.inherit("scripts/skills/skill", {
 	m = {
 		Decal = "",
 		ChanceBonus = 0,
-		SkillBonus = null
+		SkillBonus = null,
+		DropNet = false, // Net item can be dropped in battle if it was thrown with Net Casting perk
+		IsReinforcedNet = false,
 	},
 	function setDecal( _d )
 	{
@@ -166,6 +168,33 @@ this.break_free_skill <- this.inherit("scripts/skills/skill", {
 					local tileToSpawnAt = candidates[this.Math.rand(0, candidates.len() - 1)];
 					tileToSpawnAt.spawnDetail(this.m.Decal);
 					tileToSpawnAt.Properties.add("IsItemSpawned");
+				}
+			}
+
+			if (this.m.DropNet)
+			{
+				local net;
+				if (this.m.IsReinforcedNet)
+				{
+					// 50% chance the reinforced net is still reusable in battle
+					if (::Math.rand(1,2) == 1)
+					{
+						net = this.new("scripts/items/tools/reinforced_throwing_net");
+						net.drop(this.getContainer().getActor().getTile());
+					}
+					else
+					{
+						this.World.Assets.getStash().add(this.new("scripts/items/tools/legend_broken_throwing_net"));
+					}
+				}
+				else
+				{
+					// 25% chance the regular net is still reusable in battle
+					if (::Math.rand(1,4) == 1)
+					{
+						net = this.new("scripts/items/tools/throwing_net");
+						net.drop(this.getContainer().getActor().getTile());
+					}
 				}
 			}
 
