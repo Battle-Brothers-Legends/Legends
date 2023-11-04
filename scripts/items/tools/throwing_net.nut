@@ -116,5 +116,28 @@ this.throwing_net <- this.inherit("scripts/items/weapons/weapon", {
 		this.Sound.play("sounds/cloth_01.wav", this.Const.Sound.Volume.Inventory);
 	}
 
+	function onUpdateProperties( _properties )
+	{
+		this.weapon.onUpdateProperties(_properties);
+		// Net Repair Perk negates the weight
+		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_net_repair"))
+		{
+			_properties.Stamina -= this.m.StaminaModifier;
+		}
+	}
+
+	// Bag fatigue uses getStaminaModifier
+	function getStaminaModifier()
+	{
+		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_net_repair"))
+		{
+			return 0;
+		}
+		else
+		{
+			return this.m.StaminaModifier;
+		}
+	}
+
 });
 
