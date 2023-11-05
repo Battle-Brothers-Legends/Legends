@@ -7,7 +7,7 @@ this.legend_roots_and_berries_blueprint <- this.inherit("scripts/crafting/food_b
 		this.m.PreviewCraftable = this.new("scripts/items/supplies/roots_and_berries_item");
 		local ingredients = [
 			{
-				Script = "scripts/items/trade/legend_fresh_roots_and_berries_item",
+				Script = "scripts/items/supplies/legend_fresh_roots_and_berries_item",
 				Num = 1
 			}
 		];

@@ -11,7 +11,7 @@ this.legend_pickled_mushrooms_blueprint <- this.inherit("scripts/crafting/food_b
 				Num = 1
 			},
 			{
-				Script = "scripts/items/trade/legend_fresh_mushrooms_item",
+				Script = "scripts/items/supplies/legend_fresh_mushrooms_item",
 				Num = 1
 			}
 		];

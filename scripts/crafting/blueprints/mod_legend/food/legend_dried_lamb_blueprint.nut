@@ -11,7 +11,7 @@ this.legend_dried_lamb_blueprint <- this.inherit("scripts/crafting/food_blueprin
 				Num = 1
 			},
 			{
-				Script = "scripts/items/trade/legend_mutton_item",
+				Script = "scripts/items/supplies/legend_mutton_item",
 				Num = 1
 			}
 		];
