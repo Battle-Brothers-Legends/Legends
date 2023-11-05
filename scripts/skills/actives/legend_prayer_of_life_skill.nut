@@ -84,7 +84,7 @@ this.legend_prayer_of_life_skill <- this.inherit("scripts/skills/skill", {
 			}
 
 			local skills = a.getSkills();
-			if (skills.hasSkill("racial.skeleton") || skills.hasSkill("actives.zombie_bite") || skills.hasSkill("racial.vampire") || skills.hasSkill("racial.ghost"))
+			if (skills.hasSkill("racial.skeleton") || skills.hasSkill("actives.zombie_bite") || skills.hasSkill("racial.vampire") || skills.hasSkill("racial.ghost") || skills.hasSkill("racial.mummy"))
 			{
 				if (!skills.hasSkill("effects.disintegrating"))
 				{
