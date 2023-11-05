@@ -4,7 +4,7 @@ this.pickled_mushrooms_item <- this.inherit("scripts/items/supplies/legend_usabl
 	{
 		this.legend_usable_food.create();
 		this.m.ID = "supplies.pickled_mushrooms";
-		this.m.Name = "Mushrooms";
+		this.m.Name = "Pickled Mushrooms";
 		this.m.Description = "Provisions. Swampy regions offer little food, but pickled mushrooms are a favoured provision for travelers in these areas.";
 		this.m.Icon = "supplies/inventory_provisions_07.png";
 		this.m.Value = 70;
