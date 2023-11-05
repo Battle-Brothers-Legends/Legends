@@ -19,6 +19,7 @@ this.camp_manager <- {
 			false
 		], // CAUTION: the length of this array is tightly coupled with mSaveSlotNum in camp_screen_commander_dialog_module.js
 		StartedWhileEscorting = false,
+		LastCampingUpdateText = [],
 	},
 	function create()
 	{
@@ -269,7 +270,13 @@ this.camp_manager <- {
 			}
 		}
 
+		this.m.LastCampingUpdateText = updates;
 		return updates;
+	}
+
+	function getLastCampingUpdateText()
+	{
+		return this.m.LastCampingUpdateText;
 	}
 
 	function fireEvent( _eventID, _name )

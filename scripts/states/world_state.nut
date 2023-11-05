@@ -384,7 +384,7 @@ this.world_state <- this.inherit("scripts/states/state", {
 				if (this.World.Camp.isCamping())
 				{
 					local updates = ["(Press Spacebar)"];
-					updates.extend(this.World.Camp.getCampingUpdateText());
+					updates.extend(this.World.Camp.getLastCampingUpdateText());
 					this.World.TopbarDayTimeModule.showMessage("ENCAMPED\n(PAUSED)", updates);		
 				}
 				else
