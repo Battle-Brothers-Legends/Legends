@@ -4111,12 +4111,25 @@ this.world_state <- this.inherit("scripts/states/state", {
 		{
 			foreach (player in ::World.getPlayerRoster().getAll())
 			{
+				local hasEscape = false;
 				if (player.getSkills().hasSkill("perk.legend_escape_artist"))
 				{
+					hasEscape = true;
 					::MSU.Log.printData("Removing Escape Artist from " + player.getName());
 					player.m.PerkPoints++;
 					player.m.PerkPointsSpent--;
 					player.getSkills().removeByID("perk.legend_escape_artist");
+					player.getBackground().removePerk(::Const.Perks.PerkDefs.LegendEscapeArtist);
+				}
+
+				// Beast Slayers origin used to grant Escape Artist and has been changed, so we need to call its onBuildPerkTree again
+				local origin = ::World.Assets.getOrigin();
+				if(origin != null && origin.getID()=="scenario.beast_hunters" && hasEscape)
+				{
+					::MSU.Log.printData("Rolling new Beast Slayers scenario perk for " + player.getName());
+					origin.onBuildPerkTree(player.getBackground());
+					player.m.PerkPoints--;
+					player.m.PerkPointsSpent++;
 				}
 			}
 		}

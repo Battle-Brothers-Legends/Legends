@@ -2002,15 +2002,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 			local perks = [];
 			for( local j = 0; j < numPerks; j = ++j )
 			{
-				local perk = _in.readU16();
-				
-				// Gracefully retire Escape Artist Perk for players (merged into Net Mastery) in 18.2.0
-				if (perk == ::Const.Perks.PerkDefs.LegendEscapeArtist)
-				{
-					continue;
-				}
-				
-				perks.push(perk);
+				perks.push(_in.readU16())
 			}
 			this.m.CustomPerkTree.push(perks);
 		}

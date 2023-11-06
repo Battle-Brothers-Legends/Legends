@@ -1,5 +1,16 @@
 this.beast_hunters_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
-	m = {},
+	m = {
+		FavouredEnemyPerks = [
+			::Const.Perks.PerkDefs.LegendFavouredEnemyGhoul,
+			::Const.Perks.PerkDefs.LegendFavouredEnemyHexen,
+			::Const.Perks.PerkDefs.LegendFavouredEnemyAlps,
+			::Const.Perks.PerkDefs.LegendFavouredEnemyUnhold,
+			::Const.Perks.PerkDefs.LegendFavouredEnemyLindwurm,
+			::Const.Perks.PerkDefs.LegendFavouredEnemyDirewolf,
+			::Const.Perks.PerkDefs.LegendFavouredEnemySpider,
+			::Const.Perks.PerkDefs.LegendFavouredEnemySchrat,
+		],
+	},
 	function create()
 	{
 		this.m.ID = "scenario.beast_hunters";
@@ -258,7 +269,8 @@ this.beast_hunters_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	
 	function onBuildPerkTree( _background )
 	{
-		this.addScenarioPerk(_background, this.Const.Perks.PerkDefs.LegendEscapeArtist);
+		local perk = ::MSU.Array.rand(this.m.FavouredEnemyPerks);
+		this.addScenarioPerk(_background, perk);
 	}
 
 });
