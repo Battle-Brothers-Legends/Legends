@@ -23,11 +23,8 @@ this.legend_spider_abductions_contract <- this.inherit("scripts/contracts/contra
 		if (this.m.SpiderNestTile == null || this.m.SpiderNestTile.IsOccupied)
 		{
 			local playerTile = this.World.State.getPlayer().getTile();
-			this.m.SpiderNestTile = this.getTileToSpawnLocation(playerTile, 6, 12, [
-				this.Const.World.TerrainType.Shore,
-				this.Const.World.TerrainType.Ocean,
-				this.Const.World.TerrainType.Mountains
-			], false);
+			local excluded = ::Const.World.getAllTerrainTypesExcept([::Const.World.TerrainType.Forest, ::Const.World.TerrainType.LeaveForest, ::Const.World.TerrainType.AutumnForest]);
+			this.m.SpiderNestTile = this.getTileToSpawnLocation(playerTile, 6, 12, excluded, false);
 		}
 
 		this.m.Payment.Pool = 500 * this.getPaymentMult() * this.Math.pow(this.getDifficultyMult(), this.Const.World.Assets.ContractRewardPOW) * this.getReputationToPaymentMult();
@@ -73,11 +70,8 @@ this.legend_spider_abductions_contract <- this.inherit("scripts/contracts/contra
 				if (this.Contract.m.SpiderNestTile == null || this.Contract.m.SpiderNestTile.IsOccupied)
 				{
 					local playerTile = this.World.State.getPlayer().getTile();
-					this.Contract.m.SpiderNestTile = this.Contract.getTileToSpawnLocation(playerTile, 6, 12, [
-						this.Const.World.TerrainType.Shore,
-						this.Const.World.TerrainType.Ocean,
-						this.Const.World.TerrainType.Mountains
-					], false);
+					local excluded = ::Const.World.getAllTerrainTypesExcept([::Const.World.TerrainType.Forest, ::Const.World.TerrainType.LeaveForest, ::Const.World.TerrainType.AutumnForest]);
+					this.Contract.m.SpiderNestTile = this.Contract.getTileToSpawnLocation(playerTile, 6, 12, excluded, false);
 				}
 
 				// Setup Spider Nest

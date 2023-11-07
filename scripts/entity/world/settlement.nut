@@ -53,6 +53,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		IsUpgrading = false,
 		CaravanReceivedHistory = array(7,[]), // 7-day rolling window recording all caravans received
 		CaravanSentHistory = array(7,[]), // 7-day rolling window recording all caravans sent
+		SurroundingTileData = null,
+		SurroundingTileDataDefaultRadius = 10,
 	},
 	function setUpgrading( _v )
 	{
@@ -2569,6 +2571,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 		light.IgnoreAmbientColor = true;
 		light.Alpha = 0;
+
+		this.updateSurroundingTileData();
 	}
 
 	function onLeave()
@@ -2944,6 +2948,42 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	{
 		_arr.pop();
 		_arr.insert(0,[]);
+	}
+
+	function updateSurroundingTileData( _radius = null )
+	{
+		_radius = _radius == null ? this.m.SurroundingTileDataDefaultRadius : _radius;
+		this.m.SurroundingTileData = ::Const.LegendMod.Hex.World.getTilesWithinRadiusOrganizedByRadiusAndType(this.getTile(), _radius);
+	}
+
+	function getSurroundingTilesOfType( _types, _maxRadius, _minRadius = 0)
+	{
+		if (_maxRadius > this.m.SurroundingTileData.Data.len())
+		{
+			this.updateSurroundingTileData(_maxRadius);
+		}
+
+		return this.m.SurroundingTileData.getTilesOfTypesBetweenRadius(_types, _maxRadius, _minRadius);
+	}
+
+	function getSurroundingTileTypeProportion( _types, _maxRadius, _minRadius = 0)
+	{
+		if (_maxRadius > this.m.SurroundingTileData.Data.len() )
+		{
+			this.updateSurroundingTileData(_maxRadius);
+		}
+
+		return this.m.SurroundingTileData.getProportionOfTypesBetweenRadius(_types, _maxRadius, _minRadius);
+	}
+
+	function getSurroundingTileTypeCount( _types, _maxRadius, _minRadius = 0)
+	{
+		if (_maxRadius > this.m.SurroundingTileData.Data.len() )
+		{
+			this.updateSurroundingTileData(_maxRadius);
+		}
+
+		return this.m.SurroundingTileData.getCountOfTypesBetweenRadius(_types, _maxRadius, _minRadius);
 	}
 
 	function onSerialize( _out )
