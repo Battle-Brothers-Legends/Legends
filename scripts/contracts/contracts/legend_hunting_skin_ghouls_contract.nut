@@ -12,7 +12,7 @@ this.legend_hunting_skin_ghouls_contract <- this.inherit("scripts/contracts/cont
 		this.contract.create();
 		this.m.Type = "contract.legend_hunting_skin_ghouls";
 		this.m.Name = "Hunting Skin Ghouls (Legendary)";
-		this.m.Description = "Reports of the legendary skin ghouls has locals and their lords in a panic. Hunt them down and bring the city peace.";
+		this.m.Description = "Corpse-eaters... always wretched, malevolent, yet predictable. However there is an intelligence being hinted in these disturbing reports that gives you pause.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.DifficultyMult = this.Math.rand(145, 175) * 0.01;
 	}

@@ -9,7 +9,7 @@ this.hunting_lindwurms_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.hunting_lindwurms";
 		this.m.Name = "Hunting Lindwurms";
-		this.m.Description = "Scouts report Lindwurms getting too close to the town. Hunt the beasts down before they take a toll on the town.";
+		this.m.Description = "Giant, serpentine monsters are ravaging the countryside, devouring cattle and men. None appear able to stop them.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.DifficultyMult = this.Math.rand(95, 135) * 0.01;
 	}

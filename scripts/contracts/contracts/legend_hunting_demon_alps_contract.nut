@@ -12,7 +12,7 @@ this.legend_hunting_demon_alps_contract <- this.inherit("scripts/contracts/contr
 		this.contract.create();
 		this.m.Type = "contract.legend_hunting_demon_alps";
 		this.m.Name = "Ending the Terror Demon (Legendary)";
-		this.m.Description = "Your kind has heard of nightmares plaguing locals but something about these reports is just downright demonic. Set up camp and end the city\'s nightmares.";
+		this.m.Description = "Alps are nightmares made flesh, yet they can be beaten. These reports though... sound downright demonic.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.DifficultyMult = this.Math.rand(145, 175) * 0.01;
 	}

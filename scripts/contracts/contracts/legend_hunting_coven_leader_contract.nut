@@ -12,7 +12,7 @@ this.legend_hunting_coven_leader_contract <- this.inherit("scripts/contracts/con
 		this.contract.create();
 		this.m.Type = "contract.legend_hunting_coven_leader";
 		this.m.Name = "A Cavort with the Coven (Legendary)";
-		this.m.Description = "The local lord is in a panic because a supposed legendary Hexe has resurfaced and is coming for their son. Protect the son at all cost and slay the hexe leader.";
+		this.m.Description = "Dark rituals, flawless beauty, a nobleman\'s ardour. Twisted and maniacal, you must face the coven of witches.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 30.0;
 		this.m.DifficultyMult = this.Math.rand(145, 175) * 0.01;
 	}

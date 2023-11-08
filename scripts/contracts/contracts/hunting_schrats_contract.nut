@@ -9,7 +9,7 @@ this.hunting_schrats_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.hunting_schrats";
 		this.m.Name = "Haunted Woods";
-		this.m.Description = "Locals keep going missing in the nearby woods - the schrats must be close. hunt them down.";
+		this.m.Description = "Lumberjacks keep disappearing in the forest. Some say the trees are coming alive to have their revenge.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 
