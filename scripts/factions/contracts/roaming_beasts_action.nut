@@ -16,13 +16,13 @@ this.roaming_beasts_action <- this.inherit("scripts/factions/faction_action", {
 			return;
 		}
 
-		// Will not spawn if the "Drive Away Beasts" contract is present
-		if (_faction.getContracts().map(function (c){return c.getType() == "contract.legend_preemptive_beasts"}).find(true) != null)
+		if (_faction.getSettlements()[0].isIsolated() || _faction.getSettlements()[0].getSize() > 2)
 		{
 			return;
 		}
 
-		if (_faction.getSettlements()[0].isIsolated() || _faction.getSettlements()[0].getSize() > 2)
+		// Check contract exclusivity
+		if (_faction.hasContractExclusion("contract.roaming_beasts"))
 		{
 			return;
 		}

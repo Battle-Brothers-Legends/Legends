@@ -911,6 +911,23 @@ this.faction <- {
 	{
 	}
 
+	// Return true if the faction has existing contracts that are mutually exclusive with the input contract
+	function hasContractExclusion( _contractType )
+	{
+		foreach (arr in ::Const.Contracts.ContractExclusions)
+		{
+			if (arr.find(_contractType) != null)
+			{
+				foreach (contract in this.getContracts())
+				{
+					if (arr.find(contract.getType()) != null) return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
 	function onSerialize( _out )
 	{
 		_out.writeU8(this.m.ID);
