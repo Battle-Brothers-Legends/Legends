@@ -434,7 +434,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "Bribe",
 			Title = "As you approach...",
-			Text = "[img]gfx/ui/events/event_54.png[/img] As you approach bandit encampment you notice they do not seem like any raiders you\'ve encountered. You expected to be attacked instantly, but they hesitate — some belligerents, even though well equipped, do not seem eager for a fight.\n\n %shouter% notices some familiar faces, folk not built for combat but are instead malnourished and desperate. Before any hostilities starts, %shouter% aproaches you with a risky idea, if you\'re willing to try.",
+			Text = "[img]gfx/ui/events/event_54.png[/img] As you approach bandit encampment you notice they do not seem like any raiders you\'ve encountered. You expected to be attacked instantly, but they hesitate — some belligerents, even though well equipped, do not seem eager for a fight.\n\n %shouter% notices some familiar faces, folk not built for combat but are instead malnourished and desperate. Before any hostilities starts, %shouter% approaches you with a risky idea, if you\'re willing to try.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -475,7 +475,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "BribeSuccess",
 			Title = "An enemy divided...",
-			Text = "[img]gfx/ui/events/event_54.png[/img] %shouter% starts negotiations with some of the less bloodthristy looking brigands — weaving their way through the crowd looking for the weakest and least angry of the group first.\n Promises of great wealth without spilling blood appeal to sizeable part of the mob — you notice quite a few of the raiders taking the coins %shouter% offers and preparing to leave the camp.\n\n This situation, while acceptable for the greedy, does not sit well with the remainers looking for blood.\n The camp atmosphere grows more tense with every minute, as those intrested in crowns gradually filter out of the camp — some are left clutching their weapons and ready to fight. The last moment of peaceful negotiations is interrupted when one of the larger fighters pushes %shouter% back to your group.\n They did what they could, and now it\'s your turn.",
+			Text = "[img]gfx/ui/events/event_54.png[/img] %shouter% starts negotiations with some of the less bloodthirsty looking brigands — weaving their way through the crowd looking for the weakest and least angry of the group first.\n Promises of great wealth without spilling blood appeal to sizeable part of the mob — you notice quite a few of the raiders taking the coins %shouter% offers and preparing to leave the camp.\n\n This situation, while acceptable for the greedy, does not sit well with the remainers looking for blood.\n The camp atmosphere grows more tense with every minute, as those interested in crowns gradually filter out of the camp — some are left clutching their weapons and ready to fight. The last moment of peaceful negotiations is interrupted when one of the larger fighters pushes %shouter% back to your group.\n They did what they could, and now it\'s your turn.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -510,7 +510,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "BribeFailure",
 			Title = "As you approach...",
-			Text = "[img]gfx/ui/events/event_54.png[/img] At first it looked like great idea.\n\n For a moment a few raiders seemed to be swayed by the coins in %shouter% purse. Suddenly a grim looking brute strikes %shouter% with a weapon. %shouter% throws coins on ground and escapes to back your group. Instead of chasing, the raider only laughs and shouts %SPEECH_ON%Look at the wee babe running back to the apron strings. You dropped something coward!%SPEECH_OFF% as a group cackle and descend on gold dropped by %shouter%. You hear a shout comming from beyond the crowd that appears to be the leader %SPEECH_ON%SHOW\'S OVER!  KILL THEM!%SPEECH_OFF%",
+			Text = "[img]gfx/ui/events/event_54.png[/img] At first it looked like great idea.\n\n For a moment a few raiders seemed to be swayed by the coins in %shouter% purse. Suddenly a grim looking brute strikes %shouter% with a weapon. %shouter% throws coins on ground and escapes to back your group. Instead of chasing, the raider only laughs and shouts %SPEECH_ON%Look at the wee babe running back to the apron strings. You dropped something coward!%SPEECH_OFF% as a group cackle and descend on gold dropped by %shouter%. You hear a shout coming from beyond the crowd that appears to be the leader %SPEECH_ON%SHOW\'S OVER!  KILL THEM!%SPEECH_OFF%",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -549,7 +549,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 					icon = injury2.getIcon(),
 					text = this.Contract.m.Briber.getName() + " suffers " + injury1.getNameOnly() + " and " + injury2.getNameOnly()
 				});
-				this.Contract.m.Briber.worsenMood(1.0, "Failed to negotiatie with bandits");
+				this.Contract.m.Briber.worsenMood(1.0, "Failed to negotiate with bandits");
 
 				if (this.Contract.m.Briber.getMoodState() <= this.Const.MoodState.Neutral)
 				{
@@ -565,7 +565,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "LootTime",
 			Title = "After the battle...",
-			Text = "[img]gfx/ui/events/event_22.png[/img] The silence rolls in after the battle gradually concludes, those who are not dead are writhing in pain or struggling to crawl to safety, out of the corner of your eye you can see Nachzehrers skulking around in the brush, presumbly waiting until you depart to begin their meal.\n\n Before you have looted what remains, nature is already descending to clean the battlefield - crows start to finish off those alive who can't defend themselves, stray dogs pull away corpses at the edges of the battle before the more dangerous predators can arrive. A robed man, unknown to either party involved, begins taking what trinkets he can from the dead, no doubt to be sold in a market you will end up visiting later.\n With as many spoils as your company can carry, it is time to get paid at %Home%.",
+			Text = "[img]gfx/ui/events/event_22.png[/img] The silence rolls in after the battle gradually concludes, those who are not dead are writhing in pain or struggling to crawl to safety, out of the corner of your eye you can see Nachzehrers skulking around in the brush, presumably waiting until you depart to begin their meal.\n\n Before you have looted what remains, nature is already descending to clean the battlefield - crows start to finish off those alive who can't defend themselves, stray dogs pull away corpses at the edges of the battle before the more dangerous predators can arrive. A robed man, unknown to either party involved, begins taking what trinkets he can from the dead, no doubt to be sold in a market you will end up visiting later.\n With as many spoils as your company can carry, it is time to get paid at %Home%.",
 			Image = "",
 			List = [],
 			Options = [
@@ -663,7 +663,7 @@ this.legend_bandit_army_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "Shortcut",
 			Title = "The violence settles...",
-			Text = "[img]gfx/ui/events/event_22.png[/img] With the patrol destroyed %randombrother% collects weapons from those unable to fight back while %randombrother2% waltzs between corpses, poking at each body with a stick in one hand and a sword in the other, occasionally plunging the blade into the ribcage of a squirming corpse who failed to play dead.\n When everyone has reported in and spoils are organised and the surviving bandits get a little attention. %randombrother% approaches you. %SPEECH_ON% These scum bleeding out might know something — what if we convince \'em to speak up? I would rather torture these bastards until they share their little secrets rather than running around asking peasants for goddamn directions. %SPEECH_OFF%}",
+			Text = "[img]gfx/ui/events/event_22.png[/img] With the patrol destroyed %randombrother% collects weapons from those unable to fight back while %randombrother2% waltzes between corpses, poking at each body with a stick in one hand and a sword in the other, occasionally plunging the blade into the ribcage of a squirming corpse who failed to play dead.\n When everyone has reported in and spoils are organised and the surviving bandits get a little attention. %randombrother% approaches you. %SPEECH_ON% These scum bleeding out might know something — what if we convince \'em to speak up? I would rather torture these bastards until they share their little secrets rather than running around asking peasants for goddamn directions. %SPEECH_OFF%}",
 			Image = "",
 			Characters = [],
 			List = [],
