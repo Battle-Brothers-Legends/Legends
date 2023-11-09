@@ -78,5 +78,11 @@ this.converted_cultist_background <- this.inherit("scripts/skills/backgrounds/ch
 		actor.setDirty(true);
 	}
 
+	function onAdded()
+	{
+		this.character_background.onAdded();
+		this.getContainer().getActor().getFlags().add("cultist");
+	}
+
 });
 

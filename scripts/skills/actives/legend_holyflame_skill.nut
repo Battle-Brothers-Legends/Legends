@@ -7,7 +7,7 @@ this.legend_holyflame_skill <- this.inherit("scripts/skills/skill", {
 		this.m.Description = "Bless an area, the holy shall be sanctified when entering, the damned shall be consecrated.";
 		this.m.Icon = "skills/holybluefire_square.png";
 		this.m.IconDisabled = "skills/holyfire_square_bw.png";
-		this.m.Overlay = "bluefire_circle";
+		this.m.Overlay = "holybluefire_square";
 		this.m.SoundOnUse = [
 			"sounds/combat/fire_01.wav",
 			"sounds/combat/fire_02.wav",
@@ -45,7 +45,7 @@ this.legend_holyflame_skill <- this.inherit("scripts/skills/skill", {
 			id = 6,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Apply hallowed ground. Allies become unaffected by injuries, fearless of damage, and immune to bleeding and poison. The undead shall be consecrated, able to gain injuries and unable to resurrect."
+			text = "Apply hallowed ground over a 1-tile radius for " + ::Const.UI.getColorized("2", ::Const.UI.Color.PositiveValue) + " turns.\n\nAllies gain the Sanctified effect, becoming immune to injuries, bleeding, poison, and morale checks when taking damage.\n\nUndead and Cultists gain the Consecrated effect, dealing damage to them each turn and removing their immunity to injuries, bleeding, and being poisoned.\n\nAdditionally, Undead are unable to resurrect in the area while the flame is active."
 		});
 		return ret;
 	}
@@ -57,10 +57,6 @@ this.legend_holyflame_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (_targetTile.Properties.Effect != null && _targetTile.Properties.Effect != "legend_holyflame")
-		{
-			return false;
-		}
 		return true;
 	}
 
@@ -86,7 +82,7 @@ this.legend_holyflame_skill <- this.inherit("scripts/skills/skill", {
 
 		local p = {
 			Type = "legend_holyflame",
-			Tooltip = "This is hallowed ground. Allies become unaffected by injuries, fearless of damage, and immune to bleeding and poison. Undead will be consecrated, able to gain injuries and unable to resurrect.",
+			Tooltip = "This is hallowed ground.\n\nAllies gain the Sanctified effect, becoming immune to injuries, bleeding, poison, and morale checks when taking damage.\n\nUndead and Cultists gain the Consecrated effect, dealing damage to them each turn and removing any immunity to injuries, bleeding, and being poisoned.\n\nAdditionally, Undead are unable to resurrect in the area while the flame is active.",
 			IsPositive = false,
 			IsAppliedAtRoundStart = false,
 			IsAppliedAtTurnEnd = true,
@@ -103,12 +99,17 @@ this.legend_holyflame_skill <- this.inherit("scripts/skills/skill", {
 
 		foreach (tile in targets)
 		{
-			if (tile.Properties.Effect != null && tile.Properties.Effect.Type == "legend_holyflame")
+			if (tile.Properties.Effect != null && tile.Properties.Effect.Type == "legend_holyflame") // TODO: override if the tile has another effect?
 			{
 				tile.Properties.Effect.Timeout = this.Time.getRound() + 2;
 			}
-			else if (tile.Properties.Effect == null)
+			else
 			{
+				if (tile.Properties.Effect != null)
+				{
+					this.Tactical.Entities.removeTileEffect(tile);
+				}
+
 				tile.Properties.Effect = clone p;
 				local particles = [];
 

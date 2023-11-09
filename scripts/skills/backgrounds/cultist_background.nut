@@ -245,5 +245,11 @@ this.cultist_background <- this.inherit("scripts/skills/backgrounds/character_ba
 			[1, "cultist_leather_hood"]
 		]));
 	}
+
+	function onAdded()
+	{
+		this.character_background.onAdded();
+		this.getContainer().getActor().getFlags().add("cultist");
+	}
 });
 

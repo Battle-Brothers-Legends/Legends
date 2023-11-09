@@ -286,5 +286,11 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 			[1, "cultist_leather_hood"]
 		]));
 	}
+
+	function onAdded()
+	{
+		this.character_background.onAdded();
+		this.getContainer().getActor().getFlags().add("cultist");
+	}
 });
 

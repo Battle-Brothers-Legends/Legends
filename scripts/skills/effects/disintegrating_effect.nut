@@ -74,6 +74,7 @@ this.disintegrating_effect <- this.inherit("scripts/skills/skill", {
 			hitInfo.BodyPart = this.Const.BodyPart.Body;
 			hitInfo.BodyDamageMult = 1.0;
 			hitInfo.FatalityChanceMult = 0.0;
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " is disintegrating.");
 			this.getContainer().getActor().onDamageReceived(this.getAttacker(), this, hitInfo);
 
 			if (--this.m.TurnsLeft <= 0)

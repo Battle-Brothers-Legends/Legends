@@ -4,7 +4,7 @@ this.legend_prayer_of_life_skill <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.legend_prayer_of_life";
 		this.m.Name = "Prayer of Hope";
-		this.m.Description = "Push allies on with your chant of holy scripture, restoring the health of all allies within 1 tile by 20% of their resolve. Does not work on cultists. Inflicts a disintegrating ailment on each adjacent undead.";
+		this.m.Description = "Push allies on with your chant of holy scripture, restoring the health of all allies within 1 tile by 20% of your resolve. Does not work on cultists. Inflicts a disintegrating ailment on each adjacent undead.";
 		this.m.Icon = "skills/prayer_green_square.png";
 		this.m.IconDisabled = "skills/prayer_green_square_bw.png";
 		this.m.Overlay = "prayer_green";
@@ -75,7 +75,7 @@ this.legend_prayer_of_life_skill <- this.inherit("scripts/skills/skill", {
 
 			if (a.getFaction() == _user.getFaction())
 			{
-				if (!a.getBackground().isBackgroundType(this.Const.BackgroundType.ConvertedCultist) && !a.getSkills().hasSkill("effects.legend_prayer_of_life"))
+				if (!a.getFlags().has("cultist") && !a.getSkills().hasSkill("effects.legend_prayer_of_life"))
 				{
 					local effect = this.new("scripts/skills/effects/legend_prayer_of_life_effect");
 					effect.m.Resolve = this.getContainer().getActor().getBravery();
@@ -83,12 +83,11 @@ this.legend_prayer_of_life_skill <- this.inherit("scripts/skills/skill", {
 				}
 			}
 
-			local skills = a.getSkills();
-			if (skills.hasSkill("racial.skeleton") || skills.hasSkill("actives.zombie_bite") || skills.hasSkill("racial.vampire") || skills.hasSkill("racial.ghost") || skills.hasSkill("racial.mummy"))
+			if (a.getFlags().has("undead") && !a.getFlags().has("ghoul"))
 			{
-				if (!skills.hasSkill("effects.disintegrating"))
+				if (!a.getSkills().hasSkill("effects.disintegrating"))
 				{
-					skills.add(this.new("scripts/skills/effects/disintegrating_effect"));
+					a.getSkills().add(this.new("scripts/skills/effects/disintegrating_effect"));
 				}
 			}
 		}

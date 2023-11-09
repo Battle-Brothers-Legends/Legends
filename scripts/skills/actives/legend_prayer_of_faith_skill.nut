@@ -4,7 +4,7 @@ this.legend_prayer_of_faith_skill <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "actives.legend_prayer_of_faith";
 		this.m.Name = "Prayer of Faith";
-		this.m.Description = "Grant defense to your allies with your chant of holy scripture, granting +20% of their resolve as melee and ranged defense. Hurts cultists. Adjacent undead are Baffled.";
+		this.m.Description = "Grant defense to your allies with your chant of holy scripture, granting +20% of your resolve as melee and ranged defense. Adjacent undead and cultists are Baffled.";
 		this.m.Icon = "skills/prayer_purple_square.png";
 		this.m.IconDisabled = "skills/prayer_purple_square_bw.png";
 		this.m.Overlay = "prayer_purple";
@@ -74,20 +74,15 @@ this.legend_prayer_of_faith_skill <- this.inherit("scripts/skills/skill", {
 				continue;
 			}
 
-			if (a.getFaction() == _user.getFaction())
-			{
-				if (!a.getBackground().isBackgroundType(this.Const.BackgroundType.ConvertedCultist || this.Const.BackgroundType.Cultist))
-				{
-					local effect = this.new("scripts/skills/effects/legend_prayer_of_faith_effect");
-					effect.m.Resolve = this.getContainer().getActor().getBravery();
-					a.getSkills().add(effect);
-				}
-			}
-
-			local skills = a.getSkills();
-			if (skills.hasSkill("racial.skeleton") || skills.hasSkill("actives.zombie_bite") || skills.hasSkill("racial.vampire") || skills.hasSkill("racial.ghost"))
+			if ((a.getFlags().has("undead") && !a.getFlags().has("ghoul")) || a.getFlags().has("cultist"))
 			{
 				a.getSkills().add(this.new("scripts/skills/effects/legend_baffled_effect"));
+			}
+			else if (a.getFaction() == _user.getFaction())
+			{
+				local effect = this.new("scripts/skills/effects/legend_prayer_of_faith_effect");
+				effect.m.Resolve = this.getContainer().getActor().getBravery();
+				a.getSkills().add(effect);
 			}
 		}
 

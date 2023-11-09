@@ -329,55 +329,17 @@ gt.Const.Tactical.Common <- {
 
 		local faction = _entity.getFaction();
 
-		if (faction == this.Const.Faction.Undead || faction == this.Const.Faction.Zombies )
+		if ((_entity.getFlags().has("undead") && !_entity.getFlags().has("ghoul")) || _entity.getFlags().has("cultist"))
 		{
-			local consecrate = _entity.getSkills().getSkillByID("effects.legend_consecrated_effect");
-			if (consecrate != null)
-			{
-				consecrate.onRefresh();
-				local hitInfo = clone this.Const.Tactical.HitInfo;
-				hitInfo.DamageRegular = this.Math.rand(10, 20);
-				hitInfo.DamageDirect = 1.0;
-				hitInfo.BodyPart = this.Const.BodyPart.Body;
-				hitInfo.BodyDamageMult = 1.0;
-				hitInfo.FatalityChanceMult = 0.0;
-				_tile.getEntity().onDamageReceived(_entity, null, hitInfo);
-			}
-			else
+			if (!_entity.getSkills().hasSkill("effects.legend_consecrated_effect"))
 			{
 				_entity.getSkills().add(this.new("scripts/skills/effects/legend_consecrated_effect"));
-				_entity.getSkills().add(this.new("scripts/skills/effects/holy_water_effect"));
-				_entity.getSkills().add(this.new("scripts/skills/effects/bleeding_effect"));
-				_entity.getSkills().add(this.new("scripts/skills/effects/zombie_poison_effect"));
-				local hitInfo = clone this.Const.Tactical.HitInfo;
-				hitInfo.DamageRegular = this.Math.rand(10, 20);
-				hitInfo.DamageDirect = 1.0;
-				hitInfo.BodyPart = this.Const.BodyPart.Body;
-				hitInfo.BodyDamageMult = 1.0;
-				hitInfo.FatalityChanceMult = 0.0;
-				_tile.getEntity().onDamageReceived(_entity, null, hitInfo);
 			}
 			return;
 		}
-
-		if (faction == this.Const.Faction.Player || faction == this.Const.Faction.Civilian || faction == this.Const.Faction.NobleHouse)
+		else if (faction == this.Const.Faction.Player || faction == this.Const.Faction.Civilian || faction == this.Const.Faction.NobleHouse)
 		{
-			local sanctify = _entity.getSkills().getSkillByID("effects.legend_sanctified_effect");
-			if (sanctify != null)
-			{
-				sanctify.onRefresh();
-			}
-			else if (faction == this.Const.Faction.Player && _entity.getBackground() != null && _entity.getBackground().isBackgroundType(this.Const.BackgroundType.ConvertedCultist))
-			{
-				local hitInfo = clone this.Const.Tactical.HitInfo;
-				hitInfo.DamageRegular = this.Math.rand(10, 20);
-				hitInfo.DamageDirect = 1.0;
-				hitInfo.BodyPart = this.Const.BodyPart.Body;
-				hitInfo.BodyDamageMult = 1.0;
-				hitInfo.FatalityChanceMult = 0.0;
-				_tile.getEntity().onDamageReceived(_entity, null, hitInfo);
-			}
-			else
+			if (!_entity.getSkills().hasSkill("effects.legend_sanctified_effect"))
 			{
 				_entity.getSkills().add(this.new("scripts/skills/effects/legend_sanctified_effect"));
 			}
