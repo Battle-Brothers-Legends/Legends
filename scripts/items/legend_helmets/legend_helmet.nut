@@ -310,6 +310,11 @@ this.legend_helmet <- this.inherit("scripts/items/helmets/helmet", {
 		this.doOnFunction("clearSkills")
 	}
 
+	function onBeforeTargetHit(_skill, _targetEntity, _hitInfo)
+	{
+		this.doOnFunction("onBeforeTargetHit", [_skill, _targetEntity, _hitInfo])
+	}
+
 	function addArmor( _a )
 	{
 		if (_a + this.m.Condition <= this.m.ConditionMax)

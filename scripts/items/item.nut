@@ -698,6 +698,10 @@ this.item <- {
 	{
 	}
 
+	function onBeforeTargetHit(_skill, _targetEntity, _hitInfo)
+	{
+	}
+
 	function onDamageReceived( _damage, _fatalityType, _attacker )
 	{
 	}

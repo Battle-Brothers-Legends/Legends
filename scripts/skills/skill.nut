@@ -2483,6 +2483,7 @@ this.skill <- {
 			}
 		}
 
+		local actorItemsContainer = _info.Container.getActor().getItems();
 		local hitInfo = clone this.Const.Tactical.HitInfo;
 		hitInfo.DamageRegular = damageRegular * damageMult;
 		hitInfo.DamageArmor = damageArmor * damageMult;
@@ -2496,6 +2497,8 @@ this.skill <- {
 		hitInfo.InjuryThresholdMult = _info.Properties.ThresholdToInflictInjuryMult;
 		hitInfo.Tile = _info.TargetEntity.getTile();
 		_info.Container.onBeforeTargetHit(_info.Skill, _info.TargetEntity, hitInfo);
+		actorItemsContainer.onBeforeTargetHit(_info.Skill, _info.TargetEntity, hitInfo);
+
 		local pos = _info.TargetEntity.getPos();
 		local hasArmorHitSound = _info.TargetEntity.getItems().getAppearance().ImpactSound[bodyPart].len() != 0;
 		_info.TargetEntity.onDamageReceived(_info.User, _info.Skill, hitInfo);

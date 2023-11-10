@@ -23,6 +23,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 		ChanceToHitHead = 0,
 		AdditionalAccuracy = 0,
 		FatigueOnSkillUse = 0,
+		WeaponInjuryThresholdMult = 1.0,
 		StaminaModifier = 0,
 		IsDoubleGrippable = false,
 		IsAgainstShields = false,
@@ -385,6 +386,16 @@ this.weapon <- this.inherit("scripts/items/item", {
 			}
 		}
 
+		if (this.m.WeaponInjuryThresholdMult < 1.0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/hitchance.png",
+				text = "Has a [color=" + this.Const.UI.Color.NegativeValue + "]" + (1.0 - this.m.WeaponInjuryThresholdMult) * 100 + "%[/color] lower threshold to inflict injuries"
+			});
+		}
+
 		if (this.isRuned())
 		{
 			result.push({
@@ -579,6 +590,11 @@ this.weapon <- this.inherit("scripts/items/item", {
 				this.lowerCondition();
 			}
 		}
+	}
+
+	function onBeforeTargetHit( _skill, _target, _hitInfo )
+	{
+		if (this.m.WeaponInjuryThresholdMult < 1.0) { _hitInfo.InjuryThresholdMult *= this.m.WeaponInjuryThresholdMult; }
 	}
 
 	function onUse( _skill )

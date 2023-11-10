@@ -241,6 +241,11 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 		this.doOnFunction("onActorDied", [_onTile]);
 	}
 
+	function onBeforeTargetHit(_skill, _targetEntity, _hitInfo)
+	{
+		this.doOnFunction("onBeforeTargetHit", [_skill, _targetEntity, _hitInfo])
+	}
+
 	function setCurrentSlotType( _slotType )
 	{
 		this.m.CurrentSlotType = _slotType;

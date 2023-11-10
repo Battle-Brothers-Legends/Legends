@@ -923,6 +923,11 @@ this.item_container <- {
 		}
 	}
 
+	function onBeforeTargetHit(_skill, _targetEntity, _hitInfo)
+	{
+		this.doOnFunction("onBeforeTargetHit", [_skill, _targetEntity, _hitInfo]);
+	}
+
 	function onBeforeDamageReceived(_attacker, _skill, _hitInfo, _properties)
 	{
 		this.doOnFunction("onBeforeDamageReceived", [_attacker, _skill, _hitInfo, _properties]);
