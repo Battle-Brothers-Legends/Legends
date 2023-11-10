@@ -92,5 +92,16 @@ this.named_two_handed_spiked_mace <- this.inherit("scripts/items/weapons/named/n
 		}
 	}
 
+	function onSerialize(_out) 
+	{
+		this.named_weapon.onSerialize(_out);
+		_out.writeI8(this.m.ExtraStaggerChance);
+	}
+	function onDeserialize(_in) 
+	{
+		this.named_weapon.onDeserialize(_in);
+		this.m.ExtraStaggerChance = ::Const.Serialization.Version >= 74 ? _in.readI18() : 0;
+	}
+
 });
 

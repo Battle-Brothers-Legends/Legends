@@ -84,5 +84,16 @@ this.named_two_handed_hammer <- this.inherit("scripts/items/weapons/named/named_
 		//this.addSkill(this.new("scripts/skills/actives/legend_harvest_rock"));
 	}
 
+	function onSerialize(_out) 
+	{
+		this.named_weapon.onSerialize(_out);
+		_out.writeI8(this.m.ExtraStunChance);
+	}
+	function onDeserialize(_in) 
+	{
+		this.named_weapon.onDeserialize(_in);
+		this.m.ExtraStunChance = ::Const.Serialization.Version >= 74 ? _in.readI18() : 0;
+	}
+
 });
 

@@ -97,5 +97,16 @@ this.legend_named_military_goedendag <- this.inherit("scripts/items/weapons/name
 		}
 	}
 
+	function onSerialize(_out) 
+	{
+		this.named_weapon.onSerialize(_out);
+		_out.writeI8(this.m.ExtraStaggerChance);
+	}
+	function onDeserialize(_in) 
+	{
+		this.named_weapon.onDeserialize(_in);
+		this.m.ExtraStaggerChance = ::Const.Serialization.Version >= 74 ? _in.readI18() : 0;
+	}
+
 });
 

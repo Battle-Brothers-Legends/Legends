@@ -64,7 +64,7 @@ this.named_mace <- this.inherit("scripts/items/weapons/named/named_weapon", {
 		this.addSkill(this.new("scripts/skills/actives/bash"));
 		this.addSkill(this.new("scripts/skills/actives/knock_out"));
 	}
-	
+
 	function onDamageDealt( _target, _skill, _hitInfo )
 	{
 		this.named_weapon.onDamageDealt( _target, _skill, _hitInfo );
@@ -76,6 +76,17 @@ this.named_mace <- this.inherit("scripts/items/weapons/named/named_weapon", {
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_target) + " has been staggered from: " + this.getName());
 			}
 		}
+	}
+
+	function onSerialize(_out) 
+	{
+		this.named_weapon.onSerialize(_out);
+		_out.writeI8(this.m.ExtraStaggerChance);
+	}
+	function onDeserialize(_in) 
+	{
+		this.named_weapon.onDeserialize(_in);
+		this.m.ExtraStaggerChance = ::Const.Serialization.Version >= 74 ? _in.readI18() : 0;
 	}
 
 });
