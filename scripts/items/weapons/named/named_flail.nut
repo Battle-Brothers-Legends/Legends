@@ -1,5 +1,9 @@
 this.named_flail <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.SpecialEffect = ::Math.rand(0, 0); }
+		]
+	},
 	function create()
 	{
 		this.named_weapon.create();
@@ -31,6 +35,21 @@ this.named_flail <- this.inherit("scripts/items/weapons/named/named_weapon", {
 		this.randomizeValues();
 	}
 
+	function getTooltip()
+	{
+		local result = this.named_weapon.getTooltip();
+		if (this.m.SpecialEffect == 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/chance_to_hit_head.png",
+				text = "Dazes the target when striking the head."
+			});
+		}
+		return result;
+	}
+
 	function updateVariant()
 	{
 		this.m.IconLarge = "weapons/melee/flail_01_named_0" + this.m.Variant + ".png";
@@ -43,6 +62,22 @@ this.named_flail <- this.inherit("scripts/items/weapons/named/named_weapon", {
 		this.named_weapon.onEquip();
 		this.addSkill(this.new("scripts/skills/actives/flail_skill"));
 		this.addSkill(this.new("scripts/skills/actives/lash_skill"));
+	}
+
+	function onDamageDealt( _target, _skill, _hitInfo )
+	{
+		this.named_weapon.onDamageDealt( _target, _skill, _hitInfo );
+		if (this.m.SpecialEffect == 0)
+		{
+			if (_target != null && _target.isAlive() && !_target.isDying() && !_target.getCurrentProperties().IsImmuneToDaze)
+			{
+				if (_hitInfo.BodyPart == this.Const.BodyPart.Head)
+				{
+					_target.getSkills().add(this.new("scripts/skills/effects/dazed_effect"));
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_target) + " is dazed by: " + this.getName());
+				}
+			}
+		}
 	}
 
 });

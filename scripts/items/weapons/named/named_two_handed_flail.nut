@@ -1,11 +1,14 @@
 this.named_two_handed_flail <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.SpecialEffect = ::Math.rand(0, 0); }
+		]
+	},
 	function create()
 	{
 		this.named_weapon.create();
 		this.m.Variants = [1,2,3]
 		this.m.Variant = this.m.Variants[this.Math.rand(0, this.m.Variants.len() -1)];
-
 		this.updateVariant();
 		this.m.ID = "weapon.named_two_handed_flail";
 		this.m.NameList = this.Const.Strings.TwoHandedFlailNames;
@@ -28,10 +31,23 @@ this.named_two_handed_flail <- this.inherit("scripts/items/weapons/named/named_w
 		this.m.RegularDamageMax = 90;
 		this.m.ArmorDamageMult = 1.15;
 		this.m.DirectDamageMult = 0.3;
-		//two_handed_flail has the next line exactly, maybe add here too(?)
-		//this.m.DirectDamageAdd = -0.2;
 		this.m.ChanceToHitHead = 15;
 		this.randomizeValues();
+	}
+
+	function getTooltip()
+	{
+		local result = this.named_weapon.getTooltip();
+		if (this.m.SpecialEffect == 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/chance_to_hit_head.png",
+				text = "Dazes the target when striking the head."
+			});
+		}
+		return result;
 	}
 
 	function updateVariant()
@@ -55,6 +71,22 @@ this.named_two_handed_flail <- this.inherit("scripts/items/weapons/named/named_w
 		skill.m.IconDisabled = "skills/active_130_sw.png";
 		skill.m.Overlay = "active_130";
 		this.addSkill(skill);
+	}
+
+	function onDamageDealt( _target, _skill, _hitInfo )
+	{
+		this.named_weapon.onDamageDealt( _target, _skill, _hitInfo );
+		if (this.m.SpecialEffect == 0)
+		{
+			if (_target != null && _target.isAlive() && !_target.isDying() && !_target.getCurrentProperties().IsImmuneToDaze)
+			{
+				if (_hitInfo.BodyPart == this.Const.BodyPart.Head)
+				{
+					_target.getSkills().add(this.new("scripts/skills/effects/dazed_effect"));
+					this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_target) + " is dazed by: " + this.getName());
+				}
+			}
+		}
 	}
 
 });

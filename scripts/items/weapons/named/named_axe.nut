@@ -1,5 +1,11 @@
 this.named_axe <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.SpecialEffect = ::Math.rand(0, 0); }
+		],
+		DamageRegularLowerBound = 10,
+		DamageRegularHigherBound = 20
+	},
 	function create()
 	{
 		this.named_weapon.create();
@@ -29,6 +35,21 @@ this.named_axe <- this.inherit("scripts/items/weapons/named/named_weapon", {
 		this.randomizeValues();
 	}
 
+	function getTooltip()
+	{
+		local result = this.named_weapon.getTooltip();
+		if (this.m.SpecialEffect == 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/chance_to_hit_head.png",
+				text = "Deals an additional [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.DamageRegularLowerBound + " - " + this.m.DamageRegularHigherBound + " %[/color] damage when striking the targets head"
+			});
+		}
+		return result;
+	}
+
 	function updateVariant()
 	{
 		this.m.IconLarge = "weapons/melee/axe_03_named_0" + this.m.Variant + ".png";
@@ -44,6 +65,17 @@ this.named_axe <- this.inherit("scripts/items/weapons/named/named_weapon", {
 		skillToAdd.setApplyAxeMastery(true);
 		this.addSkill(skillToAdd);
 		//this.addSkill(this.new("scripts/skills/actives/legend_harvest_tree"));
+	}
+
+	function onBeforeTargetHit( _skill, _target, _hitInfo )
+	{
+		this.named_weapon.onBeforeTargetHit(_skill, _target, _hitInfo);
+		if (_hitInfo.BodyPart == this.Const.BodyPart.Head)
+		{
+			local bonus = ::Math.rand(this.m.DamageRegularLowerBound, this.m.DamageRegularHigherBound);
+			_hitInfo.DamageRegular *= 1.0 + (bonus * 0.01);
+			// this.Tactical.EventLog.log("The strike received an additional damage multiplier of: " + bonus);
+		}
 	}
 
 });

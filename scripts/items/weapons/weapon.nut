@@ -26,6 +26,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 		WeaponInjuryThresholdMult = 1.0,
 		WeaponFatalityChanceMult = 1.0,
 		StaminaModifier = 0,
+		SpecialEffect = -1, 
 		IsDoubleGrippable = false,
 		IsAgainstShields = false,
 		IsAoE = false,
