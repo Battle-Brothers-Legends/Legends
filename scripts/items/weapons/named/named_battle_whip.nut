@@ -108,7 +108,7 @@ this.named_battle_whip <- this.inherit("scripts/items/weapons/named/named_weapon
 	function onDeserialize(_in) 
 	{
 		this.named_weapon.onDeserialize(_in);
-		this.m.ExtraBleedChance = _in.readI8();
+		this.m.ExtraBleedChance = ::Const.Serialization.Version >= 74 ? _in.readI18() : 0;
 	}
 
 });

@@ -1,5 +1,12 @@
 this.named_two_handed_spiked_mace <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.SpecialEffect = ::Math.rand(0, 0); if (_i.m.SpecialEffect == 0) { _i.m.ExtraStaggerChance = ::Math.rand(_i.m.ExtraStaggerLowerBound, _i.m.ExtraStaggerHigherBound); }}
+		],
+		ExtraStaggerLowerBound = 15,
+		ExtraStaggerHigherBound = 25,
+		ExtraStaggerChance = 0
+	},
 	function create()
 	{
 		this.named_weapon.create();
@@ -32,6 +39,20 @@ this.named_two_handed_spiked_mace <- this.inherit("scripts/items/weapons/named/n
 		this.randomizeValues();
 	}
 
+	function getTooltip()
+	{
+		local result = this.named_weapon.getTooltip();
+		if (this.m.SpecialEffect == 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.ExtraStaggerChance + "%[/color] chance to stagger a target on a successful attack"
+			});
+		}
+	}
+
 	function updateVariant()
 	{
 		this.m.IconLarge = "weapons/melee/wildmen_06_named_0" + this.m.Variant + ".png";
@@ -56,6 +77,19 @@ this.named_two_handed_spiked_mace <- this.inherit("scripts/items/weapons/named/n
 		skill = this.new("scripts/skills/actives/split_shield");
 		skill.setFatigueCost(skill.getFatigueCostRaw() + 5);
 		this.addSkill(skill);
+	}
+
+	function onDamageDealt( _target, _skill, _hitInfo )
+	{
+		this.named_weapon.onDamageDealt( _target, _skill, _hitInfo );
+		if (this.m.SpecialEffect == 0)
+		{
+			if (_target != null && _target.isAlive() && !_target.isDying() && ::Math.rand(0, 100) <= this.m.ExtraStaggerChance)
+			{
+				_target.getSkills().add(this.new("scripts/skills/effects/staggered_effect"));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_target) + " has been staggered from: " + this.getName());
+			}
+		}
 	}
 
 });
