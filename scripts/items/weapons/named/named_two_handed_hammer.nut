@@ -1,5 +1,12 @@
 this.named_two_handed_hammer <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.SpecialEffect = ::Math.rand(0, 0); if (_i.m.SpecialEffect == 0) { _i.m.ExtraStunChance = ::Math.rand(_i.m.ExtraStunLowerBound, _i.m.ExtraStunHigherBound); }}
+		],
+		ExtraStunLowerBound = 5,
+		ExtraStunHigherBound = 15,
+		ExtraStunChance = 0
+	},
 	function create()
 	{
 		this.named_weapon.create();
@@ -30,6 +37,33 @@ this.named_two_handed_hammer <- this.inherit("scripts/items/weapons/named/named_
 		this.m.DirectDamageMult = 0.5;
 		this.m.ChanceToHitHead = 0;
 		this.randomizeValues();
+	}
+
+	function getTooltip()
+	{
+		local result = this.named_weapon.getTooltip();
+		if (this.m.SpecialEffect == 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.ExtraStunChance + "%[/color] chance to stun a target on a successful attack, or daze if immune"
+			});
+		}
+	}
+
+	function onDamageDealt( _target, _skill, _hitInfo )
+	{
+		this.named_weapon.onDamageDealt( _target, _skill, _hitInfo );
+		if (this.m.SpecialEffect == 0)
+		{
+			if (_target != null && _target.isAlive() && !_target.isDying() && ::Math.rand(0, 100) <= this.m.ExtraStunChance)
+			{
+				_target.getSkills().add(this.new("scripts/skills/effects/stunned_effect"));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_target) + " has been stunned from: " + this.getName());
+			}
+		}
 	}
 
 	function updateVariant()
