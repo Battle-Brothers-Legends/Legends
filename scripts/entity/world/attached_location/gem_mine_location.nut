@@ -5,7 +5,7 @@ this.gem_mine_location <- this.inherit("scripts/entity/world/attached_location",
 		this.attached_location.create();
 		this.m.Name = "Gem Mine";
 		this.m.ID = "attached_location.gem_mine";
-		this.m.Description = "The shiny gems found in this mine are usually brought directly to the next settlement in well-guarded caravans for further refinement. Contributes gems, miners, pickaxes, sellswords, caravan hands and thieves to the lcoal town.";
+		this.m.Description = "The shiny gems found in this mine are usually brought directly to the next settlement in well-guarded caravans for further refinement. Contributes gems, miners, pickaxes, sellswords, caravan hands and thieves to the local town.";
 		this.m.Sprite = "world_gem_mine_01";
 		this.m.SpriteDestroyed = "world_gem_mine_01_ruins";
 	}

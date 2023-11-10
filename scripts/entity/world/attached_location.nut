@@ -8,7 +8,8 @@ this.attached_location <- this.inherit("scripts/entity/world/location", {
 		IsMilitary = false,
 		IsConnected = true,
 		IsUsable = true,
-		IsNew = false
+		IsNew = false,
+		IsAbandoned = false
 	},
 
 	function getSpriteName()
@@ -61,6 +62,11 @@ this.attached_location <- this.inherit("scripts/entity/world/location", {
 		return this.m.IsActive && !this.m.IsNew;
 	}
 
+	function isAbandoned()
+	{
+		return this.m.IsAbandoned;
+	}
+
 	function isBuilding()
 	{
 		return this.m.IsNew;
@@ -106,7 +112,17 @@ this.attached_location <- this.inherit("scripts/entity/world/location", {
 			return s;
 		}
 
-		return this.m.IsActive ? this.world_entity.getName() : "Ruins";
+		local status = "";
+		if (this.m.IsAbandoned)
+		{
+			status = " (Abandoned)";
+		}
+		else if (!this.m.IsActive)
+		{
+			status = " (Ruins)";
+		}
+
+		return this.world_entity.getName() + status;
 	}
 
 	function getRealName()
@@ -119,6 +135,10 @@ this.attached_location <- this.inherit("scripts/entity/world/location", {
 		if (this.m.IsActive || this.m.IsNew)
 		{
 			return this.world_entity.getDescription();
+		}
+		else if (this.m.IsAbandoned)
+		{
+			return "The nearby settlement\'s current economic situation is unable to sustain this location and it has been abandoned. It will be repopulated once the settlement grows to a sufficient level again.";
 		}
 		else
 		{
@@ -139,6 +159,17 @@ this.attached_location <- this.inherit("scripts/entity/world/location", {
 			this.m.Settlement.onAttachedLocationsChanged();
 		}
 		this.updateSprites();
+	}
+
+	function setAbandoned( _a, _force = false)
+	{
+		if (_a == this.m.IsAbandoned && _force == false)
+		{
+			return;
+		}
+
+		this.m.IsAbandoned = _a;
+		this.setActive( !_a, _force );
 	}
 
 	function setNew( _a )
@@ -276,6 +307,7 @@ this.attached_location <- this.inherit("scripts/entity/world/location", {
 
 		_out.writeBool(this.m.IsActive);
 		_out.writeBool(this.m.IsNew);
+		_out.writeBool(this.m.IsAbandoned);
 	}
 
 	function onDeserialize( _in )
@@ -296,6 +328,10 @@ this.attached_location <- this.inherit("scripts/entity/world/location", {
 
 		local active = _in.readBool();
 		this.m.IsNew = _in.readBool();
+		if (::Legends.Mod.Serialization.isSavedVersionAtLeast("18.2.0-pre-02", _in.getMetaData()))
+		{
+			this.m.IsAbandoned = _in.readBool();
+		}
 		this.setActive(active, true);
 		this.setAttackable(false);
 		this.getSprite("lighting").Color = this.createColor("ffffff00");

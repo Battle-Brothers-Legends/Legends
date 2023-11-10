@@ -35,7 +35,7 @@ this.legend_militant_townsfolk_situation <- this.inherit("scripts/entity/world/s
 		
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			_settlement.addResources(-5);
+			_settlement.addWorldEconomyResources(-5);
 		}
 		_settlement.resetRoster(true); 
 		_settlement.resetShop();

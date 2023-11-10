@@ -1,7 +1,8 @@
 this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 	m = {
+		IsSendingAid = false,
 		Start = null,
-		Dest = null
+		Dest = null,
 	},
 	function create()
 	{
@@ -25,44 +26,82 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 
 		local starts = [];
 		local dests = [];
+		local data = this.getTownNeedHelp(_faction);
+
+		// send aid to poor town
+		if (!_faction.getFlags().get("SentSupplyAid") && // last time wasn't to send aid
+			data.Poor.len() > 0 && data.Forts.len() > 0)  // must have fort and poor town
+		{
+			starts.extend(data.Forts);
+			dests.extend(data.Poor);
+			this.m.IsSendingAid = true;
+		}
+		else if (data.Forts.len() > 0)
+		{
+			// ask a fort to send supply to another fort
+			if (data.Forts.len() >= 2 && this.Math.rand(1, 100) <= 50)
+			{
+				starts.push(data.Forts.remove(this.Math.rand(0, data.Forts.len() - 1)));
+				dests.extend(data.Forts);
+			}
+			// ask small town to send supply to big town
+			else
+			{
+				dests.extend(data.Forts);
+
+				foreach( s in _faction.getSettlements() )
+				{
+					if (s.isIsolatedFromRoads())
+						continue;
+
+					if (!s.isMilitary() && !(s.getLastSpawnTime() + 300.0 > this.Time.getVirtualTimeF()))
+						starts.push(s);
+				}
+			}
+		}
+
+		if (starts.len() == 0 || dests.len() == 0)
+			return;
+
+		this.m.Start = ::MSU.Array.rand(starts);
+		this.m.Dest = ::MSU.Array.rand(dests);
+	
+		if (this.m.Start.isConnectedToByRoads(this.m.Dest))
+		{
+			this.m.Score = 5 + (this.m.IsSendingAid ? 1 : 0);
+			return;
+		}
+		
+		this.m.Start = null;
+		this.m.Dest = null;
+	}
+
+	function getTownNeedHelp( _faction )
+	{
+		local ret = {Poor = [], Forts = []};
 
 		foreach( s in _faction.getSettlements() )
 		{
 			if (s.isIsolatedFromRoads())
-			{
+				continue;
+
+			if (s.isMilitary()) {
+				ret.Forts.push(s);
 				continue;
 			}
+			
+			if (s.getWealth() > 33)
+				continue;
 
-			if (s.isMilitary())
-			{
-				dests.push(s);
-			}
-			else if (!(s.getLastSpawnTime() + 300.0 > this.Time.getVirtualTimeF()))
-			{
-				starts.push(s);
-			}
+			ret.Poor.push(s);
 		}
 
-		if (starts.len() != 0 && dests.len() != 0)
-		{
-			this.m.Start = starts[this.Math.rand(0, starts.len() - 1)];
-			this.m.Dest = dests[this.Math.rand(0, dests.len() - 1)];
-
-			if (this.m.Start.isConnectedToByRoads(this.m.Dest))
-			{
-				this.m.Score = 5;
-			}
-			else
-			{
-				this.m.Start = null;
-				this.m.Dest = null;
-				return;
-			}
-		}
+		return ret;
 	}
 
 	function onClear()
 	{
+		this.m.IsSendingAid = false;
 		this.m.Start = null;
 		this.m.Dest = null;
 	}
@@ -76,13 +115,26 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 	{
 		if (_settlement == null) return this.Math.rand(100, 200) * this.getReputationToDifficultyLightMult();
 
-		return (this.Math.rand(87, 135) + this.Math.round(0.11 * ::Math.max(1, _settlement.getResources()))) * this.getReputationToDifficultyLightMult();
+		return (this.Math.rand(83, 127) + this.Math.round(0.11 * ::Math.max(1, _settlement.getResources()))) * this.getReputationToDifficultyLightMult();
+	}
+
+	function convertBudgetToMult( _budget )
+	{
+		if (_budget == 0)
+			return 1.0;
+
+		return 1.0 + this.Math.floor(_budget / 900) * 0.01;
 	}
 
 	function onExecute( _faction )
 	{
-		local party = _faction.spawnEntity(this.m.Start.getTile(), "Supply Caravan", false, this.pickSpawnList(this.m.Start, _faction), this.getResourcesForParty(this.m.Start, _faction));
+		local budget = !::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue() ? 0 : ::Const.World.Common.WorldEconomy.Trade.calculateTradingBudget(this.m.Start);
+		
+		if (!this.m.Start.isMilitary() && this.m.Start.getSize() < 3)
+			budget *= 1.5;
 
+		local mult = this.convertBudgetToMult(budget);
+		local party = _faction.spawnEntity(this.m.Start.getTile(), "Supply Caravan", false, this.pickSpawnList(this.m.Start, _faction), this.getResourcesForParty(this.m.Start, _faction) * mult);
 		party.getSprite("body").setBrush(this.Const.World.Spawn.NobleCaravan.Body);
 		party.getSprite("base").Visible = false;
 		party.setMirrored(true);
@@ -103,7 +155,7 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 		// yes world economy
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			::Const.World.Common.WorldEconomy.setupTrade(party, this.m.Start, this.m.Dest);
+			::Const.World.Common.WorldEconomy.Trade.setupTrade(party, this.m.Start, this.m.Dest);
 		}
 		// no world economy
 		else
@@ -125,6 +177,9 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 		c.addOrder(despawn);
 
 		this.afterSpawnCaravan(party);
+
+		// mark if this is sending aid
+		_faction.getFlags().set("SentSupplyAid", this.m.IsSendingAid);
 	}
 
 	function pickSpawnList( _settlement, _faction )

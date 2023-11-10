@@ -21,7 +21,7 @@ this.raze_attached_location_contract <- this.inherit("scripts/contracts/contract
 		this.m.DifficultyMult = 0.85;
 		this.m.Type = "contract.raze_attached_location";
 		this.m.Name = "Raze Location";
-		this.m.Description = "As the war rages one of the lords wants you to target key locations. Travel to enemy house lands and raze their key locations.";
+		this.m.Description = "Raze a key location belonging to a rival noble house.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		local s = this.World.EntityManager.getSettlements()[this.Math.rand(0, this.World.EntityManager.getSettlements().len() - 1)];
 		this.m.Destination = this.WeakTableRef(s.getAttachedLocations()[this.Math.rand(0, s.getAttachedLocations().len() - 1)]);

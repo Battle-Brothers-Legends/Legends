@@ -229,6 +229,21 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 
 		local f = this.World.FactionManager.getFaction(this.getFaction());
 
+		if (this.getFlags().has("CaravanOrigin") && f != null)
+		{
+			local town = this.World.getEntityByID(this.getFlags().get("CaravanOrigin"));
+
+			if (town != null)
+			{
+				ret.push({
+					id = 50,
+					type = "hint",
+					icon = f.getUIBanner(),
+					text = "A caravan from " + town.getName()
+				});
+			}
+		}
+
 		if (this.m.Flags.get("IsMercenaries") == true)
 		{
 			ret.push({
@@ -262,7 +277,7 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 			}
 			else
 			{
-				local num = ::Math.min(inv.len(), ::Const.World.Common.WorldEconomy.AmountOfLeakedCaravanInventoryInfo);
+				local num = ::Math.min(inv.len(), ::Const.World.Common.WorldEconomy.Trade.AmountOfLeakedCaravanInventoryInfo);
 
 				ret.push({
 					id = 51,
@@ -280,12 +295,12 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 					});
 				}
 
-				if (inv.len() > ::Const.World.Common.WorldEconomy.AmountOfLeakedCaravanInventoryInfo)
+				if (inv.len() > ::Const.World.Common.WorldEconomy.Trade.AmountOfLeakedCaravanInventoryInfo)
 				{
 					ret.push({
 						id = 53 + num,
 						type = "text",
-						text = "And " + (inv.len() - ::Const.World.Common.WorldEconomy.AmountOfLeakedCaravanInventoryInfo) + " more item(s)"
+						text = "And " + (inv.len() - ::Const.World.Common.WorldEconomy.Trade.AmountOfLeakedCaravanInventoryInfo) + " more item(s)"
 					});
 				}
 			}
@@ -513,6 +528,26 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 
 	function onCombatLost()
 	{
+		// World Economy: Track caravan destroyed
+		if (::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue() && this.getFlags().has("CaravanInvestment"))
+		{
+			local origin = this.getOrigin();
+			if (!::MSU.isNull(origin))
+			{
+				local destinationID = this.getFlags().get("CaravanDestinationID");
+				if (destinationID == null)
+				{
+					::logWarning("CaravanDestinationID is null for a recently destroyed caravan. This should only happen for caravans loaded from an older save.");
+				}
+				local investment = this.getFlags().get("CaravanInvestment");
+				local profit = this.getFlags().get("CaravanProfit");
+				local inv = this.getStashInventory().getItems();
+				local coords = this.getTile().Coords;
+				local caravanHistoryData = ::Const.World.Common.WorldEconomy.Trade.createCaravanHistoryData(::Const.World.Common.WorldEconomy.Trade.CaravanHistoryType.Destroyed, origin.getID(), destinationID, investment, profit, inv, [coords.X, coords.Y]);
+				origin.updateCaravanSentHistory(caravanHistoryData);	
+			}
+		}
+		
 		this.World.EntityManager.onWorldEntityDestroyed(this, false);
 		this.world_entity.onCombatLost();
 	}
@@ -609,6 +644,11 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 		if (this.m.Flags.get("IsCaravan"))
 		{
 			this.World.Statistics.getFlags().increment("CaravansRaided");
+
+			local faction = ::World.FactionManager.getFaction(this.getFaction());
+			local faction_flags = faction.getFlags();
+			local fcr = faction_flags.getAsInt("FactionsCaravansRaided");
+			faction_flags.set("FactionsCaravansRaided", fcr + 1);
 		}
 	}
 

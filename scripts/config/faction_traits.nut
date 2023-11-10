@@ -62,6 +62,7 @@ gt.Const.FactionTrait <- {
 			"scripts/factions/actions/rebuild_location_action",
 			"scripts/factions/actions/legend_build_location_action",
 			"scripts/factions/actions/legend_upgrade_settlement_action",
+			"scripts/factions/actions/send_caravan_action",
 			"scripts/factions/actions/send_supplies_action",
 			"scripts/factions/actions/add_random_situation_action",
 			"scripts/factions/actions/send_military_army_action",

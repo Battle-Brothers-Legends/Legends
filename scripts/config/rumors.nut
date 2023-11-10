@@ -117,7 +117,7 @@ gt.Const.Strings.RumorsMilitary <- [
 	"Fourteen. That\'s how many men I\'ve killed. Women I count extra, three so far. What about you?",
 	"Seen them knights wanderin\' around? They look like they\'re the shit but trust me — you put a dagger inbetween those plates and they die just like any other man...",
 	"You seen those ponces waving their swords around in their fancy \'ats? They aren\'t too smart when you put an arrow between their ribs!",
-	"Knew a Hedge Knight who got hired by a sellsword company a few days back — he was in here puffin\' his chest and talkin\' about how much gold he\'d make. Then as soon as he joined up they took all his gear and gave him the boot. Maybe there old gods are alive after all!",
+	"Knew a Hedge Knight who got hired by a sellsword company a few days back — he was in here puffin\' his chest and talkin\' about how much gold he\'d make. Then as soon as he joined up they took all his gear and gave him the boot. Maybe the old gods are alive after all!",
 	"I usually stand guard on the gate tower. To be honest, spitting down on some travellers is the only fun I get all day.",
 	"The mood amongst the garrison is pretty bad. They say that pay\'s been delayed a few times already and everyone\'s starting to lose patience.",
 	"When I was moved to %townname% I never imagined life here to be so dull and hard. But still better than working the fields until your back snaps, I suppose...",

@@ -14,7 +14,7 @@ this.agent_follower <- this.inherit("scripts/retinue/follower", {
 
 		this.addRequirement("Have allied relations with a noble house or city state", function() {
 
-			if (::World.Retinue.m.Slots.filter(function(i,v){return v != null && v.getID() == this.m.ID}).len() > 0)
+			if (::World.Retinue.m.Slots.filter(function(i,v){if (v == null){return false} else {return v.getID() == "follower.agent"}}).len() > 0)
 			{
 				return true; // This requirement only needs to be met at the time of purchase; While the follower is in your retinue, this check is not needed
 			}

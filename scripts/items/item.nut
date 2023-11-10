@@ -40,7 +40,9 @@ this.item <- {
 		RuneBonus2 = 0,
 		IsToBeSalvaged = false,
 		ResourceValue = 0,
-		Type = -1
+		Type = -1,
+		OriginSettlementID = 0, // the Settlement ID where the item was originally produced
+		TradeHistorySettlementIDs = [], // an array of Settlement IDs to track the item's trade history
 	},
 
 	function create()
@@ -1321,6 +1323,49 @@ this.item <- {
 	{
 	}
 
+	function getOriginSettlementID()
+	{
+		return this.m.OriginSettlementID;
+	}
+
+	function getOriginSettlement()
+	{
+		return ::World.getEntityByID(this.m.OriginSettlementID);
+	}
+
+	function getTradeHistorySettlementIDs()
+	{
+		return this.m.TradeHistorySettlementIDs;
+	}
+
+	function getTradeHistorySettlements()
+	{
+		return this.m.TradeHistorySettlementIDs.map(function(id){return ::World.getEntityByID(id)});
+	}
+
+	function setOriginSettlementID( _id )
+	{
+		this.m.OriginSettlementID = _id;
+	}
+
+	function setOriginSettlement( _settlement )
+	{
+		this.setOriginSettlementID( _settlement.getID());
+	}
+
+	function addSettlementIDToTradeHistory( _id )
+	{
+		if (_id != this.getOriginSettlementID() && (this.m.TradeHistorySettlementIDs.len() < 1 || _id != this.m.TradeHistorySettlementIDs[this.m.TradeHistorySettlementIDs.len()-1]))
+		{
+			this.m.TradeHistorySettlementIDs.push(_id);	
+		}
+	}
+
+	function addSettlementToTradeHistory( _settlement )
+	{
+		this.addSettlementIDToTradeHistory(_settlement.getID());
+	}
+
 	function onSerialize( _out )
 	{
 		_out.writeBool(this.m.IsToBeRepaired);
@@ -1335,6 +1380,8 @@ this.item <- {
 		_out.writeU8(this.m.RuneBonus1);
 		_out.writeU8(this.m.RuneBonus2);
 		_out.writeU8(this.m.MagicNumber);
+		_out.writeI32(this.m.OriginSettlementID);
+		::MSU.Utils.serialize(this.m.TradeHistorySettlementIDs, _out);
 	}
 
 	function onDeserialize( _in )
@@ -1373,6 +1420,12 @@ this.item <- {
 		if (_in.getMetaData().getVersion() >= 58)
 		{
 			this.m.MagicNumber = _in.readU8();
+		}
+
+		if (::Legends.Mod.Serialization.isSavedVersionAtLeast("18.2.0-pre-02", _in.getMetaData()))
+		{
+			this.m.OriginSettlementID = _in.readI32();
+			this.m.TradeHistorySettlementIDs = ::MSU.Utils.deserialize(_in);
 		}
 
 		this.updateVariant();

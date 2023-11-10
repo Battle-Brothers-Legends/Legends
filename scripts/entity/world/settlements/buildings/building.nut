@@ -216,6 +216,10 @@ this.building <- {
 											}
 										}
 										it.setPriceMult(i.P * _priceMult);
+										if (::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
+										{
+											it.setOriginSettlement(this.getSettlement());
+										}
 										_stash.add(it);
 									}
 								}

@@ -227,6 +227,7 @@ this.town_blackmarket_dialog_module <- this.inherit("scripts/ui/screens/ui_modul
 				if (removedItem != null)
 				{
 					this.World.Assets.addMoney(removedItem.getSellPrice());
+					removedItem.addSettlementToTradeHistory(this.m.Shop.getSettlement());
 					shopStash.add(removedItem);
 					removedItem.setSold(true);
 				}

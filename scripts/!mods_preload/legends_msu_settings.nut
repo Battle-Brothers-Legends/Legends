@@ -43,6 +43,7 @@
 	tooltip.addTitle("TooltipInventory", "Tooltips - Inventory");
 	tooltip.addElement(::MSU.Class.BooleanSetting("ShowArmorPerFatigueValue", true, "Show Armor/Fatigue Efficiency", "Show the Armor value gained per unit of Fatigue cost of an Armor/Helmet Piece/Layer in the Tooltip when the player mouses over an individual Armor/Helmet Piece/Layer.\n\nUseful for people who like to buy their groceries based on price per unit weight"));
 	tooltip.addElement(::MSU.Class.BooleanSetting("ShowExpandedArmorLayerTooltip", true, "Expanded Armor Layer Tooltips", "Show the Armor value and Fatigue cost of each Armor/Helmet layer in the Tooltip when the player mouses over a combined Armor/Helmet set.\n\nDisabling this may help reduce the Tooltip length to fit better on lower resolution screens"));
+	tooltip.addElement(::MSU.Class.BooleanSetting("ShowItemTradeHistory", true, "Show Item Trade History", "Show the trade history of items, such as where they were produced or imported from.\n\nHas no effect if World Economy is disabled"));
 	tooltip.addDivider("TooltipDivider2");
 	tooltip.addTitle("TooltipCharacter", "Tooltips - Character");
 	tooltip.addElement(::MSU.Class.BooleanSetting("ShowCharacterBackgroundType", true, "Show Character Background Types", "Show a character's Background Types in Tooltips.\n\nUseful when playing Origins with additional gameplay mechanics based on Background Types"));

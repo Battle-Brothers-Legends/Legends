@@ -222,7 +222,7 @@ this.crafting_building <- this.inherit("scripts/entity/world/camp/camp_building"
 			res.push({
 		 		id = id,
 		 		icon = "ui/items/" + b.getIcon(),
-		 		text = "You craft an " + b.getName()
+		 		text = "Crafting completed: " + b.getName()
 			})
 			++id;
 		}

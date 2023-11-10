@@ -58,10 +58,25 @@ this.perk_legend_specialist_shield_skill <- this.inherit("scripts/skills/skill",
 	function onTurnEnd()
 	{
 		local actor = this.getContainer().getActor();
+		# Check for shield
 		if (this.m.TurnsLeft > 0 && !actor.getSkills().hasSkill("effects.shieldwall") && actor.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand) != null && actor.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand).isItemType(this.Const.Items.ItemType.Shield))
 		{
-			actor.getSkills().add(this.new("scripts/skills/effects/shieldwall_effect"));
-			this.m.TurnsLeft--;
+			# Check if they have regular shield
+			if (actor.getSkills().hasSkill("actives.shieldwall"))
+			{
+				actor.getSkills().add(this.new("scripts/skills/effects/shieldwall_effect"));
+				this.m.TurnsLeft--;
+			}
+			# Check if they have tower shield
+			else if (actor.getSkills().hasSkill("actives.legend_fortify_skill"))
+			{
+				actor.getSkills().add(this.new("scripts/skills/effects/legend_fortify_effect"));
+				this.m.TurnsLeft--;
+			}
+			else
+			{
+				# do nothing if they have nothing. For schrat shield/buckler. Don't actually need this line but I put it here for clarity.
+			}
 		}
 	}
 

@@ -5,7 +5,7 @@ this.legend_faction_helmet <- this.inherit("scripts/items/legend_helmets/hood/le
 		this.legend_helmet_chain_hood.create();
 		this.m.ID = "armor.head.legend_faction_helmet";
 		this.m.Name = "Chain Hood";
-		this.m.Description = "A sturdy chain hood of military grade";
+		this.m.Description = "A sturdy chain hood of military grade.";
 		this.m.Variants = [1, 2, 3, 4];
 		this.m.Variant = this.m.Variants[this.Math.rand(0, this.m.Variants.len() - 1)];
 		this.updateVariant();

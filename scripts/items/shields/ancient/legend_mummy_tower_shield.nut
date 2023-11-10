@@ -5,7 +5,7 @@ this.legend_mummy_tower_shield <- this.inherit("scripts/items/shields/shield", {
 		this.shield.create();
 		this.m.ID = "shield.legend_mummy_tower_shield";
 		this.m.Name = "Ancient Southern Tower Shield";
-		this.m.Description = "A tall and heavy southern tower shield that offers good protection, but is very bulky to handle but covers a whole man with ease, despite being tall and narrow.";
+		this.m.Description = "A tall and heavy southern tower shield that offers good protection at the cost of being very bulky to handle. Covers a whole man with ease despite being tall and narrow.";
 		this.m.AddGenericSkill = true;
 		this.m.ShowOnCharacter = true;
 		this.m.Variants = [

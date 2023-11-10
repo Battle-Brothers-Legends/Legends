@@ -26,7 +26,12 @@ this.unload_order <- this.inherit("scripts/ai/world/world_behavior", {
 					local profit = _entity.getFlags().getAsInt("CaravanProfit");
 					
 					// new functions
-					origin.addResources(investment + profit);
+					origin.addWorldEconomyResources(investment + profit);
+
+					local coords = settlement.getTile().Coords;
+					local caravanHistoryData = ::Const.World.Common.WorldEconomy.Trade.createCaravanHistoryData(::Const.World.Common.WorldEconomy.Trade.CaravanHistoryType.Completed, origin.getID(), settlement.getID(), investment, profit, inv, [coords.X, coords.Y]);
+					origin.updateCaravanSentHistory(caravanHistoryData);
+					settlement.updateCaravanReceivedHistory(caravanHistoryData);
 
 					// old functions
 					//origin.setResources(origin.getResources() + totalPayment);
@@ -48,9 +53,9 @@ this.unload_order <- this.inherit("scripts/ai/world/world_behavior", {
 				// if there already too many items in storage, the excess one will be pushed to the marketplace immediately 
 				// in order to keep the storage at a certain size
 				// this also lets the settlement to continue shipping these items to another place :)
-				if (marketplace != null && storage.len() > ::Const.World.Common.WorldEconomy.ImportedGoodsInventorySizeMax)
+				if (marketplace != null && storage.len() > ::Const.World.Common.WorldEconomy.Trade.ImportedGoodsInventorySizeMax)
 				{
-					local different = storage.len() - ::Const.World.Common.WorldEconomy.ImportedGoodsInventorySizeMax;
+					local different = storage.len() - ::Const.World.Common.WorldEconomy.Trade.ImportedGoodsInventorySizeMax;
 					local newStorage = [];
 
 					foreach (i, item in storage )

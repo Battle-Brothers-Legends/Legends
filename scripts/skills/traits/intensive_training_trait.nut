@@ -276,7 +276,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					type = "text",
 					icon = "ui/icons/special.png",
 					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + 1 + "[/color] Perk point",
-					border = "top"
+					divider = "top"
 					});
 				tooltip.push({
 					id = 6,

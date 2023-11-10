@@ -110,6 +110,13 @@ this.noble_faction <- this.inherit("scripts/factions/faction", {
 		{
 			this.m.HairColor = _in.readU8();
 		}
+
+		if (this.getAction("send_caravan_action") == null)
+		{
+			local card = this.new("scripts/factions/actions/send_caravan_action");
+			card.setFaction(this);
+			this.m.Deck.push(card);
+		}
 	}
 
 });

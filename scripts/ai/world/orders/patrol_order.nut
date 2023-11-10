@@ -60,7 +60,7 @@ this.patrol_order <- this.inherit("scripts/ai/world/orders/move_order", {
 			return true;
 		}
 
-		::logInfo("patrolling");
+		// ::logInfo("patrolling");
 
 		_entity.setOrders("Patrolling");
 

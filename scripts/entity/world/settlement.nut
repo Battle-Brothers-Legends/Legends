@@ -50,7 +50,9 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		IsCoastal = false,
 		IsMilitary = false,
 		IsActive = true,
-		IsUpgrading = false
+		IsUpgrading = false,
+		CaravanReceivedHistory = array(7,[]), // 7-day rolling window recording all caravans received
+		CaravanSentHistory = array(7,[]), // 7-day rolling window recording all caravans sent
 	},
 	function setUpgrading( _v )
 	{
@@ -79,11 +81,39 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		this.updateSprites();
 	}
 
+	function changeSupportedOrAbandonedAttachedLocations()
+	{
+		local current = this.getActiveAttachedLocations().len();
+		local limit = this.getAttachedLocationsMax();
+
+		if ( current > limit )
+		{
+			// The settlement is shrinking and will have to abandon attached locations that exceed the Tier limit
+			for (local i = limit; i < current; i++ )
+			{
+				this.getActiveAttachedLocations()[i].setAbandoned(true);
+			}
+		}
+		else if ( current < limit && this.getAttachedLocations().len() > current )
+		{
+			// Check if we can repopulate attached locations that were previously abandoned
+			local maxIndex = ::Math.min(this.getAttachedLocations().len(), limit);
+			for (local i = current; i < maxIndex; i++ )
+			{
+				if (this.getAttachedLocations()[i].isAbandoned())
+				{
+					this.getAttachedLocations()[i].setAbandoned(false);
+				}
+			}
+		}
+	}
+
 	function changeSize( _v )
 	{
 		this.setUpgrading(false);
 		_v = this.Math.max(1, _v);
 		this.setSize(this.Math.min(3, _v));
+		this.changeSupportedOrAbandonedAttachedLocations();
 	}
 
 	function getDraftList()
@@ -134,6 +164,12 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	}
 
 	function getSize()
+	{
+		return this.m.Size;
+	}
+
+	// It will be easier to search for usages of "getSettlementTier" rather than "getSize"
+	function getSettlementTier()
 	{
 		return this.m.Size;
 	}
@@ -510,10 +546,18 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		return ret;
 	}
 
+	// Use addWorldEconomyResources instead so it is easier to search for usages. Keeping this here for compatibility
 	function addResources( _v )
 	{
 		this.setResources(this.getResources() + _v);
 	}
+
+	// Use this instead of addResources so it is easier to search for usages
+	function addWorldEconomyResources( _v )
+	{
+		this.setResources(this.getResources() + _v);
+	}
+
 
 	function getWealth()
 	{
@@ -923,7 +967,11 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	function addImportedProduce( _p )
 	{
 		if (typeof _p == "string") this.m.ProduceImported.push(_p);
-		else this.m.ImportedGoodsInventory.add(_p);
+		else 
+		{
+			_p.addSettlementToTradeHistory(this);
+			this.m.ImportedGoodsInventory.add(_p);
+		}
 	}
 
 	function getFoodPriceMult()
@@ -1299,6 +1347,41 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	function buildNewLocation()
 	{
 		return null;
+	}
+
+	// A helper function to filter out any existing attached locations from possible candidates in buildNewLocation()
+	function filterNewLocation( _items )
+	{
+		// ::MSU.Log.printData(_items.map(function(item){return item[1].Script;}));
+		local ret = clone _items;
+		local existingLocations = this.getAttachedLocations().map(function(location){ return location.ClassName; });
+		local garbage = [];
+		// Find any candidate locations in _items that have already been built
+		for (local i=0; i < _items.len(); i++)
+		{
+			local arr = split(_items[i][1].Script, "/");
+			local location = arr[arr.len() - 1];
+			if (existingLocations.find(location) != null)
+			{
+				garbage.push(i);
+			}
+		}
+
+		// Now remove any locations that have already been built from ret
+		garbage.reverse();
+		foreach ( index in garbage )
+		{
+			ret.remove(index);
+		}
+
+		// Just in case all candidate locations have already be built, then allow duplicates
+		if ( ret == null || ret.len() < 1 )
+		{
+			ret = _items;
+		}
+
+		// ::MSU.Log.printData(ret.map(function(item){ return item[1].Script;}));
+		return ret;
 	}
 
 	function buildAttachedLocation( _num, _script, _terrain, _nearbyTerrain, _additionalDistance = 0, _mustBeNearRoad = false, _clearTile = true, _force = false )
@@ -2785,6 +2868,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 		resources = resources + (this.m.HousesTiles.len() * 2);
 		// this.logWarning("Adding a total of: " + resources + " : to a town that has " + this.m.HousesTiles.len() + " total tiles.")
+		::Legends.Mod.Debug.printLog(format("%s adding %s resources",::Const.LegendMod.Debug.Utils.settlementSummaryStr(this, true, true),resources.tostring()), ::Const.LegendMod.Debug.Flags.WorldEconomy);
 		return resources;
 	}
 
@@ -2795,7 +2879,71 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			return;
 		}
 
-		this.addResources(this.getNewResources());
+		this.addWorldEconomyResources(this.getNewResources());
+	}
+
+	function getCaravanReceivedHistory()
+	{
+		return this.m.CaravanReceivedHistory;
+	}
+
+	function getCaravanSentHistory()
+	{
+		return this.m.CaravanSentHistory;
+	}
+
+	function getCaravanReceivedCount()
+	{
+		local sums = this.m.CaravanReceivedHistory.map(function(arr){return arr.len();});
+		return sums.reduce(function(prev, curr){return prev + curr;});
+	}
+
+	// Get the total number of caravans sent from this settlement over the past 7 days
+	function getCaravanSentCount()
+	{
+		local sums = this.m.CaravanSentHistory.map(function(arr){return arr.filter(function(index, data){return data.type == ::Const.World.Common.WorldEconomy.Trade.CaravanHistoryType.Initiated}).len();});
+		return sums.reduce(function(prev, curr){return prev + curr;});
+	}
+
+	// Get the total number of caravans sent from this settlement and successfully reached their destination over the past 7 days
+	function getCaravanCompletedCount()
+	{
+		local sums = this.m.CaravanSentHistory.map(function(arr){return arr.filter(function(index, data){return data.type == ::Const.World.Common.WorldEconomy.Trade.CaravanHistoryType.Completed}).len();});
+		return sums.reduce(function(prev, curr){return prev + curr;});
+	}
+
+	// Get the total number of caravans sent from this settlement and were destroyed along the way over the past 7 days
+	function getCaravanDestroyedCount()
+	{
+		local sums = this.m.CaravanSentHistory.map(function(arr){return arr.filter(function(index, data){return data.type == ::Const.World.Common.WorldEconomy.Trade.CaravanHistoryType.Destroyed}).len();});
+		return sums.reduce(function(prev, curr){return prev + curr;});
+	}
+
+	function updateCaravanReceivedHistory( _data )
+	{
+		this.m.CaravanReceivedHistory[0].push(_data);
+	}
+
+	function updateCaravanSentHistory( _data )
+	{
+		this.m.CaravanSentHistory[0].push( _data );
+	}
+
+	function onNewDay()
+	{
+		this.refreshCaravanHistory();
+	}
+
+	function refreshCaravanHistory()
+	{
+		this.updateRollingWindow(this.getCaravanReceivedHistory());
+		this.updateRollingWindow(this.getCaravanSentHistory());
+	}
+
+	function updateRollingWindow( _arr )
+	{
+		_arr.pop();
+		_arr.insert(0,[]);
 	}
 
 	function onSerialize( _out )
@@ -2878,6 +3026,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		}
 
 		this.m.ImportedGoodsInventory.onSerialize(_out);
+		::MSU.Utils.serialize(this.m.CaravanReceivedHistory, _out);
+		::MSU.Utils.serialize(this.m.CaravanSentHistory, _out);
 	}
 
 	function onDeserialize( _in )
@@ -2990,6 +3140,12 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		}
 
 		this.m.ImportedGoodsInventory.onDeserialize(_in);
+		if (::Legends.Mod.Serialization.isSavedVersionAtLeast("18.2.0-pre-02", _in.getMetaData()))
+		{
+			this.m.CaravanReceivedHistory = ::MSU.Utils.deserialize(_in);
+			this.m.CaravanSentHistory = ::MSU.Utils.deserialize(_in);
+		}
+		
 		this.updateSprites();
 	}
 

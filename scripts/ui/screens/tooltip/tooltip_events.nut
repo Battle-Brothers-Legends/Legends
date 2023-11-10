@@ -457,7 +457,48 @@ this.tooltip_events <- {
 			stashLocked = this.Stash.isLocked();
 		}
 
-		local tooltip = _item.getTooltip();
+		local tooltip = [];
+		if (::Legends.Mod.ModSettings.getSetting("ShowItemTradeHistory").getValue() && _item.getOriginSettlementID() > 0)
+		{
+			if (_item.getTradeHistorySettlementIDs().len() == 0)
+			{
+				tooltip.push({
+					id = 50,
+					type = "hint",
+					icon = "ui/icons/settlement_tier_icon.png",
+					text = "Produced in " + ::Const.UI.getColorized(_item.getOriginSettlement().getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()),
+					divider = "bottom",
+				});
+			}
+			else if (_item.getTradeHistorySettlementIDs().len() == 1)
+			{
+				tooltip.push({
+					id = 50,
+					type = "hint",
+					icon = "ui/icons/settlement_tier_icon.png",
+					text = ::Const.UI.getColorized("Imported", ::Const.UI.Color.NegativeValue) + " from " + ::Const.UI.getColorized(_item.getOriginSettlement().getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()) + " to " + ::Const.UI.getColorized(_item.getTradeHistorySettlements()[0].getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()),
+					divider = "bottom",
+				});
+			}
+			else if (_item.getTradeHistorySettlementIDs().len() > 1)
+			{
+				local arr = _item.getTradeHistorySettlements().map(function(s){return s.getName()});
+				local slice = arr.slice(0,arr.len() - 1)
+				tooltip.push({
+					id = 50,
+					type = "hint",
+					icon = "ui/icons/settlement_tier_icon.png",
+					text = ::Const.UI.getColorized("Imported", ::Const.UI.Color.NegativeValue) + " from " + ::Const.UI.getColorized(_item.getOriginSettlement().getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()) + " to " + ::Const.UI.getColorized(arr[arr.len() - 1], ::Const.UI.Color.getHighlightLightBackgroundValue()) + " via " + ::Const.LegendMod.Language.arrayToText(slice, "and"),
+					divider = "bottom",
+				});
+			}
+			else
+			{
+				::logError("Something wrong with Trade History");
+			}
+		}
+
+		tooltip.extend(_item.getTooltip());
 
 		if (stashLocked == true && _ignoreStashLocked == false)
 		{

@@ -1197,7 +1197,7 @@ this.escort_caravan_contract <- this.inherit("scripts/contracts/contract", {
 		// yes world economy
 		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			::Const.World.Common.WorldEconomy.setupTrade(party, this.m.Home, this.m.Destination);
+			::Const.World.Common.WorldEconomy.Trade.setupTrade(party, this.m.Home, this.m.Destination);
 		}
 		// no world economy
 		else

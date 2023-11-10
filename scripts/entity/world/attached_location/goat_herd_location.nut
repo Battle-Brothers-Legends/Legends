@@ -5,7 +5,7 @@ this.goat_herd_location <- this.inherit("scripts/entity/world/attached_location"
 		this.attached_location.create();
 		this.m.Name = "Goat Pens";
 		this.m.ID = "attached_location.goat_herd";
-		this.m.Description = "The goats held here are mainly used for their milk which is then turned into cheese to make it more durable. Contributes cheese, staves, slings, shepards, farmhands and butchers to the local town";
+		this.m.Description = "The goats held here are mainly used for their milk which is then turned into cheese to make it more durable. Contributes cheese, staves, slings, shepherds, farmhands and butchers to the local town.";
 		this.m.Sprite = "world_goat_herd_01";
 		this.m.SpriteDestroyed = "world_goat_herd_01_ruins";
 	}

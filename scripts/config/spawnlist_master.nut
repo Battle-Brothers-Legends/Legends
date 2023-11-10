@@ -1742,13 +1742,13 @@ gt.Const.World.Spawn.Caravan <-
 	VisibilityMult = 1.0,
 	VisionMult = 0.25,
 	Body = "cart_02",
-	MaxR = 225,
+	MaxR = 250,
 	MinR = 30,
 	Fixed = [
 		{
-			MinCount = 1,
+			MinCount = 2,
 			MaxCount = 3,
-			Weight = 30 //percentage chance after min count is met
+			Weight = 30
 			Type = this.Const.World.Spawn.Troops.CaravanDonkey,
 			Cost = 0
 		}
@@ -1759,11 +1759,15 @@ gt.Const.World.Spawn.Caravan <-
 			Types = [
 				{
 					Type = this.Const.World.Spawn.Troops.CaravanHand,
-					Cost = 10
+					Cost = 14
 				},
 				{
 					Type = this.Const.World.Spawn.Troops.CaravanGuard,
-					Cost = 15
+					Cost = 17
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.MilitiaVeteran,
+					Cost = 25
 				}
 			]
 		},
@@ -1777,7 +1781,56 @@ gt.Const.World.Spawn.Caravan <-
 			]
 		}
 	]
-}
+};
+
+gt.Const.World.Spawn.CaravanFort <-
+{
+	Name = "CaravanFort",
+	IsDynamic = true,
+	MovementSpeedMult = 0.4,
+	VisibilityMult = 1.0,
+	VisionMult = 0.25,
+	Body = "cart_02",
+	MaxR = 400,
+	MinR = 150,
+	Fixed = [
+		{
+			MinCount = 3,
+			MaxCount = 5,
+			Weight = 40 //percentage chance after min count is met
+			Type = this.Const.World.Spawn.Troops.CaravanDonkey,
+			Cost = 0
+		}
+	],
+	Troops = [
+		{
+			Weight = 100,
+			Types = [
+				{
+					Type = this.Const.World.Spawn.Troops.CaravanGuard,
+					Cost = 22
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.MercenaryLOW,
+					Cost = 25
+				},
+				{
+					Type = this.Const.World.Spawn.Troops.Mercenary,
+					Cost = 35
+				}
+			]
+		},
+		{
+			Weight = 10,
+			Types = [
+				{
+					Type = this.Const.World.Spawn.Troops.LegendCaravanPolearm,
+					Cost = 8
+				}
+			]
+		}
+	]
+};
 
 gt.Const.World.Spawn.CaravanEscort <- [
 	{

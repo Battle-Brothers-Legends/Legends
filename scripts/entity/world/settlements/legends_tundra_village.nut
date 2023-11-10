@@ -393,6 +393,7 @@ this.legends_tundra_village <- this.inherit("scripts/entity/world/settlements/le
 				break;
 		}
 
+		items = this.filterNewLocation(items);
 		local item = this.Const.World.Common.pickItem(items)
 		return this.buildAttachedLocation(1, item.Script, item.Terrain, item.NearTerrain, item.Distance, item.Road, item.Clear, item.Force)
 	}

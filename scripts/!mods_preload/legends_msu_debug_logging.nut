@@ -13,7 +13,8 @@
 	::Const.LegendMod.Debug.Flags <- {
 		Default = "default",
 		ContractCategories = "contractCategories",
-		ContractCategoriesVerbose = "contractCategoriesVerbose"
+		ContractCategoriesVerbose = "contractCategoriesVerbose",
+		WorldEconomy = "worldEconomy",
 	}
 
 	// An array to centralise the configuration for which debug flag is enabled. MSU Settings will set the default logging value based on this array
@@ -35,6 +36,12 @@
 			Name = "Contract Categories (Verbose)",
 			Description = "Addtional logs related to Contract Categories\n\n[color=" + this.Const.UI.Color.NegativeValue + "]WARNING: Known to cause crashes due to excessive logging[/color]",
 			Value = false
+		},
+		{
+			ID = ::Const.LegendMod.Debug.Flags.WorldEconomy,
+			Name = "World Economy",
+			Description = "Logs related to World Economy activity",
+			Value = true
 		}
 	]
 
@@ -78,4 +85,32 @@
 	// });
 
 	*/
+
+	::Const.LegendMod.Debug.Utils <- {
+		
+		function settlementSummaryStr( _settlement, _showAttached = false, _showHouses = false )
+		{
+			local fort = _settlement.isMilitary() ? "[Fort] " : "";
+			local cityState = ::MSU.isKindOf(_settlement, "city_state") ? "[City State] " : "";
+			local attached = "";
+			local houses = "";
+			local extra = "";
+			if (_showAttached)
+			{
+				attached = "Attached:  " + _settlement.getActiveAttachedLocations().len() + "/" + _settlement.getAttachedLocations().len() + "/" + _settlement.getAttachedLocationsMax() + " ";	
+			}
+			if (_showHouses)
+			{
+				houses = "Houses: " + _settlement.m.HousesTiles.len() + "/" + _settlement.getHousesMax() + " ";
+			}
+			if (_showAttached || _showHouses)
+			{
+				extra = " | " + attached + houses;
+			}
+			
+			return fort + cityState + "{" + _settlement.getName() + "} (Tier " + _settlement.getSize() + " " + _settlement.ClassName + extra + ")";
+		},
+
+	}
+
 }
