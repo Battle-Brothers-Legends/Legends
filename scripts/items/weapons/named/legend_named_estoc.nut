@@ -1,5 +1,10 @@
 this.legend_named_estoc <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.SpecialEffect = ::Math.rand(0, 0); if (_i.m.SpecialEffect == 0) { _i.m.BonusMeleeDefense = ::Math.rand(3, 7); }}
+		],
+		BonusMeleeDefense = 0
+	},
 	function create()
 	{
 		this.named_weapon.create();
@@ -29,11 +34,32 @@ this.legend_named_estoc <- this.inherit("scripts/items/weapons/named/named_weapo
 		this.randomizeValues();
 	}
 
+	function getTooltip()
+	{
+		local result = this.named_weapon.getTooltip();
+		if (this.m.SpecialEffect == 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/melee_defense.png",
+				text = "Gives a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.BonusMeleeDefense + "[/color] bonus to the holder\'s Melee Defense"
+			});
+		}
+		return result;
+	}
+
 	function onEquip()
 	{
 		this.weapon.onEquip();
 		this.addSkill(this.new("scripts/skills/actives/legend_great_slash"));
 		this.addSkill(this.new("scripts/skills/actives/legend_greatlunge_skill"));
+		if (this.m.SpecialEffect == 0)
+		{
+			local s = this.new("scripts/skills/effects/legend_estoc_effect");
+			s.setBonus(this.m.BonusMeleeDefense);
+			this.addSkill(s);
+		}
 	}
 
 });

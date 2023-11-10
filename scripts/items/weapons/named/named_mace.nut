@@ -49,6 +49,7 @@ this.named_mace <- this.inherit("scripts/items/weapons/named/named_weapon", {
 				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.ExtraStaggerChance + "%[/color] chance to stagger a target on a successful attack"
 			});
 		}
+		return result;
 	}
 
 	function updateVariant()

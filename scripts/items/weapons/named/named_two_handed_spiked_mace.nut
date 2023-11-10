@@ -51,6 +51,7 @@ this.named_two_handed_spiked_mace <- this.inherit("scripts/items/weapons/named/n
 				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.ExtraStaggerChance + "%[/color] chance to stagger a target on a successful attack"
 			});
 		}
+		return result;
 	}
 
 	function updateVariant()

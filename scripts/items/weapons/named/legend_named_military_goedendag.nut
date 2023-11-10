@@ -49,6 +49,7 @@ this.legend_named_military_goedendag <- this.inherit("scripts/items/weapons/name
 				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.ExtraStaggerChance + "%[/color] chance to stagger a target on a successful attack"
 			});
 		}
+		return result;
 	}
 
 	function updateVariant()

@@ -53,6 +53,7 @@ this.named_skullhammer <- this.inherit("scripts/items/weapons/named/named_weapon
 				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.ExtraStunChance + "%[/color] chance to stun a target on a successful attack, or daze if immune"
 			});
 		}
+		return result;
 	}
 
 	function onDamageDealt( _target, _skill, _hitInfo )

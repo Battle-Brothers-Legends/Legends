@@ -1,5 +1,10 @@
 this.named_fencing_sword <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.SpecialEffect = ::Math.rand(0, 0); if (_i.m.SpecialEffect == 0) { _i.m.BonusInitiativePct = ::Math.rand(5, 10); }}
+		],
+		BonusInitiativePct = 0
+	},
 	function create()
 	{
 		this.named_weapon.create();
@@ -27,6 +32,21 @@ this.named_fencing_sword <- this.inherit("scripts/items/weapons/named/named_weap
 		this.randomizeValues();
 	}
 
+	function getTooltip()
+	{
+		local result = this.named_weapon.getTooltip();
+		if (this.m.SpecialEffect == 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/initiative.png",
+				text = "Gives a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.BonusInitiativePct + "%[/color] bonus to the holder\'s initiative"
+			});
+		}
+		return result;
+	}
+
 	function updateVariant()
 	{
 		this.m.IconLarge = "weapons/melee/sword_fencing_01_named_0" + this.m.Variant + ".png";
@@ -39,6 +59,12 @@ this.named_fencing_sword <- this.inherit("scripts/items/weapons/named/named_weap
 		this.named_weapon.onEquip();
 		this.addSkill(this.new("scripts/skills/actives/slash"));
 		this.addSkill(this.new("scripts/skills/actives/lunge_skill"));
+		if (this.m.SpecialEffect == 0)
+		{
+			local s = this.new("scripts/skills/effects/legend_rapier_effect");
+			s.setBonus(this.m.BonusInitiativePct);
+			this.addSkill(s);
+		}
 	}
 
 });
