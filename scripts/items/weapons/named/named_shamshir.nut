@@ -1,7 +1,7 @@
 this.named_shamshir <- this.inherit("scripts/items/weapons/named/named_weapon", {
 	m = {
 		ItemSpecificFunctions = [
-			function(_i) {_i.m.WeaponInjuryThresholdMult = ::Math.rand(50, 90) * 0.01}
+			function(_i) { _i.m.WeaponInjuryThresholdMult = ::Math.rand(50, 90) * 0.01; }
 		]
 	},
 	function create()

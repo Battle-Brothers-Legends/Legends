@@ -1,5 +1,9 @@
 this.legend_named_butchers_cleaver <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.WeaponFatalityChanceMult = ::Math.rand(40, 70) * 0.01; }
+		]
+	},
 	function create()
 	{
 		this.named_weapon.create();

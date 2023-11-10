@@ -183,6 +183,7 @@ this.named_weapon <- this.inherit("scripts/items/weapons/weapon", {
 		_out.writeI16(this.m.FatigueOnSkillUse);
 		_out.writeU16(this.m.AmmoMax);
 		_out.writeF32(this.m.WeaponInjuryThresholdMult);
+		_out.writeF32(this.m.WeaponFatalityChanceMult);
 		_out.writeF32(0);
 		this.weapon.onSerialize(_out);
 	}
@@ -202,6 +203,7 @@ this.named_weapon <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.FatigueOnSkillUse = _in.readI16();
 		this.m.AmmoMax = _in.readU16();
 		this.m.WeaponInjuryThresholdMult = ::Const.Serialization.Version <= 74 ? _in.readF32() : 1.0;
+		this.m.WeaponFatalityChanceMult = ::Const.Serialization.Version <= 74 ? _in.readF32() : 1.0;
 		_in.readF32();
 		this.weapon.onDeserialize(_in);
 		this.updateVariant();
