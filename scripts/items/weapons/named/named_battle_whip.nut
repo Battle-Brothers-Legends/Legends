@@ -1,5 +1,12 @@
 this.named_battle_whip <- this.inherit("scripts/items/weapons/named/named_weapon", {
-	m = {},
+	m = {
+		ItemSpecificFunctions = [
+			function(_i) { _i.m.SpecialEffect = ::Math.rand(0, 1); if (_i.m.SpecialEffect == 0) { _i.m.ExtraBleedChance = ::Math.rand(_i.m.ExtraBleedLowerBound, _i.m.ExtraBleedHigherBound); }}
+		],
+		ExtraBleedLowerBound = 30,
+		ExtraBleedHigherBound = 55,
+		ExtraBleedChance = 0
+	},
 	function create()
 	{
 		this.named_weapon.create();
@@ -29,6 +36,30 @@ this.named_battle_whip <- this.inherit("scripts/items/weapons/named/named_weapon
 		this.randomizeValues();
 	}
 
+	function getTooltip()
+	{
+		local result = this.named_weapon.getTooltip();
+		if (this.m.SpecialEffect == 0)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.ExtraBleedChance + "%[/color] chance to apply a bleed stack when striking a target"
+			});
+		}
+		else if (this.m.SpecialEffect == 1)
+		{
+			result.push({
+				id = 6,
+				type = "text",
+				icon = "ui/icons/special.png",
+				text = "Applies Feint when striking a target"
+			});
+		}
+		return result;
+	}
+
 	function updateVariant()
 	{
 		this.m.IconLarge = "weapons/melee/whip_01_named_0" + this.m.Variant + ".png";
@@ -46,6 +77,38 @@ this.named_battle_whip <- this.inherit("scripts/items/weapons/named/named_weapon
 		this.addSkill(skill);
 		local skill = this.new("scripts/skills/actives/disarm_skill");
 		this.addSkill(skill);
+	}
+
+	function onDamageDealt( _target, _skill, _hitInfo )
+	{
+		this.named_weapon.onDamageDealt( _target, _skill, _hitInfo );
+		if (this.m.SpecialEffect == 0)
+		{
+			if (_target != null && _target.isAlive() && !_target.isDying() && !_target.getCurrentProperties().IsImmuneToBleeding && ::Math.rand(0, 100) <= this.m.ExtraBleedChance)
+			{
+				_target.getSkills().add(this.new("scripts/skills/effects/bleeding_effect"));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_target) + " obtained a stack of bleeding from: " + this.getName());
+			}
+		}
+		else if (this.m.SpecialEffect == 1)
+		{
+			if (_target != null && _target.isAlive() && !_target.isDying() && !_target.getSkills().hasSkill("effects.legend_parried"))
+			{
+				_target.getSkills().add(this.new("scripts/skills/effects/legend_parried_effect"));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_target) + " was feinted by " + this.getName() + " leaving them exposed!");
+			}
+		}
+	}
+
+	function onSerialize(_out) 
+	{
+		this.named_weapon.onSerialize(_out);
+		_out.writeI8(this.m.ExtraBleedChance);
+	}
+	function onDeserialize(_in) 
+	{
+		this.named_weapon.onDeserialize(_in);
+		this.m.ExtraBleedChance = _in.readI8();
 	}
 
 });
