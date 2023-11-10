@@ -643,7 +643,7 @@ this.legend_armor <- this.inherit("scripts/items/armor/armor", {
 
 		if (this.isRuned())
 		{
-			_result.push({	// An empty line is put in to improve formatting
+			result.push({	// An empty line is put in to improve formatting
 				id = 20,
 				type = "text",
 				icon = "ui/icons/blank.png",

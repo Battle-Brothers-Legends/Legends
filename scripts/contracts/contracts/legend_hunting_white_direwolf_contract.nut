@@ -22,7 +22,7 @@ this.legend_hunting_white_direwolf_contract <- this.inherit("scripts/contracts/c
 		this.contract.create();
 		this.m.Type = "contract.legend_hunting_white_direwolf";
 		this.m.Name = "Hunting the white wolf (Legendary)";
-		this.m.Description = "Reports of a wolf pack led by a fabled White Wolf has farmers and caravaneers in a panic. Hunt them down and bring the roads peace.";
+		this.m.Description = "Northern tribal folklore speak of the White Wolves, beings of pure malice who will one day devour both men and gods alike. Time to see if there is any truth to these fables.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.DifficultyMult = this.Math.rand(145, 175) * 0.01;
 	}

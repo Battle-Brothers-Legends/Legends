@@ -118,7 +118,8 @@ this.throw_net <- this.inherit("scripts/skills/skill", {
 
 			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " throws a net and hits " + this.Const.UI.getColorizedEntityName(targetEntity));
 			_user.getItems().unequip(_user.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand));
-			targetEntity.getSkills().add(this.new("scripts/skills/effects/net_effect"));
+			local isSpecialized = _user.getCurrentProperties().IsSpecializedInNetCasting;
+			local netted = this.new("scripts/skills/effects/net_effect");
 			local breakFree = this.new("scripts/skills/actives/break_free_skill");
 			breakFree.m.Icon = "skills/active_74.png";
 			breakFree.m.IconDisabled = "skills/active_74_sw.png";
@@ -129,29 +130,50 @@ this.throw_net <- this.inherit("scripts/skills/skill", {
 			{
 				breakFree.setDecal("net_destroyed_02");
 				breakFree.setChanceBonus(-15);
-				local r = this.Math.rand(1, 2);
 
-				if (r == 1)
+				if (isSpecialized)
 				{
-					this.World.Assets.getStash().add(this.new("scripts/items/tools/legend_broken_throwing_net"));
+					netted.m.DropNet = true;
+					netted.m.IsReinforced = true;
+					breakFree.m.DropNet = true;
+					breakFree.m.IsReinforcedNet = true;
 				}
 				else
 				{
-					this.World.Assets.getStash().add(this.new("scripts/items/tools/reinforced_throwing_net"));
+					local r = this.Math.rand(1, 2);
+				
+					if (r == 1)
+					{
+						this.World.Assets.getStash().add(this.new("scripts/items/tools/legend_broken_throwing_net"));
+					}
+					else
+					{
+						this.World.Assets.getStash().add(this.new("scripts/items/tools/reinforced_throwing_net"));
+					}
 				}
 			}
 			else
 			{
 				breakFree.setDecal("net_destroyed");
 				breakFree.setChanceBonus(0);
-				local chance = this.Math.rand(1, 100);
-
-				if (chance > 25)
+				
+				if (isSpecialized)
 				{
-					this.World.Assets.getStash().add(this.new("scripts/items/tools/legend_broken_throwing_net"));
+					netted.m.DropNet = true;
+					breakFree.m.DropNet = true;
+				}
+				else
+				{
+					local chance = this.Math.rand(1, 100);
+
+					if (chance > 25)
+					{
+						this.World.Assets.getStash().add(this.new("scripts/items/tools/legend_broken_throwing_net"));
+					}
 				}
 			}
 
+			targetEntity.getSkills().add(netted);
 			targetEntity.getSkills().add(breakFree);
 			local effect = this.Tactical.spawnSpriteEffect(this.m.IsReinforced ? "bust_net_02" : "bust_net", this.createColor("#ffffff"), _targetTile, 0, 10, 1.0, targetEntity.getSprite("status_rooted").Scale, 100, 100, 0);
 			local flip = !targetEntity.isAlliedWithPlayer();

@@ -12,7 +12,7 @@ this.legend_hunting_greenwood_schrats_contract <- this.inherit("scripts/contract
 		this.contract.create();
 		this.m.Type = "contract.legend_hunting_greenwood_schrats";
 		this.m.Name = "The Heart of the Woods (Legendary)";
-		this.m.Description = "Your kind has heard of locals going missing in the woods from schrats but something is not right. Hunt down what is making the people disappear in the woods.";
+		this.m.Description = "They say that Schrats are the lost souls of the forest, yet this contract sounds like something more. Something far older, something far more terrible.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.DifficultyMult = this.Math.rand(145, 175) * 0.01;
 	}

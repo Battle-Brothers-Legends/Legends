@@ -12,7 +12,7 @@ this.legend_hunting_redback_webknechts_contract <- this.inherit("scripts/contrac
 		this.contract.create();
 		this.m.Type = "contract.legend_hunting_redback_webknechts";
 		this.m.Name = "Hunting Redback Webknechts (Legendary)";
-		this.m.Description = "Local lords are in a panic in light of a surge of reports of legendary Redback Webknecths roaming the woods. Hunt them down and bring the town peace.";
+		this.m.Description = "The woods are poisoned. The way is blocked. Scuttling horrors chitter in the dark. There is something odd at work here.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.DifficultyMult = this.Math.rand(145, 175) * 0.01;
 	}

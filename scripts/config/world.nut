@@ -42,6 +42,25 @@ gt.Const.World.TerrainType <- {
 	SwampForest = 20,
 	COUNT = 21
 };
+
+gt.Const.World.AllTerrainTypes <- []; // Added by Legends
+for (local i = 0; i < ::Const.World.TerrainType.COUNT; i++)
+{
+	::Const.World.AllTerrainTypes.push(i);
+}
+
+gt.Const.World.getAllTerrainTypesExcept <- function ( _types )
+{
+	local ret = clone ::Const.World.AllTerrainTypes;
+	local garbage = clone _types;
+	::MSU.Array.sortDescending(garbage);
+	foreach( i in garbage )
+	{
+		ret.remove(i);
+	}
+	return ret;
+}
+
 gt.Const.World.TerrainScript <- [
 	"",
 	"world.tile.ocean",

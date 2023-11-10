@@ -77,16 +77,14 @@ this.perk_legend_freedom_of_movement <- this.inherit("scripts/skills/skill", {
 	// MSU function
 	function onGetHitFactorsAsTarget( _skill, _targetTile, _tooltip )
 	{
-		::MSU.Log.printData(_skill);
 		local attacker = ::MSU.isNull(_skill) ? null : _skill.getContainer().getActor();
-		::MSU.Log.printData(attacker.getName());
+
 		if (::MSU.isNull(attacker))
 		{
 			return;
 		}
 
 		local bonus = (1 - this.getBonus(attacker, this.getContainer().getActor())) * 100;
-		::MSU.Log.printData(bonus);
 
 		if (bonus > 0)
 		{

@@ -2,7 +2,10 @@ this.break_free_skill <- this.inherit("scripts/skills/skill", {
 	m = {
 		Decal = "",
 		ChanceBonus = 0,
-		SkillBonus = null
+		SkillBonus = null,
+		DropNet = false, // Net item can be dropped in battle if it was thrown with Net Casting perk
+		IsReinforcedNet = false,
+		IsByNetSpecialist = false, // Is break free being performed by someone with Net Mastery
 	},
 	function setDecal( _d )
 	{
@@ -44,12 +47,7 @@ this.break_free_skill <- this.inherit("scripts/skills/skill", {
 
 	function getTooltip()
 	{
-		local chance = this.Math.min(100, this.getContainer().getActor().getCurrentProperties().getMeleeSkill() - 10 + this.m.ChanceBonus + (this.getContainer().getActor().getSkills().hasSkill("effects.goblin_shaman_potion") ? 100 : 0));
-		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_escape_artist"))
-		{
-			chance = this.Math.max(99, chance);
-		}
-		return [
+		local tooltip = [
 			{
 				id = 1,
 				type = "title",
@@ -69,14 +67,43 @@ this.break_free_skill <- this.inherit("scripts/skills/skill", {
 				id = 4,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]" + chance + "%[/color] chance to succeed, based on Melee Skill. Each failed attempt will increase the chance to succeed for subsequent attempts."
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]" + this.getChance() + "%[/color] chance to succeed, based on Melee Skill. Each failed attempt will increase the chance to succeed for subsequent attempts."
 			}
 		];
+
+		if (this.getContainer().getActor().getCurrentProperties().IsSpecializedInNets)
+		{
+			tooltip.push({
+				id = 5,
+				type = "hint",
+				icon = "ui/icons/special.png",
+				text = "Net Mastery makes this signficantly easier",
+			});
+		}
+
+		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_escape_artist"))
+		{
+			tooltip.push({
+				id = 5,
+				type = "hint",
+				icon = "ui/icons/special.png",
+				text = "Escape Artist makes this signficantly easier",
+			});
+		}
+
+		return tooltip;
 	}
 
 	function getChance()
 	{
-		return this.Math.min(100, this.getContainer().getActor().getCurrentProperties().getMeleeSkill() - 10 + this.m.ChanceBonus);
+		local actor = this.getContainer().getActor();
+		local skill = this.m.SkillBonus == null ? actor.getCurrentProperties().getMeleeSkill() : this.m.SkillBonus;
+		local toHit = this.Math.min(100, skill - 10 + this.m.ChanceBonus + (actor.getSkills().hasSkill("effects.goblin_shaman_potion") ? 100 : 0));
+		if (actor.getCurrentProperties().IsSpecializedInNets || this.m.IsByNetSpecialist || actor.getSkills().hasSkill("perk.legend_escape_artist"))
+		{
+			toHit = this.Math.max(99, toHit);
+		}
+		return toHit;
 	}
 
 	function isUsable()
@@ -89,36 +116,17 @@ this.break_free_skill <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
-	function onAfterUpdate( _properties )
-	{
-		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_escape_artist"))
-		{
-			this.m.FatigueCostMult = 0.3;
-			this.m.ActionPointCost = 2;
-		}
-		else 
-		{
-			this.m.FatigueCostMult = 1;
-			this.m.ActionPointCost = 4;
-		}
-	}
-
 	function onUse( _user, _targetTile )
 	{
-		local skill = this.m.SkillBonus == null ? _user.getCurrentProperties().getMeleeSkill() : this.m.SkillBonus;
-		local toHit = this.Math.min(100, skill - 10 + this.m.ChanceBonus + (_user.getSkills().hasSkill("effects.goblin_shaman_potion") ? 100 : 0));
-		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_escape_artist"))
-		{
-			toHit = this.Math.max(99, toHit);
-		}
+		local toHit = this.getChance();
 		local rolled = this.Math.rand(1, 100);
 		this.Tactical.EventLog.log_newline();
 
 		if (rolled <= toHit)
 		{
-			if (_user.getSkills().hasSkill("perk.legend_escape_artist"))
+			if (_user.getCurrentProperties().IsSpecializedInNets)
 			{
-				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " effortlessly breaks free.");
+				this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " effortlessly breaks free (Chance: " + toHit + ", Rolled: " + rolled + ")");
 			}
 			else
 			{
@@ -169,6 +177,33 @@ this.break_free_skill <- this.inherit("scripts/skills/skill", {
 				}
 			}
 
+			if (this.m.DropNet)
+			{
+				local net;
+				if (this.m.IsReinforcedNet)
+				{
+					// 50% chance the reinforced net is still reusable in battle
+					if (::Math.rand(1,2) == 1)
+					{
+						net = this.new("scripts/items/tools/reinforced_throwing_net");
+						net.drop(this.getContainer().getActor().getTile());
+					}
+					else
+					{
+						this.World.Assets.getStash().add(this.new("scripts/items/tools/legend_broken_throwing_net"));
+					}
+				}
+				else
+				{
+					// 25% chance the regular net is still reusable in battle
+					if (::Math.rand(1,4) == 1)
+					{
+						net = this.new("scripts/items/tools/throwing_net");
+						net.drop(this.getContainer().getActor().getTile());
+					}
+				}
+			}
+
 			_user.setDirty(true);
 			this.getContainer().removeByID("effects.net");
 			this.getContainer().removeByID("effects.rooted");
@@ -192,6 +227,16 @@ this.break_free_skill <- this.inherit("scripts/skills/skill", {
 		}
 
 		this.m.SkillBonus = null;
+	}
+
+	function onUseByAlly( _ally, _targetTile )
+	{
+		if (_ally.getCurrentProperties().IsSpecializedInNets)
+		{
+			this.m.IsByNetSpecialist = true;
+		}
+
+		this.onUse(this.getContainer().getActor(), _targetTile);
 	}
 
 	function onCombatFinished()

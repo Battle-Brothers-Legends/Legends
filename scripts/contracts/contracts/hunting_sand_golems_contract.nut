@@ -9,7 +9,7 @@ this.hunting_sand_golems_contract <- this.inherit("scripts/contracts/contract", 
 		this.contract.create();
 		this.m.Type = "contract.hunting_sandgolems";
 		this.m.Name = "Shifting Sands";
-		this.m.Description = "Local reports of ever-approaching shifting sands indicate that Ifrits must be close. Hunt them down.";
+		this.m.Description = "Shimmering spirits of air have been sighted in the desert, an ill-omen for the locals.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

@@ -437,7 +437,7 @@ this.legend_barbarian_prisoner_contract <- this.inherit("scripts/contracts/contr
 		this.m.Screens.push({
 			ID = "TheBattle",
 			Title = "After the battle...",
-			Text = "[img]gfx/ui/events/event_145.png[/img] {This battle was more bloody than the usual skirmishes your men are involved in. %randombrother% looks over wounded companions. %randombrother2% inspects the prison cart to ensure the recent enounter left it in a decent condition to resume the journey, then approaches you. %SPEECH_ON%These barbarians were serious business, cap - that big brute we have in custody must be someone important. Maybe… I don\'t know boss… but maybe let\'s see what the prisoner has to say? This might be their king or some kind of famed warrior! Who cares about %employer%\'s opinion on the matter? We got paid already and I don\'t think we\'ll find any more crowns waiting for us in %objective%.%SPEECH_OFF% }",
+			Text = "[img]gfx/ui/events/event_145.png[/img] {This battle was more bloody than the usual skirmishes your men are involved in. %randombrother% looks over wounded companions. %randombrother2% inspects the prison cart to ensure the recent encounter left it in a decent condition to resume the journey, then approaches you. %SPEECH_ON%These barbarians were serious business, cap - that big brute we have in custody must be someone important. Maybe… I don\'t know boss… but maybe let\'s see what the prisoner has to say? This might be their king or some kind of famed warrior! Who cares about %employer%\'s opinion on the matter? We got paid already and I don\'t think we\'ll find any more crowns waiting for us in %objective%.%SPEECH_OFF% }",
 			Image = "",
 			Characters = [],
 			List = [],

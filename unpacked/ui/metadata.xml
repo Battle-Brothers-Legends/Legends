@@ -750,4 +750,5 @@
   <sprite id="choke_circle" ic="724543FF" img="skills\choke_circle.png" />
   <sprite id="grapple_circle" ic="5E3f37FF" img="skills\grapple_circle.png" />
   <sprite id="tackle_circle" ic="3E2929FF" img="skills\tackle_circle.png" />
+  <sprite id="holybluefire_square" ic="2E343FFF" img="skills\holybluefire_square.png" />
 </brush>

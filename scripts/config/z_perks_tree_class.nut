@@ -16,7 +16,7 @@ gt.Const.Perks.BeastClassTree <- {
 		[gt.Const.Perks.PerkDefs.LegendNetRepair],
 		[gt.Const.Perks.PerkDefs.LegendNetCasting],
 		[gt.Const.Perks.PerkDefs.LegendMasteryNets],
-		[gt.Const.Perks.PerkDefs.LegendEscapeArtist],
+		[], // As of 18.2.0, LegendEscapeArtist is no longer a player perk; LegendMasteryNets achieves the same effects
 		[],
 		[]
 	]

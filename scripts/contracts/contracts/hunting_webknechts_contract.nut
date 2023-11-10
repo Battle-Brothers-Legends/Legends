@@ -9,7 +9,7 @@ this.hunting_webknechts_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.hunting_webknechts";
 		this.m.Name = "Hunting Webknechts";
-		this.m.Description = "Local sightings indicate Webknechts in the nearby woods. Hunt them down.";
+		this.m.Description = "Townsfolk are reporting a swarm of skittering monstrosities is nearby, taking children and dogs and the like.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

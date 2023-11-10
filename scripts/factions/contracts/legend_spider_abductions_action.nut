@@ -21,6 +21,19 @@ this.legend_spider_abductions_action <- this.inherit("scripts/factions/faction_a
 			return;
 		}
 
+		// Check contract exclusivity
+		if (_faction.hasContractExclusion("contract.legend_spider_abductions"))
+		{
+			return;
+		}
+
+		// Check if there are enough forest tiles around the settlement
+		local types = [::Const.World.TerrainType.Forest, ::Const.World.TerrainType.LeaveForest, ::Const.World.TerrainType.AutumnForest]
+		if (!(_faction.getSettlements()[0].getSurroundingTileTypeProportion(types, 10) >= 0.1 && _faction.getSettlements()[0].getSurroundingTileTypeCount(types, 10, 6) > 10))
+		{
+			return;
+		}
+
 		if (::Math.rand(1, 100) > 10)
 		{
 			return;

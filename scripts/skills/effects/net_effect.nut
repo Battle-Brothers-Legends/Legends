@@ -1,5 +1,8 @@
 this.net_effect <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		DropNet = false, // Net item will be dropped in battle if it was thrown with Net Mastery
+		IsReinforced = false,
+	},
 	function create()
 	{
 		this.m.ID = "effects.net";
@@ -59,6 +62,23 @@ this.net_effect <- this.inherit("scripts/skills/skill", {
 		_properties.MeleeDefenseMult *= 0.55;
 		_properties.RangedDefenseMult *= 0.55;
 		_properties.InitiativeMult *= 0.55;
+	}
+
+	function onDeath( _fatalityType )
+	{
+		if (this.m.DropNet)
+		{
+			local net;
+			if (this.m.IsReinforced)
+			{
+				net = this.new("scripts/items/tools/reinforced_throwing_net");
+			}
+			else
+			{
+				net = this.new("scripts/items/tools/throwing_net");	
+			}
+			net.drop(this.getContainer().getActor().getTile());
+		}
 	}
 
 });

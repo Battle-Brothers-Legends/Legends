@@ -1914,6 +1914,7 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 					];
 
 		this.addPerkGroup(cultistGroup);
+		this.getContainer().getActor().getFlags().add("cultist");
 	}
 
 	function onSerialize( _out )

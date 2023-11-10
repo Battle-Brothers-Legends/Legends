@@ -99,6 +99,14 @@ gt.Const.Contracts.ContractCategoryIconMap <- {
 	Legendary = ""
 }
 
+// Contracts in the same array are mutually exclusive. faction.nut will perform a check when adding new contracts;
+// If the contract's mutually exclusive counterparts are currently available, the contract will not spawn
+// To make use of this, the contract action must call _faction.hasContractExclusion in the onUpdate function
+gt.Const.Contracts.ContractExclusions <- [
+	["contract.legend_preemptive_beasts","contract.roaming_beasts"],
+	["contract.hunting_webknechts","contract.legend_spider_abductions","contract.roaming_beasts"],
+]
+
 // Use hooks to programmatically set each contract's Category to the configured value in gt.Const.Contracts.ContractCategoryMap
 // Note: The corresponding faction action scripts that spawn the contracts still need manual coding to input the relevant Category to the isReadyForContract() call
 this.getroottable().Const.LegendMod.hookContractCategory <- function()
