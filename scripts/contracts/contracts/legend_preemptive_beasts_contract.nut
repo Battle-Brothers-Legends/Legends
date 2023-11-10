@@ -10,8 +10,8 @@ this.legend_preemptive_beasts_contract <- this.inherit("scripts/contracts/contra
 	{
 		this.contract.create();
 		this.m.Type = "contract.legend_preemptive_beasts";
-		this.m.Name = "Drive Away Beasts";
-		this.m.Description = "Some locals have spotted some wandering beasts. While attacks have yet to occur, they're willing to pay for some hunters to get rid of these beasts before they become an issue. Pay may be lower due to the lack of urgency, but some locals might be willing to help for a bit of coin.";
+		this.m.Name = "Taking Action";
+		this.m.Description = "Fell beasts have been spotted roaming the hills. The locals are demanding action before attacks occur.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

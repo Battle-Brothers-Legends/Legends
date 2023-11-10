@@ -21,7 +21,7 @@ this.privateering_contract <- this.inherit("scripts/contracts/contract", {
 
 		this.m.Type = "contract.privateering";
 		this.m.Name = "Privateering";
-		this.m.Description = "As the noble war rages, house lords are looking to hire privateers. Head to other noble house lands to raid, plunder, and squash their armies.";
+		this.m.Description = "Privateering is the fancy noble word for sanctioned raiding, pillaging and murder in enemy territory. Dirty work for sure, but sellswords are not exactly known for their honour.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 	}

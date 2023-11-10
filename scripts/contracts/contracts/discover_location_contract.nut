@@ -9,7 +9,7 @@ this.discover_location_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.DifficultyMult = this.Math.rand(75, 105) * 0.01;
 		this.m.Type = "contract.discover_location";
 		this.m.Name = "Find Location";
-		this.m.Description = "Local rumors suggest there is a nearby location of interest. The lords want to send out a party to find it so they can assess its threat.";
+		this.m.Description = "Exploration. Easy money, for a sellsword company.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

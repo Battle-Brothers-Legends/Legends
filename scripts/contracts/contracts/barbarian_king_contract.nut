@@ -22,7 +22,7 @@ this.barbarian_king_contract <- this.inherit("scripts/contracts/contract", {
 
 		this.m.Type = "contract.barbarian_king";
 		this.m.Name = "The Barbarian King";
-		this.m.Description = "Track down The Barbarian King who ravages the lands to the north and slay him in battle.";
+		this.m.Description = "Cold winds rise in the north. A terrible Barbarian King has emerged, dealing death and destruction to all in his path.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 5.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 	}

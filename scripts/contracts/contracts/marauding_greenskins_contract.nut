@@ -27,7 +27,7 @@ this.marauding_greenskins_contract <- this.inherit("scripts/contracts/contract",
 		this.contract.create();
 		this.m.Type = "contract.marauding_greenskins";
 		this.m.Name = "Marauding Greenskins";
-		this.m.Description = "Scouts report a band of marauding greenskins in a nearby town. Hunt them down and stop their raids.";
+		this.m.Description = format("Greenskins are terrorizing the region around %s, burning everything in their path. The ferocity of the attacks have left many unnerved.", this.m.Origin.getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

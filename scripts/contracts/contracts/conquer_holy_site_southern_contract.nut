@@ -9,7 +9,7 @@ this.conquer_holy_site_southern_contract <- this.inherit("scripts/contracts/cont
 		this.contract.create();
 		this.m.Type = "contract.conquer_holy_site_southern";
 		this.m.Name = "Conquer Holy Site";
-		this.m.Description = "The Viziers have had a vision from the Gilder and are hiring mercenaries to retake their holy ground from the northern heathens.";
+		this.m.Description = "A Holy Site is being trespassed by northern rats. The Gilder\'s gleam will surely shine down on those who reclaim it for the faith.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

@@ -6,7 +6,7 @@ this.arena_tournament_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.DifficultyMult = 1.3;
 		this.m.Type = "contract.arena_tournament";
 		this.m.Name = "The Arena Tournament";
-		this.m.Description = "Fight in today\'s Arena Tournament. Emerge victorious and receive a famed item.";
+		this.m.Description = ::Math.rand(1,2) == 1 ? "A grand tournament to the death, a celebration of slaughter. Eternal glory and prized items await." : "Blood soaks the sand, yet the crowd always screams for more. A grand tournament has been announced!";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 1.0;
 	}
 

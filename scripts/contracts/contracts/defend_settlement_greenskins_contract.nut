@@ -9,7 +9,7 @@ this.defend_settlement_greenskins_contract <- this.inherit("scripts/contracts/co
 		this.contract.create();
 		this.m.Type = "contract.defend_settlement_greenskins";
 		this.m.Name = "Defend Settlement";
-		this.m.Description = "Greenskin Raiders are aplenty and scouts report them coming for another raid, set up camp at the town and prevent their raid.";
+		this.m.Description = format("Greenskins are heading this way, murdering and destroying all that stands before them. %s seeks sellsword aid.", this.m.Home.getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 5.0;
 		this.m.MakeAllSpawnsResetOrdersOnContractEnd = false;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;

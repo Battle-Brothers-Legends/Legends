@@ -9,8 +9,8 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.DifficultyMult = this.Math.rand(90, 110) * 0.01;
 		this.m.Type = "contract.deliver_money";
-		this.m.Name = "Coin Delivery";
-		this.m.Description = "The money changers in a nearby town are running short. Local lords want an armed party to transfer the coinage but are wary of unscrupulous folk who may spend it on themselves";
+		this.m.Name = "Treasury Transfer";
+		this.m.Description = "Shipments of coin between settlements can be dangerous, albeit lucrative work.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

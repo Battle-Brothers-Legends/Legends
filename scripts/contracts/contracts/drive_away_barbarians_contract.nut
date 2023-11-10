@@ -10,7 +10,7 @@ this.drive_away_barbarians_contract <- this.inherit("scripts/contracts/contract"
 		this.contract.create();
 		this.m.Type = "contract.drive_away_barbarians";
 		this.m.Name = "Drive Off Barbarians";
-		this.m.Description = "Scouts report a nearby barbarian camp. Destroy the camp before they send out raids to nearby towns.";
+		this.m.Description = "A northern ice tribe is nearby. Barbaric rage and pagan savagery make for terrible neighbours.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

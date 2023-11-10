@@ -11,7 +11,7 @@ this.escort_caravan_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.escort_caravan";
 		this.m.Name = "Escort Caravan";
-		this.m.Description = "Caravans can always use more guards and the local leader of a caravan is still asking around for more guards.";
+		this.m.Description = "The roads these days are dangerous. Merchants are willing to pay good coin for sellsword protection.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 	}

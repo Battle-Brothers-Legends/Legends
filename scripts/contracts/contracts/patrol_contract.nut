@@ -10,7 +10,7 @@ this.patrol_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.patrol";
 		this.m.Name = "Patrol";
-		this.m.Description = "Local lords are stretched thin and need to hire help to defend the roads. Patrol roads of nearby cities and ensure their safety. Return in 5 days.";
+		this.m.Description = format("Hiring mercenaries to protect the roads is a costly business, but it appears %s has been left with little choice.", ::World.FactionManager.getFaction(this.getFaction()).getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 5.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 		this.m.MakeAllSpawnsResetOrdersOnceDiscovered = true;

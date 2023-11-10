@@ -20,7 +20,7 @@ this.confront_warlord_contract <- this.inherit("scripts/contracts/contract", {
 
 		this.m.Type = "contract.confront_warlord";
 		this.m.Name = "Confront Orc Warlord";
-		this.m.Description = "Spies have picked up the rise of an Orc Warlord. Lure the greenskin out of hiding and see that his head leaves his shoulders.";
+		this.m.Description = "Amid the slaughter, a fearsome greenskin Warlord has emerged. Goad him into fighting you and put an end to his carnage.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

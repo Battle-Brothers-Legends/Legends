@@ -20,8 +20,8 @@ this.raze_attached_location_contract <- this.inherit("scripts/contracts/contract
 		this.contract.create();
 		this.m.DifficultyMult = 0.85;
 		this.m.Type = "contract.raze_attached_location";
-		this.m.Name = "Raze Location";
-		this.m.Description = "Raze a key location belonging to a rival noble house.";
+		this.m.Name = "Intimidation";
+		this.m.Description = "Amid the power games of nobility, a series of unfortunate events can often lead to a lord changing his allegiances.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		local s = this.World.EntityManager.getSettlements()[this.Math.rand(0, this.World.EntityManager.getSettlements().len() - 1)];
 		this.m.Destination = this.WeakTableRef(s.getAttachedLocations()[this.Math.rand(0, s.getAttachedLocations().len() - 1)]);

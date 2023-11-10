@@ -9,7 +9,7 @@ this.conquer_holy_site_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.conquer_holy_site";
 		this.m.Name = "Conquer Holy Site";
-		this.m.Description = "Spies report that the southerners are gathering en masse at their holy site. The local lord is rallying the troops and hiring mercenaries to squash their gathering.";
+		this.m.Description = ::Math.rand(1,2) == 1 ? "A Holy Site has been conquered by southern heathens. Honor and fear of the Old Gods demands that it be retaken." : "A famous Holy Site belongs to the Old Gods, except right now it belongs to the South. Purify the site in a way most pleasing to the Old Gods... with blood.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

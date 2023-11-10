@@ -9,7 +9,7 @@ this.legend_spider_abductions_contract <- this.inherit("scripts/contracts/contra
 		this.contract.create();
 		this.m.Type = "contract.legend_spider_abductions";
 		this.m.Name = "Webknecht Abductions";
-		this.m.Description = "Several townsfolk have been abducted by Webknechts and brought to their nest to feed their hatchlings. Find the nest and rescue any townsfolk you find.";
+		this.m.Description = "Few things elicit such horror as the Webknechts, especially when they grow large enough to start abducting fully-grown townsfolk.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

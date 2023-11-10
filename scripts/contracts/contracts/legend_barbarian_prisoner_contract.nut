@@ -16,7 +16,7 @@ this.legend_barbarian_prisoner_contract <- this.inherit("scripts/contracts/contr
 		this.contract.create();
 		this.m.Type = "contract.legend_barbarian_prisoner";
 		this.m.Name = "Escort Barbarian Prisoner (Legendary)";
-		this.m.Description = "A valuable barbarian prisoner needs transport. Get his caravan to the destination safely and defend against barbarian rescue.";
+		this.m.Description = "A barbarian prisoner is being transported to another settlement to answer for their fell crimes. Their savage kin will likely attempt a rescue.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 120.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 	}

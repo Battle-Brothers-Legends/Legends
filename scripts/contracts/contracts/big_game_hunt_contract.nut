@@ -8,7 +8,7 @@ this.big_game_hunt_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.big_game_hunt";
 		this.m.Name = "Big Game Hunt";
-		this.m.Description = "Unfortunately the local lords are tied up in papers, so they are hiring mercenaries to hunt big game for them.";
+		this.m.Description = format("Foul beasts, ghouls and other monstrosities are roaming the land with impunity. %s needs someone of your caliber to slay them all.", ::World.FactionManager.getFaction(this.getFaction()).getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 5.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 		this.m.MakeAllSpawnsResetOrdersOnceDiscovered = true;

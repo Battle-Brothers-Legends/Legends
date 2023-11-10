@@ -9,7 +9,7 @@ this.obtain_item_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.obtain_item";
 		this.m.Name = "Obtain Artifact";
-		this.m.Description = "Scouts report that a ancient relic that may have once belonged to the city is at a nearby location. Obtain the relic and squash any resistance along the way.";
+		this.m.Description = "Townsfolk claim that a missing relic belonging to them has turned up in a nearby location. The place is allegedly cursed.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

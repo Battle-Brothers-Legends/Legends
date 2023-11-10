@@ -18,7 +18,7 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 
 		this.m.Type = "contract.siege_fortification";
 		this.m.Name = "Siege Fortification";
-		this.m.Description = "House lords are setting up a siege as the war rages on. Get down there and make sure the siege goes smoothly.";
+		this.m.Description = format("Sieges often lead to violent, unpredictable outcomes. %s are seeking hardened sellswords to provide a steadying hand should things turn to ratshit.", ::World.FactionManager.getFaction(this.getFaction()).getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.MakeAllSpawnsResetOrdersOnContractEnd = false;
 	}

@@ -8,8 +8,8 @@ this.destroy_orc_camp_contract <- this.inherit("scripts/contracts/contract", {
 	{
 		this.contract.create();
 		this.m.Type = "contract.destroy_orc_camp";
-		this.m.Name = "Destroy Orc Camp";
-		this.m.Description = "Scouts report the location of a new orc camp. Destroy the camp before they send out raids to nearby towns.";
+		this.m.Name = "Orc Warcamp";
+		this.m.Description = "A brutal Greenskin warcamp is nearby, the source of much death and strife in the region.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

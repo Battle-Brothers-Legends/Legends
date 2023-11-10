@@ -22,7 +22,7 @@ this.decisive_battle_contract <- this.inherit("scripts/contracts/contract", {
 
 		this.m.Type = "contract.decisive_battle";
 		this.m.Name = "The Battle";
-		this.m.Description = "The generals are moving to a warcamp and are hiring anyone who will help them resolve the feud among the noble houses.";
+		this.m.Description = "The nobles are gathering their forces for a decisive battle against a feuding rival house. That includes sellswords. On both sides.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

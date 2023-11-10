@@ -9,7 +9,7 @@ this.defend_holy_site_contract <- this.inherit("scripts/contracts/contract", {
 		this.contract.create();
 		this.m.Type = "contract.defend_holy_site";
 		this.m.Name = "Defend Holy Site";
-		this.m.Description = "Scouts report that the southerners are gathering to take the holy site. Local lords want you to get to the holy site first and defend it from the southern menace.";
+		this.m.Description = "Southern soldiers are approaching a place sacred to the Old Gods. A sense of unease ripples through the local populace.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

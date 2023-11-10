@@ -6,8 +6,8 @@ this.escort_envoy_contract <- this.inherit("scripts/contracts/contract", {
 	{
 		this.contract.create();
 		this.m.Type = "contract.escort_envoy";
-		this.m.Name = "Escort Envoy";
-		this.m.Description = "An important envoy is requesting an armed guard to escort him during his mission to a distant city and back.";
+		this.m.Name = "A Diplomatic Mission";
+		this.m.Description = "They say the pen is mightier than the sword... if that were really true than this envoy would not be needing an armed escort.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 

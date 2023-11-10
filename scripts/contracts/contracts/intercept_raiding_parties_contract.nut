@@ -8,8 +8,8 @@ this.intercept_raiding_parties_contract <- this.inherit("scripts/contracts/contr
 	{
 		this.contract.create();
 		this.m.Type = "contract.intercept_raiding_parties";
-		this.m.Name = "Intercept Raiding Parties";
-		this.m.Description = "Scouts report that several bands of southern raiders are on their way. Set up camp and prevent the burning of the city.";
+		this.m.Name = "Southern Raids";
+		this.m.Description = format("Southern raiders are coming to burn the homes, shops and farms in lands belonging to %s. Times are grim.", ::World.FactionManager.getFaction(this.getFaction()).getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 		this.m.MakeAllSpawnsResetOrdersOnContractEnd = false;

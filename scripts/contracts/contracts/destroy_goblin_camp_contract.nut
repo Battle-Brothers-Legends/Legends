@@ -7,7 +7,7 @@ this.destroy_goblin_camp_contract <- this.inherit("scripts/contracts/contract", 
 		this.contract.create();
 		this.m.Type = "contract.destroy_goblin_camp";
 		this.m.Name = "Destroy Goblin Camp";
-		this.m.Description = "Scouts report a nearby goblin camp. Destroy the camp before they send out raids to nearby towns.";
+		this.m.Description = "A loathsome goblin camp has been reported nearby. Treacherous creatures who fight without honor; something often also said of sellswords.";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 
