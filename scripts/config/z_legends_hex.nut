@@ -46,7 +46,13 @@
 {
 	if (_radius < 1)
 	{
-		::logError(format("_radius (%s) must be at least 1", _radius.tostring()));
+		::logError(format("_radius (%s) must be at least 0. Returning result of _radius=0 instead.", _radius.tostring()));
+		return [_center];
+	}
+
+	if (_radius == 0)
+	{
+		return [_center];
 	}
 
 	local path = []; // store the path of coords taken to traverse the full circle
@@ -101,13 +107,6 @@
 
 	for (local i = _minRadius; i <= _maxRadius; i++)
 	{
-		if (i == 0)
-		{
-			ret["R0"] <- [_center]
-			count += 1;
-			continue;
-		}
-
 		ret["R" + i] <- ::Const.LegendMod.Hex.traverseCircle( _center, i, _minSquareX, _minSquareY, _maxSquareX, _maxSquareY);
 		count += ret["R" + i].len();
 	}
@@ -271,20 +270,12 @@
 	{
 		local types = array(::Const.World.TerrainType.COUNT).map(function(val){return []});
 
-		if (i==0)
+		// Traverse the ring at radius=i and organize according to Tile type
+		local path = ::Const.LegendMod.Hex.traverseCircle(center, i, _minSquareX, _minSquareY, _maxSquareX, _maxSquareY);
+		foreach (coords in path)
 		{
-			// Handle the center tile
-			types[_centerTile.Type].push(_centerTile);
-		}
-		else
-		{
-			// Traverse the ring at radius=i and organize according to Tile type
-			local path = ::Const.LegendMod.Hex.traverseCircle(center, i, _minSquareX, _minSquareY, _maxSquareX, _maxSquareY);
-			foreach (coords in path)
-			{
-				local tile = ::World.getTile(coords.X, coords.Y);
-				types[tile.Type].push(tile);
-			}
+			local tile = ::World.getTile(coords.X, coords.Y);
+			types[tile.Type].push(tile);
 		}
 
 		data[i] = types;
