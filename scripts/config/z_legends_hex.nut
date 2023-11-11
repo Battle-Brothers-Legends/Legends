@@ -44,7 +44,7 @@
 // Returns an array of the coordinate tables representing all the tiles that were traversed
 ::Const.LegendMod.Hex.traverseCircle <- function ( _center, _radius, _minSquareX = null, _minSquareY = null, _maxSquareX = null, _maxSquareY = null)
 {
-	if (_radius < 1)
+	if (_radius < 0)
 	{
 		::logError(format("_radius (%s) must be at least 0. Returning result of _radius=0 instead.", _radius.tostring()));
 		return [_center];
