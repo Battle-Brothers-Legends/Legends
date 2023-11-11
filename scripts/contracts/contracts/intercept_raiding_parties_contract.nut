@@ -2,17 +2,24 @@ this.intercept_raiding_parties_contract <- this.inherit("scripts/contracts/contr
 	m = {
 		Destination = null,
 		Objectives = [],
-		IsPlayerAttacking = false
+		IsPlayerAttacking = false,
+		UnformattedDescription = "Southern raiders are coming to burn the homes, shops and farms in lands belonging to %s. Times are grim.",
 	},
 	function create()
 	{
 		this.contract.create();
 		this.m.Type = "contract.intercept_raiding_parties";
 		this.m.Name = "Southern Raids";
-		this.m.Description = format("Southern raiders are coming to burn the homes, shops and farms in lands belonging to %s. Times are grim.", ::World.FactionManager.getFaction(this.getFaction()).getName());
+		this.m.Description = "";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 		this.m.MakeAllSpawnsResetOrdersOnContractEnd = false;
+	}
+
+	// Ran when we actually add the contract
+	function formatDescription()
+	{
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(::World.FactionManager.getFaction(this.getFaction()).getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()

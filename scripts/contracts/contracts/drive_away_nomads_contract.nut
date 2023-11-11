@@ -11,14 +11,13 @@ this.drive_away_nomads_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Type = "contract.drive_away_nomads";
 		this.m.Name = "Drive Off Nomads";
 		this.m.Description = "";
-		// this.m.Description = format("A nomadic camp has been preying on roads to %s. Elusive and evasive, the desert tribes have been here for centuries.", this.m.Home.getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 	
 	// Ran when we actually add the contract
 	function formatDescription()
 	{
-		this.m.Description = format(this.m.UnformattedDescription, this.m.Home.getName());
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()

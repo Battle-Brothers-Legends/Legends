@@ -10,14 +10,13 @@ this.roaming_beasts_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Type = "contract.roaming_beasts";
 		this.m.Name = "Hunting Beasts";
 		this.m.Description = "";
-		// this.m.Description = format("Fell beasts have been preying on the citizens of %s. Folk are afraid to leave their homes.", this.m.Home.getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 	}
 
 	// Ran when we actually add the contract
 	function formatDescription()
 	{
-		this.m.Description = format(this.m.UnformattedDescription, this.m.Home.getName());
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()

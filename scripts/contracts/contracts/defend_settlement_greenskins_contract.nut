@@ -11,7 +11,6 @@ this.defend_settlement_greenskins_contract <- this.inherit("scripts/contracts/co
 		this.m.Type = "contract.defend_settlement_greenskins";
 		this.m.Name = "Defend Settlement";
 		this.m.Description = "";
-		// this.m.Description = format("Greenskins are heading this way, murdering and destroying all that stands before them. %s seeks sellsword aid.", this.m.Home.getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 5.0;
 		this.m.MakeAllSpawnsResetOrdersOnContractEnd = false;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
@@ -20,7 +19,7 @@ this.defend_settlement_greenskins_contract <- this.inherit("scripts/contracts/co
 	// Ran when we actually add the contract
 	function formatDescription()
 	{
-		this.m.Description = format(this.m.UnformattedDescription, this.m.Home.getName());
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()
