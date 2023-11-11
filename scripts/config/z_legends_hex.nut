@@ -27,16 +27,10 @@
 	};
 }
 
-// In a hexagonal coordinates system, get the minimum possible Y value at _x given the limit _minY
-::Const.LegendMod.Hex.getYLowerLimit <- function ( _x, _minY )
+// Convert Y-value in square coodinates system to Y-value in hexagonal coordinates system
+::Const.LegendMod.Hex.getHexFromSquareY <- function ( _x, _y )
 {
-	return _minY - _x / 2; // integer division is fine because we want the floor
-}
-
-// In a hexagonal coordinates system, get the maximum possible Y value at _x given the limit _maxY
-::Const.LegendMod.Hex.getYUpperLimit <- function ( _x, _maxY )
-{
-	return _maxY - ::Math.round(_x / 2.0); // we want it to round up
+	return _y - _x / 2; // integer division because we want the floor
 }
 
 // Note: the _center parameter and the so-called "coordinate tables" used in multiple functions in this script are expected to be a table containing the following:
@@ -48,7 +42,7 @@
 // Developed based on notes from https://www.redblobgames.com/grids/hexagons/#rings
 // Traverse a circle of radius _radius around _center (X and Y hexagonal coordinates)
 // Returns an array of the coordinate tables representing all the tiles that were traversed
-::Const.LegendMod.Hex.traverseCircle <- function ( _center, _radius, _minX = null, _minY = null, _maxX = null, _maxY = null)
+::Const.LegendMod.Hex.traverseCircle <- function ( _center, _radius, _minSquareX = null, _minSquareY = null, _maxSquareX = null, _maxSquareY = null)
 {
 	if (_radius < 1)
 	{
@@ -70,7 +64,7 @@
 		{
 			next = ::Const.LegendMod.Hex.getAdjacentHexCoords(next, i);
 			
-			if ( (_minX != null && next.X < _minX) || (_minY != null && next.Y < ::Const.LegendMod.Hex.getYLowerLimit(next.X, _minY)) || (_maxX != null && next.X > _maxX) || (_maxY != null && next.Y > ::Const.LegendMod.Hex.getYUpperLimit(next.X, _maxY) ))
+			if ( (_minSquareX != null && next.X < _minSquareX) || (_minSquareY != null && next.Y < ::Const.LegendMod.Hex.getHexFromSquareY(next.X, _minSquareY)) || (_maxSquareX != null && next.X > _maxSquareX) || (_maxSquareY != null && next.Y > ::Const.LegendMod.Hex.getHexFromSquareY(next.X, _maxSquareY) ))
 			{
 				// Exceeded the bounds; don't add to the path but continue traversing
 				continue;
@@ -95,7 +89,7 @@
 // 		MinR = integer, // The minimum radius, ie of the smallest circle that was traversed
 // 		MaxR = integer // The maximum radius, ie of the largest circle that was traversed
 // }
-::Const.LegendMod.Hex.getCoordsWithinRadius <- function ( _center, _maxRadius, _minRadius = 0, _minX = null, _minY = null, _maxX = null, _maxY = null)
+::Const.LegendMod.Hex.getCoordsWithinRadius <- function ( _center, _maxRadius, _minRadius = 0, _minSquareX = null, _minSquareY = null, _maxSquareX = null, _maxSquareY = null)
 {
 	if (_minRadius > _maxRadius)
 	{
@@ -114,7 +108,7 @@
 			continue;
 		}
 
-		ret["R" + i] <- ::Const.LegendMod.Hex.traverseCircle( _center, i, _minX, _minY, _maxX, _maxY);
+		ret["R" + i] <- ::Const.LegendMod.Hex.traverseCircle( _center, i, _minSquareX, _minSquareY, _maxSquareX, _maxSquareY);
 		count += ret["R" + i].len();
 	}
 
@@ -135,22 +129,17 @@
 ::Const.LegendMod.Hex.World <- {};
 
 // Return an array of World Tiles within _radius of _centerTile
-::Const.LegendMod.Hex.World.getTilesWithinRadius <- function ( _centerTile, _maxRadius, _minRadius = 0, _minX = 0, _minY = null, _maxX = null, _maxY = null)
+::Const.LegendMod.Hex.World.getTilesWithinRadius <- function ( _centerTile, _maxRadius, _minRadius = 0, _minSquareX = 0, _minSquareY = 0, _maxSquareX = null, _maxSquareY = null)
 {
 	// World-safe default limits
-	if (_minY == null)
+	if (_maxSquareX == null)
 	{
-		_minY = 0 - ::Math.floor((::World.getMapSize().X - 1) / 2);
+		_maxSquareX = ::World.getMapSize().X - 1;
 	}
 
-	if (_maxX == null)
+	if (_maxSquareY == null)
 	{
-		_maxX = ::World.getMapSize().X - 1;
-	}
-
-	if (_maxY == null)
-	{
-		_maxY = ::World.getMapSize().Y - 1;
+		_maxSquareY = ::World.getMapSize().Y - 1;
 	}
 
 	// Actual logic
@@ -159,7 +148,7 @@
 		X = _centerTile.Coords.X,
 		Y = _centerTile.Coords.Y,
 	}
-	local coordsTable = ::Const.LegendMod.Hex.getCoordsWithinRadius( center, _maxRadius, _minRadius, _minX, _minY, _maxX, _maxY );
+	local coordsTable = ::Const.LegendMod.Hex.getCoordsWithinRadius( center, _maxRadius, _minRadius, _minSquareX, _minSquareY, _maxSquareX, _maxSquareY );
 	for (local i = _minRadius; i <= _maxRadius; i++)
 	{
 		foreach( coords in coordsTable["R" + i] )
@@ -172,27 +161,22 @@
 }
 
 // Return an array of World Tiles of types that match the input terrain types in _types within _radius of _centerTile
-::Const.LegendMod.Hex.World.getTilesWithinRadiusOfTypes <- function ( _centerTile, _types, _maxRadius, _minRadius = 0, _minX = 0, _minY = null, _maxX = null, _maxY = null)
+::Const.LegendMod.Hex.World.getTilesWithinRadiusOfTypes <- function ( _centerTile, _types, _maxRadius, _minRadius = 0, _minSquareX = 0, _minSquareY = 0, _maxSquareX = null, _maxSquareY = null)
 {
 	// World-safe default limits
-	if (_minY == null)
+	if (_maxSquareX == null)
 	{
-		_minY = 0 - ::Math.floor((::World.getMapSize().X - 1) / 2);
+		_maxSquareX = ::World.getMapSize().X - 1;
 	}
 
-	if (_maxX == null)
+	if (_maxSquareY == null)
 	{
-		_maxX = ::World.getMapSize().X - 1;
-	}
-
-	if (_maxY == null)
-	{
-		_maxY = ::World.getMapSize().Y - 1;
+		_maxSquareY = ::World.getMapSize().Y - 1;
 	}
 
 	// Actual logic
 	local ret = [];
-	local tiles = ::Const.LegendMod.Hex.World.getTilesWithinRadius( _centerTile, _maxRadius, _minRadius, _minX, _minY, _maxX, _maxY );
+	local tiles = ::Const.LegendMod.Hex.World.getTilesWithinRadius( _centerTile, _maxRadius, _minRadius, _minSquareX, _minSquareY, _maxSquareX, _maxSquareY );
 	foreach (t in tiles)
 	{
 		if (_types.find(t.Type) != null)
@@ -204,26 +188,21 @@
 }
 
 // Return an array of coordinates (tables with X and Y keys) whose corresponding tiles match the input terrain types in _types within _radius of _center coordinates
-::Const.LegendMod.Hex.World.getCoordsWithinRadiusOfTypes <- function ( _center, _types, _maxRadius, _minRadius = 0, _minX = 0, _minY = null, _maxX = null, _maxY = null)
+::Const.LegendMod.Hex.World.getCoordsWithinRadiusOfTypes <- function ( _center, _types, _maxRadius, _minRadius = 0, _minSquareX = 0, _minSquareY = 0, _maxSquareX = null, _maxSquareY = null)
 {
 	// World-safe default limits
-	if (_minY == null)
+	if (_maxSquareX == null)
 	{
-		_minY = 0 - ::Math.floor((::World.getMapSize().X - 1) / 2);
+		_maxSquareX = ::World.getMapSize().X - 1;
 	}
 
-	if (_maxX == null)
+	if (_maxSquareY == null)
 	{
-		_maxX = ::World.getMapSize().X - 1;
-	}
-
-	if (_maxY == null)
-	{
-		_maxY = ::World.getMapSize().Y - 1;
+		_maxSquareY = ::World.getMapSize().Y - 1;
 	}
 
 	local ret = [];
-	local coordsTable = ::Const.LegendMod.Hex.getCoordsWithinRadius( _center, _maxRadius, _minRadius, _minX, _minY, _maxX, _maxY );
+	local coordsTable = ::Const.LegendMod.Hex.getCoordsWithinRadius( _center, _maxRadius, _minRadius, _minSquareX, _minSquareY, _maxSquareX, _maxSquareY );
 	for (local i = _minRadius; i <= _maxRadius; i++)
 	{
 		foreach( coords in coordsTable["R" + i] )
@@ -267,22 +246,17 @@
 	// 	],
 	// ]
 // The output table also contains some functions to extract desired data from Data
-::Const.LegendMod.Hex.World.getTilesWithinRadiusOrganizedByRadiusAndType <- function ( _centerTile, _radius, _minX = 0, _minY = null, _maxX = null, _maxY = null )
+::Const.LegendMod.Hex.World.getTilesWithinRadiusOrganizedByRadiusAndType <- function ( _centerTile, _radius, _minSquareX = 0, _minSquareY = 0, _maxSquareX = null, _maxSquareY = null )
 {
 	// World-safe default limits
-	if (_minY == null)
+	if (_maxSquareX == null)
 	{
-		_minY = 0 - ::Math.floor((::World.getMapSize().X - 1) / 2);
+		_maxSquareX = ::World.getMapSize().X - 1;
 	}
 
-	if (_maxX == null)
+	if (_maxSquareY == null)
 	{
-		_maxX = ::World.getMapSize().X - 1;
-	}
-
-	if (_maxY == null)
-	{
-		_maxY = ::World.getMapSize().Y - 1;
+		_maxSquareY = ::World.getMapSize().Y - 1;
 	}
 
 	// Actual logic begins
@@ -305,7 +279,7 @@
 		else
 		{
 			// Traverse the ring at radius=i and organize according to Tile type
-			local path = ::Const.LegendMod.Hex.traverseCircle(center, i, _minX, _minY, _maxX, _maxY);
+			local path = ::Const.LegendMod.Hex.traverseCircle(center, i, _minSquareX, _minSquareY, _maxSquareX, _maxSquareY);
 			foreach (coords in path)
 			{
 				local tile = ::World.getTile(coords.X, coords.Y);
