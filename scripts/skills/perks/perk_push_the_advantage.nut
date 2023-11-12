@@ -1,5 +1,22 @@
 this.perk_push_the_advantage <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		EffectsToGiveBonus = [
+			"effects.sleeping",
+			"effects.stunned",
+			"effects.dazed",
+			"effects.legend_dazed",
+			"effects.net",
+			"effects.legend_grappled",
+			"effects.staggered",
+			"effects.web",
+			"effects.legend_baffled",
+			"effects.rooted",
+			"effects.distracted",
+			"effects.debilitated",
+			"effects.insect_swarm",
+			"effects.debilitated"
+		]
+	},
 	function create()
 	{
 		this.m.ID = "perk.push_the_advantage";
@@ -14,6 +31,21 @@ this.perk_push_the_advantage <- this.inherit("scripts/skills/skill", {
 		this.m.IsHidden = false;
 	}
 
+	function isBonusEligible( _targetEntity )
+	{
+		local targetSkills = _targetEntity.getSkills();
+
+		foreach ( effect in this.m.EffectsToGiveBonus ) 
+		{
+			if ( targetSkills.hasSkill(effect) )
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	function onAnySkillUsed( _skill, _targetEntity, _properties )
 	{
 		if (_targetEntity == null)
@@ -21,13 +53,13 @@ this.perk_push_the_advantage <- this.inherit("scripts/skills/skill", {
 			return;
 		}
 
-		if (!_targetEntity.isAlliedWith(this.getContainer().getActor()))
+		if ( !_targetEntity.isAlliedWith(this.getContainer().getActor()) )
 		{
-			if (_targetEntity.getSkills().hasSkill("effects.sleeping") || _targetEntity.getSkills().hasSkill("effects.stunned") || _targetEntity.getSkills().hasSkill("effects.dazed") || _targetEntity.getSkills().hasSkill("effects.legend_dazed") || _targetEntity.getSkills().hasSkill("effects.net") || _targetEntity.getSkills().hasSkill("effects.legend_grappled") || _targetEntity.getSkills().hasSkill("effects.staggered") || _targetEntity.getSkills().hasSkill("effects.web") || _targetEntity.getSkills().hasSkill("effects.legend_baffled") || _targetEntity.getSkills().hasSkill("effects.rooted") || _targetEntity.getSkills().hasSkill("effects.distracted") || _targetEntity.getSkills().hasSkill("effects.debilitated") || _targetEntity.getSkills().hasSkill("effects.insect_swarm"))
+			if ( this.isBonusEligible( _targetEntity ) )
 			{
-			_properties.MeleeSkill += 10;
-			_properties.RangedSkill += 10;
-			_properties.HitChance[this.Const.BodyPart.Head] += 20;
+				_properties.MeleeSkill += 10;
+				_properties.RangedSkill += 10;
+				_properties.HitChance[this.Const.BodyPart.Head] += 20;
 			}
 		}
 	}
