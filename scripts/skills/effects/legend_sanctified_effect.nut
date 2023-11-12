@@ -53,14 +53,6 @@ this.legend_sanctified_effect <- this.inherit("scripts/skills/skill", {
 		this.m.TurnsLeft = 2;
 	}
 
-	function onTurnEnd()
-	{
-		if (!this.isActorOnTileWithHolyFlame() && --this.m.TurnsLeft <= 0)
-		{
-			this.removeSelf();
-		}
-	}
-
 	function onNewRound()
 	{
 		if (!this.isActorOnTileWithHolyFlame() && this.m.TurnsLeft <= 0)
