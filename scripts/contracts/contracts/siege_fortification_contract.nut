@@ -1,6 +1,7 @@
 this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", {
 	m = {
-		Allies = []
+		Allies = [],
+		UnformattedDescription = "Sieges often lead to violent, unpredictable outcomes. %s are seeking hardened sellswords to provide a steadying hand should things turn to ratshit.",
 	},
 	function create()
 	{
@@ -18,9 +19,14 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 
 		this.m.Type = "contract.siege_fortification";
 		this.m.Name = "Siege Fortification";
-		this.m.Description = format("Sieges often lead to violent, unpredictable outcomes. %s are seeking hardened sellswords to provide a steadying hand should things turn to ratshit.", ::World.FactionManager.getFaction(this.getFaction()).getName());
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.MakeAllSpawnsResetOrdersOnContractEnd = false;
+	}
+
+	// Ran when we actually add the contract
+	function formatDescription()
+	{
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()

@@ -72,11 +72,6 @@ this.legend_consecrated_effect <- this.inherit("scripts/skills/skill", {
 	function onTurnEnd()
 	{
 		this.applyDamage();		
-
-		if (!this.isActorOnTileWithHolyFlame() && --this.m.TurnsLeft <= 0)
-		{
-			this.removeSelf();
-		}
 	}
 
 	function onNewRound()

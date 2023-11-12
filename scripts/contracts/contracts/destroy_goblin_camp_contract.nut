@@ -1,14 +1,21 @@
 this.destroy_goblin_camp_contract <- this.inherit("scripts/contracts/contract", {
 	m = {
-		Destination = null
+		Destination = null,
+		UnformattedDescription = "A loathsome goblin camp has been reported near %s. Treacherous creatures who fight without honor - something often also said of sellswords.",
 	},
 	function create()
 	{
 		this.contract.create();
 		this.m.Type = "contract.destroy_goblin_camp";
 		this.m.Name = "Destroy Goblin Camp";
-		this.m.Description = "A loathsome goblin camp has been reported nearby. Treacherous creatures who fight without honor; something often also said of sellswords.";
+		this.m.Description = "";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
+	}
+
+	// Ran when we actually add the contract
+	function formatDescription()
+	{
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(this.m.Origin.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()

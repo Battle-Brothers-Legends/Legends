@@ -2,15 +2,22 @@ this.destroy_orc_camp_contract <- this.inherit("scripts/contracts/contract", {
 	m = {
 		Destination = null,
 		Dude = null,
-		Reward = 0
+		Reward = 0,
+		UnformattedDescription = "A brutal Greenskin warcamp has settled near %s, becoming the source of much death and strife in the region.",
 	},
 	function create()
 	{
 		this.contract.create();
 		this.m.Type = "contract.destroy_orc_camp";
 		this.m.Name = "Orc Warcamp";
-		this.m.Description = "A brutal Greenskin warcamp is nearby, the source of much death and strife in the region.";
+		this.m.Description = "";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
+	}
+
+	// Ran when we actually add the contract
+	function formatDescription()
+	{
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(this.m.Origin.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()

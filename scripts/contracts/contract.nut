@@ -1624,6 +1624,10 @@ this.contract <- {
 		return ret;
 	}
 
+	function formatDescription() 
+	{
+	}
+
 	function onSerialize( _out )
 	{
 		_out.writeI32(this.m.ID);
@@ -1774,6 +1778,9 @@ this.contract <- {
 		{
 			this.setScreen(screen);
 		}
+
+		this.formatDescription();
+
 	}
 
 };

@@ -3,7 +3,8 @@ this.marauding_greenskins_contract <- this.inherit("scripts/contracts/contract",
 		Objective = null,
 		Target = null,
 		IsPlayerAttacking = true,
-		LastRandomEventShown = 0.0
+		LastRandomEventShown = 0.0,
+		UnformattedDescription = "Greenskins are terrorizing the region around %s, burning everything in their path. The ferocity of the attacks have left many unnerved.",
 	},
 	function setObjective( _h )
 	{
@@ -27,8 +28,14 @@ this.marauding_greenskins_contract <- this.inherit("scripts/contracts/contract",
 		this.contract.create();
 		this.m.Type = "contract.marauding_greenskins";
 		this.m.Name = "Marauding Greenskins";
-		this.m.Description = format("Greenskins are terrorizing the region around %s, burning everything in their path. The ferocity of the attacks have left many unnerved.", this.m.Origin.getName());
+		this.m.Description = "";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
+	}
+
+	// Ran when we actually add the contract
+	function formatDescription()
+	{
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(this.m.Origin.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()

@@ -3,18 +3,24 @@ this.patrol_contract <- this.inherit("scripts/contracts/contract", {
 		Location1 = null,
 		Location2 = null,
 		NextObjective = null,
-		Dude = null
+		Dude = null,
+		UnformattedDescription = "Hiring mercenaries to protect the roads is a costly business, but it appears %s has been left with little choice.",
 	},
 	function create()
 	{
 		this.contract.create();
 		this.m.Type = "contract.patrol";
 		this.m.Name = "Patrol";
-		this.m.Description = format("Hiring mercenaries to protect the roads is a costly business, but it appears %s has been left with little choice.", ::World.FactionManager.getFaction(this.getFaction()).getName());
+		this.m.Description = "";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 5.0;
 		this.m.MakeAllSpawnsAttackableByAIOnceDiscovered = true;
 		this.m.MakeAllSpawnsResetOrdersOnceDiscovered = true;
 		this.m.DifficultyMult = 1.0;
+	}
+
+	function formatDescription()
+	{
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(::World.FactionManager.getFaction(this.getFaction()).getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()

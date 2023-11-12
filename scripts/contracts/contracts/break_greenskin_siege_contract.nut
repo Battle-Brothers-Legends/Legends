@@ -2,7 +2,8 @@ this.break_greenskin_siege_contract <- this.inherit("scripts/contracts/contract"
 	m = {
 		Troops = null,
 		IsPlayerAttacking = true,
-		IsEscortUpdated = false
+		IsEscortUpdated = false,
+		UnformattedDescription = "Greenskins are besieging %s. With local forces depleted the inhabitants face a terrible slaughter.",
 	},
 	function create()
 	{
@@ -20,9 +21,15 @@ this.break_greenskin_siege_contract <- this.inherit("scripts/contracts/contract"
 
 		this.m.Type = "contract.break_greenskin_siege";
 		this.m.Name = "Break Siege";
-		this.m.Description = format("Greenskins are besieging %s. With local forces depleted the inhabitants face a terrible slaughter.", this.m.Origin.getName());
+		this.m.Description = "";
 		this.m.TimeOut = this.Time.getVirtualTimeF() + this.World.getTime().SecondsPerDay * 7.0;
 		this.m.MakeAllSpawnsResetOrdersOnContractEnd = false;
+	}
+
+	// Ran when we actually add the contract
+	function formatDescription()
+	{
+		this.m.Description = format(this.m.UnformattedDescription, ::Const.UI.getColorized(this.m.Origin.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 	}
 
 	function onImportIntro()
