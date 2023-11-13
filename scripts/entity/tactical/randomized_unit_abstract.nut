@@ -37,6 +37,9 @@ this.randomized_unit_abstract <- this.inherit("scripts/entity/tactical/human", {
 	function onInit() 
 	{
 		this.human.onInit();
+		if (::Math.rand(0, 3) == 0) { this.setFemale(); }
+		else { this.setMale(); }
+		this.setAppearance();
 	}
 
 
@@ -82,9 +85,6 @@ this.randomized_unit_abstract <- this.inherit("scripts/entity/tactical/human", {
 		{
 			this.m.PerkPower -= 1;
 		}
-
-		if (::Math.rand(0, 3) == 0) { this.setFemale(); }
-        else { this.setMale(); } 
 	}
 
 
