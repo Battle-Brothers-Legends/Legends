@@ -121,7 +121,7 @@ this.spider_eggs <- this.inherit("scripts/entity/tactical/actor", {
 
 	function registerSpawnEvent()
 	{
-		this.Time.scheduleEvent(this.TimeUnit.Rounds, this.Math.rand(1, 2) + this.getSpawnDelay(), this.onSpawn.bindenv(this), this.getTile());
+		this.Time.scheduleEvent(this.TimeUnit.Rounds, this.Math.rand(1, 2), this.onSpawn.bindenv(this), this.getTile());
 	}
 
 	function onSpawn( _tile )
@@ -131,7 +131,7 @@ this.spider_eggs <- this.inherit("scripts/entity/tactical/actor", {
 			return;
 		}
 
-		if (!_tile.IsOccupiedByActor || _tile.getEntity().getType() != this.Const.EntityType.SpiderEggs)
+		if (!_tile.IsOccupiedByActor || _tile.getEntity().getType() != this.Const.EntityType.SpiderEggs || ::Tactical.TurnSequenceBar.getCurrentRound() < 1 + this.getSpawnDelay())
 		{
 			return;
 		}
