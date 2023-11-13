@@ -75,6 +75,10 @@ this.getroottable().Const.LegendMod.hookContract <- function()
 			return this.m.Description;
 		}
 
+		o.formatDescription <- function()
+		{
+		}
+
 		local onDeserialize = o.onDeserialize;
 		o.onDeserialize = function(_in)
 		{
