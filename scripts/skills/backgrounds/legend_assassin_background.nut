@@ -101,7 +101,7 @@ this.legend_assassin_background <- this.inherit("scripts/skills/backgrounds/char
 				this.Const.Perks.PerkDefs.LegendTrueBeliever,
 				this.Const.Perks.PerkDefs.LegendPrepareBleed,
 				this.Const.Perks.PerkDefs.LegendEscapeArtist,
-				this.Const.Perks.PerkDefs.Sprint
+				this.Const.Perks.PerkDefs.LegendAthlete
 
 			],
 			[

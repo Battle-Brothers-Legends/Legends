@@ -94,7 +94,7 @@ this.legend_ranger_commander_background <- this.inherit("scripts/skills/backgrou
 				this.Const.Perks.PerkDefs.LegendDogWhisperer,
 				this.Const.Perks.PerkDefs.LegendNetRepair,
 				this.Const.Perks.PerkDefs.Debilitate,
-				this.Const.Perks.PerkDefs.Sprint,
+				this.Const.Perks.PerkDefs.LegendAthlete,
 				this.Const.Perks.PerkDefs.Dodge,
 				this.Const.Perks.PerkDefs.QuickHands,
 				this.Const.Perks.PerkDefs.CoupDeGrace,

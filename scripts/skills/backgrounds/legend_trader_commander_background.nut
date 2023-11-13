@@ -70,7 +70,7 @@ this.legend_trader_commander_background <- this.inherit("scripts/skills/backgrou
 				this.Const.Perks.PerkDefs.Anticipation,
 				this.Const.Perks.PerkDefs.Rotation,
 				this.Const.Perks.PerkDefs.Taunt,
-				this.Const.Perks.PerkDefs.Sprint,
+				this.Const.Perks.PerkDefs.LegendAthlete,
 				this.Const.Perks.PerkDefs.LegendBarterConvincing
 			],
 			[

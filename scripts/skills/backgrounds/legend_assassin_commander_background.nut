@@ -80,7 +80,7 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 			],
 			[
 				this.Const.Perks.PerkDefs.Backstabber,
-				this.Const.Perks.PerkDefs.Sprint,
+				this.Const.Perks.PerkDefs.LegendAthlete,
 				this.Const.Perks.PerkDefs.DevastatingStrikes,
 				this.Const.Perks.PerkDefs.QuickHands,
 				this.Const.Perks.PerkDefs.Dodge,
