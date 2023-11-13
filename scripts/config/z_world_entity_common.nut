@@ -28,7 +28,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 	AmountOfLeakedCaravanInventoryInfo = 3,
 
 	// don't want a single item to take up a large portion of the budget
-	ExpensiveLimitMult = 0.85,
+	ExpensiveLimitMult = 0.90,
 
 	// percentage of acceptable overbudget
 	OverBudgetPct = 0.10,
@@ -58,13 +58,13 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 			Name = "TradeGoods",
 			PreferShops = [],
 			PreferNum = 2,
-			PreferMax = 5,
+			PreferMax = 6,
 			function IsValid( _item, _shopID )
 			{
 				if (!_item.isItemType(this.Const.Items.ItemType.TradeGood))
 					return 0;
 
-				return _item.getValue() * 0.67;
+				return _item.getValue() * 0.65;
 			}
 		},
 		{
@@ -98,9 +98,9 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 		{
 			Weight = 1,
 			Name = "Weapons",
-			PreferShops = ["building.weaponsmith", "building.fletcher"],
+			PreferShops = ["building.weaponsmith", "building.fletcher", "building.blackmarket"],
 			PreferNum = 2,
-			PreferMax = 7,
+			PreferMax = 8,
 			function IsValid( _item, _shopID )
 			{
 				if (_item.isItemType(this.Const.Items.ItemType.Ammo))
@@ -115,9 +115,9 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 		{
 			Weight = 1,
 			Name = "Armors",
-			PreferShops = ["building.armorsmith", "building.marketplace"],
+			PreferShops = ["building.armorsmith", "building.marketplace", "building.blackmarket"],
 			PreferNum = 2,
-			PreferMax = 7,
+			PreferMax = 8,
 			function IsValid( _item, _shopID )
 			{
 				if (_item.isItemType(this.Const.Items.ItemType.Armor) || _item.isItemType(this.Const.Items.ItemType.Helmet))
@@ -132,7 +132,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 		{
 			Weight = 2,
 			Name = "Exotic",
-			PreferShops = ["building.alchemist", "building.kennel"],
+			PreferShops = ["building.alchemist", "building.kennel", "building.blackmarket"],
 			PreferNum = 2,
 			PreferMax = 10,
 			function IsValid( _item, _shopID )
@@ -148,7 +148,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 			Name = "Misc",
 			PreferShops = [],
 			PreferNum = 2,
-			PreferMax = 9,
+			PreferMax = 8,
 			function IsValid( _item, _shopID )
 			{
 				return _item.getValue() >= 200 ? _item.getValue() : 0;
@@ -160,7 +160,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 		Initiated = 0,
 		Completed = 1,
 		Destroyed = 2,
-	}
+	},
 
 	CaravanHistoryData = {
 		type = null,
@@ -170,7 +170,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 		profit = 0,
 		itemHashes = [],
 		coordinates = [],
-	}
+	},
 
 	function createCaravanHistoryData( _type, _originID, _destinationID, _investment, _profit, _items, _coordinates )
 	{
@@ -240,6 +240,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 				item.setOriginSettlement(_settlement);
 			}
 		}
+
 		_party.getStashInventory().assign(result.Items);
 
 		// setup financial flag
@@ -253,7 +254,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 		_settlement.updateCaravanSentHistory(caravanHistoryData);
 
 		// print log to declare action
-		this.logWarning("Exporting " + _party.getStashInventory().getItems().len() + " items (" + result.Value + " crowns), focusinng on trading \'" + result.Decision + "\', investing " + finance.Investment + " resources," /*expecting at least " + finance.Profit + " resouces as profit,*/ + " from " + _settlement.getName() + " via a caravan bound for " + _destination.getName() + " town");
+		this.logWarning("Exporting " + _party.getStashInventory().getItems().len() + " items (" + result.Value + " crowns), focusing on trading \'" + result.Decision + "\', investing " + finance.Investment + " resources," /*expecting at least " + finance.Profit + " resouces as profit,*/ + " from " + _settlement.getName() + " via a caravan bound for " + _destination.getName() + " town");
 	}
 
 	function getExpectedFinancialReport( _settlement )
@@ -384,7 +385,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 
 		if (_isFull) max = ::Math.min(2, max);
 
-		local num = ::Math.min(max, ::Math.max(1, ::Math.floor(_budget / 60)));
+		local num = ::Math.min(max, ::Math.max(1, ::Math.floor(_budget / this.PriceOfFillerGoods)));
 
 		for (local i = 0; i < num; ++i)
 		{
@@ -457,10 +458,10 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 			// reduces the remaining budget
 			_budget -= this.PriceLookUp[r];
 
-			// 10 items should be enough
+			// see if it exceeds the threshold
 			if (result.Items.len() >= this.PreferProduceNumMax) break;
 
-			// check if the budget can still be enough to buy the cheapest product
+			// check if the remaning budget can still be enough to buy the cheapest product
 			if (_budget < min) break;
 		}
 
