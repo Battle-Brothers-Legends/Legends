@@ -1713,7 +1713,7 @@ gt.Const.World.Spawn.Troops <- {
 		Variant = 0,
 		Strength = 50,
 		Cost = 50,
-		Row = 0,
+		Row = 1,
 		Script = "scripts/entity/tactical/humans/noble_pollax"
 	},
 	NobleSureshot = {
