@@ -33,6 +33,7 @@ this.noble_sureshot <- this.inherit("scripts/entity/tactical/randomized_unit_nob
 	function assignRandomEquipment()
 	{
         this.randomized_unit_noble_abstract.assignRandomEquipment();
+		this.m.Items.addToBag(this.new("scripts/items/weapons/dagger"));
 	}
 
 });
