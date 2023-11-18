@@ -551,7 +551,7 @@ gt.Const.RandomizedCharacterInfo[gt.Const.EntityType.NobleSureshot] <- {
         "traits/fearless_trait"
     ],
     LevelRange = [6, 8],
-    PerkPower = gt.Const.PerkPurchasePower.Medium
+    PerkPower = gt.Const.PerkPurchasePower.High
 }
 
 gt.Const.RandomizedCharacterInfo[gt.Const.EntityType.LegendNobleGuard] <- {
