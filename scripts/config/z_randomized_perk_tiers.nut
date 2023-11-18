@@ -516,7 +516,7 @@ gt.Const.RandomizedCharacterInfo[gt.Const.EntityType.NoblePollax] <- {
         "perks/perk_berserk",
         "traits/fearless_trait"
     ],
-    LevelRange = [5, 7],
+    LevelRange = [6, 9],
     PerkPower = gt.Const.PerkPurchasePower.High + 1
 }
 gt.Const.RandomizedCharacterInfo[gt.Const.EntityType.NobleSureshot] <- {
