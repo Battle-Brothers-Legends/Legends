@@ -491,8 +491,7 @@ gt.Const.RandomizedCharacterInfo[gt.Const.EntityType.NoblePollax] <- {
         [1, ["polehammer", 100]],
         [2, ["legend_halberd",  100]],
         [2, ["legend_military_voulge", 100]],
-        [2, ["longaxe", 100]],
-        [2, ["warbrand", 100]]
+        [2, ["longaxe", 100]]
     ],
     DefensePerkList = [
         this.Const.Perks.HeavyArmorTree,
