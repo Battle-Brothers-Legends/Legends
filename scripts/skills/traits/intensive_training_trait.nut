@@ -17,7 +17,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 		this.m.ID = "trait.intensive_training_trait";
 		this.m.Name = "Training progress";
 		this.m.Icon = "ui/traits/IntensiveTraining.png";
-		this.m.Description = "This character can increase their abilities if you upgrade your camp training facilities.";
+		this.m.Description = "This character has some military training but will take time to find their feet.\n Place them in the training camp to hone their skills.\n At 15 points, this character will gain a perk point and one positive trait relevant to their combat style.";
 		this.m.Order = this.Const.SkillOrder.Background + 1;
 		this.m.Type = this.Const.SkillType.Trait;
 		this.m.IsActive = false;
@@ -89,7 +89,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 
 	function finishedTraining( _traitGained )
 	{
-		this.m.Description = "This character completed training and can't get any more skills from training. Training experience is slightly improved.";
+		this.m.Description = "This character has completed basic training.\n Experience gained from training has been permanently increased by [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color].\n This character can still get perk and attribute points from training.";
 		this.m.Icon = "ui/traits/IntensiveTrainingCompleted.png";
 		this.m.TraitGained = _traitGained;
 		this.m.BonusXP = 0.05;
@@ -170,7 +170,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 				id = 6,
 				type = "text",
 				icon = "ui/tooltips/warning.png",
-				text = "Donkeys don't train"
+				text = "The donkey looks at you, somewhat confused..."
 			});
 		}else
 		if (getStatsIncreased() > 0)
@@ -335,9 +335,9 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 
 		if(this.isMaxReached())
 		{
-			this.m.Name = "Training completed";
-			this.m.Description = "This character has learnt all they can from intensive training";
-			this.m.Icon = "ui/traits/IntensiveTrainingCompleted.png";
+			this.m.Name = "Training fulfilled";
+		this.m.Description = "This character has completed all their training and cannot learn any more from training in camp.\n Experience gained from training has been permanently increased by [color=" + this.Const.UI.Color.PositiveValue + "]+5%[/color].\n This character won\'t get perk and attribute points from training in camp anymore.";
+			this.m.Icon = "ui/traits/IntensiveTrainingCompletedFull.png";
 		}
 	}
 
