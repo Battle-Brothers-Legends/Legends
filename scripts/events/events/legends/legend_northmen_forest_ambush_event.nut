@@ -3,8 +3,8 @@ this.legend_northmen_forest_ambush_event <- this.inherit("scripts/events/event",
 		Barbarian = null,
 		Wildman = null,
 		MasterArcher = null,
-		Assassin = null,
-		Rewarditems = 0
+		Assassin = null
+		// Rewarditems = 0
 	},
 	function create()
 	{
@@ -161,20 +161,19 @@ this.legend_northmen_forest_ambush_event <- this.inherit("scripts/events/event",
 
 				}
 			],
-			function start( _event )
+			function start( _event ) //im simplifying this - it is far too complex (yes i know i wrote this months ago shut up)
 			{
 				this.Characters.push(_event.m.Barbarian.getImagePath());
+				local item = this.new("scripts/items/loot/looted_valuables_item");
 				local bravery = this.Math.rand(2, 4);
 				_event.m.Barbarian.getBaseProperties().Bravery += bravery;
+				_event.m.Barbarian.improveMood(1.0, "prevented a bloodbath in the woods");
 				_event.m.Barbarian.getSkills().update();
 				this.List.push({
 					id = 16,
 					icon = "ui/icons/bravery.png",
 					text = _event.m.Barbarian.getName() + " gains [color=" + this.Const.UI.Color.PositiveEventValue + "]+" + bravery + "[/color] Resolve"
 				});
-				_event.m.Barbarian.improveMood(1.0, "prevented a bloodbath in the woods");
-				_event.m.Rewarditems.getItems().transferToStash(this.World.Assets.getStash());
-				local item = this.new("scripts/items/loot/looted_valuables_item");
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,
@@ -182,20 +181,22 @@ this.legend_northmen_forest_ambush_event <- this.inherit("scripts/events/event",
 					text = "You gain " + item.getName()
 				});
 
-				if (_event.m.Barbarian.getMoodState() >= this.Const.MoodState.Neutral)
-				{
-					this.List.push({
-						id = 10,
-						icon = this.Const.MoodStateIcon[_event.m.Barbarian.getMoodState()],
-						text = _event.m.Barbarian.getName() + this.Const.MoodStateEvent[_event.m.Barbarian.getMoodState()]
-					});
-				}
+				// _event.m.Rewarditems.getItems().transferToStash(this.World.Assets.getStash());
 
-				this.List.push({
-					id = 10,
-					icon = "ui/icons/asset_moral_reputation.png",
-					text = "The company\'s moral reputation increases slightly for talking it out rather than resorting to violence"
-				});
+				// if (_event.m.Barbarian.getMoodState() >= this.Const.MoodState.Neutral)
+				// {
+				// 	this.List.push({
+				// 		id = 10,
+				// 		icon = this.Const.MoodStateIcon[_event.m.Barbarian.getMoodState()],
+				// 		text = _event.m.Barbarian.getName() + this.Const.MoodStateEvent[_event.m.Barbarian.getMoodState()]
+				// 	});
+				// }
+
+				// this.List.push({
+				// 	id = 10,
+				// 	icon = "ui/icons/asset_moral_reputation.png",
+				// 	text = "The company\'s moral reputation increases slightly for talking it out rather than resorting to violence"
+				// });
 			}
 
 		});
@@ -462,7 +463,7 @@ this.legend_northmen_forest_ambush_event <- this.inherit("scripts/events/event",
 		this.m.Wildman = null;
 		this.m.MasterArcher = null;
 		this.m.Assassin = null;
-		this.m.Rewarditems = null;
+		// this.m.Rewarditems = null;
 	}
 
 });

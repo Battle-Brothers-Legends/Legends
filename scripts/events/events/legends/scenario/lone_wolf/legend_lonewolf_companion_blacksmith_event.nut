@@ -40,9 +40,9 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 
 				}
 			],
-			// function start( _event )
-			// {
-			// }
+			function start( _event )
+			{
+			}
 		});
 		this.m.Screens.push({ //items
 			ID = "B",
@@ -130,7 +130,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 		});
 		this.m.Screens.push({ //blacksmith recruit
 			ID = "C",
-			Text = "[img]gfx/ui/events/event_50.png[/img]{The company quickly forms in behind you, staggering their swinging arcs in an oblique order with you at the speartip. You begin a slow but steady forward march, and occasional thrown spear heralding your advance as it foinds a mark in the braver looters. The bandits and scavengers begin to disperse, perhaps mistaking you for a noble patrol coming to save the day.\n\n Another looter throws hismelf at you, who you kick to the ground before %randombrother% finishes them off. The blacksmith is in sight, curved sword in hand slashing down on each looter as they come within reach. The remaining looters lose ground and flee as %companyname% cuts through to the blacksmith, who has collapsed from exhaustion.\n What remains of the militia cheer or grumble as the rest of the looters disappear.}",
+			Text = "[img]gfx/ui/events/event_50.png[/img]The company quickly forms in behind you, staggering their swinging arcs in an oblique order with you at the speartip. You begin a slow but steady forward march, and occasional thrown spear heralding your advance as it finds its mark in one of the braver looters. The bandits and scavengers begin to disperse, perhaps mistaking you for a noble patrol coming to save the day.\n\n Another looter throws hismelf at you, who you kick to the ground before %randombrother% finishes them off. The blacksmith is in sight, curved sword in hand slashing down on each looter as they come within reach. The remaining looters lose ground and flee as %companyname% cuts through to the blacksmith, who has collapsed from exhaustion.\n What remains of the militia cheer or grumble as the rest of the looters disappear.",
 			Image = "",
 			List = [],
 			Characters = [],

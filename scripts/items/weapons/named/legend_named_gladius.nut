@@ -8,7 +8,7 @@ this.legend_named_gladius <- this.inherit("scripts/items/weapons/named/named_wea
 		this.named_weapon.create();
 		this.m.ID = "weapon.legend_named_gladius";
 		this.m.NameList = this.Const.Strings.SwordNames;
-		this.m.Description = "A straight blade of ancient origin. The grip and pomel are ornate and most likely from a nobleman.";
+		this.m.Description = "A straight blade of ancient origin. The grip and pommel are ornate and most likely from a nobleman.";
 		this.m.IconLarge = "weapons/melee/legend_gladius_named_01.png";
 		this.m.Icon = "weapons/melee/legend_gladius_named_01_70x70.png";
 		this.m.WeaponType = this.Const.Items.WeaponType.Sword;
