@@ -244,7 +244,7 @@ this.trader_scenario <- this.inherit("scripts/scenarios/world/starting_scenario"
 				}
 			}
 
-			if (bro.getBackground().getID() == "background.peddler" || bro.getBackground().getID() == "background.legend_donkey_background")
+			if (bro.getBackground().getID() == "background.peddler" || bro.getBackground().getID() == "background.legend_donkey")
 			{
 				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.75)
 				bro.getBaseProperties().DailyWageMult *= 1.25;

@@ -25,7 +25,7 @@ this.trader_follower <- this.inherit("scripts/retinue/follower", {
 			"background.caravan_hand",
 			"background.legend_trader",
 			"background.legend_commander_trader",
-			"background.legend_donkey_background",
+			"background.legend_donkey",
 			"background.peddler",
 			"background.legend_companion_melee",
 			"background.legend_companion_ranged"
