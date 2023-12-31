@@ -99,6 +99,7 @@ gt.Const.FactionTrait <- {
 			"scripts/factions/contracts/hunting_hexen_action",
 			"scripts/factions/contracts/hunting_schrats_action",
 			"scripts/factions/contracts/hunting_lindwurms_action",
+			"scripts/factions/contracts/legend_hunting_basilisks_action",
 			"scripts/factions/contracts/legend_hunting_white_direwolf_action",
 			"scripts/factions/contracts/legend_hunting_stollwurms_action",
 			"scripts/factions/contracts/legend_hunting_rock_unholds_action",
