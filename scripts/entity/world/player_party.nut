@@ -91,7 +91,7 @@ this.player_party <- this.inherit("scripts/entity/world/party", {
 			}
 			else if (this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Normal)
 			{
-				this.m.Strength += (10 + ((brolevel / 2) + (brolevel - 1)) * 2) * broScale;
+				this.m.Strength += (10 + (((3 * brolevel) / 4) + (brolevel - 1)) * 2) * broScale;
 			}
 			else if (this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Hard)
 			{
