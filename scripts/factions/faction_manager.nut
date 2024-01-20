@@ -40,7 +40,7 @@ this.faction_manager <- {
 
 	function setGreaterEvilPhase ( _phase )
 	{
-		return this.m.GreaterEvil.Type = _phase;
+		return this.m.GreaterEvil.Phase = _phase;
 	}
 
 	function getFaction( _i )
@@ -1165,6 +1165,11 @@ this.faction_manager <- {
 			{
 				GE.NextPhaseTime += 5.0 * this.World.getTime().SecondsPerDay;
 			}
+			if (this.World.Assets.getOrigin().getID() == "scenario.legends_inquisition")
+			{
+				GE.NextPhaseTime = 1; // Just a small non-zero number so that this code doesn't repeat and so that it starts doing the code below which only runs when this number is less than the current time.
+			}
+
 		}
 		else if (GE.NextPhaseTime <= this.Time.getVirtualTimeF())
 		{

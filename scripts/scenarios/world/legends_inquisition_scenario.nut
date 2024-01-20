@@ -170,7 +170,7 @@ this.legends_inquisition_scenario <- this.inherit("scripts/scenarios/world/start
 		//unleash the dogs of war 
 		this.World.FactionManager.setGreaterEvilType(this.Const.World.GreaterEvilType.Undead);
 		this.World.FactionManager.setGreaterEvilPhase(this.Const.World.GreaterEvilPhase.Live);
-		this.World.FactionManager.addGreaterEvilStrength(500);
+		this.World.FactionManager.addGreaterEvilStrength(this.Const.Factions.GreaterEvilStartStrength); // This constant is equal to 125, previously set to 500. Not sure if there was a particular reason for 500 so will need to double check.
 		this.World.Statistics.addNews("crisis_undead_start", this.World.Statistics.createNews());
 	}
 
