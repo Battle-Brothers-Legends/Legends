@@ -82,8 +82,7 @@ this.getroottable().Const.LegendMod.hookContract <- function()
 		local onDeserialize = o.onDeserialize;
 		o.onDeserialize = function(_in)
 		{
-			onDeserialize( _in );
-			o.formatDescription();
+			onDeserialize( _in )
 			if (this.m.Flags.get("UpdatedBulletpoints"))
 			{
 				local contract_faction = this.World.FactionManager.getFaction(this.getFaction())
