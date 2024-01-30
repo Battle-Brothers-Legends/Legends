@@ -5,7 +5,7 @@ this.legend_withering_aura_trait <- this.inherit("scripts/skills/traits/characte
 		this.character_trait.create();
 		this.m.ID = "trait.legend_withering_aura"; //should provide debuffs if not a necromancer or a puppet
 		this.m.Name = "Withering Aura";
-		this.m.Icon = "ui/perks/rust56.png"; //placeholder for now
+		this.m.Icon = "ui/perks/rust56_circle.png"; //placeholder for now
 		this.m.Description = "This character is under the effect of a dark aura. They are slow, sluggish and have difficulty fighting. However, the numbness has yielded beneficial side effects...";
 		this.m.Excluded = [];
 	}
@@ -25,7 +25,7 @@ this.legend_withering_aura_trait <- this.inherit("scripts/skills/traits/characte
 			}
 		];
 
-		local isAfflicted = this.getContainer().getActor().getFlags().get("human"); //alternate is PlayerZombie or PlayerSkeleton - resourced from player.nut
+		local isAfflicted = this.getContainer().getActor().getFlags().has("human"); //alternate is PlayerZombie or PlayerSkeleton - resourced from player.nut
 
 		if (isAfflicted)
 		{
@@ -104,6 +104,8 @@ this.legend_withering_aura_trait <- this.inherit("scripts/skills/traits/characte
 
 	function onUpdate( _properties )
 	{
+		// added the variable down here again since it was causing errors - James
+		local isAfflicted = this.getContainer().getActor().getFlags().has("human"); //alternate is PlayerZombie or PlayerSkeleton - resourced from player.nut.
 		if (isAfflicted)
 		{
 			_properties.DamageReceivedRegularMult *= 0.75;

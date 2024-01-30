@@ -114,7 +114,7 @@ this.legend_siphon_skill <- this.inherit("scripts/skills/skill", {
 
 		local actor = this.getContainer().getActor()
 		local distance = _targetEntity.getTile().getDistanceTo(actor.getTile());
-		local max = actor.getHitpointsMax() - actor.getHitpoints();
+		local max = actor.getHitpointsMax()// - actor.getHitpoints();
 
 		local p = 0.3 - (0.05 * (distance - 1));
 		local damage = this.Math.min(max, p * _targetEntity.getHitpoints())
@@ -131,9 +131,9 @@ this.legend_siphon_skill <- this.inherit("scripts/skills/skill", {
 		{
 			return;
 		}
-		local actor = this.getContainer().getActor();
-		local maxHP = actor.getHitpointsMax();
-		actor.setHitpoints(this.Math.min(actor.getHitpoints() + _damageInflictedHitpoints, maxHP));
+		//local actor = this.getContainer().getActor();
+		//local maxHP = actor.getHitpointsMax();
+		//actor.setHitpoints(this.Math.min(actor.getHitpoints() + _damageInflictedHitpoints, maxHP));
 	}
 
 	function onUse( _user, _targetTile )

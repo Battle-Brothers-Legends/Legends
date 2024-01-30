@@ -45,7 +45,7 @@ this.legends_solo_necro_scenario <- this.inherit("scripts/scenarios/world/starti
 		bros[0].getSprite("socket").setBrush("bust_base_undead");
 		bros[0].getFlags().set("IsPlayerCharacter", true); //player character
 		bros[0].getSkills().add(this.new("scripts/skills/traits/player_character_trait"));
-		bros[0].getSkills().add(this.new("scripts/skills/perks/legend_possession"));
+		bros[0].getSkills().add(this.new("scripts/skills/perks/perk_legend_possession"));
 		bros[0].getSkills().add(this.new("scripts/skills/perks/perk_legend_spawn_zombie_low"));
 
 		bros[1].setStartValuesEx([ //ur a wizard, Harold
@@ -317,7 +317,7 @@ this.legends_solo_necro_scenario <- this.inherit("scripts/scenarios/world/starti
 			_tooltip.push({
 				id = 16,
 				type = "text",
-				icon = "ui/icons/Hitpoints.png",
+				icon = "ui/icons/health.png",
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+12[/color] Hitpoints due to being under the control of a powerful necromancer"
 			});
 		}

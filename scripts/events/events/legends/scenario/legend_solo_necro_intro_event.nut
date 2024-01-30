@@ -2,7 +2,7 @@ this.legend_solo_necro_intro_event <- this.inherit("scripts/events/event", {
 	m = {},
 	function create()
 	{
-		this.m.ID = "event.legend_necro_intro_event";
+		this.m.ID = "event.legend_solo_necro_intro_event";
 		this.m.IsSpecial = true;
 		this.m.Screens.push({ //—
 			ID = "A",
