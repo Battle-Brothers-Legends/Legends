@@ -495,7 +495,8 @@ gt.Const.World.FootprintsType <- {
 	SandGolems = 23,
 	Lindwurms = 24,
 	Mercenaries = 25,
-	COUNT = 26
+	Basilisks = 26,
+	COUNT = 27
 };
 gt.Const.World.Settings <- {
 	SizeX = 140,
