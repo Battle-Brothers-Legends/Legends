@@ -51,13 +51,13 @@ this.legend_withering_aura_trait <- this.inherit("scripts/skills/traits/characte
 				id = 13,
 				type = "text",
 				icon = "ui/icons/melee_skill.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Melee Skill"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-5%[/color] Melee Skill"
 			});
 			ret.push({
 				id = 14,
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-10%[/color] Ranged Skill"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-5%[/color] Ranged Skill"
 			});
 			ret.push({
 				id = 15,

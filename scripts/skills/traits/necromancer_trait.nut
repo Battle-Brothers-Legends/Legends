@@ -53,7 +53,7 @@ this.necromancer_trait <- this.inherit("scripts/skills/traits/character_trait", 
 
 		foreach( f in factions )
 		{ //Relations: 0 = hostile, 100 = allied
-			if (f.m.PlayerRelation > 20)
+			if (f.m.PlayerRelation > 30)
 			{
 			f.m.PlayerRelation = this.Math.minf(100.0, this.Math.max(0.0, f.m.PlayerRelation - 0.1));  //-0.1 reputation per day per unit in company.
 			f.updatePlayerRelation();
