@@ -780,10 +780,12 @@ this.skill_container <- {
 				skill.onDeserialize(_in);
 				this.add(skill);
 			}
+			/*
 			else
 			{
 				_in.readU8();
 			}
+			*/
 		}
 
 		this.m.IsUpdating = false;
