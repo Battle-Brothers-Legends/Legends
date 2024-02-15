@@ -361,7 +361,7 @@ this.camp_manager <- {
 		{
 			if (building == null)
 			{
-				_out.writeU32(0);
+				_out.writeI32(0);
 			}
 			else
 			{
@@ -388,7 +388,7 @@ this.camp_manager <- {
 
 			for( local i = 0; i < numBuildings; i = i )
 			{
-				local id = _in.readU32();
+				local id = _in.readI32();
 
 				if (id != 0)
 				{
