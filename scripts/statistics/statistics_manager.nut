@@ -203,7 +203,7 @@ this.statistics_manager <- {
 			}
 
 			_out.writeBool(f.Expendable);
-			_out.writeBool(false);
+			//_out.writeBool(false);
 		}
 	}
 
@@ -285,7 +285,7 @@ this.statistics_manager <- {
 			}
 
 			f.Expendable <- _in.readBool();
-			_in.readBool();
+			//_in.readBool();
 			this.m.Fallen[i] = f;
 		}
 	}

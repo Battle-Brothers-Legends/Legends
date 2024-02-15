@@ -370,7 +370,7 @@ this.camp_manager <- {
 			}
 		}
 
-		_out.writeBool(false);
+		//_out.writeBool(false);
 		::MSU.Utils.serialize(this.m.PresetNames, _out);
 	}
 
@@ -386,7 +386,7 @@ this.camp_manager <- {
 			this.m.Tents = [];
 			local numBuildings = _in.readU8();
 
-			for( local i = 0; i < numBuildings; i = i )
+			for( local i = 0; i < numBuildings; ++i )
 			{
 				local id = _in.readI32();
 
@@ -397,8 +397,6 @@ this.camp_manager <- {
 					b.onDeserialize(_in);
 					this.m.Tents.push(b);
 				}
-
-				i = ++i;
 			}
 
 			if (_in.getMetaData().getVersion() < 65)
@@ -407,7 +405,7 @@ this.camp_manager <- {
 			}
 		}
 
-		_in.readBool();
+		//_in.readBool();
 
 		if (::Legends.Mod.Serialization.isSavedVersionAtLeast("17.1.0", _in.getMetaData()))
 		{
