@@ -1386,7 +1386,7 @@ this.faction_manager <- {
 		_out.writeF32(this.m.GreaterEvil.NextPhaseTime);
 		_out.writeF32(this.m.GreaterEvil.Strength);
 		_out.writeF32(this.m.GreaterEvil.LastUpdate);
-		_out.writeBool(false);
+		//_out.writeBool(false);
 	}
 
 	function onDeserialize( _in )
@@ -1430,8 +1430,8 @@ this.faction_manager <- {
 		this.m.GreaterEvil.Phase = _in.readU8();
 		this.m.GreaterEvil.NextPhaseTime = _in.readF32();
 		this.m.GreaterEvil.Strength = _in.readF32();
-		this.m.GreaterEvil.LastUpdate = _in.readU32();
-		_in.readBool();
+		this.m.GreaterEvil.LastUpdate = _in.readF32();
+		//_in.readBool();
 	}
 
 };
