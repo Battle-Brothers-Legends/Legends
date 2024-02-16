@@ -800,7 +800,7 @@ this.world_entity <- {
 		_out.writeBool(this.m.IsDroppingLoot);
 		_out.writeU16(this.m.Resources);
 		this.m.Flags.onSerialize(_out);
-		_out.writeBool(false);
+		//_out.writeBool(false);
 	}
 
 	function onDeserialize( _in )
@@ -854,7 +854,7 @@ this.world_entity <- {
 						}
 						else
 						{
-							outfits.push( [_in.readU8(), _in.readString(), _in.readU8()] )
+							outfits.push( [_in.readU8(), _in.readString(), _in.readString()] )
 						}
 					}
 					troop.Outfits <- clone outfits
@@ -909,7 +909,7 @@ this.world_entity <- {
 		}
 
 		this.m.Flags.onDeserialize(_in);
-		_in.readBool();
+		//_in.readBool();
 	}
 
 };
