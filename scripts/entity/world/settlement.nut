@@ -3018,7 +3018,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		{
 			if (building == null)
 			{
-				_out.writeU32(0);
+				_out.writeI32(0);
 			}
 			else
 			{
@@ -3113,7 +3113,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 		for( local i = 0; i < numBuildings; ++i )
 		{
-			local id = _in.readU32();
+			local id = _in.readI32();
 
 			if (id != 0)
 			{
@@ -3133,7 +3133,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 
 		for( local i = 0; i < numSituations; ++i )
 		{
-			this.m.Situations[i] = this.new(this.IO.scriptFilenameByHash(_in.readU32()));
+			this.m.Situations[i] = this.new(this.IO.scriptFilenameByHash(_in.readI32()));
 			this.m.Situations[i].onDeserialize(_in);
 		}
 
