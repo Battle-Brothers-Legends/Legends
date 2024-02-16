@@ -760,7 +760,7 @@ this.drive_away_barbarians_contract <- this.inherit("scripts/contracts/contract"
 
 	function onSerialize( _out )
 	{
-		_out.writeI32(0);
+		//_out.writeI32(0);
 
 		if (this.m.Destination != null && !this.m.Destination.isNull())
 		{
@@ -776,7 +776,7 @@ this.drive_away_barbarians_contract <- this.inherit("scripts/contracts/contract"
 
 	function onDeserialize( _in )
 	{
-		_in.readI32();
+		//_in.readI32();
 		local destination = _in.readU32();
 
 		if (destination != 0)

@@ -1636,7 +1636,7 @@ this.contract <- {
 		_out.writeU32(this.m.EmployerID);
 		_out.writeI32(this.m.SituationID);
 		_out.writeF32(this.m.TimeOut);
-		_out.writeU32(0);
+		//_out.writeU32(0);
 
 		if (this.m.Home != null && !this.m.Home.isNull())
 		{
@@ -1717,7 +1717,7 @@ this.contract <- {
 		this.m.EmployerID = _in.readU32();
 		this.m.SituationID = _in.readI32();
 		this.m.TimeOut = _in.readF32();
-		_in.readU32();
+		//_in.readU32();
 		local home = _in.readU32();
 
 		if (home != 0)

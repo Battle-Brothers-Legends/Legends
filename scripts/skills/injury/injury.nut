@@ -405,7 +405,7 @@ this.injury <- this.inherit("scripts/skills/skill", {
 		_out.writeU32(this.m.HealingTimeMax);
 		_out.writeU8(this.m.Queue);
 		_out.writeF32(this.m.Points);
-		_out.writeBool(false);
+		//_out.writeBool(false);
 	}
 
 	function onDeserialize( _in )
@@ -418,7 +418,7 @@ this.injury <- this.inherit("scripts/skills/skill", {
 		this.m.HealingTimeMax = _in.readU32();
 		this.m.Queue = _in.readU8();
 		this.m.Points = _in.readF32();
-		_in.readBool();
+		//_in.readBool();
 	}
 
 });

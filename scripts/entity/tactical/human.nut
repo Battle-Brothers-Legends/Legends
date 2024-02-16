@@ -800,7 +800,7 @@ this.human <- this.inherit("scripts/entity/tactical/actor", {
 		_out.writeU8(this.m.Gender);
 		_out.writeU8(this.m.VoiceSet);
 		_out.writeU8(this.m.Body);
-		_out.writeBool(false);
+		//_out.writeBool(false);
 	}
 
 	function onDeserialize( _in )
@@ -818,7 +818,7 @@ this.human <- this.inherit("scripts/entity/tactical/actor", {
 		this.m.VoiceSet = _in.readU8();
 		this.m.Body = _in.readU8();
 		this.setGender(this.m.Gender, false)
-		_in.readBool();
+		//_in.readBool();
 	}
 
 });

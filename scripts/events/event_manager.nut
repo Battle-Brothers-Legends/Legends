@@ -497,9 +497,9 @@ this.event_manager <- {
 		}
 
 		_out.writeF32(this.m.LastBattleTime);
-		_out.writeBool(true);
+		//_out.writeBool(true);
 		_out.writeString(this.m.LastEventID);
-		_out.writeBool(false);
+		//_out.writeBool(false);
 	}
 
 	function onDeserialize( _in )
@@ -523,15 +523,16 @@ this.event_manager <- {
 		}
 
 		this.m.LastBattleTime = _in.readF32();
-		local hasLastEvent = _in.readBool();
+		/*local hasLastEvent = _in.readBool();
 
 		if (!hasLastEvent)
 		{
 			return;
 		}
+		*/
 
 		this.m.LastEventID = _in.readString();
-		_in.readBool();
+		//_in.readBool();
 	}
 
 };

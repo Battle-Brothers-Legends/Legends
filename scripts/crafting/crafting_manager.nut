@@ -131,7 +131,7 @@ this.crafting_manager <- {
 		this.clear();
 		local num = _in.readU16();
 
-		for( local i = 0; i < num; i = i )
+		for( local i = 0; i < num; ++i )
 		{
 			local blueprint = this.getBlueprint(_in.readString());
 
@@ -143,8 +143,6 @@ this.crafting_manager <- {
 			{
 				_in.readU32();
 			}
-
-			i = ++i;
 		}
 	}
 

@@ -200,7 +200,7 @@ this.named_weapon <- this.inherit("scripts/items/weapons/weapon", {
 		_out.writeU16(this.m.AmmoMax);
 		_out.writeI8(this.m.PossibleEffectIdx)
 		_out.writeI8(this.m.EffectChanceOrBonus);
-		_out.writeF32(0);
+		//_out.writeF32(0);
 		this.weapon.onSerialize(_out);
 	}
 
@@ -223,7 +223,7 @@ this.named_weapon <- this.inherit("scripts/items/weapons/weapon", {
 			this.m.PossibleEffectIdx = _in.readI8();
 			this.m.EffectChanceOrBonus = _in.readI8();
 		}
-		_in.readF32();
+		//_in.readF32();
 		this.weapon.onDeserialize(_in);
 		this.updateVariant();
 		if (this.isRuned())
