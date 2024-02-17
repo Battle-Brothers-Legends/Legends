@@ -10,10 +10,10 @@ this.legend_basilisk_cloak <- this.inherit("scripts/items/legend_armor/legend_ar
 		this.m.Description = "A cloak made from feathers of a Basilisk. The weave offers exceptional padding and protects the midsection and mouth from poison.";
 		this.m.ArmorDescription = "A cloak made from feathers of a Basilisk. The weave offers exceptional padding and protects the midsection and mouth from poison.";
 		
-		this.m.Icon = "armor_upgrades/upgrade_basilisk.png";
+		this.m.Icon = "legend_armor/upgrades/upgrade_basilisk.png";
 		this.m.IconLarge = this.m.Icon;
-		this.m.OverlayIcon = "armor_upgrades/icon_upgrade_basilisk.png"; 
-		this.m.OverlayIconLarge = "armor_upgrades/inventory_upgrade_basilisk.png"; 
+		this.m.OverlayIcon = this.m.Icon; 
+		this.m.OverlayIconLarge = "legend_armor/upgrades/inventory_upgrade_basilisk.png"; 
 		this.m.SpriteFront = null;
 		this.m.SpriteBack = "upgrade_basilisk_back";
 		this.m.SpriteDamagedFront = null;
@@ -49,11 +49,9 @@ this.legend_basilisk_cloak <- this.inherit("scripts/items/legend_armor/legend_ar
 		});
 	}
 
-	function onEquip( _properties )
+	function onUpdateProperties( _properties )
 	{
-		this.legend_armor_upgrade.onEquip();
-		local c = this.m.Armor.getContainer();
-
+		this.legend_armor_cloak.onUpdateProperties(_properties);
 		_properties.IsImmuneToPoison = true;
 	}
 
