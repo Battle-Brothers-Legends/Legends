@@ -1,6 +1,6 @@
 ::Legends <- {
 	ID = "mod_legends",
-	Version = "18.2.2",
+	Version = "18.2.3",
 	Name = "Legends Mod",
 	BuildName = "Chickens & Demons"
 };
