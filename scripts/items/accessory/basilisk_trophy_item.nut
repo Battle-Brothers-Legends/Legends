@@ -81,16 +81,9 @@ this.basilisk_trophy_item <- this.inherit("scripts/items/accessory/accessory", {
 
 	function onUpdateProperties( _properties )
 	{
-		this.character_background.onUpdate(_properties);
+		this.accessory.onUpdate(_properties);
 		_properties.HitChance[this.Const.BodyPart.Head] += 5;
-	}
-
-	function onAnySkillUsed( _skill, _targetEntity, _properties )
-	{
-		if (_skill == this)
-		{
-			_properties.DamageAgainstMult[this.Const.BodyPart.Head] += 0.2; //20%
-		}
+		_properties.DamageAgainstMult[this.Const.BodyPart.Head] += 0.2;
 	}
 
 });
