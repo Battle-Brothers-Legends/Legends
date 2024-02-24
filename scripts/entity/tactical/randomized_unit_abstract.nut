@@ -78,10 +78,9 @@ this.randomized_unit_abstract <- this.inherit("scripts/entity/tactical/human", {
 			this.logWarning("Entity type didnt exist: " + this.m.Type);
 		}
 		
-
 		this.m.EnemyLevel = this.Math.rand( this.m.LevelRange[0], this.m.LevelRange[1] )
 		this.m.XP = this.m.EnemyLevel * 35;
-		if (this.World.Assets.getCombatDifficulty() != this.Const.Difficulty.Legendary)
+		if (!("Assets" in this.World) || (this.World.Assets != null && this.World.Assets.getCombatDifficulty() != this.Const.Difficulty.Legendary))
 		{
 			this.m.PerkPower -= 1;
 		}
