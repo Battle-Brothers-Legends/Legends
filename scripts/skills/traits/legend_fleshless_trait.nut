@@ -44,7 +44,7 @@ this.legend_fleshless_trait <- this.inherit("scripts/skills/traits/character_tra
 				id = 7,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
-				text = "Has no brain. Gains experience at 85%% of normal rate, free upkeep."
+				text = "Has no brain. Gains experience at 85% of normal rate, free upkeep."
 			},
 			{
 				id = 7,
