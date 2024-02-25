@@ -39,37 +39,37 @@ return [
 				id = 10,
 				type = "text",
 				icon = "ui/icons/vision.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Vision during Night time"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+1[/color] Vision during night time"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30%[/color] Ranged Skill during Night time"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30%[/color] Ranged Skill during night time"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30%[/color] Ranged Defense during Night time"
+				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+30%[/color] Ranged Defense during night time"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/vision.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-1[/color] Vision during Night time"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-1[/color] Vision during day time"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_skill.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-30%[/color] Ranged Skill during Day time"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-30%[/color] Ranged Skill during day time"
 			},
 			{
 				id = 10,
 				type = "text",
 				icon = "ui/icons/ranged_defense.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-30%[/color] Ranged Defense during Day time"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-30%[/color] Ranged Defense during day time"
 			},
 
 		];

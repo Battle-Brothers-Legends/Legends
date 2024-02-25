@@ -2395,7 +2395,7 @@ gt.Const.Strings.PerkName <- {
 	LegendWolfform = "Wolf Form",
 	LegendTrueForm = "True Form",
 	LegendBearform = "Bear Form",
-	LegendInfectiousRage = "InfectiousRage",
+	LegendInfectiousRage = "Infectious Rage",
 
 
 	//HORSES - skills for horses, currently unused and/or missing files
@@ -2728,7 +2728,7 @@ gt.Const.Strings.PerkDescription <- {
 	LegendSpecFists = "Master the martial arts of unarmed combat. Reduces the fatigue costs of Hand to Hand, Kick, Grapple, and Tackle. Increases fatigue damage for Hand to Hand, increases daze and hit chance for Kick, increases damage against already choked or grappled enemies for Choke, increases chance to disarm and chance to hit for grapple, reduces Hand to Hand AP cost with Ambidexterity, and increases chance to hit for Tackle.",
 	LegendKick = "Put all your force into a lunging kick, breaking their balance and inflicting stagger. A well placed kick may also inflict daze. Grants the \'Kick\' ability. A successful kick cancels Shieldwall, Spearwall, Return Favor and Riposte.",
 	LegendGrapple = "Grab your opponent and manhandle them to the ground, inflicting fatigue and grappling them for two turns with a chance of disarming them. Grants the \'Grapple\' ability, which can only be used with at least one hand free.",
-	LegendAmbidextrous = "Unlock the ability to punch with your off hand! Follow up all attacks with the Hand to Hand skill if your offhand is free. You can now use the Hand to Hand skill as long as your off hand is free. Additionally you gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] melee skill, [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] melee defense when both hands are free.",
+	LegendAmbidextrous = "Unlock the ability to punch with your off hand! You can now use the Hand to Hand skill as long as your off hand is free. Additionally you gain [color=" + this.Const.UI.Color.PositiveValue + "]+5[/color] melee skill, [color=" + this.Const.UI.Color.PositiveValue + "]+10[/color] melee defense when both hands are free.",
 	LegendTackle = "Tackle an enemy to the ground! Unlocks the Tackle skill, which, on a hit, reduces their melee defense by [color=" + this.Const.UI.Color.NegativeValue + "]-50%[/color] and their initiative by [color=" + this.Const.UI.Color.NegativeValue + "]-70%[/color]",
 	LegendFieldTreats = "Make liberal use of alcohol and food to motivate your mercenaries. Spend 20 food to take someone from wavering to steady, cannot be applied to someone who has already been rallied.",
 	LegendSmashingShields = "Some folks take joy in the simple pleasures of destroying shields. Grants an additional [color=" + this.Const.UI.Color.PositiveValue + "]+100%[/color] shield damage when using Split Shield or a Throwing Spear.",

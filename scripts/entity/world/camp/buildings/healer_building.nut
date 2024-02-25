@@ -94,7 +94,7 @@ this.healer_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		desc += "Assigning brothers to this tent allows them to treat any wounds in the company roster and also help restore health points of any injured brother by +10%. "
 		desc += "Treating an injury requires a cost of medicine and time (vs coin in a temple). The more people assigned to the tent, the quicker injuries will be treated and healthpoints restored. "
 		desc += "\n\n"
-		desc += "The healing tent can be upgraded by purchasing a crafting cart from a settlement merchant. An upgraded tent provides a 66% increase in health point recovery speed, 33% increase in wound treatment speed, hitpoint recovery speed and a 25% decrease in medicine cost for each injury."
+		desc += "The healing tent can be upgraded by purchasing a crafting cart from a settlement merchant. An upgraded tent provides a 66% increase in hitpoint recovery speed, 33% increase in wound treatment speed and a 25% decrease in medicine cost for each injury."
 		return desc;
 	}
 

@@ -149,7 +149,7 @@ this.legend_drink_liquor_skill <- this.inherit("scripts/skills/skill", {
 		{
 			if (!_user.isHiddenToPlayer())
 			{
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " gives mead to " + this.Const.UI.getColorizedEntityName(user));
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " gives liquor to " + this.Const.UI.getColorizedEntityName(user));
 			}
 
 			this.spawnIcon("status_effect_93", _targetTile);
