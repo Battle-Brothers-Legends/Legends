@@ -58,7 +58,7 @@ this.master_no_use_apprentice_event <- this.inherit("scripts/events/event", {
 					]);
 					}
 
-				_event.m.Dude.getBackground().m.RawDescription = "An impatient student of of a Swordmaster, %name% didn\'t have the mental aptitude to stick with the trials and tribulations of becoming a master of the blade %themselves%. But what %they% lacks in mental fortitude %they% more than makes up for in effort. You \'hired\' %them% simply by taking %them% off the old man\'s hands.";
+				_event.m.Dude.getBackground().m.RawDescription = "An impatient student of a Swordmaster, %name% didn\'t have the mental aptitude to stick with the trials and tribulations of becoming a master of the blade %themselves%. But what %they% lacks in mental fortitude %they% more than makes up for in effort. You \'hired\' %them% simply by taking %them% off the old man\'s hands.";
 				_event.m.Dude.getBackground().buildDescription(true);
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
