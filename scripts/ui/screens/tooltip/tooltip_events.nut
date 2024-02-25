@@ -2364,8 +2364,8 @@ this.tooltip_events <- {
 				},
 				{
 					id = 2,
-					type = "description",
-					text = "You\'ll face fewer and less challenging opponents, your fighters will gain bonus experience, and retreating from battle is easier.\n\nYour fighters get a small bonus to hit chance, and the enemy gets a small penalty, to ease you into the game.\n\nRecommended for players new to the game.\n\nEnemy scaling is same as normal, but 25% easier per bro."
+					type = "description", //Enemy scaling is same as normal, but 25% easier per bro.
+					text = "We all start somewhere.\n\n Enemy scaling rarely matches your own company strength one-to-one, often giving you an innate advantage in battles. Your fighters will gain bonus experience and retreating from battle is easier and less risky. You have a slight base positive hitchance modifier while your enemies have a negative one. \n\nRecommended for players new to the game or still learning."
 				}
 			];
 
@@ -2379,7 +2379,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Provides for a balanced playing experience that can be quite challenging.\n\nRecommended for veterans of the game or the genre.\n\nDefault vanilla linear enemy scaling but extending up to 27 bros instead of 12."
+					text = "Provides for a balanced playing experience that can be quite challenging at times.\n\n Enemy scaling typically matches your company strength one-to-one. You may experience some difficult fights, but rarely anything you cannot handle — unless you seek one out. You have a slight base positive hitchance modifier for all attacks against your enemies. \n\nRecommended for players who enjoy a firm but fair experience in battles."
 				}
 			];
 
@@ -2393,7 +2393,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Your opponents will be more challenging and numerous.\n\nRecommended for experts in the game who want an even deadlier challenge.\n\nUses exponential enemy scaling. Easier early game, then about 1.5x as hard as normal for mid to late game."
+					text = "The odds are against you. This is the intended difficulty and the one Legends is balanced around.\n\n Scaling is easier early game, then 1.5x as hard as normal for mid to late game. Enemies have a slight base hitchance modifier to strike you. \n\nRecommended for players who have mastered Vanilla and enjoy a tough, yet tactical experience."
 				}
 			];
 
@@ -2407,11 +2407,11 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Your opponents will be brutal. This is where legends are forged.\n\n Every enemy gains a series of new perks. Zombies with poisonous bites, battleforged orcs, overwhelming barbarians, crippling goblins, underdog backstabber thugs, fearsome vampires, muscular stollwurms"
+					text = "Evil lurks in every corner — this is where legends are forged.\n\n All enemies gain new perks, some have new effects entirely. Scaling and mechanics is about that of Expert early game, but will rapidly increase mid-late game. Expect to see more champions earlier and harder enemies much sooner — along with the the experience and equipment they bring... \n\nRecommended for those who enjoy a tactical challenge and can accept losses for a greater good."
 				}
 			];
 
-		case "menu-screen.new-campaign.EasyDifficultyEconomic":
+		case "menu-screen.new-campaign.EasyDifficultyEconomic": //— <-- this may as well be my calling card at this point.
 			return [
 				{
 					id = 1,
@@ -2421,7 +2421,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Contracts will pay more, there will be more recruits available, and you\'ll be able to carry more resources at once. \n\n 100% heal and repair rate outside camp. prices are 5%% better when buying and selling, +10% from contract payments, recruits are twice as common. \n\nRecommended for players new to the game."
+					text = "The world is mostly at peace and has been for several generations, many goods are plentiful and life is fruitful — for most. \n\n Prices are 5% better than normal and you will gain a base +10% from contract payments. \nQuantity of recruits is doubled and deserters will give their equipment to the company stash when they leave. \n\nRecommended for players new to the game or have played little of Vanilla at all."
 				}
 			];
 
@@ -2435,7 +2435,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Provides for a balanced playing experience that can be quite challenging. 66% heal and repair rate outside camp. +50% more recruits available. \n\nRecommended for veterans of the game or the genre."
+					text = "Join the world at a time of relative stability, provides for a balanced playing experience with some challenges. \n\n You will only have a base healing and repair rate of 66% outside camp. \nQuantity of recruits is increased by half and deserters will give their equipment to the company stash when they leave. \n\nRecommended for those who are new to legends and have mastered Vanilla at expert difficulty."
 				}
 			];
 
@@ -2449,7 +2449,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Contracts will pay less, and deserters will take their equipment with them.\n\n 33% heal and repair rate outside camp. -5% buy -5% sell -5% payments \n\n Recommended for experts in the game who want more of a challenge managing the company\'s funds and supplies."
+					text = "The economic difficulty Legends is balanced around. You will need to plan ahead and budget accordingly.\n\n You will only have a base healing and repair rate of 33% outside camp. You will also suffer -5% to buying, selling and contract payments. \nDeserters will take their equipment with them. \n\nRecommended for those who want to experience Legends as orginally intended."
 				}
 			];
 
@@ -2463,7 +2463,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Contract pay will be pitiful.\n\n  10% heal and repair rate outside camp. -10% buy, -10% sell, -10% payments -50% less recruits avaialable. \n\nRecommended for those who want the most challenging experience."
+					text = "The intended economic difficulty for Legends. Resources are hard to come by, you will need to persevere with what you are given — time will not be your friend.\n\n You will only have a base healing and repair rate of 10% outside camp. You will also suffer -10% to buying, selling and contract payments. \nRecruit quantity and quality reduced by half and deserters will take their equipment with them. \n\nRecommended for those who have mastered hard difficulty want the most challenging experience."
 				}
 			];
 
@@ -2477,7 +2477,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "You\'ll start with more crowns and resources.\n\n 750 gold. 15/30 ammo. 10/20 meds. 10/20 armor parts. 60 stash. Plus starting bonuses. \n\nRecommended for new players."
+					text = "You\'ll start with more crowns, stash space and resources of your chosen story origin. \n\nRecommended for new players or those who do not wish to manage their inventory at all."
 				}
 			];
 
@@ -2491,7 +2491,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Recommended for a balanced experience. \n\n 500 gold. 250 max food. 10/20 ammo. 5/10 meds. 5/10 armor parts. 30 stash. Plus starting bonuses."
+					text = "You\'ll start with with half the regular starting resources of your chosen story origin. \n\nRecommended for a balanced experience."
 				}
 			];
 
@@ -2505,7 +2505,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "You\'ll start with fewer crowns and resources.\n\n 250 gold.  0/10 ammo. 0/5 meds. 0/5 armor parts. 15 stash. Plus starting bonuses.\n\nRecommended for expert players."
+					text = "You\'ll start with reduced stash space and no bonus resources for your starting story origin. \n\nRecommended for experienced players who wish to build their company from the ground up by themselves."
 				}
 			];
 
@@ -2519,7 +2519,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "You\'ll start without crowns or resources.\n\n 0 gold.  0/0 ammo. 0/0 meds. 0/0 armor parts. 5 stash. Only starting bonuses.\n\n Recommended for insane players."
+					text = "You\'ll start without crowns or resources, unless your starting story origin takes pity and gives them to you. \n\nRecommended for those who have a keen logistic mind and can manage an inventory well."
 				}
 			];
 
@@ -2533,7 +2533,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Choose how your company starts out in the world. Depending on your choice, you\'ll start with different men, equipment, resources, and special rules."
+					text = "Choose how your company starts out in the world. Depending on your choice, you\'ll start with different fighters, equipment, resources, and special rules."
 				}
 			];
 
@@ -2547,7 +2547,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "Not recommended in Legends Beta. Ironman mode disables manual saving. Only a single save will exist for the company, and the game is automatically saved during the game and on exiting it. Losing the whole company means losing the save. Not recommended in while Legends is in Beta due to possible save corruptions.\n\nNote that on weaker computers autosaves may result in the game pausing for a few seconds. "
+					text = "Not recommended in Legends Beta. Ironman mode disables manual saving. Only a single save will exist for the company, and the game is automatically saved during the game and on exiting it. Losing the whole company means losing the save. Not recommended in while Legends is in Beta due to possible save corruptions.\n\nNote that on weaker computers autosaves may result in the game pausing for a few seconds."
 				}
 			];
 
