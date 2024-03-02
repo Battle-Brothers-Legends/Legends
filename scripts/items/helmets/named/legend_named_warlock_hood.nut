@@ -4,14 +4,14 @@ this.legend_named_warlock_hood <- this.inherit("scripts/items/helmets/named/name
 	{
 		this.named_helmet.create();
 		this.m.ID = "armor.head.legend_named_warlock_hood";
-		this.m.Description = "A dark hood covering a helmet carved from the bones of the recently deceased. Imbued with the magics of both alps and hexen. Increases your Morale each time you get hit. Also grants +10 hitpoints, beware, you will lose 10 hitpoints when you remove it";
-		this.m.Name = "Warlock hood"
+		this.m.Description = "A patterned hood covering a grim helmet shaped from the bones of Hexen and Alps. It appears imbued with magic. Increases your Morale each time you get hit. Also grants +10 hitpoints, beware, you will lose 10 hitpoints when you remove it";
+		this.m.Name = "Warlock hood";
 		this.m.NameList = [
 			"Dead Man\'s Head",
 			"Necromancer\'s Headpiece",
 			"Seance\'s Skull",
 			"Warlock\'s Ward",
-			"Sorceror\'s Hood",
+			"Sorcerer\'s Hood",
 			"Death Mask"
 		];
 		this.m.ShowOnCharacter = true;
@@ -35,7 +35,7 @@ this.legend_named_warlock_hood <- this.inherit("scripts/items/helmets/named/name
 			id = 6,
 			type = "text",
 			icon = "ui/icons/special.png",
-			text = "Increases your morale by[color=" + this.Const.UI.Color.PositiveValue + "] +20[/color] points each time you get hit."
+			text = "Increases your morale by[color=" + this.Const.UI.Color.PositiveValue + "] +10[/color] points each time you get hit."
 		});
 		result.push({
 			id = 7,
@@ -56,24 +56,27 @@ this.legend_named_warlock_hood <- this.inherit("scripts/items/helmets/named/name
 	{
 		this.named_helmet.onEquip();
 		local a = this.getContainer().getActor();
+
 		if (a == null)
 		{
 			return;
 		}
+
 		if (!a.getSkills().hasSkill("perk.legend_taste_the_pain"))
 		{
 			a.getSkills().add(this.new("scripts/skills/perks/perk_legend_taste_the_pain"));
 		}
 	}
-	
 
 	function onUnequip()
 	{
 		local a = this.getContainer().getActor();
+
 		if (a == null)
 		{
 			return;
 		}
+
 		a.getSkills().removeByID("perk.legend_taste_the_pain");
 		this.named_helmet.onUnequip();
 	}
