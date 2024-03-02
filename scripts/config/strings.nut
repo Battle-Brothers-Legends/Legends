@@ -500,16 +500,16 @@ gt.Const.Strings.Tactical.EntityName <- {
 };
 gt.Const.Strings.Tactical.EntityDescription <- {
 	Boulder = "A large stone boulder. Blocks movement and line of sight.",
-	Ruin = "Ruins from an age long past.",
+	Ruin = "Crumbling ruins, an echo from an age long past",
 	Shrubbery = "Very dense shrubbery that blocks movement and line of sight.",
 	Tree = "A large tree with a massive trunk.",
 	TreeSwamp = "This tree is rotten and long dead.",
 	TreeTrunk = "A treetrunk half covered in foul water.",
 	Brush = "Very dense shrubbery that blocks movement and line of sight.",
 	Cartwheel = "The old and broken wheel of an oxcart.",
-	RuinedPillar = "TODO",
+	RuinedPillar = "Sad remains of a once-proud column.",
 	Cart = "A cart full of trading goods.",
-	Donkey = "A donkey used for pulling heavy carts.",
+	Donkey = "A donkey used for pulling heavy carts. Loves carrots.",
 	Plant = "An exotic plant that blocks movement and line of sight."
 };
 gt.Const.Strings.FootprintsType <- [
