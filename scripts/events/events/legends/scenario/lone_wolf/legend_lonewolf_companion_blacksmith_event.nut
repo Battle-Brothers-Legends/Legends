@@ -10,7 +10,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 		this.m.Cooldown = 45.0 * this.World.getTime().SecondsPerDay; //—
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_30.png[/img]{As you wander a common sight comes into view — an isolated gathering of homes with no name is in the process of being raided. Figures of all shapes and sizes dart from home to home, taking anything that isn\'t nailed down or fighting back. In the distance, a stockier figure dressed in a blacksmith's apon is holding their ground, cutting bandits down left, right and centre.\n However, they show signs of beginning to slow down.}",
+			Text = "[img]gfx/ui/events/event_30.png[/img]As you wander a common sight comes into view — an isolated gathering of homes with no name is in the process of being raided. Figures of all shapes and sizes dart from home to home, taking anything that isn\'t nailed down or fighting back. In the distance, a stockier figure dressed in a blacksmith\'s apron is holding their ground, cutting bandits down left, right and center.\n However, they show signs of beginning to slow down.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -19,7 +19,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 					Text = "Loot the houses while you have the chance!",
 					function getResult( _event )
 					{
-						return "B"; //B = items
+						return "B";
 					}
 
 				},
@@ -27,12 +27,12 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 					Text = "Ignore the homes, focus on forming a pointed formation to drive a wedge through to the blacksmith.",
 					function getResult( _event )
 					{
-						return "C"; //C = blacksmith
+						return "C";
 					}
 
 				},
 				{
-					Text = "Another normal day — let\'s get out of here.", //D = skip
+					Text = "Another normal day — let\'s get out of here.",
 					function getResult( _event )
 					{
 						return 0;
@@ -43,10 +43,11 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 			function start( _event )
 			{
 			}
+
 		});
-		this.m.Screens.push({ //items
+		this.m.Screens.push({
 			ID = "B",
-			Text = "[img]gfx/ui/events/event_132.png[/img]{You order the company to fan out and search all the houses that aren\'t currently on fire. Everyone picks a direction and the lesser equipped looters either run or don\'t put up much of a fight. You enter through the doorway and find what remains of a small family huddled in the corner, covered in their own blood or that of somebody they once knew.\n\n You drag your arm across a table and shovel everything into a nearby grain sack. You don\'t know what you got — but the jingling inside pleases you.\n\n Outside the bedlam has receeded — the once proud blacksmith now lies face first in a puddle of mud and blood, a small blade lodged between their ribs from behind. You peer closer and see their sword is absent from their hands. Pity. The smell of ash, cinder and fire fills your nose as two wild dogs pick at the carcass of a child.\n\n Everyone is back from the raid with no marks on them at all. They have already poured a pile of loot onto the ground and have begun to count through the equipment, food and coin into more orderly piles. You look back towards the village and everything has gone quiet. A few survivors try to scrape back togeather what they can as you spot a small gathering of undead slowly shambling from beyond a nearby hill towards the village — drawn by the screaming and smoke.}",
+			Text = "[img]gfx/ui/events/event_132.png[/img]You order the company to fan out and search all the houses that are not currently on fire. Everyone picks a direction and the lesser equipped looters either run or don\'t put up much of a fight. You enter through the doorway and find what remains of a small family huddled in the corner, covered in blood, you cannot tell if it is their own or perhaps that of somebody they once knew.\n\n You drag your arm across a table and shovel everything into a nearby grain sack. You don\'t know what you got — but the jingling inside pleases you.\n\n Outside the bedlam has receded — the once proud blacksmith now lies face first in a puddle of mud and blood, a small blade lodged between their ribs from behind. You peer closer and see their sword is absent from their hands. Pity. The smell of ash, cinder and fire fills your nose as two wild dogs pick at the carcass of a child.\n\n Everyone is back from the raid with no marks on them at all. They have already poured a pile of loot onto the ground and have begun to count through the equipment, food and coin into more orderly piles. You look back towards the village and everything has gone quiet. A few survivors try to scrape back together what they can as you spot a small gathering of undead slowly shambling from beyond a nearby hill towards the village — drawn by the screaming and smoke.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -64,13 +65,13 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 			{
 				local money = this.Math.rand(152, 2331);
 				this.World.Assets.addMoney(money);
-				switch(_event.m.Looted)
+
+				if (_event.m.Looted == 1)
 				{
-				case 1:
-					local r = this.Math.rand(1, 5); //item sets
+					local r = this.Math.rand(1, 5);
 					local item;
 
-					if (r == 1) //best
+					if (r == 1)
 					{
 						item = this.new("gemstones_item");
 						item = this.new("silverware_item");
@@ -103,7 +104,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 						item = this.new("pitchfork");
 						item = this.new("smoked_ham_item");
 					}
-					else if (r == 5) //worst
+					else if (r == 5)
 					{
 						item = this.new("bread_item");
 						item = this.new("mead_item");
@@ -128,9 +129,9 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 			}
 
 		});
-		this.m.Screens.push({ //blacksmith recruit
+		this.m.Screens.push({
 			ID = "C",
-			Text = "[img]gfx/ui/events/event_50.png[/img]The company quickly forms in behind you, staggering their swinging arcs in an oblique order with you at the speartip. You begin a slow but steady forward march, and occasional thrown spear heralding your advance as it finds its mark in one of the braver looters. The bandits and scavengers begin to disperse, perhaps mistaking you for a noble patrol coming to save the day.\n\n Another looter throws hismelf at you, who you kick to the ground before %randombrother% finishes them off. The blacksmith is in sight, curved sword in hand slashing down on each looter as they come within reach. The remaining looters lose ground and flee as %companyname% cuts through to the blacksmith, who has collapsed from exhaustion.\n What remains of the militia cheer or grumble as the rest of the looters disappear.",
+			Text = "[img]gfx/ui/events/event_50.png[/img]The company staggers into formation behind you to resemble a crude speartip, with you at the tip. You begin a slow but determined forward march, someone in the rear throws a spear as if to herald your advance, which remarkably finds a mark in one of the braver looters standing before you. Many nearby scavengers begin to hurriedly disperse, perhaps mistaking you for a noble patrol coming to restore order.\n\n Another looter throws himself at you, who you neatly sidestep and stab him in the back with your sword. The beleaguered blacksmith is in sight, curved sword slashing down on attackers as they come within reach. The remaining looters panic and flee as your company finally cuts through to the blacksmith, who has collapsed from exhaustion.\n What remains of the militia cheer or grumble as the last of the looters turn tail and run.",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -163,16 +164,15 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 				_event.m.Dude.getBaseProperties().MeleeDefense += 5;
 				_event.m.Dude.getBaseProperties().RangedDefense += 5;
 				_event.m.Dude.getBaseProperties().Initiative += 5;
-
-				_event.m.Dude.items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
+				_event.m.Dude.items.unequip(this.items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
 				_event.m.Dude.items.equip(this.new("scripts/items/weapons/shamshir"));
-
-				_event.m.Dude.getBackground().m.RawDescription = "%name% specialised in forging exotic weapons for nobility — however their fighting style and skill tells you there is more to them than initally meets the eye, even if they don\'t want to talk about it.";
+				_event.m.Dude.getBackground().m.RawDescription = "%name% specialized in forging exotic weapons for nobility — however their fighting style and skill tells you there is more to them than initially meets the eye, even if they don\'t want to talk about it.";
 				_event.m.Dude.addLightInjury();
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
+
 		});
-		this.m.Screens.push({ //skip
+		this.m.Screens.push({
 			ID = "D",
 			Text = "[img]gfx/ui/events/event_94.png[/img]I\'m not waiting around for this. It isn\'t our problem.",
 			Image = "",
@@ -187,7 +187,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 					}
 
 				}
-			],
+			]
 		});
 	}
 
@@ -210,7 +210,7 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 			return;
 		}
 
-		if (brothers.len() > 7) //Need more than 7 bros to trigger
+		if (brothers.len() > 7)
 		{
 			return;
 		}
