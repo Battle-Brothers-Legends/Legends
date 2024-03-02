@@ -94,7 +94,6 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Destination = this.WeakTableRef(candidates[this.Math.rand(0, candidates.len() - 1)]);
 		local distance = this.getDistanceOnRoads(this.m.Home.getTile(), this.m.Destination.getTile());
 		local days = this.getDaysRequiredToTravel(distance, this.Const.World.MovementSettings.Speed, false);
-
 		local modrate = this.World.State.getPlayer().getBarterMult();
 
 		if (days >= 2 || distance >= 40)
@@ -107,8 +106,6 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 		}
 
 		this.m.Payment.Pool = this.Math.max(75, distance * (1.5 + modrate) * this.getPaymentMult() * this.Math.pow(this.getDifficultyMult(), this.Const.World.Assets.ContractRewardPOW) * this.getReputationToPaymentLightMult());
-	//	local modBonus = distance * modrate * this.getPaymentMult() * this.Math.pow(this.getDifficultyMult(), this.Const.World.Assets.ContractRewardPOW) * this.getReputationToPaymentLightMult();
-	//	this.Contract.m.BulletpointsObjectives.push("You gain + " modBonus " crowns due to your bartering skills");
 
 		if (this.Math.rand(1, 100) <= 33)
 		{
@@ -190,7 +187,8 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 				if (this.Contract.isPlayerAt(this.Contract.m.Destination) && !this.Flags.get("IsStolenByThieves"))
 				{
 					local contractValue = (this.Contract.m.Payment.getOnCompletion() + this.Contract.m.Payment.getInAdvance()) * 2;
-					if (this.World.Assets.m.Money < (this.Contract.m.Payment.getOnCompletion() + this.Contract.m.Payment.getInAdvance()))
+
+					if (this.World.Assets.m.Money < this.Contract.m.Payment.getOnCompletion() + this.Contract.m.Payment.getInAdvance())
 					{
 						this.Contract.setScreen("EnragingMessage1");
 					}
@@ -323,8 +321,8 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 		this.importScreens(this.Const.Contracts.Overview);
 		this.m.Screens.push({
 			ID = "Task",
-			Title = "Coin Delivery",
-			Text = "[img]gfx/ui/events/event_04.png[/img]{%employer% shoves a sizeable chest into your hands before he or you even says a word.%SPEECH_ON%This is the pay for a nearby merchant, I need to you deliver these crowns!%SPEECH_OFF%He looks at you seriously.%SPEECH_ON%I need that taken to %objective% where a man by the name of %recipient% is waiting for it. It may look small, but that chest is the pay for a whole company of merchants. You interested? Or is it a little too heavy for your arms?%SPEECH_OFF% | You find %employer% closing a small chest of coins. He quickly glances up, as though you might have been theives.%SPEECH_ON%Sellsword! Thank you for coming.%SPEECH_OFF%He locks the chest quickly. Then he pats the chest a few times, even caresses it a little.%SPEECH_ON%This here cargo has to be delivered safely to %objective%. A man by the name of %recipient% is waiting for it. I do not believe the task will be easy, as the chest contains an investment in a new enterprise. There are people who\'d go to great lengths to acquire this kind of coin, which is why I\'m turning to a man of your... experiences. Are you interested in doing this for me?%SPEECH_OFF% | As you enter %employer%\'s room one of his servants is fiddling wit hthe lock on a small chest of coins .%SPEECH_ON%Good seeing you, sellsword. One moment, please. No, idiot, its the other key!.%SPEECH_OFF%His servant bumbles at a ring of keys, trying each one until finally finding the right one. Finished, he wipes the sweat off his brow and looks to you.%SPEECH_ON%I need this here chest delivered to %objective% about %days% %direction% by road. It\'s going to %recipient%, you know. Him. Alright, maybe you don\'t know him. What I do know is that this may not ordinarily be your line of work, but I\'m willing to pay some serious crowns for you to see it through. That\'s your real business, right? Earning some crowns?%SPEECH_OFF% | %employer% folds his hands together when he sees you.%SPEECH_ON%This might be a strange question, but how interested are you in making a delivery for me?%SPEECH_OFF%You explain that, for the right price, such a journey would be a welcome departure from the usual killing and dying that goes on around you. The man claps his hands together.%SPEECH_ON%Excellent! Unfortunately, I don\'t expect it to be quite like that. It\'s of enough import to garner unsavory attention, which is why I\'m looking to hire sellswords in the first place. It\'s going to %objective%, %days% or so %direction% of here by road, where a man by the name of %recipient% is waiting for it to fall into his hands. So, you see, this won\'t be the \'departure\' you speak of, but it can be a fine payday if you\'re interested.%SPEECH_OFF% | %employer%\'s men are standing around a chest of gold. Their employer shoos them away when he sees you.%SPEECH_ON%Welcome, welcome. Good seeing you. I\'m in need of armed guards to have this here package delivered to a man by the name of %recipient% in %objective%. I reckon it\'s about %days% of travel for a company as your. How interested would you be in doing that for me?%SPEECH_OFF% | %employer%\'s got his feet up on his table when you enter. He puts his hands behind his head, looking a little too relaxed for your tastes.%SPEECH_ON%Good tidings, captain. What say you take a leave from all that killing and dying.%SPEECH_OFF%He raises an eyebrow at your response, which is precisely none at all.%SPEECH_ON%Huh, I figured you\'d jump on that opportunity. No matter, it was a lie: I need you to take a certain package to %recipient%, a fellow residing in %objective%. This cargo has undoubtedly garnered some ill-intentioned eyes which is why I need your men watching it for me. If you\'re interested, which you should be, let\'s talk numbers.%SPEECH_OFF% | %employer% welcomes you, waving you in.%SPEECH_ON%Very well, now that you\'re here, would you please shut the door behind you?%SPEECH_OFF%One of the man\'s guards pokes his head around the corner. You smile as you slowly shut him out. Turning around, you find %employer% walking toward a window. He stares out as he talks.%SPEECH_ON%I need something... it\'s a, uh, well you don\'t need to know what it is. I need this \'something\' delivered to a fellow called %recipient%. He\'s waiting for it in %objective%. It\'s important that it actually gets there, important enough for an armed escort for %days% of travel, which is why I\'m turning to you and your company. What say you, mercenary?%SPEECH_OFF% | Dim candles barely light the room enough for you to see, it\'s %employer% sitting behind his desk while his shadows dance on the walls by the tune of flickering lights.%SPEECH_ON%Would you lend your swords to me if I paid you good coin? I need {a small chest | an important investment | business starting funds} delivered safely to %recipient% in %objective%, about %days% of travel %direction% of here. Men have killed each other over this much coin, so you must be ready to defend it with your life.%SPEECH_OFF%He takes a pause, measuring your response.%SPEECH_ON%I will write a sealed letter with instructions to pay you as you deliver the item to my contact in %objective%. What say you?%SPEECH_OFF% | A servant bids you to wait for %employer%, who, he says, will be right with you. And so you wait, and wait, and wait. And finally, as you are about to leave for the second time, %employer% throws open the doors and rushes towards you.%SPEECH_ON%Who\'s this, again? The mercenary?%SPEECH_OFF%His assistant nods and %employer% sets on a smile.%SPEECH_ON%Oh most fortuitous to have you in %townname%, good captain!\n\nIt is imperative that some coin of mine reach %objective% as safely and quickly as possible. You are precisely who I need, for no common brigand would dare attack you and your men.\n\nYes, I\'d like to hire you for escort. Make sure the crowns are delivered to %recipient%, no detours of course. Can we come to an understanding?%SPEECH_OFF%}",
+			Title = "Treasury Transfer",
+			Text = "[img]gfx/ui/events/event_04.png[/img]{%employer% shoves a sizeable chest into your hands before he or you even says a word.%SPEECH_ON%This is the pay for a nearby merchant, I need to you deliver these crowns!%SPEECH_OFF%He looks at you seriously.%SPEECH_ON%I need that taken to %objective% where a man by the name of %recipient% is waiting for it. It may look small, but that chest is the pay for a whole company of merchants. You interested? Or is it a little too heavy for your arms?%SPEECH_OFF% | You find %employer% closing a small chest of coins. He quickly glances up, as though you might have been thieves.%SPEECH_ON%Sellsword! Thank you for coming.%SPEECH_OFF%He locks the chest quickly. Then he pats the chest a few times, even caresses it a little.%SPEECH_ON%This here cargo has to be delivered safely to %objective%. A man by the name of %recipient% is waiting for it. I do not believe the task will be easy, as the chest contains an investment in a new enterprise. There are people who\'d go to great lengths to acquire this kind of coin, which is why I\'m turning to a man of your... experiences. Are you interested in doing this for me?%SPEECH_OFF% | As you enter %employer%\'s room one of his servants is fiddling with the lock on a small chest of coins.%SPEECH_ON%Good seeing you, sellsword. One moment, please. No, idiot, it\'s the other key!%SPEECH_OFF%His servant bumbles at a ring of keys, trying each one until finally finding the right one. Finished, he wipes the sweat off his brow and looks to you.%SPEECH_ON%I need this here chest delivered to %objective% about %days% %direction% by road. It\'s going to %recipient%, you know. Him. Alright, maybe you don\'t know him. What I do know is that this may not ordinarily be your line of work, but I\'m willing to pay some serious crowns for you to see it through. That\'s your real business, right? Earning some crowns?%SPEECH_OFF% | %employer% folds his hands together when he sees you.%SPEECH_ON%This might be a strange question, but how interested are you in making a delivery for me?%SPEECH_OFF%You explain that, for the right price, such a journey would be a welcome departure from the usual killing and dying that goes on around you. The man claps his hands together.%SPEECH_ON%Excellent! Unfortunately, I don\'t expect it to be quite like that. It\'s of enough import to garner unsavory attention, which is why I\'m looking to hire sellswords in the first place. It\'s going to %objective%, %days% or so %direction% of here by road, where a man by the name of %recipient% is waiting for it to fall into his hands. So, you see, this won\'t be the \'departure\' you speak of, but it can be a fine payday if you\'re interested.%SPEECH_OFF% | %employer%\'s men are standing around a chest of gold. Their employer shoos them away when he sees you.%SPEECH_ON%Welcome, welcome. Good seeing you. I\'m in need of armed guards to have this here package delivered to a man by the name of %recipient% in %objective%. I reckon it\'s about %days% of travel for a company as your. How interested would you be in doing that for me?%SPEECH_OFF% | %employer%\'s got his feet up on his table when you enter. He puts his hands behind his head, looking a little too relaxed for your tastes.%SPEECH_ON%Good tidings, captain. What say you take a leave from all that killing and dying.%SPEECH_OFF%He raises an eyebrow at your response, which is precisely none at all.%SPEECH_ON%Huh, I figured you\'d jump on that opportunity. No matter, it was a lie: I need you to take a certain package to %recipient%, a fellow residing in %objective%. This cargo has undoubtedly garnered some ill-intentioned eyes which is why I need your men watching it for me. If you\'re interested, which you should be, let\'s talk numbers.%SPEECH_OFF% | %employer% welcomes you, waving you in.%SPEECH_ON%Very well, now that you\'re here, would you please shut the door behind you?%SPEECH_OFF%One of the man\'s guards pokes his head around the corner. You smile as you slowly shut him out. Turning around, you find %employer% walking toward a window. He stares out as he talks.%SPEECH_ON%I need something... it\'s a, uh, well you don\'t need to know what it is. I need this \'something\' delivered to a fellow called %recipient%. He\'s waiting for it in %objective%. It\'s important that it actually gets there, important enough for an armed escort for %days% of travel, which is why I\'m turning to you and your company. What say you, mercenary?%SPEECH_OFF% | Dim candles barely light the room enough for you to see, it\'s %employer% sitting behind his desk while his shadows dance on the walls by the tune of flickering lights.%SPEECH_ON%Would you lend your swords to me if I paid you good coin? I need {a small chest | an important investment | business starting funds} delivered safely to %recipient% in %objective%, about %days% of travel %direction% of here. Men have killed each other over this much coin, so you must be ready to defend it with your life.%SPEECH_OFF%He takes a pause, measuring your response.%SPEECH_ON%I will write a sealed letter with instructions to pay you as you deliver the item to my contact in %objective%. What say you?%SPEECH_OFF% | A servant bids you to wait for %employer%, who, he says, will be right with you. And so you wait, and wait, and wait. And finally, as you are about to leave for the second time, %employer% throws open the doors and rushes towards you.%SPEECH_ON%Who\'s this, again? The mercenary?%SPEECH_OFF%His assistant nods and %employer% sets on a smile.%SPEECH_ON%Oh most fortuitous to have you in %townname%, good captain!\n\nIt is imperative that some coin of mine reach %objective% as safely and quickly as possible. You are precisely who I need, for no common brigand would dare attack you and your men.\n\nYes, I\'d like to hire you for escort. Make sure the crowns are delivered to %recipient%, no detours of course. Can we come to an understanding?%SPEECH_OFF%}",
 			Image = "",
 			List = [],
 			ShowEmployer = true,
@@ -623,12 +621,12 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 		this.m.Screens.push({
 			ID = "EnragingMessage1",
 			Title = "Arriving without the crowns",
-			Text = "[img]gfx/ui/events/event_43.png[/img]{You arrive at the destination, but without the coins. %SPEECH_ON%Where is the coin?%SPEECH_OFF% they ask, but you shrug and say you spent it already. Most of the villagers look shocked and angry, a few sigh in disapointment and one begins crying as they realise this means no food.  %SPEECH_ON%Get out you filthy cold hearted mercenaries!  Don\'t you ever come back you scum!! %SPEECH_OFF% }  ",
+			Text = "[img]gfx/ui/events/event_43.png[/img]{You arrive at the destination, but without the coins. %SPEECH_ON%Where is the coin?%SPEECH_OFF% they ask, but you shrug and say you spent it already. Most of the villagers look shocked and angry, a few sigh in disappointment and one begins crying as they realize this means no food.  %SPEECH_ON%Get out you filthy cold-hearted mercenaries!  Don\'t you ever come back you scum!! %SPEECH_OFF% }  ",
 			Image = "",
 			List = [],
 			Options = [
 				{
-					Text = "Maybe we shouldn\'t have spent their money",
+					Text = "Maybe we shouldn\'t have spent their money.",
 					function getResult()
 					{
 						local recipientFaction = this.Contract.m.Destination.getFactionOfType(this.Const.FactionType.Settlement);
@@ -640,14 +638,11 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 
 						this.World.Contracts.finishActiveContract();
 						return 0;
-
 					}
 
 				}
 			]
 		});
-
-
 		this.m.Screens.push({
 			ID = "Success1",
 			Title = "At %objective%",
@@ -662,15 +657,17 @@ this.deliver_money_contract <- this.inherit("scripts/contracts/contract", {
 					function getResult()
 					{
 						this.World.Assets.addBusinessReputation(this.Const.World.Assets.ReputationOnContractSuccess);
-						local contractValue = (this.Contract.m.Payment.getOnCompletion() + this.Contract.m.Payment.getInAdvance());
+						local contractValue = this.Contract.m.Payment.getOnCompletion() + this.Contract.m.Payment.getInAdvance();
 						this.World.Assets.addMoney(contractValue * -1);
 						local playerRoster = this.World.getPlayerRoster().getAll();
 						local xp = this.Contract.m.Payment.getOnCompletion() * 0.25;
+
 						foreach( bro in playerRoster )
-							{
-								bro.addXP(xp);
-								bro.updateLevel();
-							}
+						{
+							bro.addXP(xp);
+							bro.updateLevel();
+						}
+
 						this.World.FactionManager.getFaction(this.Contract.getFaction()).addPlayerRelation(this.Const.World.Assets.RelationCivilianContractSuccess, "Delivered some cargo");
 						local recipientFaction = this.Contract.m.Destination.getFactionOfType(this.Const.FactionType.Settlement);
 
