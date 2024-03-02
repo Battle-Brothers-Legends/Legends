@@ -2491,7 +2491,7 @@ this.tooltip_events <- {
 				{
 					id = 2,
 					type = "description",
-					text = "You\'ll start with with half the regular starting resources of your chosen story origin. \n\nRecommended for a balanced experience."
+					text = "You\'ll start with half the regular starting resources of your chosen story origin. \n\nRecommended for a balanced experience."
 				}
 			];
 
