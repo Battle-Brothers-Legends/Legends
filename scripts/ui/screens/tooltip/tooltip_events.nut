@@ -90,12 +90,12 @@ this.tooltip_events <- {
 				{
 					id = 1,
 					type = "title",
-					text = "Insufficent Renown"
+					text = "Insufficient Renown"
 				},
 				{
 					id = 4,
 					type = "description",
-					text = "Your company lacks the renown necessary to accomodate more equipment in your camp. Attain at least " + renown + " renown in order to unlock this space. Gain renown by completing ambitions and contracts, as well as by winning battles."
+					text = "Your company lacks the renown necessary to accommodate more equipment in your camp. Attain at least " + renown + " renown in order to unlock this space. Gain renown by completing ambitions and contracts, as well as by winning battles."
 				}
 			];
 			return ret;
@@ -1640,7 +1640,7 @@ this.tooltip_events <- {
 			return ret;
 
 		case "repairs.Time":
-			local desc = "Total number of hours required to repair all the queued equipment. Assign more people to this task to decrease the amout of time required. Some backgrounds are quicker than others!";
+			local desc = "Total number of hours required to repair all the queued equipment. Assign more people to this task to decrease the amount of time required. Some backgrounds are quicker than others!";
 			local ret = [
 				{
 					id = 1,
@@ -4796,7 +4796,7 @@ this.tooltip_events <- {
 			return ret;
 
 		case "workshop.Time":
-			local desc = "Total number of hours required to salvage all the queued equipment. Assign more people to this task to decrease the amout of time required. Some backgrounds are quicker than others!";
+			local desc = "Total number of hours required to salvage all the queued equipment. Assign more people to this task to decrease the amount of time required. Some backgrounds are quicker than others!";
 			local ret = [
 				{
 					id = 1,
