@@ -6,10 +6,10 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 	{
 		this.m.ID = "event.legend_lonewolf_companion_ranged";
 		this.m.Title = "Like minds and simple hearts";
-		this.m.Cooldown = 20.0 * this.World.getTime().SecondsPerDay; //—
+		this.m.Cooldown = 20.0 * this.World.getTime().SecondsPerDay;
 		this.m.Screens.push({
 			ID = "A",
-			Text = "[img]gfx/ui/events/event_36.png[/img]{A figure comes into sight, sitting on a low rock and carefully sharpening their weapon and patching any holes in their armour. Strangely enough, they speak first.%SPEECH_ON%I\'m %recruit%, and there's talk across the land of you runnin\' around looking to prove \'urself%SPEECH_OFF%Your hand steadily crawls towards your weapon but the stranger takes note of this.%SPEECH_ON%No — not like that. In fact, I\'m interested in joining. The arenas in the south only have so many things to kill and the north can be...somewhat empty at times.%SPEECH_OFF%}",
+			Text = "[img]gfx/ui/events/event_36.png[/img]{A figure comes into sight, sitting on a low rock and carefully sharpening their weapon and patching any holes in their armour. Strangely enough, they speak first.%SPEECH_ON%I\'m %recruit%, and there\'s talk across the land of you runnin\' around looking to prove \'urself%SPEECH_OFF%Your hand steadily crawls towards your weapon but the stranger takes note of this.%SPEECH_ON%No — not like that. In fact, I\'m interested in joining. The arenas in the south only have so many things to kill and the north can be...somewhat empty at times.%SPEECH_OFF%}",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -18,7 +18,7 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 					Text = "{How good is your aim? | How accurate are you?}",
 					function getResult( _event )
 					{
-						return "B"; //B = aggressive
+						return "B";
 					}
 
 				},
@@ -26,7 +26,7 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 					Text = "{Can you dodge an arrow? | How well do you do under pressure?}",
 					function getResult( _event )
 					{
-						return "C"; //C = defensive
+						return "C";
 					}
 
 				},
@@ -34,12 +34,12 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 					Text = "{You don\'t seem very remarkable to me... | You don\'t stand out to me... | You seem rather ordinary...}",
 					function getResult( _event )
 					{
-						return "D"; //D = balanced
+						return "D";
 					}
 
 				},
 				{
-					Text = "Not interested.", //E = skip
+					Text = "Not interested.",
 					function getResult( _event )
 					{
 						return 0;
@@ -54,11 +54,11 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 				_event.m.Dude.setStartValuesEx([
 					"legend_companion_ranged_background"
 				]);
-
 				this.Characters.push(_event.m.Dude.getImagePath());
 			}
+
 		});
-		this.m.Screens.push({ //Aggressive archetype
+		this.m.Screens.push({
 			ID = "B",
 			Text = "[img]gfx/ui/events/event_76.png[/img]{%recruit% picks up their crossbow and loads a bolt. You place 3 bottles in a line on a nearby stone wall. They take aim as soon as you are clear and shoot the bottom out of one of the bottles. As they reload, they don\'t dare take their eye of their second target - effectively reloading blind.\n\n The next shot is a snap shot that grazes the second bottle, which causes it to tumble and smash from the top of the wall. %recruit% curses under their breath and this time reloads their weapon while looking down, quickly placing a new bolt into the groove.\n The third shot perfectly crowns the bottle neck and leaves the belly standing on the wall like a crow perches on a railing. The fourth bolt smashes directly through the middle of what remains a second or two later.}",
 			Image = "",
@@ -92,9 +92,9 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 			}
 
 		});
-		this.m.Screens.push({ //Defensive archetype
+		this.m.Screens.push({
 			ID = "C",
-			Text = "[img]gfx/ui/events/event_76.png[/img]{%recruit% hands you their bow, then walks several paces away from you until you are both a good distance apart. You ready the bow and let loose an arrow that would hit, but is a bit wide off the mark. %recruit% does not flinch.\n\nYou ready another arrow, this time aiming for centre mass. Despite the speed of the projectile, your target casually steps to one side as so the arrow barely brushes off their shoulder.\n\nFrustrated, you notch another arrow and aim for the head. As you release, your target does not move as they did before. Instead the arrow brushes past their left ear and they remain unflinching. Their voice echos across the distance between the two of you. %SPEECH_ON%You had me worried there - I thought you were really trying to hit me for a moment!%SPEECH_OFF%",
+			Text = "[img]gfx/ui/events/event_76.png[/img]{%recruit% hands you their bow, then walks several paces away from you until you are both a good distance apart. You ready the bow and let loose an arrow that would hit, but is a bit wide off the mark. %recruit% does not flinch.\n\nYou ready another arrow, this time aiming for center mass. Despite the speed of the projectile, your target casually steps to one side as so the arrow barely brushes off their shoulder.\n\nFrustrated, you notch another arrow and aim for the head. As you release, your target does not move as they did before. Instead the arrow brushes past their left ear and they remain unflinching. Their voice echos across the distance between the two of you. %SPEECH_ON%You had me worried there - I thought you were really trying to hit me for a moment!%SPEECH_OFF%",
 			Image = "",
 			List = [],
 			Characters = [],
@@ -124,16 +124,17 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 				_event.m.Dude.getBaseProperties().RangedDefense += 8;
 				_event.m.Dude.getBaseProperties().Initiative += 10;
 			}
+
 		});
-		this.m.Screens.push({ //Balanced archetype
+		this.m.Screens.push({
 			ID = "D",
-			Text = "[img]gfx/ui/events/event_76.png[/img]{%SPEECH_ON%I like to take my time with my shots - let me show you...%SPEECH_OFF%%recruit% brings their weapon up and finds a suitible target. They aim.\n\nAnd aim.\n\nAnd aim.\n\nYou stay silent, wondering if this is part of some elaborate act, but after some more moments in passing %recruit% looses their shot well past what you thought they were aiming for and into a bush\n\nYou both hear a distant thud as %recruit% calmly walks in the direction of the noise and the bolt.\n After clearing the brush, you see a small deer that has their projectile lodged firmly into their eye socket. Killing it near instantly.%SPEECH_ON%I\'ve been huntin\' that deer all day. Finally got the bastard.%SPEECH_OFF%",
+			Text = "[img]gfx/ui/events/event_76.png[/img]{%SPEECH_ON%I like to take my time with my shots - let me show you...%SPEECH_OFF%%recruit% brings their weapon up and finds a suitable target. They aim.\n\nAnd aim.\n\nAnd aim.\n\nYou stay silent, wondering if this is part of some elaborate act, but after some more moments in passing %recruit% looses their shot well past what you thought they were aiming for and into a bush\n\nYou both hear a distant thud as %recruit% calmly walks in the direction of the noise and the bolt.\n After clearing the brush, you see a small deer that has their projectile lodged firmly into their eye socket. Killing it near instantly.%SPEECH_ON%I\'ve been huntin\' that deer all day. Finally got the bastard.%SPEECH_OFF%",
 			Image = "",
 			List = [],
 			Characters = [],
 			Options = [
 				{
-					Text = "{Well, you hit it at least... | I hope they don't take as long to piss. | Deadly. You almost killed it from boredom.}",
+					Text = "{Well, you hit it at least... | I hope they don\'t take as long to piss. | Deadly. You almost killed it from boredom.}",
 					function getResult( _event )
 					{
 						this.World.getPlayerRoster().add(_event.m.Dude);
@@ -156,10 +157,11 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 				_event.m.Dude.getBaseProperties().MeleeDefense += 0;
 				_event.m.Dude.getBaseProperties().RangedDefense += 2;
 				_event.m.Dude.getBaseProperties().Initiative -= 15;
-				_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/sureshot_trait")); //Bonus for choosing fewer stats.
+				_event.m.Dude.getSkills().add(this.new("scripts/skills/traits/sureshot_trait"));
 			}
+
 		});
-		this.m.Screens.push({ //skip
+		this.m.Screens.push({
 			ID = "E",
 			Text = "[img]gfx/ui/events/event_76.png[/img]The figure goes back to whatever it is they were doing before as you pass.",
 			Image = "",
@@ -174,7 +176,7 @@ this.legend_lonewolf_companion_ranged_event <- this.inherit("scripts/events/even
 					}
 
 				}
-			],
+			]
 		});
 	}
 
