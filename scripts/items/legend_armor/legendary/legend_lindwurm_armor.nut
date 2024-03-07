@@ -5,7 +5,7 @@ this.legend_lindwurm_armor <- this.inherit("scripts/items/legend_armor/legend_na
 		this.legend_named_armor.create();
 		this.m.ID = "legend_armor.body.lindwurm_armor";
 		this.m.Description = "The sturdy scales of a fierce Lindwurm sewn together ontop a heavy chainmail. Not only is it a trophy to a great hunter, but it also deflects the fiercest of blows, and the shimmering scales remain untouched by any corroding Lindwurm blood.";
-		this.m.Name = "Coat of the Lindwurm";
+		this.m.Name = "";
 		this.m.NameList = [
 			"Lindwurm Scales",
 			"Dragon\'s Hide",

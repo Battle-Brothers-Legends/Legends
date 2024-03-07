@@ -5,7 +5,7 @@ this.legend_armor_mountain_named <- this.inherit("scripts/items/legend_armor/leg
 		this.legend_named_armor.create();
 		this.m.Type = this.Const.Items.ArmorUpgrades.Plate;
 		this.m.ID = "legend_armor.body.legend_mountain_armor_named";
-		this.m.Name = "Armor of the Mountain";
+		this.m.Name = "";
 		this.m.NameList = [
 			"Titan Coat",
 			"Mountain Hide",
@@ -20,12 +20,8 @@ this.legend_armor_mountain_named <- this.inherit("scripts/items/legend_armor/leg
 		this.m.IsDroppedAsLoot = true;
 		this.m.ShowOnCharacter = true;
 		this.m.IsIndestructible = true;
-		this.m.Icon = "legend_armor/icon_mountain_armor_01.png";
-		this.m.IconLarge = "legend_armor/inventory_mountain_armor_01.png";
-		this.m.Sprite = "bust_mountain_armor_01";
-		this.m.SpriteDamaged = "bust_mountain_armor_damaged";
-		this.m.SpriteCorpse= "bust_mountain_armor_dead";
-		
+		this.m.Variant = 516;
+		this.updateVariant();
 		this.m.ImpactSound = this.Const.Sound.ArmorHalfplateImpact;
 		this.m.InventorySound = this.Const.Sound.ArmorHalfplateImpact;
 		this.m.Value = 10000;

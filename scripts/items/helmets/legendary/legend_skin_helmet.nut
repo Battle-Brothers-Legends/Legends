@@ -5,7 +5,7 @@ this.legend_skin_helmet <- this.inherit("scripts/items/helmets/named/named_helme
 		this.named_helmet.create();
 		this.m.ID = "armor.head.legend_skin_helmet";
 		this.m.Description = "A helmet made from the face of a skin ghoul, grants the ability to feast on corpses";
-		this.m.Name = "Skin Ghoul helmet"
+		this.m.Name = ""
 		this.m.NameList = [
 			"Rotten visage",
 			"Helm of the ghoul",
