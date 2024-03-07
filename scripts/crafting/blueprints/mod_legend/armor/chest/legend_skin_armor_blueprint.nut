@@ -14,7 +14,7 @@ this.legend_skin_armor_blueprint <- this.inherit("scripts/crafting/blueprint", {
 			}
 		];
 		ingredients.push({
-			Script = "scripts/items/legend_armor/cloth/legend_gambeson",
+			Script = "scripts/items/legend_armor/cloth/legend_padded_surcoat",
 			Num = 1,
 			LegendsArmor = true
 		})
