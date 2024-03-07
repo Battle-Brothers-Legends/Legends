@@ -5,7 +5,7 @@ this.legend_mountain_armor_blueprint <- this.inherit("scripts/crafting/blueprint
 		this.blueprint.create();
 		this.m.ID = "blueprint.legend_mountain_armor";
 		this.m.Type = this.Const.Items.ItemType.Armor;
-		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/legendary/legend_armor_mountain_named");
+		this.m.PreviewCraftable = this.new("scripts/items/legend_armor/legendary/legend_armor_mountain");
 		this.m.Cost = 2500;
 		local ingredients = [
 			{
