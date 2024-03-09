@@ -88,7 +88,7 @@ this.return_item_contract <- this.inherit("scripts/contracts/contract", {
 				else if (r <= 30)
 				{
 					this.Flags.set("IsCounterOffer", true);
-					this.Flags.set("Bribe", this.Contract.beautifyNumber(this.Contract.m.Payment.getOnCompletion() * this.Math.rand(100, 300) * 0.01));
+					this.Flags.set("Bribe", this.Contract.beautifyNumber(this.Contract.m.Payment.getOnCompletion() * this.Math.rand(120, 300) * 0.01));
 				}
 				else
 				{
