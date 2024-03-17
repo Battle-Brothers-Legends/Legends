@@ -499,13 +499,6 @@ this.sato_escaped_slaves_scenario <- this.inherit("scripts/scenarios/world/start
 	{
 		this.World.Assets.m.RelationDecayGoodMult += 0.15;
 		this.World.Assets.m.RelationDecayBadMult -= 0.15;
-		local sergeant = this.World.Retinue.getFollower("follower.drill_sergeant");
-		sergeant.m.Requirements = [
-			{
-				IsSatisfied = false,
-				Text = "Retired a man with a permanent injury"
-			}
-		];
 		this.World.Events.addSpecialEvent("event.sato_find_slave_after_battle");
 	}
 
