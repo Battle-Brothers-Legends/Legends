@@ -44,7 +44,7 @@ this.barbarian_volunteer_event <- this.inherit("scripts/events/event", {
 				_event.m.Dude.setStartValuesEx([
 					"barbarian_background"
 				]);
-				_event.m.Dude.getBackground().m.RawDescription = "%name% joined you after being exiled from his tribe in the north for refusing to kill his brother. He\'ll fight for you as well as for anyone.";
+				_event.m.Dude.getBackground().m.RawDescription = "%name% joined you after being exiled from %their% tribe in the north for refusing to kill %their% brother. They\'ll fight for you as well as for anyone.";
 				_event.m.Dude.getBackground().buildDescription(true);
 				_event.m.Dude.getItems().equip(this.new("scripts/items/accessory/warhound_item"));
 				this.Characters.push(_event.m.Dude.getImagePath());
