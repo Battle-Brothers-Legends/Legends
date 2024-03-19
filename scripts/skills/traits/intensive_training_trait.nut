@@ -205,7 +205,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					id = 6,
 					type = "text",
 					icon = "ui/icons/fatigue.png",
-					text = "Stamina: " + ::Const.UI.getColorized(this.m.StaminaAdded, ::Const.UI.Color.PositiveValue)
+					text = "Fatigue: " + ::Const.UI.getColorized(this.m.StaminaAdded, ::Const.UI.Color.PositiveValue)
 				});
 			}
 
