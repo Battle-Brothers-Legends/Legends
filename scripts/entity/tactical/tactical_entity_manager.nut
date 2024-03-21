@@ -1852,10 +1852,11 @@ this.tactical_entity_manager <- {
 			local x = 0;
 			local y = 0;
 			local tries = 0;
+			local clearedArea = false;
 
 			while (1)
 			{
-				if (tries > 1000 && !this.clearedArea)
+				if (tries > 1000 && !clearedArea)
 				{
 					for( local x = 13; x != 19; x = ++x )
 					{
@@ -1865,7 +1866,7 @@ this.tactical_entity_manager <- {
 						}
 					}
 
-					this.clearedArea = true;
+					clearedArea = true;
 				}
 
 				tries = ++tries;
