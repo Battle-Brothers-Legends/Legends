@@ -46,9 +46,9 @@ this.named_flail_effect <- this.inherit("scripts/skills/skill", {
 		{
 			_targetEntity.getSkills().add(this.new("scripts/skills/effects/dazed_effect"));
 
-			if (!user.isHiddenToPlayer() && targetTile.IsVisibleForPlayer)
+			if (!user.isHiddenToPlayer())
 			{
-				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(user) + " struck a hit that leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed");
+				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(user.getName()) + " struck a hit that leaves " + this.Const.UI.getColorizedEntityName(_targetEntity) + " dazed");
 			}
 		}
 	}
