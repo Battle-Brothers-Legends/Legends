@@ -169,7 +169,7 @@ this.kobold_wolfrider <- this.inherit("scripts/entity/tactical/kobold", {
 		}
 		else
 		{
-			this.goblin.onDeath(_killer, _skill, _tile, _fatalityType);
+			this.kobold.onDeath(_killer, _skill, _tile, _fatalityType);
 		}
 	}
 
