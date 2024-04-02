@@ -59,31 +59,6 @@ this.oracle_event <- this.inherit("scripts/events/event", {
 
 				}
 			],
-
-// function findItem()
-// {
-// 	local itemIDs = [
-// 		"id1",
-// 		"id2",
-// 		"id3",
-// 	];
-
-// 	foreach (bro in this.World.getPlayerRoster().getAll())
-// 	{
-// 		local item = bro.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory);
-
-// 		if (item != null && itemIDs.find(item.getID()) != null) return true;
-// 	}
-
-// 	foreach (id in itemIDs)
-// 	{
-// 		if (this.World.Assets.getStash().hasItem(id)) return true;
-// 	}
-
-// 	return false;
-// }
-///-----Will clean up the below with the above later - Luft
-
 			function start( _event )
 			{	//may replace this with a flag on the old man sells event later
 				local brothers = this.World.getPlayerRoster().getAll();				
@@ -125,6 +100,31 @@ this.oracle_event <- this.inherit("scripts/events/event", {
 				}
 			}
 		});
+
+	// function findItem()
+	// {
+	// 	local itemIDs = [
+	// 		"id1",
+	// 		"id2",
+	// 		"id3",
+	// 	];
+
+	// 	foreach (bro in this.World.getPlayerRoster().getAll())
+	// 	{
+	// 		local item = bro.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory);
+
+	// 		if (item != null && itemIDs.find(item.getID()) != null) return true;
+	// 	}
+
+	// 	foreach (id in itemIDs)
+	// 	{
+	// 		if (this.World.Assets.getStash().hasItem(id)) return true;
+	// 	}
+
+	// 	return false;
+	// }
+	///-----Will clean up the below with the above later - Luft
+		
 		this.m.Screens.push({
 			ID = "Relic_identify",
 			Text = "", //text based on given item, not input here.
@@ -142,7 +142,8 @@ this.oracle_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local stash = this.World.Assets.getStash().getItems();
+				local stash = this.World.Assets.getStash().getItems(); //we need to check both stash...
+				local item = bro.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory); //...and the equipped slots of all bros otherwise this event will break.
 
 				foreach( i, item in stash )
 				{
@@ -173,13 +174,12 @@ this.oracle_event <- this.inherit("scripts/events/event", {
 						text = "You spend [color=" + this.Const.UI.Color.NegativeEventValue + "]100[/color] Crowns"
 					});
 					this.List.push({
-						id = 10,
+						id = 11,
 						icon = "ui/items/" + item.getIcon(),
 						text = item.getName() + " is now identified and its tooltip has now been updated"
 					});
 				}
 			}
-
 		});
 		this.m.Screens.push({
 			ID = "B",

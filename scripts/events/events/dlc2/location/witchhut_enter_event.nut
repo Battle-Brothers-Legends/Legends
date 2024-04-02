@@ -121,7 +121,8 @@ this.witchhut_enter_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local stash = this.World.Assets.getStash().getItems();
+				local stash = this.World.Assets.getStash().getItems(); //we need to check both stash...
+				local item = bro.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory); //...and the equipped slots of all bros otherwise this event will break.
 
 				foreach( i, item in stash )
 				{
