@@ -1,6 +1,6 @@
 this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", {
 	m = {
-		Allies = [],
+		Allies = []
 	},
 	function create()
 	{
@@ -27,14 +27,32 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 			"Siege actions nearly always turn to ratshit in your experience. Probably why %s wants you down there.",
 		];
 	}
-
+	
 	// Ran when we actually add the contract
 	function formatDescription()
 	{
 		local r = ::MSU.Array.rand(this.m.DescriptionTemplates);
+		local count = 0, find = r.find("%");
 
-		if (r.find("%") != null)
-			r = format(r, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
+		while(find != null)
+		{
+			find = r.find("%", find + 1);
+			++count;
+		}
+
+		switch (count)
+		{
+		case 2:
+			r = format(r, 
+				::Const.UI.getColorized(this.m.Location.getSettlement().getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()),
+				::Const.UI.getColorized(this.m.Location.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue())
+			);
+			break;
+
+		case 1:
+			r = format(r, ::Const.UI.getColorized(::World.FactionManager.getFaction(this.getFaction()).getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
+			break;
+		}
 		
 		this.m.Description = r;
 	}
@@ -466,6 +484,7 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 				if (_combatID == "NighttimeEncounter")
 				{
 					this.Flags.set("IsNighttimeEncounter", false);
+
 					if (!this.Flags.get("IsNighttimeEncounterLost"))
 					{
 						this.Flags.set("IsNighttimeEncounterAfermath", true);
@@ -696,12 +715,14 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 				this.Contract.flattenTerrain(p);
 				local alliesIncluded = false;
 
-				for( local i = 0; i < p.Entities.len(); i = ++i )
+				for( local i = 0; i < p.Entities.len(); i = i )
 				{
 					if (this.World.FactionManager.isAlliedWithPlayer(p.Entities[i].Faction))
 					{
 						alliesIncluded = true;
 					}
+
+					i = ++i;
 				}
 
 				if (!alliesIncluded && _dest.getDistanceTo(this.Contract.m.Origin) <= 400)
@@ -1589,11 +1610,10 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 					text = "You gain [color=" + this.Const.UI.Color.PositiveEventValue + "]250[/color] Crowns"
 				});
 				this.List.push({
-						id = 10,
-						icon = "ui/icons/asset_moral_reputation.png",
-						text = "The company\'s moral reputation decreases slightly"
-					});
-
+					id = 10,
+					icon = "ui/icons/asset_moral_reputation.png",
+					text = "The company\'s moral reputation decreases slightly"
+				});
 			}
 
 		});
@@ -1785,18 +1805,16 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 		party.setMirrored(true);
 		party.setDescription("A caravan with armed escorts transporting provisions, supplies and equipment between settlements.");
 
-		// yes world economy
-		if(::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
+		if (::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue())
 		{
-			for (local i = 0; i < 5; ++i)
+			for( local i = 0; i < 5; i = ++i )
 			{
 				party.addToInventory(this.new("scripts/items/supplies/ground_grains_item"));
 			}
 		}
-		// no world economy
 		else
 		{
-			for (local i = 0; i < 5; ++i)
+			for( local i = 0; i < 5; i = ++i )
 			{
 				party.addToInventory("supplies/ground_grains_item");
 			}
@@ -1846,7 +1864,7 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 		local originTile = this.m.Origin.getTile();
 		local lastTile;
 
-		for( local i = 0; i < 2; i = ++i )
+		for( local i = 0; i < 2; i = i )
 		{
 			local tile;
 
@@ -1932,6 +1950,7 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 			local wait = this.new("scripts/ai/world/orders/wait_order");
 			wait.setTime(9000.0);
 			c.addOrder(wait);
+			i = ++i;
 		}
 	}
 
@@ -2097,9 +2116,10 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 		this.contract.onDeserialize(_in);
 		local numAllies = _in.readU8();
 
-		for( local i = 0; i < numAllies; i = ++i )
+		for( local i = 0; i < numAllies; i = i )
 		{
 			this.m.Allies.push(_in.readU32());
+			i = ++i;
 		}
 	}
 
