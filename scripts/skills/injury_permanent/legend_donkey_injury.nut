@@ -6,7 +6,7 @@ this.legend_donkey_injury <- this.inherit("scripts/skills/injury_permanent/perma
 		this.m.ID = "injury.legend_donkey_background";
 		this.m.Name = "Donkey body";
 		this.m.Icon = "ui/traits/legend_donkey_body.png";
-		this.m.Description = "Can\'t use weapons, shields, ammunition, bags or armor. The donkey does not seem bothered by these limitations.";
+		this.m.Description = "Can\'t use weapons, shields, ammunition or armor. The donkey does not seem bothered by these limitations.";
 	}
 
 	function getTooltip()
@@ -27,7 +27,7 @@ this.legend_donkey_injury <- this.inherit("scripts/skills/injury_permanent/perma
 		return ret;
 	}
 
-	function onAdded()
+	function onAdded() //seems that restricting bag slots here breaks the game, will need to find a new way to restrict bag slots in the future - Luft.
 	{
 		local items = this.getContainer().getActor().getItems();
 			//ineloquent solution for forcing the item assigned to any of these slots via hotkey to be unassigned and returned to ground or stash. We squish this code later.
@@ -62,12 +62,6 @@ this.legend_donkey_injury <- this.inherit("scripts/skills/injury_permanent/perma
 			item.drop();
 		}
 
-		if (items.getItemAtSlot(this.Const.ItemSlot.Bag))
-		{
-			local item = items.getItemAtSlot(this.Const.ItemSlot.Bag);
-			item.drop();
-		}
-
 		if (items.getItemAtSlot(this.Const.ItemSlot.Accessory))
 		{
 			local item = items.getItemAtSlot(this.Const.ItemSlot.Accessory);
@@ -79,7 +73,6 @@ this.legend_donkey_injury <- this.inherit("scripts/skills/injury_permanent/perma
 		items.getData()[this.Const.ItemSlot.Head][0] = -1;
 		items.getData()[this.Const.ItemSlot.Body][0] = -1;
 		items.getData()[this.Const.ItemSlot.Ammo][0] = -1;
-		items.getData()[this.Const.ItemSlot.Bag][0] = -1;
 		items.getData()[this.Const.ItemSlot.Accessory][0] = -1;
 	}
 
