@@ -24,7 +24,7 @@ this.steel_brow_effect <- this.inherit("scripts/skills/skill", {
 			{
 				id = 10,
 				type = "text",
-				icon = "ui/icons/ranged_defense.png",
+				icon = "ui/icons/special.png",
 				text = "Any stun attack that hits you will turn into a daze instead"
 			}
 		];
