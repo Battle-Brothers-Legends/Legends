@@ -9,6 +9,7 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		this.m.TranceIsActive = false;
 		this.m.Failures = 0;
 	}
+
 	function create()
 	{
 		this.m.ID = "perk.legend_vala_trance_malevolent";
@@ -35,7 +36,6 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		this.m.MaxRange = 7;
 		this.m.MaxLevelDifference = 4;
 	}
-
 
 	function isUsable()
 	{
@@ -76,25 +76,21 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
-
 	function getCostString()
 	{
 		return "[i]Costs [b][color=" + this.Const.UI.Color.NegativeValue + "]all (at least 6) AP[/color][/b] to use and builds up " + (this.isAffordableBasedOnFatiguePreview() ? "[b][color=" + this.Const.UI.Color.PositiveValue + "]" + this.getFatigueCost() : "[b][color=" + this.Const.UI.Color.NegativeValue + "]" + this.getFatigueCost()) + " Fatigue[/color][/b][/i]\n";
 	}
 
-
 	function getTooltip()
 	{
 		local actor = this.getContainer().getActor();
 		local ret = this.getDefaultUtilityTooltip();
-
 		ret.push({
 			id = 7,
 			type = "text",
 			icon = "ui/icons/special.png",
 			text = "If the Vala is successful in her dealings with these harmful spirits, they will haunt and weaken her opponents. Lowers damage, lowers maximum fatigue, increases fatigue cost for skills."
-		})
-
+		});
 		local weapon = actor.getMainhandItem();
 
 		if (weapon == null || weapon.getID() != "weapon.legend_staff_vala")
@@ -103,7 +99,7 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 				id = 9,
 				type = "text",
 				icon = "ui/tooltips/warning.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires the Vala's staff.[/color]"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires the Vala\'s staff.[/color]"
 			});
 		}
 
@@ -130,7 +126,6 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		return ret;
 	}
 
-
 	function onTurnStart()
 	{
 		local actor = this.getContainer().getActor();
@@ -139,9 +134,10 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		if (actor.getSkills().hasSkill("effects.legend_vala_in_trance") && this.m.TranceIsActive)
 		{
 			local TotalVictims = 0;
-			foreach (tar in targets)
+
+			foreach( tar in targets )
 			{
-				foreach (t in tar)
+				foreach( t in tar )
 				{
 					if (t.getFlags().get("IsSpiritVictim"))
 					{
@@ -151,7 +147,7 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 				}
 			}
 
-			if (TotalVictims == 0)  //  CANCEL TRANCE BECAUSE TARGET IS DEAD OR DYING
+			if (TotalVictims == 0)
 			{
 				actor.getSkills().removeByID("effects.legend_vala_in_trance");
 				this.logInfo("MALEVOLENT SPIRITS :: onTurnStart victim is dead or dying");
@@ -159,31 +155,32 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 			}
 
 			local expertise = actor.getBravery() / this.m.Difficulty;
-			expertise += this.m.Failures * 20.0 / this.m.Difficulty;
-			foreach (tar in targets)
+			expertise = expertise + this.m.Failures * 20.0 / this.m.Difficulty;
+
+			foreach( tar in targets )
 			{
-				foreach (t in tar)
+				foreach( t in tar )
 				{
 					local distance = t.getTile().getDistanceTo(actor.getTile());
 
 					if (distance <= 3 && t.isAlliedWith(actor))
 					{
-						switch (distance)
+						switch(distance)
 						{
-							case 1:
-								expertise += 2.0 / this.m.Difficulty;
-								break;
+						case 1:
+							expertise = expertise + 2.0 / this.m.Difficulty;
+							break;
 
-							case 2:
-								expertise += 1.0 / this.m.Difficulty;
-								break;
+						case 2:
+							expertise = expertise + 1.0 / this.m.Difficulty;
+							break;
 
-							case 3:
-								expertise += 0.5 / this.m.Difficulty;
-								break;
+						case 3:
+							expertise = expertise + 0.5 / this.m.Difficulty;
+							break;
 
-							default:
-								break
+						default:
+							break;
 						}
 					}
 				}
@@ -191,7 +188,7 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 
 			if (actor.getSkills().hasSkill("perk.legend_vala_trance_mastery"))
 			{
-				expertise += 15.0 / this.m.Difficulty;
+				expertise = expertise + 15.0 / this.m.Difficulty;
 			}
 
 			if (expertise > 95)
@@ -206,11 +203,11 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 
 			this.logInfo("MALEVOLENT SPIRITS :: expertise is " + expertise);
 
-			if (this.Math.rand(1, 100) <= expertise)  // TRANCE SUCCESS
+			if (this.Math.rand(1, 100) <= expertise)
 			{
-				foreach (tar in targets)
+				foreach( tar in targets )
 				{
-					foreach (t in tar)
+					foreach( t in tar )
 					{
 						if (!t.getSkills().hasSkill("effects.legend_vala_trance_malevolent_effect") && t.getFlags().get("IsSpiritVictim"))
 						{
@@ -232,35 +229,31 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 				this.Sound.play("sounds/combat/legend_vala_malevolent.wav");
 				actor.getSkills().removeByID("effects.legend_vala_in_trance");
 			}
-			else  // TRANCE FAILURE
+			else if (this.isAffordableBasedOnFatigue())
 			{
-				if (this.isAffordableBasedOnFatigue())  //  STAY IN TRANCE AND GAIN A STACKING BONUS SUCCESS CHANCE FOR NEXT TURN
-				{
-					this.Sound.play("sounds/combat/legend_vala_trance.wav");
-					this.m.TranceIsActive = true;
-					++this.m.Failures;
-					actor.m.ActionPoints = 0;
-					actor.setFatigue(actor.getFatigue() + this.getFatigueCost());
-				}
-				else  //  CANCEL TRANCE BECAUSE OF FATIGUE
-				{
-					actor.getSkills().removeByID("effects.legend_vala_in_trance");
+				this.Sound.play("sounds/combat/legend_vala_trance.wav");
+				this.m.TranceIsActive = true;
+				++this.m.Failures;
+				actor.m.ActionPoints = 0;
+				actor.setFatigue(actor.getFatigue() + this.getFatigueCost());
+			}
+			else
+			{
+				actor.getSkills().removeByID("effects.legend_vala_in_trance");
 
-					foreach (tar in targets)
+				foreach( tar in targets )
+				{
+					foreach( t in tar )
 					{
-						foreach (t in tar)
+						if (t.getFlags().get("IsSpiritVictim"))
 						{
-							if (t.getFlags().get("IsSpiritVictim"))
-							{
-								t.getFlags().set("IsSpiritVictim", false);
-							}
+							t.getFlags().set("IsSpiritVictim", false);
 						}
 					}
 				}
 			}
 		}
 	}
-
 
 	function onCombatFinished()
 	{
@@ -273,7 +266,6 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 
 		this.resetTrance();
 	}
-
 
 	function onAfterUpdate( _properties )
 	{
@@ -289,7 +281,6 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-
 	function onDamageReceived( _attacker, _damageHitpoints, _damageArmor )
 	{
 		local actor = this.getContainer().getActor();
@@ -304,13 +295,13 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		{
 			if (actor.getSkills().hasSkill("perk.legend_vala_trance_mastery"))
 			{
-				if (this.Math.rand(1, 100) <= 50)  //  MASTERY GRANTS A 50% CHANCE TO AVOID DROPPING OUT OF TRANCE
+				if (this.Math.rand(1, 100) <= 50)
 				{
 					actor.getSkills().removeByID("effects.legend_vala_in_trance");
 
-					foreach (tar in targets)
+					foreach( tar in targets )
 					{
-						foreach (t in tar)
+						foreach( t in tar )
 						{
 							if (t.getFlags().get("IsSpiritVictim"))
 							{
@@ -324,9 +315,9 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 			{
 				actor.getSkills().removeByID("effects.legend_vala_in_trance");
 
-				foreach (tar in targets)
+				foreach( tar in targets )
 				{
-					foreach (t in tar)
+					foreach( t in tar )
 					{
 						if (t.getFlags().get("IsSpiritVictim"))
 						{
@@ -338,17 +329,19 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-
 	function onDeath( _fatalityType )
 	{
-		if(!::Tactical.State.isActive()) return;
+		if (!this.Tactical.State.isActive())
+			{
+				return;
+			}
 
 		local actor = this.getContainer().getActor();
 		local targets = this.Tactical.Entities.getAllInstances();
 
-		foreach (tar in targets)
+		foreach( tar in targets )
 		{
-			foreach (t in tar)
+			foreach( t in tar )
 			{
 				if (t.getSkills().hasSkill("effects.legend_vala_trance_malevolent_effect"))
 				{
@@ -362,7 +355,6 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 			}
 		}
 	}
-
 
 	function onVerifyTarget( _originTile, _targetTile )
 	{
@@ -389,8 +381,7 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 		return this.skill.onVerifyTarget(_originTile, _targetTile);
 	}
 
-
-	function onUse(_user, _targetTile)
+	function onUse( _user, _targetTile )
 	{
 		if (this.isUsable())
 		{
@@ -408,4 +399,6 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 			this.m.TranceIsActive = true;
 		}
 	}
+
 });
+

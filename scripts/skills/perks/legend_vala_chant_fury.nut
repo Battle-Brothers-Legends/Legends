@@ -6,6 +6,7 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ChantIsActive = false;
 	}
+
 	function create()
 	{
 		this.m.ID = "perk.legend_vala_chant_fury";
@@ -26,7 +27,6 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 		this.m.ActionPointCost = 3;
 		this.m.FatigueCost = 30;
 	}
-
 
 	function isUsable()
 	{
@@ -60,12 +60,10 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 		return true;
 	}
 
-
 	function getTooltip()
 	{
 		local actor = this.getContainer().getActor();
 		local ret = this.getDefaultUtilityTooltip();
-
 		ret.push({
 			id = 7,
 			type = "text",
@@ -73,13 +71,13 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 			text = "Until the start of her next turn all allies within 3 tiles of the Vala receive a bonus to their damage output and a chance to retaliate against attackers that hit them in melee range. Being closer to the Vala increases bonus amount and retaliation chance."
 		});
 
-		if (actor.getMainhandItem() == null || (actor.getMainhandItem() != null && actor.getMainhandItem() != "weapon.legend_staff_vala"))
+		if (actor.getMainhandItem() == null || actor.getMainhandItem() != null && actor.getMainhandItem() != "weapon.legend_staff_vala")
 		{
 			ret.push({
 				id = 9,
 				type = "text",
 				icon = "ui/tooltips/warning.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires the Vala's staff.[/color]"
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]Requires the Vala\'s staff.[/color]"
 			});
 		}
 
@@ -96,7 +94,6 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 		return ret;
 	}
 
-
 	function endChant()
 	{
 		local actor = this.getContainer().getActor();
@@ -107,9 +104,9 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 			actor.getSkills().removeByID("effects.legend_vala_currently_chanting");
 		}
 
-		foreach (tar in targets)
+		foreach( tar in targets )
 		{
-			foreach (t in tar)
+			foreach( t in tar )
 			{
 				if (t.getSkills().hasSkill("effects.legend_vala_chant_fury_effect"))
 				{
@@ -121,24 +118,24 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 		this.resetChant();
 	}
 
-
 	function onTurnStart()
 	{
 		this.endChant();
 	}
-
 
 	function onCombatFinished()
 	{
 		this.endChant();
 	}
 
-
 	function onDeath( _fatalityType )
 	{
+		if (!this.Tactical.State.isActive())
+			{
+				return;
+			}
 		this.endChant();
 	}
-
 
 	function onAfterUpdate( _properties )
 	{
@@ -154,7 +151,6 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-
 	function onMovementCompleted( _tile )
 	{
 		local actor = this.getContainer().getActor();
@@ -165,9 +161,9 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 			this.Sound.play("sounds/combat/legend_vala_fury.wav");
 		}
 
-		foreach (tar in targets)
+		foreach( tar in targets )
 		{
-			foreach (t in tar)
+			foreach( t in tar )
 			{
 				if (t.getSkills().hasSkill("effects.legend_vala_chant_fury_effect"))
 				{
@@ -182,13 +178,11 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 		}
 	}
 
-
 	function onUpdate( _properties )
 	{
 	}
 
-
-	function onUse(_user, _targetTile)
+	function onUse( _user, _targetTile )
 	{
 		if (this.isUsable())
 		{
@@ -200,9 +194,9 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 				actor.getSkills().add(this.new("scripts/skills/effects/legend_vala_currently_chanting"));
 			}
 
-			foreach (tar in targets)
+			foreach( tar in targets )
 			{
-				foreach (t in tar)
+				foreach( t in tar )
 				{
 					if (t.isAlliedWith(actor) && !t.getSkills().hasSkill("effects.legend_vala_chant_fury_effect"))
 					{
@@ -222,4 +216,6 @@ this.legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 			this.m.ChantIsActive = true;
 		}
 	}
+
 });
+
