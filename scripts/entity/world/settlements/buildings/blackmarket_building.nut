@@ -562,7 +562,7 @@ this.blackmarket_building <- this.inherit("scripts/entity/world/settlements/buil
 			{
 				R = 70,
 				P = 3.0,
-				S = "legend_helmets/vanity/oriental/engineer_hat"
+				S = "helmets/oriental/engineer_hat"
 			},
 			{
 				R = 80,
