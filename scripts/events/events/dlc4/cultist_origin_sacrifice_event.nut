@@ -129,6 +129,11 @@ this.cultist_origin_sacrifice_event <- this.inherit("scripts/events/event", {
 							skills.removeByID("trait.cultist_chosen");
 							skill = this.new("scripts/skills/actives/voice_of_davkul_skill");
 							skills.add(skill);
+							this.List.push({
+								id = 10,
+								icon = skill.getIcon(),
+								text = bro.getName() + " has received " + this.Const.Strings.getArticle(skill.getName()) + skill.getName()
+							});
 							skill = this.new("scripts/skills/traits/cultist_prophet_trait");
 							skills.add(skill);
 						}
