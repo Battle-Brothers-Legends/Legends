@@ -42,12 +42,6 @@ this.glutton_gets_fat_event <- this.inherit("scripts/events/event", {
 	{
 		local brothers = this.World.getPlayerRoster().getAll();
 
-			//If any bros fulfill the below requirements, this event will not apply/trigger to them
-		if (bro.getFlags().get("IsSpecial") || bro.getFlags().get("IsPlayerCharacter") || bro.getBackground().getID() == "background.legend_puppet" || bro.getBackground().getID() == "background.legend_donkey")
-		{
-			return;
-		}
-
 		if (this.World.Assets.getOrigin().getID() == "scenario.legend_risen_legion")
 		{
 			return;
@@ -69,6 +63,12 @@ this.glutton_gets_fat_event <- this.inherit("scripts/events/event", {
 
 		foreach( bro in brothers )
 		{
+				//If any bros fulfill the below requirements, this event will not apply/trigger to them
+			if (bro.getFlags().get("IsSpecial") || bro.getFlags().get("IsPlayerCharacter") || bro.getBackground().getID() == "background.legend_puppet" || bro.getBackground().getID() == "background.legend_donkey")
+			{
+				continue;
+			}
+
 			if (bro.getLevel() >= 3 && bro.getSkills().hasSkill("trait.gluttonous") && !bro.getSkills().hasSkill("trait.fat"))
 			{
 				candidates.push(bro);

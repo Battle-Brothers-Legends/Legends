@@ -59,15 +59,9 @@ this.good_food_variety_event <- this.inherit("scripts/events/event", {
 		local brothers = this.World.getPlayerRoster().getAll();
 		local hasBros = false;
 
-			//If any bros fulfill the below requirements, this event will not apply/trigger to them
-		if (bro.getFlags().get("IsSpecial") || bro.getFlags().get("IsPlayerCharacter") || bro.getBackground().getID() == "background.legend_puppet" || bro.getBackground().getID() == "background.legend_donkey")
-		{
-			return;
-		}
-
 		foreach( bro in brothers )
 		{
-			if (bro.getSkills().hasSkill("trait.spartan"))
+			if (bro.getSkills().hasSkill("trait.spartan") || bro.getFlags().get("IsSpecial") || bro.getFlags().get("IsPlayerCharacter") || bro.getBackground().getID() == "background.legend_puppet" || bro.getBackground().getID() == "background.legend_donkey")
 			{
 				continue;
 			}
