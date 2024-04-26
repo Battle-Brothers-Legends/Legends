@@ -1462,7 +1462,6 @@ this.actor <- this.inherit("scripts/entity/tactical/entity", {
 
 		if (this.m.Skills.hasSkill("perk.steel_brow") && _hitInfo.BodyPart == this.Const.BodyPart.Head)
 		{	
-			::logInfo("effect is active")
 			_hitInfo.BodyDamageMult -= this.Math.floor(_hitInfo.BodyDamageMult / 3);
 		}
 
