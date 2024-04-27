@@ -250,17 +250,17 @@ gt.Const.SouthernMeleeWeapons1h <- [
 	"weapon.shamshir",
 	"weapon.scimitar",
 	"weapon.legend_katar",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.firelance",
+	"weapon.heavy_southern_mace",	
+	"weapon.light_southern_mace",
+	"weapon.nomad_mace",
+	"weapon.qatal_dagger",
+	"weapon.saif"
 ];
 
 //Southern melee weapons - 2h
 gt.Const.SouthernMeleeWeapons2h <- [
-	"",
+	"weapon.polemace",
 	"",
 	"",
 	"",
@@ -287,12 +287,12 @@ gt.Const.SouthernRangedWeapons1h <- [
 //Southern ranged weapons - 2h
 gt.Const.SouthernRangedWeapons2h <- [
 	"weapon.staff_sling",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
+	"weapon.composite_bow",
+	"weapon.handgonne",
+	"weapon.nomad_sling",
+	"weapon.swordlance",	
+	"weapon.two_handed_saif",
+	"weapon.two_handed_scimitar",
 	"",
 	""
 ];
