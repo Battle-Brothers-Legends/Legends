@@ -40,9 +40,6 @@ gt.Const.PeasantMeleeWeapons2h <- [
 
 //Peasant - low tier ranged weapons - 1 handed
 gt.Const.PeasantRangedWeapons1h <- [
-	"weapon.knife",
-	"weapon.wooden_stick",
-	"weapon.wooden_flail",
 	"weapon.legend_sling",	
 	"",
 	"",
