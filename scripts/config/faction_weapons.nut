@@ -194,55 +194,38 @@ gt.Const.MilitarySpecialWeapons2h <- [
 											######## Ancient Dead ########
 //Ancient dead melee weapons - 1h
 gt.Const.AncientDeadMeleeWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.ancient_spear",
+	"weapon.ancient_sword",
+	"weapon.broken_ancient_sword",
+	"weapon.falx",
+	"weapon.khopesh",	
+	"weapon.legend_kopis",
+	"weapon.legend_gladius",
+	"weapon.legend_khopesh"
 ];
 
 //Ancient dead melee weapons - 2h
 gt.Const.AncientDeadMeleeWeapons2h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.bladed_pike",
+	"weapon.broken_bladed_pike",
+	"weapon.crypt_cleaver",
+	"weapon.legend_fan_axe",
+	"weapon.legend_great_khopesh",	
+	"weapon.rhomphaia",
+	"weapon.warscythe"
 ];
 
-//Ancient dead ranged weapons - 1h
-gt.Const.AncientDeadRangedWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
-];
+// //Ancient dead ranged weapons - 1h
+// gt.Const.AncientDeadRangedWeapons1h <- [
+// 	"",
+// 	""
+// ];
 
-//Ancient dead ranged weapons - 2h
-gt.Const.AncientDeadRangedWeapons2h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
-];
+// //Ancient dead ranged weapons - 2h
+// gt.Const.AncientDeadRangedWeapons2h <- [
+// 	"",
+// 	""
+// ];
 
 											######## SOUTHERN ########
 //Southern melee weapons - 1h
