@@ -191,15 +191,9 @@ this.legend_vala_trance_malevolent <- this.inherit("scripts/skills/skill", {
 				expertise = expertise + 15.0 / this.m.Difficulty;
 			}
 
-			if (expertise > 95)
-			{
-				expertise = 95;
-			}
-
-			if (expertise < 5)
-			{
-				expertise = 5;
-			}
+			local minimumHitChance = ::Legends.Mod.ModSettings.getSetting("MinimumChanceToHit").getValue();
+			local maximumHitChance = ::Legends.Mod.ModSettings.getSetting("MaximumChanceToHit").getValue();
+			expertise = this.Math.max(minimumHitChance, this.Math.min(maximumHitChance, expertise));
 
 			this.logInfo("MALEVOLENT SPIRITS :: expertise is " + expertise);
 

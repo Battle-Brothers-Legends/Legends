@@ -62,6 +62,8 @@
 	misc.addElement(::MSU.Class.EnumSetting("ShowBlueprintsWhen", "All Ingredients Available", ["All Ingredients Available", "One Ingredient Available", "Always"], "Show Blueprints when", myEnumTooltip));
 	misc.addElement(::MSU.Class.BooleanSetting("AutoRepairLayer", false, "Autorepair Layer", "Any Body or Helmet Layer that you strip from a piece of armor is automatically marked as 'to be repaired'."));	
 	misc.addElement(::MSU.Class.BooleanSetting("ClickPresetToSwitch", false, "Faster Camping Preset Switch", "Clicking on the camping preset slot immediately applies the preset"));
+	misc.addElement(::MSU.Class.RangeSetting("MinimumChanceToHit", 5, 0, 100, 1, "Minimum hitchance", "Slider for minimum hitchance percentage. Pushing this slider too far will result in no chance to hit for anyone."));
+	misc.addElement(::MSU.Class.RangeSetting("MaximumChanceToHit", 95, 0, 100, 1, "Maximum hitchance", "Slider for maximum hitchance percentage. Pushing this slider too far back will result in no chance to hit for anyone."));
 
 
 	local logging = ::Legends.Mod.ModSettings.addPage("Logging");

@@ -1733,6 +1733,8 @@ this.skill <- {
 		local levelDifference = _targetEntity.getTile().Level - user.getTile().Level;
 		local distanceToTarget = user.getTile().getDistanceTo(_targetEntity.getTile());
 		local toHit = skill - defense;
+		local minimumHitChance = ::Legends.Mod.ModSettings.getSetting("MinimumChanceToHit").getValue() ? 0 : 5
+		local maximumHitChance = ::Legends.Mod.ModSettings.getSetting("MaximumChanceToHit").getValue() ? 100 : 95
 
 		if (this.m.IsRanged)
 		{
@@ -1779,7 +1781,7 @@ this.skill <- {
 			}
 		}
 
-		return this.Math.max(5, this.Math.min(95, toHit));
+		return this.Math.max(minimumHitChance, this.Math.min(maximumHitChance, toHit));
 	}
 
 	function attackEntity( _user, _targetEntity, _allowDiversion = true )
@@ -2010,6 +2012,9 @@ this.skill <- {
 		local distanceToTarget = _user.getTile().getDistanceTo(_targetEntity.getTile());
 		local toHit = 0;
 		local skill = this.m.IsRanged ? properties.RangedSkill * properties.RangedSkillMult : properties.MeleeSkill * properties.MeleeSkillMult;
+		local minimumHitChance = ::Legends.Mod.ModSettings.getSetting("MinimumChanceToHit").getValue();
+		local maximumHitChance = ::Legends.Mod.ModSettings.getSetting("MaximumChanceToHit").getValue();
+
 		toHit = toHit + skill;
 		toHit = toHit - defense;
 
@@ -2061,7 +2066,7 @@ this.skill <- {
 
 		if (defense > -100 && skill > -100)
 		{
-			toHit = this.Math.max(5, this.Math.min(95, toHit));
+			toHit = this.Math.max(minimumHitChance, this.Math.min(maximumHitChance, toHit));
 		}
 
 		_targetEntity.onAttacked(_user);
@@ -2132,11 +2137,11 @@ this.skill <- {
 					{
 						if (isHit)
 						{
-							this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and the shot goes astray and hits " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + this.Math.min(95, this.Math.max(5, toHit)) + ", Rolled: " + rolled + ")");
+							this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and the shot goes astray and hits " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + this.Math.min(maximumHitChance, this.Math.max(minimumHitChance, toHit)) + ", Rolled: " + rolled + ")");
 						}
 						else
 						{
-							this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and the shot goes astray and misses " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + this.Math.min(95, this.Math.max(5, toHit)) + ", Rolled: " + rolled + ")");
+							this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and the shot goes astray and misses " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + this.Math.min(maximumHitChance, this.Math.max(minimumHitChance, toHit)) + ", Rolled: " + rolled + ")");
 						}
 					}
 					else
@@ -2148,11 +2153,11 @@ this.skill <- {
 				{
 					if (isHit)
 					{
-						this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and hits " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + this.Math.min(95, this.Math.max(5, toHit)) + ", Rolled: " + rolled + ")");
+						this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and hits " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + this.Math.min(maximumHitChance, this.Math.max(minimumHitChance, toHit)) + ", Rolled: " + rolled + ")");
 					}
 					else
 					{
-						this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and misses " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + this.Math.min(95, this.Math.max(5, toHit)) + ", Rolled: " + rolled + ")");
+						this.Tactical.EventLog.logEx(this.Const.UI.getColorizedEntityName(_user) + " uses " + this.getName() + " and misses " + this.Const.UI.getColorizedEntityName(_targetEntity) + " (Chance: " + this.Math.min(maximumHitChance, this.Math.max(minimumHitChance, toHit)) + ", Rolled: " + rolled + ")");
 					}
 				}
 				else

@@ -27,16 +27,9 @@ this.legend_vala_threads <- this.inherit("scripts/skills/skill", {
 		}
 
 		local expertise = this.getContainer().getActor().getBravery();
-
-		if (expertise < 5)
-		{
-			expertise = 5;
-		}
-
-		if (expertise > 95)
-		{
-			expertise = 95;
-		}
+		local minimumHitChance = ::Legends.Mod.ModSettings.getSetting("MinimumChanceToHit").getValue();
+		local maximumHitChance = ::Legends.Mod.ModSettings.getSetting("MaximumChanceToHit").getValue();
+		expertise = this.Math.max(minimumHitChance, this.Math.min(maximumHitChance, expertise));
 
 		if (this.Math.rand(1, 100) <= expertise)
 		{
