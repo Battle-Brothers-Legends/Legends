@@ -30,6 +30,8 @@ local modID = "mod_close_combat_archer_tooltip"
 			// positive bonus because they are within two tiles away
 			if( CharDistFromTarget <= 2){
 				_tooltip.push({
+					id = 1,
+					type = "text",
         			icon = "ui/tooltips/positive.png",
        				text = rdef + "% more damage \n" + "  " +  this.getName()
      			 });
@@ -37,6 +39,8 @@ local modID = "mod_close_combat_archer_tooltip"
 			//negative bonus because they are further that 3 tiles away
 			else if (CharDistFromTarget >= 4){
 				_tooltip.push({
+					id = 1,
+					type = "text",
         			icon = "ui/tooltips/negative.png",
        				text = rdef  + "% less damage \n" + "  " + this.getName()
      			 });
