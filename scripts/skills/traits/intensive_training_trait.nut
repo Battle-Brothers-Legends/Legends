@@ -195,7 +195,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					id = 6,
 					type = "text",
 					icon = "ui/icons/health.png",
-					text = "Hitpoints: " + ::Const.UI.getColorized(this.m.HitpointsAdded, ::Const.UI.Color.PositiveValue)
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.HitpointsAdded + "[/color] Hitpoints"
 				});
 			}
 
@@ -205,7 +205,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					id = 6,
 					type = "text",
 					icon = "ui/icons/fatigue.png",
-					text = "Fatigue: " + ::Const.UI.getColorized(this.m.StaminaAdded, ::Const.UI.Color.PositiveValue)
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.StaminaAdded + "[/color] Fatigue"
 				});
 			}
 
@@ -215,17 +215,16 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					id = 6,
 					type = "text",
 					icon = "ui/icons/bravery.png",
-					text = "Resolve: " + ::Const.UI.getColorized(this.m.BraveAdded, ::Const.UI.Color.PositiveValue)
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.BraveAdded + "[/color] Resolve"
 				});
 			}
-
-			if (this.m.IniAdded > 0 )
+			if (this.m.IniAdded > 0)
 			{
 				tooltip.push({
 					id = 6,
 					type = "text",
 					icon = "ui/icons/initiative.png",
-					text = "Initiative: " + ::Const.UI.getColorized(this.m.IniAdded, ::Const.UI.Color.PositiveValue)
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.IniAdded + "[/color] Initiative"
 				});
 			}
 
@@ -235,7 +234,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					id = 6,
 					type = "text",
 					icon = "ui/icons/melee_skill.png",
-					text = "Melee Skill: " + ::Const.UI.getColorized(this.m.MatkAdded, ::Const.UI.Color.PositiveValue)
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.MatkAdded + "[/color] Melee Skill"
 				});
 			}
 
@@ -245,7 +244,7 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					id = 6,
 					type = "text",
 					icon = "ui/icons/ranged_skill.png",
-					text = "Ranged Skill: " + ::Const.UI.getColorized(this.m.RatkAdded, ::Const.UI.Color.PositiveValue)
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.RatkAdded + "[/color] Ranged Skill"
 				});
 			}
 
@@ -255,17 +254,17 @@ this.intensive_training_trait <- this.inherit("scripts/skills/traits/character_t
 					id = 6,
 					type = "text",
 					icon = "ui/icons/melee_defense.png",
-					text = "Melee Defense: " + ::Const.UI.getColorized(this.m.MdefAdded, ::Const.UI.Color.PositiveValue)
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.MdefAdded + "[/color] Melee Defense"
 				});
-			}
-
+			}	
+			
 			if (this.m.RdefAdded > 0)
 			{
 				tooltip.push({
 					id = 6,
 					type = "text",
 					icon = "ui/icons/ranged_defense.png",
-					text = "Ranged Defense: " + ::Const.UI.getColorized(this.m.RdefAdded, ::Const.UI.Color.PositiveValue)
+					text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.RdefAdded + "[/color] Ranged Defense"
 				});
 			}
 
