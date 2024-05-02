@@ -82,8 +82,7 @@ this.dazed_effect <- this.inherit("scripts/skills/skill", {
 
 	function onRefresh()
 	{
-		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
-		this.spawnIcon("status_effect_87", this.getContainer().getActor().getTile());
+		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration, this.m.TurnsLeft);
 	}
 
 	function onRemoved()
