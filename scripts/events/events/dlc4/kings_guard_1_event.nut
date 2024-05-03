@@ -154,7 +154,20 @@ this.kings_guard_1_event <- this.inherit("scripts/events/event", {
 			return;
 		}
 
-		this.m.Score = 5;
+		local brothers = this.World.getPlayerRoster().getAll();
+		local totalbrothers = 0;
+		local brotherlevels = 0;
+		foreach (bro in brothers)
+		{
+			if (bro.getBackground().getID() == "background.kings_guard")
+			{
+				return;
+			}
+			totalbrothers += 1;
+			brotherlevels += bro.getLevel();
+		}
+
+		this.m.Score = 20.0 + ((brotherlevels / totalbrothers * 10.00) / this.Const.LevelXP.len());
 	}
 
 	function onPrepare()
