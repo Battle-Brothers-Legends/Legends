@@ -55,27 +55,39 @@ this.legend_sanctified_effect <- this.inherit("scripts/skills/skill", {
 
 	function onNewRound()
 	{
-		if (!this.isActorOnTileWithHolyFlame() && this.m.TurnsLeft <= 0)
-		{
-			this.removeSelf();
+		local actor = this.getContainer().getActor();
+		if(!::Tactical.State.isBattleEnded() && actor.isPlacedOnMap()){
+			if (!this.isActorOnTileWithHolyFlame() && this.m.TurnsLeft <= 0)
+			{
+				this.removeSelf();
+			}
 		}
+	}
+
+	function onCombatFinished()
+	{
+		this.removeSelf();
 	}
 
 	function onUpdate( _properties )
 	{
-		if (!this.isActorOnTileWithHolyFlame() && this.m.TurnsLeft <= 0)
-		{
-			this.removeSelf();
-		}
-		else
-		{
-			_properties.IsAffectedByLosingHitpoints = false;
-			_properties.IsAffectedByInjuries = false;
-			_properties.IsAffectedByFreshInjuries = false;
-			_properties.IsImmuneToBleeding = true;
-			_properties.IsImmuneToPoison = true;	
+		local actor = this.getContainer().getActor();
+		if(!::Tactical.State.isBattleEnded() && actor.isPlacedOnMap()){
+			if (!this.isActorOnTileWithHolyFlame() && this.m.TurnsLeft <= 0)
+			{
+				this.removeSelf();
+			}
+			else
+			{
+				_properties.IsAffectedByLosingHitpoints = false;
+				_properties.IsAffectedByInjuries = false;
+				_properties.IsAffectedByFreshInjuries = false;
+				_properties.IsImmuneToBleeding = true;
+				_properties.IsImmuneToPoison = true;	
+			}
 		}
 	}
+
 
 });
 
