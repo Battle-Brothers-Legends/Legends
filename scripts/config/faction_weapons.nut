@@ -197,29 +197,21 @@ gt.Const.SouthernMeleeWeapons1h <- [
 
 //Southern melee weapons - 2h
 gt.Const.SouthernMeleeWeapons2h <- [
-	"weapon.polemace",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.polemace"
 ];
 
-//Southern ranged weapons - 1h
-gt.Const.SouthernRangedWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
-];
+// //Southern ranged weapons - 1h
+// gt.Const.SouthernRangedWeapons1h <- [
+// 	"",
+// 	"",
+// 	"",
+// 	"",
+// 	"",	
+// 	"",
+// 	"",
+// 	"",
+// 	""
+// ];
 
 //Southern ranged weapons - 2h
 gt.Const.SouthernRangedWeapons2h <- [
@@ -229,115 +221,75 @@ gt.Const.SouthernRangedWeapons2h <- [
 	"weapon.nomad_sling",
 	"weapon.swordlance",	
 	"weapon.two_handed_saif",
-	"weapon.two_handed_scimitar",
-	"",
-	""
+	"weapon.two_handed_scimitar"
 ];
 
 											######## ORC ########
 //Orc melee weapons - 1h
 gt.Const.OrcMeleeWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.legend_bone_carver",
+	"weapon.legend_meat_hacker",
+	"weapon.legend_skin_flayer",
+	"weapon.legend_skullsmasher",
+	"weapon.orc_axe",	
+	"weapon.orc_cleaver",
+	"weapon.orc_metal_club",
+	"weapon.orc_wooden_club"
 ];
 
 //Orc melee weapons - 2h
 gt.Const.OrcMeleeWeapons2h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.legend_bough",
+	"weapon.legend_limb_lopper",
+	"weapon.legend_man_mangler",
+	"weapon.legend_skullbreaker",
+	"weapon.orc_axe_2h",	
+	"weapon.orc_flail_2h"
 ];
 
 //Orc ranged weapons - 1h
 gt.Const.OrcRangedWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.orc_javelin"
 ];
 
-//Orc ranged weapons - 2h
-gt.Const.OrcRangedWeapons2h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
-];
+// //Orc ranged weapons - 2h
+// gt.Const.OrcRangedWeapons2h <- [
+// 	"",
+// 	"",
+// 	"",
+// 	"",
+// 	"",	
+// 	"",
+// 	"",
+// 	"",
+// 	""
+// ];
 
 											######## Goblin ########
 //Goblin melee weapons - 1h
 gt.Const.GoblinMeleeWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.goblin_falchion",
+	"weapon.goblin_notched_blade",
+	"weapon.goblin_spear",
+	"weapon.goblin_staff"
 ];
 
 //Goblin melee weapons - 2h
 gt.Const.GoblinMeleeWeapons2h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.goblin_pike"
 ];
 
 //Goblin ranged weapons - 1h
 gt.Const.GoblinRangedWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.goblin_spiked_balls"
 ];
 
 //Goblin ranged weapons - 2h
 gt.Const.GoblinRangedWeapons2h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.goblin_bow",
+	"weapon.goblin_crossbow",
+	"weapon.goblin_heavy_bow",
+	"weapon.legend_blowgun"
 ];
 
 											######## Barbarian ########
@@ -387,12 +339,8 @@ gt.Const.SpecialMeleeWeapons1h <- [
 	"weapon.legend_wooden_stake",
 	"weapon.legend_redback_dagger",
 	"weapon.legend_cat_o_nine_tails",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.lightbringer_sword",
+	"weapon.obsidian_dagger"
 ];
 
 //Special melee weapons - 2h
@@ -403,47 +351,30 @@ gt.Const.SpecialMeleeWeapons2h <- [
 	"weapon.legend_grisly_scythe",
 	"weapon.legend_drum",	
 	"weapon.legend_crusader_sword",
-	"",
-	"",
-	""
+	"weapon.legend_mage_swordstaff"
 ];
 
-//Special ranged weapons - 1h
-gt.Const.SpecialRangedWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
-];
+// //Special ranged weapons - 1h
+// gt.Const.SpecialRangedWeapons1h <- [
+// 	"",
+// 	"",
+// 	"",
+// 	"",
+// 	"",	
+// 	"",
+// 	"",
+// 	"",
+// 	""
+// ];
 
 //Special ranged weapons - 2h
 gt.Const.SpecialRangedWeapons2h <- [
 	"weapon.masterwork_bow",
-	"weapon.wonky_bow",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.wonky_bow"
 ];
 
 //Special Offhand
 gt.Const.SpecialOffhand <- [
-	"weapon.legend_hand_crossbow",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.legend_hand_crossbow"
 ];
 
