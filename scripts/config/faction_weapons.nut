@@ -34,30 +34,19 @@ gt.Const.PeasantMeleeWeapons2h <- [
 	"weapon.legend_scythe",
 	"weapon.legend_reinforced_flail",
 	"weapon.legend_hoe",
-	"weapon.legend_chain",
-	""
+	"weapon.legend_chain"
 ];
 
 //Peasant - low tier ranged weapons - 1 handed
 gt.Const.PeasantRangedWeapons1h <- [
-	"weapon.legend_sling",	
-	"",
-	"",
-	"",
-	""
+	"weapon.legend_sling"
 ];
 
 //Peasant - low tier ranged weapons - 2 handed
 gt.Const.PeasantRangedWeapons2h <- [
 	"weapon.short_bow",
 	"weapon.light_crossbow",
-	"eapon.legend_slingshot",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.legend_slingshot"
 ];
 											######## MERCENARY TIER ########
 //mercenary - mid melee tier weapons - 1h
@@ -98,26 +87,13 @@ gt.Const.MercenaryMeleeWeapons2h <- [
 gt.Const.MercenaryRangedWeapons1h <- [
 	"weapon.throwing_spear",
 	"weapon.throwing_axe",
-	"weapon.javelin",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.javelin"
 ];
 
 //mercenary - mid tier ranged weapons - 2h
 gt.Const.MercenaryRangedWeapons2h <- [
 	"weapon.hunting_bow",
-	"weapon.crossbow",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.crossbow"
 ];
 											######## MILITARY TIER ########
 //Military - high tier north melee weapons 1h
@@ -153,41 +129,19 @@ gt.Const.MilitaryMeleeWeapons2h <- [
 
 //Military - high tier north ranged weapons 1h
 gt.Const.MilitaryRangedWeapons1h <- [
-	"weapon.rondel_dagger",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.rondel_dagger"
 ];
 
 //Military - high tier north ranged weapons 2h
 gt.Const.MilitaryRangedWeapons2h <- [
 	"weapon.war_bow",
 	"weapon.legend_slingstaff",
-	"weapon.heavy_crossbow",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.heavy_crossbow"
 ];
 
 //Military - high tier specials
 gt.Const.MilitarySpecialWeapons2h <- [
-	"shield.legend_parrying_dagger",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"shield.legend_parrying_dagger"
 ];
 
 
@@ -389,55 +343,41 @@ gt.Const.GoblinRangedWeapons2h <- [
 											######## Barbarian ########
 //Barbarian melee weapons - 1h
 gt.Const.BarbarianMeleeWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.antler_cleaver",
+	"weapon.axehammer",
+	"weapon.blunt_cleaver",
+	"weapon.claw_club",
+	"weapon.crude_axe",	
+	"weapon.thorned_whip"
 ];
 
 //Barbarian melee weapons - 2h
 gt.Const.BarbarianMeleeWeapons2h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.barbarian_drum",
+	"weapon.heavy_rusty_axe",
+	"weapon.rusty_warblade",
+	"weapon.skull_hammer",
+	"weapon.two_handed_spiked_mace"
 ];
 
 //Barbarian ranged weapons - 1h
 gt.Const.BarbarianRangedWeapons1h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
+	"weapon.heavy_javelin",
+	"weapon.heavy_throwing_axe"
 ];
 
-//Barbarian ranged weapons - 2h
-gt.Const.BarbarianRangedWeapons2h <- [
-	"",
-	"",
-	"",
-	"",
-	"",	
-	"",
-	"",
-	"",
-	""
-];
+// //Barbarian ranged weapons - 2h
+// gt.Const.BarbarianRangedWeapons2h <- [
+// 	"",
+// 	"",
+// 	"",
+// 	"",
+// 	"",	
+// 	"",
+// 	"",
+// 	"",
+// 	""
+// ];
 
 											######## SPECIAL ########
 					#(Basically, anything that you can't get normally via shops or need to craft)#
