@@ -82,7 +82,7 @@ this.dazed_effect <- this.inherit("scripts/skills/skill", {
 
 	function onRefresh()
 	{
-		this.m.TurnsLeft = this.Math.max(1, 2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration, this.m.TurnsLeft);
+		this.m.TurnsLeft = this.Math.max(2 + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration, this.m.TurnsLeft);
 	}
 
 	function onRemoved()
