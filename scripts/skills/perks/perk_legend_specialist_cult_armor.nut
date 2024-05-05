@@ -77,7 +77,7 @@ this.perk_legend_specialist_cult_armor <- this.inherit("scripts/skills/skill", {
 		return 0;
 	}
 
-	function onUpdate( _properties )
+	function onAfterUpdate( _properties )
 	{
 		_properties.Bravery += this.getResolveBonus();
 
