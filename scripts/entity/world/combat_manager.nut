@@ -451,7 +451,7 @@ this.combat_manager <- {
 		}
 	}
 
-	o.onDeserialize = function ( _in )
+	function onDeserialize(_in)
 	{
 		this.clear();
 		this.m.NextCombatID = _in.readI32();
