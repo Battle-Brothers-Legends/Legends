@@ -254,8 +254,8 @@ this.legend_berserker_commander_background <- this.inherit("scripts/skills/backg
 				0
 			],
 			MeleeDefense = [
-				-5,
-				-5
+				10,
+				10
 			],
 			RangedDefense = [
 				-5,
