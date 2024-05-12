@@ -21,7 +21,7 @@ this.perk_legend_specialist_sling_skill <- this.inherit("scripts/skills/skill", 
 			_properties.RangedSkill += 12;
 			if (item.getID() != "weapon.legend_slingstaff")
 			{
-				_properties.DamageArmorMult *= 1.25;
+				_properties.DamageArmorMult += 0.25;
 			}
 		}
 	}

@@ -21,12 +21,12 @@ this.perk_legend_specialist_shortbow_skill <- this.inherit("scripts/skills/skill
 			if (item.isItemType(this.Const.Items.ItemType.Shortbow))
 			{
 				_properties.RangedSkill += 12;
-				_properties.DamageDirectMult *= 1.25;
+				_properties.DamageDirectAdd += 0.25;
 			}
 			else if (item.isWeaponType(this.Const.Items.WeaponType.Bow))
 			{
 				_properties.RangedSkill += 3;
-				_properties.DamageDirectMult *= 1.08;
+				_properties.DamageDirectAdd += 0.08;
 			}
 		}
 	}

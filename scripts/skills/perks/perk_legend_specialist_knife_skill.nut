@@ -21,12 +21,12 @@ this.perk_legend_specialist_knife_skill <- this.inherit("scripts/skills/skill", 
 			if (item.getID() == "weapon.knife" || item.getID() == "weapon.legend_shiv")
 			{
 				_properties.MeleeSkill += 12;
-				_properties.DamageDirectMult += 0.4;
+				_properties.DamageDirectAdd += 0.4;
 			} 
 			else if (item.isWeaponType(this.Const.Items.WeaponType.Dagger))
 			{
 				_properties.MeleeSkill += 3;
-				_properties.DamageDirectMult += 0.1;
+				_properties.DamageDirectAdd += 0.1;
 			}
 		}
 	}
