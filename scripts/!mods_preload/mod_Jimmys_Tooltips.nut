@@ -4,7 +4,7 @@
 	Version = "1.0.5"
 }
 ::ModJimmysTooltips.ModHook <- ::Hooks.register(::ModJimmysTooltips.ID, ::ModJimmysTooltips.Version, ::ModJimmysTooltips.Name);
-::ModJimmysTooltips.ModHook.require("mod_legends >= 18.2.5", "mod_msu >= 1.2.7", "mod_modern_hooks 0.4.10");
+::ModJimmysTooltips.ModHook.require("mod_legends >= 18.2.5", "mod_msu >= 1.2.7", "mod_modern_hooks >= 0.4.10");
 ::ModJimmysTooltips.ModHook.queue(">mod_legends", ">mod_msu",function()
 {
 	::ModJimmysTooltips.Mod <- ::MSU.Class.Mod(::ModJimmysTooltips.ID, ::ModJimmysTooltips.Version, ::ModJimmysTooltips.Name);
