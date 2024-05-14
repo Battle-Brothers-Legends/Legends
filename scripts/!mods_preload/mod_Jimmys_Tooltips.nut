@@ -18,15 +18,15 @@
 	page.addBooleanSetting("Skills", true);
 	page.addBooleanSetting("Stats", true);
 
-	foreach (file in ::IO.enumerateFiles("tt_hooks/config"))
+	foreach (file in ::IO.enumerateFiles("hooks/tt_hooks/config"))
 	{
 		::include(file);
 	}
 
 	// load keybinds
-	::include("tt_hooks/keybinds.nut");
+	::include("hooks/tt_hooks/keybinds.nut");
 
-	foreach (file in ::IO.enumerateFiles("tt_hooks/hooks"))
+	foreach (file in ::IO.enumerateFiles("hooks/tt_hooks/hooks"))
 	{
 		::include(file);
 	}
