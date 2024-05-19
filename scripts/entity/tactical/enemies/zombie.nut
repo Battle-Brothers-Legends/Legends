@@ -628,6 +628,7 @@ this.zombie <- this.inherit("scripts/entity/tactical/actor", {
 		b.IsAffectedByNight = false;
 		b.IsAffectedByInjuries = false;
 		b.IsImmuneToBleeding = true;
+		this.setHitpoints(this.getHitpointsMax() * this.Math.rand(45, 85) * 0.01);
 
 		if (!this.Tactical.State.isScenarioMode() && this.World.getTime().Days >= 90)
 		{
