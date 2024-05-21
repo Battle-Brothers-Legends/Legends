@@ -197,7 +197,10 @@ gt.Const.SouthernMeleeWeapons1h <- [
 
 //Southern melee weapons - 2h
 gt.Const.SouthernMeleeWeapons2h <- [
-	"weapon.polemace"
+	"weapon.polemace",
+	"weapon.swordlance",
+	"weapon.two_handed_saif", 
+	"weapon.two_handed_scimitar" 
 ];
 
 // //Southern ranged weapons - 1h
@@ -218,10 +221,7 @@ gt.Const.SouthernRangedWeapons2h <- [
 	"weapon.staff_sling",
 	"weapon.composite_bow",
 	"weapon.handgonne",
-	"weapon.nomad_sling",
-	"weapon.swordlance",	
-	"weapon.two_handed_saif",
-	"weapon.two_handed_scimitar"
+	"weapon.nomad_sling"
 ];
 
 											######## ORC ########
