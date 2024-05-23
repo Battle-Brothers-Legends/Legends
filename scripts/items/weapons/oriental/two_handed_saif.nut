@@ -8,7 +8,7 @@ this.two_handed_saif <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.Description = "A long version of the Saif wielded with both hands. The curved blade can cleave gruesome wounds.";
 		this.m.IconLarge = "weapons/melee/two_handed_saif.png";
 		this.m.Icon = "weapons/melee/two_handed_saif_70x70.png";
-		this.m.WeaponType = this.Const.Items.WeaponType.Cleaver;
+		this.m.WeaponType = this.Const.Items.WeaponType.Sword | this.Const.Items.WeaponType.Cleaver;
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;

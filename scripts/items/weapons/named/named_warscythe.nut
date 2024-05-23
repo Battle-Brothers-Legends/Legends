@@ -11,7 +11,7 @@ this.named_warscythe <- this.inherit("scripts/items/weapons/named/named_weapon",
 		this.m.PrefixList = this.Const.Strings.OldWeaponPrefix;
 		this.m.UseRandomName = false;
 		this.m.Description = "A long pole attached to a sharp curved blade, used to deliver deep sweeping strikes over some distance. This exemplar is particularly well-crafted.";
-		this.m.WeaponType = this.Const.Items.WeaponType.Polearm;
+		this.m.WeaponType = this.Const.Items.WeaponType.Cleaver | this.Const.Items.WeaponType.Polearm;
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		this.m.ItemType = this.Const.Items.ItemType.Named | this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.MeleeWeapon | this.Const.Items.ItemType.TwoHanded;
