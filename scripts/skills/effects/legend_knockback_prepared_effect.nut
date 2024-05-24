@@ -1,4 +1,4 @@
-this.legend_knockback_prepared_effect<- this.inherit("scripts/skills/skill", {
+this.legend_knockback_prepared_effect <- this.inherit("scripts/skills/skill", {
 	m = {
 		AttacksLeft = 1
 	},
@@ -38,9 +38,7 @@ this.legend_knockback_prepared_effect<- this.inherit("scripts/skills/skill", {
 	function resetTime()
 	{
 		if (this.getContainer().getActor().isPlacedOnMap())
-		{
 			this.spawnIcon("status_effect_54", this.getContainer().getActor().getTile());
-		}
 
 		this.m.AttacksLeft = 1;
 	}
@@ -48,11 +46,10 @@ this.legend_knockback_prepared_effect<- this.inherit("scripts/skills/skill", {
 	function onTargetHit( _skill, _targetEntity, _bodyPart, _damageInflictedHitpoints, _damageInflictedArmor )
 	{
 		--this.m.AttacksLeft;
+		_targetEntity.getSkills().getSkillByID("effects.legend_baffled");
 
 		if (this.m.AttacksLeft <= 0)
-		{
 			this.removeSelf();
-		}
 	}
 
 	function onTargetMissed( _skill, _targetEntity )
@@ -60,9 +57,7 @@ this.legend_knockback_prepared_effect<- this.inherit("scripts/skills/skill", {
 		--this.m.AttacksLeft;
 
 		if (this.m.AttacksLeft <= 0)
-		{
 			this.removeSelf();
-		}
 	}
 
 	function findTileToKnockBackTo( _userTile, _targetTile )
@@ -74,9 +69,7 @@ this.legend_knockback_prepared_effect<- this.inherit("scripts/skills/skill", {
 			local knockToTile = _targetTile.getNextTile(dir);
 
 			if (knockToTile.IsEmpty && knockToTile.Level - _targetTile.Level <= 1)
-			{
 				return knockToTile;
-			}
 		}
 
 		local altdir = dir - 1 >= 0 ? dir - 1 : 5;
@@ -86,9 +79,7 @@ this.legend_knockback_prepared_effect<- this.inherit("scripts/skills/skill", {
 			local knockToTile = _targetTile.getNextTile(altdir);
 
 			if (knockToTile.IsEmpty && knockToTile.Level - _targetTile.Level <= 1)
-			{
 				return knockToTile;
-			}
 		}
 
 		altdir = dir + 1 <= 5 ? dir + 1 : 0;
@@ -98,13 +89,10 @@ this.legend_knockback_prepared_effect<- this.inherit("scripts/skills/skill", {
 			local knockToTile = _targetTile.getNextTile(altdir);
 
 			if (knockToTile.IsEmpty && knockToTile.Level - _targetTile.Level <= 1)
-			{
 				return knockToTile;
-			}
 		}
 
 		return null;
 	}
 
 });
-
