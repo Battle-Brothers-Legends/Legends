@@ -74,8 +74,8 @@ this.legend_withering_aura_trait <- this.inherit("scripts/skills/traits/characte
 			ret.push({
 				id = 17,
 				type = "text",
-				icon = "ui/icons/initative.png",
-				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-5%[/color] Initative"
+				icon = "ui/icons/initiative.png",
+				text = "[color=" + this.Const.UI.Color.NegativeValue + "]-5%[/color] Initiative"
 			});
 		}
 
