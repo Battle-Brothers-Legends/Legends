@@ -20,17 +20,16 @@ this.perk_legend_specialist_staff_skill <- this.inherit("scripts/skills/skill", 
 
 		if (item != null)
 		{
-			if (item.isWeaponType(this.Const.Items.WeaponType.Staff))
+			if (item.isWeaponType(this.Const.Items.WeaponType.Staff) || item.isWeaponType(this.Const.Items.WeaponType.MagicStaff))
 			{
 				_properties.MeleeDefense += 16;
 				_properties.RangedDefense += 16;
-				
+
 				if (item.isWeaponType(this.Const.Items.WeaponType.Sword) || item.isWeaponType(this.Const.Items.WeaponType.Sling) || item.isWeaponType(this.Const.Items.WeaponType.Musical))
 				{
 					_properties.MeleeDefense -= 8;
 					_properties.RangedDefense -= 8;
 				}
-				
 			}
 			else if (item.isWeaponType(this.Const.Items.WeaponType.Musical))
 			{
@@ -39,5 +38,4 @@ this.perk_legend_specialist_staff_skill <- this.inherit("scripts/skills/skill", 
 			}
 		}
 	}
-
 });
