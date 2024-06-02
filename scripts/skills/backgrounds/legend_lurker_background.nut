@@ -110,7 +110,8 @@ this.legend_lurker_background <- this.inherit("scripts/skills/backgrounds/charac
 			],
 			Enemy = [
 				this.Const.Perks.CaravanTree,
-				this.Const.Perks.NoblesTree
+				this.Const.Perks.NoblesTree,
+				this.Const.Perks.ArcherTree
 			],
 			Class = [
 				this.Const.Perks.BeastClassTree,

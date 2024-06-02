@@ -156,6 +156,7 @@ this.legend_ranger_commander_background <- this.inherit("scripts/skills/backgrou
 				this.Const.Perks.PerkDefs.LegendSecondWind,
 				this.Const.Perks.PerkDefs.LegendBlendIn,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySchrat,
+				this.Const.Perks.PerkDefs.LegendFavouredEnemyArcher
 			],
 			[
 				this.Const.Perks.PerkDefs.LegendBigGameHunter,

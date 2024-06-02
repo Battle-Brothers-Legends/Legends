@@ -423,6 +423,22 @@ gt.Const.Perks.ArchersTree <- {
 	]
 };
 
+gt.Const.Perks.ArcherTree <- {
+	ID = "ArcherTree",
+	Descriptions = [
+		"archer"
+	],
+	Tree = [
+		[],
+		[],
+		[],
+		[],
+		[],
+		[gt.Const.Perks.PerkDefs.LegendFavouredEnemyArcher],
+		[]
+	]
+};
+
 gt.Const.Perks.SwordmastersTree <- {
 	ID = "SwordmastersTree",
 	Descriptions = [

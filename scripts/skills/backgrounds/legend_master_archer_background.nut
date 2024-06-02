@@ -96,7 +96,7 @@ this.legend_master_archer_background <- this.inherit("scripts/skills/backgrounds
 				this.Const.Perks.FitTree,
 				this.Const.Perks.DeviousTree
 			],
-			Enemy = [],
+			Enemy = [this.Const.Perks.ArcherTree],
 			Class = [],
 			Magic = [
 				this.Const.Perks.RangerHuntMagicTree

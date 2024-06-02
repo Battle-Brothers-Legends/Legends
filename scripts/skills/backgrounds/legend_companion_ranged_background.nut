@@ -99,7 +99,9 @@ this.legend_companion_ranged_background <- this.inherit("scripts/skills/backgrou
 				this.Const.Perks.DeviousTree,
 				this.Const.Perks.TrainedTree
 			],
-			Enemy = [],
+			Enemy = [
+				this.Const.Perks.ArcherTree
+			],
 			Class = [
 				this.Const.Perks.BeastClassTree
 			],
