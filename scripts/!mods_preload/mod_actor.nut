@@ -280,10 +280,10 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 			}
 
 			// Attempt to Parry
-			local validAttackerToParry = _attacker != null && _attacker.isAlive() && !_attacker.isAlliedWith(this) && _attacker.getTile().getDistanceTo(this.getTile()) == 1 && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _attacker.getID()
+			local validAttackerToParry = _attacker != null && _attacker.isAlive() && !_attacker.isAlliedWith(this) && _attacker.getTile().getDistanceTo(this.getTile()) == 1 && this.Tactical.TurnSequenceBar.getActiveEntity() != null && this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _attacker.getID();
 			local validSkillToParry = _skill != null && !_skill.isIgnoringRiposte() && _skill.m.IsWeaponSkill;
-			if (this.m.CurrentProperties.IsParrying && !this.getCurrentProperties().IsStunned  &&  validAttackerToParry && validSkillToParry 
-				&& !_attacker.getCurrentProperties().IsImmuneToDisarm && !_attacker.getSkills().hasSkill("effects.legend_parried"))
+
+			if (this.m.CurrentProperties.IsParrying && !this.getCurrentProperties().IsStunned && validAttackerToParry && validSkillToParry && !_attacker.getCurrentProperties().IsImmuneToDisarm && !_attacker.getSkills().hasSkill("effects.legend_parried"))
 			{		
 				if (this.isHiddenToPlayer())
 				{
@@ -297,12 +297,7 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 						Attacker = _attacker,
 						Skill = _skill
 					};
-					this.Time.scheduleEvent(
-						this.TimeUnit.Virtual, 
-						this.Const.Combat.RiposteDelay * 1.5, 
-						this.onParryVisible.bindenv(this),
-						info
-					); 
+					this.Time.scheduleEvent(this.TimeUnit.Virtual, this.Const.Combat.RiposteDelay * 1.5, this.onParryVisible.bindenv(this), info);
 					
 				}
 				this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this) + " Parries the attack from " + this.Const.UI.getColorizedEntityName(_attacker));
