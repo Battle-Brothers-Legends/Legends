@@ -86,15 +86,27 @@ this.legend_broad_head_arrows <- this.inherit("scripts/items/ammo/ammo", {
 		this.ammo.onUpdateProperties(_properties);
 		local actor = this.getContainer().getActor();
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
-
-		if (item == null || !item.isWeaponType(this.Const.Items.WeaponType.Bow))
+		if (item == null)
 		{
 			return;
 		}
 		
-		_properties.DamageDirectMult *= 0.9;
-		_properties.DamageArmorMult *= 0.9;
-		_properties.RangedDamageMult *= 1.3;
+		switch(item.getID()) //this ideally needs to be refactored - it does work but we can just call the item.type instead of listing all these out.
+		{
+			case "weapon.composite_bow":
+			case "weapon.wonky_bow":
+			case "weapon.war_bow":
+			case "weapon.named_warbow":
+			case "weapon.hunting_bow":
+			case "weapon.masterwork_bow":
+			case "weapon.short_bow":
+			case "weapon.goblin_bow":
+			case "weapon.goblin_heavy_bow":
+			case "weapon.named_goblin_heavy_bow":
+				_properties.DamageDirectMult *= 0.9;
+				_properties.RangedDamageMult *= 1.1;
+					break;
+		}
 	}
 });
 

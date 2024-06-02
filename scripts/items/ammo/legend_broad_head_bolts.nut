@@ -81,20 +81,28 @@ this.legend_broad_head_bolts <- this.inherit("scripts/items/ammo/ammo", {
 		return result;
 	}
 
-	function onUpdateProperties( _properties )
+function onUpdateProperties( _properties )
 	{
 		this.ammo.onUpdateProperties(_properties);
 		local actor = this.getContainer().getActor();
 		local item = actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand);
-
-		if (item == null || !item.isWeaponType(this.Const.Items.WeaponType.Crossbow))
+		if (item == null)
 		{
 			return;
 		}
 		
-		_properties.DamageDirectMult *= 0.9;
-		_properties.DamageArmorMult *= 0.9;
-		_properties.RangedDamageMult *= 1.3;
+		switch (item.getID())
+		{
+			case "weapon.light_crossbow":
+			case "weapon.goblin_crossbow":
+			case "weapon.crossbow":
+			case "weapon.heavy_crossbow":
+			case "weapon.named_crossbow":	
+				_properties.DamageDirectMult *= 0.9;
+				_properties.RangedDamageMult *= 1.1;
+					break;
+		}
+
 	}
 });
 
