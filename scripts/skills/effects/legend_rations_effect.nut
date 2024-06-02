@@ -25,7 +25,8 @@ this.legend_rations_effect <- this.inherit("scripts/skills/skill", {
 		this.m.TurnsLeft = 10;
 	}
 
-	function getAmount() {
+	function getAmount() 
+	{
 		return this.m.Amount;
 	}
 

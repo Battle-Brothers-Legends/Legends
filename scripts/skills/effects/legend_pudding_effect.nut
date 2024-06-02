@@ -9,6 +9,27 @@ this.legend_pudding_effect <- this.inherit("scripts/skills/skill", {
 	this.m.Amount = _a;
 	}
 
+	function addAmount ( _a)
+	{
+		//Subtract how much we've ate.
+		this.m.Amount = this.Math.max(0, this.m.Amount - (10 - this.m.TurnsLeft)) + _a;
+	}
+
+	function getTurnsLeft()
+	{
+		return this.m.TurnsLeft;
+	}
+
+	function resetTurns()
+	{
+		this.m.TurnsLeft = 10;
+	}
+
+	function getAmount()
+	{
+		return this.m.Amount;
+	}
+
 	function create()
 	{
 		this.m.ID = "effects.legend_pudding_effect";

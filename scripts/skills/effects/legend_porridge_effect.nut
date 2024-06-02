@@ -16,6 +16,32 @@ this.legend_porridge_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsRemovedAfterBattle = true;
 	}
 
+	function setAmount( _a )
+	{
+	this.m.Amount = _a;
+	}
+
+	function addAmount ( _a)
+	{
+		//Subtract how much we've ate.
+		this.m.Amount = this.Math.max(0, this.m.Amount - (15 - this.m.TurnsLeft)) + _a;
+	}
+
+	function getTurnsLeft()
+	{
+		return this.m.TurnsLeft;
+	}
+
+	function resetTurns()
+	{
+		this.m.TurnsLeft = 15;
+	}
+
+	function getAmount()
+	{
+		return this.m.Amount;
+	}
+
 	function getDescription()
 	{
 		return "Thanks to eating a hearty porridge, this character regains health for [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.TurnsLeft + "[/color] turn(s).";
