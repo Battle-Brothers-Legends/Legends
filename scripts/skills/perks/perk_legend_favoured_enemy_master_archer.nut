@@ -10,7 +10,7 @@ this.perk_legend_favoured_enemy_master_archer <- this.inherit("scripts/skills/le
 		this.m.ValidTypes = this.Const.LegendMod.FavoriteArcher;
 	}
 
-	function onUpdate( _properties )
+	function onAfterUpdate( _properties )
 	{
 		_properties.RangedAttackBlockedChanceMult *= 0.66;
 	}
