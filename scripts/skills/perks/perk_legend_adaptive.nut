@@ -101,7 +101,6 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 				this.Const.Perks.MartyrTree,
 				this.Const.Perks.ViciousTree,
 				this.Const.Perks.DeviousTree,
-				this.Const.Perks.InspirationalTree,
 				this.Const.Perks.IntelligentTree,
 				this.Const.Perks.CalmTree,
 				this.Const.Perks.FastTree,
@@ -253,9 +252,10 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 				case _item.getID() == "weapon.knife" || _item.getID() == "weapon.legend_shiv":
 					return this.Const.Perks.KnifeClassTree;
 
-			//Scythe
-				case _item.getID() == "weapon.legend_grisly_scythe" || _item.getID() == "weapon.legend_scythe" || _item.getID() == "weapon.warscythe" || _item.getID() == "weapon.named_warscythe":
-					return this.Const.Perks.ScytheClassTree;
+			//Banner
+				case _item.getID() == "weapon.player_banner":
+					return this.Const.Perks.InspirationalTree,
+
 
 			//Pitchfork
 				case _item.isItemType(this.Const.Items.ItemType.Pitchfork):
