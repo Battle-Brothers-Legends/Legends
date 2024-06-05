@@ -18,13 +18,15 @@ this.perk_legend_specialist_pitchfork_damage <- this.inherit("scripts/skills/ski
 		local item = this.getContainer().getActor().getMainhandItem();
 		if (item != null)
 		{
-			switch(true) {
-				case item.isItemType(this.Const.Items.ItemType.Pitchfork):
-					_properties.DamageRegularMin += 9;
-					_properties.DamageRegularMax += 24;
-				case item.isWeaponType(this.Const.Items.WeaponType.Polearm):
-					_properties.DamageRegularMin += 3;
-					_properties.DamageRegularMax += 8;
+			if (item.isItemType(this.Const.Items.ItemType.Pitchfork))
+			{
+				_properties.DamageRegularMin += 9;
+				_properties.DamageRegularMax += 24;
+			}
+			else if (item.isWeaponType(this.Const.Items.WeaponType.Polearm))
+			{
+				_properties.DamageRegularMin += 3;
+				_properties.DamageRegularMax += 8;
 			}
 		}
 	}

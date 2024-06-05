@@ -254,7 +254,7 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 
 			//Banner
 				case _item.getID() == "weapon.player_banner":
-					return this.Const.Perks.InspirationalTree,
+					return this.Const.Perks.InspirationalTree;
 
 
 			//Pitchfork
