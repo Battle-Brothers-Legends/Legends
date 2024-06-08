@@ -18,7 +18,7 @@ this.throwing_axe <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.Description = "Small axes to be thrown in an overhand motion towards a target. Heavy enough to inflict serious damage to armor and shields from range.";
 		this.m.IconLarge = "weapons/ranged/throwing_axes_01.png";
 		this.m.Icon = "weapons/ranged/throwing_axes_01_70x70.png";
-		this.m.WeaponType = this.Const.Items.WeaponType.Throwing;
+		this.m.WeaponType = this.Const.Items.WeaponType.Throwing | this.Const.WeaponType.Axe;
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.RangedWeapon | this.Const.Items.ItemType.Ammo | this.Const.Items.ItemType.Defensive | this.Const.Items.ItemType.OneHanded;
 		this.m.AddGenericSkill = true;
