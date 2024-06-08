@@ -66,6 +66,7 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 	{
 		local item, itemtype, newTree; // newTree may be a single Tree or an array of Trees
 		local actor = this.getContainer().getActor();
+		
 
 		// First, try to give a new Tree based on the equipped mainhand item
 		if (actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand) != null) 
@@ -91,8 +92,11 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 			newTree = this.getOnlyNonExistingTrees(this.Const.Perks.FistsClassTree);
 			if (newTree != null && newTree.len()>0) return newTree;
 		}
-		
-		// If none of the equipped items (or unarmed) granted any Trees, then consider the following Trees
+
+		newTree = getArmorPerkTree();
+		if (newTree != null && newTree.len()>0) return newTree;
+
+		// If none of the equipped items (or unarmed or armors) granted any Trees, then consider the following Trees
 		if (newTree == null || newTree.len()<1)
 		{
 			newTree = [
@@ -305,6 +309,52 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 		}
 
 		return null;
+	}
+
+	function getArmorPerkTree()
+	{
+		local armor_weight = 0
+		local newTree;
+		local actor = this.getContainer().getActor();
+		if (actor.getItems().getItemAtSlot(this.Const.ItemSlot.Head) != null)
+		{
+			armor_weight += actor.getItems().getItemAtSlot(this.Const.ItemSlot.Head).getStaminaModifier()
+		}
+
+		if (actor.getItems().getItemAtSlot(this.Const.ItemSlot.Body) != null)
+		{
+			armor_weight += actor.getItems().getItemAtSlot(this.Const.ItemSlot.Body).getStaminaModifier()
+		}
+
+		if (armor_weight >= -15 && armor_weight <= 0)
+		{	
+			// Attempt to give light armor tree if in range or naked
+			newTree = this.getOnlyNonExistingTrees(this.Const.Perks.LightArmorTree);
+			if (newTree != null && newTree.len()>0) return newTree;
+		}
+
+		if (armor_weight >= -35 && armor_weight < -15)
+		{	
+			// Attempt to give medium armor tree
+			newTree = this.getOnlyNonExistingTrees(this.Const.Perks.MediumArmorTree);
+			if (newTree != null && newTree.len()>0) return newTree;
+		}
+
+		if (armor_weight < -35)
+		{	
+			// Attempt to give heavy armor tree
+			newTree = this.getOnlyNonExistingTrees(this.Const.Perks.HeavyArmorTree);
+			if (newTree != null && newTree.len()>0) return newTree;
+		}
+	}
+
+	function onUpdateLevel()
+	{
+		local actor = this.getContainer().getActor();
+		if (actor.m.Level == 18)
+		{
+			actor.m.PerkPoints += 1;
+		}
 	}
 
 });
