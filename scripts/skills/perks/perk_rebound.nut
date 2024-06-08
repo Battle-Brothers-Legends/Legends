@@ -25,6 +25,10 @@ this.perk_rebound <- this.inherit("scripts/skills/skill", {
 		{
 			_properties.FatigueRecoveryRate += 5;
 		}
+		else if (ratio > 0.75 && actor.getSkills().hasSkill("perk.legend_recuperation"))
+		{
+			_properties.FatigueRecoveryRate += 5;
+		}
 	}
 
 });

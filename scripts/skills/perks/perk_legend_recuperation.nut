@@ -23,7 +23,7 @@ this.perk_legend_recuperation <- this.inherit("scripts/skills/skill", {
 	
 	function onUpdate( _properties )
 	{
-	_properties.FatigueRecoveryRate += 2;
+		_properties.FatigueRecoveryRate += 2;
 	}
 });
 

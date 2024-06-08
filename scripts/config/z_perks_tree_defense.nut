@@ -66,7 +66,7 @@ gt.Const.Perks.ClothArmorTree <- {
 	],
 	Tree = [
 		[
-		gt.Const.Perks.PerkDefs.LegendMeek
+		gt.Const.Perks.PerkDefs.LegendBlendIn
 		],
 		[],
 		[
