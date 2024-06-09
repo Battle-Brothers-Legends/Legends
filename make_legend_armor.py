@@ -613,7 +613,7 @@ layers = [
 {"name": "legend_armor_plate_ancient_chest_restored",     "layer": "plate", "min": 1, "max": 1, "value" : 1500, "con" : 110, "stam" : -15, "impactSound" : "plate", "invSound" : "leather", \
     "title" :  "Restored Ancient Breastplate", \
     "desc" :  "A restored thick breastplate of ancient origin.", \
-    "adesc" : "Includes a restoredd thick breastplate of ancient origin."
+    "adesc" : "Includes a restored thick breastplate of ancient origin."
 },
 {"name": "legend_armor_plate_ancient_gladiator",          "layer": "plate", "min": 1, "max": 1, "value" : 100, "con" : 35, "stam" : -6, "impactSound" : "plate", "invSound" : "leather", \
     "title" :  "Restored Ancient Breastplate", \

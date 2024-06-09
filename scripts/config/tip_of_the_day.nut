@@ -133,7 +133,7 @@ gt.Const.TipOfTheDay <- [
 	"Two-handed axes can hit both head and body with a single hit.",
 	"Two-handed axes can hit up to 6 targets with a single round swing.",
 	"Cleavers can inflict bleeding wounds.",
-	"Staffs and slings are ideal supporting weapons for characters who are not fit for direct combat.",
+	"Staves and slings are ideal supporting weapons for characters who are not fit for direct combat.",
 
 //Camp - camp specific tips
 	"Have you assigned all your characters to camp tasks recently?",

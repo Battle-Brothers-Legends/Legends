@@ -306,7 +306,7 @@ this.thief_caught_event <- this.inherit("scripts/events/event", {
 		});
 		this.m.Screens.push({
 			ID = "H",
-			Text = "[img]gfx/ui/events/event_05.png[/img]You lower your weapon and the theif crawls to you and hugs your legs, kissing your feet until you draw away.\n\nTo get things straight, you give a long list of orders and how it is to work in the company. You also give a contract which is then signed with a jagged \'x\'. A few of the company then spend the rest of the day teaching the ropes and introducing the new selssword to the rest of the company. By night\'s end, it seems like the new blood is already beginning to fit in. By next morning, you wake to see a great number of supplies are missing and the new recruit is nowhere in sight. It appears that, although you stayed the thief\'s execution, they went on ahead and stole things anyway. Let that be a lesson to you.",
+			Text = "[img]gfx/ui/events/event_05.png[/img]You lower your weapon and the theif crawls to you and hugs your legs, kissing your feet until you draw away.\n\nTo get things straight, you give a long list of orders and how it is to work in the company. You also give a contract which is then signed with a jagged \'x\'. A few of the company then spend the rest of the day teaching the ropes and introducing the new sellsword to the rest of the company. By night\'s end, it seems like the new blood is already beginning to fit in. By next morning, you wake to see a great number of supplies are missing and the new recruit is nowhere in sight. It appears that, although you stayed the thief\'s execution, they went on ahead and stole things anyway. Let that be a lesson to you.",
 			Image = "",
 			List = [],
 			Characters = [],

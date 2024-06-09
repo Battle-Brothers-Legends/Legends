@@ -409,7 +409,7 @@ layers = [
 },
 {"name" : "open_chain_hood"                     , "layer" : "hood", "min" : 1, "max" : 3, "base" : True, "value" : 225, "con" : 65, "stam" : -3, "vis" : 0, "hair" : "true", "beard" : "false",  \
  "title" :  "Chain Mail Hood", \
- "desc" :  "A hood made of chainmail. Offer good protection and visibiliy." \
+ "desc" :  "A hood made of chainmail. Offer good protection and visibility." \
 },
 {"name" : "chain_scarf"                     , "layer" : "hood", "min" : 1, "max" : 5, "base" : True, "value" : 150, "con" : 55, "stam" : -3, "vis" : 0, "hair" : "false", "beard" : "true",  \
  "title" :  "Aventail", \

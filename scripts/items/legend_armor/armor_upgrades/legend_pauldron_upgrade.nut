@@ -6,7 +6,7 @@ this.legend_pauldron_upgrade <- this.inherit("scripts/items/legend_armor/legend_
 		this.m.ID = "legend_armor_upgrade.body.legend_pauldron";
 		this.m.Type = this.Const.Items.ArmorUpgrades.Attachment;
 		this.m.Name = "Iron Pauldrons";
-		this.m.Description = "These segments of iron plate are hevy but excellent for protecting shoulders. Worn over common armor, they can help to deflect incoming blows.";
+		this.m.Description = "These segments of iron plate are heavy but excellent for protecting shoulders. Worn over common armor, they can help to deflect incoming blows.";
 		this.m.ArmorDescription = "Segments of iron plates provide additional protection.";
 		this.m.Icon = "armor_upgrades/icon_pauldrons_01.png";
 		this.m.IconLarge = this.m.Icon;
