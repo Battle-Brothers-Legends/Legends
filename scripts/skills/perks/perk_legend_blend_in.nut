@@ -1,5 +1,7 @@
 this.perk_legend_blend_in <- this.inherit("scripts/skills/skill", {
-	m = {},
+	m = {
+		Stacks = 1,
+	},
 	function create()
 	{
 		this.m.ID = "perk.legend_blend_in";
