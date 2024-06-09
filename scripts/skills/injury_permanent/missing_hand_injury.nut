@@ -6,7 +6,7 @@ this.missing_hand_injury <- this.inherit("scripts/skills/injury_permanent/perman
 		this.m.ID = "injury.missing_hand";
 		this.m.Name = "Missing Hand";
 		this.m.Icon = "ui/injury/injury_permanent_icon_07.png";
-		this.m.Description = "Uh-oh! Unless something is done about this, missing a hand will prevent this character from using shields, two-handed weapons and throwing nets and from double gripping one-handed weapons.";
+		this.m.Description = "Uh-oh! Unless something is done about this, missing a hand will prevent this character from using shields, two-handed weapons, throwing nets and from double gripping one-handed weapons.";
 	}
 
 	function getTooltip()
