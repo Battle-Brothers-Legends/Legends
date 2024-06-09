@@ -9,7 +9,7 @@ this.throwing_spear <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.Description = "Lighter than a common spear, but heavier than a javelin, this weapon is intended to be thrown over short distances. The tip will bend on impact, potentially rendering shields unusable. Can be used against unshielded opponents as well for great effect.";
 		this.m.IconLarge = "weapons/ranged/throwing_spear_01.png";
 		this.m.Icon = "weapons/ranged/throwing_spear_01_70x70.png";
-		this.m.WeaponType = this.Const.Items.WeaponType.Throwing | this.Const.WeaponType.Spear;
+		this.m.WeaponType = this.Const.Items.WeaponType.Throwing | this.Const.Items.WeaponType.Spear;
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.RangedWeapon | this.Const.Items.ItemType.Ammo | this.Const.Items.ItemType.Defensive | this.Const.Items.ItemType.OneHanded;
 		this.m.IsAgainstShields = true;
