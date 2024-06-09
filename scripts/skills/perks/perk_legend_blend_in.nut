@@ -30,7 +30,7 @@ this.perk_legend_blend_in <- this.inherit("scripts/skills/skill", {
 	function getTooltip()
 	{
 		local tooltip = this.skill.getTooltip();
-		tooltip.extend[{
+		tooltip.extend([{
 			id = 6,
 			type = "hint",
 			icon = "ui/icons/special.png",
@@ -53,7 +53,7 @@ this.perk_legend_blend_in <- this.inherit("scripts/skills/skill", {
 			type = "hint",
 			icon = "ui/icons/special.png",
 			text = "Always evade the first attack made against this character in combat."
-		}];
+		}]);
 
 		return tooltip;
 	}
