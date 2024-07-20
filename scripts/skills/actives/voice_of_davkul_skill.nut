@@ -61,7 +61,7 @@ this.voice_of_davkul_skill <- this.inherit("scripts/skills/skill", {
 
 			if (a.getType() == this.Const.EntityType.Cultist ||
 				(::MSU.isKindOf(a, "player") &&
-					!::MSU.isNull(a.getBackground()) &&
+					!isNull(a.getBackground()) &&
 					(a.getBackground().isBackgroundType(this.Const.BackgroundType.Cultist) || a.getBackground().isBackgroundType(this.Const.BackgroundType.ConvertedCultist))))
 			{
 				a.getSkills().add(this.new("scripts/skills/effects/voice_of_davkul_effect"));

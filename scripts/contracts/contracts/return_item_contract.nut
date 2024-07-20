@@ -102,9 +102,9 @@ this.return_item_contract <- this.inherit("scripts/contracts/contract", {
 	function formatDescription()
 	{
 		if (!this.m.Flags.has("Item"))
-			this.m.Flags.set("Item", ::MSU.Array.rand(this.m.StolenItemNames));
+			this.m.Flags.set("Item", arrayRand(this.m.StolenItemNames));
 
-		local r = ::MSU.Array.rand(this.m.DescriptionTemplates);
+		local r = arrayRand(this.m.DescriptionTemplates);
 
 		if (r.find("%") != null)
 			r = format(r, ::Const.UI.getColorized(this.m.Flags.get("Item"), ::Const.UI.Color.getHighlightLightBackgroundValue()));
@@ -132,7 +132,7 @@ this.return_item_contract <- this.inherit("scripts/contracts/contract", {
 		}
 
 		if (!this.m.Flags.has("Item"))
-			this.m.Flags.set("Item", ::MSU.Array.rand(this.m.StolenItemNames));
+			this.m.Flags.set("Item", arrayRand(this.m.StolenItemNames));
 
 		this.contract.start();
 	}

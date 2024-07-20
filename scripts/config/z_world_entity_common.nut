@@ -76,7 +76,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 			function IsValid( _item, _shopID )
 			{
 				// must be a food_item and hasn't been bought by player
-				if (!::MSU.isKindOf(_item, "food_item") || _item.m.BestBefore != 0.0)
+				if (!isKindOf(_item, "food_item") || _item.m.BestBefore != 0.0)
 					return 0;
 
 				return _item.getValue();
@@ -193,7 +193,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 
 	function getWeightContainer( _array = null )
 	{
-		if (this.WeightedContainer == null) this.WeightedContainer = ::MSU.Class.WeightedContainer();
+		if (this.WeightedContainer == null) this.WeightedContainer = WeightedContainer();
 
 		if (_array != null) {
 			this.WeightedContainer.clear();
@@ -210,7 +210,7 @@ gt.Const.World.Common.WorldEconomy.Trade <- {
 
 		if (isMilitary) mult *= 2.0;
 
-		if (::MSU.isKindOf(_settlement, "city_state")) mult *= 1.75;
+		if (isKindOf(_settlement, "city_state")) mult *= 1.75;
 
 		local budget = ::Math.round(::Math.rand(50, 75 + (!isMilitary ? 10 : 0)) * mult);
 

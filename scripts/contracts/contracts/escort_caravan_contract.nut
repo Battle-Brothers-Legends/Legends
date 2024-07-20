@@ -1251,7 +1251,7 @@ this.escort_caravan_contract <- this.inherit("scripts/contracts/contract", {
 
 				for( local j = 0; j < produce; j = ++j )
 				{
-					party.addToInventory(::MSU.Array.rand(L));
+					party.addToInventory(arrayRand(L));
 				}
 			}
 		}

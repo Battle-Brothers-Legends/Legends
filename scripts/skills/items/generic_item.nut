@@ -18,7 +18,7 @@ this.generic_item <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 
-		if (!::MSU.isNull(this.m.Item) && !::MSU.isNull(this.m.Item.getContainer()))
+		if (!isNull(this.m.Item) && !isNull(this.m.Item.getContainer()))
 		{
 			this.m.Item.onUpdateProperties(_properties);
 		}
@@ -31,7 +31,7 @@ this.generic_item <- this.inherit("scripts/skills/skill", {
 
 	function onTurnStart()
 	{
-		if (!::MSU.isNull(this.m.Item) && !::MSU.isNull(this.m.Item.getContainer()))
+		if (!isNull(this.m.Item) && !isNull(this.m.Item.getContainer()))
 		{
 			this.m.Item.onTurnStart();
 		}

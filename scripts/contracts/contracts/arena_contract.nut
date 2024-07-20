@@ -984,7 +984,7 @@ this.arena_contract <- this.inherit("scripts/contracts/contract", {
 						break;
 
 					case 3:
-						a = ::new(::MSU.Array.rand([
+						a = ::new(arrayRand([
 							"scripts/items/legend_helmets/helm/legend_helmet_southern_gladiator_helm_crested",
 							"scripts/items/legend_helmets/helm/legend_helmet_southern_gladiator_helm_split",
 							"scripts/items/legend_helmets/helm/legend_helmet_southern_gladiator_helm_masked"

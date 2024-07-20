@@ -1381,7 +1381,7 @@ this.item <- {
 		_out.writeU8(this.m.RuneBonus2);
 		_out.writeU8(this.m.MagicNumber);
 		_out.writeI32(this.m.OriginSettlementID);
-		::MSU.Utils.serialize(this.m.TradeHistorySettlementIDs, _out);
+		Utils.serialize(this.m.TradeHistorySettlementIDs, _out);
 	}
 
 	function onDeserialize( _in )

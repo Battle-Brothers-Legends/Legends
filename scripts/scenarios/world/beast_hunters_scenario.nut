@@ -269,7 +269,7 @@ this.beast_hunters_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	
 	function onBuildPerkTree( _background )
 	{
-		local perk = ::MSU.Array.rand(this.m.FavouredEnemyPerks);
+		local perk = arrayRand(this.m.FavouredEnemyPerks);
 		this.addScenarioPerk(_background, perk);
 	}
 

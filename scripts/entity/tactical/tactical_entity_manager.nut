@@ -829,7 +829,7 @@ this.tactical_entity_manager <- {
 
 	function resurrect( _info, _delay = 0 )
 	{
-		if (!this.MSU.Tile.canResurrectOnTile(_info.Tile, true))
+		if (!this.canResurrectOnTile(_info.Tile, true))
 		{
 			return;
 		}

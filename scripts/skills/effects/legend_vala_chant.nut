@@ -5,7 +5,7 @@ this.legend_vala_chant <- this.inherit("scripts/skills/skill", {
 	},
 	function setVala(_v)
 	{
-		this.m.Vala = ::MSU.asWeakTableRef(_v);
+		this.m.Vala = asWeakTableRef(_v);
 	}
 
 	function create()
@@ -38,7 +38,7 @@ this.legend_vala_chant <- this.inherit("scripts/skills/skill", {
 
 	function isMastered()
 	{
-		if (::MSU.isNull(this.m.Vala))
+		if (isNull(this.m.Vala))
 			return false;
 
 		return this.m.Vala.getSkills().hasSkill("perk.legend_vala_chanting_mastery");
@@ -49,7 +49,7 @@ this.legend_vala_chant <- this.inherit("scripts/skills/skill", {
 		if (("State" in ::Tactical) && ::Tactical.Entities.isCombatFinished())
 			return false;
 
-		if (::MSU.isNull(this.getContainer()) || ::MSU.isNull(this.getContainer().getActor()))
+		if (isNull(this.getContainer()) || isNull(this.getContainer().getActor()))
 			return false;
 
 		local actor = this.getContainer().getActor();
@@ -60,7 +60,7 @@ this.legend_vala_chant <- this.inherit("scripts/skills/skill", {
 		if (actor.getTile() == null)
 			return false;
 
-		if (::MSU.isNull(this.m.Vala))
+		if (isNull(this.m.Vala))
 			return false;
 
 		return this.m.Vala.getTile() != null;

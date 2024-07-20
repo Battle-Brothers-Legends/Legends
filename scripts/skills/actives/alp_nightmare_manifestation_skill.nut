@@ -82,7 +82,7 @@ this.alp_nightmare_manifestation_skill <- this.inherit("scripts/skills/skill", {
 		for (local i = 0; i < num; ++i)
 		{
 			local tile = potential.remove(::Math.rand(0, potential.len() - 1));
-			local type = ::MSU.Array.rand(["direwolf","human","serpent","tentacle"]);
+			local type = arrayRand(["direwolf","human","serpent","tentacle"]);
 
 			//this.Time.scheduleEvent(this.TimeUnit.Virtual, 100 * i, function(_a) {
 				local nightmare = this.Tactical.spawnEntity("scripts/entity/tactical/enemies/alp_nightmare_" + type, tile.Coords.X, tile.Coords.Y);

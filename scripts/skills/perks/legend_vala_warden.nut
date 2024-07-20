@@ -20,7 +20,7 @@ this.legend_vala_warden <- this.inherit("scripts/skills/skill", {
 
 	function isHidden()
 	{
-		return ::MSU.isNull(this.m.WardenEntity);
+		return isNull(this.m.WardenEntity);
 	}
 
 	function getWarden()
@@ -82,7 +82,7 @@ this.legend_vala_warden <- this.inherit("scripts/skills/skill", {
 
 	function onDeath( _fatalityType )
 	{
-		if (::MSU.isNull(this.m.WardenEntity))
+		if (isNull(this.m.WardenEntity))
 			return;
 
 		this.m.WardenEntity.killSilently();
@@ -120,7 +120,7 @@ this.legend_vala_warden <- this.inherit("scripts/skills/skill", {
 
 	function summonWarden()
 	{
-		if (this.m.WardenSummonSpent == false && ::MSU.isNull(this.m.WardenEntity))
+		if (this.m.WardenSummonSpent == false && isNull(this.m.WardenEntity))
 		{
 			local WardenSpawnTile = this.findTileToSpawnWarden();
 
@@ -131,7 +131,7 @@ this.legend_vala_warden <- this.inherit("scripts/skills/skill", {
 				entity.setFaction(this.Const.Faction.PlayerAnimals);
 				entity.setVala(this);
 				entity.setWardenStats(this.getContainer().getActor().getBravery());
-				this.m.WardenEntity = ::MSU.asWeakTableRef(entity);
+				this.m.WardenEntity = asWeakTableRef(entity);
 				this.m.WardenSummonSpent = true;
 
 				if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_vala_spiritual_bond"))

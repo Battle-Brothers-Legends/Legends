@@ -233,12 +233,12 @@ this.bandit_leader <- this.inherit("scripts/entity/tactical/human", {
 		if (r == 1)
 		{
 			local namedWeaponArray = clone ::Const.Items.NamedMeleeWeapons;		// Temporary solution to prevent these minibosses from spawning with bad or incombatible weapons
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/named_dagger");
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_parrying_dagger");
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_shovel");
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_sickle");
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/named_battle_whip");
-			this.m.Items.equip(this.new("scripts/items/" + ::MSU.Array.rand(namedWeaponArray)));
+			arrayRemove(namedWeaponArray, "weapons/named/named_dagger");
+			arrayRemove(namedWeaponArray, "weapons/named/legend_named_parrying_dagger");
+			arrayRemove(namedWeaponArray, "weapons/named/legend_named_shovel");
+			arrayRemove(namedWeaponArray, "weapons/named/legend_named_sickle");
+			arrayRemove(namedWeaponArray, "weapons/named/named_battle_whip");
+			this.m.Items.equip(this.new("scripts/items/" + arrayRand(namedWeaponArray)));
 		}
 		else if (r == 2)
 		{

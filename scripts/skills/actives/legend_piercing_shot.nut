@@ -70,7 +70,7 @@ this.legend_piercing_shot <- ::inherit("scripts/skills/actives/aimed_shot", {
 		// proceed as normal
 		_info.Skill.aimed_shot.onScheduledTargetHit(_info);
 
-		if (_info.Skill.m.IsDoingPiercingShot || ::MSU.isNull(_info.User) || !_info.User.isAlive() || _info.User.isDying())
+		if (_info.Skill.m.IsDoingPiercingShot || isNull(_info.User) || !_info.User.isAlive() || _info.User.isDying())
 			return;
 
 		local forwardTile = _info.Skill.getAffectedTiles(targetTile);

@@ -91,7 +91,7 @@
 		function settlementSummaryStr( _settlement, _showAttached = false, _showHouses = false )
 		{
 			local fort = _settlement.isMilitary() ? "[Fort] " : "";
-			local cityState = ::MSU.isKindOf(_settlement, "city_state") ? "[City State] " : "";
+			local cityState = isKindOf(_settlement, "city_state") ? "[City State] " : "";
 			local attached = "";
 			local houses = "";
 			local extra = "";

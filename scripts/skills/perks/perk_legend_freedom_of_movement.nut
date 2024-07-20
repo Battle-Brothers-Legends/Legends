@@ -29,7 +29,7 @@ this.perk_legend_freedom_of_movement <- this.inherit("scripts/skills/skill", {
 	function getBonus( _attacker, _defender )
 	{
 		local bonus = 1;
-		if (::MSU.isNull(_attacker) || ::MSU.isNull(_defender)) return bonus;
+		if (isNull(_attacker) || isNull(_defender)) return bonus;
 
 		local defenderCurrentInitiative = _defender.getInitiative();
 		local attackerCurrentInitiative = _attacker.getInitiative();
@@ -59,7 +59,7 @@ this.perk_legend_freedom_of_movement <- this.inherit("scripts/skills/skill", {
 	// MSU custom-added event
 	function onOtherActorTooltip( _tooltip, _targetActor )
 	{
-		if (::MSU.isNull(_targetActor) || _targetActor.isPlayerControlled())
+		if (isNull(_targetActor) || _targetActor.isPlayerControlled())
 		{
 			return;
 		}
@@ -77,9 +77,9 @@ this.perk_legend_freedom_of_movement <- this.inherit("scripts/skills/skill", {
 	// MSU function
 	function onGetHitFactorsAsTarget( _skill, _targetTile, _tooltip )
 	{
-		local attacker = ::MSU.isNull(_skill) ? null : _skill.getContainer().getActor();
+		local attacker = isNull(_skill) ? null : _skill.getContainer().getActor();
 
-		if (::MSU.isNull(attacker))
+		if (isNull(attacker))
 		{
 			return;
 		}

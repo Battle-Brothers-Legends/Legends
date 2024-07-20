@@ -12,7 +12,7 @@ this.tavern_building <- this.inherit("scripts/entity/world/settlements/buildings
 	{
 		this.building.create();
 		this.m.ID = "building.tavern";
-		this.m.Name = ::MSU.Array.rand([
+		this.m.Name = arrayRand([
 			"The Catchpole",
 			"The Mother Black",
 			"The Ratcatcher",

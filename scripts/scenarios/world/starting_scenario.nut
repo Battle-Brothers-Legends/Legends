@@ -268,7 +268,7 @@ this.starting_scenario <- {
 
 	function setCurrentSettlement( _settlement )
 	{
-		this.m.CurrentSettlement = ::MSU.asWeakTableRef(_settlement);
+		this.m.CurrentSettlement = asWeakTableRef(_settlement);
 	}
 
 };

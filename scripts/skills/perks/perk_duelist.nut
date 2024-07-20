@@ -37,7 +37,7 @@ this.perk_duelist <- this.inherit("scripts/skills/skill", {
 
 		foreach( valid in m.AllowedWeapons )
 		{
-			if (!::MSU.String.endsWith(off.getID(), valid))
+			if (!stringEndsWith(off.getID(), valid))
 				continue;
 
 			_properties.DamageDirectAdd += 0.12;

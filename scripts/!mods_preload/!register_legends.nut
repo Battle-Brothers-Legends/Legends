@@ -5,7 +5,7 @@
 	BuildName = "Chickens & Demons"
 };
 
-if (!("MSU" in this.getroottable()) || ::MSU.SemVer.compare(::MSU.SemVer.getTable(::MSU.Version), ::MSU.SemVer.getTable("1.3.0")) >= 0 && !("Hooks" in this.getroottable()))
+if (!("MSU" in this.getroottable()) || SemVer.compare(SemVer.getTable(::MSU.Version), SemVer.getTable("1.3.0")) >= 0 && !("Hooks" in this.getroottable()))
 	::mods_registerMod(::Legends.ID, 18, ::Legends.Name);
 else
 	::mods_registerMod(::Legends.ID, ::Legends.Version, ::Legends.Name);

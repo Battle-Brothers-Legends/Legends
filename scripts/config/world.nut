@@ -53,7 +53,7 @@ gt.Const.World.getAllTerrainTypesExcept <- function ( _types )
 {
 	local ret = clone ::Const.World.AllTerrainTypes;
 	local garbage = clone _types;
-	::MSU.Array.sortDescending(garbage);
+	arraySortDescending(garbage);
 	foreach( i in garbage )
 	{
 		ret.remove(i);

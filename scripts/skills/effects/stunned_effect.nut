@@ -26,7 +26,7 @@ this.stunned_effect <- this.inherit("scripts/skills/skill", {
 
 	function setTurns( _t )
 	{
-		if (!::MSU.isNull(this.getContainer()) && !::MSU.isNull(this.getContainer().getActor()))
+		if (!isNull(this.getContainer()) && !isNull(this.getContainer().getActor()))
 		{
 			this.m.TurnsLeft = this.Math.max(1, _t + this.getContainer().getActor().getCurrentProperties().NegativeStatusEffectDuration);
 		}

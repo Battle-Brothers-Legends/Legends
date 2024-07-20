@@ -31,7 +31,7 @@ this.siege_fortification_contract <- this.inherit("scripts/contracts/contract", 
 	// Ran when we actually add the contract
 	function formatDescription()
 	{
-		local r = ::MSU.Array.rand(this.m.DescriptionTemplates);
+		local r = arrayRand(this.m.DescriptionTemplates);
 		local count = 0, find = r.find("%");
 
 		while(find != null)

@@ -554,7 +554,7 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = ::MSU.String.capitalizeFirst(::Legends.S.getChangingWord(invertedThreat)) + " the Resolve of any opponent engaged in melee by " +
+				text = stringCapitalizeFirstFirst(::Legends.S.getChangingWord(invertedThreat)) + " the Resolve of any opponent engaged in melee by " +
 					 ::Legends.S.colorize("" + ::Legends.S.getSign(invertedThreat) + this.Math.abs(invertedThreat), invertedThreat)
 			});
 		}
@@ -573,7 +573,7 @@ this.legend_armor_upgrade <- this.inherit("scripts/items/item", {
 				id = 15,
 				type = "text",
 				icon = "ui/icons/direct_damage.png",
-				text = ::MSU.String.capitalizeFirst(::Legends.S.getChangingWord(this.getDirectDamageModifier())) + " damage ignoring armor by " +
+				text = stringCapitalizeFirstFirst(::Legends.S.getChangingWord(this.getDirectDamageModifier())) + " damage ignoring armor by " +
 					::Legends.S.colorize("" + ::Legends.S.getSign(this.getDirectDamageModifier()) + this.Math.abs(this.getDirectDamageModifier()) + "%", this.getDirectDamageModifier())
 			});
 		}

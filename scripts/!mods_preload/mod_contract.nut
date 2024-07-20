@@ -102,7 +102,7 @@ this.getroottable().Const.LegendMod.hookContract <- function()
 			if (this.m.DescriptionTemplates.len() == 0)
 				return;
 
-			this.m.Description = ::MSU.Array.rand(this.m.DescriptionTemplates);
+			this.m.Description = arrayRand(this.m.DescriptionTemplates);
 		}
 
 		/* no need to serialize the contract description

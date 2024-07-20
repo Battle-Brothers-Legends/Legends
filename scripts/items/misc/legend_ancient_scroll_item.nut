@@ -126,7 +126,7 @@ this.legend_ancient_scroll_item <- ::inherit("scripts/items/item", {
 
 		if (trained != null)
 		{
-			if (!::MSU.isKindOf(trained, "injury"))
+			if (!isKindOf(trained, "injury"))
 			{
 				trained.m.Duration += 3;
 				trained.m.XPGainMult = 1.5;
@@ -185,7 +185,7 @@ this.legend_ancient_scroll_item <- ::inherit("scripts/items/item", {
 		if (potential.len() == 0)
 			return format("[color=%s]No possible new perk group can be added to this character.[/color].", ::Const.UI.Color.NegativeValue);
 
-		local tree = ::MSU.Array.rand(potential)
+		local tree = arrayRand(potential)
 		_actor.getBackground().addPerkGroup(tree.Tree);
 		return format("The [color=%s]%s[/color] perk group has been added to this character.", ::Const.UI.Color.NegativeValue, tree.Name);
 	}

@@ -25,7 +25,7 @@ this.intercept_raiding_parties_contract <- this.inherit("scripts/contracts/contr
 	// Ran when we actually add the contract
 	function formatDescription()
 	{
-		local r = ::MSU.Array.rand(this.m.DescriptionTemplates);
+		local r = arrayRand(this.m.DescriptionTemplates);
 
 		if (r.find("%") != null)
 			r = format(r, ::Const.UI.getColorized(::World.FactionManager.getFaction(this.getFaction()).getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));

@@ -237,19 +237,19 @@ this.legends_nomad_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 	function onUpdateHiringRoster( _roster )
 	{
 		local settlement = this.getCurrentSettlement();
-		if (::MSU.isKindOf(settlement, "city_state"))
+		if (isKindOf(settlement, "city_state"))
 		{
 			this.addBroToRoster(_roster, "nomad_background", 3);
 			this.addBroToRoster(_roster, "nomad_ranged_background", 3);
 			this.addBroToRoster(_roster, "legend_bladedancer_background", 4);
 		}
-		else if (::MSU.isKindOf(settlement, "legends_steppe_fort") || (settlement.isMilitary() && this.isSteppeSettlement(settlement)))
+		else if (isKindOf(settlement, "legends_steppe_fort") || (settlement.isMilitary() && this.isSteppeSettlement(settlement)))
 		{
 			this.addBroToRoster(_roster, "nomad_background", 3);
 			this.addBroToRoster(_roster, "nomad_ranged_background", 3);
 			this.addBroToRoster(_roster, "legend_bladedancer_background", 4);
 		}
-		else if (::MSU.isKindOf(settlement, "legends_steppe_village") || this.isSteppeSettlement(settlement))
+		else if (isKindOf(settlement, "legends_steppe_village") || this.isSteppeSettlement(settlement))
 		{
 			this.addBroToRoster(_roster, "nomad_background", 4);
 			this.addBroToRoster(_roster, "nomad_ranged_background", 4);

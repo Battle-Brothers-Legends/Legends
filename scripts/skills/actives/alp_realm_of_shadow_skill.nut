@@ -112,7 +112,7 @@ this.alp_realm_of_shadow_skill <- this.inherit("scripts/skills/skill", {
 		if (_entity.getSkills().hasSkill("effects.alp_realm_of_shadow"))
 			return;
 
-		this.Sound.play(::MSU.Array.rand([
+		this.Sound.play(arrayRand([
 			"sounds/enemies/dlc2/alp_nightmare_01.wav",
 			"sounds/enemies/dlc2/alp_nightmare_02.wav",
 			"sounds/enemies/dlc2/alp_nightmare_03.wav",

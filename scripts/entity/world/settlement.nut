@@ -3066,8 +3066,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		}
 
 		this.m.ImportedGoodsInventory.onSerialize(_out);
-		::MSU.Utils.serialize(this.m.CaravanReceivedHistory, _out);
-		::MSU.Utils.serialize(this.m.CaravanSentHistory, _out);
+		Utils.serialize(this.m.CaravanReceivedHistory, _out);
+		Utils.serialize(this.m.CaravanSentHistory, _out);
 	}
 
 	function onDeserialize( _in )

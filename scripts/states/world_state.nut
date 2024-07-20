@@ -1659,12 +1659,12 @@ this.world_state <- this.inherit("scripts/states/state", {
 					if (party.getStashInventory().getItems().len() != 0)
 					{
 						local prefix = "scripts/items/";
-						local script = this.IO.scriptFilenameByHash(::MSU.Array.rand(party.getStashInventory().getItems()).ClassNameHash);
+						local script = this.IO.scriptFilenameByHash(arrayRand(party.getStashInventory().getItems()).ClassNameHash);
 						this.World.Statistics.getFlags().set("LastCombatSavedCaravanProduce", script.slice(prefix.len()));
 					}
 					else if (party.getInventory().len() != 0)
 					{
-						this.World.Statistics.getFlags().set("LastCombatSavedCaravanProduce", ::MSU.Array.rand(party.getInventory()));
+						this.World.Statistics.getFlags().set("LastCombatSavedCaravanProduce", arrayRand(party.getInventory()));
 					}
 				}
 			}

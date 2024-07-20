@@ -63,8 +63,8 @@ this.send_supplies_action <- this.inherit("scripts/factions/faction_action", {
 		if (starts.len() == 0 || dests.len() == 0)
 			return;
 
-		this.m.Start = ::MSU.Array.rand(starts);
-		this.m.Dest = ::MSU.Array.rand(dests);
+		this.m.Start = arrayRand(starts);
+		this.m.Dest = arrayRand(dests);
 	
 		if (this.m.Start.isConnectedToByRoads(this.m.Dest))
 		{

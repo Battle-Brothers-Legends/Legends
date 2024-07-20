@@ -80,7 +80,7 @@ this.ai_raise_undead <- this.inherit("scripts/ai/tactical/behavior", {
 				continue;
 			}
 
-			if (!this.MSU.Tile.canResurrectOnTile(c))
+			if (!this.canResurrectOnTile(c))
 			{
 				continue;
 			}

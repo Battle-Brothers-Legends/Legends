@@ -532,7 +532,7 @@ this.party <- this.inherit("scripts/entity/world/world_entity", {
 		if (::Legends.Mod.ModSettings.getSetting("WorldEconomy").getValue() && this.getFlags().has("CaravanInvestment"))
 		{
 			local origin = this.getOrigin();
-			if (!::MSU.isNull(origin))
+			if (!isNull(origin))
 			{
 				local destinationID = this.getFlags().get("CaravanDestinationID");
 				if (destinationID == null)

@@ -17,7 +17,7 @@ this.legend_RSW_bleeding_effect <- this.inherit("scripts/skills/skill", {
 
 	function setActor( _a )
 	{
-		this.m.Actor = ::MSU.asWeakTableRef(_a);
+		this.m.Actor = asWeakTableRef(_a);
 	}
 
 	function create()
@@ -45,7 +45,7 @@ this.legend_RSW_bleeding_effect <- this.inherit("scripts/skills/skill", {
 			return this.getContainer().getActor();
 		}
 
-		if (::MSU.isNull(this.m.Actor))
+		if (isNull(this.m.Actor))
 		{
 			return this.getContainer().getActor();
 		}

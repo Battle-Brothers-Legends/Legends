@@ -66,7 +66,7 @@ this.legend_fleshless_trait <- this.inherit("scripts/skills/traits/character_tra
 	{
 		local actor = this.getContainer().getActor().get();
 		
-		if (::MSU.isKindOf(actor, "player"))
+		if (isKindOf(actor, "player"))
 		{
 			actor.improveMood = function ( _change, _text = "" )
 			{
@@ -133,7 +133,7 @@ this.legend_fleshless_trait <- this.inherit("scripts/skills/traits/character_tra
 	{
 		local actor = this.getContainer().getActor().get();
 		
-		if (::MSU.isKindOf(actor, "player"))
+		if (isKindOf(actor, "player"))
 		{
 			if (actor.getFlags().has("human"))
 				actor.getSprite("injury_body").setBrush("bust_skeleton_body_injured");

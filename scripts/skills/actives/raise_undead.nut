@@ -38,7 +38,7 @@ this.raise_undead <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		if (!this.MSU.Tile.canResurrectOnTile(_targetTile))
+		if (!this.canResurrectOnTile(_targetTile))
 		{
 			return false;
 		}

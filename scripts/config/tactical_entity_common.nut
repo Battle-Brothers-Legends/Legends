@@ -302,7 +302,7 @@ gt.Const.Tactical.Common <- {
 
 	function onApplyDemonShadows( _tile, _entity )
 	{
-		if (_entity.getSkills().hasSkill("racial.alp") || ::MSU.isKindOf(_entity, "alp_shadow"))
+		if (_entity.getSkills().hasSkill("racial.alp") || isKindOf(_entity, "alp_shadow"))
 		{
 			return;
 		}

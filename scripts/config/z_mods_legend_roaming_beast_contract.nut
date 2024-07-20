@@ -15,43 +15,43 @@
 	*/
 	Weights = {
 		
-		Default = ::MSU.Class.WeightedContainer([
+		Default = WeightedContainer([
 			[50, "IsDirewolves"],
 			[50, "IsGhouls"],
 			[50, "IsSpiders"]
 		]),
 
-		Lumber = ::MSU.Class.WeightedContainer([
+		Lumber = WeightedContainer([
 			[100, "IsDirewolves"],
 			[50, "IsGhouls"],
 			[150, "IsSpiders"]			
 		]),
 
-		Tundra = ::MSU.Class.WeightedContainer([
+		Tundra = WeightedContainer([
 			[100, "IsDirewolves"],
 			[25, "IsGhouls"],
 			[25, "IsSpiders"]			
 		]),
 
-		Snow = ::MSU.Class.WeightedContainer([
+		Snow = WeightedContainer([
 			[100, "IsDirewolves"],
 			[0, "IsGhouls"],
 			[0, "IsSpiders"]			
 		]),
 
-		Steppe = ::MSU.Class.WeightedContainer([
+		Steppe = WeightedContainer([
 			[25, "IsDirewolves"],
 			[100, "IsGhouls"],
 			[25, "IsSpiders"]			
 		]),
 
-		Swamp = ::MSU.Class.WeightedContainer([
+		Swamp = WeightedContainer([
 			[25, "IsDirewolves"],
 			[100, "IsGhouls"],
 			[25, "IsSpiders"]			
 		]),
 
-		Farming = ::MSU.Class.WeightedContainer([
+		Farming = WeightedContainer([
 			[50, "IsDirewolves"],
 			[75, "IsGhouls"],
 			[50, "IsSpiders"]			
@@ -71,27 +71,27 @@
 	*/
 	function rollEnemyBySettlement( _settlement ) {
 
-		if (::MSU.isKindOf( _settlement, "legends_lumber_village") || ::MSU.isKindOf( _settlement, "small_lumber_village") || ::MSU.isKindOf( _settlement, "medium_lumber_village"))
+		if (isKindOf( _settlement, "legends_lumber_village") || isKindOf( _settlement, "small_lumber_village") || isKindOf( _settlement, "medium_lumber_village"))
 		{
 			return this.Weights.Lumber.roll();
 		}
-		else if (::MSU.isKindOf( _settlement, "legends_tundra_village") || ::MSU.isKindOf( _settlement, "small_tundra_village") || ::MSU.isKindOf( _settlement, "medium_tundra_village"))
+		else if (isKindOf( _settlement, "legends_tundra_village") || isKindOf( _settlement, "small_tundra_village") || isKindOf( _settlement, "medium_tundra_village"))
 		{
 			return this.Weights.Tundra.roll();
 		}
-		else if (::MSU.isKindOf( _settlement, "legends_snow_village") || ::MSU.isKindOf( _settlement, "small_snow_village") || ::MSU.isKindOf( _settlement, "medium_snow_village"))
+		else if (isKindOf( _settlement, "legends_snow_village") || isKindOf( _settlement, "small_snow_village") || isKindOf( _settlement, "medium_snow_village"))
 		{
 			return this.Weights.Snow.roll();
 		}
-		else if (::MSU.isKindOf( _settlement, "legends_steppe_village") || ::MSU.isKindOf( _settlement, "small_steppe_village") || ::MSU.isKindOf( _settlement, "medium_steppe_village"))
+		else if (isKindOf( _settlement, "legends_steppe_village") || isKindOf( _settlement, "small_steppe_village") || isKindOf( _settlement, "medium_steppe_village"))
 		{
 			return this.Weights.Steppe.roll();
 		}
-		else if (::MSU.isKindOf( _settlement, "legends_swamp_village") || ::MSU.isKindOf( _settlement, "small_swamp_village") || ::MSU.isKindOf( _settlement, "medium_swamp_village"))
+		else if (isKindOf( _settlement, "legends_swamp_village") || isKindOf( _settlement, "small_swamp_village") || isKindOf( _settlement, "medium_swamp_village"))
 		{
 			return this.Weights.Swamp.roll();
 		} 
-		else if (::MSU.isKindOf( _settlement, "legends_farming_village") || ::MSU.isKindOf( _settlement, "small_farming_village") || ::MSU.isKindOf( _settlement, "medium_farming_village"))
+		else if (isKindOf( _settlement, "legends_farming_village") || isKindOf( _settlement, "small_farming_village") || isKindOf( _settlement, "medium_farming_village"))
 		{
 			return this.Weights.Farming.roll();
 		}

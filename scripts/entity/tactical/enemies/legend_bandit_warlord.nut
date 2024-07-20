@@ -136,11 +136,11 @@ this.legend_bandit_warlord <- this.inherit("scripts/entity/tactical/human", {
 		if (r > 50)
 		{
 			local namedWeaponArray = clone ::Const.Items.NamedMeleeWeapons;
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/named_dagger");
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_parrying_dagger");
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_shovel");
-			::MSU.Array.remove(namedWeaponArray, "weapons/named/legend_named_sickle");
-			this.m.Items.equip(this.new("scripts/items/" + ::MSU.Array.rand(namedWeaponArray)));
+			arrayRemove(namedWeaponArray, "weapons/named/named_dagger");
+			arrayRemove(namedWeaponArray, "weapons/named/legend_named_parrying_dagger");
+			arrayRemove(namedWeaponArray, "weapons/named/legend_named_shovel");
+			arrayRemove(namedWeaponArray, "weapons/named/legend_named_sickle");
+			this.m.Items.equip(this.new("scripts/items/" + arrayRand(namedWeaponArray)));
 		}
 		else
 		{

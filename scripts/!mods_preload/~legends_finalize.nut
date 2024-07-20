@@ -2,7 +2,7 @@ local isNoMSU = false, isNoModernHooks = false;
 
 if (!("MSU" in this.getroottable()))
 	isNoMSU = true;
-else if (::MSU.SemVer.compare(::MSU.SemVer.getTable(::MSU.Version), ::MSU.SemVer.getTable("1.3.0")) >= 0 && !("Hooks" in this.getroottable()))
+else if (SemVer.compare(SemVer.getTable(::MSU.Version), SemVer.getTable("1.3.0")) >= 0 && !("Hooks" in this.getroottable()))
 	isNoModernHooks = true;
 else
 	return;

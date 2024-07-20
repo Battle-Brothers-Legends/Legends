@@ -50,7 +50,7 @@ this.raise_all_undead_skill <- this.inherit("scripts/skills/skill", {
 
 	function onVerifyTarget( _originTile, _targetTile )
 	{
-		if (this.MSU.Tile.canResurrectOnTile(_targetTile, true))
+		if (this.canResurrectOnTile(_targetTile, true))
 		{
 			return false;
 		}

@@ -371,7 +371,7 @@ this.camp_manager <- {
 		}
 
 		//_out.writeBool(false);
-		::MSU.Utils.serialize(this.m.PresetNames, _out);
+		Utils.serialize(this.m.PresetNames, _out);
 	}
 
 	function onDeserialize( _in )
