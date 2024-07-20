@@ -1122,9 +1122,8 @@ gt.Const.CharacterProperties <- {
 	DamageInitiativeMax = 0,
 	DamageInitiativeCutoff = 100,
 	FlatOnKillOtherActorModifier = 0,
-	PercentOnKillOtherActorModifier = 1.0
-
-
+	PercentOnKillOtherActorModifier = 1.0,
+	SurviveWithInjuryBonusChance = 0,
 	DailyWage = 0,
 	DailyWageMult = 1.0, //Is not serialised in vanilla. But I have serialised it today because Scenarios were not keeping their wage multiplier modifiers between save/load cycles - Luft 29/12/22
 	DailyFood = 2.0,

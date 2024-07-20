@@ -1019,7 +1019,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			return true;
 		}
 
-		if (this.Math.rand(1, 100) <= this.Const.Combat.SurviveWithInjuryChance * this.m.CurrentProperties.SurviveWithInjuryChanceMult || this.World.Assets.m.IsSurvivalGuaranteed && !this.m.Skills.hasSkillOfType(this.Const.SkillType.PermanentInjury) && (this.World.Assets.getOrigin().getID() != "scenario.manhunters" || this.getBackground().getID() != "background.slave"))
+		if (this.Math.rand(1, 100) <= this.Math.min(90, (this.Const.Combat.SurviveWithInjuryChance + this.m.CurrentProperties.SurviveWithInjuryBonusChance) * this.m.CurrentProperties.SurviveWithInjuryChanceMult) || this.World.Assets.m.IsSurvivalGuaranteed && !this.m.Skills.hasSkillOfType(this.Const.SkillType.PermanentInjury) && (this.World.Assets.getOrigin().getID() != "scenario.manhunters" || this.getBackground().getID() != "background.slave"))
 		{
 			local potential = [];
 			local injuries = this.Const.Injury.Permanent;

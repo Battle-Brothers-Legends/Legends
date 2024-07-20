@@ -47,7 +47,7 @@ this.legend_scarred_injury <- this.inherit("scripts/skills/injury_permanent/perm
 
 	function onUpdate( _properties )
 	{
-		_properties.SurviveWithInjuryChanceMult *= 2.27;
+		_properties.SurviveWithInjuryBonusChance += 25;
 		_properties.HitpointsMult *= 0.90;
 		_properties.StaminaMult *= 0.90;
 	}

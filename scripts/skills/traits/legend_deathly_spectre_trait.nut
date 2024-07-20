@@ -44,7 +44,7 @@ this.legend_deathly_spectre_trait <- this.inherit("scripts/skills/traits/charact
 
 	function onUpdate( _properties )
 	{
-		_properties.SurviveWithInjuryChanceMult *= 2.72;
+		_properties.SurviveWithInjuryBonusChance += 35;
 		_properties.SurvivesAsUndead = true;
 	}
 

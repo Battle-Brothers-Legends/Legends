@@ -92,7 +92,7 @@ this.perk_nine_lives <- this.inherit("scripts/skills/skill", {
 		{
 			this.getContainer().removeByType(this.Const.SkillType.DamageOverTime);
 		}
-		_properties.SurviveWithInjuryChanceMult *= 1.11;
+		_properties.SurviveWithInjuryBonusChance += 11;
 	}
 
 });

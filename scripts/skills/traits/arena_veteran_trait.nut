@@ -49,7 +49,7 @@ this.arena_veteran_trait <- this.inherit("scripts/skills/traits/character_trait"
 	function onUpdate( _properties )
 	{
 		_properties.Bravery += 10;
-		_properties.SurviveWithInjuryChanceMult *= 1.51;
+		_properties.SurviveWithInjuryBonusChance += 15;
 	}
 
 });

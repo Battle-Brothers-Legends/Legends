@@ -118,7 +118,7 @@ this.arena_invictus_trait <- this.inherit("scripts/skills/traits/character_trait
 		_properties.Bravery += 18;
 		_properties.Hitpoints += 10;
 		_properties.DamageTotalMult *= 1.05;
-		_properties.SurviveWithInjuryChanceMult *= 2.27;
+		_properties.SurviveWithInjuryBonusChance += 25;
 	}
 	
 	function onAfterUpdate( _properties )

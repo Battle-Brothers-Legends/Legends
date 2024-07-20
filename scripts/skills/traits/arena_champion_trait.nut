@@ -63,7 +63,7 @@ this.arena_champion_trait <- this.inherit("scripts/skills/traits/character_trait
 		_properties.Bravery += 15;
 		_properties.Hitpoints += 5;
 		_properties.DamageTotalMult *= 1.05;
-		_properties.SurviveWithInjuryChanceMult *= 1.51;
+		_properties.SurviveWithInjuryBonusChance += 15;
 	}
 
 });
