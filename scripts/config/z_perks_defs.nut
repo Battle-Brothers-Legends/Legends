@@ -103,7 +103,7 @@ gt.Const.Perks.updatePerkGroupTooltips <- function( _perkDef = null, _groups = [
 			if (ret.find("\n\n" + pre) == null)
 			{
 				local prefix = ret.find("\n" + pre) == null ? "\n\n" : "\n";
-				ret = this.MSU.String.replace(ret, pre, prefix + pre);
+				ret = this.stringReplace(ret, pre, prefix + pre);
 			}
 
 			gt.Const.Strings.PerkDescription[gt.Const.Perks.PerkDefObjects[perk].Const] = ret;

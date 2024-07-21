@@ -1425,7 +1425,7 @@ this.item <- {
 		if (::Legends.Mod.Serialization.isSavedVersionAtLeast("18.2.0-pre-02", _in.getMetaData()))
 		{
 			this.m.OriginSettlementID = _in.readI32();
-			this.m.TradeHistorySettlementIDs = ::MSU.Utils.deserialize(_in);
+			this.m.TradeHistorySettlementIDs = Utils.deserialize(_in);
 		}
 
 		this.updateVariant();

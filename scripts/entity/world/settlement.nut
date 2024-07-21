@@ -1354,7 +1354,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 	// A helper function to filter out any existing attached locations from possible candidates in buildNewLocation()
 	function filterNewLocation( _items )
 	{
-		// ::MSU.Log.printData(_items.map(function(item){return item[1].Script;}));
+		// Log.printData(_items.map(function(item){return item[1].Script;}));
 		local ret = clone _items;
 		local existingLocations = this.getAttachedLocations().map(function(location){ return location.ClassName; });
 		local garbage = [];
@@ -1382,7 +1382,7 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 			ret = _items;
 		}
 
-		// ::MSU.Log.printData(ret.map(function(item){ return item[1].Script;}));
+		// Log.printData(ret.map(function(item){ return item[1].Script;}));
 		return ret;
 	}
 
@@ -3182,8 +3182,8 @@ this.settlement <- this.inherit("scripts/entity/world/location", {
 		this.m.ImportedGoodsInventory.onDeserialize(_in);
 		if (::Legends.Mod.Serialization.isSavedVersionAtLeast("18.2.0-pre-02", _in.getMetaData()))
 		{
-			this.m.CaravanReceivedHistory = ::MSU.Utils.deserialize(_in);
-			this.m.CaravanSentHistory = ::MSU.Utils.deserialize(_in);
+			this.m.CaravanReceivedHistory = Utils.deserialize(_in);
+			this.m.CaravanSentHistory = Utils.deserialize(_in);
 		}
 		
 		this.updateSprites();

@@ -9,7 +9,7 @@
 	/*
 	*	Define RoamingBeastsContractWeights.Weights:
 	* 	
-	*	A table of MSU WeightedContainers to thematically determine which beast is picked
+	*	A table of WeightedContainers to thematically determine which beast is picked
 	*	(Originally designed and created to fix the Roaming Beasts Contract)
 	*	Currently, these weights and settlement types are based on the Vanilla setup.
 	*/

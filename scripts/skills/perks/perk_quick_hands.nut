@@ -30,14 +30,14 @@ this.perk_quick_hands <- this.inherit("scripts/skills/skill", {
 	function getName()
 	{
 		local name = this.skill.getName();
-		if (this.getContainer() != null && this.getContainer().hasSkill("injury.missing_hand")) name = ::MSU.String.replace(name, "Quick Hands", "Quick Hand")
+		if (this.getContainer() != null && this.getContainer().hasSkill("injury.missing_hand")) name = ::stringReplace(name, "Quick Hands", "Quick Hand")
 		return name;
 	}
 
 	function getDescription()
 	{
 		local description = this.skill.getDescription()
-		if (this.getContainer() != null && this.getContainer().hasSkill("injury.missing_hand")) description = ::MSU.String.replace(description, "has quick hands", "has a quick hand")
+		if (this.getContainer() != null && this.getContainer().hasSkill("injury.missing_hand")) description = ::stringReplace(description, "has quick hands", "has a quick hand")
 		return description;
 	}
 

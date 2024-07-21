@@ -60,7 +60,7 @@ this.voice_of_davkul_skill <- this.inherit("scripts/skills/skill", {
 			}
 
 			if (a.getType() == this.Const.EntityType.Cultist ||
-				(::MSU.isKindOf(a, "player") &&
+				(isKindOf(a, "player") &&
 					!isNull(a.getBackground()) &&
 					(a.getBackground().isBackgroundType(this.Const.BackgroundType.Cultist) || a.getBackground().isBackgroundType(this.Const.BackgroundType.ConvertedCultist))))
 			{

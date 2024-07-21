@@ -409,7 +409,7 @@ this.camp_manager <- {
 
 		if (::Legends.Mod.Serialization.isSavedVersionAtLeast("17.1.0", _in.getMetaData()))
 		{
-			this.m.PresetNames = ::MSU.Utils.deserialize(_in);
+			this.m.PresetNames = Utils.deserialize(_in);
 		}
 		
 	}
