@@ -1,20 +1,19 @@
 class Utils {
     constructor() {
         this.DataType = {
-            Integer: 0,
-            Float: 1,
-            Boolean: 2,
-            String: 3,
-            Array: 4,
-            Table: 5,
-            Class: 6,
-            Instance: 7,
-            Null: 8
+            "Integer": 0,
+            "Float": 1,
+            "Boolean": 2,
+            "String": 3,
+            "Array": 4,
+            "Table": 5,
+            "Class": 6,
+            "Instance": 7,
+            "Null": 8
         };
-        this.Timers = {};
-        this.States = {};
+        this.Timers <- {};
+        this.States <- {};
     }
-
     // Returns the data type code for the given variable
     // _var: the variable to check
     // Returns an integer representing the data type
@@ -238,6 +237,7 @@ class Utils {
 
     // Checks if a string represents an integer
     function isInteger(_string) {
+
         foreach (char in _string) {
             if (char < '0' || char > '9') return false;
         }
@@ -245,14 +245,6 @@ class Utils {
     }
 }
 
-// Helper function to ensure the input is one of the specified types
-function requireOneFromTypes(types, ...args) {
-    foreach (arg in args) {
-        if (types.find(typeof arg) == null) {
-            throw "Invalid type: " + typeof arg;
-        }
-    }
-}
 
 
 // Helper function to simulate a binary output stream
@@ -371,6 +363,7 @@ function compareTables(tbl1, tbl2) {
     }
     return true;
 }
+
 
 
 

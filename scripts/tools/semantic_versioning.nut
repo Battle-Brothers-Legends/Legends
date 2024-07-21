@@ -28,9 +28,9 @@ class SemVer {
             throw "InvalidValue: " + _version;
         }
         return {
-            Version: split(version[1], ".").map(@(v) v.tointeger()),
-            PreRelease: version[2] == null ? null : split(version[2], "."),
-            Metadata: version[3] == null ? null : split(version[3], ".")
+            Version = split(version[1], ".").map(@(v) v.tointeger()),
+            PreRelease = version[2] == null ? null : split(version[2], "."),
+            Metadata = version[3] == null ? null : split(version[3], ".")
         };
     }
 
@@ -161,8 +161,9 @@ function verifyCompareInputs(_version1, _version2) {
     if (typeof _version2 == "instance") requireInstanceOf(Mod, _version2);
 }
 
-// Checks if the input is one of the specified types
-function requireOneFromTypes(types, ...args) {
+// Helper function to ensure the input is one of the specified types
+function requireOneFromTypes(types) {
+    local args = vargv();
     foreach (arg in args) {
         if (types.find(typeof arg) == null) {
             throw "Invalid type: " + typeof arg;

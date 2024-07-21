@@ -1,14 +1,14 @@
 //
 // Array Manipulation
-// 
+//
 
-//basic random
+// Basic random
 function arrayRand(arr) {
     if (arr.len() == 0) return null;
     return arr[math.rand(0, arr.len() - 1)];
 }
 
-//basic removal
+// Basic removal
 function arrayRemove(arr, item) {
     local idx = arr.find(item);
     if (idx != null) {
@@ -17,7 +17,7 @@ function arrayRemove(arr, item) {
     return null;
 }
 
-//basic shuffle
+// Basic shuffle
 function arrayShuffle(arr) {
     for (local i = arr.len() - 1; i > 0; i--) {
         local j = math.rand(0, i);
@@ -27,12 +27,12 @@ function arrayShuffle(arr) {
     }
 }
 
-//sorts the array descending
+// Sorts the array descending
 function arraySortDescending(arr) {
     arr.sort(@(a, b) -1 * (a <=> b));
 }
 
-//sorts the array ascending
+// Sorts the array ascending
 function arraySortAscending(arr) {
     arr.sort();
 }
@@ -44,7 +44,6 @@ function arraySortAscending(arr) {
 // Returns a random value from the table
 // tbl: the table to get a random value from
 // Returns a random value from the table
-
 function tableRandValue(tbl) {
     local values = tableValues(tbl);
     if (values.len() == 0) return null;
@@ -54,7 +53,6 @@ function tableRandValue(tbl) {
 // Returns a random key from the table
 // tbl: the table to get a random key from
 // Returns a random key from the table
-
 function tableRandKey(tbl) {
     local keys = tableKeys(tbl);
     if (keys.len() == 0) return null;
@@ -64,7 +62,6 @@ function tableRandKey(tbl) {
 // Returns an array of all keys in the table
 // tbl: the table to get the keys from
 // Returns an array of keys
-
 function tableKeys(tbl) {
     local ret = [];
     foreach (key, value in tbl) {
@@ -76,7 +73,6 @@ function tableKeys(tbl) {
 // Returns an array of all values in the table
 // tbl: the table to get the values from
 // Returns an array of values
-
 function tableValues(tbl) {
     local ret = [];
     foreach (key, value in tbl) {
@@ -90,7 +86,6 @@ function tableValues(tbl) {
 // tbl2: the second table
 // overwrite: boolean indicating whether to overwrite existing keys (default: true)
 // Returns the merged table
-
 function tableMerge(tbl1, tbl2, overwrite = true) {
     foreach (key, value in tbl2) {
         if (key in tbl1 && !overwrite) {
@@ -105,7 +100,6 @@ function tableMerge(tbl1, tbl2, overwrite = true) {
 // tbl: the table to filter
 // func: the function to determine whether to keep an entry (function(key, value) returns boolean)
 // Returns a new table with filtered entries
-
 function tableFilter(tbl, func) {
     local ret = {};
     foreach (key, value in tbl) {
@@ -116,12 +110,10 @@ function tableFilter(tbl, func) {
     return ret;
 }
 
-
 // Maps the table to a new table based on a function
 // tbl: the table to map
 // func: the function to transform an entry (function(key, value) returns [newKey, newValue])
 // Returns a new table with transformed entries
-
 function tableMap(tbl, func) {
     local ret = {};
     foreach (key, value in tbl) {
@@ -130,7 +122,6 @@ function tableMap(tbl, func) {
     }
     return ret;
 }
-
 
 //
 // String Manipulation
@@ -175,7 +166,6 @@ function stringEndsWith(str, end) {
 // _thing: the object to check
 // _type: the name of the class to check against
 // Returns true if the thing is of the specified type, false otherwise
-
 function isKindOf(_thing, _type) {
     if (_thing == null || _type == null) return false;
     if (typeof _thing == "instance" && _thing instanceof ::WeakTableRef) {
@@ -185,7 +175,6 @@ function isKindOf(_thing, _type) {
 
     return ::isKindOf(_thing, _type);
 }
-    
 
 // Checks if the given object is null or undefined
 // _object: the object to check
@@ -193,7 +182,6 @@ function isKindOf(_thing, _type) {
 function isNull(_object) {
     return _object == null;
 }
-
 
 // Checks if a tile can be used to resurrect a unit
 // _tile: the tile to check
@@ -206,7 +194,6 @@ function canResurrectOnTile(_tile, _force = false) {
     if (!_tile.Properties.get("Corpse").IsResurrectable && !_force) {
         return false;
     }
-    
     return true;
 }
 
@@ -235,8 +222,6 @@ function regexMatch(_string, _pattern) {
     return regex.search(_string) != null;
 }
 
-
-
 // Checks if the given object is a Battle Brothers game object
 // _object: the object to check
 // Returns true if the object is a Battle Brothers game object, false otherwise
@@ -262,7 +247,6 @@ function getField(_object, _field) {
     return _object[_field];
 }
 
-
 // Converts an object to a WeakTableRef if it is not already one
 // _object: the object to convert
 // Returns a WeakTableRef to the object
@@ -274,14 +258,12 @@ function asWeakTableRef(_object) {
     return ::WeakTableRef(_object);
 }
 
-
 //
 // Function testing
 //
 
-
-function runUtlitiesTests() {
-   this.loginfo("Testing ArrayUtils...");
+function runUtilitiesTests() {
+    this.loginfo("Testing ArrayUtils...");
 
     // Test arrayRand
     local arr = [1, 2, 3, 4, 5];
@@ -346,23 +328,25 @@ function runUtlitiesTests() {
 
     // Test stringIsInteger
     local isInt = stringIsInteger("123");
-    loginfo("stringIsInteger (123): " + isInt);
+    this.loginfo("stringIsInteger (123): " + isInt);
     isInt = stringIsInteger("abc");
     this.loginfo("stringIsInteger (abc): " + isInt);
 
     // Test stringStartsWith
     local starts = stringStartsWith("hello", "he");
-    loginfo("stringStartsWith (he): " + starts);
+    this.loginfo("stringStartsWith (he): " + starts);
     starts = stringStartsWith("hello", "lo");
     this.loginfo("stringStartsWith (lo): " + starts);
 
     // Test stringEndsWith
     local ends = stringEndsWith("hello", "lo");
-    loginfo("stringEndsWith (lo): " + ends);
+    this.loginfo("stringEndsWith (lo): " + ends);
     ends = stringEndsWith("hello", "he");
     this.loginfo("stringEndsWith (he): " + ends);
-    
-     // Create a container
+
+    this.loginfo("Testing WeightedContainer...");
+
+    // Create a container
     local container = createWeightedContainer();
 
     // Add elements
@@ -382,18 +366,15 @@ function runUtlitiesTests() {
     // Test clearing the container
     weightedContainerClear(container);
     this.loginfo("After clearing, Container Total Weight: " + container.totalWeight);
-    
-     // Create an example class and an instance of it
+}
+
+function runIsKindOfTests() {
     class ExampleClass {
         function constructor() {
             this.name = "Example";
         }
     }
-    
 
-
-// Example usage of isKindOf
-function runIsKindOfTests() {
     local exampleInstance = ExampleClass();
     
     // Check if the instance is of type ExampleClass
@@ -409,15 +390,13 @@ function runIsKindOfTests() {
     this.loginfo("Is null of type ExampleClass? " + result); // Should be false
     
     result = isKindOf(exampleInstance, null);
-    this.loginfo("Is exampleInstance of type null? " + result); // Should be false 
-    
-    
+    this.loginfo("Is exampleInstance of type null? " + result); // Should be false
 }
 
 function runCheckerTests() {
     // Test isNull
-    loginfo("isNull(null): " + isNull(null)); // Should be true
-    loginfo("isNull(1): " + isNull(1)); // Should be false
+    this.loginfo("isNull(null): " + isNull(null)); // Should be true
+    this.loginfo("isNull(1): " + isNull(1)); // Should be false
 
     // Test asWeakTableRef
     local obj = { "key": "value" };
@@ -429,7 +408,7 @@ function runCheckerTests() {
     this.loginfo("isEqual(1, 2): " + isEqual(1, 2)); // Should be false
 
     // Test isBBObject (mocked for this test)
-    this.local bbObject = { GetType: function() { return "BB.SomeObject"; } };
+    local bbObject = { GetType = function() { return "BB.SomeObject"; } };
     this.loginfo("isBBObject(bbObject): " + isBBObject(bbObject)); // Should be true
 
     // Test isIn
@@ -452,16 +431,14 @@ function runCheckerTests() {
     this.loginfo("getMember(objWithMember, 'nonexistent'): " + getMember(objWithMember, "nonexistent")); // Should be null
 }
 
-
-// Example usage of canResurrectOnTile
 function runCanResurrectOnTileTests() {
     // Create a mock tile object
     local mockTile = {
-        IsCorpseSpawned: true,
-        Properties: {
-            get: function(key) {
+        IsCorpseSpawned = true,
+        Properties = {
+            get = function(key) {
                 return {
-                    IsResurrectable: key == "Corpse" ? true : false
+                    IsResurrectable = (key == "Corpse")
                 };
             }
         }
@@ -474,7 +451,7 @@ function runCanResurrectOnTileTests() {
     // Test case 2: Tile with a non-resurrectable corpse, force = false
     mockTile.Properties.get = function(key) {
         return {
-            IsResurrectable: key == "Corpse" ? false : false
+            IsResurrectable = (key == "Corpse") ? false : false
         };
     };
     result = canResurrectOnTile(mockTile);
@@ -489,5 +466,6 @@ function runCanResurrectOnTileTests() {
     result = canResurrectOnTile(mockTile);
     this.loginfo("Can resurrect on tile without a corpse? " + result); // Should be false
 }
+
 
 
