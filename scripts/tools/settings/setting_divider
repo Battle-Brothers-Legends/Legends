@@ -1,0 +1,27 @@
+/**
+ * Class representing a Divider on a settings page.
+ * This is a simple horizontal line used to separate sections of settings.
+ */
+class SettingsDivider extends PageComponent {
+    static Type = "Divider";
+
+    /**
+     * Constructor for SettingsDivider.
+     * @param _id {string} - The unique identifier for the divider.
+     */
+    constructor(_id) {
+        base.constructor(_id, "");
+    }
+
+    /**
+     * Gets the type of the component.
+     * @returns {string} - The type of the component.
+     */
+    function getType() {
+        return this.Type;
+    }
+}
+
+// alias for backwards compatibility 
+::MSU.Class.SettingsDivider <- SettingsDivider;
+

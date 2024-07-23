@@ -1,0 +1,563 @@
+/* Global Variables */
+:root {
+    --color-primary: #DDA21F;
+    --heading-color-primary: #F8F0E3;
+    --heading-color-secondary: #E4EBF7;
+    --heading-color-tertiary: #DDA21F;
+    --color-background: rgba(0, 0, 0, 0.3);
+    --color-background-dark: rgba(0, 0, 0, 1.0);
+    --text-color-primary: #F8F0E3;
+    --font-family-main: 'FreeUniversal-Regular', sans-serif;
+    --font-size-xxs: 12px;
+    --font-size-xs: 14px;
+    --font-size-small: 16px;
+    --font-size-normal: 18px;
+    --font-size-large: 20px;
+    --font-size-xl: 22px;
+    --font-size-xxl: 24px;
+    --heading-size-xxs:0.5rem;
+    --heading-size-xs: 1rem;
+    --heading-size-small: 1.5rem;
+    --heading-size-normal: 2rem;
+    --heading-size-large:2.5rem;
+    --heading-size-xl:3rem;
+    --heading-size-xxl:4rem;
+    --z-index-top: 101;
+    --z-index-popup: 100;
+    --width-popup: 60rem;
+    --height-popup: 30rem;
+    --padding-xxs:0.1rem;
+    --padding-xs: 0.2rem;
+    --padding-small: 0.5rem;
+    --padding-regular: 1rem;
+    --padding-large: 1.5rem;
+    --padding-xl: 2rem;
+    --padding-xxl: 2.5rem;
+    --width-button: 17.5rem;
+    --height-button: 4.3rem;
+    --image-line-gold: url("coui://gfx/ui/skin/line_metal.png");
+    --image-background-large-border: url("coui://gfx/ui/skin/dialog_background_1920.png");
+    --image-dialog-background: url("coui://gfx/ui/skin/dialog_background_1920.png");
+    --image-list-item: url("coui://gfx/ui/skin/list_item_03.png");
+    --image-github: url("coui://gfx/ui/images/github-mark.png");
+    --image-nexusmods: url("coui://gfx/ui/images/nexusmods-mark.png");
+    --image-button-default: url("coui://gfx/ui/skin/button_01_default.png");
+    --image-button-hovered: url("coui://gfx/ui/skin/button_01_hovered.png");
+    --image-button-pressed: url("coui://gfx/ui/skin/button_01_pressed.png");
+    --image-button-inactive: url("coui://gfx/ui/skin/button_01_inactive.png");
+}
+
+/* General Styles */
+.FU-settings-screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--color-background);
+    overflow: hidden;
+    z-index: var(--z-index-top) !important;
+}
+
+.FU-popup {
+    height: 72rem !important;
+    width: 80rem !important;
+    position: relative;
+    background-size: 100% 100%;
+    background-image: var(--image-dialog-background);
+    background-repeat: no-repeat;
+    z-index: var(--z-index-popup) !important;
+}
+
+
+/* Heading Styles */
+.heading {
+    /* General styling for the heading */
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+/* Size classes */
+.heading-size-xs {
+    font-size: var(--heading-size-xs);
+}
+.heading-size-sm {
+    font-size: var(--heading-size-small);
+}
+.heading-size-normal {
+    font-size: var(--heading-size-normal);
+}
+.heading-size-lg {
+    font-size: var(--heading-size-large);
+}
+.heading-size-xl {
+    font-size: var(--heading-size-xl);
+}
+/* Color classes */
+.heading-color-primary {
+    color: var(--heading-color-primary);
+}
+.heading-color-secondary {
+    color: var(--heading-color-secondary);
+}
+.heading-color-tertiary {
+    color: var(--heading-color-tertiary);
+}
+
+/* Dialog Box */
+.FU-settings-screen .l-dialog-box {
+    width: 102.4rem;
+    height: 76.8rem;
+    position: absolute;
+    margin: auto;
+}
+
+/* Tab Button Bar */
+.FU-settings-screen .dialog .tab-box .l-tab-button-bar {
+    top: -0.5rem;
+    left: 4rem;
+    right: 2rem;
+    bottom: 0;
+    height: 4.3rem;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+}
+
+.FU-settings-screen .dialog .tab-box .l-tab-button {
+    width: 17.4rem;
+    height: 4.3rem;
+    margin-right: 0.66rem;
+    display: inline-block;
+    line-height: 3rem;
+}
+
+.FU-settings-screen .dialog .tab-box .l-tab-button:last-child {
+    margin-right: 0;
+}
+
+/* Dialog Content */
+.FU-settings-screen .ui-control.dialog > .content {
+    top: 12rem;
+    position: absolute;
+    margin: auto;
+    overflow: hidden;
+}
+
+.FU-settings-screen .dialog .content .l-page-box {
+    left: 26rem;
+    width: 75.6rem;
+    height: 98%;
+    position: absolute;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .scroll-box {
+    width: 100%;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .scroll-box > div {
+    position: relative;
+    float: left;
+    margin: var(--padding-small) 0.9rem;
+}
+
+/* Visual Elements */
+.FU-settings-screen .dialog .content .l-page-box .divider {
+    width: 72rem;
+    height: 0.3rem;
+    background-image: var(--image-line-gold);
+    background-size: 72rem 0.3rem;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .heading-box {
+    width: 72rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Settings */
+.FU-settings-screen .dialog .content .l-page-box .setting-box {
+    width: 35rem;
+    height: 8rem;
+    left: 0rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .setting-box .setting-title-box {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .setting-box .setting-title-box .title {
+    height: var(--padding-xl);
+    text-shadow: 1px 1px rgba(0, 0, 0, 128), -1px -1px #000;
+    font-weight: normal;
+    font-family: var(--font-family-main);
+    padding-left: var(--padding-small);
+    overflow: visible;
+    white-space: nowrap;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .setting-box .setting-content-box {
+    width: 100%;
+    padding-left: var(--padding-regular);
+    height: 4rem;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .toggle-box {
+    height: 4rem;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .toggle-box .setting-title-box {
+    display: flex;
+    align-items: center;
+    padding-left: var(--padding-large);
+}
+
+.FU-settings-screen .dialog .content .l-page-box .toggle-box .setting-title-box .bool-checkbox-label {
+    padding-left: var(--padding-large);
+    font-weight: normal;
+    font-family: var(--font-family-main);
+}
+
+.FU-settings-screen .dialog .content .l-page-box .enum-box .enum-button,
+.FU-settings-screen .dialog .content .l-page-box .button-box .button-setting-button,
+.FU-settings-screen .dialog .content .l-page-box .picker-box .picker-button,
+.FU-settings-screen .dialog .content .l-page-box .multiselect-box .popup-button {
+    width: 23rem;
+    height: 4rem;
+    line-height: 3.6rem;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .picker-box .picker-button {
+    margin-left: var(--padding-small);
+    width: 22rem;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 1);
+}
+
+.FU-settings-screen .dialog .content .l-page-box .picker-box .picker-button-label {
+    padding-left: var(--padding-small);
+    width: 5rem;
+}
+
+.string-input,
+.string-input-box,
+.keybind-button-box {
+    width: 30rem;
+    height: 4rem;
+    line-height: 3.6rem;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .slider-box .scale-control {
+    width: 33rem;
+    height: 3rem;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .slider-box .scale-label {
+    top: 3.9rem;
+    left: 31.5rem;
+    position: absolute;
+}
+
+.FU-settings-screen .dialog .content .l-page-box .slider-box .scale-slider {
+    top: 2.5rem;
+    height: var(--padding-xl);
+    width: 30rem;
+    position: absolute;
+    float: left;
+    margin-bottom: 0rem;
+}
+
+/* List Box */
+.FU-settings-screen .dialog .content .l-list-box {
+    width: 25.2rem;
+    height: 98%;
+    position: absolute;
+}
+
+/* Footer Button Bar */
+.FU-settings-screen .dialog .footer .l-button-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 0rem;
+    left: var(--padding-xl);
+    right: var(--padding-xl);
+    bottom: 0;
+    height: var(--height-button);
+    position: absolute;
+    margin: auto;
+}
+
+/* Change Popups */
+.change-keybind-popup,
+.change-multiselect-popup {
+    width: var(--width-popup);
+    background-image: var(--image-background-large-border);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.change-keybind-popup {
+    height: var(--height-popup);
+}
+
+.change-multiselect-popup {
+    height: 60rem;
+}
+
+.change-keybind-box,
+.change-multiselect-box {
+    width: 100%;
+    padding: var(--padding-regular);
+    position: relative;
+    float: left;
+}
+
+.change-keybind-box .list,
+.change-multiselect-box .list {
+    width: 90%;
+    position: relative;
+    float: left;
+}
+
+.change-keybind-box .list {
+    height: 15rem;
+}
+
+.change-multiselect-box .list {
+    height: 45rem;
+}
+
+.change-keybind-box .scroll-box > .row,
+.change-multiselect-box .scroll-box > .row {
+    width: 100%;
+    height: 4.3rem;
+    position: relative;
+    overflow: hidden;
+    padding-left: var(--padding-regular);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Keybind Button Box */
+.keybind-button-box,
+.keybind-delete-button-box {
+    height: 4.3rem;
+}
+
+.keybind-delete-button-box {
+    width: 9.8rem;
+}
+
+.keybind-button-box {
+    width: 23rem;
+}
+
+.l-add-keybind-button,
+.l-cancel-keybind-button,
+.l-ok-keybind-button {
+    width: var(--width-button);
+    line-height: 3rem;
+    float: left;
+}
+
+.change-keybind-popup .l-button-bar,
+.change-multiselect-popup .l-button-bar {
+    width: var(--width-popup) !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.change-keybind-popup .l-button-bar:first-child,
+.change-multiselect-popup .l-button-bar:first-child {
+    border: 1px solid transparent;
+    margin-left: var(--padding-regular);
+}
+
+.change-keybind-popup .l-button-bar:last-child,
+.change-multiselect-popup .l-button-bar:last-child {
+    border: 1px solid transparent;
+    margin-right: var(--padding-regular);
+}
+
+/* multiselect Entry Name */
+.multiselect-entry-name {
+    width: 20rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Picker Popup */
+.picker-popup {
+    width: var(--width-popup);
+    height: 50rem;
+    background-image: var(--image-background-large-border);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.picker-popup .pick-color-content-box {
+    width: 100%;
+    height: 75%;
+    position: relative;
+    float: left;
+}
+
+.picker-popup .pick-color-content-box .current-color-display {
+    width: 70%;
+    height: 12rem;
+    margin: auto;
+    margin-bottom: var(--padding-large);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 1);
+}
+
+.picker-popup .pick-color-content-box .row {
+    width: 100%;
+    height: 6rem;
+    position: relative;
+    float: left;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.picker-popup .pick-color-content-box .row .title,
+.picker-popup .pick-color-content-box .row .scale-label {
+    text-align: center;
+    height: 3rem;
+    width: 10rem;
+}
+
+.picker-popup .pick-color-content-box .row .scale-control {
+    height: 4rem;
+    width: 32rem;
+    display: flex;
+    align-items: center;
+}
+
+.picker-popup .pick-color-content-box .row .scale-slider {
+    height: 2rem;
+    width: 30rem;
+}
+
+/* Mod Info Box */
+.FU-mod-info-box {
+    width: 100%;
+    height: 11.8rem;
+    overflow: hidden;
+    position: relative;
+    color: var(--color-primary);
+    background-image: var(--image-list-item);
+    background-size: 100% 100%;
+}
+
+.FU-mod-info-box .mod-name {
+    position: absolute;
+    height: 4rem;
+    line-height: 4rem;
+    left: var(--padding-regular);
+    top: var(--padding-regular);
+}
+
+.FU-mod-info-box .version-info {
+    position: absolute;
+    bottom: var(--padding-regular);
+    left: var(--padding-regular);
+}
+
+.FU-mod-info-box .ui-control.button,
+.FU-mod-info-box .ui-control.button[disabled] {
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+.FU-mod-info-box .l-github-button,
+.FU-mod-info-box .l-nexusmods-button {
+    position: absolute;
+    bottom: var(--padding-regular);
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.FU-mod-info-box .l-github-button {
+    right: var(--padding-regular);
+}
+
+.FU-mod-info-box .l-nexusmods-button {
+    right: 5.5rem;
+}
+
+/* Line Colors */
+.line {
+    outline: 2px solid var(--text-color-primary);
+}
+
+.black {
+    outline-color: black;
+}
+
+.red {
+    outline-color: red;
+}
+
+.green {
+    outline-color: green;
+}
+
+.blue {
+    outline-color: blue;
+}
+
+/* FU Button */
+.FU-button {
+    background-image: var(--image-button-default);
+    background-size: 100% 100%;
+    text-shadow: 1px 1px 1px #000;
+    color: var(--color-primary);
+    box-shadow: 1px -2px 3px 2px rgba(0, 0, 0, 0.4);
+    width: 23rem;
+    min-height: 2.9rem;
+    height: auto;
+    position: relative;
+    left: var(--padding-small);
+    line-height: var(--padding-xl);
+    text-align: center;
+    padding-top: var(--padding-xs);
+    padding-bottom: 2%;
+    margin-bottom: 1rem;
+}
+
+.FU-button:hover,
+.FU-button.is-selected {
+    background-image: var(--image-button-hovered);
+    background-size: 100% 100%;
+    color: var(--color-primary);
+}
+
+.FU-button.is-selected {
+    text-shadow: 1px 1px #A36426, -1px -1px #000;
+}
+
+.FU-button.is-active {
+    background-image: var(--image-button-pressed);
+    background-size: 100%;
+    padding-top: var(--padding-xs);
+    padding-bottom: calc(2% + 0.1rem);
+    margin-bottom: 0.8rem;
+    color: var(--color-primary);
+}
+
+.FU-button[disabled] {
+    color: #a7a7a7;
+}
+
+.FU-button[disabled],
+.FU-button[disabled]:hover,
+.FU-button[disabled]:active {
+    background-image: var(--image-button-inactive);
+    background-size: 100%;
+}
+

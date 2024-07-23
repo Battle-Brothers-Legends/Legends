@@ -1,0 +1,29 @@
+/**
+ * Class representing a Spacer on a settings page.
+ * This is used to add vertical or horizontal space between settings.
+ */
+class SettingsSpacer extends PageComponent {
+    static Type = "Spacer";
+
+    /**
+     * Constructor for SettingsSpacer.
+     * @param _id {string} - The unique identifier for the spacer.
+     * @param _width {integer|float} - The width of the spacer.
+     * @param _height {integer|float} - The height of the spacer.
+     */
+    constructor(_id, _width, _height) {
+        base.constructor(_id);
+        this.Data.Width <- _width;
+        this.Data.Height <- _height;
+    }
+
+    /**
+     * Gets the type of the component.
+     * @returns {string} - The type of the component.
+     */
+    function getType() {
+        return this.Type;
+    }
+}
+// Aliases for backward compatibility
+::MSU.Class.SettingsSpacer <- SettingsSpacer;
