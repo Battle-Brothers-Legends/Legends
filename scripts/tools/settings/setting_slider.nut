@@ -98,7 +98,7 @@ class SliderSetting extends TemplateSetting {
 }
 
 // Alias for backward compatibility
-::FU.Class.RangeSetting <- SliderSetting;
+::MSU.Class.RangeSetting <- SliderSetting;
 
 
 // Test Case

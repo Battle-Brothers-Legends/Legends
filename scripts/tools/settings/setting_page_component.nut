@@ -50,13 +50,20 @@ class PageComponent {
     function getPage() {
         return this.Page;
     }
-
     /**
+     * Gets the screen ID of the component.
+     * @returns {string} - The screen ID.
+     */
+    function getScreenID() {
+        return this.getPage().getScreenID();
+    }
+    /**
+     * Provides backwards compatibility.
      * Gets the panel ID of the component.
      * @returns {string} - The panel ID.
      */
     function getPanelID() {
-        return this.getPage().getPanelID();
+        return this.getPage().getScreenID();
     }
 
     /**

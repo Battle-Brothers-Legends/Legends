@@ -41,7 +41,7 @@ class ToggleSetting extends TemplateSetting {
 }
 
 // Alias for backward compatibility
-::FU.Class.BooleanSetting <- ToggleSetting
+::MSU.Class.BooleanSetting <- ToggleSetting
 
 // Test case for ToggleSetting
 function testToggleSetting() {
