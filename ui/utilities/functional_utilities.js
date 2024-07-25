@@ -1,5 +1,7 @@
 /**
  * Main Functional Utilities Namespace
+ * This namespace contains various utility functions used throughout the mod system.
+ * It organizes commonly used functions and constants.
  * @namespace
  */
 const FU = {
@@ -15,6 +17,7 @@ const FU = {
 
 /**
  * Capitalizes the first letter of a string.
+ * This is a simple utility function that demonstrates text manipulation.
  * @param {string} str - The string to capitalize.
  * @returns {string} - The capitalized string.
  */
@@ -24,6 +27,7 @@ FU.capitalizeFirst = function(str) {
 
 /**
  * Iterates over an object and applies a function to each key-value pair.
+ * This function demonstrates how to work with objects and callbacks in JavaScript
  * @param {Object} obj - The object to iterate over.
  * @param {Function} funct - The function to apply to each key-value pair.
  * @param {boolean} [every=false] - Whether to use Array.every instead of Array.forEach.
@@ -37,11 +41,24 @@ FU.iterateObject = function(obj, funct, every = false) {
 };
 
 /**
- * Binds an event listener to an element and ensures it is the first listener.
- * @param {string} name - The name of the event.
+ * Binds an event listener to be executed first for the specified event.
+ * 
+ * This method can be tricky to understand because it's manipulating jQuery's internal event system.
+ * Here's what it does:
+ * 1. It binds the event handler normally using .on()
+ * 2. Then, it accesses jQuery's internal event data storage
+ * 3. It removes the last handler (which is the one we just added)
+ * 4. It adds this handler back to the beginning of the handlers array
+ * 
+ * This ensures that our new handler will be the first one called when the event occurs.
+ * 
+ * Note: This method relies on jQuery internals and might break if jQuery changes its implementation.
+ * 
+ * @param {string} name - The name of the event to bind to.
  * @param {Function} funct - The event handler function.
- * @returns {jQuery} - The jQuery object for chaining.
+ * @returns {jQuery} - Returns the jQuery object for chaining.
  */
+ 
 $.fn.bindFirst = function(name, funct) {
     this.on(name, funct);
     this.each(function() {
@@ -125,6 +142,8 @@ FU.toggleDisplay = function(obj, bool) {
 
 /**
  * Class for generating a local string representation of data.
+ * This class demonstrates how to create a complex string representation of various data types.
+ * It's useful for debugging and logging purposes.
  * @class
  */
 class LocalStringGenerator {
@@ -135,6 +154,7 @@ class LocalStringGenerator {
 
     /**
      * Generates a string representation of the data.
+     * This method recursively processes different data types and formats them into a string.
      * @param {string} key - The key of the data.
      * @param {any} value - The value of the data.
      * @param {boolean} [isArray=false] - Whether the data is an array.

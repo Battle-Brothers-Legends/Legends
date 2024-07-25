@@ -1,3 +1,60 @@
+/**
+ * KeybindsSystem Class
+ * 
+ * This class manages keybindings for mods. It's responsible for registering,
+ * tracking, and responding to key inputs for mod-specific actions.
+ * 
+ * Key components:
+ * - KeybindsByKey: Organizes keybinds by the key they're bound to
+ * - KeybindsByMod: Organizes keybinds by the mod they belong to
+ * - KeybindsForJS: Keybinds that need to be communicated to the JavaScript frontend
+ * 
+ * Note: This system interacts closely with the JavaScript frontend. Changes in how
+ * keybinds are stored or processed here may require updates in the frontend code.
+ */
+
+
+::FU.Class.System <- class
+{
+	ID = null;
+	constructor( _id, _dependencies = null )
+	{
+		if (_dependencies == null) _dependencies = [];
+
+		foreach (dependency in _dependencies)
+		{
+			local found = false;
+			foreach (system in ::FU.System)
+			{
+				if (dependency == system.getID())
+				{
+					found = true;
+					break;
+				}
+			}
+			if (!found)
+			{
+				throw "Dependencies not yet initialized";
+			}
+		}
+		this.ID = _id;
+	}
+
+	function getID()
+	{
+		return this.ID;
+	}
+
+	function registerMod( _mod )
+	{
+		if (typeof _mod != "instance" || !(_mod instanceof ::FU.Class.Mod))
+		{
+			throw ::FU.Exception.InvalidType(_mod);
+		}
+	}
+}
+
+
 class KeybindsSystem extends System {
     KeybindsByKey = null;
     KeybindsByMod = null;
@@ -35,11 +92,11 @@ class KeybindsSystem extends System {
 
     /**
      * Adds a keybind to the system.
-     * @param _keybind {AbstractKeybind} - The keybind to add.
+     * @param _keybind {KeybindTemplate} - The keybind to add.
      * @param _makeSetting {boolean} - Whether to create a setting for the keybind.
      */
     function add(_keybind, _makeSetting = true) {
-        if (!(_keybind instanceof AbstractKeybind)) {
+        if (!(_keybind instanceof KeybindTemplate)) {
             throw Exception.InvalidType(_keybind);
         }
         if (_keybind instanceof KeybindJS) {
@@ -68,7 +125,7 @@ class KeybindsSystem extends System {
      * Removes a keybind from the system.
      * @param _modID {string} - The ID of the mod the keybind belongs to.
      * @param _id {string} - The ID of the keybind to remove.
-     * @returns {AbstractKeybind} - The removed keybind.
+     * @returns {KeybindTemplate} - The removed keybind.
      */
     function remove(_modID, _id) {
         Mod.Debug.printWarning("Removing Keybind" + this.KeybindsByMod[_modID][_id], "keybinds");
@@ -131,7 +188,7 @@ class KeybindsSystem extends System {
 
     /**
      * Adds a keybind setting to the mod settings.
-     * @param _keybind {AbstractKeybind} - The keybind to add as a setting.
+     * @param _keybind {KeybindTemplate} - The keybind to add as a setting.
      */
     function addKeybindSetting(_keybind) {
         System.ModSettings.getPanel(_keybind.getMod().getID()).getPage("Keybinds").addElement(_keybind.makeSetting());
@@ -153,9 +210,19 @@ class KeybindsSystem extends System {
 
     /**
      * Handles key input events.
-     * @param _key {string} - The key that was pressed.
-     * @param _environment {table} - The environment table.
-     * @param _state {string} - The state of the key event.
+     * 
+     * This method is called when a key is pressed.
+     * 1. It translates the key input into a string representation.
+     * 2. It determines if the key state is continuous (held down) or not.
+     * 3. It delegates to a more general input handler (onInput).
+     * 
+     * The processed key input is then used to trigger appropriate mod actions.
+     * This method is the link between user input and mod functionality.
+     * 
+     * @param _key The key input object
+     * @param _environment The current game environment
+     * @param _state The state of the key event
+     * @returns The result of processing the input
      */
     function onKeyInput(_key, _environment, _state) {
         this.KeysChanged = true;
@@ -279,18 +346,18 @@ class KeybindsSystem extends System {
 
 
 /**
- * AbstractKeybind class
+ * KeybindTemplate class
  * 
  * This abstract class represents a keybind.
  */
-class AbstractKeybind {
+class KeybindTemplate {
     Mod = null;
     ID = null;
     Name = null;
     KeyCombinations = [];
 
     /**
-     * Constructor for the AbstractKeybind class.
+     * Constructor for the KeybindTemplate class.
      * @param _mod {Mod} - The mod to which the keybind belongs.
      * @param _id {string} - The unique identifier for the keybind.
      * @param _name {string} - The display name of the keybind.
@@ -375,7 +442,7 @@ class AbstractKeybind {
  * 
  * This class represents a JavaScript keybind.
  */
-class KeybindJS extends AbstractKeybind {
+class KeybindJS extends KeybindTemplate {
     /**
      * Constructor for the KeybindJS class.
      * @param _mod {Mod} - The mod to which the keybind belongs.
@@ -420,7 +487,7 @@ class KeybindJS extends AbstractKeybind {
  * 
  * This class represents a Squirrel keybind.
  */
-class KeybindSQ extends AbstractKeybind {
+class KeybindSQ extends KeybindTemplate {
     State = null;
 
     /**

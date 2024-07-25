@@ -1,3 +1,19 @@
+/**
+ * Mod Class
+ * 
+ * This class is the core unit representing each mod
+ * It encapsulating all the data and functionality specific to a single mod.
+ * 
+ * Key features:
+ * - Stores basic mod information (ID, Name, Version)
+ * - Handles semantic versioning (Version, PreRelease, Metadata)
+ * - Integrates with various subsystems (Debug, Keybinds, ModSettings, etc.)
+ * 
+ * Note: This class serves as the bridge between the mod and the FU modding infrastructure.
+ * Changes here may require corresponding updates in the JavaScript frontend, 
+ * especially for properties that are displayed or manipulated in the UI.
+ */
+
 class Mod {
     ID = null;
     Name = null;
@@ -16,9 +32,18 @@ class Mod {
 
     /**
      * Constructor for the Mod class.
-     * @param _id {string} - The unique identifier for the mod.
-     * @param _version {string} - The version of the mod following semantic versioning.
-     * @param _name {string} - The display name of the mod. If null, it defaults to _id.
+     * 
+     * This method sets up a new mod instance. 
+     * 1. It parses the version string into components (Version, PreRelease, Metadata).
+     * 2. It registers the mod with multiple subsystems.
+     * 
+     * The registration process is crucial as it integrates the mod with various
+     * parts of the modding system (settings, keybinds, etc.). Each of these
+     * registrations may trigger actions in both the backend and frontend.
+     * 
+     * @param _id Unique identifier for the mod
+     * @param _version Version string following semantic versioning
+     * @param _name Display name of the mod (defaults to _id if not provided)
      */
     constructor(_id, _version, _name = null) {
         if (_name == null) _name = _id;

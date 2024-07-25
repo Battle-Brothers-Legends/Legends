@@ -37,11 +37,24 @@ class SliderSetting {
         this.data.step = this.fixPrecision(this.data.step);
     }
 
-    /**
-     * Fixes the precision of a float value.
-     * @param {number} value - The value to fix precision for.
-     * @returns {number} - The value with fixed precision.
-     */
+/**
+ * Fixes the precision of a float value.
+ * 
+ * This method might be confusing because it's doing a few things in a single line:
+ * 1. It checks if the value is not an integer (value % 1 !== 0)
+ * 2. If it's not an integer (i.e., it's a float):
+ *    - It uses toPrecision(6) to limit the number to 6 significant digits
+ *    - It then uses parseFloat to convert it back to a number (removing trailing zeros)
+ * 3. If it is an integer, it returns the value unchanged
+ * 
+ * This is used to prevent floating-point precision errors and keep the numbers manageable.
+ *
+ * Very nice little line the MSU team.  
+ * 6 digits is way more than we ever use, but I guess it gives a 1 in a million chance of failure. 
+ *
+ * @param {number} value - The value to fix precision for.
+ * @returns {number} - The value with fixed precision.
+ */
     fixPrecision(value) {
         return value % 1 !== 0 ? parseFloat(value.toPrecision(6)) : value;
     }

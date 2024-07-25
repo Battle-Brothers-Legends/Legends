@@ -1,4 +1,11 @@
 //
+// Functional utilities handle data manipulation and checking
+// This is includes sorting, randomisation and merges for arrays, tables, and strings 
+// The checkers compare objects, check types and transpose types
+//
+
+
+//
 // Array Manipulation
 //
 

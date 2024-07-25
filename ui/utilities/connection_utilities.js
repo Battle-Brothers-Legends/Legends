@@ -75,11 +75,24 @@ class FUConnection extends FUBackendConnection {
         FU.Keybinds.PressedKeys = {};
     }
 
-    /**
-     * Creates a promise to check for updates from a given URL.
-     * This method demonstrates how to make asynchronous HTTP requests and handle responses.
-     * It's a good example of error handling and working with Promises 
-     */
+/**
+ * Creates a promise to check for updates from a given URL.
+ * 
+ * This method can be confusing because it involves several advanced concepts:
+ * 1. Promises: It returns a new Promise, which represents an asynchronous operation.
+ * 2. XMLHttpRequest: It uses this to make an HTTP request to check for updates.
+ * 3. Error handling: It handles different scenarios (success, failure, timeout) differently.
+ * 
+ * Here's what happens:
+ * - If the request is successful (status 200), it resolves the promise with the version tag.
+ * - If the request fails or times out, it resolves with null (not reject, to avoid error handling complications).
+ * - If there's a network error, it rejects the promise.
+ * 
+ * This approach allows us to handle all scenarios without needing to catch errors.
+ * 
+ * @param {string} _updateURL - The URL to check for updates.
+ * @returns {Promise} - A promise that resolves with the version tag or null.
+ */
     getUpdateCheckPromise(_updateURL) {
         return new Promise((resolve, reject) => {
             const xhttp = new XMLHttpRequest();

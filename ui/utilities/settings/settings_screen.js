@@ -1,6 +1,7 @@
 /**
- * Class representing the Mod Settings Screen.
- * This class handles the creation, display, and interaction with the mod settings UI.
+ * ModSettingsScreen Class
+ * This class is responsible for creating and managing the mod settings user interface.
+ * It's a crucial part of the mod system, allowing users to customize mod behavior.
  */
 class ModSettingsScreen extends FUUIScreen {
     constructor() {
@@ -12,11 +13,21 @@ class ModSettingsScreen extends FUUIScreen {
         this.mListScrollbox = null;
         this.mModPageScrollbox = null;
         this.mPageTabbox = null;
-
+        /**
+         * Stores all mod settings. This object is structured as:
+         * {
+         *   [modID]: {
+         *     settings: {
+         *       [settingID]: settingObject
+         *     },
+         *     pages: [pageObjects]
+         *   }
+         * }
+         */
         this.mModSettings = {};
-        this.mOrderedPanels = [];
-        this.mActivePanel = null;
-        this.mLastActivePanel = null;
+        this.mOrderedScreens = [];
+        this.mActiveScreen = null;
+        this.mLastActiveScreen = null;
         this.mActivePage = null;
         this.mLastActivePage = null;
         this.mActiveSettings = [];
@@ -25,8 +36,8 @@ class ModSettingsScreen extends FUUIScreen {
     }
 
     /**
-     * Creates the main UI layout.
-     * @param {Object} _parentDiv - The parent div to append the layout to.
+     * Creates the main UI layout for the settings screen.
+     * This method demonstrates how to build complex UI structures programmatically.
      */
     createDIV(_parentDiv) {
         super.createDIV(_parentDiv);
@@ -167,41 +178,53 @@ class ModSettingsScreen extends FUUIScreen {
     }
 
     /**
-     * Shows the UI, sets the settings, and switches to the appropriate panel and page.
+     * Shows the UI, sets the settings, and switches to the appropriate screen and page.
      * @param {Object} _data - The settings data.
      */
     show(_data) {
         this.mIsFirstShow = true;
         this.setSettings(_data);
-        this.createModPanelList();
+        this.createModScreenList();
         super.show(_data);
-        this.mActivePanel = null;
+        this.mActiveScreen = null;
         this.mActivePage = null;
-        if (this.mLastActivePanel != null && this.mLastActivePage != null) {
-            let panel = this.getPanel(this.mLastActivePanel);
-            if (panel != null && !panel.hidden) {
-                let page = this.getPage(panel, this.mLastActivePage);
-                if (page != null && !page.hidden) this.switchToPage(panel, page);
+        if (this.mLastActiveScreen != null && this.mLastActivePage != null) {
+            let screen = this.getScreen(this.mLastActiveScreen);
+            if (screen != null && !screen.hidden) {
+                let page = this.getPage(screen, this.mLastActivePage);
+                if (page != null && !page.hidden) this.switchToPage(screen, page);
             }
         }
-        if (this.mActivePanel == null || this.mActivePage == null) {
-            this.switchToFirstPanel();
-            this.switchToFirstPage(this.mActivePanel);
+        if (this.mActiveScreen == null || this.mActivePage == null) {
+            this.switchToFirstScreen();
+            this.switchToFirstPage(this.mActiveScreen);
         }
         this.mIsFirstShow = false;
     }
 
-    /**
-     * Sets the mod settings from the provided data.
-     * @param {Object} _settings - The settings data.
-     */
+/**
+ * Sets the mod settings from the provided data.
+ * 
+ * This method might be confusing because it's restructuring the data.
+ * Here's what it does step by step:
+ * 1. It stores the received settings in mModSettings.
+ * 2. For each screen (mod) in mModSettings:
+ *    a. It creates a new 'settings' object for the screen.
+ *    b. It goes through each page in the screen.
+ *    c. For each setting on a page, it adds that setting to the screen's 'settings' object,
+ *       using the setting's id as the key.
+ * 
+ * This restructuring makes it easier to quickly access settings by their ID later on.
+ * 
+ * @param {Object} _settings - The settings data received from the backend.
+ */
     setSettings(_settings) {
         this.mModSettings = _settings;
-        FU.iterateObject(this.mModSettings, (_panelID, _panel) => {
-            _panel.settings = {};
-            _panel.pages.forEach(_page => {
+        FU.iterateObject(this.mModSettings, (_screenID, _screen) => {
+            _screen.settings = {};
+            _screen.pages.forEach(_page => {
                 _page.settings.forEach(_setting => {
-                    _panel.settings[_setting.id] = _setting;
+                    _screen.settings[_setting.id] = _setting;
                 });
             });
             return true;
@@ -209,52 +232,52 @@ class ModSettingsScreen extends FUUIScreen {
     }
 
     /**
-     * Creates the list of mod panels.
+     * Creates the list of mod screens.
      */
-    createModPanelList() {
-        this.mOrderedPanels = [];
-        FU.iterateObject(this.mModSettings, (_panelID, _panel) => {
-            if (_panel.hidden) return;
-            this.mOrderedPanels.push(_panel);
+    createModScreenList() {
+        this.mOrderedScreens = [];
+        FU.iterateObject(this.mModSettings, (_screenID, _screen) => {
+            if (_screen.hidden) return;
+            this.mOrderedScreens.push(_screen);
         });
-        this.mOrderedPanels.sort((a, b) => a.order - b.order);
-        this.mOrderedPanels.forEach(_sortedPanel => this.addModPanelButtonToList(_sortedPanel));
+        this.mOrderedScreens.sort((a, b) => a.order - b.order);
+        this.mOrderedScreens.forEach(_sortedScreen => this.addModScreenButtonToList(_sortedScreen));
     }
 
     /**
-     * Adds buttons for each mod panel to the list.
-     * @param {Object} _panel - The panel data.
+     * Adds buttons for each mod screen to the list.
+     * @param {Object} _screen - The screen data.
      */
-    addModPanelButtonToList(_panel) {
+    addModScreenButtonToList(_screen) {
         let button = this.mListScrollbox.createCustomButton(null, () => {
-            this.switchToPanel(_panel);
-            this.switchToFirstPage(_panel);
+            this.switchToScreen(_screen);
+            this.switchToFirstPage(_screen);
         }, 'FU-button');
-        button.text(_panel.name);
+        button.text(_screen.name);
         button.removeClass('button');
-        _panel.button = button;
+        _screen.button = button;
     }
 
     /**
-     * Switches to the selected panel and updates the UI accordingly.
-     * @param {Object} _panel - The panel data.
+     * Switches to the selected screen and updates the UI accordingly.
+     * @param {Object} _screen - The screen data.
      */
-    switchToPanel(_panel) {
+    switchToScreen(_screen) {
         this.mPageTabbox.empty();
-        this.mbox.findDialogSubTitle().html(_panel.name);
-        if (this.mActivePanel !== null) {
-            this.mActivePanel.button.removeClass('is-active');
+        this.mbox.findDialogSubTitle().html(_screen.name);
+        if (this.mActiveScreen !== null) {
+            this.mActiveScreen.button.removeClass('is-active');
         }
-        this.mActivePanel = _panel;
-        this.mLastActivePanel = _panel.id;
-        this.mActivePanel.button.addClass('is-active');
+        this.mActiveScreen = _screen;
+        this.mLastActiveScreen = _screen.id;
+        this.mActiveScreen.button.addClass('is-active');
 
-        _panel.pages.forEach(page => {
+        _screen.pages.forEach(page => {
             if (page.hidden) return;
             let layout = $('<div class="l-tab-button"/>');
             this.mPageTabbox.append(layout);
             let button = layout.createTabTextButton(page.name, () => {
-                this.switchToPage(_panel, page);
+                this.switchToPage(_screen, page);
             }, null, 'tab-button', 7);
             page.button = button;
         });
@@ -262,11 +285,11 @@ class ModSettingsScreen extends FUUIScreen {
 
     /**
      * Switches to the selected page and updates the UI accordingly.
-     * @param {Object} _panel - The panel data.
+     * @param {Object} _screen - The screen data.
      * @param {Object} _page - The page data.
      */
-    switchToPage(_panel, _page) {
-        if (this.mActivePanel != _panel) this.switchToPanel(_panel);
+    switchToPage(_screen, _page) {
+        if (this.mActiveScreen != _screen) this.switchToScreen(_screen);
 
         if (this.mActivePage !== null) {
             this.mActivePage.button.removeClass('is-active');
@@ -281,7 +304,7 @@ class ModSettingsScreen extends FUUIScreen {
 
         _page.settings.forEach(element => {
             if (element.hidden) return;
-            this.mActiveSettings.push(new window[element.type + "Setting"](_panel, _page, element, this.mModPageScrollbox));
+            this.mActiveSettings.push(new window[element.type + "Setting"](_screen, _page, element, this.mModPageScrollbox));
         });
 
         if (this.mIsFirstShow) setTimeout(this.adjustTitles, 300, this);
@@ -289,15 +312,15 @@ class ModSettingsScreen extends FUUIScreen {
     }
 
     /**
-     * Retrieves the panel with the specified ID.
-     * @param {string} _id - The panel ID.
-     * @returns {Object|null} - The panel data or null if not found.
+     * Retrieves the screen with the specified ID.
+     * @param {string} _id - The screen ID.
+     * @returns {Object|null} - The screen data or null if not found.
      */
-    getPanel(_id) {
+    getScreen(_id) {
         let ret = null;
-        this.mOrderedPanels.every(_panel => {
-            if (_panel.id == _id) {
-                ret = _panel;
+        this.mOrderedScreens.every(_screen => {
+            if (_screen.id == _id) {
+                ret = _screen;
                 return false;
             }
             return true;
@@ -306,14 +329,14 @@ class ModSettingsScreen extends FUUIScreen {
     }
 
     /**
-     * Retrieves the page with the specified ID within a panel.
-     * @param {Object} _panel - The panel data.
+     * Retrieves the page with the specified ID within a screen.
+     * @param {Object} _screen - The screen data.
      * @param {string} _id - The page ID.
      * @returns {Object|null} - The page data or null if not found.
      */
-    getPage(_panel, _id) {
+    getPage(_screen, _id) {
         let ret = null;
-        _panel.pages.every(page => {
+        _screen.pages.every(page => {
             if (page.id == _id) {
                 ret = page;
                 return false;
@@ -324,12 +347,12 @@ class ModSettingsScreen extends FUUIScreen {
     }
 
     /**
-     * Switches to the first panel that is not hidden.
+     * Switches to the first screen that is not hidden.
      */
-    switchToFirstPanel() {
-        this.mOrderedPanels.every(_panel => {
-            if (!_panel.hidden) {
-                this.switchToPanel(_panel);
+    switchToFirstScreen() {
+        this.mOrderedScreens.every(_screen => {
+            if (!_screen.hidden) {
+                this.switchToScreen(_screen);
                 return false;
             }
             return true;
@@ -337,13 +360,13 @@ class ModSettingsScreen extends FUUIScreen {
     }
 
     /**
-     * Switches to the first page within a panel that is not hidden.
-     * @param {Object} _panel - The panel data.
+     * Switches to the first page within a screen that is not hidden.
+     * @param {Object} _screen - The screen data.
      */
-    switchToFirstPage(_panel) {
-        _panel.pages.every(page => {
+    switchToFirstPage(_screen) {
+        _screen.pages.every(page => {
             if (!page.hidden) {
-                this.switchToPage(_panel, page);
+                this.switchToPage(_screen, page);
                 return false;
             }
             return true;
@@ -386,15 +409,17 @@ class ModSettingsScreen extends FUUIScreen {
 
     /**
      * Retrieves the changes made to the settings.
+     * This method compares current values with original values to determine changes.
+     * It's a good example of how to track and collect user modifications.
      * @returns {Object} - The changes.
      */
     getChanges() {
         let changes = {};
-        FU.iterateObject(this.mModSettings, (_panelID, modPanel) => {
-            changes[_panelID] = {};
-            FU.iterateObject(modPanel.settings, (_elementID, element) => {
+        FU.iterateObject(this.mModSettings, (_screenID, modScreen) => {
+            changes[_screenID] = {};
+            FU.iterateObject(modScreen.settings, (_elementID, element) => {
                 if ("IsSetting" in element.data && !element.locked && element.currentValue != element.value) {
-                    changes[_panelID][_elementID] = this.setTypeIfFloatOrInt({
+                    changes[_screenID][_elementID] = this.setTypeIfFloatOrInt({
                         type: typeof element.value,
                         value: element.value
                     });
@@ -408,8 +433,8 @@ class ModSettingsScreen extends FUUIScreen {
      * Discards any changes made to the settings and reverts to the original values.
      */
     discardChanges() {
-        FU.iterateObject(this.mModSettings, (_panelID, modPanel) => {
-            FU.iterateObject(modPanel.settings, (_elementID, element) => {
+        FU.iterateObject(this.mModSettings, (_screenID, modScreen) => {
+            FU.iterateObject(modScreen.settings, (_elementID, element) => {
                 if ("IsSetting" in element.data && !element.locked) {
                     element.value = element.currentValue;
                 }
@@ -422,10 +447,10 @@ class ModSettingsScreen extends FUUIScreen {
      * @param {Object} _setting - The setting data.
      */
     updateSetting(_setting) {
-        let panelSettings = this.mModSettings[_setting.mod].settings;
-        panelSettings[_setting.id].value = _setting.value;
-        panelSettings[_setting.id].currentValue = _setting.value;
-        panelSettings[_setting.id].data = _setting.data;
+        let screenSettings = this.mModSettings[_setting.mod].settings;
+        screenSettings[_setting.id].value = _setting.value;
+        screenSettings[_setting.id].currentValue = _setting.value;
+        screenSettings[_setting.id].data = _setting.data;
         this.mActiveSettings.forEach(_activeSetting => {
             if (_activeSetting.data.id == _setting.id && "updateValue" in _activeSetting) {
                 _activeSetting.updateValue();
@@ -472,7 +497,7 @@ class ModSettingsScreen extends FUUIScreen {
      */
     notifyBackendResetButtonPressed() {
         SQ.call(this.mSQHandle, 'onResetButtonPressed', {
-            "panelID": this.mActivePanel.id,
+            "screenID": this.mActiveScreen.id,
             "pageID": this.mActivePage.id
         });
     }
@@ -503,6 +528,7 @@ class ModSettingsScreen extends FUUIScreen {
 // Global functions for accessing and setting mod settings
 /**
  * Retrieves a setting by mod ID and setting ID.
+ * This function provides an easy way for other parts of the UI to access specific mod settings.
  * @param {string} _modID - The mod ID.
  * @param {string} _settingID - The setting ID.
  * @returns {Object} - The setting data.
@@ -530,6 +556,11 @@ FU.getSettingValue = function (_modID, _settingID) {
 FU.setSettingValue = function (_modID, _settingID, _value) {
     Screens.ModSettingsScreen.setModSettingValue(_modID, _settingID, _value);
 };
+
+// Alias for backward compatibility
+MainMenuModule.prototype.addModOptionsPanelButton = MainMenuModule.prototype.addModOptionsScreenButton;
+MainMenuModule.prototype.createWorldMapPanelButtons = MainMenuModule.prototype.createWorldMapScreenButtons;
+MainMenuModule.prototype.createTacticalMapPanelButtons = MainMenuModule.prototype.createTacticalMapScreenButtons;
 
 // Register the ModSettingsScreen
 registerScreen("ModSettingsScreen", new ModSettingsScreen());
