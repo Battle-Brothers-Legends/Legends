@@ -1,14 +1,3 @@
-/*
- *  @Project:		Battle Brothers
- *	@Company:		Overhype Studios
- *
- *	@Copyright:		(c) Overhype Studios | 2013 - 2017
- * 
- *  @Author:		Overhype Studios
- *  @Date:			31.10.2017
- *  @Description:	World Town Screen JS
- */
-"use strict";
 
 
 var CampScreen = function()
@@ -72,6 +61,8 @@ CampScreen.prototype.onDisconnection = function ()
 	this.mScoutDialogModule.onDisconnection();
 	this.mGathererDialogModule.onDisconnection();
 	this.mWorkshopDialogModule.onDisconnection();
+	this.mTraderDialogModule.onDisconnection();
+	this.mRecruitDialogModule.onDisconnection();
 	this.unregister();
 };
 
@@ -92,7 +83,9 @@ CampScreen.prototype.onModuleOnConnectionCalled = function (_module)
 		(this.mRestDialogModule !== null && this.mRestDialogModule.isConnected()) &&
 		(this.mScoutDialogModule !== null && this.mScoutDialogModule.isConnected()) &&
 		(this.mGathererDialogModule !== null && this.mGathererDialogModule.isConnected()) &&
-		(this.mWorkshopDialogModule !== null && this.mWorkshopDialogModule.isConnected()))
+		(this.mWorkshopDialogModule !== null && this.mWorkshopDialogModule.isConnected()) &&
+		(this.mTraderDialogModule !== null && this.mTraderDialogModule.isConnected()) &&
+		(this.mRecruitDialogModule !== null && this.mRecruitDialogModule.isConnected()))
 	{
 		this.notifyBackendOnConnected();
 	}
@@ -115,7 +108,9 @@ CampScreen.prototype.onModuleOnDisconnectionCalled = function (_module)
 		(this.mRestDialogModule === null && !this.mRestDialogModule.isConnected()) &&
 		(this.mScoutDialogModule === null && !this.mScoutDialogModule.isConnected()) &&
 		(this.mGathererDialogModule === null && !this.mGathererDialogModule.isConnected()) &&
-		(this.mWorkshopDialogModule === null && !this.mWorkshopDialogModule.isConnected()))
+		(this.mWorkshopDialogModule === null && !this.mWorkshopDialogModule.isConnected()) &&
+		(this.mTraderDialogModule === null && !this.mTraderDialogModule.isConnected()) &&
+		(this.mRecruitDialogModule === null && !this.mRecruitDialogModule.isConnected()))
 	{
 		this.notifyBackendOnDisconnected();
 	}
@@ -152,6 +147,8 @@ CampScreen.prototype.createModules = function()
 	this.mScoutDialogModule = new CampScreenScoutDialogModule(this);
 	this.mGathererDialogModule = new CampScreenGathererDialogModule(this);
 	this.mWorkshopDialogModule = new CampScreenWorkshopDialogModule(this);
+	this.mTraderDialogModule = new CampScreenTraderDialogModule(this);
+	this.mRecruitDialogModule = new CampScreenRecruitDialogModule(this);
 
 };
 
@@ -172,6 +169,8 @@ CampScreen.prototype.registerModules = function ()
 	this.mScoutDialogModule.register(this.mContainer);
 	this.mGathererDialogModule.register(this.mContainer);
 	this.mWorkshopDialogModule.register(this.mContainer);
+	this.mTraderDialogModule.register(this.mContainer);
+	this.mRecruitDialogModule.register(this.mContainer)
 };
 
 CampScreen.prototype.unregisterModules = function ()
@@ -191,6 +190,8 @@ CampScreen.prototype.unregisterModules = function ()
 	this.mScoutDialogModule.unregister();
 	this.mGathererDialogModule.unregister();
 	this.mWorkshopDialogModule.unregister();
+	this.mTraderDialogModule.unregister();
+	this.mRecruitDialogModule.unregister();
 };
 
 CampScreen.prototype.create = function(_parentDiv)
@@ -212,7 +213,7 @@ CampScreen.prototype.register = function (_parentDiv)
 
 	if(this.mContainer !== null)
 	{
-		console.error('ERROR: Failed to register World Town Screen. Reason: World Town Screen is already initialized.');
+		console.error('ERROR: Failed to register World Camp Screen. Reason: World Camp Screen is already initialized.');
 		return;
 	}
 
@@ -228,7 +229,7 @@ CampScreen.prototype.unregister = function ()
 
 	if(this.mContainer === null)
 	{
-		console.error('ERROR: Failed to unregister World Town Screen. Reason: World Town Screen is not initialized.');
+		console.error('ERROR: Failed to unregister World Camp Screen. Reason: World Camp Screen is not initialized.');
 		return;
 	}
 
@@ -669,6 +670,50 @@ CampScreen.prototype.showWorkshopDialog = function (/*_withSlideAnimation,*/ _da
 	this.mWorkshopDialogModule.show(_withSlideAnimation);
 };
 
+CampScreen.prototype.showTraderpDialog = function (/*_withSlideAnimation,*/ _data)
+{
+	var _withSlideAnimation = true;
+
+	this.mContainer.addClass('display-block').removeClass('display-none');
+
+	if(this.mActiveModule != null)
+		this.mActiveModule.hide(_withSlideAnimation);
+	else
+		this.mMainDialogModule.hide();
+
+	this.mActiveModule = this.mTraderpDialogModule;
+
+	if(_data !== undefined && _data !== null && typeof(_data) === 'object')
+	{
+		this.loadAssetData(_data.Assets);
+		this.mTraderDialogModule.loadFromData(_data);
+	}
+
+	this.mTraderDialogModule.show(_withSlideAnimation);
+};
+
+CampScreen.prototype.showRecruitDialog = function (/*_withSlideAnimation,*/ _data)
+{
+	var _withSlideAnimation = true;
+
+	this.mContainer.addClass('display-block').removeClass('display-none');
+
+	if(this.mActiveModule != null)
+		this.mActiveModule.hide(_withSlideAnimation);
+	else
+		this.mMainDialogModule.hide();
+
+	this.mActiveModule = this.mRecruitDialogModule;
+
+	if(_data !== undefined && _data !== null && typeof(_data) === 'object')
+	{
+		this.loadAssetData(_data.Assets);
+		this.mRecruitDialogModule.loadFromData(_data);
+	}
+
+	this.mRecruitDialogModule.show(_withSlideAnimation);
+};
+
 CampScreen.prototype.loadAssetData = function (_data)
 {
 	if(_data !== undefined && _data !== null)
@@ -701,7 +746,9 @@ CampScreen.prototype.getModule = function (_name)
 		case 'CampScoutDialogModule': return this.mScoutDialogModule;
 		case 'CampTrainingDialogModule': return this.mTrainingDialogModule;
 		case 'CampWorkshopDialogModule': return this.mWorkshopDialogModule;
-		
+		case 'CampTraderDialogModule': return this.mTraderDialogModule;
+		case 'CampRecruitDialogModule': return this.mRecruitDialogModule;
+			
 		default: return null;
 	}
 };
@@ -723,7 +770,9 @@ CampScreen.prototype.getModules = function ()
 		{ name:  'CampRestDialogModule', module:  this.mRestDialogModule },
 		{ name:  'CampScoutDialogModule', module:  this.mScoutDialogModule },
 		{ name:  'CampTrainingDialogModule', module:  this.mTrainingDialogModule },
-		{ name:  'CampWorkshopDialogModule', module:  this.mWorkshopDialogModule }
+		{ name:  'CampWorkshopDialogModule', module:  this.mWorkshopDialogModule },
+		{ name:  'CampTraderDialogModule', module:  this.mTraderDialogModule },
+		{ name:  'CampRecruitDialogModule', module:  this.mRecruitDialogModule }
 	];
 };
 

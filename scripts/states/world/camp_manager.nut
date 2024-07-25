@@ -36,9 +36,14 @@ this.camp_manager <- {
 		this.addBuilding(this.new("scripts/entity/world/camp/buildings/hunter_building"));
 		this.addBuilding(this.new("scripts/entity/world/camp/buildings/enchanter_building"));
 		this.addBuilding(this.new("scripts/entity/world/camp/buildings/barber_building"));
-		this.addBuilding(this.new("scripts/entity/world/camp/buildings/painter_building")); //PaintingTent
+		this.addBuilding(this.new("scripts/entity/world/camp/buildings/painter_building")); 
+		
+		if  (this.World.Assets.getOrigin().getID() == "scenario.legends_ork_warband")
+			{
+			this.addBuilding(this.new("scripts/entity/world/camp/buildings/recruit_building")); 
+			this.addBuilding(this.new("scripts/entity/world/camp/buildings/trafer_building")); 
+			}
 	}
-
 	function destroy()
 	{
 		foreach( b in this.m.Tents )
