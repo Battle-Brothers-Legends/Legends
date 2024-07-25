@@ -1214,7 +1214,7 @@ this.faction_manager <- {
 							possibilities.push(this.Const.World.GreaterEvilType.CivilWar);
 						}
 
-						if (GE.LastType != this.Const.World.GreaterEvilType.Greenskins)
+						if (GE.LastType != this.Const.World.GreaterEvilType.Greenskins|| this.World.Assets.getOrigin().getID() == "scenario.legends_ork_warband")
 						{
 							possibilities.push(this.Const.World.GreaterEvilType.Greenskins);
 						}

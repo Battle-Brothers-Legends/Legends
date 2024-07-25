@@ -2006,7 +2006,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 						if (this.Tactical.getCasualtyRoster().getSize() != 0)
 						{
 							bro.worsenMood(this.Const.MoodChange.BattleLost, "Lost a battle");
-							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							if (this.World.Assets.getOrigin().getID() == "scenario.ork_warband")
 							{
 								bro.worsenMood(this.Const.MoodChange.BattleLost, "Orks hate losing a battle");
 							}	
@@ -2015,7 +2015,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 						else if (this.World.Assets.getOrigin().getID() != "scenario.deserters")
 						{
 							bro.worsenMood(this.Const.MoodChange.BattleRetreat, "Retreated from battle");
-							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							if (this.World.Assets.getOrigin().getID() == "scenario.ork_warband")
 							{
 								bro.worsenMood(this.Const.MoodChange.BattleLost, "Orks feel deep shame after running from battle");
 							}								
@@ -2028,7 +2028,7 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 						if (bro.getLifetimeStats().BattlesWithoutMe > this.Math.max(2, 6 - bro.getLevel()))
 						{
 							bro.worsenMood(this.Const.MoodChange.BattleWithoutMe, "Felt useless in reserve");
-							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							if (this.World.Assets.getOrigin().getID() == "scenario.ork_warband")
 							{
 								bro.worsenMood(this.Const.MoodChange.BattleWithoutMe, "Orks hate being left out of a good fight");
 							}	

@@ -1040,7 +1040,7 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 							{
 								bro.worsenMood(this.Const.MoodChange.BrotherDied, this.getName() + " died in battle");
 							}
-							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							if (this.World.Assets.getOrigin().getID() == "scenario.ork_warband")
 							{
 								bro.improveMood(this.Const.MoodChange.BattleWon, this.getName() + " died in glorious battle");
 							}		
