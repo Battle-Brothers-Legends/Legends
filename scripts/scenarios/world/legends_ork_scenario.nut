@@ -286,14 +286,7 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 
 	function onHiredByScenario( bro )
 	{
-			if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
-			{
-				bro.worsenMood(0.5, "Is uncomfortable with joining raiders");
-			}
-			else
-			{
-				bro.improveMood(1.5, "Is excited at becoming a raider");
-			}
+
 	}
 
 
@@ -307,47 +300,46 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 
 	function onGenerateBro(bro)
 	{
-			if (!bro.getBackground().isBackgroundType(this.Const.BackgroundType.Outlaw))
+			if (this.World.Assets.getAverageMoodState() < this.Const.MoodState.Angry)
 			{
-				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.5)
-				bro.getBaseProperties().DailyWageMult *= 1.5;
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.1)
+				bro.getBaseProperties().DailyWageMult *= 1.1;
 				bro.getSkills().update();
-				bro.worsenMood(0.5, "Is uncomfortable with joining raiders");
+				bro.worsenMood(0.5, "Doesn't want to join a band of losers");
 			}
-			else
+			if (this.World.Assets.getAverageMoodState() < this.Const.MoodState.Disgruntled)
+			{
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.1)
+				bro.getBaseProperties().DailyWageMult *= 1.1;
+				bro.getSkills().update();
+			}
+			if (this.World.Assets.getAverageMoodState() < this.Const.MoodState.Concerned)
+			{
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 1.1)
+				bro.getBaseProperties().DailyWageMult *= 1.1;
+				bro.getSkills().update();
+			}
+			
+			if (this.World.Assets.getAverageMoodState() > this.Const.MoodState.InGoodSpirit)
 			{
 				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.9)
 				bro.getBaseProperties().DailyWageMult *= 0.9;
 				bro.getSkills().update();
-				bro.improveMood(1.5, "Is excited at becoming a raider");
-				local r;
-				r = this.Math.rand(0, 9);
-
-				if (r == 0)
-				{
-					bro.getSkills().add(this.new("scripts/skills/traits/bloodthirsty_trait"));
-				}
-
-				if (r == 1)
-				{
-					bro.getSkills().add(this.new("scripts/skills/traits/deathwish_trait"));
-				}
-
-				if (r == 2)
-				{
-					bro.getSkills().add(this.new("scripts/skills/traits/drunkard_trait"));
-				}
-
-				if (r == 3)
-				{
-					bro.getSkills().add(this.new("scripts/skills/traits/cocky_trait"));
-				}
-
-				if (r == 4)
-				{
-					bro.getSkills().add(this.new("scripts/skills/traits/brute_trait"));
-				}
 			}
+			if (this.World.Assets.getAverageMoodState() > this.Const.MoodState.Eager)
+			{
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.9)
+				bro.getBaseProperties().DailyWageMult *= 0.9;
+				bro.getSkills().update();
+			}
+			if (this.World.Assets.getAverageMoodState() > this.Const.MoodState.Euphoric)
+			{
+				bro.m.HiringCost = this.Math.floor(bro.m.HiringCost * 0.9)
+				bro.getBaseProperties().DailyWageMult *= 0.9;
+				bro.getSkills().update();
+				bro.improveMood(0.5, "Keen to join a powerful warband");
+			}
+	
 	}
 
 });

@@ -1934,10 +1934,19 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 						if (this.m.StrategicProperties.IsArenaMode)
 						{
 							bro.improveMood(this.Const.MoodChange.BattleWon, "Won a fight in the arena");
+							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							{
+								bro.improveMood(this.Const.MoodChange.BattleWon, "Orks love winning fights");
+							}
+							
 						}
 						else
 						{
 							bro.improveMood(this.Const.MoodChange.BattleWon, "Won a battle");
+							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							{
+								bro.improveMood(this.Const.MoodChange.BattleWon, "Orks love winning battles");
+							}
 						}
 					}
 					else if (!this.m.StrategicProperties.IsUsingSetPlayers)
@@ -1954,6 +1963,10 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 							if (bro.getLifetimeStats().BattlesWithoutMe > this.Math.max(2, 6 - bro.getLevel()))
 							{
 								bro.worsenMood(this.Const.MoodChange.BattleWithoutMe, "Felt useless in reserve");
+								if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+								{
+									bro.worsenMood(this.Const.MoodChange.BattleWithoutMe, "Orks hate being left out of a good fight");
+								}
 							}
 						}
 					}
@@ -1993,10 +2006,19 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 						if (this.Tactical.getCasualtyRoster().getSize() != 0)
 						{
 							bro.worsenMood(this.Const.MoodChange.BattleLost, "Lost a battle");
+							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							{
+								bro.worsenMood(this.Const.MoodChange.BattleLost, "Orks hate losing a battle");
+							}	
+							
 						}
 						else if (this.World.Assets.getOrigin().getID() != "scenario.deserters")
 						{
 							bro.worsenMood(this.Const.MoodChange.BattleRetreat, "Retreated from battle");
+							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							{
+								bro.worsenMood(this.Const.MoodChange.BattleLost, "Orks feel deep shame after running from battle");
+							}								
 						}
 					}
 					else if (bro.getMoodState() > this.Const.MoodState.Concerned && !bro.getCurrentProperties().IsContentWithBeingInReserve && !this.World.Assets.m.IsDisciplined)
@@ -2006,6 +2028,10 @@ this.tactical_state <- this.inherit("scripts/states/state", {
 						if (bro.getLifetimeStats().BattlesWithoutMe > this.Math.max(2, 6 - bro.getLevel()))
 						{
 							bro.worsenMood(this.Const.MoodChange.BattleWithoutMe, "Felt useless in reserve");
+							if (this.World.Assets.getOrigin().getID() = "scenario.ork_warband")
+							{
+								bro.worsenMood(this.Const.MoodChange.BattleWithoutMe, "Orks hate being left out of a good fight");
+							}	
 						}
 					}
 				}

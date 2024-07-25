@@ -87,7 +87,7 @@ this.mood_check <- this.inherit("scripts/skills/skill", {
 				{
 					id = 2,
 					type = "description",
-					text = "Recent events have left this character angry and vengeful towards those around him. If things don\'t improve very quickly, this character may decide to desert the company!"
+					text = "Recent events have left this character angry and vengeful towards those around them. If things don\'t improve very quickly, this character may decide to desert the company!"
 				},
 				{
 					id = 11,
@@ -129,7 +129,7 @@ this.mood_check <- this.inherit("scripts/skills/skill", {
 				{
 					id = 2,
 					type = "description",
-					text = "Recent events have left this character eager to fight with the company, pleased with how things are going and motivating to those around him."
+					text = "Recent events have left this character eager to fight with the company, pleased with how things are going and motivating to those around them"
 				},
 				{
 					id = 11,
@@ -150,7 +150,7 @@ this.mood_check <- this.inherit("scripts/skills/skill", {
 				{
 					id = 2,
 					type = "description",
-					text = "Recent events have left this character in a state of euphoria, happy to spend his time in service of the company and sure of victory against any foe. It\'s bordering on the annoying, really."
+					text = "Recent events have left this character in a state of euphoria, happy to spend their time in service of the company and sure of victory against any foe. It\'s bordering on the annoying, really."
 				},
 				{
 					id = 11,
