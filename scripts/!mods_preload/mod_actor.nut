@@ -1036,7 +1036,7 @@ this.getroottable().Const.LegendMod.hookActor <- function()
 					{
 						if (bro.isAlive() && !bro.isDying() && bro.getCurrentProperties().IsAffectedByDyingAllies)
 						{
-							if (this.World.Assets.getOrigin().getID() != "scenario.manhunters" || this.getBackground().getID() != "background.slave" || this.World.Assets.getOrigin().getID() != "scenario.ork_warband)
+							if (this.World.Assets.getOrigin().getID() != "scenario.manhunters" || this.getBackground().getID() != "background.slave" || this.World.Assets.getOrigin().getID() != "scenario.ork_warband")
 							{
 								bro.worsenMood(this.Const.MoodChange.BrotherDied, this.getName() + " died in battle");
 							}

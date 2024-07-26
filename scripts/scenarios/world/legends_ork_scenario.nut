@@ -1,4 +1,4 @@
-this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
+this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 	m = {},
 	function create()
 	{
@@ -33,7 +33,7 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 
 		local bros = roster.getAll();
 		bros[0].setStartValuesEx([
-			"orc_young_background"
+			"ork_young_background"
 		]);
 		bros[0].getBackground().m.RawDescription = "A goblin warrior, %name% has been through many campaigns of raiding and pillaging. Although a creature of few words, the raider is an absolutely vicious specimen in battle. Even for a raider, what he does to defeated villagers irks many. It is likely he came with you to satiate his more sadistic lusts.";
 		bros[0].improveMood(1.0, "Had a successful raid");
@@ -95,7 +95,7 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 			]
 		]));
 		bros[2].setStartValuesEx([
-			"goblin_ambusher_background"
+			"goblin_warrior_background"
 		]);
 		bros[2].getBackground().m.RawDescription = "Orc raiders often take from lands foreign to them. Most see their raids as a matter of material and meat, but occasionally they will enslave goblins with great potential. %name%, a northerner, was such a child and he was raised to be an ambusher himself. Half his life was with his primitive clan, and the other half with those who took him. This has made him as hardy and brutish a warrior as one can get.";
 		bros[2].improveMood(1.0, "Had a successful raid");
@@ -110,6 +110,16 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 		talents[this.Const.Attributes.MeleeSkill] = 1;
 		talents[this.Const.Attributes.MeleeDefense] = 2;
 		talents[this.Const.Attributes.Hitpoints] = 2;
+			bros[3].setStartValuesEx([
+			"goblin_ambusher_background"
+		]);
+		bros[3].getBackground().m.RawDescription = "The man who put you on the path, you believe %name% may serve some greater role to your attaining immense treasures. You have seen northern gimps and one-armed men who would best him in combat, but his knowledge and intelligence may be sharper blades in good time.";
+		bros[3].setPlaceInFormation(13);
+		bros[3].setVeteranPerks(2);
+		bros[3].m.Talents = [];
+		local talents = bros[3].getTalents();
+		talents.resize(this.Const.Attributes.COUNT, 0);
+		talents[this.Const.Attributes.Bravery] = 3;
 		local items = bros[2].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));

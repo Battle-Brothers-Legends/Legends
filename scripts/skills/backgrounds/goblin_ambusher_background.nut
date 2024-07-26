@@ -22,7 +22,7 @@ this.goblin_ambusher_background <- this.inherit("scripts/skills/backgrounds/char
 			"trait.brave",
 			"trait.seductive"
 		];
-		this.m.Faces = this.Const.Faces.Goblin;
+		this.m.Faces = this.Const.Faces.GoblinWarrior;
 		this.m.Hairs = this.Const.Hair.UntidyMale;
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = this.Const.Beards.Untidy;
@@ -90,7 +90,7 @@ this.goblin_ambusher_background <- this.inherit("scripts/skills/backgrounds/char
 		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
-		this.m.Faces = this.Const.Faces.Goblin;
+		this.m.Faces = this.Const.Faces.GoblinWarrior;
 		this.m.Hairs = this.Const.Hair.AllFemale;
 		this.m.HairColors = this.Const.HairColors.Young;
 		this.m.Beards = null;
@@ -159,7 +159,7 @@ this.goblin_ambusher_background <- this.inherit("scripts/skills/backgrounds/char
 		{
 			if (this.Math.rand(1, 100) <= 75)
 			{
-				items.equip(this.new("scripts/items/weapons/goblin_bow"));
+				items.equip(this.new("scripts/items/weapons/greenskins/goblin_bow"));
 			}
 			else
 			{

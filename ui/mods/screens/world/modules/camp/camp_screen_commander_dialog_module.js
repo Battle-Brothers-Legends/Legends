@@ -415,7 +415,7 @@ CampScreenCommanderDialogModule.prototype.register = function (_parentDiv)
 
 	if (this.mContainer !== null)
 	{
-		console.error('ERROR: Failed to register World Town Screen Hire Dialog Module. Reason: World Town Screen Hire Dialog Module is already initialized.');
+		console.error('ERROR: Failed to register Camp Screen Hire Dialog Module. Reason: World Town Screen Hire Dialog Module is already initialized.');
 		return;
 	}
 
@@ -431,7 +431,7 @@ CampScreenCommanderDialogModule.prototype.unregister = function ()
 
 	if (this.mContainer === null)
 	{
-		console.error('ERROR: Failed to unregister World Town Screen Hire Dialog Module. Reason: World Town Screen Hire Dialog Module is not initialized.');
+		console.error('ERROR: Failed to unregister Camp Screen Hire Dialog Module. Reason: World Town Screen Hire Dialog Module is not initialized.');
 		return;
 	}
 

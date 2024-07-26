@@ -13,7 +13,7 @@ gt.Const.World.CampBuildings <- {
 	Scout = "camp.scout",
 	Training = "camp.training",
 	Workshop = "camp.workshop",
-	Painter = "camp.painter" //PaintingTent,
+	Painter = "camp.painter", 
 	Recruit = "camp.recruit",
 	Trader = "camp.trader"
 };

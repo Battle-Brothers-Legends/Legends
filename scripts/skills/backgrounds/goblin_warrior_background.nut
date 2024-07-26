@@ -22,8 +22,9 @@ this.goblin_warrior_background <- this.inherit("scripts/skills/backgrounds/chara
 			"trait.seductive"
 		];
 		this.m.Faces = this.Const.Faces.GoblinWarrior;
-		this.m.Hairs = this.Const.Hair.CommonMale;
+		this.m.Hairs = null;
 		this.m.HairColors = this.Const.HairColors.Young;
+		this.m.BeardChance = 10;
 		this.m.Beards = this.Const.Beards.All;
 		this.m.Bodies = this.Const.Bodies.Goblin;
 		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Lowborn;
@@ -64,11 +65,11 @@ this.goblin_warrior_background <- this.inherit("scripts/skills/backgrounds/chara
 		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
-		this.m.Faces = this.Const.Faces.AllWhiteFemale;
+		this.m.Faces = this.Const.Faces.GoblinWarrior;
 		this.m.Beards = null;
-		this.m.Hairs = this.Const.Hair.AllFemale;
+		this.m.Hairs = null;
 		this.m.BeardChance = 0;
-		this.m.Bodies = this.Const.Bodies.AllFemale;
+		this.m.Bodies = this.Const.Bodies.Goblin;
 		this.addBackgroundType(this.Const.BackgroundType.Female);
 	}
 
@@ -151,9 +152,6 @@ this.goblin_warrior_background <- this.inherit("scripts/skills/backgrounds/chara
 
 		items.equip(this.Const.World.Common.pickArmor([
 			[1, "leather_tunic"],
-			[1, "leather_lamellar"],
-			[1, "padded_surcoat"],
-			[1, "gambeson"],
 			[1, "linen_tunic"]
 		]))
 

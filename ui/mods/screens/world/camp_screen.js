@@ -23,7 +23,8 @@ var CampScreen = function()
 	this.mScoutDialogModule   = null;
 	this.mGathererDialogModule = null;
 	this.mWorkshopDialogModule = null;
-
+	this.mTraderDialogModule = null;
+	this.mRecruitDialogModule = null;
 	this.mActiveModule				= null;
 	this.mAssetValues				= null;
 
@@ -670,7 +671,7 @@ CampScreen.prototype.showWorkshopDialog = function (/*_withSlideAnimation,*/ _da
 	this.mWorkshopDialogModule.show(_withSlideAnimation);
 };
 
-CampScreen.prototype.showTraderpDialog = function (/*_withSlideAnimation,*/ _data)
+CampScreen.prototype.showTraderDialog = function (/*_withSlideAnimation,*/ _data)
 {
 	var _withSlideAnimation = true;
 
@@ -681,7 +682,7 @@ CampScreen.prototype.showTraderpDialog = function (/*_withSlideAnimation,*/ _dat
 	else
 		this.mMainDialogModule.hide();
 
-	this.mActiveModule = this.mTraderpDialogModule;
+	this.mActiveModule = this.mTraderDialogModule;
 
 	if(_data !== undefined && _data !== null && typeof(_data) === 'object')
 	{

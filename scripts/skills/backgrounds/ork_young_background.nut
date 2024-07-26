@@ -11,7 +11,7 @@ this.ork_young_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.Name = "Ork_young";
 		this.m.Icon = "ui/backgrounds/background_58.png";
 		this.m.BackgroundDescription = "";
-		this.m.GoodEnding = "%name% the warrior took all the coin he earned with the company and ventured north. With his money, he gathered a band of warriors and conquered so many tribes that, last you heard, he had been ordained \'king of the north\'.";
+		this.m.GoodEnding = "%name% the ork took all the coin he earned with the company and ventured north. With his money, he gathered a band of warriors and conquered so many tribes that, last you heard, he had been ordained \'king of the north\'.";
 		this.m.BadEnding = "With things the way they were, %name% departed. Last you heard he was traveling north. Penniless with little to his name but an axe, and not looking anything like the natives or speaking their tongue, you figure the barbarian did not get far. Based upon what you\'ve seen happen to his ilk, he\'s either been killed already or captured as a slave.";
 		this.m.HiringCost = 500;
 		this.m.DailyCost = 50;
@@ -27,7 +27,6 @@ this.ork_young_background <- this.inherit("scripts/skills/backgrounds/character_
 			"trait.loyal",
 			"trait.tiny",
 			"trait.fragile",
-			"trait.clumsy",
 			"trait.fainthearted",
 			"trait.craven",
 			"trait.bleeder",
@@ -108,15 +107,15 @@ this.ork_young_background <- this.inherit("scripts/skills/backgrounds/character_
 		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
-		this.m.Faces = this.Const.Faces.AllWhiteFemale;
+		this.m.Faces = this.Const.Faces.OrkYoung;
 		this.m.Hairs = this.Const.Hair.WildMale;
 		this.m.HairColors = this.Const.HairColors.All;
 		this.m.Beards = null;
 		this.m.BeardChance = 0;
-		this.m.Bodies = this.Const.Bodies.AllFemale;
+		this.m.Bodies = this.Const.Bodies.OrkYoung;
 		this.addBackgroundType(this.Const.BackgroundType.Female);
-		this.m.GoodEnding = "%name% the barbarian took all the coin she earned with the company and ventured north. With her money, she gathered a band of warriors and conquered so many tribes that, last you heard, she had been ordained \'queen of the north\'.";
-		this.m.BadEnding = "With things the way they were, %name% departed. Last you heard she was traveling north. Penniless with little to her name but an axe, and not looking anything like the natives or speaking their tongue, you figure the barbarian did not get far. Based upon what you\'ve seen happen to her ilk, she\'s either been killed already or captured as a slave.";
+		this.m.GoodEnding = "%name% the orc took all the coin she earned with the company and ventured north. With her money, she gathered a band of warriors and conquered so many tribes that, last you heard, she had been ordained \'queen of the north\'.";
+		this.m.BadEnding = "With things the way they were, %name% departed. Last you heard she was traveling north. Penniless with little to her name but an axe, and not looking anything like the natives or speaking their tongue, you figure the bork did not get far. Based upon what you\'ve seen happen to her ilk, she\'s either been killed already or captured as a slave.";
 
 	}
 

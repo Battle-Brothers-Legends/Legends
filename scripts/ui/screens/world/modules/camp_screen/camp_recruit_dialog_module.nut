@@ -1,4 +1,3 @@
-
 this.camp_recruit_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 	m = {
 		RosterID = 0

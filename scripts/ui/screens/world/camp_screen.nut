@@ -16,6 +16,8 @@ this.camp_screen <- {
 		TrainingDialogModule = null,
 		GathererDialogModule = null,
 		WorkshopDialogModule = null,
+		TraderDialogModule = null,
+		RecruitDialogModule = null,
 		Visible = null,
 		Animating = false,
 		LastActiveModule = null,
@@ -112,7 +114,17 @@ this.camp_screen <- {
 	{
 		return this.m.WorkshopDialogModule;
 	}
+	
+	function getTraderDialogModule()
+	{
+		return this.m.TraderDialogModule;
+	}
 
+	function getRecruitDialogModule()
+	{
+		return this.m.RecruitDialogModule;
+	}
+	
 	function setOnConnectedListener( _listener )
 	{
 		this.m.OnConnectedListener = _listener;
@@ -209,6 +221,12 @@ this.camp_screen <- {
 		this.m.WorkshopDialogModule = this.new("scripts/ui/screens/world/modules/camp_screen/camp_workshop_dialog_module");
 		this.m.WorkshopDialogModule.setParent(this);
 		this.m.WorkshopDialogModule.connectUI(this.m.JSHandle);
+		this.m.TraderDialogModule = this.new("scripts/ui/screens/world/modules/camp_screen/camp_trader_dialog_module");
+		this.m.TraderDialogModule.setParent(this);
+		this.m.TraderDialogModule.connectUI(this.m.JSHandle);
+		this.m.RecruitDialogModule = this.new("scripts/ui/screens/world/modules/camp_screen/camp_recruit_dialog_module");
+		this.m.RecruitDialogModule.setParent(this);
+		this.m.RecruitDialogModule.connectUI(this.m.JSHandle);
 	}
 
 	function destroy()
@@ -230,6 +248,8 @@ this.camp_screen <- {
 		this.m.TrainingDialogModule.destroy();
 		this.m.GathererDialogModule.destroy();
 		this.m.WorkshopDialogModule.destroy();
+		this.m.RecruitDialogModule.destroy();
+		this.m.TraderDialogModule.destroy();
 		this.m.CommanderDialogModule = null;
 		this.m.BarberDialogModule = null;
 		this.m.CraftingDialogModule = null;
@@ -244,6 +264,8 @@ this.camp_screen <- {
 		this.m.TrainingDialogModule = null;
 		this.m.GathererDialogModule = null;
 		this.m.WorkshopDialogModule = null;
+		this.m.RecruitDialogModule = null;
+		this.m.TraderDialogModule = null;
 		this.m.JSHandle = this.UI.disconnect(this.m.JSHandle);
 	}
 
@@ -264,6 +286,8 @@ this.camp_screen <- {
 		this.m.TrainingDialogModule.clear();
 		this.m.GathererDialogModule.clear();
 		this.m.WorkshopDialogModule.clear();
+		this.m.TraderDialogModule.clear();
+		this.m.RecruitDialogModule.clear();
 	}
 
 	function show()
@@ -370,6 +394,14 @@ this.camp_screen <- {
 		{
 			this.showWorkshopDialog();
 		}
+		else if (this.m.LastActiveModule == this.m.TraderDialogModule)
+		{
+			this.showTraderDialog();
+		}
+		else if (this.m.LastActiveModule == this.m.RecruitDialogModule)
+		{
+			this.showRecruitDialog();
+		}
 		else
 		{
 			this.showMainDialog();
@@ -445,7 +477,12 @@ this.camp_screen <- {
 		case this.Const.World.CampBuildings.Workshop:
 			this.showWorkshopDialog();
 			break;
-			
+		case this.Const.World.CampBuildings.Trader:
+			this.showTraderDialog();
+			break;
+		case this.Const.World.CampBuildings.Recruit:
+			this.showRecruitDialog();
+			break;	
 		}
 	}
 
@@ -588,7 +625,24 @@ this.camp_screen <- {
 			this.m.JSHandle.asyncCall("showWorkshopDialog", this.m.WorkshopDialogModule.onShow());
 		}
 	}
-
+	function showTraderDialog()
+	{
+		if (this.m.JSHandle != null && this.isVisible())
+		{
+			this.m.LastActiveModule = this.m.TraderDialogModule;
+			this.Tooltip.hide();
+			this.m.JSHandle.asyncCall("showTraderDialog", this.m.TraderDialogModule.onShow());
+		}
+	}
+	function showRecruitDialog()
+	{
+		if (this.m.JSHandle != null && this.isVisible())
+		{
+			this.m.LastActiveModule = this.m.RecruitDialogModule;
+			this.Tooltip.hide();
+			this.m.JSHandle.asyncCall("showRecruitDialog", this.m.RecruitDialogModule.onShow());
+		}
+	}
 	function updateAssets()
 	{
 		this.m.JSHandle.asyncCall("loadAssetData", this.queryAssetsInformation());

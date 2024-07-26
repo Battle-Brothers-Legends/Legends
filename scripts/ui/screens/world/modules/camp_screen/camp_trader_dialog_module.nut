@@ -1,4 +1,3 @@
-
 this.camp_trader_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 	m = {
 		Title = "Trader",
@@ -17,10 +16,13 @@ this.camp_trader_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 	}
 	function create()
 	{
-		this.m.ID = "ShopDialogModule";
+		this.m.ID = "TraderDialogModule";
 		this.ui_module.create();
 	}
-
+	function destroy()
+	{
+		this.ui_module.destroy();
+	}
 	function getTent()
 	{
 		return this.World.Camp.getBuildingByID(this.Const.World.CampBuildings.Trader);
