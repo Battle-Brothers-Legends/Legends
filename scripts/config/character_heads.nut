@@ -1119,6 +1119,9 @@ gt.Const.Bodies.NorthernFemale <- [
 ];
 
 
+
+
+
 //this is a dummy for dlc
 gt.Const.Bodies.Barber <- [
 
@@ -1249,4 +1252,104 @@ gt.Const.Faces.AfricanMale <- [
 	"bust_head_african_15",
 	"bust_head_african_16",
 	"bust_head_african_17"
+]
+
+
+// ORKS
+
+gt.Const.Bodies.AllGreenskins <- [
+	"bust_naked_body_06",
+	"bust_naked_body_07",
+	"bust_naked_body_08",
+	"bust_naked_body_09",
+	"bust_naked_body_10"
+]
+
+gt.Const.Bodies.Goblin <- [
+	"bust_naked_body_06"
+]
+gt.Const.Bodies.OrkYoung <- [
+	"bust_naked_body_07"
+]
+gt.Const.Bodies.OrkBerserker <- [
+	"bust_naked_body_08"
+]
+gt.Const.Bodies.OrkWarrior <- [
+ 	"bust_naked_body_09"
+]
+gt.Const.Bodies.OrkWarlord <- [	
+ 	"bust_naked_body_10"
+]
+
+gt.Const.Faces.AllGreenskins <- [
+	"bust_head_34_orc",
+	"bust_head_35_orc",
+	"bust_head_36_orc",
+	"bust_head_37_orc",
+	"bust_head_38_orc",
+	"bust_head_40_orc",
+	"bust_head_41_orc",
+	"bust_head_42_orc",
+	"bust_head_43_orc",
+	"bust_head_44_orc",
+	"bust_head_45_orc",
+	"bust_head_46_orc",
+	"bust_head_47_orc",
+	"bust_head_48_orc",
+	"bust_head_49_orc"
+]
+
+gt.Const.Faces.AllGoblin <- [
+	"bust_head_34_orc",
+	"bust_head_35_orc",
+	"bust_head_36_orc",
+	"bust_head_37_orc",
+	"bust_head_38_orc"
+]
+gt.Const.Faces.GoblinWarrior <- [
+	"bust_head_34_orc",
+	"bust_head_35_orc",
+	"bust_head_36_orc",
+]
+
+gt.Const.Faces.GoblinShaman <- [
+	"bust_head_37_orc"
+]
+gt.Const.Faces.GoblinBoss <- [
+	"bust_head_38_orc"
+]
+
+gt.Const.Faces.AllOrk <- [
+	"bust_head_40_orc",
+	"bust_head_41_orc",
+	"bust_head_42_orc",
+	"bust_head_43_orc",
+	"bust_head_44_orc",
+	"bust_head_45_orc",
+	"bust_head_46_orc",
+	"bust_head_47_orc",
+	"bust_head_48_orc",
+	"bust_head_49_orc"
+]
+
+gt.Const.Faces.OrkYoung <- [
+	"bust_head_40_orc",
+	"bust_head_41_orc"
+	"bust_head_42_orc"
+]
+
+gt.Const.Faces.OrkBerserker <- [
+	"bust_head_43_orc",
+	"bust_head_44_orc",
+	"bust_head_45_orc"
+]
+
+gt.Const.Faces.OrkWarrior <- [
+	"bust_head_46_orc",
+	"bust_head_47_orc",
+	"bust_head_48_orc"
+]
+
+gt.Const.Faces.OrkWarlord <- [
+	"bust_head_49_orc"
 ]

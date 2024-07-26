@@ -33,9 +33,9 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 
 		local bros = roster.getAll();
 		bros[0].setStartValuesEx([
-			"barbarian_background"
+			"orc_young_background"
 		]);
-		bros[0].getBackground().m.RawDescription = "A sturdy warrior, %name% has been through many campaigns of raiding and pillaging. Although a man of few words, the raider is an absolutely vicious specimen in battle. Even for a raider, what he does to defeated villagers irks many. It is likely he came with you to satiate his more sadistic lusts.";
+		bros[0].getBackground().m.RawDescription = "A goblin warrior, %name% has been through many campaigns of raiding and pillaging. Although a creature of few words, the raider is an absolutely vicious specimen in battle. Even for a raider, what he does to defeated villagers irks many. It is likely he came with you to satiate his more sadistic lusts.";
 		bros[0].improveMood(1.0, "Had a successful raid");
 		bros[0].setPlaceInFormation(3);
 		bros[0].setVeteranPerks(2);
@@ -65,9 +65,9 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 			]
 		]));
 		bros[1].setStartValuesEx([
-			"barbarian_background"
+			"goblin_warrior_background"
 		]);
-		bros[1].getBackground().m.RawDescription = "%name% was a boy when taken from a southern village and raised amongst the barbarians of the wastes. While he learned the language and culture, he never fit in and was a constant victim of cruel jokes and games. You are not sure if he has followed you to return home or to get away from his northern \'family\'.";
+		bros[1].getBackground().m.RawDescription = "%name% was a boy when taken from a southern village and raised amongst the goblins of the wastes. While he learned the language and culture, he never fit in and was a constant victim of cruel jokes and games. You are not sure if he has followed you to return home or to get away from his northern \'family\'.";
 		bros[1].improveMood(1.0, "Had a successful raid");
 		bros[1].setPlaceInFormation(4);
 		bros[1].setVeteranPerks(2);
@@ -95,9 +95,9 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 			]
 		]));
 		bros[2].setStartValuesEx([
-			"barbarian_background"
+			"goblin_ambusher_background"
 		]);
-		bros[2].getBackground().m.RawDescription = "Barbarian raiders often take from lands foreign to them. Most see their raids as a matter of material and women, but occasionally they will enslave formidable boys with great potential. %name%, a northerner, was such a child and he was raised to be a raider himself. Half his life was with his primitive clan, and the other half with those who took him. This has made him as hardy and brutish a warrior as one can get.";
+		bros[2].getBackground().m.RawDescription = "Orc raiders often take from lands foreign to them. Most see their raids as a matter of material and meat, but occasionally they will enslave goblins with great potential. %name%, a northerner, was such a child and he was raised to be an ambusher himself. Half his life was with his primitive clan, and the other half with those who took him. This has made him as hardy and brutish a warrior as one can get.";
 		bros[2].improveMood(1.0, "Had a successful raid");
 		bros[2].setPlaceInFormation(5);
 		bros[2].setVeteranPerks(2);
@@ -123,23 +123,10 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 				"barbarians/leather_helmet"
 			]
 		]));
-		bros[3].setStartValuesEx([
-			"monk_background"
-		]);
-		bros[3].getBackground().m.RawDescription = "The man who put you on the path, you believe %name% may serve some greater role to your attaining immense treasures. You have seen northern gimps and one-armed men who would best him in combat, but his knowledge and intelligence may be sharper blades in good time.";
-		bros[3].improveMood(2.0, "Thinks he managed to convince you to give up raiding and pillaging");
-		bros[3].setPlaceInFormation(13);
-		bros[3].setVeteranPerks(2);
-		bros[3].m.Talents = [];
-		local talents = bros[3].getTalents();
-		talents.resize(this.Const.Attributes.COUNT, 0);
-		talents[this.Const.Attributes.Bravery] = 3;
 		this.World.Assets.addBusinessReputation(this.m.StartingBusinessReputation);
 		this.World.Assets.addMoralReputation(-30.0);
-		this.World.Assets.getStash().add(this.new("scripts/items/supplies/goat_cheese_item"));
-		this.World.Assets.getStash().add(this.new("scripts/items/supplies/smoked_ham_item"));
-		this.World.Assets.getStash().add(this.new("scripts/items/loot/silverware_item"));
-		this.World.Assets.getStash().add(this.new("scripts/items/loot/silver_bowl_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/strange_meat_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/supplies/legend_dog_meat_item"));
 		this.World.Assets.m.Money = this.World.Assets.m.Money / 2;
 		this.World.Assets.m.Ammo = this.World.Assets.m.Ammo / 2;
 	}
@@ -292,10 +279,10 @@ this.ork_scenario <- this.inherit("scripts/scenarios/world/starting_scenario", {
 
 	function onUpdateHiringRoster( _roster )
 	{
-		this.addBroToRoster(_roster, "thief_background", 4);
-		this.addBroToRoster(_roster, "barbarian_background", 5);
-		this.addBroToRoster(_roster, "assassin_background", 7);
-		this.addBroToRoster(_roster, "killer_on_the_run_background", 4);
+		this.addBroToRoster(_roster, "goblin_warrior_background", 4);
+		this.addBroToRoster(_roster, "orc_warrior_background", 5);
+		this.addBroToRoster(_roster, "goblin_ambusher_background", 7);
+		this.addBroToRoster(_roster, "goblin_shaman_background", 4);
 	}
 
 	function onGenerateBro(bro)
