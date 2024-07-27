@@ -37,8 +37,8 @@ this.camp_manager <- {
 		this.addBuilding(this.new("scripts/entity/world/camp/buildings/enchanter_building"));
 		this.addBuilding(this.new("scripts/entity/world/camp/buildings/barber_building"));
 		this.addBuilding(this.new("scripts/entity/world/camp/buildings/painter_building")); 
-		this.addBuilding(this.new("scripts/entity/world/camp/buildings/recruit_building")); 
 		this.addBuilding(this.new("scripts/entity/world/camp/buildings/trader_building")); 
+		this.addBuilding(this.new("scripts/entity/world/camp/buildings/recruit_building")); 	
 	}
 	function destroy()
 	{

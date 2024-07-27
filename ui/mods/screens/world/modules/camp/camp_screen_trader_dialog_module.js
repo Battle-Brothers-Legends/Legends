@@ -709,7 +709,7 @@ CampScreenTraderDialogModule.prototype.assignItems = function (_owner, _items, _
 	}
 };
 
-CampScreenTraderModule.prototype.destroyItemSlots = function (_itemArray, _itemContainer)
+CampScreenTraderDialogModule.prototype.destroyItemSlots = function (_itemArray, _itemContainer)
 {
 	this.clearItemSlots(_itemArray);
 

@@ -80,7 +80,12 @@ this.trader_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		this.camp_building.onClicked(_campScreen);
 	}
 
-	function onSettlementEntered()
+	function init()
+	{
+		this.onInit();
+	}
+
+	function onInit()
 	{
 		foreach( item in this.m.Stash.getItems() )
 		{
@@ -90,7 +95,12 @@ this.trader_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 			}
 		}
 	}
-
+	function onClicked( _townScreen )
+	{
+		_townScreen.getTraderDialogModule().setShop(this);
+		_townScreen.showTraderDialog();
+		this.pushUIMenuStack();
+	}
 	function onUpdateShopList()
 	{
 		local list = [
@@ -115,11 +125,6 @@ this.trader_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 				S = "weapons/legend_wooden_spear"
 			},
 			{
-				R = 40,
-				P = 1.0,
-				S = "weapons/pitchfork"
-			},
-			{
 				R = 10,
 				P = 1.0,
 				S = "weapons/knife"
@@ -133,11 +138,6 @@ this.trader_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 				R = 20,
 				P = 1.0,
 				S = "weapons/hatchet"
-			},
-			{
-				R = 20,
-				P = 1.0,
-				S = "weapons/legend_shovel"
 			},
 			{
 				R = 30,
@@ -183,16 +183,6 @@ this.trader_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 				R = 20,
 				P = 1.0,
 				S = "helmets/hood"
-			},
-			{
-				R = 80,
-				P = 1.0,
-				S = "weapons/legend_drum"
-			},
-			{
-				R = 80,
-				P = 1.0,
-				S = "weapons/legend_cat_o_nine_tails"
 			},
 			{
 				R = 80,

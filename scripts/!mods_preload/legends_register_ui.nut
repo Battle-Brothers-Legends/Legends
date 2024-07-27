@@ -35,8 +35,8 @@
 	::mods_registerCSS("screens/world/modules/camp/camp_screen_training_dialog_module.css");
 	::mods_registerCSS("screens/world/modules/camp/camp_screen_workshop_dialog_module.css");
 	::mods_registerCSS("screens/world/modules/camp/camp_screen_main_dialog_module.css");
-	::mods_registerCSS("screens/world/modules/camp/camp_screen_trader_module.css");
-	::mods_registerCSS("screens/world/modules/camp/camp_screen_recruit_module.css");
+	::mods_registerCSS("screens/world/modules/camp/camp_screen_trader_dialog_module.css");
+	::mods_registerCSS("screens/world/modules/camp/camp_screen_recruit_dialog_module.css");
 	::mods_registerCSS("screens/world/camp_screen.css");
 
 	delete ::Const.LegendMod.registerUI;
