@@ -9,7 +9,7 @@ this.ork_warrior_background <- this.inherit("scripts/skills/backgrounds/characte
 		this.character_background.create();
 		this.m.ID = "background.ork_warrior";
 		this.m.Name = "Ork_warrior";
-		this.m.Icon = "ui/backgrounds/background_58.png";
+		this.m.Icon = "ui/backgrounds/background_ork_warrior.png";
 		this.m.BackgroundDescription = "";
 		this.m.GoodEnding = "%name% the warrior took all the coin he earned with the company and ventured north. With his money, he gathered a band of warriors and conquered so many tribes that, last you heard, he had been ordained \'king of the north\'.";
 		this.m.BadEnding = "With things the way they were, %name% departed. Last you heard he was traveling north. Penniless with little to his name but an axe, and not looking anything like the natives or speaking their tongue, you figure the barbarian did not get far. Based upon what you\'ve seen happen to his ilk, he\'s either been killed already or captured as a slave.";

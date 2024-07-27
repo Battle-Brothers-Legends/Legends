@@ -874,4 +874,3 @@ this.camp_screen <- {
 	}
 
 };
-

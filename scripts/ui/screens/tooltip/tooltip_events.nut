@@ -4671,7 +4671,9 @@ this.tooltip_events <- {
 		case "camp.training":
 		case "camp.gatherer":
 		case "camp.workshop":
-		case "camp.painter": //PaintingTent
+		case "camp.painter": 
+		case "camp.trader":
+		case "camp.recruit": 
 			return this.World.Camp.getBuildingByID(_elementId).getTooltip();
 
 		case "camp-screen.repair.filterbro.button":

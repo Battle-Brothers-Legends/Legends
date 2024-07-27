@@ -75,8 +75,8 @@ this.trader_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 
 	function onClicked( _campScreen )
 	{
-		_campScreen.getShopDialogModule().setShop(this);
-		_campScreen.showShopDialog();
+		_campScreen.getTraderDialogModule().setShop(this);
+		_campScreen.showTraderDialog();
 		this.camp_building.onClicked(_campScreen);
 	}
 

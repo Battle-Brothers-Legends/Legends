@@ -3,7 +3,7 @@
  */
 "use strict";
 
-var CampScreenShop =
+var CampScreenTrader =
 {
 	ItemOwner:
 	{
@@ -38,7 +38,7 @@ var CampScreenTraderDialogModule = function(_parent)
 	this.mShopListScrollContainer = null;
 
 	// assets labels
-	this.mAssets = new CampScreenAssets(_parent);
+	this.mAssets = new WorldTownScreenAssets(_parent);
 
 	// buttons
 	this.mLeaveButton = null;
@@ -364,11 +364,11 @@ CampScreenTraderDialogModule.prototype.setupEventHandler = function ()
 	//this.mShopListContainer.drop('end', dropEndHandler);
 };
 
-CampScreentraderDialogModule.prototype.bindTooltips = function ()
+CampScreenTraderDialogModule.prototype.bindTooltips = function ()
 {
 	this.mAssets.bindTooltips();
 	this.mStashSlotSizeContainer.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.Stash.FreeSlots });
-	this.mLeaveButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.CampScreen.TraderDialogModule.LeaveButton });
+	this.mLeaveButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.WorldTownScreen.ShopDialogModule.LeaveButton });
 
 	this.mSortInventoryButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.CharacterScreen.RightPanelHeaderModule.SortButton });
 	this.mFilterAllButton.bindTooltip({ contentType: 'ui-element', elementId: TooltipIdentifier.CharacterScreen.RightPanelHeaderModule.FilterAllButton });
@@ -709,7 +709,7 @@ CampScreenTraderDialogModule.prototype.assignItems = function (_owner, _items, _
 	}
 };
 
-CampScreenShopTraderModule.prototype.destroyItemSlots = function (_itemArray, _itemContainer)
+CampScreenTraderModule.prototype.destroyItemSlots = function (_itemArray, _itemContainer)
 {
 	this.clearItemSlots(_itemArray);
 

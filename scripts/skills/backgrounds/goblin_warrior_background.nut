@@ -5,7 +5,7 @@ this.goblin_warrior_background <- this.inherit("scripts/skills/backgrounds/chara
 		this.character_background.create();
 		this.m.ID = "background.goblin_warrior";
 		this.m.Name = "Goblin Warrior";
-		this.m.Icon = "ui/backgrounds/background_35.png";
+		this.m.Icon = "ui/backgrounds/background_goblin_warrior.png";
 		//gender neutral description
 		this.m.BackgroundDescription = "Anyone that\'s been in the militia will have received at least some basic training in matters of combat.";
 		this.m.GoodEnding = "A former militia recruit such as %name% eventually left the %companyname%. Traveling the lands, visiting villages and helping them establish credible militias with which to defend themselves. Finding success in an increasingly dangerous world, %name% eventually came to be a known name, called upon as a sort of \'fixer\' to come and ensure these villages would remain safe. Last you heard, %name% had purchased a plot of land and was raising a family far from the strife of the world.";

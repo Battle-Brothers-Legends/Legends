@@ -16,7 +16,7 @@ this.camp_trader_dialog_module <- this.inherit("scripts/ui/screens/ui_module", {
 	}
 	function create()
 	{
-		this.m.ID = "TraderDialogModule";
+		this.m.ID = "CampTraderDialogModule";
 		this.ui_module.create();
 	}
 	function destroy()

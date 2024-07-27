@@ -36,7 +36,7 @@ var CampScreenRecruitDialogModule = function(_parent)
 	this.dismissButtonLayout = null;
 
 	// assets labels
-	this.mAssets = new CampScreenAssets(_parent);
+	this.mAssets = new WorldTownScreenAssets(_parent);
 
 	// buttons
 	this.mLeaveButton = null;
