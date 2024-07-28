@@ -36,6 +36,7 @@ this.missing_ear_injury <- this.inherit("scripts/skills/injury_permanent/permane
 	function onUpdate( _properties )
 	{
 		_properties.InitiativeMult *= 0.9;
+		_properties.SurviveWithInjuryBonusChance += 10; // offsetting the perm injury cause it's minor
 	}
 
 	function onApplyAppearance()

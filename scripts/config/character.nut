@@ -68,7 +68,7 @@ gt.Const.Combat <- {
 	InitiativeAfterWaitMult = 0.75,
 	InjuryThresholdMult = 1.0,
 	InjuryMinDamage = 10,
-	SurviveWithInjuryChance = 33,
+	SurviveWithInjuryChance = 30,
 	FatigueReceivedPerHit = 5,
 	FatigueLossOnBeingAttacked = 0,
 	FatigueLossOnBeingMissed = 2,
@@ -1124,6 +1124,7 @@ gt.Const.CharacterProperties <- {
 	FlatOnKillOtherActorModifier = 0,
 	PercentOnKillOtherActorModifier = 1.0,
 	SurviveWithInjuryBonusChance = 0,
+	InjuryMalus = 20, 
 	DailyWage = 0,
 	DailyWageMult = 1.0, //Is not serialised in vanilla. But I have serialised it today because Scenarios were not keeping their wage multiplier modifiers between save/load cycles - Luft 29/12/22
 	DailyFood = 2.0,

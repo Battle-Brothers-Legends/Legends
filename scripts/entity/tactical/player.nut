@@ -992,6 +992,102 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		}
 	}
 
+	function calculateSurviveWithInjuryChance()
+	{
+		if (this.World.Assets.getOrigin().getID() == "scenario.manhunters" && this.getBackground().getID() == "background.slave")
+			return 0;
+
+		if (this.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory) != null && this.getItems().getItemAtSlot(this.Const.ItemSlot.Accessory).getID == "accessory.legend_oms_fate")
+			return 0;
+
+		local baseChanceToSurvive = this.World.Assets.m.IsSurvivalGuaranteed ? 60 : this.Const.Combat.SurviveWithInjuryChance;
+
+		baseChanceToSurvive += this.m.CurrentProperties.SurviveWithInjuryBonusChance;
+		baseChanceToSurvive -= calculatePermInjuries().numPermInjuries * this.m.CurrentProperties.InjuryMalus; // reduce chance to survive by 20% for each perm injury, 10% with true believer 
+
+		baseChanceToSurvive *= this.m.CurrentProperties.SurviveWithInjuryChanceMult;
+		
+		if (!this.World.Assets.m.IsSurvivalGuaranteed)
+		{
+			local baseChanceToSurvive = this.Math.min(90, this.m.CurrentProperties.SurviveWithInjuryBonusChance);
+		}
+
+		return baseChanceToSurvive;
+	}
+
+	function calculatePermInjuries()
+	{
+		local ret = {potential = [], numPermInjuries = 0};
+		local injuries = this.Const.Injury.Permanent;
+
+		foreach (inj in injuries)
+		{
+			if (inj.ID == "injury.broken_elbow_joint" && this.m.Skills.hasSkill("trait.legend_prosthetic_forearm"))
+			{
+				continue;
+			}
+			else if (inj.ID == "injury.broken_knee" && this.m.Skills.hasSkill("trait.legend_prosthetic_leg"))
+			{
+				continue;
+			}
+			else if (inj.ID == "injury.maimed_foot" && this.m.Skills.hasSkill("trait.legend_prosthetic_foot"))
+			{
+				continue;
+			}
+			else if (inj.ID == "injury.missing_ear" && this.m.Skills.hasSkill("trait.legend_prosthetic_ear"))
+			{
+				continue;
+			}
+			else if (inj.ID == "injury.missing_eye" && this.m.Skills.hasSkill("trait.legend_prosthetic_eye"))
+			{
+				continue;
+			}
+			else if (inj.ID == "injury.missing_finger" && this.m.Skills.hasSkill("trait.legend_prosthetic_finger"))
+			{
+				continue;
+			}
+			else if (inj.ID == "injury.missing_hand" && this.m.Skills.hasSkill("trait.legend_prosthetic_hand"))
+			{
+				continue;
+			}
+			else if (inj.ID == "injury.missing_nose" && this.m.Skills.hasSkill("trait.legend_prosthetic_nose"))
+			{
+				continue;
+			}
+			else if (inj.ID == "injury.legend_burned_injury")
+			{
+
+				if (this.m.Skills.hasSkill(inj.ID))
+				{
+					ret.numPermInjuries = ++numPermInjuries;
+					continue
+				}
+
+				local isBurned = false
+				foreach (b in this.Const.Injury.Burning)
+				{
+					if (this.m.Skills.hasSkill(b.ID))
+					{
+						isBurned = true;
+						break
+					}
+				}
+				if (isBurned) {
+					ret.potential.push(inj);
+				}
+			}
+			else if (!this.m.Skills.hasSkill(inj.ID))
+			{
+				ret.potential.push(inj);
+			}
+			else
+			{
+				ret.numPermInjuries += numPermInjuries;
+			}
+		}
+		return ret;
+	}
+
 	function isReallyKilled( _fatalityType )
 	{
 		if (_fatalityType != this.Const.FatalityType.None)
@@ -1019,89 +1115,36 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			return true;
 		}
 
-		if (this.Math.rand(1, 100) <= this.Math.min(90, (this.Const.Combat.SurviveWithInjuryChance + this.m.CurrentProperties.SurviveWithInjuryBonusChance) * this.m.CurrentProperties.SurviveWithInjuryChanceMult) || this.World.Assets.m.IsSurvivalGuaranteed && !this.m.Skills.hasSkillOfType(this.Const.SkillType.PermanentInjury) && (this.World.Assets.getOrigin().getID() != "scenario.manhunters" || this.getBackground().getID() != "background.slave"))
+		local chanceToSurvive = calculateSurviveWithInjuryChance();
+		if (chanceToSurvive <= 0)
 		{
-			local potential = [];
-			local injuries = this.Const.Injury.Permanent;
-			local numPermInjuries = 0;
+			return true;
+		}
 
-			foreach (inj in injuries)
-			{
-				if (inj.ID == "injury.broken_elbow_joint" && this.m.Skills.hasSkill("trait.legend_prosthetic_forearm"))
-				{
-					continue;
-				}
-				else if (inj.ID == "injury.broken_knee" && this.m.Skills.hasSkill("trait.legend_prosthetic_leg"))
-				{
-					continue;
-				}
-				else if (inj.ID == "injury.maimed_foot" && this.m.Skills.hasSkill("trait.legend_prosthetic_foot"))
-				{
-					continue;
-				}
-				else if (inj.ID == "injury.missing_ear" && this.m.Skills.hasSkill("trait.legend_prosthetic_ear"))
-				{
-					continue;
-				}
-				else if (inj.ID == "injury.missing_eye" && this.m.Skills.hasSkill("trait.legend_prosthetic_eye"))
-				{
-					continue;
-				}
-				else if (inj.ID == "injury.missing_finger" && this.m.Skills.hasSkill("trait.legend_prosthetic_finger"))
-				{
-					continue;
-				}
-				else if (inj.ID == "injury.missing_hand" && this.m.Skills.hasSkill("trait.legend_prosthetic_hand"))
-				{
-					continue;
-				}
-				else if (inj.ID == "injury.missing_nose" && this.m.Skills.hasSkill("trait.legend_prosthetic_nose"))
-				{
-					continue;
-				}
-				else if (inj.ID == "injury.legend_burned_injury")
-				{
+		local chanceToSurviveWithoutInjury = this.Math.abs(100 - chanceToSurvive);
+		chanceToSurviveWithoutInjury = chanceToSurviveWithoutInjury > 0 ? this.Math.min(50, this.Math.floor(chanceToSurviveWithoutInjury / 2)) : 0; // excess survive chance / 2
 
-					if (this.m.Skills.hasSkill(inj.ID))
-					{
-						numPermInjuries = ++numPermInjuries;
-						continue
-					}
+		local rand = this.Math.rand(1, 100); // logging purposes
+		if (chanceToSurviveWithoutInjury > 0 && rand <= chanceToSurviveWithoutInjury)
+		{
+			::logInfo("Bro got lucky, rolled: " + rand + ", chance: " + chanceToSurviveWithoutInjury);
+			this.improveMood(this.Const.MoodChange.PermanentInjury, "Somehow got beaten to an inch of his life and lived to tell the tale with no lasting injuries");
+			return false;
+		} 
 
-					local isBurned = false
-					foreach (b in this.Const.Injury.Burning)
-					{
-						if (this.m.Skills.hasSkill(b.ID))
-						{
-							isBurned = true;
-							break
-						}
-					}
-					if (isBurned) {
-						potential.push(inj);
-					}
-				}
-				else if (!this.m.Skills.hasSkill(inj.ID))
-				{
-					potential.push(inj);
-				}
-				else
-				{
-					numPermInjuries = ++numPermInjuries;
-				}
-			}
-
-			if (potential.len() == 0)
+		if (chanceToSurviveWithoutInjury > 0 || this.Math.rand(1, 100) <= chanceToSurvive)
+		{
+			if (calculatePermInjuries().potential.len() == 0)
 			{
 				return true;
 			}
 
-			if (numPermInjuries + 1 >= 3)
+			if (calculatePermInjuries().numPermInjuries + 1 >= 3)
 			{
 				this.updateAchievement("HardToKill", 1, 1);
 			}
 
-			this.m.Skills.add(this.new("scripts/skills/" + potential[this.Math.rand(0, potential.len() - 1)].Script));
+			this.m.Skills.add(this.new("scripts/skills/" +calculatePermInjuries(). potential[this.Math.rand(0, calculatePermInjuries().potential.len() - 1)].Script));
 
 			if (this.getBackground().getID() != "background.legend_donkey") //deathly spectre for Cabal/solo necro
 			{

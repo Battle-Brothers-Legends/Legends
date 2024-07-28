@@ -43,6 +43,7 @@ this.missing_finger_injury <- this.inherit("scripts/skills/injury_permanent/perm
 	{
 		_properties.MeleeSkillMult *= 0.95;
 		_properties.RangedSkillMult *= 0.95;
+		_properties.SurviveWithInjuryBonusChance += 10; // offsetting the perm injury cause it's minor
 	}
 
 	function onApplyAppearance()

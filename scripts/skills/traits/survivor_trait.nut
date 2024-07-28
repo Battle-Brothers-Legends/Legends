@@ -22,6 +22,8 @@ this.survivor_trait <- this.inherit("scripts/skills/traits/character_trait", {
 
 	function getTooltip()
 	{
+		local surviveWithInjury = this.World.Assets.m.IsSurvivalGuaranteed ? 60 : 30;
+		surviveWithInjury += this.getContainer().getActor().getCurrentProperties().SurviveWithInjuryBonusChance * this.getContainer().getActor().getCurrentProperties().SurviveWithInjuryChanceMult;
 		return [
 			{
 				id = 1,
@@ -37,15 +39,14 @@ this.survivor_trait <- this.inherit("scripts/skills/traits/character_trait", {
 				id = 11,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]90%[/color] chance to survive if struck down and not killed by a fatality"
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]" + surviveWithInjury + "%[/color] chance to survive if struck down and not killed by a fatality"
 			}
 		];
 	}
 
 	function onUpdate( _properties )
 	{
-		_properties.SurviveWithInjuryBonusChance += 35;
+		_properties.SurviveWithInjuryBonusChance += 60;
 	}
 
 });
-

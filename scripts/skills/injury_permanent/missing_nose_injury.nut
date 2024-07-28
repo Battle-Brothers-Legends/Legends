@@ -36,6 +36,7 @@ this.missing_nose_injury <- this.inherit("scripts/skills/injury_permanent/perman
 	function onUpdate( _properties )
 	{
 		_properties.StaminaMult *= 0.9;
+		_properties.SurviveWithInjuryBonusChance += 5; // offsetting the perm injury cause it's minor
 	}
 
 	function onApplyAppearance()

@@ -11,6 +11,8 @@ this.legend_scarred_injury <- this.inherit("scripts/skills/injury_permanent/perm
 
 	function getTooltip()
 	{
+		local surviveWithInjury = this.World.Assets.m.IsSurvivalGuaranteed ? 60 : 30;
+		surviveWithInjury += this.getContainer().getActor().getCurrentProperties().SurviveWithInjuryBonusChance * this.getContainer().getActor().getCurrentProperties().SurviveWithInjuryChanceMult;
 		local ret = [
 			{
 				id = 1,
@@ -38,7 +40,7 @@ this.legend_scarred_injury <- this.inherit("scripts/skills/injury_permanent/perm
 				id = 11,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]75%[/color] chance to survive if struck down and not killed by a fatality"
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]" + surviveWithInjury + "%[/color] chance to survive if struck down and not killed by a fatality"
 			}
 		];
 		this.addTooltipHint(ret);
@@ -47,7 +49,7 @@ this.legend_scarred_injury <- this.inherit("scripts/skills/injury_permanent/perm
 
 	function onUpdate( _properties )
 	{
-		_properties.SurviveWithInjuryBonusChance += 25;
+		_properties.SurviveWithInjuryBonusChance += 65; // should be 75% on base (30 + 65 - 20) 
 		_properties.HitpointsMult *= 0.90;
 		_properties.StaminaMult *= 0.90;
 	}

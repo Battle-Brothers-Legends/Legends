@@ -50,6 +50,7 @@ this.perk_last_stand <- this.inherit("scripts/skills/skill", {
 
 	function onUpdate( _properties )
 	{
+		_properties.SurviveWithInjuryBonusChance += 10;
 		local currentPercent = this.getContainer().getActor().getHitpointsPct();
 		if (currentPercent < 0.66)
 		{

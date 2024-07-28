@@ -43,6 +43,7 @@ this.missing_eye_injury <- this.inherit("scripts/skills/injury_permanent/permane
 	{
 		_properties.RangedSkillMult *= 0.5;
 		_properties.Vision -= 2;
+		_properties.SurviveWithInjuryBonusChance += 5; // offsetting the perm injury cause it's minor
 	}
 
 	function onApplyAppearance()

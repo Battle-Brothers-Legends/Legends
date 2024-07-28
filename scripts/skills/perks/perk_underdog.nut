@@ -16,6 +16,7 @@ this.perk_underdog <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		_properties.SurroundedDefense += 5;
+		_properties.SurviveWithInjuryBonusChance += 10;
 	}
 
 });

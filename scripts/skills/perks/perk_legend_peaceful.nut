@@ -22,6 +22,7 @@ this.perk_legend_peaceful <- this.inherit("scripts/skills/skill", {
 		_properties.MeleeSkill += -20;
 		_properties.RangedSkill += -20;
 		_properties.XPGainMult *= 1.05;
+		_properties.SurviveWithInjuryBonusChance -= 10;
 			
 	}
 	

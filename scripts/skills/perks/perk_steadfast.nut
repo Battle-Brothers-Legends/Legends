@@ -18,6 +18,7 @@ this.perk_steadfast <- this.inherit("scripts/skills/skill", {
 	{
 		_properties.FatigueReceivedPerHitMult *= 0.1;
 		_properties.FatigueLossOnBeingMissedMult *= 0.1;
+		_properties.SurviveWithInjuryBonusChance += 10;
 	}
 
 });

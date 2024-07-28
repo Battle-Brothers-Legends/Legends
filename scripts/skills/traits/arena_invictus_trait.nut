@@ -19,7 +19,8 @@ this.arena_invictus_trait <- this.inherit("scripts/skills/traits/character_trait
 	{
 		local matches = this.getContainer().getActor().getFlags().getAsInt("ArenaFights");
 		local won = this.getContainer().getActor().getFlags().getAsInt("ArenaFightsWon");
-
+		local surviveWithInjury = this.World.Assets.m.IsSurvivalGuaranteed ? 60 : 30;
+		surviveWithInjury += this.getContainer().getActor().getCurrentProperties().SurviveWithInjuryBonusChance * this.getContainer().getActor().getCurrentProperties().SurviveWithInjuryChanceMult;
 		if (won == matches)
 		{
 			won = "all";
@@ -58,7 +59,7 @@ this.arena_invictus_trait <- this.inherit("scripts/skills/traits/character_trait
 				id = 11,
 				type = "text",
 				icon = "ui/icons/special.png",
-				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]75%[/color] chance to survive if struck down and not killed by a fatality"
+				text = "Has a [color=" + this.Const.UI.Color.PositiveValue + "]" + surviveWithInjury + "%[/color] chance to survive if struck down and not killed by a fatality"
 			}
 		];
 
@@ -118,7 +119,7 @@ this.arena_invictus_trait <- this.inherit("scripts/skills/traits/character_trait
 		_properties.Bravery += 18;
 		_properties.Hitpoints += 10;
 		_properties.DamageTotalMult *= 1.05;
-		_properties.SurviveWithInjuryBonusChance += 25;
+		_properties.SurviveWithInjuryBonusChance += 35;
 	}
 	
 	function onAfterUpdate( _properties )

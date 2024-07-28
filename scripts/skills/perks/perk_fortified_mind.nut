@@ -16,6 +16,7 @@ this.perk_fortified_mind <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		_properties.BraveryMult *= 1.25;
+		_properties.SurviveWithInjuryBonusChance += 10;
 	}
 
 });

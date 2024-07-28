@@ -26,6 +26,7 @@ this.perk_colossus <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		_properties.HitpointsMult *= 1.25;
+		_properties.SurviveWithInjuryBonusChance += 10;
 	}
 
 });

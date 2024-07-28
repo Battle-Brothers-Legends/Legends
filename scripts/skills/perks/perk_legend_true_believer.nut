@@ -19,6 +19,7 @@ this.perk_legend_true_believer <- this.inherit("scripts/skills/skill", {
 		_properties.IsAffectedByDyingAllies = false;
 		local bonus = this.getFleeing() * 0.05;
 		_properties.BraveryMult += bonus;
+		_properties.InjuryMalus -= 10;
 
 	}
 
