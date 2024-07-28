@@ -1059,7 +1059,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 
 				if (this.m.Skills.hasSkill(inj.ID))
 				{
-					ret.numPermInjuries = ++numPermInjuries;
+					ret.numPermInjuries += 1;
 					continue
 				}
 
@@ -1082,7 +1082,7 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 			}
 			else
 			{
-				ret.numPermInjuries += numPermInjuries;
+				ret.numPermInjuries += 1;
 			}
 		}
 		return ret;
