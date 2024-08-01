@@ -1129,6 +1129,8 @@ this.player <- this.inherit("scripts/entity/tactical/human", {
 		{
 			::logInfo("Bro got lucky, rolled: " + rand + ", chance: " + chanceToSurviveWithoutInjury);
 			this.improveMood(this.Const.MoodChange.PermanentInjury, "Somehow got beaten to an inch of his life and lived to tell the tale with no lasting injuries");
+			this.Tactical.getSurvivorRoster().add(this);
+			this.m.IsDying = false;
 			return false;
 		} 
 
