@@ -1310,8 +1310,48 @@
 
 	<sprite id="bust_orc_plate_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_plate_01.png" left="-44" right="50" top="-53" bottom="13" />
 	<sprite id="bust_orc_plate_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_plate_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
-	<sprite id="bust_orc_plate_01_dead" offsetX="6" offsetY="10" f="64FE" ic="$ic" width="131" height="125" img="entity\bodies\bust_orc_plate_01_dead.png" left="-57" right="59" top="-53" bottom="55" />
-	<sprite id="bust_orc_scale_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_scale_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_plate_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_plate_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+		<sprite id="bust_orc_scale_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_scale_01.png" left="-44" right="50" top="-53" bottom="13" />
 	<sprite id="bust_orc_scale_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_scale_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
-	<sprite id="bust_orc_scale_01_dead" offsetX="6" offsetY="10" f="64FE" ic="$ic" width="131" height="125" img="entity\bodies\bust_orc_scale_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+	<sprite id="bust_orc_scale_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_scale_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+		<sprite id="bust_orc_chain_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_chain_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_chain_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_chain_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_chain_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_chain_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+	
+		<sprite id="bust_orc_hide_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_hide_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_hide_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_hide_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_hide_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_hide_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+
+		<sprite id="bust_orc_horns_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_horns_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_horns_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_horns_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_horns_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_horns_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+
+		<sprite id="bust_orc_bone_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_bone_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_bone_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_bone_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_bone_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_bone_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+
+
+		<sprite id="bust_orc_leather_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_leather_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_leather_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_leather_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_leather_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_leather_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+
+		<sprite id="bust_orc_loincloth_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_loincloth_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_loincloth_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_loincloth_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_loincloth_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_loincloth_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+	
+		<sprite id="bust_orc_metal_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_metal_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_metal_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_metal_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_metal_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_metal_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+	
+		<sprite id="bust_orc_wicker_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_wicker_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_wicker_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_wicker_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_wicker_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_wicker_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
+	
+		<sprite id="bust_orc_fingers_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_fingers_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_fingers_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_fingers_01_damaged.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_fingers_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_fingers_01_dead.png" left="-57" right="59" top="-53" bottom="55" />
+	
+		<sprite id="bust_orc_ears_01" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_ears_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_ears_01_damaged" offsetY="35" f="64FE" ic="FF242D3B" width="100" height="100" img="entity\bodies\bust_orc_ears_01.png" left="-44" right="50" top="-53" bottom="13" />
+	<sprite id="bust_orc_ears_01_dead" offsetX="6" offsetY="10" f="64FE" ic="FF2432BC" width="131" height="125" img="entity\bodies\bust_orc_ears_01_dead.png" left="-57" right="59" top="-53" bottom="55" />	
 </brush>

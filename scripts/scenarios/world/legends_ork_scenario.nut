@@ -54,14 +54,14 @@ this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scen
 		local warhound = this.new("scripts/items/accessory/warhound_item");
 		warhound.m.Name = "Fenrir the Warhound";
 		items.equip(warhound);
-		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
-		local plate = this.new("scripts/items/legend_armor/plate/legend_reinforced_animal_hide_armor");
+		local armor = this.new("scripts/items/legend_armor/premade/legend_armor_orc_loincloth");
+		local plate = this.new("scripts/items/legend_armor/premade/legend_armor_orc_wicker");
 		armor.setUpgrade(plate);
 		items.equip(armor);
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
 				1,
-				"barbarians/bear_headpiece"
+				"greenskins/orc_warrior_light_helmet"
 			]
 		]));
 		bros[1].setStartValuesEx([
@@ -83,15 +83,15 @@ this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scen
 		local items = bros[1].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
-		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");
-		local plate = this.new("scripts/items/legend_armor/plate/legend_scrap_metal_armor");
+		local armor = this.new("scripts/items/legend_armor/premade/legend_armor_orc_loincloth");
+		local plate = this.new("scripts/items/legend_armor/premade/legend_armor_orc_leather");
 		armor.setUpgrade(plate);
 		items.equip(armor)
 
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
 				1,
-				"barbarians/leather_headband"
+				"greenskins/goblin_heavy_helmet"
 			]
 		]));
 		bros[2].setStartValuesEx([
@@ -123,22 +123,23 @@ this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scen
 		local items = bros[2].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
-		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth_patched");
-		local plate = this.new("scripts/items/legend_armor/plate/legend_hide_and_bone_armor");
+		local armor = this.new("scripts/items/legend_armor/premade/legend_armor_orc_loincloth");
+		local plate = this.new("scripts/items/legend_armor/premade/legend_armor_orc_hide");
 		armor.setUpgrade(plate);
 		items.equip(armor);
 		items.equip(this.Const.World.Common.pickHelmet([
 			[
 				1,
-				"barbarians/leather_helmet"
+				"legend_goblin_skirmisher_helmet"
 			]
 		]));
 		this.World.Assets.addBusinessReputation(this.m.StartingBusinessReputation);
 		this.World.Assets.addMoralReputation(-30.0);
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/strange_meat_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/legend_dog_meat_item"));
-		this.World.Assets.m.Money = this.World.Assets.m.Money / 2;
-		this.World.Assets.m.Ammo = this.World.Assets.m.Ammo / 2;
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/armor_upgrades/orc_horn_upgrade"));
+		this.World.Assets.m.Money = this.World.Assets.m.Money / 4;
+		this.World.Assets.m.Ammo = this.World.Assets.m.Ammo / 4;
 	}
 
 	function onSpawnPlayer()
