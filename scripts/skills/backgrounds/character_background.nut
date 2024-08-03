@@ -1754,6 +1754,10 @@ this.character_background <- this.inherit("scripts/skills/skill", {
 						names = this.Const.Strings.CharacterNamesFemaleNorse;
 					}
 				}
+							if (this.isBackgroundType(this.Const.BackgroundType.Greenskin))
+				{
+							names = this.Const.Strings.GoblinNames;
+				}
 			}
 
 			actor.setName(names[this.Math.rand(0, names.len() - 1)]);

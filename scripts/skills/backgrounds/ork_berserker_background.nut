@@ -60,7 +60,7 @@ this.ork_berserker_background <- this.inherit("scripts/skills/backgrounds/charac
 		this.m.BeardChance = 10;
 		this.m.Bodies = this.Const.Bodies.OrkBerserker;
 		this.m.Level = this.Math.rand(1, 3);
-		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Outlaw | this.Const.BackgroundType.Druid | this.Const.BackgroundType.Ranger | this.Const.BackgroundType.ExpertHunter;
+		this.m.BackgroundType = this.Const.BackgroundType.Greenskin |this.Const.BackgroundType.Combat | this.Const.BackgroundType.Outlaw | this.Const.BackgroundType.Druid | this.Const.BackgroundType.Ranger | this.Const.BackgroundType.ExpertHunter;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Merciless;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Good;
 		this.m.Modifiers.MedConsumption = this.Const.LegendMod.ResourceModifiers.MedConsumption[1];

@@ -39,7 +39,7 @@ this.goblin_shaman_background <- this.inherit("scripts/skills/backgrounds/charac
 		this.m.Level = this.Math.rand(1, 2);
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Notorious;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.NeutralMax;
-		this.m.BackgroundType = this.Const.BackgroundType.Outlaw | this.Const.BackgroundType.Druid;
+		this.m.BackgroundType = this.Const.BackgroundType.Greenskin |this.Const.BackgroundType.Outlaw | this.Const.BackgroundType.Druid;
 		this.m.Modifiers.Meds = this.Const.LegendMod.ResourceModifiers.Meds[2];
 		this.m.Modifiers.Stash = this.Const.LegendMod.ResourceModifiers.Stash[1];
 		this.m.Modifiers.Healing = this.Const.LegendMod.ResourceModifiers.Healing[2];

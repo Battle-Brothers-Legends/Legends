@@ -8,7 +8,7 @@ this.ork_young_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.NeutralMin;
 		this.character_background.create();
 		this.m.ID = "background.ork_young";
-		this.m.Name = "Ork_young";
+		this.m.Name = "Ork young";
 		this.m.Icon = "ui/backgrounds/background_ork_young.png";
 		this.m.BackgroundDescription = "";
 		this.m.GoodEnding = "%name% the ork took all the coin he earned with the company and ventured north. With his money, he gathered a band of warriors and conquered so many tribes that, last you heard, he had been ordained \'king of the north\'.";
@@ -47,7 +47,7 @@ this.ork_young_background <- this.inherit("scripts/skills/backgrounds/character_
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Notorious;
 		this.m.Bodies = this.Const.Bodies.OrkYoung;
 		this.m.Level = this.Math.rand(1, 2);
-		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Outlaw | this.Const.BackgroundType.ExpertHunter;
+		this.m.BackgroundType = this.Const.BackgroundType.Greenskin |this.Const.BackgroundType.Combat | this.Const.BackgroundType.Outlaw | this.Const.BackgroundType.ExpertHunter;
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[1];
 		this.m.Modifiers.Scout = this.Const.LegendMod.ResourceModifiers.Scout[3];
 		this.m.Modifiers.Hunting = this.Const.LegendMod.ResourceModifiers.Hunting[1];

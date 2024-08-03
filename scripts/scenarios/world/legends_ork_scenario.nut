@@ -4,7 +4,7 @@ this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scen
 	{
 		this.m.ID = "scenario.ork_warband";
 		this.m.Name = "Ork Warband";
-		this.m.Description = "[p=c][img]gfx/ui/events/event_49.png[/img][/p][p]A band of orcs \n[color=#bcad8c]Warband:[/color] You can not enter towns, but can recruit and trade in your camp [color=#c90000]Fightiness[/color] The size of the horde grows and shrinks by winning battles. They would rather die than retreat. \n[color=#bcad8c]Ork Horde:[/color] You can only recruit other greenskins.\n";
+		this.m.Description = "[p=c][img]gfx/ui/events/event_49.png[/img][/p]A band of orcs \n[color=#bcad8c]Warband:[/color] You can not enter towns, but can recruit and trade in your camp [color=#c90000]Fightiness[/color] The size of the horde grows and shrinks by winning battles. They would rather die than retreat. \n[color=#bcad8c]Ork Horde:[/color] You can only recruit other greenskins.\n";
 		this.m.Difficulty = 2;
 		this.m.Order = 180;
 		this.m.StartingBusinessReputation = -50; // Still use default reputation tiers even if starting at negative reputation
@@ -113,7 +113,7 @@ this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scen
 			bros[3].setStartValuesEx([
 			"goblin_ambusher_background"
 		]);
-		bros[3].getBackground().m.RawDescription = "The man who put you on the path, you believe %name% may serve some greater role to your attaining immense treasures. You have seen northern gimps and one-armed men who would best him in combat, but his knowledge and intelligence may be sharper blades in good time.";
+		bros[3].getBackground().m.RawDescription = "sneaky stabby %name% is come from the shadows.";
 		bros[3].setPlaceInFormation(13);
 		bros[3].setVeteranPerks(2);
 		bros[3].m.Talents = [];
@@ -138,6 +138,18 @@ this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scen
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/strange_meat_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/legend_dog_meat_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/armor_upgrades/orc_horn_upgrade"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/armor_upgrades/orc_ears_upgrade"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/armor_upgrades/orc_fingers_upgrade"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_bone"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_chain"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_hide"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_leather"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_loincloth"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_metal"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_plate"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_scale"));
+		this.World.Assets.getStash().add(this.new("scripts/items/legend_armor/premade/legend_armor_orc_wicker"));
+		this.World.Assets.getStash().add(this.new("scripts/items/weapons/greenskins/legend_limb_lopper"));
 		this.World.Assets.m.Money = this.World.Assets.m.Money / 4;
 		this.World.Assets.m.Ammo = this.World.Assets.m.Ammo / 4;
 	}
@@ -260,7 +272,7 @@ this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scen
 
 		for( local i = 0; i < 2; i = i )
 		{
-			houses[i].Faction.addPlayerRelation(-200.0, "You are considered outlaws and barbarians");
+			houses[i].Faction.addPlayerRelation(-500.0, "You are hated by the humans");
 			i = ++i;
 		}
 
@@ -271,9 +283,9 @@ this.legends_ork_scenario <- this.inherit("scripts/scenarios/world/starting_scen
 		this.Time.scheduleEvent(this.TimeUnit.Real, 1000, function ( _tag )
 		{
 			this.Music.setTrackList([
-				"music/barbarians_02.ogg"
+				"music/orcs_01.ogg"
 			], this.Const.Music.CrossFadeTime);
-			this.World.Events.fire("event.raiders_scenario_intro");
+			this.World.Events.fire("event.ork_scenario_intro");
 		}, null);
 	}
 

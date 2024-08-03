@@ -48,7 +48,7 @@ this.ork_warrior_background <- this.inherit("scripts/skills/backgrounds/characte
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Notorious;
 		this.m.Bodies = this.Const.Bodies.OrkWarrior;
 		this.m.Level = this.Math.rand(3, 6);
-		this.m.BackgroundType = this.Const.BackgroundType.Combat | this.Const.BackgroundType.Outlaw | this.Const.BackgroundType.ExpertHunter;
+		this.m.BackgroundType = this.Const.BackgroundType.Greenskin |this.Const.BackgroundType.Combat | this.Const.BackgroundType.Outlaw | this.Const.BackgroundType.ExpertHunter;
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[2];
 		this.m.Modifiers.Scout = this.Const.LegendMod.ResourceModifiers.Scout[2];
 		this.m.Modifiers.Hunting = this.Const.LegendMod.ResourceModifiers.Hunting[2];

@@ -25,7 +25,7 @@ this.legend_armor_orc_hide <- this.inherit("scripts/items/legend_armor/legend_ar
 	function updateVariant()
 	{
 		local variant = this.m.Variant > 9 ? this.m.Variant : "0" + this.m.Variant;
-		this.m.SpriteBack = "ust_orc_hide" + "_" + variant;
+		this.m.SpriteBack = "bust_orc_hide" + "_" + variant;
 		this.m.SpriteDamagedBack = "bust_orc_hide" + "_" + variant + "_damaged";
 		this.m.SpriteCorpseBack = "bust_orc_hide" + "_" + variant + "_dead";
 		this.m.Icon = "legend_armor/icon_orc_hide" + "_" + variant + ".png";

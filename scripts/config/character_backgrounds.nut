@@ -225,6 +225,16 @@ gt.Const.SupposedWitchBackgrounds <- [
 	"female_disowned_noble_background",
 	"legend_nun_background"
 ];
+
+gt.Const.GreenskinBackgrounds <- [
+	"ork_berserker_background",
+	"ork_warrior_background",
+	"ork_young_background",
+	"goblin_ambusher_background",
+	"goblin_shaman_background",
+	"goblin_warrior_background"
+];
+
 gt.Const.CharacterPartyBackgrounds <- [
 	"legend_diviner_background",
 	"legend_illusionist_background",
