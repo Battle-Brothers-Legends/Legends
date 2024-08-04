@@ -305,8 +305,8 @@ function testModData() {
     local mod = Mod("testMod");
     local modData = ModData(mod);
     modData.loadFile("testFile");
-    modData.write("testID", { key: "value" });
-    local deserializedData = modData.read("testID", { key: "default" });
+    modData.write("testID", { key = "value" });
+    local deserializedData = modData.read("testID", { key = "default" });
     modData.logData("testFile", "testPayload");
     // Add more test cases as needed
 }

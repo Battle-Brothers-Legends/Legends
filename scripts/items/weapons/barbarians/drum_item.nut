@@ -12,6 +12,7 @@ this.drum_item <- this.inherit("scripts/items/weapons/weapon", {
 		this.m.WeaponType = this.Const.Items.WeaponType.Musical | this.Const.Items.WeaponType.Staff;
 		this.m.SlotType = this.Const.ItemSlot.Mainhand;
 		this.m.ItemType = this.Const.Items.ItemType.Weapon | this.Const.Items.ItemType.RangedWeapon | this.Const.Items.ItemType.TwoHanded | this.Const.Items.ItemType.Misc;
+		this.m.WeaponType = this.Const.WeaponType.Musical | this.Const.WeaponType.Mace;
 		this.m.BlockedSlotType = this.Const.ItemSlot.Offhand;
 		this.m.IsDoubleGrippable = false;
 		this.m.IsDroppedAsLoot = true;

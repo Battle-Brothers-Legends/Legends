@@ -1,56 +1,98 @@
 ::Legends <- {
-	ID = "mod_legends",
-	Version = "18.2.7",
-	Name = "Legends Mod",
-	BuildName = "Chickens & Demons"
+    ID = "mod_legends",
+    Version = "18.2.7",
+    Name = "Legends Mod",
+    BuildName = "Chickens & Demons"
 };
 
-if (!("MSU" in this.getroottable()) || SemVer.compare(SemVer.getTable(::MSU.Version), SemVer.getTable("1.3.0")) >= 0 && !("Hooks" in this.getroottable()))
-	::mods_registerMod(::Legends.ID, 18, ::Legends.Name);
-else
-	::mods_registerMod(::Legends.ID, ::Legends.Version, ::Legends.Name);
+// Initialize the necessary global tables
+if (!("FU" in getroottable())) ::FU <- {};
 
-::mods_queue(::Legends.ID, "mod_msu(>=1.2.6), vanilla(>=1.5.0-15), dlc_lindwurm, dlc_unhold, dlc_wildmen, dlc_desert, dlc_paladins", function()
+
+// Create the Legends mod instance
+local legendsMod = ::FU.Mod("mod_legends", "18.2.7", "Legends Mod");
+legendsMod.BuildName = "Chickens & Demons";
+
+// Register the mod with the mods system
+::mods_registerMod(legendsMod.getID(), 18, legendsMod.getName());
+
+// Queue the mod for loading
+::mods_queue(legendsMod.getID(), "vanilla(>=1.5.0-15), dlc_lindwurm, dlc_unhold, dlc_wildmen, dlc_desert, dlc_paladins", function()
 {
-	::Legends.Mod <- ::MSU.Class.Mod(::Legends.ID, ::Legends.Version, ::Legends.Name);
+    // Register JS and CSS files
+    ::mods_registerJS("legends_assets.js");
+    ::mods_registerJS("legends/hooks/character_screen.js");
+    ::mods_registerCSS("legends/hooks/character_screen.css");
 
-	::mods_registerJS("legends_assets.js");
-	::mods_registerJS("legends/hooks/character_screen.js");
-	::mods_registerCSS("legends/hooks/character_screen.css");
-	::LegendsMod <- this.new("scripts/mods/legends_mod")
-	::Legends.Mod.Registry.addModSource(::MSU.System.Registry.ModSourceDomain.GitHub, "https://github.com/Battle-Brothers-Legends/Legends-Bugs");
-    ::Legends.Mod.Registry.setUpdateSource(::MSU.System.Registry.ModSourceDomain.GitHub);
+    // Initialize the LegendsMod object
+    ::LegendsMod <- {
+        m = {
+            Configs = null
+        },
+        function create()
+        {
+            this.m.Configs = this.new("scripts/mods/legends_configs");
+        },
+        function Configs() 
+        {
+            return this.m.Configs;
+        },
+        function onDevConsole(_command, _args)
+        {
+            switch(_command)
+            {
+                case "event":
+                    this.doDevConsoleEvent(_args);
+                    break;
+            }
+        },
+        function doDevConsoleEvent(_args)
+        {
+            if (!this.World.Events.canFireEvent())
+            {
+                this.logInfo("Can not fire event " + _args +" at this time");
+                return;
+            }
+            this.World.Events.fire(_args);
+        }
+    };
 
-    ::Const.LegendMod.setupDebug(); // must be called before ::Const.LegendMod.addSettings();
-	::Const.LegendMod.addSettings();
-	::Const.LegendMod.hookMSU();
-	::Const.LegendMod.addLegendItemTypes();
-	::Const.LegendMod.addStaticFunctions();
+    ::LegendsMod.create();
 
-	this.Const.LegendMod.hookActor();
-	this.Const.LegendMod.hookAISkills();
-	this.Const.LegendMod.hookAIAgent();
-	this.Const.LegendMod.hookAISplitShield();
-	this.Const.LegendMod.hookAlpRacial();
-	this.Const.LegendMod.hookBehavior();
-	this.Const.LegendMod.hookCharacterBackground();
-	this.Const.LegendMod.hookCombatManager();
-	this.Const.LegendMod.hookContract();
-	this.Const.LegendMod.hookContractCategory();
-	this.Const.LegendMod.hookFactionAction();
-	this.Const.LegendMod.hookGhoul();
-	this.Const.LegendMod.hookItemContainer();
-	this.Const.LegendMod.hookStrategy();
-	this.Const.LegendMod.hookTacticalEntityManager();
-	this.Const.LegendMod.hookTacticalState();
-	this.Const.LegendMod.hookWorldmapGenerator();
+    // Setup and initialize mod components
+    ::Const.LegendMod.setupDebug();
+    ::Const.LegendMod.addSettings();
+    ::Const.LegendMod.hookFU();
+    ::Const.LegendMod.addLegendItemTypes();
+    ::Const.LegendMod.addStaticFunctions();
 
-	::Const.LegendMod.registerUI();
+    // Hook into various game systems
+    local hookFunctions = [
+        "hookActor", "hookAISkills", "hookAIAgent", "hookAISplitShield",
+        "hookAlpRacial", "hookBehavior", "hookCharacterBackground",
+        "hookCombatManager", "hookContract", "hookContractCategory",
+        "hookFactionAction", "hookGhoul", "hookItemContainer",
+        "hookStrategy", "hookTacticalEntityManager", "hookTacticalState",
+        "hookWorldmapGenerator"
+    ];
 
-	this.Const.LegendMod.loadBuyback();
-	// this.Const.LegendMod.loadTacticalTooltip();
-	this.Const.Perks.updatePerkGroupTooltips();
+    foreach (hookFunction in hookFunctions)
+    {
+        this.Const.LegendMod[hookFunction]();
+    }
 
-	::Const.LegendMod.addTooltips();
-	
+    // Register UI, load components, and add tooltips
+    ::Const.LegendMod.registerUI();
+    this.Const.LegendMod.loadBuyback();
+    this.Const.Perks.updatePerkGroupTooltips();
+    ::Const.LegendMod.addTooltips();
+
+    // Add mod to the DataManager
+    ::FU.DataManager.registerMod(legendsMod);
 });
+
+// Ensure backward compatibility
+if (!("MSU" in getroottable())) ::MSU <- {};
+::MSU.Class <- ::FU.Class;
+::MSU.System <- ::FU.System
+

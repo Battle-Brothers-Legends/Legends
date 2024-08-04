@@ -4,7 +4,7 @@
 local modID = "mod_close_combat_archer_tooltip"
 
 ::mods_registerMod(modID, 2.0, "Close Combat Archer Tooltip")
-::mods_queue(modID, "mod_legends, mod_msu", function(){
+::mods_queue(modID, "mod_legends", function(){
 
 ::mods_hookExactClass("skills/perks/perk_close_combat_archer", function(o){
 	

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BBDir="${1:-../Build}"
+BBDir="${1:-../build}"
 RepoDir="${2:-.}"
 
 function checkForCompileError() {

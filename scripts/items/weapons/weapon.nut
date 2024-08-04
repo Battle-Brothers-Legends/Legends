@@ -29,177 +29,147 @@ this.weapon <- this.inherit("scripts/items/item", {
 		IsAoE = false,
 		IsEnforcingRangeLimit = false,
 		IsBloodied = false,
-		Variants = []
+		Variants = [],
+		WeaponType = ::Const.Items.WeaponType.None
 	},
-	function getRangeMin()
-	{
+
+	function getRangeMin() {
 		return this.m.RangeMin;
-	}
+	},
 
-	function getRangeMax()
-	{
+	function getRangeMax() {
 		return this.m.RangeMax;
-	}
+	},
 
-	function getRangeIdeal()
-	{
+	function getRangeIdeal() {
 		return this.m.RangeIdeal;
-	}
+	},
 
-	function getRangeEffective()
-	{
+	function getRangeEffective() {
 		return this.m.RangeMax;
-	}
+	},
 
-	function getRangeMaxBonus()
-	{
+	function getRangeMaxBonus() {
 		return this.m.RangeMaxBonus;
-	}
+	},
 
-	function getDamageMin()
-	{
+	function getDamageMin() {
 		return this.m.RegularDamage;
-	}
+	},
 
-	function getDamageMax()
-	{
+	function getDamageMax() {
 		return this.m.RegularDamageMax;
-	}
+	},
 
-	function getArmorDamageMult()
-	{
+	function getArmorDamageMult() {
 		return this.m.ArmorDamageMult;
-	}
+	},
 
-	function getAdditionalAccuracy()
-	{
+	function getAdditionalAccuracy() {
 		return this.m.AdditionalAccuracy;
-	}
+	},
 
-	function getShieldDamage()
-	{
-		if (this.getContainer() == null || this.getContainer().getActor() == null)
-		{
+	function getShieldDamage() {
+		if (this.getContainer() == null || this.getContainer().getActor() == null) {
 			return this.m.ShieldDamage;
 		}
-		local skill = this.getContainer().getActor().getSkills().getSkillByID("perk.legend_smashing_shields")
-
+		local skill = this.getContainer().getActor().getSkills().getSkillByID("perk.legend_smashing_shields");
 		return skill == null ? this.m.ShieldDamage : this.Math.round(this.m.ShieldDamage * skill.getModifier());
-	}
+	},
 
-	function isDoubleGrippable()
-	{
+	function isDoubleGrippable() {
 		return this.m.IsDoubleGrippable;
-	}
+	},
 
-	function isAgainstShields()
-	{
+	function isAgainstShields() {
 		return this.m.IsAgainstShields;
-	}
+	},
 
-	function isAoE()
-	{
+	function isAoE() {
 		return this.m.IsAoE;
-	}
+	},
 
-	function isEnforcingRangeLimit()
-	{
+	function isEnforcingRangeLimit() {
 		return this.m.IsEnforcingRangeLimit;
-	}
+	},
 
-	function getAmmo()
-	{
+	function getAmmo() {
 		return this.m.Ammo;
-	}
+	},
 
-	function getAmmoMax()
-	{
+	function getAmmoMax() {
 		return this.m.AmmoMax;
-	}
+	},
 
-	function getAmmoID()
-	{
+	function getAmmoID() {
 		return "";
-	}
+	},
 
-	function setAmmo( _a )
-	{
+	function setAmmo(_a) {
 		this.m.Ammo = _a;
-	}
+	},
 
-	function getAmmoCost()
-	{
+	function getAmmoCost() {
 		return this.m.AmmoCost;
-	}
+	},
 
-	function isAmountShown()
-	{
+	function isAmountShown() {
 		return this.m.Condition != this.m.ConditionMax;
-	}
+	},
 
-	function getAmountString()
-	{
+	function getAmountString() {
 		return "" + this.Math.floor(this.m.Condition / (this.m.ConditionMax * 1.0) * 100) + "%";
-	}
+	},
 
-	function getAmountColor()
-	{
+	function getAmountColor() {
 		return this.Const.Items.ConditionColor[this.Math.min(this.Math.max(0, this.Math.floor(this.m.Condition / (this.m.ConditionMax * 1.0) * (this.Const.Items.ConditionColor.len() - 1))), this.Const.Items.ConditionColor.len() - 1)];
-	}
+	},
 
-	function getStaminaModifier()
-	{
+	function getStaminaModifier() {
 		return this.m.StaminaModifier;
-	}
+	},
 
-	function getValue()
-	{
+	function getValue() {
 		return this.Math.floor(this.m.Value * (this.m.Condition / (this.m.ConditionMax * 1.0)));
-	}
+	},
 
-	function setBloodied( _isBloodied )
-	{
-		if (_isBloodied == this.m.IsBloodied)
-		{
+	function setBloodied(_isBloodied) {
+		if (_isBloodied == this.m.IsBloodied) {
 			return;
 		}
 
 		this.m.IsBloodied = _isBloodied;
 
-		if (this.m.ShowArmamentIcon)
-		{
-			if (this.m.SlotType == this.Const.ItemSlot.Offhand)
-			{
-				if (_isBloodied && this.doesBrushExist(this.m.ArmamentIcon + "_bloodied"))
-				{
+		if (this.m.ShowArmamentIcon) {
+			if (this.m.SlotType == this.Const.ItemSlot.Offhand) {
+				if (_isBloodied && this.doesBrushExist(this.m.ArmamentIcon + "_bloodied")) {
 					this.getContainer().getAppearance().Shield = this.m.ArmamentIcon + "_bloodied";
-				}
-				else
-				{
+				} else {
 					this.getContainer().getAppearance().Shield = this.m.ArmamentIcon;
 				}
-			}
-			else if (_isBloodied && this.doesBrushExist(this.m.ArmamentIcon + "_bloodied"))
-			{
+			} else if (_isBloodied && this.doesBrushExist(this.m.ArmamentIcon + "_bloodied")) {
 				this.getContainer().getAppearance().Weapon = this.m.ArmamentIcon + "_bloodied";
-			}
-			else
-			{
+			} else {
 				this.getContainer().getAppearance().Weapon = this.m.ArmamentIcon;
 			}
 
 			this.getContainer().updateAppearance();
 		}
-	}
+	},
 
-	function create()
-	{
+	function create() {
 		this.item.create();
 		this.m.IsDroppedAsLoot = true;
-	}
+		if (this.getCategories() == "") {
+			if (this.m.WeaponType != ::Const.Items.WeaponType.None) {
+				this.setupCategories();
+			}
+		} else {
+			this.setupWeaponType();
+		}
+	},
 
-	function getTooltip()
-	{
+	function getTooltip() {
 		local result = [
 			{
 				id = 1,
@@ -213,17 +183,14 @@ this.weapon <- this.inherit("scripts/items/item", {
 			}
 		];
 
-		if (this.getIconLarge() != null)
-		{
+		if (this.getIconLarge() != null) {
 			result.push({
 				id = 3,
 				type = "image",
 				image = this.getIconLarge(),
 				isLarge = true
 			});
-		}
-		else
-		{
+		} else {
 			result.push({
 				id = 3,
 				type = "image",
@@ -242,8 +209,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			text = this.getValueString()
 		});
 
-		if (this.m.ConditionMax > 1)
-		{
+		if (this.m.ConditionMax > 1) {
 			result.push({
 				id = 4,
 				type = "progressbar",
@@ -255,8 +221,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.RegularDamage > 0)
-		{
+		if (this.m.RegularDamage > 0) {
 			result.push({
 				id = 4,
 				type = "text",
@@ -265,8 +230,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.DirectDamageMult > 0)
-		{
+		if (this.m.DirectDamageMult > 0) {
 			result.push({
 				id = 64,
 				type = "text",
@@ -275,8 +239,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.ArmorDamageMult > 0)
-		{
+		if (this.m.ArmorDamageMult > 0) {
 			result.push({
 				id = 5,
 				type = "text",
@@ -285,8 +248,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.ShieldDamage > 0)
-		{
+		if (this.m.ShieldDamage > 0) {
 			result.push({
 				id = 6,
 				type = "text",
@@ -295,8 +257,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.ChanceToHitHead > 0)
-		{
+		if (this.m.ChanceToHitHead > 0) {
 			result.push({
 				id = 9,
 				type = "text",
@@ -305,17 +266,14 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.AdditionalAccuracy > 0)
-		{
+		if (this.m.AdditionalAccuracy > 0) {
 			result.push({
 				id = 10,
 				type = "text",
 				icon = "ui/icons/hitchance.png",
 				text = "Has an additional [color=" + this.Const.UI.Color.PositiveValue + "]+" + this.m.AdditionalAccuracy + "%[/color] chance to hit"
 			});
-		}
-		else if (this.m.AdditionalAccuracy < 0)
-		{
+		} else if (this.m.AdditionalAccuracy < 0) {
 			result.push({
 				id = 10,
 				type = "text",
@@ -324,8 +282,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.RangeMax > 1)
-		{
+		if (this.m.RangeMax > 1) {
 			result.push({
 				id = 7,
 				type = "text",
@@ -334,8 +291,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.StaminaModifier < 0)
-		{
+		if (this.m.StaminaModifier < 0) {
 			result.push({
 				id = 8,
 				type = "text",
@@ -344,17 +300,14 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.FatigueOnSkillUse > 0 && (this.getContainer() == null || !this.getContainer().getActor().getCurrentProperties().IsProficientWithHeavyWeapons))
-		{
+		if (this.m.FatigueOnSkillUse > 0 && (this.getContainer() == null || !this.getContainer().getActor().getCurrentProperties().IsProficientWithHeavyWeapons)) {
 			result.push({
 				id = 8,
 				type = "text",
 				icon = "ui/icons/fatigue.png",
 				text = "Weapon skills build up [color=" + this.Const.UI.Color.NegativeValue + "]" + this.m.FatigueOnSkillUse + "[/color] more fatigue"
 			});
-		}
-		else if (this.m.FatigueOnSkillUse < 0)
-		{
+		} else if (this.m.FatigueOnSkillUse < 0) {
 			result.push({
 				id = 8,
 				type = "text",
@@ -363,19 +316,15 @@ this.weapon <- this.inherit("scripts/items/item", {
 			});
 		}
 
-		if (this.m.AmmoMax > 0)
-		{
-			if (this.m.Ammo != 0)
-			{
+		if (this.m.AmmoMax > 0) {
+			if (this.m.Ammo != 0) {
 				result.push({
 					id = 10,
 					type = "text",
 					icon = "ui/icons/ammo.png",
 					text = "Contains ammo for [color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.Ammo + "[/color] uses"
 				});
-			}
-			else
-			{
+			} else {
 				result.push({
 					id = 10,
 					type = "text",
@@ -385,8 +334,7 @@ this.weapon <- this.inherit("scripts/items/item", {
 			}
 		}
 
-		if (this.isRuned())
-		{
+		if (this.isRuned()) {
 			result.push({
 				id = 20,
 				type = "text",
@@ -396,40 +344,32 @@ this.weapon <- this.inherit("scripts/items/item", {
 		}
 
 		return result;
-	}
+	},
 
-	function getIconOverlay()
-	{
+	function getIconOverlay() {
 		if (this.isRuned()) {
 			return ["layers/glow_runed_icon.png"];
 		}
 		return  [""];
+	},
 
-	}
-
-	function getIconLargeOverlay()
-	{
+	function getIconLargeOverlay() {
 		if (this.isRuned()) {
 			return ["layers/glow_runed_inventory.png"];
 		}
 		return  [""];
+	},
 
-	}
-
-	function playInventorySound( _eventType )
-	{
+	function playInventorySound(_eventType) {
 		this.Sound.play(this.m.EquipSound[this.Math.rand(0, this.m.EquipSound.len() - 1)], this.Const.Sound.Volume.Inventory);
-	}
+	},
 
-	function isDroppedAsLoot()
-	{
-		if (!this.item.isDroppedAsLoot())
-		{
+	function isDroppedAsLoot() {
+		if (!this.item.isDroppedAsLoot()) {
 			return false;
 		}
 
-		if (this.isNamed())
-		{
+		if (this.isNamed()) {
 			return true;
 		}
 
@@ -437,240 +377,281 @@ this.weapon <- this.inherit("scripts/items/item", {
 		local isLucky = !this.Tactical.State.isScenarioMode() && !isPlayer && this.World.Assets.getOrigin().isDroppedAsLoot(this);
 		local isBlacksmithed = isPlayer && !this.Tactical.State.isScenarioMode() && this.World.Assets.m.IsBlacksmithed;
 		return (this.m.AmmoMax == 0 || isPlayer || this.m.Ammo > 0 && this.getCurrentSlotType() != this.Const.ItemSlot.Bag || this.m.Ammo > 0 && this.m.Ammo < this.m.AmmoMax && this.getCurrentSlotType() == this.Const.ItemSlot.Bag) && (this.m.Condition >= 12 || this.m.ConditionMax <= 1 || isLucky || isBlacksmithed) && (isPlayer || isLucky || this.Math.rand(1, 100) <= 90);
-	}
+	},
 
-	function consumeAmmo()
-	{
+	function consumeAmmo() {
 		this.setAmmo(this.Math.max(0, this.m.Ammo - 1));
 
-		if (this.getContainer().getActor().isPlayerControlled())
-		{
+		if (this.getContainer().getActor().isPlayerControlled()) {
 			this.Tactical.Entities.spendAmmo(this.m.AmmoCost);
 		}
-	}
+	},
 
-	function updateAppearance()
-	{
-		if (!this.isEquipped())
-		{
+	function updateAppearance() {
+		if (!this.isEquipped()) {
 			return;
 		}
 
 		local changed = false;
 
-		if (this.m.ShowArmamentIcon)
-		{
-			if (this.m.SlotType == this.Const.ItemSlot.Offhand)
-			{
+		if (this.m.ShowArmamentIcon) {
+			if (this.m.SlotType == this.Const.ItemSlot.Offhand) {
 				changed = this.getContainer().getAppearance().Shield != this.m.ArmamentIcon;
 				this.getContainer().getAppearance().Shield = this.m.ArmamentIcon;
-			}
-			else
-			{
+			} else {
 				changed = this.getContainer().getAppearance().Weapon != this.m.ArmamentIcon;
 				this.getContainer().getAppearance().Weapon = this.m.ArmamentIcon;
 				this.getContainer().getAppearance().TwoHanded = this.m.BlockedSlotType != null;
 			}
-		}
-		else if (this.m.SlotType == this.Const.ItemSlot.Offhand)
-		{
+		} else if (this.m.SlotType == this.Const.ItemSlot.Offhand) {
 			changed = this.getContainer().getAppearance().Shield != "";
 			this.getContainer().getAppearance().Shield = "";
-		}
-		else
-		{
+		} else {
 			changed = this.getContainer().getAppearance().Weapon != "";
 			this.getContainer().getAppearance().Weapon = "";
 			this.getContainer().getAppearance().TwoHanded = false;
 		}
 
-		if (changed)
-		{
+		if (changed) {
 			this.getContainer().updateAppearance();
 		}
-	}
+	},
 
-	function addSkill( _skill )
-	{
+	function addSkill(_skill) {
 		this.item.addSkill(_skill);
 
-		if (_skill.isType(this.Const.SkillType.Active))
-		{
+		if (_skill.isType(this.Const.SkillType.Active)) {
 			local fatigueOnSkillUse = this.getContainer().getActor().getCurrentProperties().IsProficientWithHeavyWeapons && this.m.FatigueOnSkillUse > 0 ? 0 : this.m.FatigueOnSkillUse;
 			_skill.setFatigueCost(this.Math.max(0, _skill.getFatigueCostRaw() + fatigueOnSkillUse));
 		}
-	}
 
-	function getAdditionalRange( _actor )
-	{
+		if (::FU.isIn("AdditionalAccuracy", _skill.m, true)) {
+			_skill.resetField("AdditionalAccuracy");
+			_skill.m.AdditionalAccuracy += this.m.AdditionalAccuracy;
+			_skill.setBaseValue("AdditionalAccuracy", _skill.m.AdditionalAccuracy);
+		}
+	},
+
+	function getAdditionalRange(_actor) {
 		return 0;
-	}
+	},
 
-	function onEquip()
-	{
+	function onEquip() {
 		this.item.onEquip();
 
-		if (this.m.AddGenericSkill)
-		{
+		if (this.m.AddGenericSkill) {
 			this.addGenericItemSkill();
 		}
 
 		this.updateAppearance();
 
-		if (this.getContainer().getActor().isSummoned())
-		{
+		if (this.getContainer().getActor().isSummoned()) {
 			return;
 		}
 
-		if (this.m.Condition == this.m.ConditionMax && !this.isKindOf(this.getContainer().getActor().get(), "player"))
-		{
+		if (this.m.Condition == this.m.ConditionMax && !this.isKindOf(this.getContainer().getActor().get(), "player")) {
 			this.m.Condition = this.Math.rand(1, this.Math.max(1, this.m.ConditionMax - 2)) * 1.0;
 		}
-	}
+	},
 
-	function onUnequip()
-	{
+	function onUnequip() {
 		this.m.IsBloodied = false;
 		this.item.onUnequip();
 
-		if (this.m.ShowArmamentIcon)
-		{
-			if (this.m.SlotType == this.Const.ItemSlot.Offhand)
-			{
+		if (this.m.ShowArmamentIcon) {
+			if (this.m.SlotType == this.Const.ItemSlot.Offhand) {
 				this.getContainer().getAppearance().Shield = "";
-			}
-			else
-			{
+			} else {
 				this.getContainer().getAppearance().Weapon = "";
 				this.getContainer().getAppearance().TwoHanded = false;
 			}
 		}
 
 		this.getContainer().updateAppearance();
-	}
+	},
 
-	function onUpdateProperties( _properties )
-	{
+	function onUpdateProperties(_properties) {
 		_properties.Stamina += this.m.StaminaModifier;
 
-		if (this.m.SlotType == this.Const.ItemSlot.Mainhand)
-		{
+		if (this.m.SlotType == this.Const.ItemSlot.Mainhand) {
 			_properties.DamageRegularMin += this.m.RegularDamage;
 			_properties.DamageRegularMax += this.m.RegularDamageMax;
 			_properties.DamageArmorMult *= this.m.ArmorDamageMult;
 			_properties.DamageDirectAdd += this.m.DirectDamageAdd;
 			_properties.HitChance[this.Const.BodyPart.Head] += this.m.ChanceToHitHead;
 		}
-	}
+	},
 
-	function onDamageDealt( _target, _skill, _hitInfo )
-	{
+	function onDamageDealt(_target, _skill, _hitInfo) {
 		local actor = this.getContainer().getActor();
 
-		if (actor == null || actor.isNull())
-		{
+		if (actor == null || actor.isNull()) {
 			return;
 		}
 
-		if (actor.isPlayerControlled() && _skill.getDirectDamage() < 1.0 && !_skill.isRanged() && this.m.ConditionMax > 1)
-		{
-			if (_target.getArmorMax(_hitInfo.BodyPart) >= 50 && _hitInfo.DamageInflictedArmor >= 5 || this.m.ConditionMax == 2)
-			{
+		if (actor.isPlayerControlled() && _skill.getDirectDamage() < 1.0 && !_skill.isRanged() && this.m.ConditionMax > 1) {
+			if (_target.getArmorMax(_hitInfo.BodyPart) >= 50 && _hitInfo.DamageInflictedArmor >= 5 || this.m.ConditionMax == 2) {
 				this.lowerCondition();
 			}
 		}
-	}
+	},
 
-	function onUse( _skill )
-	{
-		if (this.getContainer().getActor().isPlayerControlled() && _skill.isRanged() && this.m.ConditionMax > 1)
-		{
+	function onUse(_skill) {
+		if (this.getContainer().getActor().isPlayerControlled() && _skill.isRanged() && this.m.ConditionMax > 1) {
 			this.lowerCondition(this.Const.Combat.WeaponDurabilityLossOnUse);
 		}
-	}
+	},
 
-	function onCombatFinished()
-	{
+	function onCombatFinished() {
 		this.item.onCombatFinished();
 		this.setBloodied(false);
-	}
+	},
 
-	function onDelayedRemoveSelf( _tag )
-	{
+	function onDelayedRemoveSelf(_tag) {
 		this.drop();
-	}
+	},
 
-	function lowerCondition( _value = this.Const.Combat.WeaponDurabilityLossOnHit )
-	{
+	function lowerCondition(_value = this.Const.Combat.WeaponDurabilityLossOnHit) {
 		local actor = this.getContainer().getActor();
 		this.m.Condition = this.Math.maxf(0.0, this.m.Condition - _value);
 
-		if (this.m.Condition == 0 && !actor.isHiddenToPlayer())
-		{
+		if (this.m.Condition == 0 && !actor.isHiddenToPlayer()) {
 			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + "\'s " + this.getName() + " has broken!");
 			this.Tactical.spawnIconEffect("status_effect_36", actor.getTile(), this.Const.Tactical.Settings.SkillIconOffsetX, this.Const.Tactical.Settings.SkillIconOffsetY, this.Const.Tactical.Settings.SkillIconScale, this.Const.Tactical.Settings.SkillIconFadeInDuration, this.Const.Tactical.Settings.SkillIconStayDuration, this.Const.Tactical.Settings.SkillIconFadeOutDuration, this.Const.Tactical.Settings.SkillIconMovement);
 			this.Sound.play(this.m.BreakingSound, 1.0, actor.getPos());
 			this.Time.scheduleEvent(this.TimeUnit.Virtual, 300, this.onDelayedRemoveSelf, null);
 		}
-	}
+	},
 
-	function onLowerWeapon()
-	{
-		if (!this.m.ShowArmamentIcon)
-		{
+	function onLowerWeapon() {
+		if (!this.m.ShowArmamentIcon) {
 			return;
 		}
 
 		local app = this.getContainer().getAppearance();
 		app.LowerWeapon = true;
 		this.getContainer().updateAppearance();
-	}
+	},
 
-	function onRaiseWeapon()
-	{
-		if (!this.m.ShowArmamentIcon)
-		{
+	function onRaiseWeapon() {
+		if (!this.m.ShowArmamentIcon) {
 			return;
 		}
 
 		local app = this.getContainer().getAppearance();
 		app.LowerWeapon = false;
 		this.getContainer().updateAppearance();
-	}
+	},
 
-	function updateRuneSigil()
-	{
+	function updateRuneSigil() {
 		this.item.updateRuneSigil();
-		// return
-		// if (this.m.ArmamentIcon.find("runed_") != null)
-		// {
-		// 	return;
-		// }
-		// this.m.ArmamentIcon = "runed_" + this.m.ArmamentIcon;
-	}
+	},
 
-
-	function onSerialize( _out )
-	{
+	function onSerialize(_out) {
 		this.item.onSerialize(_out);
 		_out.writeU16(this.m.Ammo);
-	}
+	},
 
-	function onDeserialize( _in )
-	{
+	function onDeserialize(_in) {
 		this.item.onDeserialize(_in);
 		this.m.Condition = this.Math.minf(this.m.ConditionMax, this.m.Condition);
 		this.m.Ammo = _in.readU16();
 
-		if (this.m.Ammo != 0 && this.m.AmmoMax == 0)
-		{
+		if (this.m.Ammo != 0 && this.m.AmmoMax == 0) {
 			this.m.AmmoMax = this.m.Ammo;
 		}
-		if (this.isRuned())
-		{
+		if (this.isRuned()) {
 			this.updateRuneSigil();
 		}
-	}
+	},
 
+	function setCategories(_s, _setupWeaponType = true) {
+		this.m.Categories = _s;
+
+		if (_setupWeaponType) {
+			this.setupWeaponType();
+		}
+	},
+
+	function setupWeaponType() {
+		this.m.WeaponType = ::Const.Items.WeaponType.None;
+
+		local categories = this.getCategories();
+		if (categories.len() == 0) {
+			return;
+		}
+
+		foreach (k, w in ::Const.Items.WeaponType) {
+			if (categories.find(k) != null) {
+				this.m.WeaponType = this.m.WeaponType | w;
+			}
+		}
+
+		if (categories.find("One-Handed") != null && !this.isItemType(::Const.Items.ItemType.OneHanded)) {
+			this.m.ItemType = this.m.ItemType | ::Const.Items.ItemType.OneHanded;
+			if (this.isItemType(::Const.Items.ItemType.TwoHanded)) {
+				this.m.ItemType -= ::Const.Items.ItemType.TwoHanded;
+			}
+		}
+
+		if (categories.find("Two-Handed") != null && !this.isItemType(::Const.Items.ItemType.TwoHanded)) {
+			this.m.ItemType = this.m.ItemType | ::Const.Items.ItemType.TwoHanded;
+			if (this.isItemType(::Const.Items.ItemType.OneHanded)) {
+				this.m.ItemType -= ::Const.Items.ItemType.OneHanded;
+			}
+		}
+	},
+
+	function isWeaponType(_t, _any = true, _only = false) {
+		if (_any) {
+			return _only ? this.m.WeaponType - (this.m.WeaponType & _t) == 0 : (this.m.WeaponType & _t) != 0;
+		} else {
+			return _only ? (this.m.WeaponType & _t) == this.m.WeaponType : (this.m.WeaponType & _t) == _t;
+		}
+	},
+
+	function addWeaponType(_weaponType, _setupCategories = true) {
+		this.m.WeaponType = this.m.WeaponType | _weaponType;
+
+		if (_setupCategories) {
+			this.setupCategories();
+		}
+	},
+
+	function setWeaponType(_t, _setupCategories = true) {
+		this.m.WeaponType = _t;
+
+		if (_setupCategories) {
+			this.setupCategories();
+		}
+	},
+
+	function removeWeaponType(_weaponType, _setupCategories = true) {
+		if (this.isWeaponType(_weaponType, false)) {
+			this.m.WeaponType -= _weaponType;
+
+			if (_setupCategories) {
+				this.setupCategories();
+			}
+		}
+	},
+
+	function setupCategories() {
+		this.m.Categories = "";
+
+		foreach (w in ::Const.Items.WeaponType) {
+			if (this.isWeaponType(w)) {
+				this.m.Categories += ::Const.Items.getWeaponTypeName(w) + "/";
+			}
+		}
+
+		if (this.m.Categories != "") this.m.Categories = this.m.Categories.slice(0, -1) + ", ";
+
+		if (this.isItemType(::Const.Items.ItemType.OneHanded)) {
+			this.m.Categories += "One-Handed";
+		} else if (this.isItemType(::Const.Items.ItemType.TwoHanded)) {
+			this.m.Categories += "Two-Handed";
+		}
+	}
 });
 

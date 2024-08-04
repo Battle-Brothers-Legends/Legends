@@ -298,3 +298,75 @@ gt.Const.Items.HelmetUpgrades <- {
 	//Extra spot for second vanity
 	COUNT = 5
 }
+
+gt.Const.Items.WeaponType <- {
+	None = 0,
+	Axe = 1,
+	Bow = 2,
+	Cleaver = 4,
+	Crossbow = 8,
+	Dagger = 16,
+	Firearm = 32,
+	Flail = 64,
+	Hammer = 128,
+	Mace = 256,
+	Polearm = 512,
+	Sling = 1024,
+	Spear = 2048,
+	Sword = 4096,
+	Staff = 8192,
+	Throwing = 16384,
+	Musical = 32768
+};
+
+gt.Const.Items.WeaponTypeName <- [
+	"No Weapon Type",
+	"Axe",
+	"Bow",
+	"Cleaver",
+	"Crossbow",
+	"Dagger",
+	"Firearm",
+	"Flail",
+	"Hammer",
+	"Mace",
+	"Polearm",
+	"Sling",
+	"Spear",
+	"Sword",
+	"Staff",
+	"Throwing Weapon",
+	"Musical Instrument"
+];
+
+gt.Const.Items.getWeaponTypeName <- function( _weaponType )
+{
+	local input = log2int(_weaponType) + 1;
+	if (input < ::Const.Items.WeaponTypeName.len())
+	{
+		return ::Const.Items.WeaponTypeName[input];
+	}
+}
+
+gt.Const.Items.addNewWeaponType <- function( _weaponType, _weaponTypeName = "" )
+{
+	if (_weaponType in ::Const.Items.WeaponType) throw ::FU.Exception.DuplicateKey(_weaponType);
+
+	local max = 0;
+	foreach (w, value in ::Const.Items.WeaponType)
+	{
+		if (value > max)
+		{
+			max = value;
+		}
+	}
+	::Const.Items.WeaponType[_weaponType] <- max << 1;
+
+	if (_weaponTypeName == "")
+	{
+		_weaponTypeName = _weaponType;
+	}
+
+	::Const.Items.WeaponTypeName.push(_weaponTypeName);
+}
+	

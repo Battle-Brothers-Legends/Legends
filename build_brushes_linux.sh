@@ -1,5 +1,5 @@
-BBDir="${1-"c:\\Steam\\steamapps\\common\\Battle Brothers\\data"}"
-RepoDir="${2-"battlebrothers"}"
+BBDir="${1-"/home/poss/Documents/Legends/build/"}"
+RepoDir="${2-"Legends"}"
 
 
 function handleExit() {
@@ -28,10 +28,10 @@ rm -rf helmet_scripts
 handleExit
 mkdir -p "helmet_scripts"
 handleExit
-python make_legend_helmets.py
+python3 make_legend_helmets.py
 handleExit
-mkdir -p "$BBDir\\scripts\\items\\legend_helmets"
-cp -R helmet_scripts/. "$BBDir\\scripts\\items\\legend_helmets"
+mkdir -p "$BBDir/scripts/items/legend_helmets"
+cp -R helmet_scripts/. "$BBDir/scripts/items/legend_helmets"
 handleExit
 
 echo "Building armors..."
@@ -39,14 +39,14 @@ rm -rf legend_armor_scripts
 handleExit
 mkdir -p "legend_armor_scripts"
 handleExit
-python make_legend_armor.py
+python3 make_legend_armor.py
 handleExit
-mkdir -p "$BBDir\scripts\\items\\legend_armor"
-cp -R legend_armor_scripts/. "$BBDir\\scripts\\items\\legend_armor"
+mkdir -p "$BBDir/scripts/items/legend_armor"
+cp -R legend_armor_scripts/. "$BBDir/scripts/items/legend_armor"
 handleExit
 
 echo "Building enemies..."
-python make_legend_enemies.py
+python3 make_legend_enemies.py
 handleExit
 
 declare -a BRUSHES=(
@@ -93,15 +93,15 @@ do
     echo "Building $i brush..."
     cd ../bin
     brush=${i//[\/]/_}
-    o=$(./bbrusher.exe pack --gfxPath "../$RepoDir/" ../$RepoDir/brushes/$brush.brush ../$RepoDir/unpacked/$i)
+    o=$(wine bbrusher.exe pack --gfxPath "../$RepoDir/" ../$RepoDir/brushes/$brush.brush ../$RepoDir/unpacked/$i)
     cd ../"$RepoDir"
     checkForError "$o" "$i"
 done
 
-echo "Copying brushes to $BBDir\\brushes ..."
-mkdir -p "$BBDir\\brushes"
-cp -R brushes/. "$BBDir\\brushes"
+echo "Copying brushes to $BBDir/brushes ..."
+mkdir -p "$BBDir/brushes"
+cp -R brushes/. "$BBDir/brushes"
 handleExit
-mkdir -p "$BBDir\\gfx"
-cp -R gfx/*.png "$BBDir\\gfx"
+mkdir -p "$BBDir/gfx"
+cp -R gfx/*.png "$BBDir/gfx"
 handleExit
