@@ -2,7 +2,7 @@
  * Class representing a SliderSetting.
  * This class extends the TemplateSetting class to provide additional functionality specific to slider settings.
  */
-class SliderSetting extends TemplateSetting {
+class SliderSetting extends ::FU.Class.TemplateSetting  {
     Min = null;
     Max = null;
     Step = null;
@@ -98,7 +98,7 @@ class SliderSetting extends TemplateSetting {
 }
 
 // Alias for backward compatibility
-::MSU.Class.RangeSetting <- SliderSetting;
+::FU.Class.RangeSetting <- SliderSetting;
 
 
 // Test Case

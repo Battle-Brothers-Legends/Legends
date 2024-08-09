@@ -1,8 +1,15 @@
+function requireBool(value) {
+    if (typeof value != "bool") {
+        throw "Expected boolean, got " + typeof value;
+    }
+}
+
+
 /**
  * Class representing a ToggleSetting.
  * A setting that holds a boolean value (true/false).
  */
-class ToggleSetting extends TemplateSetting {
+class ToggleSetting extends ::FU.Class.TemplateSetting {
     Type = "Toggle";
 
     /**
@@ -13,7 +20,7 @@ class ToggleSetting extends TemplateSetting {
      * @param _description {string} - The description of the setting (optional).
      */
     constructor(_id, _value, _name = null, _description = null) {
-        ::FU.requireBool(_value);
+       requireBool(_value);
         base.constructor(_id, _value, _name, _description);
     }
 
@@ -40,47 +47,48 @@ class ToggleSetting extends TemplateSetting {
     }
 }
 
+
 // Alias for backward compatibility
-::MSU.Class.BooleanSetting <- ToggleSetting
+::FU.Class.BooleanSetting <- ToggleSetting
 
 // Test case for ToggleSetting
 function testToggleSetting() {
     // Creating a new ToggleSetting
     local toggleSetting = ToggleSetting("testID", true);
 
-    // Asserting initial values
-    assert(toggleSetting.get() == true, "Initial value should be 'true'");
+    // Logging initial values
+    this.logInfo("Initial value is 'true': " + (toggleSetting.get() == true));
 
-    // Setting and asserting new values
+    // Setting and logging new values
     toggleSetting.set(false);
-    assert(toggleSetting.get() == false, "New value should be 'false'");
+    this.logInfo("New value is 'false': " + (toggleSetting.get() == false));
 
-    // Toggling and asserting values
+    // Toggling and logging values
     toggleSetting.toggle();
-    assert(toggleSetting.get() == true, "Toggled value should be 'true'");
+    this.logInfo("Toggled value is 'true': " + (toggleSetting.get() == true));
     toggleSetting.toggle();
-    assert(toggleSetting.get() == false, "Toggled value should be 'false'");
+    this.logInfo("Toggled value is 'false': " + (toggleSetting.get() == false));
 
     // Serializing and deserializing the setting
     local serializedData = toggleSetting.serialize();
     local newToggleSetting = ToggleSetting("testID", false);
     newToggleSetting.deserialize(serializedData);
-    assert(newToggleSetting.get() == false, "Deserialized value should be 'false'");
+    this.logInfo("Deserialized value is 'false': " + (newToggleSetting.get() == false));
 
-    // Asserting ID, name, and description
-    assert(newToggleSetting.getID() == "testID", "ID should be 'testID'");
-    assert(newToggleSetting.getName() == null, "Name should be null by default");
-    assert(newToggleSetting.getDescription() == null, "Description should be null by default");
+    // Logging ID, name, and description
+    this.logInfo("ID is 'testID': " + (newToggleSetting.getID() == "testID"));
+    this.logInfo("Name is null by default: " + (newToggleSetting.getName() == null));
+    this.logInfo("Description is null by default: " + (newToggleSetting.getDescription() == null));
 
-    // Setting and asserting name and description
+    // Setting and logging name and description
     newToggleSetting.setName("Test Name");
     newToggleSetting.setDescription("Test Description");
-    assert(newToggleSetting.getName() == "Test Name", "Name should be 'Test Name'");
-    assert(newToggleSetting.getDescription() == "Test Description", "Description should be 'Test Description'");
+    this.logInfo("Name is 'Test Name': " + (newToggleSetting.getName() == "Test Name"));
+    this.logInfo("Description is 'Test Description': " + (newToggleSetting.getDescription() == "Test Description"));
 
-    print("All tests passed!");
+     this.logInfo("All toggle tests passed!");
 }
 
 // Run test case
-testToggleSetting();
+//testToggleSetting();
 

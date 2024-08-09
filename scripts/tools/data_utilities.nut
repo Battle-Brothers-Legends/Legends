@@ -15,8 +15,8 @@
  * Note for maintainers: This class interacts with the JavaScript frontend indirectly through the data it manages.
  * Changes in how data is structured here may require corresponding updates in the frontend.
  */
-class DataManager {
-    ModList = null;
+::FU.Class.DataManager <- class {
+    ModList = {};
     ModConfigPath = "mod_config/";
     ManagersToClear = null;
     Separator = "@";
@@ -36,12 +36,13 @@ class DataManager {
      * @param {Mod} _mod - The mod object to register.
      */
     function registerMod(_mod) {
-        if (typeof _mod != "instance" || !(_mod instanceof Mod)) {
+	this.logInfo("DataManager registering mod: " + _mod.getID());
+        if (typeof _mod != "instance" || !(_mod instanceof ::FU.Class.Mod)) {
             throw Exception.InvalidType(_mod);
         }
 
-        _mod.DataManager = ModData(_mod);  // Initialize ModData for the mod
-        this.addMod(_mod.getID());  // Add the mod to the Mods container
+        _mod.DataManager = ::FU.Class.ModData(_mod);  // Initialize ModData for the mod
+        this.addMod(_mod.getID(), false);  // Add the mod to the Mods list, passing false for reset
         this.importModFiles(_mod.getID());  // Load the mod's configuration files
     }
 
@@ -51,10 +52,14 @@ class DataManager {
      * @param {boolean} _reset - Flag indicating whether to reset the mod data if it already exists.
      */
     function addMod(_modID, _reset = false) {
+	this.logInfo("DataManager adding mod: " + _modID);
+   	this.logInfo("DataManager ModList before: " + this.ModList);
         if (this.hasMod(_modID) && _reset == false) {
+ 		this.logInfo("Mod already exists and reset is false. Returning.");
             return;
         }
-        this.ModList [_modID] = {};
+        this.ModList[_modID] <- {};
+  	this.logInfo("DataManager ModList after: " + this.ModList);
     }
 
     /**
@@ -63,7 +68,9 @@ class DataManager {
      * @returns {boolean} - True if the mod is registered, false otherwise.
      */
     function hasMod(_modID) {
-        return _modID in this.ModList ;
+	    local result = _modID in this.ModList;
+	    this.logInfo("Checking for mod " + _modID + ": " + (result ? "Found" : "Not found"));
+	    return result;
     }
 
     /**
@@ -203,8 +210,8 @@ class DataManager {
 }
 
 // Alias for backwards compatibility. This means calls to MSU will work in FU.
-::MSU.Class.PersistentDataSystem <- DataManager;
-::MSU.Class.SerializationSystem <- DataManager;
+::FU.Class.PersistentDataSystem <- ::FU.Class.DataManager;
+::FU.Class.SerializationSystem <- ::FU.Class.DataManager;
 
 
 
@@ -214,7 +221,7 @@ class DataManager {
  * Class representing mod-specific data management.
  * This class handles data and serialization for a specific mod.
  */
-class ModData {
+::FU.Class.ModData <- class {
     Mod = null;
 
     /**
@@ -297,13 +304,13 @@ class ModData {
 // You might want to update to the new calls if you like the new metaphors and structure.
 // You don't have to though, you do you.
 //
-::FU.Class.PersistentModAddon <- ModData;
-::FU.Class.SerializationModAddon <- ModData;
+::FU.Class.PersistentModAddon <- ::FU.Class.ModData;
+::FU.Class.SerializationModAddon <- ::FU.Class.ModData;
 
 // Test function for ModData
 function testModData() {
     local mod = Mod("testMod");
-    local modData = ModData(mod);
+    local modData = ::FU.Class.ModData;(mod);
     modData.loadFile("testFile");
     modData.write("testID", { key = "value" });
     local deserializedData = modData.read("testID", { key = "default" });
@@ -315,8 +322,8 @@ function testModData() {
 
 // Test function for DataManager
 function testDataManager() {
-    local manager = DataManager();
-    local mod = Mod("testMod");
+    local manager = ::FU.Class.DataManager();
+    local mod = ::FU.Class.Mod("testMod");
     manager.registerMod(mod);
     manager.logData("testFile", mod.getID(), "testPayload");
 
@@ -326,8 +333,8 @@ function testDataManager() {
 
 
 function testRegisterMod() {
-    local manager = DataManager();
-    local mod = Mod("testMod");
+    local manager = ::FU.Class.DataManager();
+    local mod = ::FU.Class.Mod("testMod");
     manager.registerMod(mod);
     assert(manager.hasMod("testMod"));
     print("Test registerMod passed.");

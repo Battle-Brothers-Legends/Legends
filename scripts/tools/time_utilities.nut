@@ -101,31 +101,21 @@ function testTimer() {
 }
 
 // Simulate the exact time function
-function getExactTime() {
-    return time(); // Use the mock time function
-}
+//function getExactTime() {
+//    return time(); // Use the mock time function
+//}
 
 // Mock time function
-::time = function() {
-    return os.time(); // Default to actual system time for real usage
-};
+//::time = function() {
+//    return os.time(); // Default to actual system time for real usage
+//};
 
 // Assertion function for tests
-function assert(condition, message = "Assertion failed") {
-    if (!condition) {
-        throw message;
-    }
-}
-
-// Function to log informational messages
-function logInfo(message) {
-    print("Info: " + message);
-}
-
-// Function to print warning messages
-function printWarning(message, category) {
-    print("Warning [" + category + "]: " + message);
-}
+//function assert(condition, message = "Assertion failed") {
+//    if (!condition) {
+//        throw message;
+//    }
+//}
 
 
 

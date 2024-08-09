@@ -13,7 +13,7 @@ class QueueErrors {
 }
 
 // Logging 
-class Log {
+::FU.Class.Log <- class{
     // Prints the stack trace
     function printStackTrace(_maxDepth = 0, _maxLen = 10, _advanced = false) {
         local count = 2;

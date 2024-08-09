@@ -2,7 +2,7 @@
  * Class representing a DropdownSetting.
  * This class handles the creation, display, and interaction with a dropdown-based setting.
  */
-class DropdownSetting extends TemplateSetting {
+class DropdownSetting extends ::FU.Class.TemplateSetting {
     static Type = "Dropdown";
 
     /**
@@ -59,7 +59,7 @@ class DropdownSetting extends TemplateSetting {
 }
 
 // Alias for backward compatibility
-::MSU.Class.EnumSetting <- ::DropdownSetting;
+//::MSU.Class.EnumSetting <- ::DropdownSetting;
 
 // Example test case for DropdownSetting
 function testDropdownSetting() {

@@ -5,7 +5,7 @@
  * It supports basic tooltips with a title and text, as well as custom tooltips
  * defined by a function.
  */
-class Tooltip {
+::FU.Class.Tooltip <- class {
     Data = null;
     Title = null;
     Text = null;
@@ -108,16 +108,16 @@ class Tooltip {
 }
 
 /**
- * TooltipsManager Class
+ * TooltipManager Class
  * 
  * This class manages tooltips for mods.
  * It is responsible for registering mods and setting/getting tooltips.
  */
-class TooltipsManager {
-    Mods = null;
+::FU.Class.TooltipManager <- class {
+    Mods = {};
 
     /**
-     * Constructor for TooltipsManager.
+     * Constructor for TooltipManager.
      * Initializes the Mods container.
      */
     constructor() {
@@ -125,17 +125,18 @@ class TooltipsManager {
     }
 
     /**
-     * Registers a mod with the TooltipsManager.
+     * Registers a mod with the TooltipManager.
      * Initializes the mod's tooltips.
      * @param {Mod} _mod - The mod object to register.
      */
     function registerMod(_mod) {
-        if (typeof _mod != "instance" || !(_mod instanceof Mod)) {
+	this.logInfo("TooltipManager registering mod: " + _mod.getID());
+        if (typeof _mod != "instance" || !(_mod instanceof ::FU.Class.Mod)) {
             throw Exception.InvalidType(_mod);
         }
 
-        _mod.Tooltips = ModTooltips(_mod);  // Initialize ModTooltips for the mod
-        this.Mods[_mod.getID()] = {};
+        _mod.TooltipManager = ::FU.Class.ModTooltips(_mod);  // Initialize ModTooltips for the mod
+        this.Mods[_mod.getID()] <- {};
     }
 
     /**
@@ -144,7 +145,7 @@ class TooltipsManager {
      * @param {table} _tooltipTable - The table of tooltips to set.
      */
     function setTooltips(_modID, _tooltipTable) {
-        this.__addTable(this.Mods[_modID], _tooltipTable);
+        this.addTable(this.Mods[_modID], _tooltipTable);
     }
 
     /**
@@ -152,7 +153,7 @@ class TooltipsManager {
      * @param {table} _currentTable - The current table of tooltips.
      * @param {table} _tableToAdd - The table of tooltips to add.
      */
-    function __addTable(_currentTable, _tableToAdd) {
+    function addTable(_currentTable, _tableToAdd) {
         foreach (key, value in _tableToAdd) {
             if (!(key in _currentTable) && typeof value == "table") {
                 _currentTable[key] = {};
@@ -183,7 +184,7 @@ class TooltipsManager {
  * Class representing mod-specific tooltips management.
  * This class handles tooltips for a specific mod.
  */
-class ModTooltips {
+::FU.Class.ModTooltips <- class {
     Mod = null;
 
     /**
@@ -199,7 +200,7 @@ class ModTooltips {
      * @param {table} _tooltipTable - The table of tooltips to set.
      */
     function setTooltips(_tooltipTable) {
-        TooltipsManager.setTooltips(this.Mod.getID(), _tooltipTable);
+        TooltipManager.setTooltips(this.Mod.getID(), _tooltipTable);
     }
 
     /**
@@ -208,18 +209,18 @@ class ModTooltips {
      * @returns {variant} - The tooltip.
      */
     function getTooltip(_identifier) {
-        return TooltipsManager.getTooltip(this.Mod.getID(), _identifier);
+        return TooltipManager.getTooltip(this.Mod.getID(), _identifier);
     }
 }
 
 // Aliases for backwards compatibility
-::FU.Class.BasicTooltip <- Tooltip;
-::FU.Class.CustomTooltip <- Tooltip;
-::FU.Class.TooltipsModAddon <- ModTooltips;
+::FU.Class.BasicTooltip <- ::FU.Class.Tooltip;
+::FU.Class.CustomTooltip <- ::FU.Class.Tooltip;
+::FU.Class.TooltipsModAddon <- ::FU.Class.ModTooltips;
 
-// Test function for TooltipsManager
-function testTooltipsManager() {
-    local manager = TooltipsManager();
+// Test function for TooltipManager
+function testTooltipManager() {
+    local manager = TooltipManager();
     local mod = Mod("testMod");
     manager.registerMod(mod);
     
@@ -231,9 +232,9 @@ function testTooltipsManager() {
     assert(manager.getTooltip(mod.getID(), "basic").getTitle() == "Test Title");
     assert(manager.getTooltip(mod.getID(), "custom").getUIData() == [{ id = 1, type = "custom", text = "Custom Tooltip" }]);
     
-    print("TooltipsManager tests passed.");
+    print("TooltipManager tests passed.");
 }
 
 // Run the test
-// testTooltipsManager();
+// testTooltipManager();
 

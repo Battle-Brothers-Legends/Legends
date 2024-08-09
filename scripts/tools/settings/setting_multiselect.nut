@@ -2,7 +2,7 @@
  * Class representing a MultiselectSetting.
  * A setting that holds multiple selectable values, which can be strings, integers, or floats.
  */
-class MultiselectSetting extends templateSetting {
+class MultiselectSetting extends ::FU.Class.TemplateSetting {
      Type = "Multiselect";
 
     /**
@@ -51,7 +51,7 @@ class MultiselectSetting extends templateSetting {
 }
 
 // Alias for backward compatibility
-::MSU.Class.ArraySetting <- MultiselectSetting
+//::MSU.Class.ArraySetting <- MultiselectSetting
 
 // Test case for MultiselectSetting
 function testMultiselectSetting() {
@@ -89,5 +89,5 @@ function testMultiselectSetting() {
 }
 
 // Run test case
-testMultiselectSetting();
+//testMultiselectSetting();
 

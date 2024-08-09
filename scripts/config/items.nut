@@ -41,7 +41,10 @@ gt.Const.Items.ItemType <- {
 	Supply = 262144,
 	Food = 524288,
 	TradeGood = 1048576,
-	Quest = 2097152
+	Quest = 2097152,
+	Cultist = 4194304,
+	Net = 8388608
+	
 };
 
 gt.Const.Items.ItemFilter <- {

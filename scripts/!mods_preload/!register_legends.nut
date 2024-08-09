@@ -1,3 +1,4 @@
+this.logInfo("Starting register_legends.nut");
 ::Legends <- {
     ID = "mod_legends",
     Version = "18.2.7",
@@ -5,59 +6,73 @@
     BuildName = "Chickens & Demons"
 };
 
-// Initialize the necessary global tables
-if (!("FU" in getroottable())) ::FU <- {};
+this.logInfo("Starting register_legends.nut");
 
+// Check if we're using FU and register the mod accordingly
+//if (!("FU" in this.getroottable()) || SemVer.compare(SemVer.getTable(::FU.Version), SemVer.getTable("1.3.0")) >= 0 && !("Hooks" in this.getroottable()))
+//    ::mods_registerMod(::Legends.ID, 18, ::Legends.Name);
+//else
+    ::mods_registerMod(::Legends.ID, ::Legends.Version, ::Legends.Name);
 
-// Create the Legends mod instance
-local legendsMod = ::FU.Mod("mod_legends", "18.2.7", "Legends Mod");
-legendsMod.BuildName = "Chickens & Demons";
-
-// Register the mod with the mods system
-::mods_registerMod(legendsMod.getID(), 18, legendsMod.getName());
-
-// Queue the mod for loading
-::mods_queue(legendsMod.getID(), "vanilla(>=1.5.0-15), dlc_lindwurm, dlc_unhold, dlc_wildmen, dlc_desert, dlc_paladins", function()
+::mods_queue(::Legends.ID, "mod_fu(>=1.0.0), vanilla(>=1.5.0-13), dlc_lindwurm, dlc_unhold, dlc_wildmen, dlc_desert, dlc_paladins", function()
 {
+
+
+ this.logInfo("Starting mods_queue for Legends");
+
+    if (!("FU" in getroottable()))
+    {
+        this.logError("FU not found in root table. Make sure FU is loaded before Legends.");
+        return;
+    }
+
+    this.logInfo("FU found in root table");
+    this.logInfo("FU contents: " + ::FU);
+
+    if (!("Class" in ::FU))
+    {
+        this.logError("FU.Class not found. Make sure FU is properly initialized.");
+    
+    }
+
+    this.logInfo("FU.Class found");
+    this.logInfo("FU.Class contents:");
+    foreach (key, value in ::FU.Class)
+    {
+        this.logInfo("  " + key + ": " + value);
+    }
+
+    if (!("Mod" in ::FU.Class))
+    {
+        this.logError("FU.Class.Mod not found. Make sure FU is properly initialized.");
+     
+    }
+
+    this.logInfo("FU.Class.Mod found");
+
+    ::Legends.Mod <- ::FU.Class.Mod(::Legends.ID, ::Legends.Version, ::Legends.Name);
+    this.logInfo("Legends.Mod created: " + (::Legends.Mod != null));
+
+
     // Register JS and CSS files
     ::mods_registerJS("legends_assets.js");
     ::mods_registerJS("legends/hooks/character_screen.js");
     ::mods_registerCSS("legends/hooks/character_screen.css");
 
-    // Initialize the LegendsMod object
-    ::LegendsMod <- {
-        m = {
-            Configs = null
-        },
-        function create()
+    // Create LegendsMod instance
+    ::LegendsMod <- this.new("scripts/!mods_preload/mod_legends");
+
+    // Add Configs directly to Legends.Mod ( may want to move this to legends_mod.nut)
+    ::Legends.Mod.Configs <- {
+        function LegendMagicEnabled()
         {
-            this.m.Configs = this.new("scripts/mods/legends_configs");
+            return false;
         },
-        function Configs() 
+        function LegendTherianthropyEnabled()
         {
-            return this.m.Configs;
-        },
-        function onDevConsole(_command, _args)
-        {
-            switch(_command)
-            {
-                case "event":
-                    this.doDevConsoleEvent(_args);
-                    break;
-            }
-        },
-        function doDevConsoleEvent(_args)
-        {
-            if (!this.World.Events.canFireEvent())
-            {
-                this.logInfo("Can not fire event " + _args +" at this time");
-                return;
-            }
-            this.World.Events.fire(_args);
+            return false;
         }
     };
-
-    ::LegendsMod.create();
 
     // Setup and initialize mod components
     ::Const.LegendMod.setupDebug();
@@ -78,21 +93,35 @@ legendsMod.BuildName = "Chickens & Demons";
 
     foreach (hookFunction in hookFunctions)
     {
-        this.Const.LegendMod[hookFunction]();
+        ::Const.LegendMod[hookFunction]();
     }
 
     // Register UI, load components, and add tooltips
     ::Const.LegendMod.registerUI();
-    this.Const.LegendMod.loadBuyback();
-    this.Const.Perks.updatePerkGroupTooltips();
+    ::Const.LegendMod.loadBuyback();
+    ::Const.Perks.updatePerkGroupTooltips();
     ::Const.LegendMod.addTooltips();
 
-    // Add mod to the DataManager
-    ::FU.DataManager.registerMod(legendsMod);
-});
+    // Add mod to the DataManager (if using FU)
+    if ("FU" in this.getroottable() && "DataManager" in ::FU)
+        ::FU.DataManager.registerMod(::Legends.Mod);
 
-// Ensure backward compatibility
-if (!("MSU" in getroottable())) ::MSU <- {};
-::MSU.Class <- ::FU.Class;
-::MSU.System <- ::FU.System
+    // Debug log to confirm initialization
+    this.logInfo("Legends.Mod initialized: " + (::Legends.Mod != null) + ", Configs available: " + (::Legends.Mod.Configs != null));
+});
+this.logInfo("Finished mods_queue for Legends");
+    if ("Mod" in ::Legends)
+    {
+        this.logInfo("Legends.Mod exists at end of register_legends: " + (::Legends.Mod != null));
+    }
+    else
+    {
+        this.logError("Legends.Mod does not exist at end of register_legends");
+    }
+
+
+
+
+
+this.logInfo("register_legends.nut file processed");
 

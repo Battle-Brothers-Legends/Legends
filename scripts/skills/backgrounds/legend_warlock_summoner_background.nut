@@ -71,7 +71,7 @@ this.legend_warlock_summoner_background <- this.inherit("scripts/skills/backgrou
 				0.0 //oasis
 			];
 
-		if (!this.LegendsMod.Configs().LegendMagicEnabled()) //scythe, defence and summoning
+		if (!::LegendsMod.Configs.LegendMagicEnabled())//scythe, defence and summoning
 		{
 				this.m.CustomPerkTree = [
 				[

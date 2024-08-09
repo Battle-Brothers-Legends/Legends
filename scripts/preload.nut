@@ -1,4 +1,5 @@
 this.include("scripts/tools/weak_table_ref");
+this.include("scripts/tools/functional_utilities");
 local gt = this.getroottable();
 gt.Const <- {};
 local scriptsPath = "scripts/";

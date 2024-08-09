@@ -66,8 +66,8 @@ class NetworkUtils {
 }
 
 // Register the Squirrel functions with the JavaScript frontend
-::SQ.register("onIncomingDataTable", NetworkUtils.onIncomingDataTable);
-::SQ.register("onIncomingDataRequest", NetworkUtils.onIncomingDataRequest);
+//::SQ.register("onIncomingDataTable", NetworkUtils.onIncomingDataTable);
+//::SQ.register("onIncomingDataRequest", NetworkUtils.onIncomingDataRequest);
 
 // Example usage for sending data
 //local exampleDataTable = {

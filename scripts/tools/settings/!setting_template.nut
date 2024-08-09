@@ -1,7 +1,7 @@
 /**
  * Class representing a generic TemplateSetting.
  */
-class TemplateSetting {
+class ::FU.Class.TemplateSetting {
     ID = null;
     Name = null;
     Value = null;
@@ -130,12 +130,12 @@ class TemplateSetting {
         this.Description = _description;
     }
 
-    /**
-     * Converts the setting to a string representation.
-     * @returns {string} - A string representation of the setting.
-     */
-    function tostring() {
-        return format("Setting %s: %s", this.getName(), this.getValue());
+
+}
+
+function requireBool(value) {
+    if (typeof value != "bool") {
+        throw "Expected boolean, got " + typeof value;
     }
 }
 

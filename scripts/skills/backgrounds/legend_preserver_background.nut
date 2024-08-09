@@ -71,7 +71,7 @@ this.legend_preserver_background <- this.inherit("scripts/skills/backgrounds/cha
 				0.0, //desert
 				0.0 //oasis
 			];
-		if (!this.LegendsMod.Configs().LegendMagicEnabled()) //resolve, healing, slings and staves.
+		if (!::LegendsMod.Configs.LegendMagicEnabled())//resolve, healing, slings and staves.
 		{
 				this.m.CustomPerkTree = [
 				[

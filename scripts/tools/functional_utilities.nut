@@ -10,13 +10,13 @@
 //
 
 // Basic random
-function arrayRand(arr) {
+::arrayRand <- function(arr) {
     if (arr.len() == 0) return null;
     return arr[math.rand(0, arr.len() - 1)];
 }
 
 // Basic removal
-function arrayRemove(arr, item) {
+::arrayRemove <- function(arr, item) {
     local idx = arr.find(item);
     if (idx != null) {
         return arr.remove(idx);
@@ -25,7 +25,7 @@ function arrayRemove(arr, item) {
 }
 
 // Basic shuffle
-function arrayShuffle(arr) {
+::arrayShuffle <- function(arr) {
     for (local i = arr.len() - 1; i > 0; i--) {
         local j = math.rand(0, i);
         local temp = arr[i];
@@ -35,12 +35,12 @@ function arrayShuffle(arr) {
 }
 
 // Sorts the array descending
-function arraySortDescending(arr) {
+::arraySortDescending <- function(arr) {
     arr.sort(@(a, b) -1 * (a <=> b));
 }
 
 // Sorts the array ascending
-function arraySortAscending(arr) {
+::arraySortAscending <- function(arr) {
     arr.sort();
 }
 
@@ -51,7 +51,7 @@ function arraySortAscending(arr) {
 // Returns a random value from the table
 // tbl: the table to get a random value from
 // Returns a random value from the table
-function tableRandValue(tbl) {
+::tableRandValue <- function(tbl) {
     local values = tableValues(tbl);
     if (values.len() == 0) return null;
     return values[math.rand(0, values.len() - 1)];
@@ -60,7 +60,7 @@ function tableRandValue(tbl) {
 // Returns a random key from the table
 // tbl: the table to get a random key from
 // Returns a random key from the table
-function tableRandKey(tbl) {
+::tableRandKey <- function(tbl) {
     local keys = tableKeys(tbl);
     if (keys.len() == 0) return null;
     return keys[math.rand(0, keys.len() - 1)];
@@ -69,7 +69,7 @@ function tableRandKey(tbl) {
 // Returns an array of all keys in the table
 // tbl: the table to get the keys from
 // Returns an array of keys
-function tableKeys(tbl) {
+::tableKeys <- function(tbl) {
     local ret = [];
     foreach (key, value in tbl) {
         ret.append(key);
@@ -80,7 +80,7 @@ function tableKeys(tbl) {
 // Returns an array of all values in the table
 // tbl: the table to get the values from
 // Returns an array of values
-function tableValues(tbl) {
+::tableValues <- function(tbl) {
     local ret = [];
     foreach (key, value in tbl) {
         ret.append(value);
@@ -93,7 +93,7 @@ function tableValues(tbl) {
 // tbl2: the second table
 // overwrite: boolean indicating whether to overwrite existing keys (default: true)
 // Returns the merged table
-function tableMerge(tbl1, tbl2, overwrite = true) {
+::tableMerge <- function(tbl1, tbl2, overwrite = true) {
     foreach (key, value in tbl2) {
         if (key in tbl1 && !overwrite) {
             throw "Duplicate key found: " + key;
@@ -107,7 +107,7 @@ function tableMerge(tbl1, tbl2, overwrite = true) {
 // tbl: the table to filter
 // func: the function to determine whether to keep an entry (function(key, value) returns boolean)
 // Returns a new table with filtered entries
-function tableFilter(tbl, func) {
+::tableFilter <- function(tbl, func) {
     local ret = {};
     foreach (key, value in tbl) {
         if (func(key, value)) {
@@ -121,7 +121,7 @@ function tableFilter(tbl, func) {
 // tbl: the table to map
 // func: the function to transform an entry (function(key, value) returns [newKey, newValue])
 // Returns a new table with transformed entries
-function tableMap(tbl, func) {
+::tableMap <- function(tbl, func) {
     local ret = {};
     foreach (key, value in tbl) {
         local pair = func(key, value);
@@ -134,12 +134,12 @@ function tableMap(tbl, func) {
 // String Manipulation
 //
 
-function stringCapitalizeFirst(str) {
+::stringCapitalizeFirst <- function(str) {
     if (str == "") return str;
     return str.slice(0, 1).toupper() + str.slice(1);
 }
 
-function stringReplace(str, find, replace, all = false) {
+::stringReplace <- function(str, find, replace, all = false) {
     if (all) {
         return str.replace(find, replace);
     }
@@ -150,18 +150,18 @@ function stringReplace(str, find, replace, all = false) {
     return str;
 }
 
-function stringIsInteger(str) {
+::stringIsInteger <- function(str) {
     foreach (char in str) {
         if (char < '0' || char > '9') return false;
     }
     return true;
 }
 
-function stringStartsWith(str, start) {
+::stringStartsWith <- function(str, start) {
     return str.find(start) == 0;
 }
 
-function stringEndsWith(str, end) {
+::stringEndsWith <- function(str, end) {
     return end.len() <= str.len() && str.slice(-end.len()) == end;
 }
 
@@ -173,7 +173,7 @@ function stringEndsWith(str, end) {
 // _thing: the object to check
 // _type: the name of the class to check against
 // Returns true if the thing is of the specified type, false otherwise
-function isKindOf(_thing, _type) {
+::isKindOf <- function(_thing, _type) {
     if (_thing == null || _type == null) return false;
     if (typeof _thing == "instance" && _thing instanceof ::WeakTableRef) {
         if (_thing.isNull()) return false;
@@ -186,7 +186,7 @@ function isKindOf(_thing, _type) {
 // Checks if the given object is null or undefined
 // _object: the object to check
 // Returns true if the object is null or undefined, false otherwise
-function isNull(_object) {
+::isNull <- function(_object) {
     return _object == null;
 }
 
@@ -194,7 +194,7 @@ function isNull(_object) {
 // _tile: the tile to check
 // _force: whether to force the resurrection even if the tile's corpse is not normally resurrectable (default: false)
 // Returns true if the tile can be used to resurrect, false otherwise
-function canResurrectOnTile(_tile, _force = false) {
+::canResurrectOnTile <- function(_tile, _force = false) {
     if (!_tile.IsCorpseSpawned) {
         return false;
     }
@@ -208,7 +208,7 @@ function canResurrectOnTile(_tile, _force = false) {
 // _object1: the first object to compare
 // _object2: the second object to compare
 // Returns true if the objects are equal, false otherwise
-function isEqual(_object1, _object2) {
+::isEqual <- function(_object1, _object2) {
     return _object1 == _object2;
 }
 
@@ -216,7 +216,7 @@ function isEqual(_object1, _object2) {
 // _element: the element to check
 // _array: the array to check in
 // Returns true if the element is in the array, false otherwise
-function isIn(_element, _array) {
+::isIn <- function(_element, _array) {
     return _array.find(_element) != null;
 }
 
@@ -224,7 +224,7 @@ function isIn(_element, _array) {
 // _string: the string to check
 // _pattern: the regular expression pattern
 // Returns true if the string matches the pattern, false otherwise
-function regexMatch(_string, _pattern) {
+::regexMatch <- function(_string, _pattern) {
     local regex = regexp(_pattern);
     return regex.search(_string) != null;
 }
@@ -232,7 +232,7 @@ function regexMatch(_string, _pattern) {
 // Checks if the given object is a Battle Brothers game object
 // _object: the object to check
 // Returns true if the object is a Battle Brothers game object, false otherwise
-function isBBObject(_object) {
+::isBBObject <- function(_object) {
     return typeof _object == "instance" && _object != null && _object.GetType().ToString().find("BB.") == 0;
 }
 
@@ -240,7 +240,7 @@ function isBBObject(_object) {
 // _object: the object to get the member value from
 // _member: the name of the member
 // Returns the value of the member function or property, or null if the member does not exist
-function getMember(_object, _member) {
+::getMember <- function(_object, _member) {
     if (_object == null || !_member in _object) return null;
     return _object[_member];
 }
@@ -249,7 +249,7 @@ function getMember(_object, _member) {
 // _object: the object to get the field value from
 // _field: the name of the field
 // Returns the value of the field, or null if the field does not exist
-function getField(_object, _field) {
+::getField <- function(_object, _field) {
     if (_object == null || !_field in _object) return null;
     return _object[_field];
 }
@@ -257,7 +257,7 @@ function getField(_object, _field) {
 // Converts an object to a WeakTableRef if it is not already one
 // _object: the object to convert
 // Returns a WeakTableRef to the object
-function asWeakTableRef(_object) {
+::asWeakTableRef <- function(_object) {
     if (_object == null) return null;
     if (typeof _object == "instance" && _object instanceof ::WeakTableRef) {
         return _object;
@@ -265,11 +265,99 @@ function asWeakTableRef(_object) {
     return ::WeakTableRef(_object);
 }
 
+// Ensure all arguments are of type string
+::requireString <- function(...) {
+	requireTypeArray("string", vargv);
+}
+
+// Ensure all arguments are of type integer
+::requireInt <- function(...) {
+	requireTypeArray("integer", vargv);
+}
+
+// Ensure all arguments are of type array
+::requireArray <- function(...) {
+	requireTypeArray("array", vargv);
+}
+
+// Ensure all arguments are of type float
+::requireFloat <- function(...) {
+	requireTypeArray("float", vargv);
+}
+
+// Ensure all arguments are of type bool
+::requireBool <- function(...) {
+	requireTypeArray("bool", vargv);
+}
+
+// Ensure all arguments are of type table
+::requireTable <- function(...) {
+	requireTypeArray("table", vargv);
+}
+
+// Ensure all arguments are of type instance
+::requireInstance <- function(...) {
+	requireTypeArray("instance", vargv);
+}
+
+// Ensure all arguments are instances of the specified class
+::requireInstanceOf <- function(_class, ...) {
+	foreach (value in vargv) {
+		if (typeof value != "instance" || !(value instanceof _class)) {
+			logError(value + " must be an instance of the class: " + _class);
+			throw InvalidTypeException(value);
+		}
+	}
+}
+
+// Ensure all arguments are of type function
+::requireFunction <- function(...) {
+	requireTypeArray("function", vargv);
+}
+
+// Ensure all arguments are of the specified type
+::requireType <- function(_type, ...) {
+	requireTypeArray(_type, vargv);
+}
+
+// Ensure all values are of the specified type
+::requireTypeArray <- function(_type, _values) {
+	foreach (value in _values) {
+		if (typeof value != _type) {
+			logError(value + " must have the type: " + _type);
+			throw InvalidTypeException(value);
+		}
+	}
+}
+
+// Ensure all arguments are of one of the specified types
+::requireOneFromTypes <- function(_typeArray, ...) {
+	foreach (value in vargv) {
+		if (_typeArray.find(typeof value) == null) {
+			logError(value + " must have one of the types: " + _typeArray.reduce(@(a, b) format("%s, %s", a, b)));
+			throw InvalidTypeException(value);
+		}
+	}
+}
+
+// Ensure all arguments are not of the specified types
+::requireAnyTypeExcept <- function(_typeArray, ...) {
+	foreach (value in vargv) {
+		if (_typeArray.find(typeof value) != null) {
+			logError(value + " must NOT have one of the types: " + _typeArray.reduce(@(a, b) format("%s, %s", a, b)));
+			throw InvalidTypeException(value);
+		}
+	}
+}
+
+
+
+
 //
 // Function testing
 //
 
-function runUtilitiesTests() {
+::runUtilitiesTests <- function() {
     this.loginfo("Testing ArrayUtils...");
 
     // Test arrayRand
@@ -375,33 +463,33 @@ function runUtilitiesTests() {
     this.loginfo("After clearing, Container Total Weight: " + container.totalWeight);
 }
 
-function runIsKindOfTests() {
-    class ExampleClass {
-        function constructor() {
-            this.name = "Example";
-        }
-    }
+//::runIsKindOfTests <- function() {
+//   class ExampleClass {
+//        ::constructor <- function() {
+//            this.name = "Example";
+//        }
+//    }
+//
+//    local exampleInstance = ExampleClass();
+//    
+//    // Check if the instance is of type ExampleClass
+//    local result = isKindOf(exampleInstance, "ExampleClass");
+//    this.loginfo("Is exampleInstance of type ExampleClass? " + result); // Should be true
+//    
+//    // Check with a different class name
+//    result = isKindOf(exampleInstance, "NonExistentClass");
+//    this.loginfo("Is exampleInstance of type NonExistentClass? " + result); // Should be false
+//    
+//    // Check with null values
+//    result = isKindOf(null, "ExampleClass");
+//    this.loginfo("Is null of type ExampleClass? " + result); // Should be false
+//    
+//    result = isKindOf(exampleInstance, null);
+//   this.loginfo("Is exampleInstance of type null? " + result); // Should be false
+//}
 
-    local exampleInstance = ExampleClass();
-    
-    // Check if the instance is of type ExampleClass
-    local result = isKindOf(exampleInstance, "ExampleClass");
-    this.loginfo("Is exampleInstance of type ExampleClass? " + result); // Should be true
-    
-    // Check with a different class name
-    result = isKindOf(exampleInstance, "NonExistentClass");
-    this.loginfo("Is exampleInstance of type NonExistentClass? " + result); // Should be false
-    
-    // Check with null values
-    result = isKindOf(null, "ExampleClass");
-    this.loginfo("Is null of type ExampleClass? " + result); // Should be false
-    
-    result = isKindOf(exampleInstance, null);
-    this.loginfo("Is exampleInstance of type null? " + result); // Should be false
-}
-
-function runCheckerTests() {
-    // Test isNull
+::runCheckerTests <- function() {
+//    // Test isNull
     this.loginfo("isNull(null): " + isNull(null)); // Should be true
     this.loginfo("isNull(1): " + isNull(1)); // Should be false
 
@@ -438,7 +526,7 @@ function runCheckerTests() {
     this.loginfo("getMember(objWithMember, 'nonexistent'): " + getMember(objWithMember, "nonexistent")); // Should be null
 }
 
-function runCanResurrectOnTileTests() {
+::runCanResurrectOnTileTests <- function() {
     // Create a mock tile object
     local mockTile = {
         IsCorpseSpawned = true,

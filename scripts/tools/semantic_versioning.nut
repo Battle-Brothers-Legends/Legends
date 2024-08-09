@@ -3,36 +3,110 @@
 //
 
 
-class SemVer {
-
+::FU.Class.SemVer <- class{
+     Regex = null;
 //Initialize the SemVer class with the regular expression for semantic versioning.
     constructor() {
-        this.Regex = regexp("^((?:(?:0|[1-9]\\d*)\\.){2}(?:0|[1-9]\\d*))(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$");
+        // We don't need the Regex property anymore
     }
 
-    // Checks if a string is a valid semantic version
-    // _string: the string to check
-    // Returns true if the string is a valid semantic version, false otherwise
+     // Checks if a string is a valid semantic version
     function isSemVer(_string) {
         if (typeof _string != "string") return false;
-        return this.Regex.capture(_string) != null;
+        local parts = split(_string, "-");
+        if (parts.len() > 2) return false;
+        
+        local versionParts = split(parts[0], ".");
+        if (versionParts.len() != 3) return false;
+        
+        foreach (part in versionParts) {
+            if (!isValidVersionPart(part)) return false;
+        }
+        
+        if (parts.len() == 2) {
+            local preReleaseParts = split(parts[1], "+");
+            if (preReleaseParts.len() > 2) return false;
+            if (!isValidPreRelease(preReleaseParts[0])) return false;
+            if (preReleaseParts.len() == 2 && !isValidBuildMetadata(preReleaseParts[1])) return false;
+        }
+        
+        return true;
     }
 
     // Converts a semantic version string to a table representation
-    // _version: the semantic version string
-    // Returns a table with Version, PreRelease, and Metadata fields
     function getTable(_version) {
-        local version = this.Regex.capture(_version);
-        if (version == null) {
+        if (!isSemVer(_version)) {
             logError("NotSemanticVersion: " + _version);
             throw "InvalidValue: " + _version;
         }
+        
+        local parts = split(_version, "-");
+        local versionParts = split(parts[0], ".");
+        local preRelease = null;
+        local metadata = null;
+        
+        if (parts.len() == 2) {
+            local preReleaseParts = split(parts[1], "+");
+            preRelease = preReleaseParts[0];
+            if (preReleaseParts.len() == 2) {
+                metadata = preReleaseParts[1];
+            }
+        }
+        
         return {
-            Version = split(version[1], ".").map(@(v) v.tointeger()),
-            PreRelease = version[2] == null ? null : split(version[2], "."),
-            Metadata = version[3] == null ? null : split(version[3], ".")
+            Version = versionParts.map(@(v) v.tointeger()),
+            PreRelease = preRelease ? split(preRelease, ".") : null,
+            Metadata = metadata ? split(metadata, ".") : null
         };
     }
+
+    // Helper function to check if a version part is valid
+    function isValidVersionPart(part) {
+        if (part == "0") return true;
+        return part.len() > 0 && part[0] != '0' && isInteger(part);
+    }
+
+    // Helper function to check if a pre-release string is valid
+    function isValidPreRelease(preRelease) {
+        local parts = split(preRelease, ".");
+        foreach (part in parts) {
+            if (!isInteger(part) && !isValidIdentifier(part)) return false;
+        }
+        return true;
+    }
+
+    // Helper function to check if build metadata is valid
+    function isValidBuildMetadata(metadata) {
+        local parts = split(metadata, ".");
+        foreach (part in parts) {
+            if (!isValidIdentifier(part)) return false;
+        }
+        return true;
+    }
+
+    // Helper function to check if a string is a valid identifier
+    function isValidIdentifier(str) {
+        if (str.len() == 0) return false;
+        foreach (char in str) {
+            if (!isAlphanumeric(char) && char != '-') return false;
+        }
+        return true;
+    }
+
+    // Helper function to check if a character is alphanumeric
+    function isAlphanumeric(char) {
+        return (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') || (char >= '0' && char <= '9');
+    }
+
+    // Helper function to check if a string is an integer
+    function isInteger(str) {
+        foreach (char in str) {
+            if (char < '0' || char > '9') return false;
+        }
+        return str.len() > 0;
+    }
+
+
 
     // Formats a vanilla version string to a semantic version string
     // _vanillaVersion: the vanilla version string
@@ -87,9 +161,21 @@ class SemVer {
     // Gets the short version string (major.minor.patch)
     // _version: the version table
     // Returns the short version string
-    function getShortVersionString(_version) {
-        return _version.Version.reduce(@(a, b) a + "." + b);
-    }
+	function getShortVersionString(_version)
+	{
+	    local shortVersionString = "";
+	    foreach (i, value in _version.Version)
+	    {
+		if (i > 0)
+		{
+		    shortVersionString += ".";
+		}
+		shortVersionString += value.tostring();
+	    }
+	    return shortVersionString;
+	}
+
+
 
     // Gets the full version string (including pre-release and metadata)
     // _version: the version table

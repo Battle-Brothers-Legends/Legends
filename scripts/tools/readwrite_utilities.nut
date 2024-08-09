@@ -15,8 +15,7 @@
  *
  */
 
-
-class DataProcessor {
+::FU.Class.DataProcessor <- class {
     constructor() {
         this.DataType = {
             "Integer": 0,
@@ -381,7 +380,7 @@ function compareTables(tbl1, tbl2) {
 }
 
 // Base for the Write and Read Managers
-class ReadWriteTemplate {
+::FU.Class.ReadWriteTemplate <- class {
     static __IDRegex = regexp("^.*\\.\\d+$");
     Data = null;
     Mod = null;
@@ -438,7 +437,7 @@ class ReadWriteTemplate {
 }
 
 // Emulates the _out object passed to onWrite functions
-class WriteManager extends ReadWriteTemplate {
+::FU.Class.WriteManager <- class extends ::FU.Class.ReadWriteTemplate {
     IsIncremental = false;
 
     /**
@@ -527,7 +526,7 @@ class WriteManager extends ReadWriteTemplate {
      */
     function storeDataInFlagContainer() {
         if (this.IsIncremental) {
-            ::logError("Called storeDataInFlagContainer for an Incremental WriteManager");
+            this.logError("Called storeDataInFlagContainer for an Incremental WriteManager");
             throw ::FU.Exception.InvalidValue();
         }
         local startString = this.getManagerString();
@@ -539,19 +538,19 @@ class WriteManager extends ReadWriteTemplate {
 }
 
 // Emulates the _in object passed to onRead functions
-class ReadManager extends ReadWriteTemplate {
-    Idx = -1;
+::FU.Class.ReadManager <- class extends ::FU.Class.ReadWriteTemplate {
+    num = -1;
 
     /**
      * Reads data from the flag container.
      * @returns {variant} - The read data.
      */
     function __readData() {
-        if (this.Data.len() <= ++this.Idx) {
-            ::logError(format("Tried to read data beyond (%i) the length (%i) of the ReadManager", this.Idx, this.Data.len()));
+        if (this.Data.len() <= ++this.num) {
+            this.logError(format("Tried to read data beyond (%i) the length (%i) of the ReadManager", this.num, this.Data.len()));
             return null;
         }
-        return this.Data[this.Idx];
+        return this.Data[this.num];
     }
 
     /**
@@ -634,7 +633,7 @@ class ReadManager extends ReadWriteTemplate {
 }
 
 // Emulates the metadata object that can be gotten from _in.getMetadata() or _out.getMetadata() during on(Read/Write) function calls
-class MetaDataManager {
+::FU.Class.MetaDataManager <- class {
     Version = null;
     Data = null;
 
@@ -789,11 +788,11 @@ class MetaDataManager {
 }
 
 // Aliases for backward compatibility
-::MSU.Class.SerDeEmulator <- ReadWriteTemplate;
-::MSU.Class.SerializationEmulator <- WriteManager;
-::MSU.Class.DeserializationEmulator <- ReadManager;
-::MSU.Class.MetaDataEmulator <- MetaDataManager;
-::MSU.Class.Util <- DataProcessor;
+::FU.Class.SerDeEmulator <- ::FU.Class.ReadWriteTemplate;
+::FU.Class.SerializationEmulator <- ::FU.Class.WriteManager;
+::FU.Class.DeserializationEmulator <- ::FU.Class.ReadManager;
+::FU.Class.MetaDataEmulator <- ::FU.Class.MetaDataManager;
+::FU.Class.Util <- ::FU.Class.DataProcessor;
 
 // Test function for test Managers
 function testManagers() {

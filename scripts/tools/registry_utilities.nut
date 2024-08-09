@@ -1,4 +1,4 @@
-class RegistrySystem extends System {
+class ::FU.Class.RegistrySystem extends ::FU.Class.System {
     RegisteredMods = {};
 
     /**
@@ -13,8 +13,13 @@ class RegistrySystem extends System {
      * @param _mod {Mod} - The mod to register.
      */
     function registerMod(_mod) {
-        base.registerMod(_mod);
-        this.RegisteredMods[_mod.getID()] = _mod;
+    local modID = _mod.getID();
+    if (modID == null || modID == "") {
+        this.logError("Invalid mod ID when registering mod: " + _mod);
+        return;
+    }
+    this.logInfo("Registering mod: " + modID);
+    this.RegisteredMods[modID] <- _mod
     }
 
     /**

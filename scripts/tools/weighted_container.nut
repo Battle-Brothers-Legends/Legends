@@ -1,4 +1,4 @@
-class WeightedContainer {
+::FU.Class.WeightedContainer <- class {
     // Constructor to initialize the container with a list of weighted elements
     constructor(elements = []) {
         this.weights = [];

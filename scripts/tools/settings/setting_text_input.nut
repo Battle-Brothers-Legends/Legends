@@ -1,8 +1,15 @@
+function requireBool(value) {
+    if (typeof value != "bool") {
+        throw "Expected boolean, got " + typeof value;
+    }
+}
+
+
 /**
  * Class representing a TextInputSetting.
  * A setting that holds a text input value, which can be a string, integer, or float.
  */
-class TextInputSetting extends TemplateSetting {
+class TextInputSetting extends ::FU.Class.TemplateSetting {
      Type = "TextInput";
 
     /**
@@ -41,7 +48,7 @@ class TextInputSetting extends TemplateSetting {
 }
 
 // Alias for backward compatibility
-::MSU.Class.StringSetting <- TextInputSetting
+::FU.Class.StringSetting <- TextInputSetting
 
 
 

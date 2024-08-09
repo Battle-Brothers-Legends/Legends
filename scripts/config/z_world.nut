@@ -2,9 +2,17 @@ local gt = this.getroottable();
 
 gt.Const.World.settingsUpdate <- function ()
 {
-	this.Const.World.Settings.LandMassMult = 1.0 + (::Legends.Mod.ModSettings.getSetting("LandRatio").getValue() / 100.0);
-	this.Const.World.Settings.WaterConnectivity = ::Legends.Mod.ModSettings.getSetting("Water").getValue();
-	this.Const.World.Settings.Snowline = ::Legends.Mod.ModSettings.getSetting("Snowline").getValue() / 100.0;
+
+//this.logInfo("Legends exists: " + ("Legends" in getroottable()));
+//this.logInfo("Legends.Mod exists: " + (::Legends.Mod != null));
+//this.logInfo("Legends.Mod.ModSettings exists: " + (::Legends.Mod.ModSettings != null));
+//this.logInfo("LegendsMod exists: " + ("LegendsMod" in getroottable()));
+//this.logInfo("LegendsMod.Mod exists: " + (::LegendsMod.Mod != null));
+//this.logInfo("LegendsMod.Mod.ModSettings exists: " + (::LegendsMod.Mod.ModSettings != null));
+
+//	this.Const.World.Settings.LandMassMult = 1.0 + (::Legends.Mod.ModSettings.getSetting("LandRatio").getValue() / 100.0);
+//	this.Const.World.Settings.WaterConnectivity = ::Legends.Mod.ModSettings.getSetting("Water").getValue();
+//	this.Const.World.Settings.Snowline = ::Legends.Mod.ModSettings.getSetting("Snowline").getValue() / 100.0;
 };
 
 

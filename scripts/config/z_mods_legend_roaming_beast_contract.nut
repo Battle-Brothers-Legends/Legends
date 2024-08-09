@@ -9,49 +9,49 @@
 	/*
 	*	Define RoamingBeastsContractWeights.Weights:
 	* 	
-	*	A table of WeightedContainers to thematically determine which beast is picked
+	*	A table of ::FU.Class.WeightedContainers to thematically determine which beast is picked
 	*	(Originally designed and created to fix the Roaming Beasts Contract)
 	*	Currently, these weights and settlement types are based on the Vanilla setup.
 	*/
 	Weights = {
 		
-		Default = WeightedContainer([
+		Default = ::FU.Class.WeightedContainer([
 			[50, "IsDirewolves"],
 			[50, "IsGhouls"],
 			[50, "IsSpiders"]
 		]),
 
-		Lumber = WeightedContainer([
+		Lumber = ::FU.Class.WeightedContainer([
 			[100, "IsDirewolves"],
 			[50, "IsGhouls"],
 			[150, "IsSpiders"]			
 		]),
 
-		Tundra = WeightedContainer([
+		Tundra = ::FU.Class.WeightedContainer([
 			[100, "IsDirewolves"],
 			[25, "IsGhouls"],
 			[25, "IsSpiders"]			
 		]),
 
-		Snow = WeightedContainer([
+		Snow = ::FU.Class.WeightedContainer([
 			[100, "IsDirewolves"],
 			[0, "IsGhouls"],
 			[0, "IsSpiders"]			
 		]),
 
-		Steppe = WeightedContainer([
+		Steppe = ::FU.Class.WeightedContainer([
 			[25, "IsDirewolves"],
 			[100, "IsGhouls"],
 			[25, "IsSpiders"]			
 		]),
 
-		Swamp = WeightedContainer([
+		Swamp = ::FU.Class.WeightedContainer([
 			[25, "IsDirewolves"],
 			[100, "IsGhouls"],
 			[25, "IsSpiders"]			
 		]),
 
-		Farming = WeightedContainer([
+		Farming = ::FU.Class.WeightedContainer([
 			[50, "IsDirewolves"],
 			[75, "IsGhouls"],
 			[50, "IsSpiders"]			

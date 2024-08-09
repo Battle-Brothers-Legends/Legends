@@ -1,7 +1,7 @@
 // Returns the floored logarithm base 2 of a number
 // _num: the number to calculate the log2 for
 // Returns the floored log2 value as an integer
-function log2int(_input) {
+::log2int <- function(_input) {
     local count = 0;
     if (_input <= 0) {
         loginfo("Invalid input for log2int: _input must be a positive integer.");
@@ -14,7 +14,7 @@ function log2int(_input) {
     return count;
 }
 
-function testLog2int() {
+::testLog2int <- function() {
     loginfo("log2int(1): " + log2int(1)); // Should be 0
     loginfo("log2int(2): " + log2int(2)); // Should be 1
     loginfo("log2int(4): " + log2int(4)); // Should be 2
@@ -27,12 +27,12 @@ function testLog2int() {
 // _mean: the mean (average) of the distribution (must be a number)
 // _std: the standard deviation of the distribution (must be a positive number)
 // Returns the normalized value of the normal distribution at _x
-function normalDistNorm(_x, _mean, _std) {
+::normalDistNorm <- function(_x, _mean, _std) {
     return exp(-0.5 * pow((_x - _mean) / _std.tofloat(), 2));
 }
 
 
-function testNormalDistFunctions() {
+::testNormalDistFunctions <- function() {
     local mean = 0.0;
     local std = 1.0;
     local x = 0.0;
@@ -48,12 +48,12 @@ function testNormalDistFunctions() {
 // _mean: the mean (average) of the distribution (must be a number)
 // _std: the standard deviation of the distribution (must be a positive number)
 // Returns the value of the normal distribution at _x
-function normalDist(_x, _mean, _std) {
+::normalDist <- function(_x, _mean, _std) {
     return exp(-0.5 * pow((_x - _mean) / (_std * 1.0), 2)) / (_std * sqrt(2 * 3.14));
 }
 
 //Test normalDistNorm and normalDist
-function testNormalDistFunctions() {
+::testNormalDistFunctions <- function() {
     try {
         local mean = 0.0;
         local std = 1.0;
@@ -70,12 +70,12 @@ function testNormalDistFunctions() {
 // _min: the minimum value of the range (must be a number)
 // _max: the maximum value of the range (must be a number and greater than _min)
 // Returns a random float between _min and _max
-function randf(_min, _max) {
+::randf <- function(_min, _max) {
     ::FU.requireFloat(_min, _max);
     return _min + (::Math.rand(0, 2147483647) / 2147483647.0) * (_max - _min);
 }
 
-function testRandf() {
+::testRandf <- function() {
     local min = 0.0;
     local max = 1.0;
 
@@ -90,7 +90,7 @@ function testRandf() {
 // _mean: the mean (average) of the distribution (must be a number)
 // _std: the standard deviation of the distribution (must be a positive number)
 // Returns the CDF value at _x
-function normalDistCDF(_x, _mean, _std) {
+::normalDistCDF <- function(_x, _mean, _std) {
     local z = (_x - _mean) / (_std * sqrt(2));
     local t = 1 / (1 + 0.3275911 * abs(z));
     local erf = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * exp(-z * z);
@@ -101,7 +101,7 @@ function normalDistCDF(_x, _mean, _std) {
 // _mean: the mean (average) of the distribution (must be a number)
 // _std: the standard deviation of the distribution (must be a positive number)
 // Returns a random number from the normal distribution
-function randNormal(_mean, _std) {
+::randNormal <- function(_mean, _std) {
     if (typeof _mean != "number" || typeof _std != "number" || _std <= 0) {
         throw "Invalid input: _mean must be a number, _std must be a positive number.";
     }
@@ -111,7 +111,7 @@ function randNormal(_mean, _std) {
     return _mean + z0 * _std;
 }
 
-function testNormalCDFFunctions() {
+::testNormalCDFFunctions <- function() {
     try {
         loginfo("exp2int(3): " + exp2int(3)); // Should be 8
 

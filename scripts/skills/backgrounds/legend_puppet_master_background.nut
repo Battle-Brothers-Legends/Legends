@@ -75,7 +75,7 @@ this.legend_puppet_master_background <- this.inherit("scripts/skills/backgrounds
 				0.0 //oasis
 			];
 
-		if (!this.LegendsMod.Configs().LegendMagicEnabled()) //heavy armour, medium armour perks, spells.
+		if (!::LegendsMod.Configs.LegendMagicEnabled()) //heavy armour, medium armour perks, spells.
 		{
 				this.m.CustomPerkTree = [
 				[

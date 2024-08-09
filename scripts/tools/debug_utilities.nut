@@ -1,4 +1,5 @@
-class DebugSystem extends System {
+
+class ::FU.Class.DebugSystem extends ::FU.Class.System {
     ModIDs = [];
     ModDebugData = {};
 
