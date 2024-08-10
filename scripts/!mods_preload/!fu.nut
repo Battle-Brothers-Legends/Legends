@@ -46,15 +46,36 @@ this.logInfo("FU.Class contents: " + ::FU.Class);
 
 // Create and register the FU mod
 if ("Mod" in ::FU.Class) {
+    this.logInfo("FU.Class.Mod contents before FU mod registration:");
+    foreach (key, value in ::FU.Class.Mod)
+    {
+        this.logInfo("  " + key + ": " + value);
+    } 
+    
     this.logInfo("Creating FU Mod instance...");
     ::FU.Mod <- ::FU.Class.Mod(::FU.ID, ::FU.Version, ::FU.Name);
-    
+    this.logInfo("FU.Mod contents:");
+	this.logInfo("FU.Mod ID: " + ::FU.Mod.getID());
+	this.logInfo("FU.Mod Version: " + ::FU.Mod.getVersionString());
+	this.logInfo("FU.Mod Name: " + ::FU.Mod.getName());
+
+
     // Register the FU mod
     this.logInfo("Registering FU Mod...");
     ::mods_registerMod(::FU.Mod.getID(), ::FU.Mod.getVersionString(), ::FU.Mod.getName());
+    
+    this.logInfo("FU.Class.Mod contents after FU mod registration:");
+    foreach (key, value in ::FU.Class.Mod)
+    {
+        this.logInfo("  " + key + ": " + value);
+    } 
 } else {
     this.logError("FU.Class.Mod not found. Cannot create FU Mod instance.");
 }
+
+this.logInfo("FU.Class.Mod is a class: " + (typeof ::FU.Class.Mod == "class"));
+this.logInfo("FU.Mod is an instance: " + (typeof ::FU.Mod == "instance"));
+
 
 // Register the vanilla game as a "mod"
 //::mods_registerMod(::FU.VanillaID, ::FU.Class.SemVer.formatVanillaVersion(::GameInfo.getVersionNumber()), "Vanilla");

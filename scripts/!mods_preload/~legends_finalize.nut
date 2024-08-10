@@ -37,8 +37,8 @@
 	}
 }; // create popup
 
-::mods_registerJS("legends/popup.js");
-::mods_registerCSS("legends/css/popup.css");
+::mods_registerJS("utilities/popup_screen.js");
+::mods_registerCSS("utilities/css/utilities.css");
 
 ::mods_hookExactClass("ui/screens/menu/modules/main_menu_module", function(o)
 {
@@ -56,4 +56,4 @@
 
 
 
-::mods_registerJS("legends/connect_popup.js");
+::mods_registerJS("utilities/connect_popup.js");
