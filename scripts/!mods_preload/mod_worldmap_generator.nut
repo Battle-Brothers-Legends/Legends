@@ -383,6 +383,43 @@ this.getroottable().Const.LegendMod.hookWorldmapGenerator <- function()
 
 			foreach( list in this.Const.World.Settlements.LegendsWorldMaster )
 			{
+				this.logInfo("ModSettings type: " + typeof ::Legends.Mod.ModSettings);
+				this.logInfo("Is instance of ModSettings: " + (::Legends.Mod.ModSettings instanceof ::FU.Class.ModSettings));
+				this.logInfo("Available settings:");
+				this.logInfo("Available settings:");
+					local allSettings = ::Legends.Mod.ModSettings.getAllElementsAsArray(::FU.Class.TemplateSetting);
+					local settlementsSettings = [];
+					foreach(setting in allSettings)
+					{
+					    if (setting.getID() == "Settlements" || setting.getName().find("Settlements") != null)
+					    {
+						settlementsSettings.append(setting);
+					    }
+					}
+
+					if (settlementsSettings.len() > 0)
+					{
+					    this.logInfo("Found settings related to Settlements:");
+					    foreach(setting in settlementsSettings)
+					    {
+						this.logInfo("  - " + setting.getID() + ": " + setting.getName());
+					    }
+					}
+					else
+					{
+					    this.logInfo("No settings found with ID or name containing 'Settlements'");
+					}
+					local settlementsSetting = ::Legends.Mod.ModSettings.Screen.getSetting("Settlements");
+					if (settlementsSetting != null)
+					{
+					    this.logInfo("Settlements setting found. Value: " + settlementsSetting.getValue());
+					    local num = Math.ceil(settlementsSetting.getValue() * list.Ratio);
+					    this.logInfo("Calculated num: " + num);
+					}
+					else
+					{
+					    this.logError("Settlements setting not found");
+					}
 				local num = Math.ceil(::Legends.Mod.ModSettings.getSetting("Settlements").getValue() * list.Ratio)
 				//Add at least one of each
 

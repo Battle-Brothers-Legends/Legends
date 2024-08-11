@@ -10,6 +10,42 @@
     }
 };
 
+// Function to include the load file for a mod
+::FU.includeLoad <- function( _prefix, _folder )
+{
+	::include(_prefix + _folder + "/load.nut");
+}
+// Function to include a specific file for a mod
+::FU.includeFile <- function( _prefix, _file )
+{
+	::include(_prefix + _file);
+}
+// Function to include a set of files
+::FU.includeFiles <- function( _files, _includeLoad = false )
+{
+	foreach (file in _files)
+	{
+		if (_includeLoad || split(file, "/").pop() != "load.nut")
+		{
+			::include(file);
+		}
+	}
+}
+// 
+// This is to help Enduriel's mods
+::includeLoad <- function( _prefix, _folder )
+{
+	::FU.includeLoad(_prefix, _folder);
+}
+::includeFile <- function( _prefix, _file )
+{
+	::FU.includeFile(_prefix, _file);	
+}
+::includeFiles <- function( _files, _includeLoad = false )
+{
+	::FU.includeFiles(_files, _includeLoad);	
+}
+
 
 // Helper function to include all files in a directory
 ::FU.includeAllInDir <- function(_dir)
@@ -21,21 +57,22 @@
          this.logInfo("Included file: " + file);
     }
 }
-
+::FU.includeFiles(::IO.enumerateFiles("scripts/tools"));
+::FU.includeFiles(::IO.enumerateFiles("scripts/tools/settings"));
 // Include all utility files
-::FU.includeAllInDir("scripts/tools");
+//::FU.includeAllInDir("scripts/tools");
 
 
 // Include necessary files explicitly
-::include("scripts/tools/!system_template");
-::include("scripts/tools/functional_utilities");
-::include("scripts/tools/semantic_versioning");
-::include("scripts/tools/mod_settings"); 
-::include("scripts/tools/setting_sorter");
-::include("scripts/tools/math_utilities");
-::include("scripts/tools/data_utilities");
-::include("scripts/tools/readwrite_utilities");
-::include("scripts/tools/log_utilities");
+//::include("scripts/tools/!system_template");
+//::include("scripts/tools/functional_utilities");
+//::include("scripts/tools/semantic_versioning");
+//::include("scripts/tools/mod_settings"); 
+//::include("scripts/tools/setting_sorter");
+//::include("scripts/tools/math_utilities");
+//::include("scripts/tools/data_utilities");
+//::include("scripts/tools/readwrite_utilities");
+//::include("scripts/tools/log_utilities");
 
 
 this.logInfo("FU namespace initialized");
@@ -122,20 +159,6 @@ if (::Const.DLC.Paladins) ::mods_registerMod("dlc_paladins", 1, "Of Flesh and Fa
 // Empty BB class for compatibility
 this.empty_bb_class <- { m = {} }
 
-// Initialize FU systems
-::FU.System <- {};
-::FU.SystemID <- {
-    Serialization = 0,
-    ModSettings = 1,
-    Registry = 2,
-    Log = 3,
-    Keybinds = 4,
-    PersistentData = 5,
-    Tooltips = 6
-};
-::FU <- {
-    Class = {}
-};
 
 this.logInfo("FU Mod registered");
 

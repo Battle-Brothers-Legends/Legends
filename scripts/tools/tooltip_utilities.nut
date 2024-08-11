@@ -184,7 +184,7 @@
  * Class representing mod-specific tooltips management.
  * This class handles tooltips for a specific mod.
  */
-::FU.Class.ModTooltips <- class {
+::FU.Class.Tooltips <- class {
     Mod = null;
 
     /**
@@ -216,7 +216,7 @@
 // Aliases for backwards compatibility
 ::FU.Class.BasicTooltip <- ::FU.Class.Tooltip;
 ::FU.Class.CustomTooltip <- ::FU.Class.Tooltip;
-::FU.Class.TooltipsModAddon <- ::FU.Class.ModTooltips;
+::FU.Class.TooltipsModAddon <- ::FU.Class.Tooltips;
 
 // Test function for TooltipManager
 function testTooltipManager() {

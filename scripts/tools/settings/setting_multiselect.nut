@@ -2,7 +2,8 @@
  * Class representing a MultiselectSetting.
  * A setting that holds multiple selectable values, which can be strings, integers, or floats.
  */
-class MultiselectSetting extends ::FU.Class.TemplateSetting {
+
+::FU.Class.MultiselectSetting <- class extends ::FU.Class.TemplateSetting{
      Type = "Multiselect";
 
     /**

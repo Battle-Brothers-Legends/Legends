@@ -81,7 +81,7 @@
      */
     function getMod(_modID) {
         if (!this.hasMod(_modID)) {
-            throw Exception.KeyNotFound(_modID);
+             this.logInfo("Datamanager Exception getmod key not found"));
         }
         return this.ModList [_modID];
     }

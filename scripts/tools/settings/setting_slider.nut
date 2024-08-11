@@ -2,7 +2,7 @@
  * Class representing a SliderSetting.
  * This class extends the TemplateSetting class to provide additional functionality specific to slider settings.
  */
-class SliderSetting extends ::FU.Class.TemplateSetting  {
+::FU.Class.SliderSetting <- class extends ::FU.Class.TemplateSetting{ 
     Min = null;
     Max = null;
     Step = null;
@@ -19,7 +19,7 @@ class SliderSetting extends ::FU.Class.TemplateSetting  {
      */
     constructor(_id, _value, _min, _max, _step, _name = null, _description = null) {
         requireOneFromTypes(["integer", "float"], _min, _max, _step);
-        super(_id, _value, _name, _description);
+        base.constructor(_id, _value, _name, _description);
         this.Min = _min;
         this.Max = _max;
         this.Step = _step;
@@ -34,7 +34,7 @@ class SliderSetting extends ::FU.Class.TemplateSetting  {
         if (_newValue < this.Min || _newValue > this.Max) {
             throw Exception.InvalidValue(_newValue);
         }
-        super.set(_newValue);
+        this.set(_newValue);
     }
 
     /**
@@ -50,7 +50,7 @@ class SliderSetting extends ::FU.Class.TemplateSetting  {
      * @param _min {integer|float} - The minimum value to set.
      */
     function setMin(_min) {
-        requireOneFromTypes(["integer", "float"], _min);
+        ::FU.requireOneFromTypes(["integer", "float"], _min);
         this.Min = _min;
     }
 
@@ -67,7 +67,7 @@ class SliderSetting extends ::FU.Class.TemplateSetting  {
      * @param _max {integer|float} - The maximum value to set.
      */
     function setMax(_max) {
-        requireOneFromTypes(["integer", "float"], _max);
+        ::FU.requireOneFromTypes(["integer", "float"], _max);
         this.Max = _max;
     }
 
@@ -84,7 +84,7 @@ class SliderSetting extends ::FU.Class.TemplateSetting  {
      * @param _step {integer|float} - The step value to set.
      */
     function setStep(_step) {
-        requireOneFromTypes(["integer", "float"], _step);
+        ::FU.requireOneFromTypes(["integer", "float"], _step);
         this.Step = _step;
     }
 
@@ -92,13 +92,29 @@ class SliderSetting extends ::FU.Class.TemplateSetting  {
      * Converts the setting to a string representation.
      * @returns {string} - A string representation of the setting.
      */
+
+
+
     function tostring() {
         return format("SliderSetting %s: %s (Min: %s, Max: %s, Step: %s)", this.getName(), this.getValue(), this.getMin(), this.getMax(), this.getStep());
     }
+
+    /**
+     * For compatibility
+     */
+	function getUIData( _flags = [] )
+	{
+		local ret = base.getUIData(_flags);
+		ret.min <- this.getMin();
+		ret.max <- this.getMax();
+		ret.step <- this.getStep();
+		return ret;
+	}
+
 }
 
 // Alias for backward compatibility
-::FU.Class.RangeSetting <- SliderSetting;
+::FU.Class.RangeSetting <- ::FU.Class.SliderSetting;
 
 
 // Test Case
@@ -126,7 +142,7 @@ function testSliderSetting() {
     try {
         setting.setValue(20);
     } catch (e) {
-        print("Caught expected exception: " + e);
+        this.logErrror("Caught expected exception: " + e);
     }
 }
 

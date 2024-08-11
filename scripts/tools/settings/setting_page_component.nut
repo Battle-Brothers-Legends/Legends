@@ -2,7 +2,7 @@
  * Class representing the components that make up a page.
  * Titles, spacers, dividers and the SettingsTemplate are all types of PageComponent 
  */
-class PageComponent {
+::FU.Class.PageComponent  <- class{
     Name = null;
     ID = null;
     static Type = "Component";
@@ -179,5 +179,5 @@ class PageComponent {
 }
 
 // Create an alias for backward compatibility
-::FU.Class.SettingsElement <- PageComponent;
+::FU.Class.SettingsElement <- ::FU.Class.PageComponent;
 

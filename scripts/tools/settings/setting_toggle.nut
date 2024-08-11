@@ -9,7 +9,7 @@ function requireBool(value) {
  * Class representing a ToggleSetting.
  * A setting that holds a boolean value (true/false).
  */
-class ToggleSetting extends ::FU.Class.TemplateSetting {
+::FU.Class.ToggleSetting <- class extends ::FU.Class.TemplateSetting{
     Type = "Toggle";
 
     /**
@@ -49,7 +49,7 @@ class ToggleSetting extends ::FU.Class.TemplateSetting {
 
 
 // Alias for backward compatibility
-::FU.Class.BooleanSetting <- ToggleSetting
+::FU.Class.BooleanSetting <- ::FU.Class.ToggleSetting
 
 // Test case for ToggleSetting
 function testToggleSetting() {

@@ -2,7 +2,8 @@
  * Class representing a ButtonSetting.
  * This class provides functionalities for managing button settings, including simulating button presses.
  */
-class ButtonSetting extends ::FU.Class.TemplateSetting {
+
+::FU.Class.ButtonSetting <- class extends ::FU.Class.TemplateSetting{
     /**
      * Constructor for ButtonSetting.
      * @param _id {string} - The unique identifier for the setting.
@@ -38,7 +39,7 @@ class ButtonSetting extends ::FU.Class.TemplateSetting {
 }
 
 // Alias for backward compatibility
-FU.Class.ButtonSetting <- ButtonSetting;
+FU.Class.ButtonSetting <- FU.Class.ButtonSetting;
 
 /**
  * Example implementation and test case for ButtonSetting

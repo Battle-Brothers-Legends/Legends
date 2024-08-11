@@ -2,7 +2,7 @@
  * Class representing a Heading on a settings page.
  * This provides a way to add descriptive headers with varying importance and thematic coloring.
  */
-class Heading extends PageComponent {
+::FU.Class.SettingHeading <- class extends ::FU.Class.TemplateSetting{
     static Type = "Heading";
     Size = null;
     Color = null;
@@ -17,8 +17,8 @@ class Heading extends PageComponent {
      */
     constructor(_id, _name = null, _description = null, _size = "normal", _color = "primary") {
         base.constructor(_id, _name, _description);
-        this.Size <- _size;
-        this.Color <- _color;
+        this.setSize(_size);
+        this.setColor(_color);
     }
 
     /**
@@ -66,5 +66,5 @@ class Heading extends PageComponent {
 }
 
 // Create an alias for backward compatibility
-::FU.Class.SettingsTitle <- Heading;
+::FU.Class.SettingsTitle <- ::FU.Class.SettingHeading;
 

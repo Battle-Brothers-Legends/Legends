@@ -206,7 +206,7 @@ function testModClass() {
 	   	 this.logInfo("SettingsScreen class: " + ::FU.Class.SettingsScreen);
 
 
-		_mod.ModSettings = ::FU.Class.ModSettingsModAddon(_mod);
+		_mod.ModSettings = ::FU.Class.ModSettings(_mod);
 		this.logInfo("SettingsScreen class: " + ::FU.Class.SettingsScreen);
 		local screen = ::FU.Class.SettingsScreen(_mod.getID(), _mod.getName());
 		this.logInfo("Created screen instance: " + screen);
@@ -221,7 +221,7 @@ function testModClass() {
 		this.logInfo("ModSettingsSystem " + _mod.getName() + " registered");
 	}
 
-	function addPanel( _modPanel )
+	function addScreen( _modScreen )
 	{
 		if (this.Locked)
 		{
@@ -229,11 +229,11 @@ function testModClass() {
 		}
 		else
 		{
-			if (!(_modPanel instanceof ::FU.Class.SettingsPanel))
+			if (!(_modScreen instanceof ::FU.Class.SettingsScreen))
 			{
-				throw ::FU.Exception.InvalidType(_modPanel);
+				throw ::FU.Exception.InvalidType(_modScreen);
 			}
-			this.Panels[_modPanel.getID()] <- _modPanel;
+			this.Screens[_modScreen.getID()] <- _modScreen;
 		}
 	}
 
@@ -250,7 +250,6 @@ function testModClass() {
 	function getAllElementsAsArray( _filter = null )
 	{
 		local ret = [];
-		foreach (panel in this.getPanels())
 		foreach (screen in this.Screens)
 		{
 		    ret.extend(screen.getAllComponentsAsArray(_filter));
@@ -265,7 +264,7 @@ function testModClass() {
 		local order = 0;
 		foreach (screen in this.Screens)
 		{
-			panel.Order = order;
+			screen.Order = order;
 			order++
 		}
 	}
@@ -347,20 +346,20 @@ function testModClass() {
 
 	function flagSerialize( _out )
 	{
-		this.callPanelsFunction("flagSerialize", [_out]);
+		this.callScreensFunction("flagSerialize", [_out]);
 	}
 
 	function flagDeserialize( _in )
 	{
-		this.callPanelsFunction("flagDeserialize", [_in]);
+		this.callScreensFunction("flagDeserialize", [_in]);
 	}
 
 	function getUIData( _flags = null )
 	{
 		local ret = {};
-		foreach (panel in this.getPanels())
+		foreach (screen in this.Screens)
 		{
-			ret[panel.getID()] <- panel.getUIData(_flags);
+			ret[screen.getID()] <- screen.getUIData(_flags);
 		}
 		return ret;
 	}
@@ -380,16 +379,90 @@ function testModClass() {
 	}
 }
 
-::FU.Class.ModSettingsModAddon <- class
+::FU.Class.ModSettings <- class
 {
-	Mod = null;
-	constructor( _mod )
+    Mod = null;
+    Screen = null;
+
+    constructor(_mod)
+    {
+        this.Mod = _mod;
+        this.Screen = ::FU.Class.SettingsScreen(_mod.getID(), _mod.getName());
+        ::FU.Class.ModSettingsSystem.addScreen(this.Screen);
+    }
+
+    function getScreen()
+    {
+        return this.Screen;
+    }
+    function getPage( _pageID )
+    {
+	return this.getPanel().getPage(_pageID);
+    }
+    function addPage(_pageID, _pageName = null)
+    {
+        local page = ::FU.Class.SettingsPage(_pageID, _pageName);
+        this.Screen.addPage(page);
+        return page;
+    }
+
+	function getSetting( _settingID )
 	{
-		this.Mod = _mod;
+		return ::FU.Class.ModSettings.getScreen(this.Mod.getID()).getSetting(_settingID);
 	}
 
-	function getMod()
+	function getAllElementsAsArray( _filter = null )
 	{
-		return this.Mod;
+		return this.getScreen().getAllSettingsAsArray(_filter);
+	}
+
+	function resetSettings()
+	{
+		return this.getScreen().resetSettings();
+	}
+
+	function hasSetting( _settingID )
+	{
+		return ::FU.Class.ModSettings.getScreen(this.Mod.getID()).hasSetting(_settingID);
+	}	
+
+	function lockSetting( _setting, _lockReason )
+	{
+		if (typeof _setting == "string") _setting = this.getSetting(_setting);
+
+		_setting.lock(_lockReason + format(" (%s (%s))", this.getMod().getID(), this.getMod().getName()));
 	}
 }
+::FU.SettingsScreen <- ::new("scripts/tools/settings/setting_screen");
+::FU.UI.registerConnection(::FU.Class.SettingsScreen);
+//if (!::FU.Class.ModSettings.Screen) {
+//    ::FU.Class.ModSettings.Screen = ::FU.SettingsScreen;
+//}
+
+//TODO sort this out, finalize index not available
+//::FU.UI.addOnConnectCallback(::FU.Class.ModSettings.finalize.bindenv(::FU.Class.ModSettings));
+
+
+::FU.SettingsFlags <- {
+	NewCampaign = {
+		required = [
+			"NewCampaign"
+		]
+	},
+	World = {
+		excluded = [
+			"NewCampaignOnly"
+		]
+	},
+	Tactical = {
+		excluded = [
+			"NewCampaignOnly"
+		]
+	},
+	Main = {
+		excluded = [
+			"NewCampaignOnly"
+		]
+	}
+};
+

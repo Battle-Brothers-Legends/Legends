@@ -2,7 +2,7 @@
  * Class representing a Spacer on a settings page.
  * This is used to add vertical or horizontal space between settings.
  */
-class SettingsSpacer extends PageComponent {
+ ::FU.Class.SettingsSpacer <- class extends ::FU.Class.TemplateSetting{
     static Type = "Spacer";
 
     /**
@@ -25,5 +25,4 @@ class SettingsSpacer extends PageComponent {
         return this.Type;
     }
 }
-// Aliases for backward compatibility
-::MSU.Class.SettingsSpacer <- SettingsSpacer;
+

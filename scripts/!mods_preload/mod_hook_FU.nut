@@ -1,6 +1,6 @@
 local gt = this.getroottable();
 
-gt.Const.LegendMod.hookMSU <- function()
+gt.Const.LegendMod.hookFU <- function()
 {
 	local canResurrectOnTile = this.canResurrectOnTile;
 	this.canResurrectOnTile = function( _tile, _force = false )
@@ -21,13 +21,14 @@ gt.Const.LegendMod.hookMSU <- function()
 	this.Const.Items.addNewWeaponType("MagicStaff", "Mystic Staff");
 	this.Const.Items.addNewWeaponType("Whip", "Whip");
 
-	// DO NOT DO THIS. TEMPORARY FIX SO WE CAN DISCUSS THE PROPER WAY TO SOLVE THESE PROBLEMS (NOT SUPPORTED)
-	::MSU.System.Keybinds.KeybindsByMod["vanilla"]["world_toggleCamping"].Function = function ()
-	{
-		if (!this.m.MenuStack.hasBacksteps())
-		{
-			this.showCampScreen();
-			return true;
-		}
-	}
+	// we do what we want, gosh
+	// TODO the whole vanilla mod thing
+	//::FU.System.Keybinds.KeybindsByMod["vanilla"]["world_toggleCamping"].Function = function ()
+	//{
+	//	if (!this.m.MenuStack.hasBacksteps())
+	//	{
+	//		this.showCampScreen();
+	//		return true;
+	//	}
+	//}
 }

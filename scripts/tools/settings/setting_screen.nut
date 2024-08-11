@@ -41,7 +41,7 @@
 	{
 		if (!(_page instanceof ::FU.Class.SettingsPage))
 		{
-			throw ::FU.Exception.InvalidType(_page);
+			this.logError("Invalid Type passed to addPage in SettingsScreen ");
 		}
 		_page.setScreen(this);
 		local hasKeybinds = this.Pages.contains("Keybinds");
@@ -68,7 +68,7 @@
 	 * @param _filter {function|class} - The filter function or class.
 	 * @returns {array} - The array of components.
 	 */
-	function getAllComponentsAsArray(_filter = null)
+	function getAllSettingsAsArray(_filter = null)
 	{
 		local ret = [];
 		foreach (page in this.Pages)

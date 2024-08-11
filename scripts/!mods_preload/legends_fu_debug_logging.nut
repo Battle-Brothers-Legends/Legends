@@ -4,7 +4,8 @@
 
 ::Const.LegendMod.setupDebug <- function()
 {
-	::Legends.Mod.Debug.disable(); // by default, default FU logging for Legends Mod is disabled
+	//::Legends.Mod.Debug.disable(); // by default, default FU logging for Legends Mod is disabled
+	//TODO fix this
 
 	::Const.LegendMod.Debug <- {};
 
@@ -45,10 +46,11 @@
 	]
 
 	// Apply the configuration defined in ::Const.LegendMod.Debug.FlagDefs
-	foreach (f in ::Const.LegendMod.Debug.FlagDefs)
-	{
-		::Legends.Mod.Debug.setFlag(f.ID,f.Value);
-	}
+	//TODO fix this 
+	//foreach (f in ::Const.LegendMod.Debug.FlagDefs)
+	//{
+	//	::Legends.Mod.Debug.setFlag(f.ID,f.Value);
+	//}
 
 	/* 
 	NOTE: Saved FU Settings appear to deserialize towards the end of the game's deserialization process.

@@ -1,7 +1,7 @@
 /**
  * Class representing a ColorPickerSetting.
  */
-class ColorPickerSetting {
+::FU.Class.ColorPickerSetting <- class extends ::FU.Class.TemplateSetting{
     Setting = null;
 
     /**

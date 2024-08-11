@@ -2,7 +2,7 @@
  * Class representing a Divider on a settings page.
  * This is a simple horizontal line used to separate sections of settings.
  */
-class SettingsDivider extends PageComponent {
+ ::FU.Class.SettingsDivider  <- class extends ::FU.Class.TemplateSetting{
     static Type = "Divider";
 
     /**
@@ -23,5 +23,5 @@ class SettingsDivider extends PageComponent {
 }
 
 // alias for backwards compatibility 
-::MSU.Class.SettingsDivider <- SettingsDivider;
+::FU.Class.SettingsDivider <- ::FU.Class.SettingsDivider;
 

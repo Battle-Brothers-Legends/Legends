@@ -111,6 +111,12 @@ gt.Const.World.Settlements.LegendsWorldMaster <- [
 	}
 ];
 
+gt.Const.World.LegendWorldSettings <-
+{
+	MagicEnabled = false,
+	TherianthropyEnabled = false
+}
+
 gt.Const.World.LegendaryContract <-
 {
 	WhiteWolf = 0,

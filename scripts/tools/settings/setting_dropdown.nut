@@ -2,9 +2,9 @@
  * Class representing a DropdownSetting.
  * This class handles the creation, display, and interaction with a dropdown-based setting.
  */
-class DropdownSetting extends ::FU.Class.TemplateSetting {
+::FU.Class.DropdownSetting <- class extends ::FU.Class.TemplateSetting{
     static Type = "Dropdown";
-
+    Array = null;
     /**
      * Constructor for DropdownSetting.
      * @param {string} _id - The unique identifier for the setting.

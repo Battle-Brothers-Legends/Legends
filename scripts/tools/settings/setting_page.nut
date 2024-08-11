@@ -1,3 +1,8 @@
+/**
+ * Class representing a  settings page.
+ * We add all our settings from here
+ */
+
 ::FU.Class.SettingsPage <- class
 {
 	Name = null;
@@ -18,22 +23,22 @@
 	}
 
 	/**
-	 * Adds a PageComponent to the settings page.
+	 * Adds a setting to the settings page.
 	 * @param _component {PageComponent} - The component to add.
 	 * @returns {PageComponent} - The added component.
 	 */
-	function addComponent(_component)
-	{
-		if (!(_component instanceof ::FU.Class.PageComponent))
-		{
-			::logError("Failed to add component: component needs to extend PageComponent");
-			throw ::FU.Exception.InvalidType(_component);
-		}
-		_component.setPage(this);
-		this.Components[_component.getID()] <- _component;
-		return _component;
-	}
 
+	
+	function addSetting(_setting)
+	{
+		if (!(_setting instanceof ::FU.Class.TemplateSetting))
+		{
+			this.logError("Setting is invalid, it should extend TemplateSetting");
+		}
+		_setting.setPage(this);
+		this.Components[_setting.getID()] <- _setting;
+		return _setting;
+	}
 	/**
 	 * Adds a divider component to the settings page.
 	 * @param _id {string} - The unique identifier for the divider.
@@ -41,7 +46,7 @@
 	 */
 	function addDivider(_id)
 	{
-		return this.addComponent(::FU.Class.SettingsDivider(_id));
+		return this.addSetting(::FU.Class.SettingsDivider(_id));
 	}
 
 	/**
@@ -53,7 +58,7 @@
 	 */
 	function addHeading(_id, _name, _description = null)
 	{
-		return this.addComponent(::FU.Class.SettingsHeading(_id, _name, _description));
+		return this.addSetting(::FU.Class.SettingHeading(_id, _name, _description));
 	}
 
 	/**
@@ -65,7 +70,7 @@
 	 */
 	function addSpacer(_id, _width, _height)
 	{
-		return this.addComponent(::FU.Class.SettingsSpacer(_id, _width, _height));
+		return this.addSetting(::FU.Class.SettingsSpacer(_id, _width, _height));
 	}
 
 	/**
@@ -78,7 +83,7 @@
 	 */
 	function addToggleSetting(_id, _value, _name = null, _description = null)
 	{
-		return this.addComponent(::FU.Class.ToggleSetting(_id, _value, _name, _description));
+		return this.addSetting(::FU.Class.ToggleSetting(_id, _value, _name, _description));
 	}
 
 	/**
@@ -90,7 +95,7 @@
 	 */
 	function addButtonSetting(_id, _name = null, _description = null)
 	{
-		return this.addComponent(::FU.Class.ButtonSetting(_id, _name, _description));
+		return this.addSetting(::FU.Class.ButtonSetting(_id, _name, _description));
 	}
 
 	/**
@@ -104,7 +109,7 @@
 	 */
 	function addDropdownSetting(_id, _value, _array, _name = null, _description = null)
 	{
-		return this.addComponent(::FU.Class.DropdownSetting(_id, _value, _array, _name, _description));
+		return this.addSetting(::FU.Class.DropdownSetting(_id, _value, _array, _name, _description));
 	}
 
 	/**
@@ -120,7 +125,7 @@
 	 */
 	function addSliderSetting(_id, _value, _min, _max, _step, _name = null, _description = null)
 	{
-		return this.addComponent(::FU.Class.SliderSetting(_id, _value, _min, _max, _step, _name, _description));
+		return this.addSetting(::FU.Class.SliderSetting(_id, _value, _min, _max, _step, _name, _description));
 	}
 
 	/**
@@ -133,7 +138,7 @@
 	 */
 	function addTextInputSetting(_id, _value, _name = null, _description = null)
 	{
-		return this.addComponent(::FU.Class.TextInputSetting(_id, _value, _name, _description));
+		return this.addSetting(::FU.Class.TextInputSetting(_id, _value, _name, _description));
 	}
 
 	/**
@@ -146,7 +151,7 @@
 	 */
 	function addColorPickerSetting(_id, _value, _name = null, _description = null)
 	{
-		return this.addComponent(::FU.Class.ColorPickerSetting(_id, _value, _name, _description));
+		return this.addSetting(::FU.Class.ColorPickerSetting(_id, _value, _name, _description));
 	}
 
 	/**
@@ -159,7 +164,7 @@
 	 */
 	function addMultiselectSetting(_id, _value, _name = null, _description = null)
 	{
-		return this.addComponent(::FU.Class.MultiselectSetting(_id, _value, _name, _description));
+		return this.addSetting(::FU.Class.MultiselectSetting(_id, _value, _name, _description));
 	}
 
 	/**
@@ -357,9 +362,43 @@
 	{
 		return this.getScreen().getID();
 	}    
-    
+ 	/**
+	 *  Compatability functions
+	 *  Adds settings using their alternate names
+	 */   
+
+	function addTitle(_id, _name, _description = null)
+	{
+		::FU.Class.SettingsPage.AddHeading(_id, _name, _description = null);
+	}
+	function addBooleanSetting(_id, _value, _name = null, _description = null)
+	{
+		::FU.Class.SettingsPage.addToggleSetting(_id, _value, _name = null, _description = null)
+	}
+	function addRangeSetting(_id, _value, _min, _max, _step, _name = null, _description = null)
+	{
+		::FU.Class.SettingsPage.addSliderSetting(_id, _value, _min, _max, _step, _name = null, _description = null)
+	}
+	function addArraySetting(_id, _value, _name = null, _description = null)
+	{
+		::FU.Class.SettingsPage.addMultiselectSetting(_id, _value, _name = null, _description = null)
+	}
+	function addEnumSetting(_id, _value, _array, _name = null, _description = null)
+	{
+		::FU.Class.SettingsPage.addDropdownSetting(_id, _value, _array, _name = null, _description = null)
+	}	
+	function addComponent(_component)
+	{
+		if (!(_setting instanceof ::FU.Class.TemplateSetting))
+		{
+			this.logError("Setting is invalid, it should extend TemplateSetting");
+		}
+		_component.setPage(this);
+		this.Components[_component.getID()] <- _component;
+		return _component;
+	}	
 }
 
 // Helper function for backward compatibility
-::FU.Class.SettingsPage.addElement <- ::FU.Class.SettingsPage.addComponent;
+::FU.Class.SettingsPage.addElement <- ::FU.Class.SettingsPage.addSetting;
 

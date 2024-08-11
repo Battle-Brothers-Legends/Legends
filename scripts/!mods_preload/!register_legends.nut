@@ -72,20 +72,21 @@ this.logInfo("FU.Mod exists: " + ("Mod" in ::FU));
 	this.logInfo("FU.Class.Mod is a class: " + (typeof ::FU.Class.Mod == "class"));
 	this.logInfo("FU.Mod is an instance: " + (typeof ::FU.Mod == "instance"));
 
-
+    // TODO maybe these are just in z_world config?
     // Merge LegendsMod and configs directly to Legends.Mod
-    ::Legends.Mod.Configs <- {
-        function LegendMagicEnabled()
-        {
-            return false;
-        },
-        function LegendTherianthropyEnabled()
-        {
-            return false;
-        }
-    };
+    //::Legends.Mod.Configs <- {
+    //   function LegendMagicEnabled()
+    //    {
+    //        return false;
+    //    },
+    //    function LegendTherianthropyEnabled()
+    //    {
+    //        return false;
+    //    }
+    //};
 
-
+    ::Legends.Mod.ModSettings = ::FU.Class.ModSettings(::Legends.Mod);
+    
     // Register JS and CSS files
     ::mods_registerJS("legends_assets.js");
     ::mods_registerJS("legends/hooks/character_screen.js");
@@ -94,9 +95,10 @@ this.logInfo("FU.Mod exists: " + ("Mod" in ::FU));
     // Setup and initialize mod components
     ::Const.LegendMod.setupDebug();
     ::Const.LegendMod.addSettings();
-    ::Const.LegendMod.hookFU();
-    ::Const.LegendMod.addLegendItemTypes();
-    ::Const.LegendMod.addStaticFunctions();
+    // TODO No hooks for you
+    // ::Const.LegendMod.hookFU();
+    //::Const.LegendMod.addLegendItemTypes();
+    //::Const.LegendMod.addStaticFunctions();
 
     // Hook into various game systems
     local hookFunctions = [
@@ -117,14 +119,15 @@ this.logInfo("FU.Mod exists: " + ("Mod" in ::FU));
     ::Const.LegendMod.registerUI();
     ::Const.LegendMod.loadBuyback();
     ::Const.Perks.updatePerkGroupTooltips();
-    ::Const.LegendMod.addTooltips();
+    
+    //TODO make em pretty
+    //::Const.LegendMod.addTooltips();
 
     // Add mod to the DataManager (if using FU)
     if ("FU" in this.getroottable() && "DataManager" in ::FU)
         ::FU.DataManager.registerMod(::Legends.Mod);
 
-    // Debug log to confirm initialization
-    this.logInfo("Legends.Mod initialized: " + (::Legends.Mod != null) + ", Configs available: " + (::Legends.Mod.Configs != null));
+  
 });
 this.logInfo("Finished mods_queue for Legends");
     if ("Mod" in ::Legends)

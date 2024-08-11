@@ -5,6 +5,9 @@ class ::FU.Class.TemplateSetting {
     ID = null;
     Name = null;
     Value = null;
+    Data = null;
+    Page = null;
+    static Type = "Setting";
     Description = null;
     Persistence = true;
     Callbacks = {
@@ -26,6 +29,7 @@ class ::FU.Class.TemplateSetting {
         this.ID = _id;
         this.Value = _value;
         this.Name = _name ? _name : _id;
+        this.Data = {};
         this.Description = _description ? _description : "";
     }
 
@@ -91,6 +95,15 @@ class ::FU.Class.TemplateSetting {
     }
 
     /**
+     * Gets the Type of the setting.
+     * @returns {string} - The Typeof the setting.
+     */
+    function getType() {
+        return this.Type;
+    }
+
+
+    /**
      * Gets the name of the setting.
      * @returns {string} - The name of the setting.
      */
@@ -130,7 +143,116 @@ class ::FU.Class.TemplateSetting {
         this.Description = _description;
     }
 
+    /**
+     * Gets the page the setting is on.
+     */
+    function getPage() {
+        return this.Page;
+    }
+    
+     /**
+     * Sets the page the setting is on.
+     */
+    function setPage(_page) {
+        this.Page = _page;
+    }   
+    /**
+     * Gets the screen the setting is on.
+     */
+    function getScreenID() {
+        return this.getPage().getScreenID();
+    }  
+    
+   /**
+     * Gets the mod this setting is for
+     */
+    function getMod() {
+        return this.getPage().getMod();
+    }  
+    /**
+     * Gets the data of the component.
+     * @returns {table} - The data of the component.
+     */
+    function getData() {
+        return this.Data;
+    } 
+    
+    /**
+     * Gets the tooltip for the component.
+     * @param _data {variant} - The data for the tooltip.
+     * @returns {array} - The tooltip data.
+     */     
+    function getTooltip( _data )
+    {
+    	return [
+		{
+			id = 1,
+			type = "title",
+			text = this.getName()
+		},
+		{
+			id = 2,
+			type = "description",
+			text = this.getDescription()
+		}
+	];
+    } 
 
+
+     /**
+     * Provides all the data required to populate the UI
+     * @param _flags {table} - The flags to consider.
+     * @returns {table} - The UI data.
+     */ 
+    function getUIData( _flags = [] )
+    {
+	local ret = {
+		type = this.getType(),
+		id = this.getID(),
+		name = this.getName(),
+		data = this.Data,
+		panel = this.getPanelID(),
+		mod = this.getMod().getID(),
+		hidden = !this.verifyFlags(_flags)
+	}
+	return ret;
+    }
+
+
+     /**
+     * Verifies the flags for the setting
+     * @param _flags {table} - The flags to verify.
+     * @returns {boolean} - Whether the flags are verified.
+     */
+    function verifyFlags( _flags )
+    {
+	if (_flags != null)
+	{
+		if ("required" in _flags)
+		{
+			foreach (required in _flags.required)
+			{
+				if (!(required in this.Data))
+				{
+					return false;
+				}
+			}
+		}
+		if ("excluded" in _flags)
+		{
+			foreach (excluded in _flags.excluded)
+			{
+				if (excluded in this.Data)
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+    }    
+    
+    
 }
 
 function requireBool(value) {

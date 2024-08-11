@@ -93,7 +93,7 @@ this.legend_necro_commander_background <- this.inherit("scripts/skills/backgroun
 				0.0 //oasis
 			];
 
-		if (!::LegendsMod.Configs.LegendMagicEnabled())
+		if (this.Const.World.LegendWorldSettings.MagicEnabled)
 		{
 				this.m.CustomPerkTree = [
 				[
