@@ -3,7 +3,37 @@ this.legend_consecrated_effect <- this.inherit("scripts/skills/skill", {
 		TurnsLeft = 0,
 		DamageMin = 10,
 		DamageMax = 20,
+		Actor = null
 	},
+
+	function setActor( _a )
+	{
+		this.m.Actor = ::MSU.asWeakTableRef(_a);
+	}
+
+	function getAttacker()
+	{
+		if (!::Legends.Mod.ModSettings.getSetting("BleedKiller").getValue())
+		{
+			return this.getContainer().getActor();
+		}
+
+		if (::MSU.isNull(this.m.Actor))
+		{
+			return this.getContainer().getActor();
+		}
+
+		if (this.m.Actor.getID() != this.getContainer().getActor().getID())
+		{
+			if (this.m.Actor.isAlive() && this.m.Actor.isPlacedOnMap())
+			{
+				return this.m.Actor;
+			}
+		}
+
+		return this.getContainer().getActor();
+	}
+
 	function create()
 	{
 		this.m.ID = "effects.legend_consecrated_effect";
@@ -58,15 +88,16 @@ this.legend_consecrated_effect <- this.inherit("scripts/skills/skill", {
 
 	function applyDamage()
 	{
-		this.spawnIcon("fire_circle", this.getContainer().getActor().getTile());
+		local actor = this.getContainer().getActor();
+		this.spawnIcon("fire_circle", actor.getTile());
 		local hitInfo = clone ::Const.Tactical.HitInfo;
 		hitInfo.DamageRegular = ::Math.rand(this.m.DamageMin, this.m.DamageMax);
 		hitInfo.DamageDirect = 1.0;
 		hitInfo.BodyPart = ::Const.BodyPart.Body;
 		hitInfo.BodyDamageMult = 1.0;
 		hitInfo.FatalityChanceMult = 0.0;
-		this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(this.getContainer().getActor()) + " is burnt by holy flames");
-		this.getContainer().getActor().onDamageReceived(this.getContainer().getActor(), null, hitInfo);
+		this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(actor) + " is burnt by holy flames");
+		actor.onDamageReceived(this.getAttacker(), this, hitInfo);
 	}
 
 	function onTurnEnd()
