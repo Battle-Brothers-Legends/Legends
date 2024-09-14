@@ -7,19 +7,17 @@ this.perk_legend_blend_in <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.ID = "perk.legend_blend_in";
 		this.m.Name = this.Const.Strings.PerkName.LegendBlendIn;
-		this.m.Description = this.Const.Strings.PerkDescription.LegendBlendIn;
+		this.m.Description = "Hold yourself in a way that makes you seem more trouble than its worth, lean into trees, place objects between you and an enemy, and hide behind allies.";
 		this.m.Icon = "ui/perks/perk_42.png";
 		this.m.Type = this.Const.SkillType.Perk;
 		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
-		this.m.IsStacking = false;
-		this.m.IsHidden = false;
 	}
 
 
 	function onUpdate( _properties )
 	{
-		_properties.TargetAttractionMult *= 0.51;
+		_properties.TargetAttractionMult *= 0.50;
 		_properties.MeleeDefense += 3;
 		_properties.RangedDefense += 5;
 		// this.m.IsHidden = this.m.Stacks == 0;
@@ -48,23 +46,23 @@ this.perk_legend_blend_in <- this.inherit("scripts/skills/skill", {
 		}]);
 		if (this.m.Stacks)
 		{
-			tooltip.extend([
+			tooltip.push(
 			{
 				id = 6,
 				type = "hint",
 				icon = "ui/icons/special.png",
 				text = "Always evade the next attack made against this character in combat."
-			}]);
+			});
 		}
 		else
 		{
-			tooltip.extend([
+			tooltip.push(
 			{
 				id = 6,
 				type = "hint",
 				icon = "ui/icons/warning.png",
 				text = "The evasion stack will recover in: [color=" + this.Const.UI.Color.NegativeValue + "]" + (2 - this.m.Counter) + "[/color] turns."
-			}]);
+			});
 		}
 		return tooltip;
 	}
@@ -95,7 +93,7 @@ this.perk_legend_blend_in <- this.inherit("scripts/skills/skill", {
 
 	function onTurnEnd()
 	{
-		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_unburdened") && this.m.Stacks == 0)
+		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_unburdened"))
 			this.m.Counter += 1;
 
 		if (this.m.Counter == 2)
@@ -109,11 +107,13 @@ this.perk_legend_blend_in <- this.inherit("scripts/skills/skill", {
 	{
 		this.m.Stacks = 1;
 		this.m.Counter = 0;
+		this.skill.onCombatStarted();
 	}
 
 	function onCombatFinished()
 	{
 		this.m.Stacks = 1;
 		this.m.Counter = 0;
+		this.skill.onCombatStarted();
 	}
 })

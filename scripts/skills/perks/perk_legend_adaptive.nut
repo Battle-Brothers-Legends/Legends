@@ -357,7 +357,7 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 	function onUpdateLevel()
 	{
 		local actor = this.getContainer().getActor();
-		if (actor.m.Level == 18)
+		if (actor.m.Level == 15)
 		{
 			actor.m.PerkPoints += 1;
 		}

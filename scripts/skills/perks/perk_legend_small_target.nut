@@ -48,13 +48,25 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]+" + bonus + "[/color] Ranged Defense"
 			});
 		}
-		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_unburdened") && bonus >= this.m.BonusUnburdenedMin)
+		else
+		{
+			tooltip.push({
+				id = 6,
+				type = "text",
+				icon = "ui/tooltips/warning.png",
+				text = "This character has too much Hitpoints or Armor to make use of this perk"
+			});
+			return tooltip;
+		}
+
+		local sourcePerk = this.getContainer().getSkillByID("perk.legend_blend_in");
+		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_unburdened") && bonus >= this.m.BonusUnburdenedMin && sourcePerk != null && sourcePerk.m.Stacks > 0)
 		{
 			tooltip.push({
 				id = 6,
 				type = "hint",
 				icon = "ui/icons/special.png",
-				text = "Increase the character\'s action points by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color]."
+				text = "Increases the character\'s action points by [color=" + this.Const.UI.Color.PositiveValue + "]1[/color]."
 			});
 		}
 
@@ -86,30 +98,23 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 		
 		if (actor.getSkills().hasSkill("perk.legend_fashionable"))
 		{
-	
 			if (bodyItem != null)
 			{
-				local tabard = bodyItem.getUpgrade(this.Const.Items.ArmorUpgrades.Tabbard);
-				local cloak = bodyItem.getUpgrade(this.Const.Items.ArmorUpgrades.Cloak)
-				
-				if (tabard != null)
+				foreach (upgrade in bodyItem.m.Upgrades)
 				{
-					local tabardArmor = tabard.getRepair();
-					stackTotal -= tabardArmor;
-				}
-				
-				if (cloak != null)
-				{
-					local cloakArmor = cloak.getRepair();
-					stackTotal -= cloakArmor;
-				}
-
-				if (actor.getSkills().hasSkill("perk.legend_unburdened"))
-				{
-					local body = bodyItem.getUpgrade(this.Const.Items.ArmorUpgrades.Body);
-					if (body.getStaminaModifier == 0)
+					switch (true)
 					{
-						stackTotal -= body.getRepair();
+						case upgrade == null:
+							continue;
+						case upgrade.isItemType(this.Const.Items.ArmorUpgrades.Tabbard):
+						case upgrade.isItemType(this.Const.Items.ArmorUpgrades.Cloak):
+						case upgrade.getID() == "legend_armor_upgrade.body.legend_armor_white_wolf_pelt":
+						case upgrade.getID() == "legend_armor_upgrade.body.legend_hyena_fur":
+						case upgrade.getID() == "legend_armor_upgrade.body.legend_direwolf_pelt":
+						case upgrade.getID() == "legend_armor_upgrade.body.legend_serpent_skin":
+						case upgrade.getID() == "legend_armor_upgrade.body.legend_unhold_fur":
+							stackTotal -= body.getRepair();
+							continue;
 					}
 				}
 			}
@@ -132,7 +137,22 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 				}
 			}
 		}
-		local bonus = this.Math.max(5, 100 - stackTotal); 
+
+		if (actor.getSkills().hasSkill("perk.legend_unburdened"))
+		{
+			local bodyItem = actor.getBodyItem();
+			if (bodyItem != null && bodyItem.m.StaminaModifier == 0)
+			{
+				stackTotal -= bodyItem.m.ConditionMax;
+			}
+
+			local headItem = actor.getHeadItem();
+			if (headItem != null && headItem.m.StaminaModifier == 0)
+			{
+				stackTotal -= headItem.m.ConditionMax;
+			}
+		}
+		local bonus = this.Math.max(0, 100 - stackTotal); 
 		return this.Math.floor(bonus);
 	}
 
@@ -154,11 +174,11 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 	function onUpdate( _properties )
 	{
 		local bonus = this.getBonus();
-		_properties.MeleeDefense += this.Math.floor(bonus * this.m.bonusPercentage);
-		_properties.RangedDefense += this.Math.floor(bonus * this.m.bonusPercentage);
+		_properties.MeleeDefense += this.Math.floor(bonus * this.Math.min(this.m.bonusPercentage, 0));
+		_properties.RangedDefense += this.Math.floor(bonus * this.Math.min(this.m.bonusPercentage, 0));
 
 		local sourcePerk = this.getContainer().getSkillByID("perk.legend_blend_in");
-		if (sourceperk == null)
+		if (sourcePerk == null)
 			return;
 
 		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_unburdened") && bonus >= this.m.BonusUnburdenedMin && sourcePerk.m.Stacks > 0)

@@ -7,8 +7,8 @@ this.perk_legend_unburdened <- this.inherit("scripts/skills/skill", {
 		this.m.Description = this.Const.Strings.PerkDescription.LegendUnburdened;
 		this.m.Icon = "ui/perks/meek.png";
 		this.m.IconMini = "mini_meek";
-		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
-		this.m.Order = this.Const.SkillOrder.Perk | this.Const.SkillOrder.Any;
+		this.m.Type = this.Const.SkillType.Perk;
+		this.m.Order = this.Const.SkillOrder.Perk;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 	}

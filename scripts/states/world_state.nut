@@ -3540,8 +3540,8 @@ this.world_state <- this.inherit("scripts/states/state", {
 		//		break;
 		//	}
 
-			return true;
-		}
+		// 	return true;
+		// }
 
 		if (this.isInCharacterScreen() && _key.getState() == 0)
 		{
