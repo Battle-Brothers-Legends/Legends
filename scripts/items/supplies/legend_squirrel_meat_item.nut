@@ -6,7 +6,7 @@ this.legend_squirrel_meat_item <- this.inherit("scripts/items/supplies/legend_us
 		this.m.ID = "supplies.legend_squirrel_meat";
 		this.m.Name = "Squirrel Meat";
 		this.m.Description = "Provisions. Tasty morsels of squirrel, once fattened on acorns make a decent meal. Can be eaten in battle to provide up to 1 healing and fatigue recovery over ten turns, based on the amount remaining. Will be gradually used as provisions if left in the company stash.";
-		this.m.Icon = "supplies/legend_placeholder.png";
+		this.m.Icon = "supplies/legend_squirrel_meat.png";
 		this.m.Amount = 10;
 		this.m.Value = 15;
 		this.m.GoodForDays = 1;

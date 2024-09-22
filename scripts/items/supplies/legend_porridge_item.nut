@@ -5,8 +5,8 @@ this.legend_porridge_item <- this.inherit("scripts/items/supplies/legend_usable_
 		this.legend_usable_food.create();
 		this.m.ID = "supplies.legend_porridge";
 		this.m.Name = "Porridge";
-		this.m.Description = "Provisions. A staple meal that can be made from whatever ingredients are to hand.Can be eaten in battle to provide up to 4 healing recovery each turn for ten turns, based on the amount remaining. Will be gradually used as provisions if left in the company stash.";
-		this.m.Icon = "supplies/legend_porridge.png";
+		this.m.Description = "Provisions. A staple meal that can be made from whatever ingredients are to hand. Can be eaten in battle to provide up to 4 healing recovery each turn for ten turns, based on the amount remaining. Will be gradually used as provisions if left in the company stash.";
+		this.m.Icon = "supplies/legend_nut_soup.png";
 		this.m.Value = 150;
 		this.m.Amount = 40.0;
 		this.m.GoodForDays = 9;
