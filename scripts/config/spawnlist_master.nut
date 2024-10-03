@@ -1727,10 +1727,18 @@ gt.Const.World.Spawn.Troops <- {
 	LegendBasiliskDrone = {
 		ID = this.Const.EntityType.LegendBasiliskDrone,
 		Variant = 0,
-		Strength = 25,
-		Cost = 25,
+		Strength = 30,
+		Cost = 30,
 		Row = 0,
 		Script = "scripts/entity/tactical/enemies/legend_basilisk_drone"
+	},
+	LegendBasiliskDroneLow = {
+		ID = this.Const.EntityType.LegendBasiliskDroneLow,
+		Variant = 0,
+		Strength = 20,
+		Cost = 20,
+		Row = 0,
+		Script = "scripts/entity/tactical/enemies/legend_basilisk_drone_low"
 	},
 };
 
