@@ -1,6 +1,8 @@
 this.legend_parrying_dagger_effect <- this.inherit("scripts/skills/skill", {
 	m = {
-		Bonus = 5
+		Bonus = 5,
+		BonusDaggerComboDamage = 10,
+		OffHandSkillsIDs = [],
 	},
 	function create()
 	{
@@ -17,9 +19,59 @@ this.legend_parrying_dagger_effect <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 	}
 
+	function onEquip( _item )
+	{
+		if (::MSU.isNull(getItem()) || ::MSU.isEqual(getItem(), _item)) 
+			return; // parrying dagger has already been unequipped or it's itself
+
+		if (_item == null || !::isKindOf(_item, "weapon") || !_item.isWeaponType(::Const.Items.WeaponType.Dagger))
+			return; // not a dagger
+
+		// remove parrying duplicated skill
+		foreach (skill in _item.getSkills())
+		{
+			if (m.OffHandSkillsIDs.find(skill.getID()) == null)
+				continue;
+
+			foreach (duplicate in getItem().getSkills())
+			{
+				if (duplicate.getID() + "_offhand" != skill.getID())
+					continue;
+
+				getItem().removeSkill(duplicate);
+				break;
+			}
+		}
+	}
+
+	function onUnequip( _item )
+	{
+		if (::MSU.isNull(getItem()) || ::MSU.isEqual(getItem(), _item)) 
+			return; // parrying dagger has already been unequipped or it's itself
+
+		if (_item == null || !::isKindOf(_item, "weapon") || !_item.isWeaponType(::Const.Items.WeaponType.Dagger))
+			return; // not a dagger
+
+		// remove parrying duplicated skill
+		foreach (id in m.OffHandSkillsIDs)
+		{
+			foreach (duplicate in getItem().getSkills())
+			{
+				if (duplicate.getID() != id + "_offhand")
+					continue;
+
+				getItem().removeSkill(duplicate);
+				break;
+			}
+		}
+
+		// readd the skills as the main hand dagger has been removed
+		getItem().addDaggerSkills();
+	}
+
 	function getTooltip()
 	{
-		return [
+		local ret = [
 			{
 				id = 1,
 				type = "title",
@@ -37,16 +89,33 @@ this.legend_parrying_dagger_effect <- this.inherit("scripts/skills/skill", {
 				text = "[color=" + this.Const.UI.Color.PositiveValue + "]" + this.m.Bonus + "[/color] Melee Defense"
 			}
 		];
+
+		local main = getContainer().getActor().getMainhandItem();
+
+		// free bonus for having a double dagger combo
+		if (main != null && ::isKindOf(main, "weapon") && main.isWeaponType(::Const.Items.WeaponType.Dagger))
+			ret.push({
+				id = 11,
+				type = "text",
+				icon = "ui/icons/regular_damage.png",
+				text = "[color=" + ::Const.UI.Color.PositiveValue + "]+" + m.BonusDaggerComboDamage + "%[/color] Damage due to dual wielding daggers"
+			})
+
+		return ret;
 	}
 
 	function onUpdate( _properties )
 	{
 		_properties.IsParrying = true;
 
+		local main = getContainer().getActor().getMainhandItem();
+
+		// free bonus for having a double dagger combo
+		if (main != null && ::isKindOf(main, "weapon") && main.isWeaponType(::Const.Items.WeaponType.Dagger))
+			_properties.MeleeDamageMult *= 1.0 + m.BonusDaggerComboDamage * 0.01;
+
 		if (!this.getContainer().getActor().isPlacedOnMap())
-		{
 			return;
-		}
 
 		local actor = this.getContainer().getActor();
 		local numAdjacentEnemies = ::Tactical.Entities.getHostileActors(actor.getFaction(), actor.getTile(), 1, true).len();
