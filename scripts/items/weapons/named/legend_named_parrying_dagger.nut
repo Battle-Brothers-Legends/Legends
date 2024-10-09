@@ -89,6 +89,10 @@ this.legend_named_parrying_dagger <- this.inherit("scripts/items/shields/named/n
 		local parrying = this.new("scripts/skills/effects/legend_parrying_effect");
 		parrying.m.IsFromItem = true;
 		this.getContainer().getActor().getSkills().add(parrying);
+		local dualwield = this.new("scripts/skills/effects/legend_dual_wield_effect");
+		dualwield.setItem(this);
+		dualwield.setSkill("active.stab_offhand");
+		this.getContainer().getActor().getSkills().add(dualwield);
 	}
 
 	function addDaggerSkills()
