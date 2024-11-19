@@ -37,7 +37,7 @@
 		}
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
 		if  ( this.World.Assets.getOrigin().getID() == "scenario.militia")
 		{

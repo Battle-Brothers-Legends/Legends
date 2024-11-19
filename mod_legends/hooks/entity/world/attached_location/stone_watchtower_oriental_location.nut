@@ -8,7 +8,7 @@
 	}
 
 	local onUpdateDraftList = o.onUpdateDraftList;
-	o.onUpdateDraftList = function ( _list, _gender = null )
+	o.onUpdateDraftList = function ( _list)
 	{
 		_list.push("nomad_background");
 		_list.push("nomad_background");

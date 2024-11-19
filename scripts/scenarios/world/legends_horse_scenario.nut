@@ -157,7 +157,7 @@ this.legends_horse_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 		return false;
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
+	function onUpdateDraftList( _list)
 	{
 		if (_list.len() < 10)
 		{

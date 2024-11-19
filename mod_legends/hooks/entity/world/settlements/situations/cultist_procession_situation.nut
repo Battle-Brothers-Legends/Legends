@@ -1,6 +1,6 @@
 ::mods_hookExactClass("entity/world/settlements/situations/cultist_procession_situation", function(o)
 {
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
 		_draftList.push("cultist_background");
 		_draftList.push("cultist_background");

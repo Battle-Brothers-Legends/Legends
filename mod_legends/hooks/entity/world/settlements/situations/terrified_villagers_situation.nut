@@ -37,7 +37,7 @@
 		}
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
 		_draftList.push("gravedigger_background");
 		_draftList.push("gravedigger_background");

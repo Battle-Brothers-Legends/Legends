@@ -15,7 +15,7 @@
 	}
 
 	local onUpdateDraftList = o.onUpdateDraftList;
-	o.onUpdateDraftList = function ( _list, _gender = null )
+	o.onUpdateDraftList = function ( _list)
 	{
 		_list.push("legend_qiyan_background");
 		onUpdateDraftList(_list);

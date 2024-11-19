@@ -10,7 +10,7 @@
 		onAdded( _settlement );
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
 		if (this.m.IsSouthern)
 		{

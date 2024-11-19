@@ -18,7 +18,7 @@
 		}
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
 		_draftList.push("cripple_background");
 		_draftList.push("cripple_background");

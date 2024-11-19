@@ -53,7 +53,7 @@ this.legends_free_company_scenario <- this.inherit("scripts/scenarios/world/star
 			"legend_noble_shield",
 			"raider_background"
 		]);
-		
+
 		bros[1].setPlaceInFormation(3);
 		bros[1].setVeteranPerks(2);
 		bros[1].setStartValuesEx([ //wildcard 2 all possible wildcards minus noble ranged
@@ -95,7 +95,7 @@ this.legends_free_company_scenario <- this.inherit("scripts/scenarios/world/star
 		]);
 
 		bros[4].setPlaceInFormation(12);
-		bros[4].setVeteranPerks(2);	
+		bros[4].setVeteranPerks(2);
 		bros[4].setStartValuesEx([ //non combat 1
 			"monk_background",
 			"bowyer_background",
@@ -189,7 +189,7 @@ this.legends_free_company_scenario <- this.inherit("scripts/scenarios/world/star
 		this.starting_scenario.onInit();
 	}
 
-	function onUpdateDraftList( _list, _gender = null )
+	function onUpdateDraftList( _list)
 	{
 	}
 

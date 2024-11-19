@@ -95,7 +95,7 @@ this.legend_militant_townsfolk_situation <- this.inherit("scripts/entity/world/s
 	}
 
 
-	function onUpdateDraftList( _draftList, _gender = null)
+	function onUpdateDraftList( _draftList )
 	{
 		// Future improvement: make the backgrounds dynamic based on attached locations or settlement type
 		_draftList.push("farmhand_background");

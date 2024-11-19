@@ -520,11 +520,6 @@
 
 	o.onInit = function ()
 	{
-		local body = this.m.Body;
-		local bodies = this.m.Bodies;
-		local length = bodies.len();
-		local firstBody = bodies[0];
-
 		this.actor.onInit();
 		this.m.ActionPointCosts = this.Const.DefaultMovementAPCost;
 		this.m.FatigueCosts = this.Const.DefaultMovementFatigueCost;

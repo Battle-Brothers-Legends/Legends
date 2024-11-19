@@ -21,7 +21,7 @@
 		onAdded( _settlement );
 	}
 
-	o.onUpdateDraftList = function ( _draftList, _gender = null)
+	o.onUpdateDraftList = function ( _draftList )
 	{
 		_draftList.push("peddler_background");
 		_draftList.push("peddler_background");

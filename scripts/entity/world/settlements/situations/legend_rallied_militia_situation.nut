@@ -29,7 +29,7 @@ this.legend_rallied_militia_situation <- this.inherit("scripts/entity/world/sett
 		_modifiers.RecruitsMult *= 1.3;
 	}
 
-	function onUpdateDraftList( _draftList, _gender = null)
+	function onUpdateDraftList( _draftList )
 	{
 		_draftList.push("militia_background");
 		_draftList.push("militia_background");

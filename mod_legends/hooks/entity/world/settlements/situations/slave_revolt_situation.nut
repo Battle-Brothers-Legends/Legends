@@ -19,7 +19,7 @@
 	}
 
 	local onUpdateDraftList = o.onUpdateDraftList;
-	o.onUpdateDraftList = function ( _draftList, _gender = null)
+	o.onUpdateDraftList = function ( _draftList )
 	{
 		_draftList.push("legend_muladi_background");
 		onUpdateDraftList(_draftList);

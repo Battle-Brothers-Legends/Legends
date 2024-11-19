@@ -29,7 +29,7 @@ this.legend_merc_company_disbands_situation <- this.inherit("scripts/entity/worl
 		_modifiers.RecruitsMult *= 1.5;
 	}
 
-	function onUpdateDraftList( _draftList, _gender = null)
+	function onUpdateDraftList( _draftList )
 	{
 		_draftList.push("sellsword_background");
 		_draftList.push("sellsword_background");

@@ -1,7 +1,7 @@
 ::mods_hookExactClass("entity/world/attached_location/goat_herd_oriental_location", function(o)
 {
 	local onUpdateDraftList = o.onUpdateDraftList;
-	o.onUpdateDraftList = function ( _list, _gender = null )
+	o.onUpdateDraftList = function ( _list)
 	{
 		_list.push("legend_muladi_background");
 		_list.push("legend_muladi_background");

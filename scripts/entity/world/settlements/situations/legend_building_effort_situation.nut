@@ -88,7 +88,7 @@ this.legend_building_effort_situation <- this.inherit("scripts/entity/world/sett
 	}
 
 
-	function onUpdateDraftList( _draftList, _gender = null)
+	function onUpdateDraftList( _draftList )
 	{
 		if (this.m.IsSouthern)
 		{

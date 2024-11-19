@@ -10,7 +10,7 @@
 		onAdded( _settlement );
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
 		_draftList.push("monk_background");
 		_draftList.push("monk_background");

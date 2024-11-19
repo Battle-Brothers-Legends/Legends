@@ -1,7 +1,7 @@
 ::mods_hookExactClass("entity/world/attached_location/surface_copper_vein_location", function(o)
 {
 	local onUpdateDraftList = o.onUpdateDraftList;
-	o.onUpdateDraftList = function ( _list, _gender = null )
+	o.onUpdateDraftList = function ( _list)
 	{
 		 _list.push("legend_ironmonger_background");
 		onUpdateDraftList(_list);

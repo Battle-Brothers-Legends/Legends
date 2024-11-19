@@ -50,7 +50,7 @@ this.legend_upgrading_locations_effort_situation <- this.inherit("scripts/entity
 	}
 
 
-	function onUpdateDraftList( _draftList, _gender = null)
+	function onUpdateDraftList( _draftList )
 	{
 		if (this.m.IsSouthern)
 		{
