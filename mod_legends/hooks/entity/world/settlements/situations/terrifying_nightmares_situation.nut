@@ -39,7 +39,6 @@
 
 	o.onUpdateDraftList <- function ( _draftList, _gender = null)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 		if  ( this.World.Assets.getOrigin().getID() == "scenario.militia")
 		{
 			_draftList.push("legend_nightwatch_background");

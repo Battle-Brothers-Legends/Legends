@@ -52,7 +52,6 @@ this.legend_upgrading_effort_situation <- this.inherit("scripts/entity/world/set
 
 	function onUpdateDraftList( _draftList, _gender = null)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 		if (this.m.IsSouthern)
 		{
 			_draftList.push("daytaler_southern_background");
@@ -79,10 +78,8 @@ this.legend_upgrading_effort_situation <- this.inherit("scripts/entity/world/set
 			_draftList.push("legend_inventor_background");
 
 		}
-
 		_draftList.push("legend_blacksmith_background");
 		_draftList.push("legend_blacksmith_background");
-
 	}
 
 });

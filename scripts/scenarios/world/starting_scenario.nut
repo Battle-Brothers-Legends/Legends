@@ -74,7 +74,7 @@ this.starting_scenario <- {
 
 		case 3:
 			return "difficulty_hard";
-		
+
 		case 4:
 			return "difficulty_legend";
 		}
@@ -124,9 +124,8 @@ this.starting_scenario <- {
 	{
 	}
 
-	function onUpdateDraftList( _list, _gender = null)
+	function onUpdateDraftList( _list)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 	}
 
 	function onUpdateStablesList( _list )
@@ -234,7 +233,7 @@ this.starting_scenario <- {
 			_background.getContainer().add(this.new(this.Const.Perks.PerkDefObjects[_perk].Script));
 			isRefundable = false;
 		}
-		
+
 		_background.addPerk(_perk, _row, isRefundable);
 		if (!isRefundable) _background.getPerk(_perk).IsRefundable = false;
 	}

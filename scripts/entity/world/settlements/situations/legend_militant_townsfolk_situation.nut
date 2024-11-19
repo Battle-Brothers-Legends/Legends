@@ -97,8 +97,6 @@ this.legend_militant_townsfolk_situation <- this.inherit("scripts/entity/world/s
 
 	function onUpdateDraftList( _draftList, _gender = null)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
 		// Future improvement: make the backgrounds dynamic based on attached locations or settlement type
 		_draftList.push("farmhand_background");
 		_draftList.push("farmhand_background");

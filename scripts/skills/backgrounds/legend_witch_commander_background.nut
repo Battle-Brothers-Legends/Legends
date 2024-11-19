@@ -147,23 +147,6 @@ this.legend_witch_commander_background <- this.inherit("scripts/skills/backgroun
 
 	}
 
-	// //Default feMale
-	// function setGender(_gender = -1)
-	// {
-	// 	if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
-
-	// 	if (_gender != 0) return;
-
-	// 	this.m.Faces = this.Const.Faces.AllWhiteMale;
-	// 	this.m.Hairs = this.Const.Hair.CommonMale;
-	// 	this.m.HairColors = this.Const.HairColors.All;
-	// 	this.m.Beards = this.Const.Beards.All;
-	// 	this.m.Bodies = this.Const.Bodies.Skinny;
-	// 	this.removeBackgroundType(this.Const.BackgroundType.Female);
-	// }
-
-
-
 	function onBuildDescription()
 	{
 		//come back to this later
@@ -219,14 +202,6 @@ this.legend_witch_commander_background <- this.inherit("scripts/skills/backgroun
 		//this.m.Container.add(this.new("scripts/skills/perks/perk_legend_roster_1"));
 		//this.m.Container.add(this.new("scripts/skills/perks/perk_legend_teacher"));
 		//this.m.Container.add(this.new("scripts/skills/perks/perk_student"));
-
-		// todo delete it - chopeks
-		//if (this.LegendsMod.Configs().LegendMagicEnabled())
-		//{
-		//
-		//	this.m.Container.add(this.new("scripts/skills/perks/perk_legend_magic_missile"));
-		//}
-
 	}
 
 	function onAddEquipment()

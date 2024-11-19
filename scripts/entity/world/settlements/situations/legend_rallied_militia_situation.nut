@@ -31,7 +31,6 @@ this.legend_rallied_militia_situation <- this.inherit("scripts/entity/world/sett
 
 	function onUpdateDraftList( _draftList, _gender = null)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 		_draftList.push("militia_background");
 		_draftList.push("militia_background");
 		_draftList.push("militia_background");

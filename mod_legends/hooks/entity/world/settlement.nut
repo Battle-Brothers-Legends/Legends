@@ -76,12 +76,7 @@
 	o.getDraftList <- function ()
 	{
 		local L = clone this.m.DraftList;
-
-		if (::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled")
-		{
-			L.extend(this.m.FemaleDraftList);
-		}
-
+		L.extend(clone this.m.FemaleDraftList);
 		return L;
 	}
 

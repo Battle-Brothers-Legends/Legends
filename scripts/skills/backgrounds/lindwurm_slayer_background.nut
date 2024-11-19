@@ -49,7 +49,7 @@ this.lindwurm_slayer_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.Modifiers.Hunting = this.Const.LegendMod.ResourceModifiers.Hunting[3];
 		this.m.Modifiers.Scout = this.Const.LegendMod.ResourceModifiers.Scout[1];
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[1];
-		
+
 		this.m.Modifiers.Terrain = [
 				0.0, // ?
 				0.0, //ocean
@@ -107,7 +107,7 @@ this.lindwurm_slayer_background <- this.inherit("scripts/skills/backgrounds/char
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.Faces = this.Const.Faces.AllFemale;

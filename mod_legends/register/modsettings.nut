@@ -23,7 +23,6 @@ addNCSetting(map, ::MSU.Class.BooleanSetting("DebugMap", false, "(Debug) Show En
 
 local config = ::Legends.Mod.ModSettings.addPage("Campaign Options");
 
-addNCSetting(config, ::MSU.Class.EnumSetting("GenderEquality", "Enabled", ["Disabled", "Enabled", "Enabled (Cosmetic)"], "Battle Sisters", "When enabled, most backgrounds will be randomly assigned male or female. Some backgrounds will remain exclusively male or female. Female characters receive +10 fatigue, but -10 hit points.\n\n[u]Disabled[/u]\nNearly Vanilla experience. Regular backgrounds have no female variant, although special backgrounds like the Vala will still appear. No enemy encounters with females. (Yes, your friend the Hex is still here!)\n\n[u]Enabled[/u]\nBeing female has gameplay effects.\n\n[u]Enabled (Cosmetic)[/u]\nBeing female has no effect on stats."));
 addNCSetting(config, ::MSU.Class.SettingsDivider("ConfigDivider1"));
 addNCSetting(config, ::MSU.Class.BooleanSetting("DistanceScaling", true, "Distance Scaling", "If enabled, enemies will be stronger the further they spawn from civilization. \n\n Detail: Begins at 14 tiles from the nearest town, enemies spawned at 28 tiles will be twice as strong. \n\n This is in addition to other difficulty settings."));
 addNCSetting(config, ::MSU.Class.BooleanSetting("SkipCamp", true, "Skip Camp Tutorial", "If disabled, you will gradually unlock camping activities by visiting towns. Useful for first playthroughs. \n\n Detail: skips the camp unlock events and ambition, you still need to buy upgrades."));
@@ -47,7 +46,7 @@ tooltip.addTitle("TooltipCharacter", "Tooltips - Character");
 tooltip.addElement(::MSU.Class.BooleanSetting("ShowCharacterBackgroundType", true, "Show Character Background Types", "Show a character's Background Types in Tooltips.\n\nUseful when playing Origins with additional gameplay mechanics based on Background Types"));
 tooltip.addDivider("TooltipDivider3");
 tooltip.addTitle("TooltipWorldMap", "Tooltips - World Map");
-tooltip.addElement(::MSU.Class.BooleanSetting("ExactEngageNumbers", false, "Exact engagement numbers", "Display exact engagement numbers."));	
+tooltip.addElement(::MSU.Class.BooleanSetting("ExactEngageNumbers", false, "Exact engagement numbers", "Display exact engagement numbers."));
 tooltip.addDivider("TooltipDivider4");
 tooltip.addTitle("TooltipUI", "UI");
 

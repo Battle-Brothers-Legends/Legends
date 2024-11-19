@@ -83,7 +83,7 @@ this.legend_pilgrim_background <- this.inherit("scripts/skills/backgrounds/chara
 				this.Const.Perks.ShieldTree,
 				this.Const.Perks.SlingTree
 			],
-			Defense = [		
+			Defense = [
 				this.Const.Perks.LightArmorTree,
 				this.Const.Perks.HeavyArmorTree
 			],
@@ -138,7 +138,7 @@ this.legend_pilgrim_background <- this.inherit("scripts/skills/backgrounds/chara
 
 	function setGender(_gender = -1)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 19)
+		_gender = ::Math.rand(0, 19)
 
 		if (_gender != 1) return;
 

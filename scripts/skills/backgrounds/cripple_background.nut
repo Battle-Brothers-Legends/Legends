@@ -81,7 +81,7 @@ this.cripple_background <- this.inherit("scripts/skills/backgrounds/character_ba
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.GoodEnding = "It\'s shocking that a woman of %name%\'s stature survived at all, but the cripple did retire from the %companyname% with a sizeable stack of crowns. She runs an orphanage these days, spending her crowns to help the world\'s broken and abandoned children. That, or it\'s just a front for cheap labor. Can\'t be too sure these days.";

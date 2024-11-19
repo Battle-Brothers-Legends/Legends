@@ -3,10 +3,9 @@
 	local onUpdateDraftList = o.onUpdateDraftList;
 	o.onUpdateDraftList = function ( _list, _gender = null )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
+		_list.push("legend_muladi_background");
+		_list.push("legend_muladi_background");
 		onUpdateDraftList(_list);
-		_list.push("legend_muladi_background");
-		_list.push("legend_muladi_background");
 	}
 
 	local onUpdateShopList = o.onUpdateShopList;

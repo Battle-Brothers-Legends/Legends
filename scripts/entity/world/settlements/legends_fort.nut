@@ -141,11 +141,7 @@ this.legends_fort <- this.inherit("scripts/entity/world/settlement", {
 	function getDraftList()
 	{
 		local L = clone this.m.DraftLists[this.m.Size - 1];
-		if (::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled")
-		{
-			L.extend(this.m.FemaleDraftLists[this.m.Size - 1]);
-		}
-
+		L.extend(clone this.m.FemaleDraftLists[this.m.Size - 1]);
 		return L;
 	}
 

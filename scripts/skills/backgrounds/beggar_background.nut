@@ -79,13 +79,13 @@ this.beggar_background <- this.inherit("scripts/skills/backgrounds/character_bac
 
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 
 		this.m.Name = "Widow";
 		this.m.Icon = "ui/backgrounds/background_widow.png";
-		this.m.BackgroundDescription = "Widows who can\'t find another husband have few choices, mercenary work is a last resort of the hopeless.";	
+		this.m.BackgroundDescription = "Widows who can\'t find another husband have few choices, mercenary work is a last resort of the hopeless.";
 		this.m.Faces = this.Const.Faces.OldFemale;
 		this.m.Hairs = this.Const.Hair.AllFemale;
 		this.m.HairColors = this.Const.HairColors.Old;

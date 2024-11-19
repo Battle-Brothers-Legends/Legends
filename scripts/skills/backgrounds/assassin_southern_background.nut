@@ -113,7 +113,7 @@ this.assassin_southern_background <- this.inherit("scripts/skills/backgrounds/ch
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.GoodEnding = "%name% the assassin departed the %companyname% with a large chest of gold and traveled far away. From what rumors you\'ve heard, she built a castle in the mountains east of the southern kingdoms. You\'re not sure if it\'s true, but there\'s been a steady increase in dead viziers and lords alike as of late.";

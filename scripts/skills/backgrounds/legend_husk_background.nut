@@ -73,12 +73,12 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 			Weapon = [
 				this.Const.Perks.CleaverTree,
 				this.Const.Perks.FlailTree,
-				this.Const.Perks.MaceTree,			
+				this.Const.Perks.MaceTree,
 				this.Const.Perks.AxeTree
 			],
 			Defense = [
 				this.Const.Perks.MediumArmorTree,
-				this.Const.Perks.HeavyArmorTree			
+				this.Const.Perks.HeavyArmorTree
 			],
 			Traits = [
 				this.Const.Perks.MartyrTree,
@@ -101,7 +101,7 @@ this.legend_husk_background <- this.inherit("scripts/skills/backgrounds/characte
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 

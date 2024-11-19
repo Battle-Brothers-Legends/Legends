@@ -59,7 +59,7 @@ this.deserter_background <- this.inherit("scripts/skills/backgrounds/character_b
 				this.Const.Perks.ShieldTree,
 				this.Const.Perks.CrossbowTree
 			],
-			Defense = [	
+			Defense = [
 				this.Const.Perks.HeavyArmorTree,
 			],
 			Traits = [
@@ -80,7 +80,7 @@ this.deserter_background <- this.inherit("scripts/skills/backgrounds/character_b
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;

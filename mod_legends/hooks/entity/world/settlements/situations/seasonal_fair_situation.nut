@@ -23,7 +23,6 @@
 
 	o.onUpdateDraftList = function ( _draftList, _gender = null)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 		_draftList.push("peddler_background");
 		_draftList.push("peddler_background");
 		_draftList.push("peddler_background");

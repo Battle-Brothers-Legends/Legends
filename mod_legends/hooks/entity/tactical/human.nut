@@ -7,11 +7,10 @@
 	{
 		create();
 		this.setGender(0);
-		if (this.Math.rand(1, 100) <= 25 && ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled")
+		if (this.Math.rand(1, 100) <= 25)
 			this.setGender(1);
 		else
 			this.setGender(0);
-		this.getFlags().add("human");
 	}
 
 	o.getPronoun <- function (_neuter)
@@ -27,12 +26,6 @@
 
 	o.setGender <- function ( _v, _reroll = true)
 	{
-
-		if ("LegendMod" in this.World && ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue == "Disabled")
-		{
-			_v = 0;
-		}
-
 		this.m.Gender = _v;
 		if(this.m.Gender == 1)
 		{
@@ -527,6 +520,11 @@
 
 	o.onInit = function ()
 	{
+		local body = this.m.Body;
+		local bodies = this.m.Bodies;
+		local length = bodies.len();
+		local firstBody = bodies[0];
+
 		this.actor.onInit();
 		this.m.ActionPointCosts = this.Const.DefaultMovementAPCost;
 		this.m.FatigueCosts = this.Const.DefaultMovementFatigueCost;
