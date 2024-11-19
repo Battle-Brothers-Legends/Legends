@@ -91,7 +91,7 @@ this.legend_assassin_commander_background <- this.inherit("scripts/skills/backgr
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan
 			],
 			[
-				this.Const.Perks.PerkDefs.BoondockBlade,
+				this.Const.Perks.PerkDefs.LegendBoondockBlade,
 				this.Const.Perks.PerkDefs.LegendHairSplitter,
 				this.Const.Perks.PerkDefs.LegendEscapeArtist,
 				this.Const.Perks.PerkDefs.LegendTrueBeliever,

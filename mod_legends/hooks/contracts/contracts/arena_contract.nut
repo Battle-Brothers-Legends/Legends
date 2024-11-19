@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/arena_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/arena_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -140,7 +140,7 @@
 						P = 150
 					}
 				]);
-			}			
+			}
 		}
 
 		local maxR = 0;
@@ -201,7 +201,7 @@
 					}
 				});
 
-				s.start = function ()
+				s.start <- function ()
 				{
 					this.Text += "\n\n\n\n\n\n\n\nThe following characters will enter the arena:\n\n%bro1name%\n%bro2name%\n%bro3name%";
 				}
@@ -209,7 +209,7 @@
 
 			if (s.ID == "Success")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					local roster = this.World.getPlayerRoster().getAll();
 					local n = 0;
@@ -437,8 +437,7 @@
 	local onPrepareVariables = o.onPrepareVariables;
 	o.onPrepareVariables = function ( _vars )
 	{
-		onPrepareVariables();
-
+		onPrepareVariables(_vars);
 		this.prepareBroVariables(3, _vars)
 	}
 });
