@@ -1,16 +1,13 @@
-this.legend_emperors_armor <- this.inherit("scripts/items/legend_armor/legend_named_armor", {
+this.legend_emperors_armor <- this.inherit("scripts/items/legend_armor/legend_armor_upgrade", {
 	m = {},
 	function create()
 	{
 		this.legend_armor_upgrade.create();
 		this.m.Type = this.Const.Items.ArmorUpgrades.Plate;
-		this.m.ID = "legend_armor.body.emperors_armor";
+		this.m.ID = "armor.body.legend_emperors_armor";
 		this.m.Name = "The Emperor\'s Armor";
 		this.m.Description = "A shining armor once worn by the emperor of an age long past, made from the most woundrous of materials, imbued with mystical energies. Light reflects easily off the polished armor, turning the wearer into a shimmering figure of light during the day.";
 		this.m.SlotType = this.Const.ItemSlot.Body;
-		this.m.IsDroppedAsLoot = true;
-		this.m.ShowOnCharacter = true;
-		this.m.IsIndestructible = true;
 		this.m.SpriteBack = "bust_named_emperors_armor_01";
 		this.m.SpriteDamagedBack = "bust_named_emperors_armor_01_damaged";
 		this.m.SpriteCorpseBack = "bust_named_emperors_armor_01_dead";
@@ -25,7 +22,6 @@ this.legend_emperors_armor <- this.inherit("scripts/items/legend_armor/legend_na
 		this.m.ConditionMax = 350;
 		this.m.StaminaModifier = -35;
 		this.m.ItemType = this.m.ItemType | this.Const.Items.ItemType.Legendary;
-		this.randomizeValues();
 	}
 
 	function getTooltip()

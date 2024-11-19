@@ -10,10 +10,8 @@
 		onAdded( _settlement );
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		// _draftList.push("legend_executioner_background"); to be added 
-
+		// _draftList.push("legend_executioner_background"); to be added
 	}
 });

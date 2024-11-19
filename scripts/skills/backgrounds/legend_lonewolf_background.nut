@@ -55,13 +55,13 @@ this.legend_lonewolf_background <- this.inherit("scripts/skills/backgrounds/char
 		this.m.Ethnicity = this.Math.rand(0, 2);
 		if (this.m.Ethnicity == 0)
 		{
-			this.m.Bodies = this.Const.Bodies.Muscular;		
+			this.m.Bodies = this.Const.Bodies.Muscular;
 			this.m.Faces = this.Const.Faces.AllWhiteMale;
 			this.m.Hairs = this.Const.Hair.CommonMale;
 			this.m.HairColors = this.Const.HairColors.All;
 			this.m.Beards = this.Const.Beards.All;
 			this.m.BeardChance = 60;
-		}	
+		}
 		else if (this.m.Ethnicity == 1)
 		{
 			this.m.Bodies = this.Const.Bodies.Gladiator;
@@ -86,7 +86,7 @@ this.legend_lonewolf_background <- this.inherit("scripts/skills/backgrounds/char
 		}
 
 		this.m.Modifiers.Training = this.Const.LegendMod.ResourceModifiers.Training[3];
-		
+
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.GreatSwordTree,
@@ -121,7 +121,7 @@ this.legend_lonewolf_background <- this.inherit("scripts/skills/backgrounds/char
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.Ethnicity = this.Math.rand(0, 2);
@@ -131,7 +131,7 @@ this.legend_lonewolf_background <- this.inherit("scripts/skills/backgrounds/char
 			this.m.Hairs = this.Const.Hair.AllFemale;
 			this.m.HairColors = this.Const.HairColors.All;
 			this.m.Bodies = this.Const.Bodies.AllFemale;
-		}	
+		}
 		else if (this.m.Ethnicity == 1)
 		{
 			this.m.Faces = this.Const.Faces.SouthernFemale;

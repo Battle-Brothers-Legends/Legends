@@ -8,14 +8,10 @@
 	}
 
 	local onUpdateDraftList = o.onUpdateDraftList;
-	o.onUpdateDraftList = function ( _list, _gender = null )
+	o.onUpdateDraftList = function ( _list)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		if (_gender)
-		{
-			_list.push("legend_qiyan_background");
-			_list.push("legend_qiyan_background");
-		}
+		_list.push("legend_qiyan_background");
+		_list.push("legend_qiyan_background");
 		onUpdateDraftList(_list);
 	}
 

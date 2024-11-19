@@ -63,13 +63,13 @@ this.miller_background <- this.inherit("scripts/skills/backgrounds/character_bac
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 
 		this.m.Name = "Baker";
 		this.m.Icon = "ui/backgrounds/baker.png";
-		this.m.BackgroundDescription = "A baker is used to working the oven and kneading bread.";		
+		this.m.BackgroundDescription = "A baker is used to working the oven and kneading bread.";
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;
 		this.m.Hairs = this.Const.Hair.AllFemale;
 		this.m.HairColors = this.Const.HairColors.Young;

@@ -18,23 +18,18 @@
 		}
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
-		local r;
 		if ( this.World.Assets.getOrigin().getID() == "scenario.legends_seer")
 		{
-			r = this.Math.rand(0, 5);
-			if (r == 1)
+			if (this.Math.rand(0, 5) == 1)
 			{
 				_draftList.push("legend_illusionist_background");
 			}
 		}
 		else
 		{
-			r = this.Math.rand(0, 9);
-			if (r == 1)
+			if (this.Math.rand(0, 9) == 1)
 			{
 				_draftList.push("legend_illusionist_background");
 			}

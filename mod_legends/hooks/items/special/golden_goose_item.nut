@@ -1,12 +1,4 @@
 ::mods_hookExactClass("items/special/golden_goose_item", function(o) {
-	local create = o.create;
-	o.create = function ()
-	{
-		create();
-		this.m.StaminaModifier = -2;
-		this.m.AddGenericSkill = true;
-	}
-
 	local getTooltip = o.getTooltip;
 	o.getTooltip = function ()
 	{

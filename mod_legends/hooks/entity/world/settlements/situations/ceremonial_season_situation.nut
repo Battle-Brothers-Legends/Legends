@@ -10,18 +10,12 @@
 		onAdded( _settlement );
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 		_draftList.push("monk_background");
 		_draftList.push("monk_background");
 		_draftList.push("cultist_background");
 		_draftList.push("flagellant_background");
-		// if (_gender)
-		// 	{
-		// 	_draftList.push("legend_nun_background");
-		// 	_draftList.push("legend_nun_background");
-		// }
 		if  ( this.World.Assets.getOrigin().getID() == "scenario.cultists")
 		{
 			_draftList.push("legend_husk_background");

@@ -56,7 +56,7 @@ this.refugee_background <- this.inherit("scripts/skills/backgrounds/character_ba
 			this.m.HairColors = this.Const.HairColors.African;
 			this.m.Beards = this.Const.Beards.Untidy;
 		}
-		
+
 		this.m.BackgroundType = this.Const.BackgroundType.OffendedByViolence | this.Const.BackgroundType.Lowborn;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Merciless;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Good;
@@ -86,7 +86,7 @@ this.refugee_background <- this.inherit("scripts/skills/backgrounds/character_ba
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;

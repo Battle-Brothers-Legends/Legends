@@ -1,4 +1,4 @@
-::mods_hookExactClass("entity/world/locations/orc_fortress_location", function(o) 
+::mods_hookExactClass("entity/world/locations/orc_fortress_location", function(o)
 {
 	o.onDropLootForPlayer = function ( _lootTable )
 	{
@@ -15,6 +15,6 @@
 			"trade/dies_item",
 			"loot/white_pearls_item"
 		], _lootTable);
-		_lootTable.push(this.Const.World.Common.pickHelmet([[1, "legendary/emperors_countenance"]]));
+		_lootTable.push(this.Const.World.Common.pickHelmet([[1, "legendary/legend_emperors_countenance"]]));
 	}
 });

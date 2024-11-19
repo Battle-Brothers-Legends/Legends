@@ -1,5 +1,11 @@
-::mods_hookExactClass("entity/tactical/humans/vizier", function(o) 
+::mods_hookExactClass("entity/tactical/humans/vizier", function(o)
 {
+	local create = o.create;
+	o.create = function () {
+		create();
+		setGender(0); // todo chopeks, can it be a woman or not?
+	}
+
 	o.assignRandomEquipment = function ()
 	{
 		local r;

@@ -10,20 +10,14 @@
 		onAdded( _settlement );
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 		_draftList.push("cripple_background");
 		_draftList.push("cripple_background");
 		_draftList.push("beggar_background");
 		_draftList.push("beggar_background");
 		_draftList.push("monk_background");
-
-		if (_gender)
-		{
-			// _draftList.push("legend_nun_background");
-			_draftList.push("legend_herbalist_background");
-		}
+		_draftList.push("legend_herbalist_background");
 
 		if  (this.World.Assets.getOrigin().getID() == "scenario.legends_necro" || this.World.Assets.getOrigin().getID() == "scenario.legends_solo_necro")
 		{

@@ -84,7 +84,7 @@ this.legend_bounty_hunter_background <- this.inherit("scripts/skills/backgrounds
 			0.05, //desert
 			0.05 //oasis
 		];
-		this.m.PerkTreeDynamic = { 
+		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.MaceTree,
 				this.Const.Perks.DaggerTree,
@@ -119,7 +119,7 @@ this.legend_bounty_hunter_background <- this.inherit("scripts/skills/backgrounds
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.Faces = this.Const.Faces.SouthernFemale;
@@ -249,7 +249,7 @@ this.legend_bounty_hunter_background <- this.inherit("scripts/skills/backgrounds
 	function onUpdate( _properties )
 	{
 		this.character_background.onUpdate(_properties);
-		_properties.HitChance[this.Const.BodyPart.Head] += 10; 
+		_properties.HitChance[this.Const.BodyPart.Head] += 10;
 	}
 });
 

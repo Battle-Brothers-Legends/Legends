@@ -15,12 +15,9 @@
 	}
 
 	local onUpdateDraftList = o.onUpdateDraftList;
-	o.onUpdateDraftList = function ( _list, _gender = null )
+	o.onUpdateDraftList = function ( _list)
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
 		onUpdateDraftList(_list);
-
 		_list.push("peddler_background");
 		_list.push("caravan_hand_background");
 		_list.push("thief_background");

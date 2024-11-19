@@ -1,4 +1,4 @@
-::mods_hookExactClass("entity/tactical/objects/arena_spectator", function(o) 
+::mods_hookExactClass("entity/tactical/objects/arena_spectator", function(o)
 {
 	o.onInit = function ()
 	{
@@ -39,7 +39,7 @@
 			"helmet_desert_noble_03"
 		];
 
-		if (::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled" && this.Math.rand(1, 100) >= 50)
+		if (this.Math.rand(1, 100) >= 50)
 		{
 			bodies = this.Const.Bodies.SouthernFemale;
 			heads = this.Const.Faces.SouthernFemale;

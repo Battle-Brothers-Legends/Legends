@@ -10,9 +10,8 @@
 		onAdded( _settlement );
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
 		_draftList.push("caravan_hand_background");
 		_draftList.push("caravan_hand_background");
 		_draftList.push("caravan_hand_background");
@@ -33,11 +32,6 @@
 		_draftList.push("adventurous_noble_background");
 		_draftList.push("legend_donkey_background");
 
-		// if (_gender)
-		// {
-		// 	_draftList.push("female_adventurous_noble_background");
-		// }
-		
 		if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_crusader")
 		{
 			_draftList.push("legend_pilgrim_background");

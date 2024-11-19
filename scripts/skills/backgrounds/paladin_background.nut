@@ -92,7 +92,7 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 				0.0, //desert
 				0.0 //oasis
 			];
-		
+
 		this.m.PerkTreeDynamic = {
 			Weapon = [
 				this.Const.Perks.GreatSwordTree,
@@ -105,7 +105,7 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 				this.Const.Perks.CrossbowTree
 			],
 			Defense = [
-				this.Const.Perks.HeavyArmorTree,	
+				this.Const.Perks.HeavyArmorTree,
 				this.Const.Perks.LightArmorTree
 			],
 			Traits = [
@@ -127,7 +127,7 @@ this.paladin_background <- this.inherit("scripts/skills/backgrounds/character_ba
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.Faces = this.Const.Faces.AllFemale;

@@ -56,7 +56,7 @@ this.legend_nightwatch_background <- this.inherit("scripts/skills/backgrounds/ch
 			Weapon = [
 				this.Const.Perks.PolearmTree,
 				this.Const.Perks.StaffTree,
-				this.Const.Perks.CrossbowTree,			
+				this.Const.Perks.CrossbowTree,
 				this.Const.Perks.SlingTree
 			],
 			Defense = [
@@ -79,7 +79,7 @@ this.legend_nightwatch_background <- this.inherit("scripts/skills/backgrounds/ch
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;

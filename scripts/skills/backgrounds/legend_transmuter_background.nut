@@ -39,7 +39,7 @@ this.legend_transmuter_background <- this.inherit("scripts/skills/backgrounds/ch
 		this.m.Beards = null;
 		this.m.Bodies = this.Const.Bodies.AllFemale;
 		this.m.BackgroundType = this.Const.BackgroundType.Female | this.Const.BackgroundType.Educated | this.Const.BackgroundType.Untalented;
-		
+
 		this.m.Level = 1;
 		this.m.AlignmentMin = this.Const.LegendMod.Alignment.Dreaded;
 		this.m.AlignmentMax = this.Const.LegendMod.Alignment.Chivalrous;
@@ -79,7 +79,7 @@ this.legend_transmuter_background <- this.inherit("scripts/skills/backgrounds/ch
 	//Default feMale
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 0) return;
 

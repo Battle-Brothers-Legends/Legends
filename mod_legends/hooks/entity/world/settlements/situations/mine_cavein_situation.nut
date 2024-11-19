@@ -10,10 +10,8 @@
 		onAdded( _settlement );
 	}
 
-	o.onUpdateDraftList <- function ( _draftList, _gender = null)
+	o.onUpdateDraftList <- function ( _draftList )
 	{
-		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-		onUpdateDraftList(_draftList);
 		_draftList.push("legend_ironmonger_background");
 		_draftList.push("legend_ironmonger_background");
 		_draftList.push("legend_ironmonger_background");

@@ -82,7 +82,7 @@ this.legend_guildmaster_background <- this.inherit("scripts/skills/backgrounds/c
 			],
 			Defense = [
 				this.Const.Perks.MediumArmorTree,
-				this.Const.Perks.LightArmorTree				
+				this.Const.Perks.LightArmorTree
 			],
 			Traits = [
 				this.Const.Perks.ViciousTree,
@@ -110,7 +110,7 @@ this.legend_guildmaster_background <- this.inherit("scripts/skills/backgrounds/c
 	//Default Male
 	function setGender(_gender = -1)
 	{
-		if (_gender == -1) _gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() == "Disabled" ? 0 : ::Math.rand(0, 1);
+		if (_gender == -1) _gender = ::Math.rand(0, 1);
 
 		if (_gender != 1) return;
 		this.m.Faces = this.Const.Faces.AllWhiteFemale;

@@ -1,4 +1,4 @@
-::mods_hookExactClass("entity/world/locations/legendary/unique_goblin_city_location", function(o) 
+::mods_hookExactClass("entity/world/locations/legendary/unique_goblin_city_location", function(o)
 {
 	o.onDropLootForPlayer = function ( _lootTable )
 	{
@@ -24,6 +24,6 @@
 			"loot/signet_ring_item",
 			"misc/legend_ancient_scroll_item"
 		], _lootTable);
-		_lootTable.push(this.Const.World.Common.pickHelmet([[1, "legendary/emperors_countenance"]]));
+		_lootTable.push(this.Const.World.Common.pickHelmet([[1, "legendary/legend_emperors_countenance"]]));
 	}
 });
