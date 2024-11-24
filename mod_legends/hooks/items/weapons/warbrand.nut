@@ -6,12 +6,11 @@
 		this.m.Value = 1700;
 	}
 
-	local onEquip = o.onEquip;
-	o.onEquip = function ()
+	o.addSkill <- function( _skill )
 	{
-		onEquip();
-		this.addSkill(this.new("scripts/skills/actives/legend_great_slash"));
-		this.addSkill(this.new("scripts/skills/actives/split"));
-		this.addSkill(this.new("scripts/skills/actives/swing"));
+		if (_skill.getID() == "actives.slash")
+			_skill = ::new("scripts/skills/actives/legend_great_slash"); // replace slash with great slash
+
+		weapon.addSkill(_skill);
 	}
 });

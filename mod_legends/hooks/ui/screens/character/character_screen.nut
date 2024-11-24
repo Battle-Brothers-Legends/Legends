@@ -213,7 +213,8 @@
 
 	o.onSwapInventoryItem = function ( _data )
 	{
-		if(_data[2]) return this.general_onUpgradeInventoryItem(_data);
+		if(_data[2])
+			return this.general_onUpgradeInventoryItem(_data);
 		return this.general_onSwapInventoryItem(_data);
 	}
 
@@ -670,6 +671,7 @@
 		local armor  = this.Stash.getItemAtIndex(_data[0]).item;
 		return this.removeAllUpgradesFromItem(armor)
 	}
+
 	o.removePaperdollItemUpgrades <- function (_data)
 	{
 		local bro = this.Tactical.getEntityByID(_data[0]);

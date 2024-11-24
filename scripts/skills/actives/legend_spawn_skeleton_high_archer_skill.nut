@@ -6,8 +6,8 @@ this.legend_spawn_skeleton_high_archer_skill <- this.inherit("scripts/skills/act
 		this.m.ID = "actives.legend_spawn_skeleton_high_archer_skill";
 		this.m.Name = "Summon Heavy Archer Skeleton";
 		this.m.Description = "Unleash your skeleton and send him charging into the enemy. Needs a free tile adjacent.";
-		this.m.Icon = "skills/skeleton_archer_03_square.png",
-		this.m.IconDisabled = "skills/skeleton_archer_03_square_bw.png",
+		this.m.Icon = "skills/skeleton_archer_03_square.png";
+		this.m.IconDisabled = "skills/skeleton_archer_03_square_bw.png";
 		this.m.Overlay = "skeleton_archer_03_square";
 		 this.m.SoundOnUse = [
 		 	"sounds/combat/bones_01.wav",
@@ -19,8 +19,8 @@ this.legend_spawn_skeleton_high_archer_skill <- this.inherit("scripts/skills/act
 			"sounds/enemies/necromancer_02.wav",
 			"sounds/enemies/necromancer_03.wav"
 		];
-		this.m.SpawnItem =  "spawns.skeleton",
-		this.m.Script = "scripts/entity/tactical/legends_skeleton_high_archer"
+		this.m.SpawnItem =  "spawns.skeleton";
+		this.m.Script = "scripts/entity/tactical/legends_skeleton_high_archer";
 		this.m.ActionPointCost = 5;
 		this.m.FatigueCost = 20;
 		this.m.MaxLevelDifference = 4;

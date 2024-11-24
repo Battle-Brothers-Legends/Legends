@@ -10,14 +10,14 @@
 		this.m.RegularDamageMax = 40;
 	}
 
-	local onEquip = o.onEquip;
-	o.onEquip = function ()
+	o.addSkill <- function( _skill )
 	{
-		onEquip();
-		local p = this.new("scripts/skills/actives/legend_glaive_slash_skill");
-		this.addSkill(p);
-		local spearwall = this.new("scripts/skills/actives/spearwall");
-		spearwall.m.BaseAttackName = p.getName();
-		this.addSkill(spearwall);
+		if (_skill.getID() == "actives.thrust")
+			_skill = this.new("scripts/skills/actives/legend_glaive_slash_skill");
+		else if (_skill.getID() == "actives.spearwall")
+			_skill.m.BaseAttackName = "Glaive Slash";
+
+		named_weapon.addSkill(_skill);
 	}
+	
 });

@@ -91,55 +91,55 @@
 					break;
 
 				case 30:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_skin_ghoul"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_skin_ghoul"));
 					break;
 
 				case 31:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_redback_spider"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_redback_spider"));
 					break;
 
 				case 32:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_line_battle_stollwurm"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_line_battle_stollwurm"));
 					break;
 
 				case 33:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_hexe_leader"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_hexe_leader"));
 					break;
 
 				case 34:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_white_wolf"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_white_wolf"));
 					break;
 
 				case 35:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_demon_alp"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_demon_alp"));
 					break;
 
 				case 36:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_rock_unhold"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_rock_unhold"));
 					break;
 
 				case 37:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_banshee"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_banshee"));
 					break;
 
 				case 38:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_vampire_lord"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_vampire_lord"));
 					break;
 
 				case 39:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_demon_hound"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_demon_hound"));
 					break;
 
 				case 40:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_wall_battle"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_wall_battle"));
 					break;
 
 				case 41:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_basilisks"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_basilisks"));
 					break;
 
 				default:
-					tacticalState.setScenario(this.new("scripts/scenarios/tactical/scenario_combat_basics"));
+					tacticalState.setScenario(this.new("scripts/scenarios/tactical/legend_scenario_combat_basics"));
 					break;
 				}
 			}

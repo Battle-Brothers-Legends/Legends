@@ -23,7 +23,7 @@
 		{
 			if (s.ID == "Offer")
 			{
-				s.end = function ()
+				s.end <- function ()
 				{
 					this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 					local r = this.Math.rand(1, 100);
@@ -108,7 +108,7 @@
 			}
 			if (s.ID == "Outlaws1")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					local cityTile = this.Contract.m.Home.getTile();
 					local nearest_nomads = this.World.FactionManager.getFactionOfType(this.Const.FactionType.OrientalBandits).getNearestSettlement(cityTile);
@@ -168,7 +168,7 @@
 			}
 			if (s.ID == "Fleeing1")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					local cityTile = this.Contract.m.Home.getTile();
 					local nearest_nomads = this.World.FactionManager.getFactionOfType(this.Const.FactionType.OrientalBandits).getNearestSettlement(cityTile);

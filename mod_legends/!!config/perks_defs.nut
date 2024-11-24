@@ -128,15 +128,6 @@ perkDefObjects.push({
 	Const = "DevastatingStrikes"
 });
 perkDefObjects.push({
-	ID = "perk.debilitate",
-	Script = "scripts/skills/perks/perk_debilitate",
-	Name = this.Const.Strings.PerkName.Debilitate,
-	Tooltip = this.Const.Strings.PerkDescription.Debilitate,
-	Icon = "ui/perks/debilitate_circle_56.png",
-	IconDisabled = "ui/perks/debilitate_circle_56_bw.png",
-	Const = "Debilitate"
-});
-perkDefObjects.push({
 	ID = "perk.shield_bash",
 	Script = "scripts/skills/perks/perk_shield_bash",
 	Name = this.Const.Strings.PerkName.ShieldBash,
@@ -587,15 +578,6 @@ perkDefObjects.push({
 	Const = "Indomitable"
 });
 perkDefObjects.push({
-	ID = "perk.ballistics",
-	Script = "scripts/skills/perks/perk_ballistics",
-	Name = this.Const.Strings.PerkName.Ballistics,
-	Tooltip = this.Const.Strings.PerkDescription.Ballistics,
-	Icon = "ui/perks/ballistics56_circle.png",
-	IconDisabled = "ui/perks/ballistics56_circle_bw.png",
-	Const = "Ballistics"
-});
-perkDefObjects.push({
 	ID = "perk.steadfast",
 	Script = "scripts/skills/perks/perk_steadfast",
 	Name = this.Const.Strings.PerkName.Steadfast,
@@ -642,6 +624,24 @@ perkDefObjects.push({
 });
 
 // Legend defined perks
+perkDefObjects.push({
+	ID = "perk.legend_ballistics",
+	Script = "scripts/skills/perks/perk_legend_ballistics",
+	Name = this.Const.Strings.PerkName.LegendBallistics,
+	Tooltip = this.Const.Strings.PerkDescription.LegendBallistics,
+	Icon = "ui/perks/ballistics56_circle.png",
+	IconDisabled = "ui/perks/ballistics56_circle_bw.png",
+	Const = "LegendBallistics"
+});
+perkDefObjects.push({
+	ID = "perk.legend_debilitate",
+	Script = "scripts/skills/perks/perk_legend_debilitate",
+	Name = this.Const.Strings.PerkName.LegendDebilitate,
+	Tooltip = this.Const.Strings.PerkDescription.LegendDebilitate,
+	Icon = "ui/perks/debilitate_circle_56.png",
+	IconDisabled = "ui/perks/debilitate_circle_56_bw.png",
+	Const = "LegendDebilitate"
+});
 perkDefObjects.push({
 	ID = "perk.legend_return_favor",
 	Script = "scripts/skills/perks/perk_legend_return_favor",

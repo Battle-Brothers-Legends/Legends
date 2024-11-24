@@ -22,7 +22,7 @@
 		{
 			if (s.ID == "Offer")
 			{
-				o.end = function ()
+				o.end <- function ()
 				{
 					this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 					local r = this.Math.rand(1, 100);

@@ -190,7 +190,7 @@ if (!("ArmorObjs" in ::Const.LegendMod))
 		]
 	}]
 },{
-	ID = "greenskins/orc_elite_heavy_armor", // 600
+	ID = "greenskins/legend_orc_elite_heavy_armor", // 600
 	Script = "",
 	Sets = [{
 		Cloth = [

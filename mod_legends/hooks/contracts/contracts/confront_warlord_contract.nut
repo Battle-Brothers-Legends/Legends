@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/confront_warlord_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/confront_warlord_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -21,7 +21,7 @@
 
 		if (r.find("%") != null)
 			r = format(r, ::Const.UI.getColorized(this.m.Origin.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
-		
+
 		this.m.Description = r;
 	}
 
@@ -37,7 +37,7 @@
 			}
 			if (s.ID == "Berserkers2")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					local brothers = this.World.getPlayerRoster().getAll();
 

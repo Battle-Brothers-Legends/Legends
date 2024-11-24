@@ -207,16 +207,6 @@ this.legends_fishing_village <- this.inherit("scripts/entity/world/settlements/l
 			"swordmaster_background",
 			"legend_inventor_background"
 		]];
-		this.m.FemaleDraftLists = [
-		// [
-		// 	"female_adventurous_noble_background",
-		// ],[
-		// 	"female_disowned_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// 	"female_disowned_noble_background",
-		// ]
-		];
 
 		this.m.StablesLists = [[],[],[]];
 

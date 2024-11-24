@@ -17,7 +17,7 @@ this.legend_warlock_hood_blueprint <- this.inherit("scripts/crafting/blueprint",
 				Num = 2
 			},
 			{
-				Script = "scripts/items/spawns/zombie_item",
+				Script = "scripts/items/spawns/legend_zombie_item",
 				Num = 1
 			}
 		];

@@ -27,11 +27,12 @@ this.legend_piercing_bolt_skill <- ::inherit("scripts/skills/actives/shoot_bolt"
 
 	function getTooltip()
 	{
-		local find, ret = this.shoot_bolt.getTooltip();
+		local find;
+		local ret = this.shoot_bolt.getTooltip();
 
-		for (local i = ret.len() - 1; i >= 0; --i) 
+		for (local i = ret.len() - 1; i >= 0; --i)
 		{
-			if (ret[i].id != 8) 
+			if (ret[i].id != 8)
 				continue;
 
 			find = i; // find where the ammo tooltip to insert before it
@@ -47,7 +48,7 @@ this.legend_piercing_bolt_skill <- ::inherit("scripts/skills/actives/shoot_bolt"
 			icon = "ui/icons/special.png",
 			text = "If the bolt hits its target, it will continue through and damage any target behind, dealing 50% damage."
 		});
-		
+
 		return ret;
 	}
 

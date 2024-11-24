@@ -1,11 +1,11 @@
-this.legend_bandit_rabble_poacher <- this.inherit("scripts/entity/tactical/randomized_unit_abstract", {
+this.legend_bandit_rabble_poacher <- this.inherit("scripts/entity/tactical/legend_randomized_unit_abstract", {
 	m = {},
 	function create()
 	{
 		this.m.Type = this.Const.EntityType.BanditRabblePoacher;
 		this.m.BloodType = this.Const.BloodType.Red;
 		this.m.XP = this.Const.Tactical.Actor.BanditRabble.XP;
-		this.randomized_unit_abstract.create();
+		this.legend_randomized_unit_abstract.create();
 		this.m.Faces = this.Const.Faces.AllMale;
 		this.m.Hairs = this.Const.Hair.UntidyMale;
 		this.m.HairColors = this.Const.HairColors.All;
@@ -21,7 +21,7 @@ this.legend_bandit_rabble_poacher <- this.inherit("scripts/entity/tactical/rando
 
 	function onInit()
 	{
-		this.randomized_unit_abstract.onInit();
+		this.legend_randomized_unit_abstract.onInit();
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.BanditRabble);
 		this.m.ActionPoints = b.ActionPoints;
@@ -90,7 +90,7 @@ this.legend_bandit_rabble_poacher <- this.inherit("scripts/entity/tactical/rando
 
 	function assignRandomEquipment()
 	{
-		this.randomized_unit_abstract.assignRandomEquipment()
+		this.legend_randomized_unit_abstract.assignRandomEquipment()
 		this.m.Items.equip(this.new("scripts/items/ammo/quiver_of_arrows"));
 		this.m.Items.addToBag(this.new("scripts/items/weapons/knife"));
 	}

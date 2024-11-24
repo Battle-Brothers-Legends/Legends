@@ -2236,7 +2236,7 @@
 	o.onDeserialize = function ( _in )
 	{
 		onDeserialize(_in);
-		if (this.m.Background.isBackgroundType(this.Const.BackgroundType.Female))
+		if (this.m.Background != null && this.m.Background.isBackgroundType(this.Const.BackgroundType.Female))
 		{
 			this.m.Gender = 1;
 			this.m.VoiceSet = this.Math.rand(0, this.Const.WomanSounds.len() - 1);

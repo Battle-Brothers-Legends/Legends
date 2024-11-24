@@ -3,8 +3,8 @@ this.perk_legend_vala_premonition <- this.inherit("scripts/skills/skill", {
 	function create()
 	{
 		this.m.ID = "perk.legend_vala_premonition";
-		this.m.Name = this.Const.Strings.PerkName.LegendValaSpiritualBond;
-		this.m.Description = this.Const.Strings.PerkDescription.LegendValaSpiritualBond;
+		this.m.Name = this.Const.Strings.PerkName.LegendValaPremonition;
+		this.m.Description = this.Const.Strings.PerkDescription.LegendValaPremonition;
 		this.m.Icon = "ui/perks/legend_vala_premonition.png";
 		this.m.Type = this.Const.SkillType.Perk | this.Const.SkillType.StatusEffect;
 		this.m.Order = this.Const.SkillOrder.VeryLast + 9;
@@ -12,7 +12,6 @@ this.perk_legend_vala_premonition <- this.inherit("scripts/skills/skill", {
 		this.m.IsStacking = false;
 		this.m.IsHidden = false;
 	}
-
 
 	function isHidden()
 	{

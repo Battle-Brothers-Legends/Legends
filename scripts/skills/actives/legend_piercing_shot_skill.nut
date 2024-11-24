@@ -17,7 +17,7 @@ this.legend_piercing_shot_skill <- ::inherit("scripts/skills/actives/aimed_shot"
 			"sounds/combat/split_hit_01.wav",
 			"sounds/combat/split_hit_02.wav",
 			"sounds/combat/split_hit_03.wav"
-		];		
+		];
 		m.IsAOE = true;
 		m.DirectDamageMult = 0.3;
 		m.ActionPointCost = 5;
@@ -29,11 +29,12 @@ this.legend_piercing_shot_skill <- ::inherit("scripts/skills/actives/aimed_shot"
 
 	function getTooltip()
 	{
-		local find, ret = this.aimed_shot.getTooltip();
+		local find;
+		local ret = this.aimed_shot.getTooltip();
 
-		for (local i = ret.len() - 1; i >= 0; --i) 
+		for (local i = ret.len() - 1; i >= 0; --i)
 		{
-			if (ret[i].id != 8) 
+			if (ret[i].id != 8)
 				continue;
 
 			find = i; // find where the ammo tooltip to insert before it

@@ -11,7 +11,8 @@
 			this.m.IsBought = false;
 			this.m.IsSold = false;
 		}
-		else this.m.IsSold = true;
+		else
+			this.m.IsSold = true;
 	}
 
 	o.setBought = function (bought)
@@ -22,7 +23,8 @@
 			this.m.IsSold = false;
 			this.m.IsBought = false;
 		}
-		else this.m.IsBought = true;
+		else
+			this.m.IsBought = true;
 	}
 	//------------------------------------------
 
@@ -162,6 +164,7 @@
 
 	o.getBuyPrice = function ()
 	{
+		local itemID = this.getID();
 		if (this.isSold())
 		{
 			return this.getSellPrice();
@@ -179,6 +182,7 @@
 
 	o.getSellPrice = function ()
 	{
+		local itemID = this.getID();
 		if (this.isBought())
 		{
 			return this.getBuyPrice();
@@ -846,10 +850,12 @@
 ::mods_hookDescendants("items/item", function ( o )
 {
 	local getSellPrice = ::mods_getMember(o, "getSellPrice");
+	local getBuyPrice = ::mods_getMember(o, "getBuyPrice");
+
 	o.getSellPrice <- function ()
 	{
 		local originalTime;
-		if (::mods_isClass(this, "legend_usable_food") && this.getSpoilInDays() > this.m.GoodForDays)
+		if (::mods_isClass(this, "food_item") && this.getSpoilInDays() > this.m.GoodForDays)
 		{
 			originalTime = this.m.BestBefore;
 			this.m.BestBefore = 0;
@@ -859,12 +865,12 @@
 		if (this.isBought())
 		{
 			this.m.IsBought = false;
-			sellPrice = getBuyPrice();
+			sellPrice = this.getBuyPrice();
 			this.m.IsBought = true;
 		}
 		else
 		{
-			sellPrice =  getSellPrice();
+			sellPrice = getSellPrice();
 		}
 
 		if (originalTime != null)
@@ -875,7 +881,6 @@
 		return sellPrice;
 	}
 
-	local getBuyPrice = ::mods_getMember(o, "getBuyPrice");
 	o.getBuyPrice <- function ()
 	{
 		if (this.isSold())
@@ -888,7 +893,7 @@
 		else
 		{
 			local originalTime;
-			if (::mods_isClass(this, "legend_usable_food") && this.getSpoilInDays() > this.m.GoodForDays)
+			if (::mods_isClass(this, "food_item") && this.getSpoilInDays() > this.m.GoodForDays)
 			{
 				if (this.getSpoilInDays() > this.m.GoodForDays)
 				{

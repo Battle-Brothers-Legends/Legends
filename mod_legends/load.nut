@@ -33,3 +33,14 @@ foreach (file in ::IO.enumerateFiles("mod_legends/hooks"))
 {
 	::include(file);
 }
+
+// load afterHooks folder
+::mods_hookNewObjectOnce("ui/screens/menu/main_menu_screen", function(o) {
+	local connect = o.connect;
+	o.connect = function()
+	{
+		foreach (file in ::IO.enumerateFiles("mod_legends/afterHooks"))
+			::include(file);
+		connect();
+	}
+});

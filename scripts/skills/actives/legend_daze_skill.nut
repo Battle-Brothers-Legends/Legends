@@ -57,7 +57,7 @@ this.legend_daze_skill <- this.inherit("scripts/skills/skill", {
 				text = "Uses Ranged skill to hit. Hit chance doubled if you also have the Taunt perk."
 			}
 		)
-			
+
 		return ret;
 	}
 
@@ -65,12 +65,12 @@ this.legend_daze_skill <- this.inherit("scripts/skills/skill", {
 	{
 		if (!_targetEntity.isAttackable())
 			return 0;
-		
+
 		local chance = getContainer().getActor().getCurrentProperties().getRangedSkill() - _targetEntity.getCurrentProperties().getRangedDefense();
 
-		if (getContainer().hasSkill("perk.taunt"));
+		if (getContainer().hasSkill("perk.taunt"))
 			chance *= 2;
-		
+
 		return ::Math.max(0, ::Math.min(100, chance));
 	}
 
@@ -105,7 +105,7 @@ this.legend_daze_skill <- this.inherit("scripts/skills/skill", {
 		}
 		else
 		{
-			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " failed to daze " + this.Const.UI.getColorizedEntityName(target));
+			this.Tactical.EventLog.log(this.Const.UI.getColorizedEntityName(_user) + " failed to daze " + this.Const.UI.getColorizedEntityName(targetEntity));
 			return false;
 		}
 

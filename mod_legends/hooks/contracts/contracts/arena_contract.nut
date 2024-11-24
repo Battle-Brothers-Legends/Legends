@@ -14,134 +14,70 @@
 		];
 	}
 
+	o.newTwist <- function (_chance, _flag, _payment) {
+		return {
+			R = _chance,
+			F = _flag,
+			P = _payment
+		}
+	}
+
+	o.onTwistsSetup <- function (_twists) {}
+
 	o.setup = function()
 	{
 		this.m.Flags.set("Number", 0);
 		local pay = 550;
 		local twists = [
-		{
-			R = 10,
-			F = "IsGhouls",
-			P = 0
-		},
-		{
-			R = 15,
-			F = "IsDesertRaiders",
-			P = 0
-		},
-		{
-			R = 10,
-			F = "IsSerpents",
-			P = 0
-		}];
+			this.newTwist(10, "IsGhouls", 0),
+			this.newTwist(15, "IsDesertRaiders", 0),
+			this.newTwist(10, "IsSerpents", 0)
+		];
 
-		switch (true)
-		{
-			case this.m.Home.hasSituation("situation.bread_and_games"):
-				pay = pay + 100;
-			case this.World.Statistics.getFlags().getAsInt("ArenaFightsWon") <= 3:
-			{
-				twists.push({
-					R = 10,
-					F = "IsHyenas",
-					P = 0
-				});
-			}
-			case this.World.Statistics.getFlags().getAsInt("ArenaFightsWon") >= 3:
-			{
-				twists.extend([
-					{
-						R = 5,
-						F = "IsSandGolems",
-						P = 50
-					},
-					{
-						R = 15,
-						F = "IsGladiators",
-						P = 0
-					},
-					{
-						R = 10,
-						F = "IsFrenziedHyenas",
-						P = 0
-					}
-				]);
-			}
-			case this.World.Statistics.getFlags().getAsInt("ArenaFightsWon") <= 5:
-			{
-				twists.push({
-					R = 10,
-					F = "IsSpiders",
-					P = -75
-				});
-			}
-			case this.World.Statistics.getFlags().getAsInt("ArenaFightsWon") >= 5:
-			{
-				twists.extend([
-					{
-						R = 5,
-						F = "IsSwordmaster",
-						P = 50
-					},
-					{
-						R = 5,
-						F = "IsHedgeKnight",
-						P = 50
-					},
-					{
-						R = 5,
-						F = "IsDesertDevil",
-						P = 50
-					},
-					{
-						R = 5,
-						F = "IsMercenaries",
-						P = 0
-					}
-				]);
-			}
-			case this.World.Statistics.getFlags().getAsInt("ArenaFightsWon") >= 6:
-			{
-				twists.push({
-					R = 5,
-					F = "IsUnholds",
-					P = 100
-				});
-			}
-			case this.World.Statistics.getFlags().getAsInt("ArenaFightsWon") >= 10:
-			{
-				twists.push({
-					R = 5,
-					F = "IsLindwurm",
-					P = 200
-				});
-			}
-			case this.World.Statistics.getFlags().getAsInt("ArenaFightsWon") >= 15:
-			{
-				twists.extend([
-					{
-						R = 2,
-						F = "IsSwordmasterChampion",
-						P = 150
-					},
-					{
-						R = 2,
-						F = "IsDesertDevilChampion",
-						P = 150
-					},
-					{
-						R = 2,
-						F = "IsDesertDevilChampion",
-						P = 150
-					},
-					{
-						R = 5,
-						F = "IsGladiatorChampion",
-						P = 150
-					}
-				]);
-			}
+		if(this.m.Home.hasSituation("situation.bread_and_games"))
+			pay = pay + 100;
+
+		local arenaFights = this.World.Statistics.getFlags().getAsInt("ArenaFightsWon");
+
+		if (arenaFights <= 3) {
+			twists.push(this.newTwist(10, "IsHyenas", 0));
 		}
+
+		if (arenaFights <= 5) {
+			twists.push(this.newTwist(10, "IsSpiders", -75));
+		}
+
+		if (arenaFights >= 3) {
+			twists.push(this.newTwist(5, "IsSandGolems", 50));
+			twists.push(this.newTwist(15, "IsGladiators", 0));
+		}
+
+		if (arenaFights >= 4) {
+			twists.push(this.newTwist(10, "IsFrenziedHyenas", 0));
+		}
+
+		if (arenaFights >= 5) {
+			twists.push(this.newTwist(5, "IsSwordmaster", 50));
+			twists.push(this.newTwist(5, "IsHedgeKnight", 50));
+			twists.push(this.newTwist(5, "IsDesertDevil", 50));
+			twists.push(this.newTwist(5, "IsMercenaries", 0));
+		}
+
+		if (arenaFights >= 6) {
+			twists.push(this.newTwist(5, "IsUnholds", 100));
+		}
+
+		if (arenaFights >= 10) {
+			twists.push(this.newTwist(5, "IsLindwurm", 200));
+		}
+
+		if (arenaFights >= 15) {
+			twists.push(this.newTwist(2, "IsSwordmasterChampion", 150));
+			twists.push(this.newTwist(2, "IsDesertDevilChampion", 150));
+			twists.push(this.newTwist(5, "IsGladiatorChampion", 150));
+		}
+
+		this.onTwistsSetup(twists);
 
 		local maxR = 0;
 

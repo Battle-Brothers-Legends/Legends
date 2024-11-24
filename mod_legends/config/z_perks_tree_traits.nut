@@ -241,7 +241,7 @@ if (!("Perks" in ::Const))
 		],
 		[],
 		[
-			::Const.Perks.PerkDefs.Debilitate
+			::Const.Perks.PerkDefs.LegendDebilitate
 		],
 		[],
 		[

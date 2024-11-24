@@ -18,6 +18,12 @@ this.legend_greenwood_schrat_shield_blueprint <- this.inherit("scripts/crafting/
 			}
 		];
 		this.init(ingredients);
+		local skills = [
+			{
+				Scripts = ["scripts/skills/perks/perk_legend_woodworking"]
+			}
+		];
+		this.initSkills(skills);
 	}
 
 

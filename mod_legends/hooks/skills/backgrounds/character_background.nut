@@ -2,9 +2,9 @@
 {
 	o.m.Names = [];
 	o.m.Name <- "";
-	o.m.BackgroundType <- this.Const.BackgroundType.None,
-	o.m.AlignmentMin <- this.Const.LegendMod.Alignment.Dreaded,
-	o.m.AlignmentMax <- this.Const.LegendMod.Alignment.Saintly,
+	o.m.BackgroundType <- this.Const.BackgroundType.None;
+	o.m.AlignmentMin <- this.Const.LegendMod.Alignment.Dreaded;
+	o.m.AlignmentMax <- this.Const.LegendMod.Alignment.Saintly;
 	o.m.Modifiers <- {
 		Ammo = this.Const.LegendMod.ResourceModifiers.Ammo[0],
 		ArmorParts = this.Const.LegendMod.ResourceModifiers.ArmorParts[0],
@@ -23,7 +23,7 @@
 		Scout = this.Const.LegendMod.ResourceModifiers.Scout[0],
 		Gathering = this.Const.LegendMod.ResourceModifiers.Gather[0],
 		Training = this.Const.LegendMod.ResourceModifiers.Training[0],
-		Enchanting = 0.0
+		Enchanting = 0.0,
 		Terrain = [
 			0.0, // ?
 			0.0, //ocean

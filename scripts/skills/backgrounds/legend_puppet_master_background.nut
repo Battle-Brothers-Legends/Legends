@@ -98,7 +98,7 @@ this.legend_puppet_master_background <- this.inherit("scripts/skills/backgrounds
 			],
 			[
 				this.Const.Perks.PerkDefs.Backstabber,
-				this.Const.Perks.PerkDefs.Debilitate,
+				this.Const.Perks.PerkDefs.LegendDebilitate,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan,
 				this.Const.Perks.PerkDefs.Brawny,
 				this.Const.Perks.PerkDefs.LegendRust,

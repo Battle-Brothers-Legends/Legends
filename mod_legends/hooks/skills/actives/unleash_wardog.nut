@@ -15,6 +15,12 @@
 		entity.setName(this.m.Item.getName());
 		this.m.Item.setEntity(entity);
 
+		if (this.m.Item.getArmorScript() != null)
+		{
+			local item = this.new(this.m.Item.getArmorScript());
+			entity.getItems().equip(item);
+		}
+
 		if (this.getContainer().hasSkill("background.houndmaster"))
 		{
 			entity.setMoraleState(this.Const.MoraleState.Confident);
@@ -29,5 +35,40 @@
 
 		this.m.IsHidden = true;
 		return true;
+	}
+
+	o.addAnimalSkills <- function( _entity )
+	{
+		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_dogwhisperer"))
+		{
+			_entity.getSkills().add(this.new("scripts/skills/perks/perk_fortified_mind"));
+			_entity.getSkills().add(this.new("scripts/skills/perks/perk_colossus"));
+			_entity.getSkills().add(this.new("scripts/skills/perks/perk_underdog"));
+		}
+
+		if (!this.getContainer().hasSkill("perk.legend_doghandling"))
+		{
+			return;
+		}
+
+		if (!this.getContainer().hasSkill("actives.legend_attack_target"))
+		{
+			this.getContainer().add(this.new("scripts/skills/actives/legend_attack_target"));
+		}
+
+		local skill = this.getContainer().getSkillByID("actives.legend_attack_target");
+		skill.addPet(_entity.getID());
+
+		if (!this.getContainer().hasSkill("actives.legend_protect_target"))
+		{
+			this.getContainer().add(this.new("scripts/skills/actives/legend_protect_target"));
+		}
+
+		skill = this.getContainer().getSkillByID("actives.legend_protect_target");
+		skill.addPet(_entity.getID());
+		local ai = _entity.getAIAgent();
+		ai.m.Properties.TargetPriorityHitchanceMult = 2.0;
+		ai.m.Properties.EngageAgainstSpearwallMult = 0.5;
+		ai.m.Properties.EngageAgainstSpearwallWithShieldwallMult = 0.25;
 	}
 });

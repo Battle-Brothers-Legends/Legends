@@ -21,7 +21,6 @@
 
 		if (_gender)
 		{
-			// _draftList.push("legend_nun_background");
 			_draftList.push("legend_herbalist_background");
 		}
 

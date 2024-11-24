@@ -1,4 +1,4 @@
-this.legend_peasant <- this.inherit("scripts/entity/tactical/randomized_unit_abstract", {
+this.legend_peasant <- this.inherit("scripts/entity/tactical/legend_randomized_unit_abstract", {
 	m = {
 	},
 	function create()
@@ -6,7 +6,7 @@ this.legend_peasant <- this.inherit("scripts/entity/tactical/randomized_unit_abs
 		this.m.Type = this.Const.EntityType.Peasant;
 		this.m.BloodType = this.Const.BloodType.Red;
 		this.m.XP = this.Const.Tactical.Actor.Peasant.XP;
-		this.randomized_unit_abstract.create();
+		this.legend_randomized_unit_abstract.create();
 		this.m.Faces = this.Const.Faces.AllMale;
 		this.m.Hairs = this.Const.Hair.AllMale;
 		this.m.HairColors = this.Const.HairColors.All;
@@ -14,15 +14,11 @@ this.legend_peasant <- this.inherit("scripts/entity/tactical/randomized_unit_abs
 		this.getFlags().add("peasant");
 		this.m.AIAgent = this.new("scripts/ai/tactical/agents/militia_melee_agent");
 		this.m.AIAgent.setActor(this);
-		if (this.Math.rand(1, 100) <= 10)
-		{
-			this.setGender(1);
-		}
 	}
 
 	function onInit()
 	{
-		this.randomized_unit_abstract.onInit();
+		this.legend_randomized_unit_abstract.onInit();
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.Peasant);
 		this.m.ActionPoints = b.ActionPoints;
@@ -45,7 +41,7 @@ this.legend_peasant <- this.inherit("scripts/entity/tactical/randomized_unit_abs
 
 	function assignRandomEquipment()
 	{
-		this.randomized_unit_abstract.assignRandomEquipment();
+		this.legend_randomized_unit_abstract.assignRandomEquipment();
 	}
 	// function assignRandomEquipment()
 	// {

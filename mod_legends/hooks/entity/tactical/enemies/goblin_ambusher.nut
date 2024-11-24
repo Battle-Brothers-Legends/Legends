@@ -6,7 +6,7 @@
 		onInit();
 		if ("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_ballistics"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_ballistics"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_pathfinder"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 		}

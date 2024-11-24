@@ -164,8 +164,9 @@ this.legend_lonewolf_companion_blacksmith_event <- this.inherit("scripts/events/
 				_event.m.Dude.getBaseProperties().MeleeDefense += 5;
 				_event.m.Dude.getBaseProperties().RangedDefense += 5;
 				_event.m.Dude.getBaseProperties().Initiative += 5;
-				_event.m.Dude.items.unequip(this.items.getItemAtSlot(this.Const.ItemSlot.Mainhand));
-				_event.m.Dude.items.equip(this.new("scripts/items/weapons/shamshir"));
+				_event.m.Dude.getItems().unequip(_event.m.Dude.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand));
+				_event.m.Dude.getItems().unequip(_event.m.Dude.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand));
+				_event.m.Dude.getItems().equip(this.new("scripts/items/weapons/shamshir"));
 				_event.m.Dude.getBackground().m.RawDescription = "%name% specialized in forging exotic weapons for nobility — however their fighting style and skill tells you there is more to them than initially meets the eye, even if they don\'t want to talk about it.";
 				_event.m.Dude.addLightInjury();
 				this.Characters.push(_event.m.Dude.getImagePath());

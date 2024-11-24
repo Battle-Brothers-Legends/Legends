@@ -1,10 +1,11 @@
-::mods_hookExactClass("entity/tactical/humans/hedge_knight", function(o) 
+::mods_hookExactClass("entity/tactical/humans/hedge_knight", function(o)
 {
 	local create = o.create;
 	o.create = function ()
 	{
 		create();
 		this.m.AIAgent = this.new("scripts/ai/tactical/agents/legend_hedge_knight_less_flanking_less_zoc");
+		this.m.AIAgent.setActor(this);
 	}
 
 	local onInit = o.onInit;
@@ -24,7 +25,7 @@
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_shield_bash"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_full_force"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_underdog"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_bloody_harvest"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_bloody_harvest"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 		}
 	}
@@ -81,7 +82,7 @@
 				[1, "brown_hedgeknight_outfit_00"]
 			]
 
-			foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) ) 
+			foreach( item in this.Const.World.Common.pickOutfit(outfits, armor, helmet) )
 			{
 				this.m.Items.equip(item)
 			}

@@ -33,32 +33,5 @@
 			_draftList.push("legend_lurker_background");
 			_draftList.push("legend_magister_background");
 		}
-
-		// todo delete it - chopeks
-//		if(this.LegendsMod.Configs().LegendMagicEnabled())
-//		{
-//			local r;
-//			if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_seer")
-//			{
-//				r = this.Math.rand(0, 2);
-//				if (r == 1)
-//				{
-//				 _draftList.push("legend_ancient_summoner_background");
-//				}
-//			}
-//			else
-//			{
-//				r = this.Math.rand(0, 5);
-//				if (r == 1)
-//				{
-//				  _draftList.push("legend_ancient_summoner_background");
-//				}
-//			}
-//
-//			if  ( this.World.Assets.getOrigin().getID() == "scenario.legends_warlock")
-//			{
-//			 	_draftList.push("legend_ancient_summoner_background");
-//			}
-//		}
 	}
 });

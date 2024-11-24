@@ -4,7 +4,7 @@ this.legends_skeleton_med_archer <- this.inherit("scripts/entity/tactical/legend
 	function onInit()
 	{
 		this.m.SpawnType = this.Const.Tactical.Actor.LegendSkeletonMediumArcher;
-		this.legend_skeleton.onInit();;
+		this.legend_skeleton.onInit();
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_bow"));
 		this.m.Skills.add(this.new("scripts/skills/traits/legend_fleshless_trait"));

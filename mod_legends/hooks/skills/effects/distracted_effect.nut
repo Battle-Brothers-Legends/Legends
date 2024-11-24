@@ -4,6 +4,6 @@
 	o.create = function()
 	{
 		create();
-		this.m.IsRemovedAfterBattle = false;
+		this.m.IsRemovedAfterBattle = true;
 	}
 });

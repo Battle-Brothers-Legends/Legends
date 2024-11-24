@@ -6,8 +6,8 @@ this.legend_spawn_zombie_med_skill <- this.inherit("scripts/skills/actives/legen
 		this.m.ID = "actives.legend_spawn_zombie_med_skill";
 		this.m.Name = "Summon Medium Zombie";
 		this.m.Description = "Summon a fallen yeoman and send it charging into the enemy. Needs a free tile adjacent.";
-		this.m.Icon = "skills/fashion_body.png",
-		this.m.IconDisabled = "skills/fashion_body_bw.png",
+		this.m.Icon = "skills/fashion_body.png";
+		this.m.IconDisabled = "skills/fashion_body_bw.png";
 		this.m.Overlay = "fashion_body";
 		 this.m.SoundOnUse = [
 		 	"sounds/combat/meat_01.wav",
@@ -20,8 +20,8 @@ this.legend_spawn_zombie_med_skill <- this.inherit("scripts/skills/actives/legen
 			"sounds/enemies/necromancer_02.wav",
 			"sounds/enemies/necromancer_03.wav"
 		];
-		this.m.SpawnItem =  "spawns.zombie",
-		this.m.Script = "scripts/entity/tactical/legends_zombie_med"
+		this.m.SpawnItem =  "spawns.zombie";
+		this.m.Script = "scripts/entity/tactical/legends_zombie_med";
 		this.m.ActionPointCost = 4;
 		this.m.FatigueCost = 20;
 		this.m.MaxLevelDifference = 4;

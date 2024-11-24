@@ -1,6 +1,20 @@
 ::Const.XP.MaxLevelWithPerkpoints = 12;
 
-::Const.LevelXP = [0]; // reset for the new max level added
+::Const.LevelXP = [
+	0,
+	200,
+	500,
+	1000,
+	2000,
+	3500,
+	5000,
+	7000,
+	9000,
+	12000,
+	15000,
+	20000 // new veterancy
+]; // reset for the new max level added
+
 for( local i = 1; i < 88; i = ++i )
 {
 	::Const.LevelXP.push(this.Const.LevelXP[this.Const.LevelXP.len() - 1] + 4000 + 1000 * i);

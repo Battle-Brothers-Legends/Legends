@@ -26,7 +26,7 @@ this.houndmaster_tames_wolf_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				this.Characters.push(_event.m.Houndmaster.getImagePath());
-				local item = this.new("scripts/items/accessory/wolf_item");
+				local item = this.new("scripts/items/accessory/legend_wolf_item");
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,

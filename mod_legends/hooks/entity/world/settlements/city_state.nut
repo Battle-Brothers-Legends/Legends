@@ -7,7 +7,7 @@
 		create();
 		this.m.FemaleDraftList = [
 			"legend_qiyan_background"
-		],
+		];
 		this.m.DraftList = [
 			"beggar_southern_background",
 			"beggar_southern_background",

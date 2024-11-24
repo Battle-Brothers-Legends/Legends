@@ -71,7 +71,7 @@ this.perk_legend_vala_chant_disharmony <- this.inherit("scripts/skills/skill", {
 			text = "Until the start of her next turn, enemies adjacent to the Vala are unable to enforce Zones of Control."
 		});
 
-		if (actor.getMainhandItem() == null || actor.getMainhandItem() != null && actor.getMainhandItem() != "weapon.legend_staff_vala")
+		if (actor.getMainhandItem() == null || actor.getMainhandItem() != "weapon.legend_staff_vala")
 		{
 			ret.push({
 				id = 9,

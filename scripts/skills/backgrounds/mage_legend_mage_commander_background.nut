@@ -119,7 +119,7 @@ this.mage_legend_mage_commander_background <- this.inherit("scripts/skills/backg
 				this.Const.Perks.PerkDefs.LegendRebound,
 				this.Const.Perks.PerkDefs.LegendClarity,
 				this.Const.Perks.PerkDefs.LegendMindOverBody,
-				this.Const.Perks.PerkDefs.Ballistics
+				this.Const.Perks.PerkDefs.LegendBallistics
 			],
 			// Level 7
 			[

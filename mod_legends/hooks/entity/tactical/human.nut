@@ -1,17 +1,12 @@
 ::mods_hookExactClass("entity/tactical/human", function(o)
 {
-	o.m.Outfits <- [];  //Always overridden if it's used
 
+	o.m.Outfits <- [];  //Always overridden if it's used
 	local create = o.create;
 	o.create = function ()
 	{
 		create();
-		this.setGender(0);
-		if (this.Math.rand(1, 100) <= 25 && ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled")
-			this.setGender(1);
-		else
-			this.setGender(0);
-		this.getFlags().add("human");
+		this.m.Gender = -1;
 	}
 
 	o.getPronoun <- function (_neuter)
@@ -527,6 +522,9 @@
 
 	o.onInit = function ()
 	{
+		if (this.m.Body >= this.m.Bodies.len()){
+			this.m.Body = this.Math.rand(0, this.m.Bodies.len() - 1);
+		}
 		this.actor.onInit();
 		this.m.ActionPointCosts = this.Const.DefaultMovementAPCost;
 		this.m.FatigueCosts = this.Const.DefaultMovementFatigueCost;

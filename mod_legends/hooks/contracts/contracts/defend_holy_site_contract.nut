@@ -243,7 +243,7 @@
 		{
 			if (s.ID == "Preparation3")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					for( local i = 0; i < 2; i = ++i )
 					{

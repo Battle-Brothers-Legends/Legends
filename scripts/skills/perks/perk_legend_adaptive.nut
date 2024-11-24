@@ -64,7 +64,9 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 	// Order of priority: from mainhand item, from offhand item, random
 	function getPossibleTrees()
 	{
-		local item, itemtype, newTree; // newTree may be a single Tree or an array of Trees
+		local item = null;
+		local itemtype = null;
+		local newTree = null; // newTree may be a single Tree or an array of Trees
 		local actor = this.getContainer().getActor();
 		
 
@@ -72,32 +74,41 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 		if (actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand) != null) 
 		{
 			item = actor.getMainhandItem();
-			if (item.isItemType(this.Const.Items.ItemType.Weapon)) newTree = this.getWeaponPerkTree(item);
+			if (item.isItemType(this.Const.Items.ItemType.Weapon))
+				newTree = this.getWeaponPerkTree(item);
+
 			newTree = this.getOnlyNonExistingTrees(newTree); // filter out Trees this character already has
-			if (newTree != null && newTree.len()>0) return newTree;
+			if (newTree != null && newTree.len() > 0)
+				return newTree;
 		}
 		// Next, try to give a new Tree based on the equipped offhand item
 		if (actor.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand) != null)
 		{
 			item = actor.getOffhandItem();
-			if (item.isItemType(this.Const.Items.ItemType.Shield)) newTree = this.getShieldPerkTree(item);
-			else newTree = this.getMiscPerkTree(item);
+			if (item.isItemType(this.Const.Items.ItemType.Shield))
+				newTree = this.getShieldPerkTree(item);
+			else
+				newTree = this.getMiscPerkTree(item);
+
 			newTree = this.getOnlyNonExistingTrees(newTree); // filter out Trees this character already has
-			if (newTree != null && newTree.len()>0) return newTree;
+			if (newTree != null && newTree.len() > 0)
+				return newTree;
 		}
 
 		if (actor.getItems().getItemAtSlot(this.Const.ItemSlot.Mainhand) == null && actor.getItems().getItemAtSlot(this.Const.ItemSlot.Offhand) == null)
 		{
 			// Attempt to give Unarmed if no weapons are equipped
 			newTree = this.getOnlyNonExistingTrees(this.Const.Perks.FistsClassTree);
-			if (newTree != null && newTree.len()>0) return newTree;
+			if (newTree != null && newTree.len() > 0)
+				return newTree;
 		}
 
 		newTree = getArmorPerkTree();
-		if (newTree != null && newTree.len()>0) return newTree;
+		if (newTree != null && newTree.len() > 0)
+			return newTree;
 
 		// If none of the equipped items (or unarmed or armors) granted any Trees, then consider the following Trees
-		if (newTree == null || newTree.len()<1)
+		if (newTree == null || newTree.len() < 1)
 		{
 			newTree = [
 				this.Const.Perks.AgileTree,
@@ -119,10 +130,8 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 		newTree = this.getOnlyNonExistingTrees(newTree); // filter out Trees this character already has
 
 		// Give PhilosophyMagicTree if there are still no possible Trees
-		if(newTree == null || newTree.len()<1)
-		{
+		if (newTree == null || newTree.len() < 1)
 			newTree = this.Const.Perks.PhilosophyMagicTree.Tree;
-		}
 
 		return newTree;
 	}
@@ -132,17 +141,13 @@ this.perk_legend_adaptive <- this.inherit("scripts/skills/skill", {
 	function getOnlyNonExistingTrees( _newTree )
 	{
 		if ( _newTree == null || (typeof _newTree == "array" && _newTree.len()<1))
-		{
 			return [];
-		}
 
 		local actor = this.getContainer().getActor();
 
 		// If there's only one possible Tree then just check that
 		if ( typeof _newTree != "array")
-		{
 			return actor.getBackground().hasPerkGroup(_newTree) ? null : _newTree;
-		}
 
 		// Otherwise, remove every Tree that this character already has from the array
 		local ret = []

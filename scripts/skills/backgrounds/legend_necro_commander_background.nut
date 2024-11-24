@@ -120,7 +120,7 @@ this.legend_necro_commander_background <- this.inherit("scripts/skills/backgroun
 				],
 				[
 					this.Const.Perks.PerkDefs.LegendMiasma,
-					this.Const.Perks.PerkDefs.Debilitate,
+					this.Const.Perks.PerkDefs.LegendDebilitate,
 					this.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan,
 					this.Const.Perks.PerkDefs.LegendSpawnZombieMed,
 					this.Const.Perks.PerkDefs.LegendChanneledPower,

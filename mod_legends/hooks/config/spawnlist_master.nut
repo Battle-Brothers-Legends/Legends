@@ -15,7 +15,7 @@
 
 ::Const.World.Spawn.Troops.BanditThug.Strength = 8;
 ::Const.World.Spawn.Troops.BanditThug.Cost = 8;
-::Const.World.Spawn.Troops.BanditThug.Script = "scripts/entity/tactical/humans/legend_bandit_thug";
+::Const.World.Spawn.Troops.BanditThug.Script = "scripts/entity/tactical/enemies/legend_bandit_thug";
 
 ::Const.World.Spawn.Troops.BanditMarksmanLOW.Strength = 8;
 ::Const.World.Spawn.Troops.BanditMarksmanLOW.Cost = 8;

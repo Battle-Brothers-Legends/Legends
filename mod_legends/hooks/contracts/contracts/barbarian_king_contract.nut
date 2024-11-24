@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/barbarian_king_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/barbarian_king_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -23,7 +23,7 @@
 		{
 			if (s.ID == "AGreaterThreat5")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					if (this.Contract.m.Destination != null && !this.Contract.m.Destination.isNull() && this.Contract.m.Destination.isAlive())
 					{

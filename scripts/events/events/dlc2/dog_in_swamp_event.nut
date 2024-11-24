@@ -111,7 +111,7 @@ this.dog_in_swamp_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				this.Characters.push(_event.m.Helper.getImagePath());
-				local item = this.new("scripts/items/accessory/wardog_item");
+				local item = this.new("scripts/items/accessory/legend_wardog_item");
 				item.m.Name = "Swimmer";
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -198,7 +198,7 @@ this.dog_in_swamp_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				this.Characters.push(_event.m.Beastslayer.getImagePath());
-				local item = this.new("scripts/items/accessory/wardog_item");
+				local item = this.new("scripts/items/accessory/legend_wardog_item");
 				item.m.Name = "Swimmer";
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -234,7 +234,7 @@ this.dog_in_swamp_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/accessory/wardog_item");
+				local item = this.new("scripts/items/accessory/legend_wardog_item");
 				item.m.Name = "Swimmer";
 				this.World.Assets.getStash().add(item);
 				this.List.push({

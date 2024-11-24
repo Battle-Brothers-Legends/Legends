@@ -136,7 +136,7 @@ this.legends_solo_necro_scenario <- this.inherit("scripts/scenarios/world/starti
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/strange_meat_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/black_marsh_stew_item"));
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/ground_grains_item"));
-		this.World.Assets.getStash().add(this.new("scripts/items/spawns/zombie_item"));
+		this.World.Assets.getStash().add(this.new("scripts/items/spawns/legend_zombie_item"));
 		this.World.Assets.m.Money = this.World.Assets.m.Money + 300;
 		this.World.Assets.m.Medicine = this.World.Assets.m.Medicine + 15;
 	}

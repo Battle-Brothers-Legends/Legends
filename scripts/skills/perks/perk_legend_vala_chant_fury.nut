@@ -71,7 +71,7 @@ this.perk_legend_vala_chant_fury <- this.inherit("scripts/skills/skill", {
 			text = "Until the start of her next turn all allies within 3 tiles of the Vala receive a bonus to their damage output and a chance to retaliate against attackers that hit them in melee range. Being closer to the Vala increases bonus amount and retaliation chance."
 		});
 
-		if (actor.getMainhandItem() == null || actor.getMainhandItem() != null && actor.getMainhandItem() != "weapon.legend_staff_vala")
+		if (actor.getMainhandItem() == null || actor.getMainhandItem() != "weapon.legend_staff_vala")
 		{
 			ret.push({
 				id = 9,

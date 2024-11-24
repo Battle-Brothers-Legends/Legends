@@ -34,7 +34,7 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 					{
 						return "C";
 					}
-				});					
+				});
 				if (_event.m.TraderCmr != null && !_event.m.TraderCmr.isNull())
 				{
 					this.Options.push ({
@@ -46,33 +46,33 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 						}
 					});
 				}
-				
+
 				this.Characters.push(_event.m.OPBro1.getImagePath());
 				this.Characters.push(_event.m.OPBro2.getImagePath());
-				
+
 				foreach( bro in _event.m.Uniquebros )
 				{
 
 					if (bro.getMoodState() >= this.Const.MoodState.Neutral)
 					{
 						bro.worsenMood(2.0, "Rivalry!");
-						
+
 						this.List.push({
 							id = 10,
 							icon = this.Const.MoodStateIcon[bro.getMoodState()],
 							text = bro.getName() + this.Const.MoodStateEvent[bro.getMoodState()]
 						});
 					}
-				}							
-			}		
-			
+				}
+			}
+
 		});
 		this.m.Screens.push({
 			ID = "B",
 			Text = "[img]gfx/ui/events/event_04.png[/img]Preempting any sort of mutiny or raise requests, you announce that the group shall have a company-wide raise. Four crowns a day for everyone, triple of that for those most deserving and share of loot right now. As it turns out, the men are quite fond of this move and cheer your name with a huzzah!",
 			Image = "",
 			List = [],
-			Characters = [],				
+			Characters = [],
 			Options = [
 				{
 					Text = "You\'ve earned it, boys!",
@@ -83,10 +83,10 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 
 				}
 			],
-			function start( _event )	
+			function start( _event )
 			{
 				this.Characters.push(_event.m.OPBro1.getImagePath());
-				this.Characters.push(_event.m.OPBro2.getImagePath());	
+				this.Characters.push(_event.m.OPBro2.getImagePath());
 
 				this.World.Assets.addMoney(-_event.m.Compensation);
 				this.List.push({
@@ -94,7 +94,7 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 					icon = "ui/icons/asset_money.png",
 					text = "You spend [color=" + this.Const.UI.Color.NegativeEventValue + "]" + _event.m.Compensation + "[/color] Crowns"
 				});
-				
+
 				foreach( bro in _event.m.Uniquebros )
 				{
 					bro.getBaseProperties().DailyWage += 12;
@@ -109,7 +109,7 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 						});
 					}
 				}
-				
+
 				foreach( bro in _event.m.Regularbros )
 				{
 					bro.getBaseProperties().DailyWage += 4;
@@ -123,7 +123,7 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 							text = bro.getName() + this.Const.MoodStateEvent[bro.getMoodState()]
 						});
 					}
-				}				
+				}
 			}
 
 		});
@@ -144,9 +144,9 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 				}
 			],
 			function start( _event )
-			{			
+			{
 				this.Characters.push(_event.m.OPBro1.getImagePath());
-				this.Characters.push(_event.m.OPBro2.getImagePath());	
+				this.Characters.push(_event.m.OPBro2.getImagePath());
 				local brothers = this.World.getPlayerRoster().getAll();
 
 				foreach( bro in brothers )
@@ -204,7 +204,7 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 			Text = "[img]gfx/ui/events/event_04.png[/img]Preempting any sort of mutiny or raise requests, you managed to talk it out with these most discontent. Eighth crowns a day rise and immediate share of some spoils to keep their mounts shut. At least for now.  Keeping this transaction a secret prevented additional expenses.",
 			Image = "",
 			List = [],
-			Characters = [],				
+			Characters = [],
 			Options = [
 				{
 					Text = "Keep this between us...",
@@ -215,10 +215,10 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 
 				}
 			],
-			function start( _event )	
+			function start( _event )
 			{
 				this.Characters.push(_event.m.OPBro1.getImagePath());
-				this.Characters.push(_event.m.OPBro2.getImagePath());	
+				this.Characters.push(_event.m.OPBro2.getImagePath());
 
 				this.World.Assets.addMoney(-_event.m.Compensation);
 				this.List.push({
@@ -226,7 +226,7 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 					icon = "ui/icons/asset_money.png",
 					text = "You spend [color=" + this.Const.UI.Color.NegativeEventValue + "]" + _event.m.Compensation + "[/color] Crowns"
 				});
-				
+
 				foreach( bro in _event.m.Uniquebros )
 				{
 					bro.getBaseProperties().DailyWage += 8;
@@ -240,9 +240,9 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 							text = bro.getName() + this.Const.MoodStateEvent[bro.getMoodState()]
 						});
 					}
-				}			
+				}
 			}
-		});		
+		});
 	}
 
 	function onUpdateScore()
@@ -256,7 +256,7 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 		{
 			return;
 		}
-		
+
 		if (this.World.Retinue.hasFollower("follower.paymaster"))
 		{
 			return;
@@ -272,10 +272,10 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 			if (bro.getSkills().hasSkill("trait.player") && bro.getBackground().getID() != "background.legend_trader_commander")
 			{
 				continue;
-			}			
+			}
 			switch (bro.getBackground().getID())
-			{			
-				
+			{
+
 				case "background.legend_trader_commander":
 					thetrader.push(bro);
 					break;
@@ -287,7 +287,7 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 				case "background.legend_trader":
 				case "background.legend_ranger":
 				case "background.regent_in_absentia":
-					candidate_opbackground.push(bro);			
+					candidate_opbackground.push(bro);
 					break;
 				default:
 					candidate_rest.push(bro);
@@ -297,23 +297,23 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 		{
 			return;
 		}
-		
+
 		this.m.Uniquebros = candidate_opbackground;
 		this.m.Regularbros = candidate_rest;
 		this.m.TraderCmr = thetrader;
-		
+
 		local UniquebrosNumber = this.Math.floor(candidate_opbackground.len());
 		local cash = this.World.Assets.getMoney();
 		this.m.Compensation = this.Math.round(0.05 * cash + (0.05 * UniquebrosNumber * cash));
-		
+
 		local r = this.Math.rand(0, candidate_opbackground.len() - 1);
 		this.m.OPBro1 = candidate_opbackground[r];
 		candidate_opbackground.remove(r);
-		r = this.Math.rand(0, candidate_opbackground.len() - 1);			
+		r = this.Math.rand(0, candidate_opbackground.len() - 1);
 		this.m.OPBro2 = candidate_opbackground[r];
-		candidate_opbackground.remove(r);			
-	
-		
+		candidate_opbackground.remove(r);
+
+
 
 		this.m.Score = candidate_opbackground.len() * (this.World.Assets.getMoney() - 30000) * 0.0005;
 		// this.m.Score = 9999;
@@ -333,12 +333,12 @@ this.player_is_rich_op_backgrounds_event <- this.inherit("scripts/events/event",
 
 	function onClear()
 	{
-		this.m.OPBro1 = null,
-		this.m.OPBro2 = null,
-		this.m.TraderCmr = null,
-		this.m.Uniquebros = null,
-		this.m.Regularbros = null,
-		this.m.Compensation = null	
+		this.m.OPBro1 = null;
+		this.m.OPBro2 = null;
+		this.m.TraderCmr = null;
+		this.m.Uniquebros = null;
+		this.m.Regularbros = null;
+		this.m.Compensation = null;
 	}
 
 });

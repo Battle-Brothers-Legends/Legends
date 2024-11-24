@@ -4,7 +4,7 @@ this.legend_named_nomad_sling <- this.inherit("scripts/items/weapons/named/named
 	{
 		this.named_weapon.create();
 		this.m.ID = "weapon.legend_named_nomad_sling";
-		this.m.NameList = this.Const.Strings.ThrowingAxeNames;
+		this.m.NameList = this.Const.Strings.SlingNames;
 		this.m.Description = "A leather sling on a metal-reinforced staff, used to hurl stones at the enemy. With stones abundant everywhere, it will never run out of ammunition.";
 		this.m.IconLarge = "weapons/ranged/cr_sling_02.png";
 		this.m.Icon = "weapons/ranged/cr_sling_02_70x70.png";		

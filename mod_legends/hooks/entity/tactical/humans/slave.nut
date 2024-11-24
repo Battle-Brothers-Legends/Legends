@@ -1,4 +1,4 @@
-::mods_hookExactClass("entity/tactical/humans/slave", function(o) 
+::mods_hookExactClass("entity/tactical/humans/slave", function(o)
 {
 	o.assignRandomEquipment = function ()
 	{
@@ -39,7 +39,7 @@
 			]));
 		}
 
-		
+
 		local helmet = [
 			[1, "oriental/southern_head_wrap"],
 			[2, ""]

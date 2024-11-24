@@ -5,8 +5,8 @@ this.legend_possession_skill <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "actives.legend_possession_skill";
 		this.m.Name = "Possess Undead";
 		this.m.Description = "";
-		this.m.Icon = "skills/possession.png",
-		this.m.IconDisabled = "skills/possession_bw.png",
+		this.m.Icon = "skills/possession.png";
+		this.m.IconDisabled = "skills/possession_bw.png";
 		this.m.Overlay = "active_26";
 		this.m.SoundOnHit = [
 			"sounds/enemies/necromancer_01.wav",
@@ -58,13 +58,13 @@ this.legend_possession_skill <- this.inherit("scripts/skills/skill", {
 			return false;
 		}
 
-		local target = _targetTile.getEntity();		
+		local target = _targetTile.getEntity();
 		local actor = this.getContainer().getActor();
 
 		if (!actor.isAlliedWith(target))
 		{
 			return false;
-		}		
+		}
 
 		if (!target.getFlags().has("IsSummoned") && !target.getFlags().has("PlayerZombie") && !target.getFlags().has("PlayerSkeleton") && !target.getFlags().has("zombie_minion"))
 		{

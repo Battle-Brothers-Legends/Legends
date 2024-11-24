@@ -103,17 +103,18 @@ this.perk_legend_small_target <- this.inherit("scripts/skills/skill", {
 			{
 				foreach (upgrade in bodyItem.m.Upgrades)
 				{
-					switch (true)
-					{
-						case upgrade == null:
-							continue;
-						case upgrade.isItemType(this.Const.Items.ArmorUpgrades.Tabbard):
-						case upgrade.isItemType(this.Const.Items.ArmorUpgrades.Cloak):
-						case upgrade.getID() == "legend_armor_upgrade.body.legend_armor_white_wolf_pelt":
-						case upgrade.getID() == "legend_armor_upgrade.body.legend_hyena_fur":
-						case upgrade.getID() == "legend_armor_upgrade.body.legend_direwolf_pelt":
-						case upgrade.getID() == "legend_armor_upgrade.body.legend_serpent_skin":
-						case upgrade.getID() == "legend_armor_upgrade.body.legend_unhold_fur":
+					if (upgrade == null)
+						continue;
+					if (upgrade.isItemType(this.Const.Items.ArmorUpgrades.Tabbard) || upgrade.isItemType(this.Const.Items.ArmorUpgrades.Cloak)) {
+						stackTotal -= body.getRepair();
+						continue;
+					}
+					switch (upgrade.getID()) {
+						case "legend_armor_upgrade.body.legend_armor_white_wolf_pelt":
+						case "legend_armor_upgrade.body.legend_hyena_fur":
+						case "legend_armor_upgrade.body.legend_direwolf_pelt":
+						case "legend_armor_upgrade.body.legend_serpent_skin":
+						case "legend_armor_upgrade.body.legend_unhold_fur":
 							stackTotal -= body.getRepair();
 							continue;
 					}

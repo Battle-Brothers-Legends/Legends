@@ -1,4 +1,4 @@
-::mods_hookExactClass("entity/tactical/humans/peasant_southern", function(o) 
+::mods_hookExactClass("entity/tactical/humans/peasant_southern", function(o)
 {
 	o.assignRandomEquipment = function ()
 	{

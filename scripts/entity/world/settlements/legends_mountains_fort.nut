@@ -242,16 +242,6 @@ this.legends_mountains_fort <- this.inherit("scripts/entity/world/settlements/le
 			"hedge_knight_background",
 			"hedge_knight_background"
 		]]
-		this.m.FemaleDraftLists = [
-		// [
-		// 	"female_disowned_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// 	"female_disowned_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// ]
-		]
 
 		this.m.StablesLists = [[
 			"legend_donkey_background",

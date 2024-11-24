@@ -1,8 +1,8 @@
-this.legend_human_parts <- this.inherit("scripts/items/supplies/legend_usable_food", {
+this.legend_human_parts <- this.inherit("scripts/items/supplies/food_item", {
 	m = {},
 	function create()
 	{
-		this.legend_usable_food.create();
+		this.food_item.create();
 		this.m.ID = "supplies.legend_human_parts";
 		this.m.Name = "Human Parts";
 		this.m.Description = "Provisions. Ehh.. you're not sure you should be eating this.";
@@ -50,7 +50,7 @@ this.legend_human_parts <- this.inherit("scripts/items/supplies/legend_usable_fo
 
 	function onEquip()
 	{
-		this.legend_usable_food.onEquip();
+		this.food_item.onEquip();
 		local skill = this.new("scripts/skills/actives/legend_eat_rations_skill");
 		skill.setItem(this);
 		skill.setAmount(this.m.Amount);

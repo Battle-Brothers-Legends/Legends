@@ -125,8 +125,7 @@
 	o.convertEntityHireInformationToUIData = function ( _entity )
 	{
 		local result = convertEntityHireInformationToUIData(_entity);
-		result.Traits <- _entity.getHiringTraits();
-
+		result.Talents <- _entity.getHiringTalents();
 		return result;
 	}
 

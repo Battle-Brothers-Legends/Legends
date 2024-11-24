@@ -6,8 +6,8 @@ this.legend_spawn_zombie_high_skill <- this.inherit("scripts/skills/actives/lege
 		this.m.ID = "actives.legend_spawn_zombie_high_skill";
 		this.m.Name = "Summon Heavy Zombie";
 		this.m.Description = "Summon a fallen knight and send them charging into the enemy. Needs a free tile adjacent.";
-		this.m.Icon = "skills/remake_man.png",
-		this.m.IconDisabled = "skills/remake_man_bw.png",
+		this.m.Icon = "skills/remake_man.png";
+		this.m.IconDisabled = "skills/remake_man_bw.png";
 		this.m.Overlay = "remake_man";
 		 this.m.SoundOnUse = [
 		 	"sounds/combat/meat_01.wav",
@@ -20,8 +20,8 @@ this.legend_spawn_zombie_high_skill <- this.inherit("scripts/skills/actives/lege
 			"sounds/enemies/necromancer_02.wav",
 			"sounds/enemies/necromancer_03.wav"
 		];
-		this.m.SpawnItem =  "spawns.zombie",
-		this.m.Script = "scripts/entity/tactical/legends_zombie_high"
+		this.m.SpawnItem =  "spawns.zombie";
+		this.m.Script = "scripts/entity/tactical/legends_zombie_high";
 		this.m.ActionPointCost = 6;
 		this.m.FatigueCost = 25;
 		this.m.MaxLevelDifference = 4;

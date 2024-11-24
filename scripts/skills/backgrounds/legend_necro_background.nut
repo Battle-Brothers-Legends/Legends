@@ -75,7 +75,7 @@ this.legend_necro_background <- this.inherit("scripts/skills/backgrounds/charact
 			],
 			[
 				this.Const.Perks.PerkDefs.Backstabber,
-				this.Const.Perks.PerkDefs.Debilitate,
+				this.Const.Perks.PerkDefs.LegendDebilitate,
 				this.Const.Perks.PerkDefs.LegendDeathtouch,
 				this.Const.Perks.PerkDefs.LegendLookout,
 				this.Const.Perks.PerkDefs.LegendSpecialistScytheDamage,

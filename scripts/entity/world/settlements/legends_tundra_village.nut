@@ -199,13 +199,11 @@ this.legends_tundra_village <- this.inherit("scripts/entity/world/settlements/le
 		]];
 
 		this.m.FemaleDraftLists = [[
-		// 	"wildwoman_background"
-		// ],[
-		// 	"wildwoman_background"
-		// ],[
+			// nothing at lvl 1
+		],[
+			// nothing at lvl 2
+		],[
 			"legend_shieldmaiden_background",
-			// "wildwoman_background",
-			// "female_disowned_noble_background"
 		]];
 		this.m.StablesLists = [[],[],[]];
 		this.m.Rumors = this.Const.Strings.RumorsTundraSettlement;

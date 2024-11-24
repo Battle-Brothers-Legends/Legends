@@ -16,7 +16,10 @@ if (!("Perks" in ::Const))
 		[::Const.Perks.PerkDefs.LegendValaChantMastery],
 		[::Const.Perks.PerkDefs.LegendValaChantDisharmony],
 		[::Const.Perks.PerkDefs.LegendHerbcraft],
-		[::Const.Perks.PerkDefs.LegendPotionBrewer]
+		[
+			::Const.Perks.PerkDefs.LegendPotionBrewer,
+			::Const.Perks.PerkDefs.LegendValaChantFury
+		]
 	]
 };
 
@@ -148,7 +151,7 @@ if (!("Perks" in ::Const))
 	],
 	Tree = [
 		[::Const.Perks.PerkDefs.LegendPrepareBleed],
-		[::Const.Perks.PerkDefs.Debilitate],
+		[::Const.Perks.PerkDefs.LegendDebilitate],
 		[],
 		[::Const.Perks.PerkDefs.LegendBloodbath],
 		[::Const.Perks.PerkDefs.LegendSlaughter],
@@ -500,7 +503,7 @@ if (!("Perks" in ::Const))
 		}
 
 		local r = this.Math.rand(0, L.len() - 1)
-		return this.Tree[L[r]];;
+		return this.Tree[L[r]];
 	}
 
 

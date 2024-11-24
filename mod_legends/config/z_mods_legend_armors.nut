@@ -902,7 +902,7 @@ if (!("ArmorObjs" in ::Const.LegendMod))
 	}]
 },{
 	ID = "necromancer_robes",
-	Script = "scripts/items/armor/necromancer_robes",
+	Script = "scripts/items/armor/legend_necromancer_robes",
 	Sets = [{
 		Cloth = [
 		],

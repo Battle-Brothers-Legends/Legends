@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/hold_chokepoint_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/hold_chokepoint_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -24,15 +24,62 @@
 			}
 			if (s.ID == "Success2")
 			{
-				s.Text = Text = "[img]gfx/ui/events/event_04.png[/img]{You report to %employer% everything which occurred. A smile slowly goes across the Vizier\'s face.%SPEECH_ON%Goodness, my lieutenants sent you there? That fort is worth nothing. Who would play such a trick? I\'d have the notion to behead the man responsible, but alas, what was it, %reward% crowns? It means nothing to me. I\'ve paid more for a northern jester\'s jake to be told to me in person, and their sense of humor is impoverished at best. Take your gold and depart my premises, Crownling.%SPEECH_OFF% | When you return to %employer%, the Vizier is nowhere to be found. Instead, one of his lieutenants takes you aside and thanks you for your service.%SPEECH_ON%Between us and the mice, and let it be known these words were never spoken, and that there are no mice in these halls, that if I were to have men like you in my ranks I would have temptations of conquests in my heart. Alas, I am given troops as useful to me as the single grains of sand are to the desert. Here is your pay, Crown-, soldier.%SPEECH_OFF%He hands over a purse of %reward% crowns. Another lieutenant starts down the hallway, and the man before you slaps you on the shoulder, his face suddenly without humor or congeniality.%SPEECH_ON%Get out of here, Crownling, that is your pay and we will not hear so much as a single syllable from a haggler\'s tongue!%SPEECH_OFF% | You enter the Vizier\'s halls only to find a lone man sweeping the marbled floors. His broom\'s bristles scratch to a stop on your boot and he looks up.%SPEECH_ON%Ah. They told me a man of your stature would be here.%SPEECH_OFF%He sets the broom down, its handle possibly thicker than his frail frame. He walks over to a table and opens a chest filled with trays of %reward% crowns. You ask how the Viziers would ever trust him with so much coin. The man picks up his broom and laughs.%SPEECH_ON%Were I to steal the crowns for myself, how far would I get? It is heavy. I cannot carry it all. So can I take a little? No. I\'m a man of no material presence. As surely as the Gilder\'s eye blossoms the flower, gold in my palm illuminates me as a thief. I would never get far. This here is my station, and this is yours.%SPEECH_OFF%You take the coin, but then ask how he knows you\'re the right sellsword. His broom scratches to a stop again, and a bead of sweat slowly goes down his cheek. Before he answers, you take the crowns and go. | %employer% is found amongst his council. The rarely seen knot of silk-wearing, beard stroking peoples regard you with contempt. You state loudly that the fort has been held and taken by the southern soldiers. All noise is ceased and your words echo about the marbled halls and every servant stops and the council pauses. %employer% stands up.%SPEECH_ON%Servants, fetch this wagging tongue his coin.%SPEECH_OFF%One of the councilmen spits, which a collared child quickly cleans up.%SPEECH_ON%Should have remitted his pay while he was at the fort. How dare he so much as breathe in this room.%SPEECH_OFF%Servants rush to your side with purses of %reward% crowns. The Vizier waves his hand.%SPEECH_ON%Begone, Crownling. I\'ve persons I hire to dally, and you are not one of them.%SPEECH_OFF%}";
+				s.Text = "[img]gfx/ui/events/event_04.png[/img]{You report to %employer% everything which occurred. A smile slowly goes across the Vizier\'s face.%SPEECH_ON%Goodness, my lieutenants sent you there? That fort is worth nothing. Who would play such a trick? I\'d have the notion to behead the man responsible, but alas, what was it, %reward% crowns? It means nothing to me. I\'ve paid more for a northern jester\'s jake to be told to me in person, and their sense of humor is impoverished at best. Take your gold and depart my premises, Crownling.%SPEECH_OFF% | When you return to %employer%, the Vizier is nowhere to be found. Instead, one of his lieutenants takes you aside and thanks you for your service.%SPEECH_ON%Between us and the mice, and let it be known these words were never spoken, and that there are no mice in these halls, that if I were to have men like you in my ranks I would have temptations of conquests in my heart. Alas, I am given troops as useful to me as the single grains of sand are to the desert. Here is your pay, Crown-, soldier.%SPEECH_OFF%He hands over a purse of %reward% crowns. Another lieutenant starts down the hallway, and the man before you slaps you on the shoulder, his face suddenly without humor or congeniality.%SPEECH_ON%Get out of here, Crownling, that is your pay and we will not hear so much as a single syllable from a haggler\'s tongue!%SPEECH_OFF% | You enter the Vizier\'s halls only to find a lone man sweeping the marbled floors. His broom\'s bristles scratch to a stop on your boot and he looks up.%SPEECH_ON%Ah. They told me a man of your stature would be here.%SPEECH_OFF%He sets the broom down, its handle possibly thicker than his frail frame. He walks over to a table and opens a chest filled with trays of %reward% crowns. You ask how the Viziers would ever trust him with so much coin. The man picks up his broom and laughs.%SPEECH_ON%Were I to steal the crowns for myself, how far would I get? It is heavy. I cannot carry it all. So can I take a little? No. I\'m a man of no material presence. As surely as the Gilder\'s eye blossoms the flower, gold in my palm illuminates me as a thief. I would never get far. This here is my station, and this is yours.%SPEECH_OFF%You take the coin, but then ask how he knows you\'re the right sellsword. His broom scratches to a stop again, and a bead of sweat slowly goes down his cheek. Before he answers, you take the crowns and go. | %employer% is found amongst his council. The rarely seen knot of silk-wearing, beard stroking peoples regard you with contempt. You state loudly that the fort has been held and taken by the southern soldiers. All noise is ceased and your words echo about the marbled halls and every servant stops and the council pauses. %employer% stands up.%SPEECH_ON%Servants, fetch this wagging tongue his coin.%SPEECH_OFF%One of the councilmen spits, which a collared child quickly cleans up.%SPEECH_ON%Should have remitted his pay while he was at the fort. How dare he so much as breathe in this room.%SPEECH_OFF%Servants rush to your side with purses of %reward% crowns. The Vizier waves his hand.%SPEECH_ON%Begone, Crownling. I\'ve persons I hire to dally, and you are not one of them.%SPEECH_OFF%}";
 			}
 		}
 	}
 
-	local spawnAllies = o.spawnAllies;
 	o.spawnAllies = function ()
 	{
-		spawnAllies();
+		local cityState = this.World.FactionManager.getFaction(this.getFaction());
+		local mapSize = this.World.getMapSize();
+		local o = this.m.Destination.getTile().SquareCoords;
+		local tiles = [];
+
+		for( local x = o.X - 3; x < o.X + 3; x = ++x )
+		{
+			for( local y = o.Y - 6; y <= o.Y - 3; y = ++y )
+			{
+				if (this.World.isValidTileSquare(x, y))
+				{
+					local tile = this.World.getTileSquare(x, y);
+
+					if (tile.Type != this.Const.World.TerrainType.Ocean)
+					{
+						local s = this.Math.rand(0, 3);
+						if (tile.Type == this.Const.World.TerrainType.Mountains)
+							s = s - 10;
+						if (tile.HasRoad)
+							s = s + 10;
+						tiles.push({
+							Tile = tile,
+							Score = s
+						});
+					}
+				}
+			}
+		}
+
+		if (tiles.len() == 0)
+		{
+			tiles.push({
+				Tile = this.m.Destination.getTile(),
+				Score = 0
+			});
+		}
+
+		tiles.sort(function ( _a, _b )
+		{
+			if (_a.Score > _b.Score)
+				return -1;
+			else if (_a.Score < _b.Score)
+				return 1;
+			return 0;
+		});
+		local party = cityState.spawnEntity(tiles[0].Tile, "Regiment of " + cityState.getNameOnly(), true, this.Const.World.Spawn.Southern, this.Math.rand(100, 150) * this.getDifficultyMult() * this.getScaledDifficultyMult());
+		party.getSprite("body").setBrush(party.getSprite("body").getBrush().Name + "_" + cityState.getBannerString());
+		party.setDescription("Conscripted soldiers loyal to their city state.");
+
 		party.getLoot().Money = this.Math.rand(100, 300);
 		party.getLoot().ArmorParts = this.Math.rand(10, 35);
 		party.getLoot().Medicine = this.Math.rand(5, 15);
@@ -40,7 +87,13 @@
 		local arr = ["trade/silk_item", "trade/silk_item", "trade/incense_item", "trade/spices_item"]
 		for(local i = 0; i < this.Math.round(r/2); i++) //adds either 1 silk, 1 silk, 2 incense, 2 spices
 		{
-			party.addToInventory(arr[r-1])
+			party.addToInventory(arr[r-1]);
 		}
+
+		local c = party.getController();
+		local guard = this.new("scripts/ai/world/orders/guard_order");
+		guard.setTarget(this.m.Destination.getTile());
+		guard.setTime(240.0);
+		c.addOrder(guard);
 	}
 });

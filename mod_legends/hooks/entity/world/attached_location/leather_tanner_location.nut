@@ -31,12 +31,12 @@
 			_list.push({
 				R = 90,
 				P = 1.0,
-				S = "tents/tent_hunter"
+				S = "tents/legend_tent_hunter"
 			});
 			_list.push({
 				R = 80,
 				P = 1.0,
-				S = "tents/tent_craft"
+				S = "tents/legend_tent_craft"
 			});
 		}
 	}

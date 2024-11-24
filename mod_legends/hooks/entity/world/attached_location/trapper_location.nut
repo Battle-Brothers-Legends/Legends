@@ -12,14 +12,13 @@
 	{
 		onUpdateProduce(_list);
 		_list.push("trade/legend_small_furs_item");
-		_list.push("poacher_background");
 	}
 
 	local onUpdateDraftList = o.onUpdateDraftList;
 	o.onUpdateDraftList = function ( _list, _gender = null )
 	{
 		_gender = ::Legends.Mod.ModSettings.getSetting("GenderEquality").getValue() != "Disabled";
-
+		_list.push("poacher_background");
 		onUpdateDraftList(_list);
 	}
 
@@ -62,7 +61,7 @@
 			_list.push({
 				R = 80,
 				P = 1.0,
-				S = "tents/tent_hunter"
+				S = "tents/legend_tent_hunter"
 			});
 				_list.push({
 				R = 30,

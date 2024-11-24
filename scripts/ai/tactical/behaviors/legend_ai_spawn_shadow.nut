@@ -146,7 +146,7 @@ this.legend_ai_spawn_shadow <- this.inherit("scripts/ai/tactical/behavior", {
 
 			local tile = this.m.Tiles[0].Tile;
 			this.m.Tiles.remove(0);
-			local shadow = this.Tactical.spawnEntity("scripts/entity/tactical/enemies/alp_shadow", tile.Coords.X, tile.Coords.Y);
+			local shadow = this.Tactical.spawnEntity("scripts/entity/tactical/enemies/legend_alp_shadow", tile.Coords.X, tile.Coords.Y);
 			shadow.setFaction(_entity.getFaction());
 			max_shadows = --max_shadows;
 

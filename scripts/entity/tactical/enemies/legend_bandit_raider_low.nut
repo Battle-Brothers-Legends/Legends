@@ -2,7 +2,7 @@ this.legend_bandit_raider_low <- this.inherit("scripts/entity/tactical/enemies/l
 	m = {},
 	function create()
 	{
-		this.bandit_raider.create();
+		this.legend_bandit_raider.create();
 		this.m.IsLow = true;
 
 		//TODO: Look athow to normalize this for low tier units?
@@ -12,7 +12,7 @@ this.legend_bandit_raider_low <- this.inherit("scripts/entity/tactical/enemies/l
 
 	function onInit()
 	{
-		this.bandit_raider.onInit();
+		this.legend_bandit_raider.onInit();
 		this.m.BaseProperties.MeleeSkill -= 5;
 		this.m.BaseProperties.MeleeDefense -= 5;
 		this.m.BaseProperties.RangedDefense -= 5;
@@ -22,7 +22,7 @@ this.legend_bandit_raider_low <- this.inherit("scripts/entity/tactical/enemies/l
 
 	function assignRandomEquipment()
 	{
-		this.bandit_raider.assignRandomEquipment();
+		this.legend_bandit_raider.assignRandomEquipment();
 		
 		if (this.getIdealRange() == 1 && this.Math.rand(1, 100) <= 25)
 		{

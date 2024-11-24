@@ -377,7 +377,7 @@ this.legend_orc_elite <- this.inherit("scripts/entity/tactical/actor", {
 
 
 			local item = this.Const.World.Common.pickArmor([
-				[1, "greenskins/orc_elite_heavy_armor"]
+				[1, "greenskins/legend_orc_elite_heavy_armor"]
 			]);
 			this.m.Items.equip(item);
 			local item = this.Const.World.Common.pickHelmet([

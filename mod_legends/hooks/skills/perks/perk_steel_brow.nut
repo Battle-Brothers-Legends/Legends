@@ -9,7 +9,7 @@
 
 	o.onRemoved <- function ()
 	{
-		this.m.Container.removeByID("effects.steel_brow");
+		this.m.Container.removeByID("effects.legend_steel_brow");
 	}
 
 	// 		//if (effect) -> remove and replace with diff. effect

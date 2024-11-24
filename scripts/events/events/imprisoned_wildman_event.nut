@@ -450,7 +450,7 @@ this.imprisoned_wildman_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/accessory/wardog_item");
+				local item = this.new("scripts/items/accessory/legend_wardog_item");
 				this.World.Assets.getStash().add(item);
 				this.List.push({
 					id = 10,

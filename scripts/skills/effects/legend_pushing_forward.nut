@@ -7,11 +7,11 @@ this.legend_pushing_forward <- this.inherit("scripts/skills/effects/legend_comma
 		this.m.Description = "This mercenary has received clear instructions to push forward, and is coordinating accordingly.";
 		this.m.Icon = "skills/spears_square.png";
 		this.m.IconMini = "mini_spears_circle";
-		this.m.Type = this.Const.SkillType.StatusEffect | this.Const.SkillType.Special;;
+		this.m.Type = this.Const.SkillType.StatusEffect | this.Const.SkillType.Special;
 		this.m.IsActive = false;
 		this.m.IsRemovedAfterBattle = true;
 	}
-	
+
 	function onUpdate( _properties )
 	{
 		_properties.MeleeSkill += 10;

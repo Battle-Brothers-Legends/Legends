@@ -96,7 +96,7 @@ this.legend_preserver_background <- this.inherit("scripts/skills/backgrounds/cha
 		],
 		[
 			this.Const.Perks.PerkDefs.Backstabber,
-			this.Const.Perks.PerkDefs.Debilitate,
+			this.Const.Perks.PerkDefs.LegendDebilitate,
 			this.Const.Perks.PerkDefs.LegendFavouredEnemyCaravan,
 			this.Const.Perks.PerkDefs.LegendLookout,
 			this.Const.Perks.PerkDefs.LegendSpecialistScytheDamage,

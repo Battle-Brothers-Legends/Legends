@@ -39,12 +39,12 @@
 			_list.push({
 				R = 80,
 				P = 1.0,
-				S = "tents/tent_heal"
+				S = "tents/legend_tent_heal"
 			});
 			_list.push({
 				R = 90,
 				P = 1.0,
-				S = "tents/tent_gather"
+				S = "tents/legend_tent_gather"
 			});
 			_list.push({
 				R = 0,

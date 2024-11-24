@@ -1,4 +1,4 @@
-::mods_hookExactClass("ai/tactical/strategy", function(o) 
+::mods_hookNewObject("ai/tactical/strategy", function(o)
 {
 	o.compileKnownOpponents = function ()
 	{

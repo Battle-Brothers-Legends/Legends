@@ -1,6 +1,6 @@
-::Const.World.TerrainType.SwampGreen <- 19,
-::Const.World.TerrainType.SwampForest <- 20,
-::Const.World.TerrainType.COUNT = 21
+::Const.World.TerrainType.SwampGreen <- 19;
+::Const.World.TerrainType.SwampForest <- 20;
+::Const.World.TerrainType.COUNT = 21;
 
 ::Const.World.AllTerrainTypes <- []; // Added by Legends
 for (local i = 0; i < ::Const.World.TerrainType.COUNT; i++)
@@ -14,9 +14,7 @@ for (local i = 0; i < ::Const.World.TerrainType.COUNT; i++)
 	local garbage = clone _types;
 	::MSU.Array.sortDescending(garbage);
 	foreach( i in garbage )
-	{
 		ret.remove(i);
-	}
 	return ret;
 }
 
@@ -44,12 +42,12 @@ for (local i = 0; i < ::Const.World.TerrainType.COUNT; i++)
 	"in the forested swamps"
 ];
 
-::Const.World.TerrainTacticalType.SwampGreen <- 25,
-::Const.World.TerrainTacticalType.SwampForest <- 26,
-::Const.World.TerrainTacticalType.COUNT = 27
+::Const.World.TerrainTacticalType.SwampGreen <- 25;
+::Const.World.TerrainTacticalType.SwampForest <- 26;
+::Const.World.TerrainTacticalType.COUNT = 27;
 
 ::Const.World.FootprintsType.Basilisks <- 26;
-::Const.World.FootprintsType.COUNT = 27
+::Const.World.FootprintsType.COUNT = 27;
 
 ::Const.World.Buildings.Stables <- 0;
 ::Const.World.Buildings.Blackmarket <- 0;
@@ -64,7 +62,7 @@ for (local i = 0; i < ::Const.World.TerrainType.COUNT; i++)
 
 ::Const.World.SettlementsUpdate <- function (_val)
 {
-	local total = 0.0
+	local total = 0.0;
 	foreach(s in ::Const.World.Settlements.Master)
 	{
 		total = total + s.Amount;

@@ -730,6 +730,7 @@
 	<sprite id="mini_fire_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_fire_circle.png" />
 	<sprite id="mini_bluefire_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_bluefire_circle.png" />
 	<sprite id="mini_throw_sand_circle" offsetY="35" ic="FF344955" img="skills\mini\mini_throw_sand_circle.png" />
+  <sprite id="mini_smackdown_circle" ic="2E343FFF" img="skills\mini\mini_smackdown_circle.png" />
 	<sprite id="active_71" ic="FF181B33" img="skills\active_71.png" />
 	<sprite id="active_21" ic="FF181B33" img="skills\active_21.png" />
 	<sprite id="active_24" ic="FF181B33" img="skills\active_24.png" />

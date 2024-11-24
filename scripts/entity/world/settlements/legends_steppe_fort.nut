@@ -90,17 +90,6 @@ this.legends_steppe_fort <- this.inherit("scripts/entity/world/settlements/legen
 			"Odfeste",
 			"Habichtfeste"
 		]];
-		this.m.FemaleDraftLists = [
-		//  [
-		// 	"female_adventurous_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// 	"female_adventurous_noble_background",
-		// 	"female_adventurous_noble_background"
-		// ]
-		];
 		this.m.DraftLists = [ [
 			"caravan_hand_background",
 			"caravan_hand_background",

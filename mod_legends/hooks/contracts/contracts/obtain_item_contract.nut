@@ -60,7 +60,7 @@
 		{
 			if (s.ID == "Offer")
 			{
-				s.end = function ()
+				s.end <- function ()
 				{
 					this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 					this.Contract.m.Destination.clearTroops();

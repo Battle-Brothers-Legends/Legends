@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/restore_location_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/restore_location_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -31,7 +31,7 @@
 		switch (count)
 		{
 		case 2:
-			r = format(r, 
+			r = format(r,
 				::Const.UI.getColorized(this.m.Location.getSettlement().getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()),
 				::Const.UI.getColorized(this.m.Location.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue())
 			);
@@ -41,7 +41,7 @@
 			r = format(r, ::Const.UI.getColorized(::World.FactionManager.getFaction(this.getFaction()).getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 			break;
 		}
-		
+
 		this.m.Description = r;
 	}
 
@@ -52,9 +52,9 @@
 		foreach (s in this.m.Screens)
 		{
 			if (s.ID == "Escort")
-			{	
+			{
 				local start = s.start;
-				s.start = function()
+				s.start <- function()
 				{
 					start();
 					if (!this.World.State.isPaused())
@@ -64,7 +64,7 @@
 
 					this.World.State.m.LastWorldSpeedMult = this.Const.World.SpeedSettings.EscortMult;
 				}
-				s.update = function ()
+				s.update <- function ()
 				{
 					if (this.Contract.m.Caravan == null || this.Contract.m.Caravan.isNull() || !this.Contract.m.Caravan.isAlive() || this.Contract.m.Caravan.getTroops().len() == 0)
 					{

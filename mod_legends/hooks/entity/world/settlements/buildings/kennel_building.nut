@@ -11,17 +11,17 @@
 			{
 				R = 0,
 				P = 1.0,
-				S = "accessory/wardog_item"
+				S = "accessory/legend_wardog_item"
 			},
 			{
 				R = 15,
 				P = 1.0,
-				S = "accessory/wolf_item"
+				S = "accessory/legend_wolf_item"
 			},
 			{
 				R = 0,
 				P = 1.0,
-				S = "accessory/armored_wardog_item"
+				S = "accessory/legend_armored_wardog_item"
 			},
 			{
 				R = 40,
@@ -35,17 +35,17 @@
 			list.push({
 				R = 0,
 				P = 1.0,
-				S = "accessory/warhound_item"
+				S = "accessory/legend_warhound_item"
 			});
 			list.push({
 				R = 0,
 				P = 1.0,
-				S = "accessory/wolf_item"
+				S = "accessory/legend_wolf_item"
 			});
 			list.push({
 				R = 0,
 				P = 1.0,
-				S = "accessory/armored_warhound_item"
+				S = "accessory/legend_armored_warhound_item"
 			});
 		}
 		else
@@ -53,7 +53,7 @@
 			list.push({
 				R = 0,
 				P = 1.0,
-				S = "accessory/wardog_item"
+				S = "accessory/legend_wardog_item"
 			});
 		}
 

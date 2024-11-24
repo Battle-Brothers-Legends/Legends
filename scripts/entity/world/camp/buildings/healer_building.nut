@@ -350,7 +350,12 @@ this.healer_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		}
 		foreach (i, obj in this.m.Queue)
 		{
-			if (obj.isNull() || obj.isGarbage()) continue;
+			if (obj == null)
+				continue;
+			if ("isNull" in obj && obj.isNull())
+				continue;
+			if ("isGarbage" in obj && obj.isGarbage())
+				continue;
 
 			local r = obj.Injury;
 

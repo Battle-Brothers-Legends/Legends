@@ -33,6 +33,7 @@
 				local isHelm = false;
 				local isArmor = false;
 				local isUpgrade = false;
+				local isDog = false;
 				local script = i.S;
 
 				local index = script.find("helmets/");
@@ -54,6 +55,14 @@
 					script = script.slice(index + "armor_upgrades/".len());
 				}
 
+				// for my stupid dog renamings
+				if ((script.find("wardog_item") || script.find("warhound_item")) && !script.find("legend"))
+				{	
+					isDog = true;
+					local splitted = split(script, "/")
+					script = "accessory/legend_" + splitted[splitted.len() - 1];
+				}
+
 				if (p >= r)
 				{
 					if (isHelm)
@@ -73,6 +82,10 @@
 						item = this.Const.World.Common.pickArmorUpgrade([
 							[1, script]
 						]);
+					}
+					else if (isDog)
+					{
+						item = this.new("scripts/items/" + script)
 					}
 					else
 					{

@@ -34,8 +34,7 @@ this.legend_slingstaff <- this.inherit("scripts/items/weapons/weapon", {
 	function onEquip()
 	{
 		this.weapon.onEquip();
-		local aimed_shot = this.new("scripts/skills/actives/legend_sling_heavy_stone_skill");
-		this.addSkill(aimed_shot);
+		this.addSkill(this.new("scripts/skills/actives/legend_sling_heavy_stone_skill"));
 		this.addSkill(this.new("scripts/skills/actives/legend_slingstaff_bash_skill"));
 	}
 

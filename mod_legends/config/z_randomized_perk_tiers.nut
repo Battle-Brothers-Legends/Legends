@@ -182,7 +182,7 @@
         [1, ["legend_sickle", 35], ["perks/perk_legend_specialist_sickle_skill", "perks/perk_legend_specialist_sickle_damage"]],
         [1, ["legend_staff", 35], ["perks/perk_legend_specialist_staff_skill", "perks/perk_legend_mastery_staff_stun", "perks/perk_fortified_mind"]],
         [1, ["legend_shovel", 35], ["perks/perk_legend_specialist_shovel_skill", "perks/perk_legend_specialist_shovel_damage"]],
-        [1, ["wooden_stick", 35], ["perks/perk_legend_onslaught", "perks/perk_overwhelm", "perks/perk_colossus", "perks/perk_recover", "perks/perk_rebound"]],
+        [1, ["wooden_stick", 35], ["perks/perk_legend_onslaught", "perks/perk_overwhelm", "perks/perk_colossus", "perks/perk_recover", "perks/perk_legend_rebound"]],
         [1, ["legend_hammer", 35], ["perks/perk_legend_specialist_hammer_skill", "perks/perk_legend_specialist_hammer_damage", "perks/perk_colossus"]],
         [1, ["legend_shiv",  35], ["perks/perk_legend_specialist_knife_skill", "perks/perk_legend_specialist_knife_damage", "perks/perk_duelist"]],
         [1, ["lute", 35], ["perks/perk_legend_specialist_lute_damage", "perks/perk_legend_mind_over_body", "perks/perk_recover"]],
@@ -246,7 +246,7 @@
         [3, ["butchers_cleaver", 70], ["perks/perk_legend_bloodbath"]],
         [3, ["dagger",  70], ["perks/perk_duelist"]],
         [3, ["legend_scythe", 70], ["perks/perk_coup_de_grace"]],
-        [3, ["legend_tipstaff", 70], ["perks/perk_return_favor"]],
+        [3, ["legend_tipstaff", 70], ["perks/perk_legend_return_favor"]],
         [3, ["legend_militia_glaive", 70], ["perks/perk_killing_frenzy"]],
         [3, ["legend_tipstaff", 70], ["perks/perk_killing_frenzy"]],
         [3, ["legend_ranged_wooden_flail", 70], ["perks/perk_killing_frenzy"]]
@@ -322,7 +322,7 @@
         [1, ["legend_infantry_axe", 70], ["perks/perk_legend_smashing_shields"]],
         [1, ["hooked_blade", 70], ["perks/perk_crippling_strikes"]],
         [1, ["pike", 70], ["perks/perk_reach_advantage"]],
-        [1, ["warbrand", 70], ["perks/perk_bloody_harvest"]],
+        [1, ["warbrand", 70], ["perks/perk_legend_bloody_harvest"]],
         [1, ["longaxe", 70], ["perks/perk_killing_frenzy"]],
         [1, ["two_handed_wooden_hammer", 70], ["perks/perk_sundering_strikes"]],
         [1, ["two_handed_wooden_flail", 70], ["perks/perk_head_hunter"]],
@@ -335,8 +335,8 @@
         [5, ["shortsword", 70, 30], ["perks/perk_overwhelm"]],
         [5, ["hand_axe", 70], ["perks/perk_legend_onslaught"]],
         [5, ["boar_spear", 70], ["perks/perk_duelist"]],
-        [5, ["morning_star", 70], ["perks/perk_feint"]],
-        [5, ["falchion", 70], ["perks/perk_feint"]],
+        [5, ["morning_star", 70], ["perks/perk_legend_feint"]],
+        [5, ["falchion", 70], ["perks/perk_legend_feint"]],
         [5, ["arming_sword", 70], ["perks/perk_legend_bloodbath"]],
         [5, ["flail", 70], ["perks/perk_head_hunter"]],
         [5, ["scramasax", 70], ["perks/perk_killing_frenzy"]],
@@ -537,8 +537,8 @@
         this.Const.Perks.TrainedTree
     ], 
     GuaranteedPerks = [
-        "perks/perk_ballistics",
-        "perks/perk_lookout",
+        "perks/perk_legend_ballistics",
+        "perks/perk_legend_lookout",
         "perks/perk_rotation"
     ],
     LegendaryPerks = [
@@ -586,8 +586,8 @@
         "perks/perk_shield_bash"
     ],
     LegendaryPerks = [
-        "perks/perk_deflect",
-        "perks/perk_bruiser",
+        "perks/perk_legend_deflect",
+        "perks/perk_legend_bruiser",
         "traits/fearless_trait"
     ],
     LevelRange = [7, 10],

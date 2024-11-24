@@ -4,7 +4,7 @@
 	o.m.Campaign <- "";
 	o.m.CommanderDied <- null;
 	o.m.Camp <- null;
-	o.m.IDToRef <- array;(27, -1);
+	o.m.IDToRef <- array(27, -1);
 	o.m.DistantVisionBonus <- false;
 	o.m.AppropriateTimeToRecalc <- 1; //Leonion's fix
 
@@ -571,7 +571,7 @@
 		properties.InCombatAlready = false;
 		properties.IsAttackingLocation = false;
 		local factions = [];
-		factions.resize(32, 0); // handled by MSU
+		factions.resize(48, 0); // handled by MSU
 
 		foreach( party in raw_parties )
 		{

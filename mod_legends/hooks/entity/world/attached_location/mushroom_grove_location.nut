@@ -36,7 +36,7 @@
 			_list.push({
 				R = 90,
 				P = 1.0,
-				S = "tents/tent_gather"
+				S = "tents/legend_tent_gather"
 			});
 			_list.push({
 				R = 30,

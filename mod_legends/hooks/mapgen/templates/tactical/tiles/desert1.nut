@@ -1,10 +1,13 @@
 ::mods_hookExactClass("mapgen/templates/tactical/tiles/desert1", function(o)
 {
-	local init = o.init;
 	o.init = function ()
 	{
-		init();
+		this.m.Name = "tactical.tile.desert1";
+		this.m.MinX = 1;
+		this.m.MinY = 1;
 		local t = this.createTileTransition();
+		t.setSocket("socket_desert");
+		this.Tactical.setTransitions("tile_desert_01", t);
 		this.Tactical.setTransitions("tile_legend_desert_01", t);
 		this.Tactical.setTransitions("tile_legend_desert_02", t);
 		this.Tactical.setTransitions("tile_legend_desert_03", t);
@@ -24,9 +27,9 @@
 		tile.Subtype = this.Const.Tactical.TerrainSubtype.Desert;
 		tile.BlendPriority = this.Const.Tactical.TileBlendPriority.Desert1;
 		tile.IsBadTerrain = false;
-		
+
 		 local random = this.Math.rand(1, 100);
-		 
+
 		if (random <= 20)
 		{
 		tile.setBrush("tile_desert_01");
@@ -38,17 +41,17 @@
 		else if (random >= 41 && random <=60)
 		{
 		tile.setBrush("tile_legend_desert_02");
-		}		
+		}
 		else if (random >= 61 && random <=80)
 		{
 		tile.setBrush("tile_legend_desert_03");
 		}
-		else 
+		else
 		{
 		tile.setBrush("tile_legend_desert_04");
 		}
-		
-		
+
+
 		if (_rect.IsEmpty)
 		{
 			return;

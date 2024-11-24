@@ -6,3 +6,5 @@ currentBranch=$(git rev-parse --abbrev-ref HEAD)
 [ -d "./.bbbuilder" ] && rm -r "./.bbbuilder"
 
 "$BBBuilder" build "./" -diff "$Source,$currentBranch"
+
+[ -d "./.bbbuilder" ] && rm -r "./.bbbuilder"

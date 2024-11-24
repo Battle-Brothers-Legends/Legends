@@ -1,14 +1,13 @@
 this.formations_container <- {
 	m = {
 		Actor = null,
-		CurrentIndex = 0
+		CurrentIndex = 0,
 		Items = [],
 		Bags = [],
 		Positions = []
 	},
 	function setActor( _a )
 	{
-		;
 	}
 
 	function getActor()
@@ -18,7 +17,7 @@ this.formations_container <- {
 
 	function create()
 	{
-		for( local i = 0; i < this.Const.LegendMod.Formations.Count; i = ++i )
+		for( local i = 0; i < this.Const.LegendMod.Formations.Count; i++ )
 		{
 			this.m.Positions.push(255);
 			this.m.Items.push([]);
@@ -93,7 +92,7 @@ this.formations_container <- {
 	{
 		_out.writeU8(this.m.CurrentIndex);
 
-		for( local i = 0; i < this.Const.LegendMod.Formations.Count; i = ++i )
+		for( local i = 0; i < this.Const.LegendMod.Formations.Count; i++ )
 		{
 			_out.writeU8(this.m.Positions[i]);
 			local items = this.m.Items[i];
@@ -114,16 +113,16 @@ this.formations_container <- {
 	function onDeserialize( _in )
 	{
 		this.m.CurrentIndex = _in.readU8();
-		for( local i = 0; i < this.Const.LegendMod.Formations.Count; i = ++i )
+		for( local i = 0; i < this.Const.LegendMod.Formations.Count; i++ )
 		{
 			this.m.Positions[i] = _in.readU8();
 			local numItems = _in.readU8();
-			for (local j = 0; j < numItems; j = ++j)
+			for (local j = 0; j < numItems; j++)
 			{
 				this.m.Items[i].push(_in.readString());
 			}
 			local numBags = _in.readU8();
-			for (local j = 0; j < numBags; j = ++j)
+			for (local j = 0; j < numBags; j++)
 			{
 				this.m.Bags[i].push(_in.readString());
 			}

@@ -404,7 +404,7 @@
 	Strength = 7,
 	Cost = 7,
 	Row = 0,
-	Script = "scripts/entity/tactical/humans/peasant_armed_infected"
+	Script = "scripts/entity/tactical/humans/legend_peasant_armed_infected"
 };
 
 ::Const.World.Spawn.Troops.SatoManhunter <- {
@@ -553,7 +553,7 @@
 	Strength = 17,
 	Cost = 17,
 	Row = 1,
-	Script = "scripts/entity/tactical/humans/free_company_spearman"
+	Script = "scripts/entity/tactical/humans/legend_free_company_spearman"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanySpearmanLow <- {
@@ -562,7 +562,7 @@
 	Strength = 12,
 	Cost = 12,
 	Row = 1,
-	Script = "scripts/entity/tactical/humans/free_company_spearman_low"
+	Script = "scripts/entity/tactical/humans/legend_free_company_spearman_low"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanySlayer <- {
@@ -571,7 +571,7 @@
 	Strength = 22,
 	Cost = 22,
 	Row = 1,
-	Script = "scripts/entity/tactical/humans/free_company_slayer"
+	Script = "scripts/entity/tactical/humans/legend_free_company_slayer"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyFootman <- {
@@ -580,7 +580,7 @@
 	Strength = 22,
 	Cost = 22,
 	Row = 2,
-	Script = "scripts/entity/tactical/humans/free_company_footman"
+	Script = "scripts/entity/tactical/humans/legend_free_company_footman"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyArcher <- {
@@ -589,7 +589,7 @@
 	Strength = 15,
 	Cost = 15,
 	Row = 3,
-	Script = "scripts/entity/tactical/humans/free_company_archer"
+	Script = "scripts/entity/tactical/humans/legend_free_company_archer"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyArcherLow <- {
@@ -598,7 +598,7 @@
 	Strength = 10,
 	Cost = 10,
 	Row = 3,
-	Script = "scripts/entity/tactical/humans/free_company_archer_low"
+	Script = "scripts/entity/tactical/humans/legend_free_company_archer_low"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyCrossbow <- {
@@ -607,7 +607,7 @@
 	Strength = 15,
 	Cost = 15,
 	Row = 3,
-	Script = "scripts/entity/tactical/humans/free_company_crossbow"
+	Script = "scripts/entity/tactical/humans/legend_free_company_crossbow"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyLongbow <- {
@@ -616,7 +616,7 @@
 	Strength = 20,
 	Cost = 20,
 	Row = 3,
-	Script = "scripts/entity/tactical/humans/free_company_longbow"
+	Script = "scripts/entity/tactical/humans/legend_free_company_longbow"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyBillman <- {
@@ -625,7 +625,7 @@
 	Strength = 20,
 	Cost = 20,
 	Row = 2,
-	Script = "scripts/entity/tactical/humans/free_company_billman"
+	Script = "scripts/entity/tactical/humans/legend_free_company_billman"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyPikeman <- {
@@ -634,7 +634,7 @@
 	Strength = 20,
 	Cost = 20,
 	Row = 2,
-	Script = "scripts/entity/tactical/humans/free_company_pikeman"
+	Script = "scripts/entity/tactical/humans/legend_free_company_pikeman"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyInfantry <- {
@@ -643,7 +643,7 @@
 	Strength = 25,
 	Cost = 25,
 	Row = 1,
-	Script = "scripts/entity/tactical/humans/free_company_infantry"
+	Script = "scripts/entity/tactical/humans/legend_free_company_infantry"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyLeader <- {
@@ -652,7 +652,7 @@
 	Strength = 30,
 	Cost = 30,
 	Row = 1,
-	Script = "scripts/entity/tactical/humans/free_company_leader"
+	Script = "scripts/entity/tactical/humans/legend_free_company_leader"
 };
 
 ::Const.World.Spawn.Troops.FreeCompanyLeaderLow <- {
@@ -661,7 +661,7 @@
 	Strength = 20,
 	Cost = 20,
 	Row = 1,
-	Script = "scripts/entity/tactical/humans/free_company_leader_low"
+	Script = "scripts/entity/tactical/humans/legend_free_company_leader_low"
 };
 
 ::Const.World.Spawn.Troops.Oathbringer <- {
@@ -701,7 +701,7 @@
 	Strength = 50,
 	Cost = 50,
 	Row = 0,
-	Script = "scripts/entity/tactical/humans/noble_footman_veteran"
+	Script = "scripts/entity/tactical/humans/legend_noble_footman_veteran"
 };
 
 ::Const.World.Spawn.Troops.LegendManAtArms <- {
@@ -710,7 +710,7 @@
 	Strength = 100,
 	Cost = 100,
 	Row = 1,
-	Script = "scripts/entity/tactical/humans/noble_man_at_arms",
+	Script = "scripts/entity/tactical/humans/legend_noble_man_at_arms",
 	NameList = this.Const.Strings.KnightNames
 };
 
@@ -720,7 +720,7 @@
 	Strength = 35,
 	Cost = 35,
 	Row = -1,
-	Script = "scripts/entity/tactical/humans/noble_elite_footman"
+	Script = "scripts/entity/tactical/humans/legend_noble_elite_footman"
 };
 
 ::Const.World.Spawn.Troops.NoblePollax <- {
@@ -729,7 +729,7 @@
 	Strength = 50,
 	Cost = 50,
 	Row = 1,
-	Script = "scripts/entity/tactical/humans/noble_pollax"
+	Script = "scripts/entity/tactical/humans/legend_noble_pollax"
 };
 
 ::Const.World.Spawn.Troops.NobleSureshot <- {
@@ -738,7 +738,7 @@
 	Strength = 75,
 	Cost = 75,
 	Row = 2,
-	Script = "scripts/entity/tactical/humans/noble_sureshot"
+	Script = "scripts/entity/tactical/humans/legend_noble_sureshot"
 };
 
 ::Const.World.Spawn.Troops.LegendBasiliskDrone <- {

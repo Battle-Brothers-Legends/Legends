@@ -9,8 +9,8 @@ this.legend_violent_decomposition_skill <- this.inherit("scripts/skills/skill", 
 	{
 		this.m.ID = "actives.legend_violent_decomposition_skill";
 		this.m.Name = "Violent Decomposition";
-		this.m.Icon = "skills/violent_decomposition.png",
-		this.m.IconDisabled = "skills/violent_decomposition_bw.png",
+		this.m.Icon = "skills/violent_decomposition.png";
+		this.m.IconDisabled = "skills/violent_decomposition_bw.png";
 		this.m.Overlay = "violent_decomposition";
 		this.m.SoundOnUse = [
 		 	"sounds/combat/violent_decomposition.wav"
@@ -109,7 +109,7 @@ this.legend_violent_decomposition_skill <- this.inherit("scripts/skills/skill", 
 			_properties.DamageRegularMin = this.m.MinRange;
 			_properties.DamageArmorMult = this.m.ArmorDamageMult;
 			// properties.DamageTotalMult = 1.0;
-			// remove comment of the line above to make this skill no longer be affected by total damage multiplier 
+			// remove comment of the line above to make this skill no longer be affected by total damage multiplier
 		}
 	}
 

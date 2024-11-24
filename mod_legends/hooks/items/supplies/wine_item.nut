@@ -32,7 +32,7 @@
 
 	o.onEquip <- function ()
 	{
-		this.legend_usable_food.onEquip();
+		this.food_item.onEquip();
 		local skill = this.new("scripts/skills/actives/legend_drink_wine_skill");
 		skill.setItem(this);
 		this.addSkill(skill);

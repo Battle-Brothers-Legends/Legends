@@ -1,6 +1,6 @@
 this.enchanter_building <- this.inherit("scripts/entity/world/camp/camp_building", {
 	m = {
-		BaseCraft = 13.0,
+		BaseCraft = 30.0,
 		ItemsCrafted = [],
 		Queue = [],
 		CurrentProgress = 0,

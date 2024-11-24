@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/decisive_battle_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/decisive_battle_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -22,7 +22,7 @@
 		{
 			if (s.ID == "InterceptSupplies")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					local startTile = this.World.getEntityByID(this.Flags.get("InterceptSuppliesStart")).getTile();
 					local destTile = this.World.getEntityByID(this.Flags.get("InterceptSuppliesDest")).getTile();

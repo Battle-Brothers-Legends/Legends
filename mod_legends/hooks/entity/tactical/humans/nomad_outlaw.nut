@@ -1,4 +1,4 @@
-::mods_hookExactClass("entity/tactical/humans/nomad_outlaw", function(o) 
+::mods_hookExactClass("entity/tactical/humans/nomad_outlaw", function(o)
 {
 	local onInit = o.onInit;
 	o.onInit = function ()

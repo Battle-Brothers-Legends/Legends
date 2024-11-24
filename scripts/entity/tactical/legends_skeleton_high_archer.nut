@@ -4,7 +4,7 @@ this.legends_skeleton_high_archer <- this.inherit("scripts/entity/tactical/legen
 	function onInit()
 	{
 		this.m.SpawnType = this.Const.Tactical.Actor.LegendSkeletonHeavyArcher;
-		this.legend_skeleton.onInit();;
+		this.legend_skeleton.onInit();
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_steel_brow"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));

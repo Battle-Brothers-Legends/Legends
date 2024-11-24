@@ -887,6 +887,11 @@
 			}
 		}
 
+		if (!this.Tactical.State.isScenarioMode() && _killer != null && _killer.isPlayerControlled() && _skill != null && _skill.getID() == "actives.deathblow")
+		{
+			this.updateAchievement("Assassin", 1, 1);
+		}
+
 		this.m.IsDying = true;
 		local isReallyDead = this.isReallyKilled(_fatalityType);
 
@@ -1211,7 +1216,7 @@
 			this.getTile().addVisibilityForCurrentEntity();
 		}
 
-		if (this.m.Skills.hasSkill("perk.steel_brow") && _hitInfo.BodyPart == this.Const.BodyPart.Head)
+		if (this.m.Skills.hasSkill("perk.legend_steel_brow") && _hitInfo.BodyPart == this.Const.BodyPart.Head)
 		{
 			_hitInfo.BodyDamageMult -= this.Math.floor(_hitInfo.BodyDamageMult / 3);
 		}

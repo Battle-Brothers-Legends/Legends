@@ -209,18 +209,6 @@ this.legends_farm_fort <- this.inherit("scripts/entity/world/settlements/legends
 			"squire_background",
 			"swordmaster_background"
 		]];
-		this.m.FemaleDraftLists = [
-		// [
-		// 	"female_adventurous_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// 	"female_disowned_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// 	"female_disowned_noble_background",
-		// 	"female_disowned_noble_background",
-		// ]
-		];
 
 		this.m.StablesLists = [[
 			"legend_donkey_background",

@@ -4,7 +4,7 @@ this.legend_fermented_unhold_heart_blueprint <- this.inherit("scripts/crafting/l
 	{
 		this.legend_food_blueprint.create();
 		this.m.ID = "blueprint.fermented_unhold_heart";
-		this.m.PreviewCraftable = this.new("scripts/items/supplies/legend_fermented_unhold_heart_item");
+		this.m.PreviewCraftable = this.new("scripts/items/supplies/fermented_unhold_heart_item");
 		this.m.Cost = 40;
 		local ingredients = [
 			{
@@ -21,7 +21,7 @@ this.legend_fermented_unhold_heart_blueprint <- this.inherit("scripts/crafting/l
 
 	function onCraft( _stash )
 	{
-		_stash.add(this.new("scripts/items/supplies/legend_fermented_unhold_heart_item"));
+		_stash.add(this.new("scripts/items/supplies/fermented_unhold_heart_item"));
 	}
 
 });

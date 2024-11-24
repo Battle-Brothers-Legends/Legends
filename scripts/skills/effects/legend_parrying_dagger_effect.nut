@@ -12,7 +12,7 @@ this.legend_parrying_dagger_effect <- this.inherit("scripts/skills/skill", {
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		// Note: because this effect is added via item.addSkill in legend_parrying_dagger, changing m.Order won't change how this effect will appear above all the other perk on the character screen
 		// This appears to be the game's default behaviour for item-added effects. See legend_parrying_dagger for how the parrying effect is added differently such that it appears with the other effects/perks.
-		this.m.Order = this.Const.SkillOrder.Item;
+		this.m.Order = this.Const.SkillOrder.Any;
 		this.m.IsActive = false;
 		this.m.IsStacking = false;
 	}

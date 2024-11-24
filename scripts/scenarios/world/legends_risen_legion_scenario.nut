@@ -324,12 +324,12 @@ this.legends_risen_legion_scenario <- this.inherit("scripts/scenarios/world/star
 		}
 
 		this.World.Assets.getStash().add(this.new("scripts/items/supplies/wine_item"));
-		this.World.Assets.getStash().add(this.new("scripts/items/tents/tent_train"));
-		this.World.Assets.getStash().add(this.new("scripts/items/tents/tent_repair"));
-		this.World.Assets.getStash().add(this.new("scripts/items/tents/tent_scout"));
-		this.World.Assets.getStash().add(this.new("scripts/items/tents/tent_heal"));
-		this.World.Assets.getStash().add(this.new("scripts/items/tents/tent_scrap"));
-		this.World.Assets.getStash().add(this.new("scripts/items/tents/tent_fletcher"));
+		this.World.Assets.getStash().add(this.new("scripts/items/tents/legend_tent_train"));
+		this.World.Assets.getStash().add(this.new("scripts/items/tents/legend_tent_repair"));
+		this.World.Assets.getStash().add(this.new("scripts/items/tents/legend_tent_scout"));
+		this.World.Assets.getStash().add(this.new("scripts/items/tents/legend_tent_heal"));
+		this.World.Assets.getStash().add(this.new("scripts/items/tents/legend_tent_scrap"));
+		this.World.Assets.getStash().add(this.new("scripts/items/tents/legend_tent_fletcher"));
 	}
 
 	function onSpawnPlayer()

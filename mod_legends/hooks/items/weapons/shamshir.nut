@@ -3,6 +3,6 @@
 	o.create = function ()
 	{
 		create();
-		this.m.Categories = "Cleaver, Slash, One-Handed";	
+		this.m.Categories = "Cleaver/Sword, One-Handed";
 	}
 });

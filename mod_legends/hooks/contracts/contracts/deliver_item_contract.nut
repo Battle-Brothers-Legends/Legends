@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/deliver_item_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/deliver_item_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -156,9 +156,9 @@
 					}
 				]
 				local start = s.start;
-				s.start = function ()
+				s.start <- function ()
 				{
-					s.start();
+					start();
 					this.Contract.m.Home.setResources(this.Contract.m.Home.getResources() + this.Contract.m.Home.getResources() * 0.05); // Gain 5% settlement wealth for this contract
 				}
 			}
@@ -202,8 +202,7 @@
 
 					}
 				]
-				local start = s.start;
-				s.start = function ()
+				s.start <- function ()
 				{
 					local xpGained = this.Math.round(this.Contract.m.Payment.getOnCompletion() * 0.25 * this.Const.Combat.GlobalXPMult);
 					this.Characters.push(this.Tactical.getEntityByID(this.Contract.m.RecipientID).getImagePath());

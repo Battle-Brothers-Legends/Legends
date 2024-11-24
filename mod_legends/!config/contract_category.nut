@@ -44,14 +44,14 @@
 // Each contract's m.Category will be defined as the value configured here
 // Each contract action will call isReadyForContract() with the input as the value configured for the corresponding contract
 ::Const.Contracts.ContractCategoryMap <- {
-	
+
 	// Settlement Contracts
 	deliver_item_contract = this.Const.Contracts.Categories.Economy,
 	legend_deliver_money_contract = this.Const.Contracts.Categories.Economy,
 	escort_caravan_contract = this.Const.Contracts.Categories.Economy,
 	obtain_item_contract = this.Const.Contracts.Categories.Economy,
 	restore_location_contract = this.Const.Contracts.Categories.Economy,
-	return_item_contract = this.Const.Contracts.Categories.Economy,
+
 
 	defend_settlement_bandits_contract = this.Const.Contracts.Categories.Battle,
 	defend_settlement_greenskins_contract = this.Const.Contracts.Categories.Battle,
@@ -59,23 +59,28 @@
 	drive_away_bandits_contract = this.Const.Contracts.Categories.Battle,
 	drive_away_barbarians_contract = this.Const.Contracts.Categories.Battle,
 	investigate_cemetery_contract = this.Const.Contracts.Categories.Battle,
+	return_item_contract = this.Const.Contracts.Categories.Battle,
 
 	hunting_alps_contract = this.Const.Contracts.Categories.Hunt,
 	hunting_hexen_contract = this.Const.Contracts.Categories.Hunt,
 	hunting_lindwurms_contract = this.Const.Contracts.Categories.Hunt,
+	hunting_sand_golems_contract = this.Const.Contracts.Categories.Hunt,
 	hunting_schrats_contract = this.Const.Contracts.Categories.Hunt,
+	hunting_serpents_contract = this.Const.Contracts.Categories.Hunt,
 	hunting_unholds_contract = this.Const.Contracts.Categories.Hunt,
 	hunting_webknechts_contract = this.Const.Contracts.Categories.Hunt,
 	roaming_beasts_contract = this.Const.Contracts.Categories.Hunt,
 	legend_preemptive_beasts_contract = this.Const.Contracts.Categories.Hunt, // Adds this in here for testing
 	legend_spider_abductions_contract = this.Const.Contracts.Categories.Hunt,
 	legend_hunting_basilisks_contract = this.Const.Contracts.Categories.Hunt,
+	roaming_beasts_desert_contract = this.Const.Contracts.Categories.Hunt,
 
 	legend_bandit_army_contract = this.Const.Contracts.Categories.Legendary,
 	legend_barbarian_prisoner_contract = this.Const.Contracts.Categories.Legendary,
 	legend_hunting_coven_leader_contract = this.Const.Contracts.Categories.Legendary,
 	legend_hunting_demon_alps_contract = this.Const.Contracts.Categories.Legendary,
 	legend_hunting_greenwood_schrats_contract = this.Const.Contracts.Categories.Legendary,
+	legend_hunting_mummies_contract = this.Const.Contracts.Categories.Legendary,
 	legend_hunting_redback_webknechts_contract = this.Const.Contracts.Categories.Legendary,
 	legend_hunting_rock_unholds_contract = this.Const.Contracts.Categories.Legendary,
 	legend_hunting_skin_ghouls_contract = this.Const.Contracts.Categories.Legendary,

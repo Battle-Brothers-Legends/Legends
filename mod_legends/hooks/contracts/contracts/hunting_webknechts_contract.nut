@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/hunting_webknechts_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/hunting_webknechts_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -25,7 +25,7 @@
 		{
 			if (s.ID == "OldArmor")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					local item = this.Const.World.Common.pickArmor([
 						[1, "decayed_reinforced_mail_hauberk"],

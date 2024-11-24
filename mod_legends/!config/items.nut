@@ -74,18 +74,23 @@
 ::Const.Items.LegendNamedHelmetLayers.extend(this.Const.Items.LegendNamedTopLayers)
 ::Const.Items.LegendNamedHelmetLayers.extend(this.Const.Items.LegendNamedVanityLayers)
 
-// removing helms before extending 
-for (local i = 0; i < ::Const.Items.NamedHelmets.len(); ++i)
+// removing helms before extending
+local garbage = [];
+for (local i = 0; i < ::Const.Items.NamedHelmets.len(); i++)
 {
-	switch (true)
+	switch (::Const.Items.NamedHelmets[i])
 	{
-		case ::Const.Items.NamedHelmets[i] == "helmets/named/golden_feathers_helmet":
-		case ::Const.Items.NamedHelmets[i] == "helmets/named/sallet_green_helmet":
-		case ::Const.Items.NamedHelmets[i] == "helmets/named/lindwurm_helmet":
-		case ::Const.Items.NamedHelmets[i] == "helmets/named/norse_helmet":
-			::Const.Items.NamedHelmets.remove(i);
+		case "helmets/named/golden_feathers_helmet":
+		case "helmets/named/sallet_green_helmet":
+		case "helmets/named/lindwurm_helmet":
+		case "helmets/named/norse_helmet":
+			garbage.push(i);
 	}
 }
+garbage.reverse();
+foreach (i in garbage)
+	::Const.Items.NamedHelmets.remove(i);
+
 
 ::Const.Items.NamedHelmets.extend([
 	"helmets/named/legend_frogmouth_helm_crested_painted",

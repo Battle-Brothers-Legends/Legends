@@ -1,10 +1,20 @@
 ::mods_hookExactClass("mapgen/templates/tactical/tiles/snow1", function(o)
 {
-	local init = o.init;
 	o.init = function ()
 	{
-		init();
+		this.m.Name = "tactical.tile.snow1";
+		this.m.MinX = 1;
+		this.m.MinY = 1;
 		local t = this.createTileTransition();
+		t.setBlendIntoSockets(false);
+		t.setBrush(this.Const.Direction.N, "transition_snow_01_N");
+		t.setBrush(this.Const.Direction.NE, "transition_snow_01_NE");
+		t.setBrush(this.Const.Direction.SE, "transition_snow_01_SE");
+		t.setBrush(this.Const.Direction.S, "transition_snow_01_S");
+		t.setBrush(this.Const.Direction.SW, "transition_snow_01_SW");
+		t.setBrush(this.Const.Direction.NW, "transition_snow_01_NW");
+		t.setSocket("socket_snow");
+		this.Tactical.setTransitions("tile_snow_01", t);
 		this.Tactical.setTransitions("tile_legend_snow_01", t);
 		this.Tactical.setTransitions("tile_legend_snow_02", t);
 		this.Tactical.setTransitions("tile_legend_snow_03", t);
@@ -37,7 +47,7 @@
 		else if (random >= 31 && random <=40)
 		{
 		tile.setBrush("tile_legend_snow_02");
-		}		
+		}
 		else if (random >= 41 && random <=50)
 		{
 		tile.setBrush("tile_legend_snow_03");
@@ -58,10 +68,10 @@
 		{
 		tile.setBrush("tile_legend_snow_07");
 		}
-		else 
+		else
 		{
 		tile.setBrush("tile_legend_snow_08");
-		}	
+		}
 		local n = 0;
 
 		if (isSpawningObjects && this.Math.rand(0, 100) < this.m.ChanceToSpawnObject)

@@ -4,8 +4,8 @@ this.legend_named_northern_sling <- this.inherit("scripts/items/weapons/named/na
 	{
 		this.named_weapon.create();
 		this.m.ID = "weapon.legend_named_northern_sling";
-		this.m.NameList = this.Const.Strings.ThrowingAxeNames;
-		this.m.Description = "A sling adapted by the nothern houses for warfare. It features a bigger pouch for heavier rocks, but trades off precision for damage and range. With rocks being everywhere it will never run out of ammunition.";
+		this.m.NameList = this.Const.Strings.SlingNames;
+		this.m.Description = "A sling adapted by the northern houses for warfare. It features a bigger pouch for heavier rocks, but trades off precision for damage and range. With rocks being everywhere it will never run out of ammunition.";
 		this.m.IconLarge = "weapons/ranged/cr_sling_01.png";
 		this.m.Icon = "weapons/ranged/cr_sling_01_70x70.png";		
 		this.m.WeaponType = this.Const.Items.WeaponType.Sling | this.Const.Items.WeaponType.Staff;

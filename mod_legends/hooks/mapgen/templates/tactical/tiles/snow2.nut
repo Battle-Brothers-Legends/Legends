@@ -1,10 +1,20 @@
 ::mods_hookExactClass("mapgen/templates/tactical/tiles/snow2", function(o)
 {
-	local init = o.init;
 	o.init = function ()
 	{
-		init();
+		this.m.Name = "tactical.tile.snow2";
+		this.m.MinX = 1;
+		this.m.MinY = 1;
 		local t = this.createTileTransition();
+		t.setBlendIntoSockets(false);
+		t.setBrush(this.Const.Direction.N, "transition_snow_02_N");
+		t.setBrush(this.Const.Direction.NE, "transition_snow_02_NE");
+		t.setBrush(this.Const.Direction.SE, "transition_snow_02_SE");
+		t.setBrush(this.Const.Direction.S, "transition_snow_02_S");
+		t.setBrush(this.Const.Direction.SW, "transition_snow_02_SW");
+		t.setBrush(this.Const.Direction.NW, "transition_snow_02_NW");
+		t.setSocket("socket_snow");
+		this.Tactical.setTransitions("tile_snow_02", t);
 		this.Tactical.setTransitions("tile_legend_snow_09", t);
 		this.Tactical.setTransitions("tile_legend_snow_10", t);
 		this.Tactical.setTransitions("tile_legend_snow_11", t);

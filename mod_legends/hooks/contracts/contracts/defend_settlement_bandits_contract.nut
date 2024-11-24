@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/defend_settlement_bandits_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/defend_settlement_bandits_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -11,7 +11,7 @@
 			"In %s, the makeshift barricades and fire-gutted buildings hint how dangerous the local brigands have become.",
 			"Sellswords are being sought in %s to repel a ruthless band of brigands terrorising the town.",
 			"Desperation mounts as the town faces a ruthless brigand gang, with no end in sight.",
-		];;
+		];
 	}
 
 	o.formatDescription <- function ()
@@ -20,7 +20,7 @@
 
 		if (r.find("%") != null)
 			r = format(r, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
-		
+
 		this.m.Description = r;
 	}
 

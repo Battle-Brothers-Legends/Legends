@@ -211,10 +211,6 @@ this.legends_mining_village <- this.inherit("scripts/entity/world/settlements/le
 			"shepherd_background",
 			"vagabond_background"
 		]];
-		this.m.FemaleDraftLists = [[
-		],[
-		],[
-		]];
 		this.m.StablesLists = [[
 			"legend_donkey_background"
 		],[

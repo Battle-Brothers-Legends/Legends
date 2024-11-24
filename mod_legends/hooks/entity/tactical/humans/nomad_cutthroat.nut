@@ -1,4 +1,4 @@
-::mods_hookExactClass("entity/tactical/humans/nomad_cutthroat", function(o) 
+::mods_hookExactClass("entity/tactical/humans/nomad_cutthroat", function(o)
 {
 	local onInit = o.onInit;
 	o.onInit = function ()

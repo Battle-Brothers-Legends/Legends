@@ -4,7 +4,7 @@ this.legends_skeleton_low_archer <- this.inherit("scripts/entity/tactical/legend
 	function onInit()
 	{
 		this.m.SpawnType = this.Const.Tactical.Actor.LegendSkeletonLightArcher;
-		this.legend_skeleton.onInit();;
+		this.legend_skeleton.onInit();
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_crippling_strikes"));
 		this.m.Skills.add(this.new("scripts/skills/traits/legend_fleshless_trait"));
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)

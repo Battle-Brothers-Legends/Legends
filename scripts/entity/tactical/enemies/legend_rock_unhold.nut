@@ -274,7 +274,7 @@ this.legend_rock_unhold <- this.inherit("scripts/entity/tactical/actor", {
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_last_stand"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_full_force"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_smackdown"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_bloody_harvest"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_bloody_harvest"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 		}
 		if (!this.Tactical.State.isScenarioMode())

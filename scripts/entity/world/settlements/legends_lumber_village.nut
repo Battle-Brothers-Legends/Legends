@@ -203,13 +203,11 @@ this.legends_lumber_village <- this.inherit("scripts/entity/world/settlements/le
 			"legend_inventor_background"
 		]];
 		this.m.FemaleDraftLists = [[
-		// 	// "wildwoman_background"
-		// ],[
-		// 	// "wildwoman_background"
-		// ],[
+		// 	nothing at lvl 1
+		 ],[
+		// 	nothing at lvl 1
+		 ],[
 			"legend_shieldmaiden_background",
-			// "wildwoman_background",
-			// "female_disowned_noble_background"
 		]];
 
 		this.m.StablesLists = [[

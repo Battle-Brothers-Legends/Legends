@@ -11,7 +11,7 @@
 	o.onAdded = function ()
 	{
 		// Legends Steel Brow Stun -> Daze logic here
-		local skill = this.getContainer().getSkillByID("effects.steel_brow");
+		local skill = this.getContainer().getSkillByID("effects.legend_steel_brow");
 
 		if (skill != null)
 		{

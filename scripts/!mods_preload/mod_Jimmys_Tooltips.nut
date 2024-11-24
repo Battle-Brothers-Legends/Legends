@@ -31,10 +31,8 @@
 	// load keybinds
 	::include("mod_legends/mod_Jimmys_Tooltips/keybinds.nut");
 
-	//foreach (file in ::IO.enumerateFiles("mod_legends/mod_Jimmys_Tooltips/hooks"))
-	//{
-	//	::include(file);
-	//}
+	foreach (file in ::IO.enumerateFiles("mod_legends/mod_Jimmys_Tooltips/hooks"))
+		::include(file);
 });
 
 

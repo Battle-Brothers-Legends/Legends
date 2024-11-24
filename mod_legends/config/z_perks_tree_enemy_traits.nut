@@ -208,7 +208,7 @@ if (!("Perks" in ::Const))
 		[],
 		[],
 		[
-			::Const.Perks.PerkDefs.Ballistics
+			::Const.Perks.PerkDefs.LegendBallistics
 		],
 		[]
 	]

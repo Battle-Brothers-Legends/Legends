@@ -18,6 +18,6 @@
 		_draftList.push("servant_background");
 		_draftList.push("servant_background");
 		_draftList.push("servant_background");
-		_draftList.push("eunuch_background");;
+		_draftList.push("eunuch_background");
 	}
 });

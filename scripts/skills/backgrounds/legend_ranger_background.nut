@@ -96,7 +96,7 @@ this.legend_ranger_background <- this.inherit("scripts/skills/backgrounds/charac
 				this.Const.Perks.PerkDefs.QuickHands,
 				this.Const.Perks.PerkDefs.Gifted,
 				this.Const.Perks.PerkDefs.LegendNightvision,
-				this.Const.Perks.PerkDefs.Debilitate,
+				this.Const.Perks.PerkDefs.LegendDebilitate,
 				this.Const.Perks.PerkDefs.LegendAthlete,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemyDirewolf,
 				this.Const.Perks.PerkDefs.LegendFavouredEnemySpider,
@@ -129,7 +129,7 @@ this.legend_ranger_background <- this.inherit("scripts/skills/backgrounds/charac
 				this.Const.Perks.PerkDefs.LoneWolf,
 				this.Const.Perks.PerkDefs.Footwork,
 				this.Const.Perks.PerkDefs.LegendCloseCombatArcher,
-				this.Const.Perks.PerkDefs.Ballistics,
+				this.Const.Perks.PerkDefs.LegendBallistics,
 				this.Const.Perks.PerkDefs.LegendIncoming,
 				this.Const.Perks.PerkDefs.LegendSummonWolf,
 				this.Const.Perks.PerkDefs.LegendHeightenedReflexes,
@@ -267,7 +267,7 @@ this.legend_ranger_background <- this.inherit("scripts/skills/backgrounds/charac
 		local stash = this.World.Assets.getStash();
 		stash.add(this.new("scripts/items/ammo/quiver_of_arrows"));
 		stash.add(this.new("scripts/items/supplies/cured_venison_item"));
-		stash.add(this.new("scripts/items/accessory/wardog_item"));
+		stash.add(this.new("scripts/items/accessory/legend_wardog_item"));
 		stash.removeByID("supplies.ground_grains");
 		stash.removeByID("supplies.ground_grains");
 

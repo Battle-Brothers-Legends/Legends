@@ -1,10 +1,13 @@
 ::mods_hookExactClass("mapgen/templates/tactical/tiles/desert2", function(o)
 {
-	local init = o.init;
 	o.init = function ()
 	{
-		init();
+		this.m.Name = "tactical.tile.desert2";
+		this.m.MinX = 1;
+		this.m.MinY = 1;
 		local t = this.createTileTransition();
+		t.setSocket("socket_desert");
+		this.Tactical.setTransitions("tile_desert_02", t);
 		this.Tactical.setTransitions("tile_legend_desert_05", t);
 		this.Tactical.setTransitions("tile_legend_desert_06", t);
 		this.Tactical.setTransitions("tile_legend_desert_07", t);
@@ -36,12 +39,12 @@
 		else if (random >= 41 && random <=60)
 		{
 		tile.setBrush("tile_legend_desert_06");
-		}		
+		}
 		else if (random >= 61 && random <=80)
 		{
 		tile.setBrush("tile_legend_desert_07");
 		}
-		else 
+		else
 		{
 		tile.setBrush("tile_legend_desert_08");
 		}

@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/big_game_hunt_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/big_game_hunt_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -20,7 +20,7 @@
 
 		if (r.find("%") != null)
 			r = format(r, ::Const.UI.getColorized(::World.FactionManager.getFaction(this.getFaction()).getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
-		
+
 		this.m.Description = r;
 	}
 
@@ -32,7 +32,7 @@
 		{
 			if (s.ID == "Offer")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					this.Flags.set("StartDay", this.World.getTime().Days);
 					this.Contract.m.BulletpointsObjectives.clear();
@@ -69,7 +69,7 @@
 			}
 			if (s.ID == "Running")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					this.Contract.m.BulletpointsObjectives.clear();
 
@@ -129,12 +129,12 @@
 							this.Const.EntityType.LegendStollwurm
 						]
 					];
-					
+
 					if (beasts[this.Contract.m.Size].find(_actor.getType()) != null && !this.isKindOf(_actor, "lindwurm_tail"))
 					{
 						this.Flags.set("HeadsCollected", this.Flags.get("HeadsCollected") + 1);
 					}
-				}		
+				}
 			}
 		}
 	}

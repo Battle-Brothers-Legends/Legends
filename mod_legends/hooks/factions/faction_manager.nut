@@ -136,7 +136,7 @@
 
 	o.createFreeCompany <- function ()
 	{
-		local f = this.new("scripts/factions/free_company_faction");
+		local f = this.new("scripts/factions/legend_free_company_faction");
 		f.setID(this.m.Factions.len());
 		f.setName("Free Companies");
 		f.setDiscovered(true);
@@ -146,7 +146,7 @@
 
 	o.createDummyFaction <- function ()
 	{
-		local f = this.new("scripts/factions/dummy_faction");
+		local f = this.new("scripts/factions/legend_dummy_faction");
 		f.setID(this.m.Factions.len());
 		f.setName("Dummy Faction");
 		f.setDiscovered(true);

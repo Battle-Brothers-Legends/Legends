@@ -19,8 +19,8 @@
 	{
 		local r = ::MSU.Array.rand(this.m.DescriptionTemplates);
 
-//		if (r.find("%") != null)
-//			r = format(r, ::Const.UI.getColorized(this.m.Origin.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
+		if (r.find("%") != null)
+			r = format(r, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
 
 		this.m.Description = r;
 	}

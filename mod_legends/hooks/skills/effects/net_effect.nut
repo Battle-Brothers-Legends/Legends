@@ -1,7 +1,7 @@
 ::mods_hookExactClass("skills/effects/net_effect", function(o) {
-	
-	o.m.DropNet <- false, // Net item will be dropped in battle if it was thrown with Net Mastery
-	o.m.IsReinforced <- false,
+
+	o.m.DropNet <- false; // Net item will be dropped in battle if it was thrown with Net Mastery
+	o.m.IsReinforced <- false;
 
 	o.onDeath <- function ( _fatalityType )
 	{
@@ -14,7 +14,7 @@
 			}
 			else
 			{
-				net = this.new("scripts/items/tools/throwing_net");	
+				net = this.new("scripts/items/tools/throwing_net");
 			}
 			net.drop(this.getContainer().getActor().getTile());
 		}

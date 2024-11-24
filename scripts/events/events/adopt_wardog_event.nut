@@ -155,7 +155,7 @@ this.adopt_wardog_event <- this.inherit("scripts/events/event", {
 			],
 			function start( _event )
 			{
-				local item = this.new("scripts/items/accessory/wardog_item");
+				local item = this.new("scripts/items/accessory/legend_wardog_item");
 				item.m.Name = "Battle Brother";
 				this.World.Assets.getStash().add(item);
 				this.List.push({
@@ -215,7 +215,7 @@ this.adopt_wardog_event <- this.inherit("scripts/events/event", {
 			function start( _event )
 			{
 				this.Characters.push(_event.m.Houndmaster.getImagePath());
-				local item = this.new("scripts/items/accessory/wardog_item");
+				local item = this.new("scripts/items/accessory/legend_wardog_item");
 				item.m.Name = "Battle Brother";
 				this.World.Assets.getStash().add(item);
 				this.List.push({

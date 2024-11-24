@@ -1,11 +1,11 @@
-this.legend_bandit_thug <- this.inherit("scripts/entity/tactical/randomized_unit_abstract", {
+this.legend_bandit_thug <- this.inherit("scripts/entity/tactical/legend_randomized_unit_abstract", {
 	m = {},
 	function create()
 	{
 		this.m.Type = this.Const.EntityType.BanditThug;
 		this.m.BloodType = this.Const.BloodType.Red;
 		this.m.XP = this.Const.Tactical.Actor.BanditThug.XP;
-		this.randomized_unit_abstract.create();
+		this.legend_randomized_unit_abstract.create();
 		this.m.Faces = this.Const.Faces.AllMale;
 		this.m.Hairs = this.Const.Hair.UntidyMale;
 		this.m.HairColors = this.Const.HairColors.All;
@@ -16,7 +16,7 @@ this.legend_bandit_thug <- this.inherit("scripts/entity/tactical/randomized_unit
 
 	function onInit()
 	{
-		this.randomized_unit_abstract.onInit();
+		this.legend_randomized_unit_abstract.onInit();
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.BanditThug);
 		this.m.ActionPoints = b.ActionPoints;
@@ -70,7 +70,7 @@ this.legend_bandit_thug <- this.inherit("scripts/entity/tactical/randomized_unit
 
 	function assignRandomEquipment()
 	{
-		this.randomized_unit_abstract.assignRandomEquipment();
+		this.legend_randomized_unit_abstract.assignRandomEquipment();
 	}
 
 	// function assignRandomEquipment()
@@ -219,7 +219,7 @@ this.legend_bandit_thug <- this.inherit("scripts/entity/tactical/randomized_unit
 	// 			this.m.Items.equip(this.new("scripts/items/weapons/legend_tipstaff"));
 	// 					if ("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 	// 					{
-	// 						this.m.Skills.add(this.new("scripts/skills/perks/perk_return_favor"));
+	// 						this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_return_favor"));
 	// 					}
 	// 		}
 	// 		else if (r == 13)

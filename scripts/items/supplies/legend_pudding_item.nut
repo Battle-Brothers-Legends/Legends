@@ -1,8 +1,8 @@
-this.legend_pudding_item <- this.inherit("scripts/items/supplies/legend_usable_food", {
+this.legend_pudding_item <- this.inherit("scripts/items/supplies/food_item", {
 	m = {},
 	function create()
 	{
-		this.legend_usable_food.create();
+		this.food_item.create();
 		this.m.ID = "supplies.legend_pudding";
 		this.m.Name = "Pudding";
 		this.m.Description = "Provisions. A huge pudding made from fresh ingredients. Can be eaten in battle to grant morale, and gradually restore health and fatigue over ten turns. The amount restored per turn is determined by how much of the pudding remains when eaten.";
@@ -53,7 +53,7 @@ this.legend_pudding_item <- this.inherit("scripts/items/supplies/legend_usable_f
 
 	function onEquip()
 	{
-		this.legend_usable_food.onEquip();
+		this.food_item.onEquip();
 		local skill = this.new("scripts/skills/actives/legend_eat_pudding_skill");
 		skill.setItem(this);
 		this.addSkill(skill);

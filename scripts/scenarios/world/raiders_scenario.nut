@@ -47,7 +47,7 @@ this.raiders_scenario <- this.inherit("scripts/scenarios/world/starting_scenario
 		local items = bros[0].getItems();
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Body));
 		items.unequip(items.getItemAtSlot(this.Const.ItemSlot.Head));
-		local warhound = this.new("scripts/items/accessory/warhound_item");
+		local warhound = this.new("scripts/items/accessory/legend_warhound_item");
 		warhound.m.Name = "Fenrir the Warhound";
 		items.equip(warhound);
 		local armor = this.new("scripts/items/legend_armor/cloth/legend_sackcloth");

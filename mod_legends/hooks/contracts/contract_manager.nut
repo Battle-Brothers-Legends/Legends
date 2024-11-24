@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contract_manager", function(o)
+::mods_hookNewObject("contracts/contract_manager", function(o)
 {
 	local onDeserialize = o.onDeserialize;
 	o.onDeserialize = function( _in )

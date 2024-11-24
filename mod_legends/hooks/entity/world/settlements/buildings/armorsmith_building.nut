@@ -111,7 +111,7 @@
 			{
 				R = 80,
 				P = 1.0,
-				S = "tents/tent_scrap"
+				S = "tents/legend_tent_scrap"
 			},
 			{
 				R = 50,

@@ -31,6 +31,43 @@
 		{
 			return ret;
 		}
-		onUse( _user, _targetTile );
+	
+		if (this.Tactical.TurnSequenceBar.getActiveEntity().getID() == _user.getID() && (!_user.isHiddenToPlayer() || _targetTile.IsVisibleForPlayer))
+		{
+			this.m.IsDoingAttackMove = false;
+			this.getContainer().setBusy(true);
+			this.Time.scheduleEvent(this.TimeUnit.Virtual, 100, function ( _skill )
+			{
+				if (target.isAlive())
+				{
+					_skill.attackEntity(_user, target);
+				}
+			}.bindenv(this), this);
+			this.Time.scheduleEvent(this.TimeUnit.Virtual, 200, function ( _skill )
+			{
+				if (target.isAlive())
+				{
+					_skill.attackEntity(_user, target);
+				}
+
+				_skill.m.IsDoingAttackMove = true;
+				_skill.getContainer().setBusy(false);
+			}.bindenv(this), this);
+			return true;
+		}
+		else
+		{
+			if (target.isAlive())
+			{
+				ret = this.attackEntity(_user, target) || ret;
+			}
+
+			if (target.isAlive())
+			{
+				ret = this.attackEntity(_user, target) || ret;
+			}
+
+			return ret;
+		}
 	}
 });

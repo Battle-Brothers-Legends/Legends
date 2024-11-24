@@ -1,8 +1,8 @@
-this.legend_porridge_item <- this.inherit("scripts/items/supplies/legend_usable_food", {
+this.legend_porridge_item <- this.inherit("scripts/items/supplies/food_item", {
 	m = {},
 	function create()
 	{
-		this.legend_usable_food.create();
+		this.food_item.create();
 		this.m.ID = "supplies.legend_porridge";
 		this.m.Name = "Porridge";
 		this.m.Description = "Provisions. A staple meal that can be made from whatever ingredients are to hand. Can be eaten in battle to provide up to 4 healing recovery each turn for ten turns, based on the amount remaining. Will be gradually used as provisions if left in the company stash.";
@@ -54,7 +54,7 @@ this.legend_porridge_item <- this.inherit("scripts/items/supplies/legend_usable_
 
 	function onEquip()
 	{
-		this.legend_usable_food.onEquip();
+		this.food_item.onEquip();
 		local skill = this.new("scripts/skills/actives/legend_eat_porridge_skill");
 		skill.setItem(this);
 		this.addSkill(skill);

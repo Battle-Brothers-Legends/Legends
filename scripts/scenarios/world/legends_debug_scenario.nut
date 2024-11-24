@@ -77,11 +77,11 @@ this.legends_debug_scenario <- this.inherit("scripts/scenarios/world/starting_sc
 
 		local stashitems = [
 			"accessory/bandage_item",
-			"accessory/wardog_item",
-			"accessory/armored_wardog_item",
-			"accessory/warhound_item",
-			"accessory/armored_warhound_item",
-			"accessory/wolf_item",
+			"accessory/legend_wardog_item",
+			"accessory/legend_armored_wardog_item",
+			"accessory/legend_warhound_item",
+			"accessory/legend_armored_warhound_item",
+			"accessory/legend_wolf_item",
 			"accessory/falcon_item",
 			"accessory/legend_white_wolf_item",
 			"accessory/legend_warbear_item",

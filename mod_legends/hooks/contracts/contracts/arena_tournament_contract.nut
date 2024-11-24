@@ -102,333 +102,222 @@
 	{
 		local twists = [];
 
-		switch (true)
-		{
-			case _round == 1:
-				twists.extend([
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Spider, _d); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Spider);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Serpent, _d); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Serpent);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.HyenaHIGH, _d); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.HyenaHIGH);
-							}
-						}
-
-					}
-				]);
-			case _round <= 2:
+		if (_round == 1) {
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Spider, _d); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Spider);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Serpent, _d); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Serpent);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.HyenaHIGH, _d); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.HyenaHIGH);
+				}
+			});
+		}
+		if (_round <= 2) {
+			twists.push({
+				R = 10,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
+				}
+			});
+		}
+		if (_round == 2) {
+			twists.push({
+				R = 10,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
+				}
+			});
+			twists.push({
+				R = 10,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.SandGolemMEDIUM, _d); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.SandGolemMEDIUM);
+				}
+			});
+			twists.push({
+				R = 10,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
+				}
+			});
+		}
+		if (_round >= 2) {
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster);
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d - this.Const.World.Spawn.Troops.Swordmaster.Cost); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.HedgeKnight);
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d - this.Const.World.Spawn.Troops.HedgeKnight.Cost); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil);
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
+				}
+			});
+		}
+		if (_round == 3) {
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner);
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.Executioner.Cost); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil);
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner);
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost - this.Const.World.Spawn.Troops.Executioner.Cost); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil);
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertStalker);
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner);
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost - this.Const.World.Spawn.Troops.Executioner.Cost - this.Const.World.Spawn.Troops.DesertStalker.Cost); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
+				}
+			});
+			twists.push({
+				R = 10,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Unhold, _d); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Unhold);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					for( local i = 0; i < this.Math.min(3, _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Lindwurm, _d)); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Lindwurm);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.HedgeKnight);
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster);
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.BanditRaider, _d - this.Const.World.Spawn.Troops.HedgeKnight.Cost - this.Const.World.Spawn.Troops.Swordmaster.Cost); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.BanditRaider);
+				}
+			});
+			twists.push({
+				R = 5,
+				function F( _c, _d, _e ) {
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil);
+					_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster);
+					for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost - this.Const.World.Spawn.Troops.Swordmaster.Cost); i = ++i )
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
+				}
+			});
+			if (this.World.getTime().Days > 50) {
 				twists.push({
-					R = 10,
-					function F( _c, _d, _e )
-					{
-						for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d); i = ++i )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
-						}
+					R = 5,
+					function F( _c, _d, _e ) {
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator, true);
+						for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.Gladiator.Cost * 2); i = ++i )
+							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
+					}
+				});
+				twists.push({
+					R = 5,
+					function F( _c, _d, _e ) {
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster, true);
+						for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d - this.Const.World.Spawn.Troops.Swordmaster.Cost * 2); i = ++i )
+							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
 					}
 
 				});
-			case _round == 2:
-				twists.extend([
-					{
-						R = 10,
-						function F( _c, _d, _e )
-						{
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
-							}
-						}
-
-					},
-					{
-						R = 10,
-						function F( _c, _d, _e )
-						{
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.SandGolemMEDIUM, _d); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.SandGolemMEDIUM);
-							}
-						}
-
-					},
-					{
-						R = 10,
-						function F( _c, _d, _e )
-						{
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
-							}
-						}
-
+				twists.push({
+					R = 5,
+					function F( _c, _d, _e ) {
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.HedgeKnight, true);
+						for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d - this.Const.World.Spawn.Troops.HedgeKnight.Cost * 2); i = ++i )
+							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
 					}
-				]);
-			case _round >= 2:
-				twists.extend([
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster);
 
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d - this.Const.World.Spawn.Troops.Swordmaster.Cost); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.HedgeKnight);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d - this.Const.World.Spawn.Troops.HedgeKnight.Cost); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
-							}
-						}
-
+				});
+			}
+			if (this.World.getTime().Days > 50) {
+				twists.push({
+					R = 5,
+					function F( _c, _d, _e ) {
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.HedgeKnight, true);
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster, true);
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.MasterArcher, true);
 					}
-				]);
-			case _round == 3:
-				twists.extend([
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.Executioner.Cost); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost - this.Const.World.Spawn.Troops.Executioner.Cost); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertStalker);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost - this.Const.World.Spawn.Troops.Executioner.Cost - this.Const.World.Spawn.Troops.DesertStalker.Cost); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
-							}
-						}
-
-					},
-					{
-						R = 10,
-						function F( _c, _d, _e )
-						{
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Unhold, _d); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Unhold);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							for( local i = 0; i < this.Math.min(3, _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Lindwurm, _d)); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Lindwurm);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.HedgeKnight);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.BanditRaider, _d - this.Const.World.Spawn.Troops.HedgeKnight.Cost - this.Const.World.Spawn.Troops.Swordmaster.Cost); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.BanditRaider);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost - this.Const.World.Spawn.Troops.Swordmaster.Cost); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
-							}
-						}
+				});
+				twists.push({
+					R = 5,
+					function F( _c, _d, _e ) {
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil, true);
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster, true);
+						for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost * 2 - this.Const.World.Spawn.Troops.Swordmaster.Cost * 2); i = ++i )
+							_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
 					}
-				]);
-			case _round == 3 && this.World.getTime().Days > 50:
-				twists.extend([
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator, true);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.Gladiator.Cost * 2); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster, true);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d - this.Const.World.Spawn.Troops.Swordmaster.Cost * 2); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.HedgeKnight, true);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Mercenary, _d - this.Const.World.Spawn.Troops.HedgeKnight.Cost * 2); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Mercenary);
-							}
-						}
-
+				});
+				twists.push({
+					R = 5,
+					function F( _c, _d, _e ) {
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil, true);
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner, true);
+						for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost * 2 - this.Const.World.Spawn.Troops.Executioner.Cost * 2); i = ++i )
+							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
 					}
-				]);
-			case _round == 3 && this.World.getTime().Days > 150:
-				twists.extend([
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.HedgeKnight, true);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster, true);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.MasterArcher, true);
-						}
 
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil, true);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Swordmaster, true);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.NomadOutlaw, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost * 2 - this.Const.World.Spawn.Troops.Swordmaster.Cost * 2); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.NomadOutlaw);
-							}
-						}
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil, true);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner, true);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.DesertDevil.Cost * 2 - this.Const.World.Spawn.Troops.Executioner.Cost * 2); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
-							}
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil, true);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertStalker, true);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner, true);
-						}
-
-					},
-					{
-						R = 5,
-						function F( _c, _d, _e )
-						{
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator, true);
-							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator, true);
-
-							for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.Gladiator.Cost * 4); i = ++i )
-							{
-								_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
-							}
-						}
+				});
+				twists.push({
+					R = 5,
+					function F( _c, _d, _e ) {
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertDevil, true);
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.DesertStalker, true);
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Executioner, true);
 					}
-				]);
+
+				});
+				twists.push({
+					R = 5,
+					function F( _c, _d, _e ) {
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator, true);
+						_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator, true);
+						for( local i = 0; i < _c.getAmountToSpawn(this.Const.World.Spawn.Troops.Gladiator, _d - this.Const.World.Spawn.Troops.Gladiator.Cost * 4); i = ++i )
+							_c.addToCombat(_e, this.Const.World.Spawn.Troops.Gladiator);
+					}
+				});
+			}
 		}
 
 		if ( "bool" == typeof _index || _index >= 0)
@@ -474,7 +363,7 @@
 		{
 			if (s.ID == "Start")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					this.Text += "\n\n\n\n\n\n\n\nThe following characters will enter the arena:\n\n%bro1name%\n%bro2name%\n%bro3name%\n%bro4name%\n%bro5name%";
 				}

@@ -25,7 +25,7 @@ this.perk_legend_last_stand <- this.inherit("scripts/skills/skill", {
 		local currentPercent = this.getContainer().getActor().getHitpointsPct();
 		if (currentPercent < 0.66)
 		{
-			local bonus = this.Math.floor(100 * (0.66 - currentPercent) / 2.0);;
+			local bonus = this.Math.floor(100 * (0.66 - currentPercent) / 2.0);
 
 			tooltip.push({
 				id = 6,

@@ -11,7 +11,7 @@
 		if("Assets" in this.World && this.World.Assets != null && this.World.Assets.getCombatDifficulty() == this.Const.Difficulty.Legendary)
 		{
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_colossus"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_rebound"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_rebound"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_stalwart"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_clarity"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_footwork"));

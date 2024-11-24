@@ -36,4 +36,20 @@
 		];
 		return ret;
 	}
+
+	o.isUsable = function ()
+	{
+		return this.skill.isUsable() && !this.getContainer().hasSkill("effects.legend_perfect_focus");
+	}
+
+	o.onUse = function ( _user, _targetTile )
+	{
+		if (!this.getContainer().hasSkill("effects.legend_perfect_focus"))
+		{
+			this.m.Container.add(this.new("scripts/skills/effects/legend_perfect_focus_effect"));
+			return true;
+		}
+
+		return false;
+	}
 });

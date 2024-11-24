@@ -2,13 +2,13 @@ this.legend_bandit_raider_wolf <- this.inherit("scripts/entity/tactical/enemies/
 	m = {},
 	function create()
 	{
-		this.bandit_raider.create();
+		this.legend_bandit_raider.create();
 		this.m.Name = "Disguised Bandit";
 	}
 
 	function onInit()
 	{
-		this.bandit_raider.onInit();
+		this.legend_bandit_raider.onInit();
 	}
 
 	function assignRandomEquipment()

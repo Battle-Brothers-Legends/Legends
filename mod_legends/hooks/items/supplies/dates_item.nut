@@ -15,7 +15,7 @@
 
 	o.onEquip <- function ()
 	{
-		this.legend_usable_food.onEquip();
+		this.food_item.onEquip();
 		local skill = this.new("scripts/skills/actives/legend_eat_rations_skill");
 		skill.setItem(this);
 		this.addSkill(skill);

@@ -270,10 +270,13 @@ if (!("World" in ::Const))
 
 		if (decisions.Potential.len() == 0) return this.addFillerGoods(_settlement, _budget, null, false, "tools/throwing_net");
 
-		local result, name = this.getWeightContainer(decisions.Potential).roll();
+		local result;
+		local name = this.getWeightContainer(decisions.Potential).roll();
 
-		if (name == "FreshlyProduced") result = this.gatherProduce(_settlement, _budget);
-		else result = this.gatherItems(_settlement, this.DecisionID[name], decisions.ItemList, _budget);
+		if (name == "FreshlyProduced")
+			result = this.gatherProduce(_settlement, _budget);
+		else
+			result = this.gatherItems(_settlement, this.DecisionID[name], decisions.ItemList, _budget);
 
 		result.Items.sort(function(_item1, _item2){
 			if (_item1.getValue() > _item2.getValue()) return -1;

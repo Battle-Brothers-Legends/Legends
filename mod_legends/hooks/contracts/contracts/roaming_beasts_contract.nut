@@ -27,7 +27,7 @@
 		{
 			if (s.ID == "Offer")
 			{
-				s.end = function ()
+				s.end <- function ()
 				{
 					this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 					local r = this.Math.rand(1, 100);
@@ -35,11 +35,6 @@
 					{
 						this.Flags.set("IsHumans", true);
 					}
-					// todo delete it - chopeks
-//					else if (r == 100 && this.LegendsMod.Configs().LegendTherianthropyEnabled())
-//					{
-//						this.Flags.set("IsVermes", true);
-//					}
 					else
 					{
 						// Use our own settlement-based randomization system because the Vanilla approach was bugged and overly favoured Ghouls
@@ -145,7 +140,7 @@
 			}
 			if (s.ID == "Return")
 			{
-				s.update = function ()
+				s.update <- function ()
 				{
 					if (this.Contract.isPlayerAt(this.Contract.m.Home))
 					{
@@ -326,5 +321,15 @@
 			"direction",
 			this.m.Target == null || this.m.Target.isNull() ? "" : this.Const.Strings.Direction8[this.World.State.getPlayer().getTile().getDirection8To(this.m.Target.getTile())]
 		]);
+	}
+
+	o.formatDescription <- function ()
+	{
+		local r = ::MSU.Array.rand(this.m.DescriptionTemplates);
+
+		if (r.find("%") != null)
+			r = format(r, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
+
+		this.m.Description = r;
 	}
 });

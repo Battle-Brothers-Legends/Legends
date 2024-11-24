@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/privateering_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/privateering_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -22,7 +22,7 @@
 			if (s.ID == "Offer")
 			{
 				local start = s.start;
-				s.start = function ()
+				s.start <- function ()
 				{
 					start();
 					this.Contract.m.BulletpointsObjectives = [
@@ -32,7 +32,7 @@
 						"Return after 7 days"
 					];
 				}
-				s.end = function ()
+				s.end <- function ()
 				{
 					this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 					local f = this.World.FactionManager.getFaction(this.Flags.get("FeudingHouseID"));
@@ -165,7 +165,7 @@
 			}
 			if (s.ID == "Running")
 			{
-				s.update = function ()
+				s.update <- function ()
 				{
 					if (this.Flags.get("LastUpdateDay") != this.World.getTime().Days)
 					{

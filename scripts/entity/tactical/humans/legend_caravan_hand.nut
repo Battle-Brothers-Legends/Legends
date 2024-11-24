@@ -1,4 +1,4 @@
-this.legend_caravan_hand <- this.inherit("scripts/entity/tactical/randomized_unit_abstract", {
+this.legend_caravan_hand <- this.inherit("scripts/entity/tactical/legend_randomized_unit_abstract", {
 	m = {
 	},
 	function create()
@@ -6,7 +6,7 @@ this.legend_caravan_hand <- this.inherit("scripts/entity/tactical/randomized_uni
 		this.m.Type = this.Const.EntityType.CaravanHand;
 		this.m.BloodType = this.Const.BloodType.Red;
 		this.m.XP = this.Const.Tactical.Actor.CaravanHand.XP;
-		this.randomized_unit_abstract.create();
+		this.legend_randomized_unit_abstract.create();
 		this.m.Faces = this.Const.Faces.AllMale;
 		this.m.Hairs = this.Const.Hair.AllMale;
 		this.m.HairColors = this.Const.HairColors.All;
@@ -40,7 +40,7 @@ this.legend_caravan_hand <- this.inherit("scripts/entity/tactical/randomized_uni
 
 	function assignRandomEquipment()
 	{
-		this.randomized_unit_abstract.assignRandomEquipment();
+		this.legend_randomized_unit_abstract.assignRandomEquipment();
 	}
 	// function assignRandomEquipment()
 	// {

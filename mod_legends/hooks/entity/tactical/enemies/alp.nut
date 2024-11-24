@@ -172,7 +172,7 @@
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_anticipation"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_dodge"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_overwhelm"));
-			this.m.Skills.add(this.new("scripts/skills/perks/perk_return_favor"));
+			this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_return_favor"));
 			this.m.Skills.add(this.new("scripts/skills/perks/perk_fortified_mind"));
 			this.m.Skills.add(this.new("scripts/skills/traits/fearless_trait"));
 		}

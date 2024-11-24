@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/discover_location_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/discover_location_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -101,7 +101,7 @@
 		{
 			if (s.ID == "Offer")
 			{
-				s.end = function ()
+				s.end <- function ()
 				{
 					this.World.Assets.addMoney(this.Contract.m.Payment.getInAdvance());
 					local r = this.Math.rand(1, 100);
@@ -154,7 +154,7 @@
 
 					}
 				]
-				s.start = function ()
+				s.start <- function ()
 				{
 					local xpGained = this.Math.round(this.Contract.m.Payment.getOnCompletion() * 0.10 * this.Const.Combat.GlobalXPMult);
 					this.List.push({

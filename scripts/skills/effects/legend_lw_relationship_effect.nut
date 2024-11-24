@@ -101,11 +101,10 @@ this.legend_lw_relationship_effect <- this.inherit("scripts/skills/skill", {
 		if (bonus > 0)
 		{
 			this.m.IsHidden = false;
-			_properties.MeleeSkill += num * 2;
-			_properties.RangedSkill += num * 3;
-			_properties.MeleeDefense += num * 2;
-			_properties.RangedDefense += num * 2;
-			// _properties.Initiative += 2;
+			_properties.MeleeSkill += bonus * 2;
+			_properties.RangedSkill += bonus * 3;
+			_properties.MeleeDefense += bonus * 2;
+			_properties.RangedDefense += bonus * 2;
 		}
 		else
 		{

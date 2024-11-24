@@ -182,17 +182,6 @@ this.legends_steppe_village <- this.inherit("scripts/entity/world/settlements/le
 			"eunuch_background",
 			"legend_inventor_background"
 		]];
-		this.m.FemaleDraftLists = [
-		// [
-		// 	"female_disowned_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// ],[
-		// 	"female_adventurous_noble_background",
-		// 	"female_adventurous_noble_background",
-		// 	"female_disowned_noble_background",
-		// ]
-		];
 		this.m.StablesLists = [[
 			"legend_donkey_background",
 			"legend_horse_rouncey",

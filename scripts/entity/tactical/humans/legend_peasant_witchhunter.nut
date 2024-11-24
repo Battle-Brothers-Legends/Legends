@@ -13,10 +13,6 @@ this.legend_peasant_witchhunter <- this.inherit("scripts/entity/tactical/human",
 		this.getFlags().add("peasant");
 		this.m.AIAgent = this.new("scripts/ai/tactical/agents/military_ranged_agent");
 		this.m.AIAgent.setActor(this);
-		if (this.Math.rand(1, 100) <= 10)
-		{
-			this.setGender(1);
-		}
 	}
 
 	function onInit()
@@ -32,7 +28,7 @@ this.legend_peasant_witchhunter <- this.inherit("scripts/entity/tactical/human",
 		dirt.Visible = true;
 		dirt.Alpha = this.Math.rand(0, 255);
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_fearsome"));
-		this.m.Skills.add(this.new("scripts/skills/perks/perk_ballistics"));
+		this.m.Skills.add(this.new("scripts/skills/perks/perk_legend_ballistics"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_bullseye"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_mastery_crossbow"));
 		this.getSprite("socket").setBrush("bust_base_militia");

@@ -128,7 +128,7 @@ this.adventurous_noble_background <- this.inherit("scripts/skills/backgrounds/ch
 	{
 		if (this.isBackgroundType(this.Const.BackgroundType.Female))
 		{
-			local c = {
+			return {
 				Hitpoints = [
 					-1,
 					4
@@ -200,7 +200,6 @@ this.adventurous_noble_background <- this.inherit("scripts/skills/backgrounds/ch
 				]
 			};
 		}
-		return c;
 	}
 
 	function onAddEquipment()

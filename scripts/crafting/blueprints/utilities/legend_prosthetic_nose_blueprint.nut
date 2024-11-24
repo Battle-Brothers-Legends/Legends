@@ -19,7 +19,7 @@ this.legend_prosthetic_nose_blueprint <- this.inherit("scripts/crafting/blueprin
 				Scripts = ["scripts/skills/perks/perk_legend_inventor_anatomy"]
 			}
 		];
-		this.initSkills(skills);;
+		this.initSkills(skills);
 	}
 
 	function onCraft( _stash )

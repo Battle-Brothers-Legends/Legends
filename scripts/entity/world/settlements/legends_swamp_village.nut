@@ -214,20 +214,6 @@ this.legends_swamp_village <- this.inherit("scripts/entity/world/settlements/leg
 			"eunuch_background",
 			"legend_inventor_background"
 		]];
-		this.m.FemaleDraftLists = [
-		// [
-		// 	"wildwoman_background",
-		// ],[
-		// // 	"wildwoman_background",
-		// 	"female_adventurous_noble_background",
-		// 	"female_disowned_noble_background",
-		// ],[
-		// 	// "wildwoman_background",
-		// 	"female_disowned_noble_background",
-		// 	"female_adventurous_noble_background",
-		// 	"female_adventurous_noble_background",
-		// ]
-		];
 
 		this.m.StablesLists = [[],[],[]]
 

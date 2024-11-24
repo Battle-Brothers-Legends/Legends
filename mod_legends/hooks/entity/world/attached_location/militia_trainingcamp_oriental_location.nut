@@ -44,7 +44,7 @@
 				_list.push({
 				R = 90,
 				P = 1.0,
-				S = "tents/tent_fletcher"
+				S = "tents/legend_tent_fletcher"
 			});
 		}
 		else if (_id == "building.armorsmith")

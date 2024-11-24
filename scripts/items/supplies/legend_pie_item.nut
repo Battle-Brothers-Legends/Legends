@@ -1,8 +1,8 @@
-this.legend_pie_item <- this.inherit("scripts/items/supplies/legend_usable_food", {
+this.legend_pie_item <- this.inherit("scripts/items/supplies/food_item", {
 	m = {},
 	function create()
 	{
-		this.legend_usable_food.create();
+		this.food_item.create();
 		this.m.ID = "supplies.legend_pie";
 		this.m.Name = "Pie";
 		this.m.Description = "A large pie made from freshly sourced ingredients. Can be eaten in battle to provide up to 4 healing and fatigue recovery each turn for five turns, based on the amount remaining. Will be used as provisions if left in the company stash.";
@@ -54,7 +54,7 @@ this.legend_pie_item <- this.inherit("scripts/items/supplies/legend_usable_food"
 
 	function onEquip()
 	{
-		this.legend_usable_food.onEquip();
+		this.food_item.onEquip();
 		local skill = this.new("scripts/skills/actives/legend_eat_pie_skill");
 		skill.setItem(this);
 		this.addSkill(skill);

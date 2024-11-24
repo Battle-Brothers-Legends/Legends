@@ -218,19 +218,6 @@ this.legends_swamp_fort <- this.inherit("scripts/entity/world/settlements/legend
 			"raider_background",
 			"retired_soldier_background"
 		]];
-		this.m.FemaleDraftLists = [
-		// [
-		// 	"wildwoman_background",
-		// ],[
-		// // 	"wildwoman_background",
-		// 	"female_adventurous_noble_background",
-		// 	"female_disowned_noble_background"
-		// ],[
-		// 	// "wildwoman_background",
-		// 	"female_adventurous_noble_background",
-		// 	"female_disowned_noble_background"
-		// ]
-		];
 		this.m.StablesLists = [[
 			"legend_donkey_background",
 			"legend_horse_rouncey"
@@ -262,7 +249,7 @@ this.legends_swamp_fort <- this.inherit("scripts/entity/world/settlements/legend
 			case 2:
 				return "A stone keep controlling routes through and access to the surrounding swamps and marshes.";
 			case 3:
-				return "A large stone keep that commands a wide view of the surrounding swamps and marshes.";;
+				return "A large stone keep that commands a wide view of the surrounding swamps and marshes.";
 			default:
 				return "";
 		}
@@ -277,7 +264,7 @@ this.legends_swamp_fort <- this.inherit("scripts/entity/world/settlements/legend
 			case 2:
 				return "A stone keep controlling routes through the swamps";
 			case 3:
-				return "A large stone keep that keeps a watch on the routes through the swamps";;
+				return "A large stone keep that keeps a watch on the routes through the swamps";
 			default:
 				return null;
 		}

@@ -35,12 +35,12 @@
 			_list.push({
 				R = 95,
 				P = 1.0,
-				S = "tents/tent_enchant"
+				S = "tents/legend_tent_enchant"
 			});
 			_list.push({
 				R = 80,
 				P = 1.0,
-				S = "tents/tent_craft"
+				S = "tents/legend_tent_craft"
 			});
 			_list.push({
 				R = 0,

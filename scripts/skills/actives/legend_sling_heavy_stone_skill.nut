@@ -73,7 +73,8 @@ this.legend_sling_heavy_stone_skill <- this.inherit("scripts/skills/skill", {
 		local ret = this.getRangedTooltip(this.getDefaultTooltip());
 		local fatPerHit = (this.getContainer().getActor().getCurrentProperties().FatigueDealtPerHitMult + 3) * this.Const.Combat.FatigueReceivedPerHit;
 
-		ret.push({
+		ret.extend([
+		{
 			id = 7,
 			type = "text",
 			icon = "ui/icons/special.png",
@@ -84,7 +85,7 @@ this.legend_sling_heavy_stone_skill <- this.inherit("scripts/skills/skill", {
 			type = "text",
 			icon = "ui/icons/special.png",
 			text = "Inflicts [color=" + this.Const.UI.Color.DamageValue + "]" + fatPerHit + "[/color] extra fatigue"
-		});
+		}]);
 
 		if (this.Tactical.isActive() && this.getContainer().getActor().getTile().hasZoneOfControlOtherThan(this.getContainer().getActor().getAlliedFactions()))
 		{

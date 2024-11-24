@@ -1,4 +1,4 @@
-::mods_hookExactClass("entity/world/locations/goblin_city_location", function(o) 
+::mods_hookExactClass("entity/world/locations/goblin_city_location", function(o)
 {
 	o.create = function ()
 	{

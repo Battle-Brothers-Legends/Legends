@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/siege_fortification_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/siege_fortification_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -41,7 +41,7 @@
 			if (s.ID == "PrisonersSold")
 			{
 				s.Text = "On to more important things... (Decrease Moral Reputation)";
-				s.start = function ()
+				s.start <- function ()
 				{
 					this.List.push({
 						id = 10,

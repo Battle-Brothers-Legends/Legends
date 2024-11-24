@@ -212,7 +212,7 @@ this.legend_muladi_background <- this.inherit("scripts/skills/backgrounds/charac
 			items.addToBag(this.new("scripts/items/weapons/militia_spear"));
 		}
 
-		items.equip(this.new("scripts/items/accessory/wardog_item"));
+		items.equip(this.new("scripts/items/accessory/legend_wardog_item"));
 
 		items.equip(this.Const.World.Common.pickArmor([
 			[1, "oriental/nomad_robe"],

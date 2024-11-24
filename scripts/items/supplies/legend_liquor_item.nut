@@ -1,8 +1,8 @@
-this.legend_liquor_item <- this.inherit("scripts/items/supplies/legend_usable_food", {
+this.legend_liquor_item <- this.inherit("scripts/items/supplies/food_item", {
 	m = {},
 	function create()
 	{
-		this.legend_usable_food.create();
+		this.food_item.create();
 		this.m.ID = "supplies.legend_liquor";
 		this.m.Name = "Liquor";
 		this.m.Description = "Provisions. Can be consumed in battle to grant +12 resolve, melee and ranged skill. At the expense of -24 initiative and -12% melee defense and ranged defense, the effect lasts for two turns. Will be used as provisions while travelling if left in the company inventory.";
@@ -51,7 +51,7 @@ this.legend_liquor_item <- this.inherit("scripts/items/supplies/legend_usable_fo
 
 	function onEquip()
 	{
-		this.legend_usable_food.onEquip();
+		this.food_item.onEquip();
 		local skill = this.new("scripts/skills/actives/legend_drink_liquor_skill");
 		skill.setItem(this);
 		this.addSkill(skill);

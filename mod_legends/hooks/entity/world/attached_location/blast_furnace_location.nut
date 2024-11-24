@@ -17,7 +17,7 @@
 			_list.push({
 				R = 90,
 				P = 1.0,
-				S = "tents/tent_scrap"
+				S = "tents/legend_tent_scrap"
 			});
 			_list.push({
 				R = 25,
@@ -61,7 +61,7 @@
 				R = 50,
 				P = 1.0,
 				S = "helmets/great_jaw_helmet_00"
-			});;
+			});
 		}
 	}
 });

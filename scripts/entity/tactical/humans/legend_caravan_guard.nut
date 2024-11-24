@@ -1,4 +1,4 @@
-this.legend_caravan_guard <- this.inherit("scripts/entity/tactical/randomized_unit_abstract", {
+this.legend_caravan_guard <- this.inherit("scripts/entity/tactical/legend_randomized_unit_abstract", {
 	m = {
 	},
 	function create()
@@ -6,7 +6,7 @@ this.legend_caravan_guard <- this.inherit("scripts/entity/tactical/randomized_un
 		this.m.Type = this.Const.EntityType.CaravanGuard;
 		this.m.BloodType = this.Const.BloodType.Red;
 		this.m.XP = this.Const.Tactical.Actor.CaravanGuard.XP;
-		this.randomized_unit_abstract.create();
+		this.legend_randomized_unit_abstract.create();
 		this.m.Faces = this.Const.Faces.AllMale;
 		this.m.Hairs = this.Const.Hair.CommonMale;
 		this.m.HairColors = this.Const.HairColors.Young;
@@ -17,7 +17,7 @@ this.legend_caravan_guard <- this.inherit("scripts/entity/tactical/randomized_un
 
 	function onInit()
 	{
-		this.randomized_unit_abstract.onInit();
+		this.legend_randomized_unit_abstract.onInit();
 		local b = this.m.BaseProperties;
 		b.setValues(this.Const.Tactical.Actor.CaravanGuard);
 		b.IsSpecializedInSwords = true;
@@ -52,7 +52,7 @@ this.legend_caravan_guard <- this.inherit("scripts/entity/tactical/randomized_un
 
 	function assignRandomEquipment()
 	{
-		this.randomized_unit_abstract.assignRandomEquipment();
+		this.legend_randomized_unit_abstract.assignRandomEquipment();
 		if (this.Math.rand(1, 100) <= 35)
 		{
 			local r = this.Math.rand(1, 2);

@@ -14,7 +14,7 @@
 	local onEquip = o.onEquip;
 	o.onEquip = function ()
 	{
+		this.addSkill(this.new("scripts/skills/actives/legend_lute_bash_skill")); // move it up here so knock back skill is placed before this skill as both has the same skill order
 		onEquip();
-		this.addSkill(this.new("scripts/skills/actives/legend_lute_bash_skill"));
 	}
 });

@@ -69,7 +69,7 @@ this.legend_ancient_scroll_item <- ::inherit("scripts/items/item", {
 
 		if (!_actor.getSkills().hasSkill("trait.bright") || _actor.getFlags().getAsInt("LegendsScrollCount") >= 2)
 			return "This character has already reached their maximum scroll usage limit. Please use this scroll on a different character.";
-	
+
 		return true;
 	}
 
@@ -107,9 +107,9 @@ this.legend_ancient_scroll_item <- ::inherit("scripts/items/item", {
 
 		case 4:
 			return addRandomPerk(_actor);
-	
+
 		default:
-			return "Nothing happens.";	
+			return "Nothing happens.";
 		}
 	}
 
@@ -144,14 +144,16 @@ this.legend_ancient_scroll_item <- ::inherit("scripts/items/item", {
 			trained.m.Duration = 3;
 			trained.m.XPGainMult = 1.5;
 		}
-		
+
 		_actor.getSkills().add(trained);
 		return format("You gain [color=%s]%s[/color] effect that lasts for at least 3 battles.", ::Const.UI.Color.NegativeValue, trained.getName());
 	}
 
 	function addRandomPerk( _actor )
 	{
-		local r, r2, pT = _actor.getBackground().getPerkTree();
+		local r;
+		local r2;
+		local pT = _actor.getBackground().getPerkTree();
 		do
 		{
 			r = ::Math.rand(0, pT.len()-1);

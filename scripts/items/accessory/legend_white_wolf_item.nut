@@ -1,9 +1,9 @@
-this.legend_white_wolf_item <- this.inherit("scripts/items/accessory/accessory_dog", {
+this.legend_white_wolf_item <- this.inherit("scripts/items/accessory/legend_accessory_dog", {
 	m = {},
 
 	function create()
 	{
-		this.accessory_dog.create();
+		this.legend_accessory_dog.create();
 		this.m.Script = "scripts/entity/tactical/legend_white_warwolf";
 		this.m.UnleashSounds = [
 			"sounds/enemies/wolf_idle_00.wav",

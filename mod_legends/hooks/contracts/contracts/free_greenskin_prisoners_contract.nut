@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/free_greenskin_prisoners_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/free_greenskin_prisoners_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -29,7 +29,7 @@
 			{
 				foreach (option in s.Options)
 				{
-					option.getResult = function()
+					option.getResult <- function()
 					{
 						this.Contract.m.Destination.die();
 						this.Contract.m.Destination = null;
@@ -122,7 +122,7 @@
 			{
 				foreach (option in s.Options)
 				{
-					option.getResult = function()
+					option.getResult <- function()
 					{
 						local tile = this.World.State.getPlayer().getTile();
 						local p = this.Const.Tactical.CombatInfo.getClone();
@@ -166,7 +166,7 @@
 			}
 			if (s.ID == "LuckyFind")
 			{
-				o.start = function ()
+				s.start <- function ()
 				{
 					local item;
 					local r = this.Math.rand(1, 12);

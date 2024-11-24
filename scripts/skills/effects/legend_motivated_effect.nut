@@ -7,7 +7,7 @@ this.legend_motivated_effect <- this.inherit("scripts/skills/skill", {
 		this.m.ID = "effects.legend_motivated_effect";
 		this.m.Name = "Motivated";
 		this.m.Description = "...and half pay if any of them touch me!";
-		this.m.Icon = "skills/coins_square.png";;
+		this.m.Icon = "skills/coins_square.png";
 		this.m.IconMini = "mini_gold56.png"; //new
 		this.m.Type = this.Const.SkillType.StatusEffect;
 		this.m.IsActive = false;

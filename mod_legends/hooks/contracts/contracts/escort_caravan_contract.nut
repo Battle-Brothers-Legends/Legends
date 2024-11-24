@@ -160,7 +160,7 @@
 			if (s.ID == "Offer")
 			{
 				local end = s.end;
-				s.end = function ()
+				s.end <- function ()
 				{
 					end();
 					this.World.State.setCampingAllowed(true);
@@ -169,7 +169,7 @@
 			if (s.ID == "Running")
 			{
 				local start = s.start;
-				s.start = function ()
+				s.start <- function ()
 				{
 					start();
 					this.World.Camp.onEscort(true);
@@ -182,7 +182,7 @@
 					this.World.State.m.LastWorldSpeedMult = this.Const.World.SpeedSettings.EscortMult;
 				}
 
-				s.update = function ()
+				s.update <- function ()
 				{
 					if (this.Contract.m.Caravan == null || this.Contract.m.Caravan.isNull() || !this.Contract.m.Caravan.isAlive() || this.Contract.m.Caravan.getTroops().len() == 0)
 					{
@@ -284,7 +284,7 @@
 					}
 				}
 
-				s.end = function ()
+				s.end <- function ()
 				{
 					{
 						this.World.State.setCampingAllowed(true);
@@ -338,7 +338,7 @@
 			}
 			if (s.ID == "Success1")
 			{
-				s.start = function ()
+				s.start <- function ()
 				{
 					local money = this.Contract.m.Payment.getOnCompletion() + this.Contract.m.Payment.getPerCount() * this.Flags.get("HeadsCollected");
 					local xpGained = this.Math.round(money * 0.50 * this.Const.Combat.GlobalXPMult);
@@ -351,7 +351,7 @@
 				}
 				foreach (option in s.Options)
 				{
-					option.getResult = function()
+					option.getResult <- function()
 					{
 						local money = this.Contract.m.Payment.getOnCompletion() + this.Contract.m.Payment.getPerCount() * this.Flags.get("HeadsCollected");
 						this.World.Assets.addBusinessReputation(this.Const.World.Assets.ReputationOnContractSuccess);
@@ -398,7 +398,7 @@
 			{
 				foreach (option in s.Options)
 				{
-					option.getResult = function()
+					option.getResult <- function()
 					{
 						local money = this.Contract.m.Payment.getOnCompletion() + this.Contract.m.Payment.getPerCount() * this.Flags.get("HeadsCollected");
 						money = this.Math.floor(money / 2);

@@ -47,7 +47,7 @@
 			_list.push({
 				R = 80,
 				P = 1.0,
-				S = "tents/tent_train"
+				S = "tents/legend_tent_train"
 			});
 		}
 		else if (_id == "building.weaponsmith")

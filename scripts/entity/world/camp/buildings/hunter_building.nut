@@ -794,7 +794,7 @@ this.hunter_building <- this.inherit("scripts/entity/world/camp/camp_building", 
 		if(item)
 		{
 			item.randomizeAmount();
-			if(::isKindOf(item,"legend_usable_food") || ::isKindOf(item,"food_item")) this.m.FoodAmount += item.getAmount();
+			if(::isKindOf(item,"food_item") || ::isKindOf(item,"food_item")) this.m.FoodAmount += item.getAmount();
 			this.m.Items.push(item);
 			::Stash.add(item);
 			this.addItemToVerboseResults("Brew", item);

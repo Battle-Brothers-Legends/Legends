@@ -1,4 +1,4 @@
-::mods_hookExactClass("contracts/contracts/intercept_raiding_parties_contract", function(o) 
+::mods_hookExactClass("contracts/contracts/intercept_raiding_parties_contract", function(o)
 {
 	local create = o.create;
 	o.create = function()
@@ -21,7 +21,7 @@
 
 		if (r.find("%") != null)
 			r = format(r, ::Const.UI.getColorized(this.m.Home.getName(), ::Const.UI.Color.getHighlightLightBackgroundValue()));
-		
+
 		this.m.Description = r;
 	}
 
@@ -32,9 +32,9 @@
 		foreach (s in this.m.States)
 		{
 			if (s.ID == "Offer")
-			{	
+			{
 				local end = s.end;
-				s.end = function ()
+				s.end <- function ()
 				{
 					end();
 					party.getLoot().Money = this.Math.rand(100, 300);

@@ -1,8 +1,8 @@
-this.legend_fresh_fruit_item <- this.inherit("scripts/items/supplies/legend_usable_food", {
+this.legend_fresh_fruit_item <- this.inherit("scripts/items/supplies/food_item", {
 	m = {},
 	function create()
 	{
-		this.legend_usable_food.create();
+		this.food_item.create();
 		this.m.ID = "supplies.legend_fresh_fruit";
 		this.m.Name = "Fresh Fruit";
 		this.m.Description = "Provisions. Freshly picked, this fruit tastes great but will not last long. Can be eaten in battle to provide up to 1 healing and fatigue recovery over ten turns, based on the amount remaining. Will be gradually used as provisions if left in the company stash.";
@@ -50,7 +50,7 @@ this.legend_fresh_fruit_item <- this.inherit("scripts/items/supplies/legend_usab
 
 	function onEquip()
 	{
-		this.legend_usable_food.onEquip();
+		this.food_item.onEquip();
 		local skill = this.new("scripts/skills/actives/legend_eat_rations_skill");
 		skill.setItem(this);
 		skill.setAmount(this.m.Amount);

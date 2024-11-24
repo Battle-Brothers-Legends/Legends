@@ -17,16 +17,11 @@
 		return result;
 	}
 
+	local onEquip = o.onEquip;
 	o.onEquip = function ()
 	{
-		this.named_weapon.onEquip();
-		this.addSkill(this.new("scripts/skills/actives/shoot_bolt"));
+		onEquip();
 		this.addSkill(this.new("scripts/skills/actives/legend_piercing_bolt_skill"));
-
-		if (!this.m.IsLoaded)
-		{
-			this.addSkill(this.new("scripts/skills/actives/reload_bolt"));
-		}
 	}
 
 	o.onCombatFinished = function ()

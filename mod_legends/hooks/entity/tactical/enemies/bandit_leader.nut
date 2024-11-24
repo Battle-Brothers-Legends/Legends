@@ -5,6 +5,7 @@
 	{
 		create();
 		this.m.AIAgent = this.new("scripts/ai/tactical/agents/legend_bandit_melee_agent_less_flanking");
+		this.m.AIAgent.setActor(this);
 	}
 
 	o.onInit = function ()
