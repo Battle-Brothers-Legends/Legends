@@ -4,6 +4,8 @@
 	o.onInit = function ()
 	{
 		onInit();
+		local b = this.m.BaseProperties;
+		b.setValues(this.Const.Tactical.Actor.BanditRaider);
 		this.m.Skills.removeByID("perk.battle_forged");
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_nimble"));
 		this.m.Skills.add(this.new("scripts/skills/perks/perk_backstabber"));
