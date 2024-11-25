@@ -66,15 +66,10 @@ this.legend_buckler_bash_skill <- this.inherit("scripts/skills/skill", {
 
 		this.m.FatigueCostMult = 1.0;
 
-		if (this.getContainer().getActor().getSkills().hasSkill("perk.legend_specialist_shield_push"))
+		if (this.getContainer().getActor().getSkills().hasSkill("perk.shield_bash"))
 		{
 			this.m.FatigueCostMult = this.Const.Combat.WeaponSpecFatigueMult;
 			this.m.ActionPointCost = 3;
-		}
-
-		if (this.getContainer().getActor().getSkills().hasSkill("perk.shield_bash"))
-		{
-			this.m.FatigueCostMult *= 0.9;
 		}
 	}
 

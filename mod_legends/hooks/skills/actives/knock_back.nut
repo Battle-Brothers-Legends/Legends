@@ -1,5 +1,15 @@
 ::mods_hookExactClass("skills/actives/knock_back", function(o)
 {
+	o.m.ExtraShieldDamageMin <- 0;
+	o.m.ExtraShieldDamageMax <- 0;
+
+	local create = o.create;
+	o.create = function()
+	{
+		create();
+		this.m.FatigueCost = 15;
+	}
+
 	local getTooltip = o.getTooltip;
 	o.getTooltip = function ()
 	{
